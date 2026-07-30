@@ -1,0 +1,20 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- userSpaceOnUse: ver comentário em icon.svg — a haste vertical do K
+         tem bbox de largura zero, o que degenera um gradiente objectBoundingBox
+         e faz o librsvg não pintar aquele traço. -->
+    <linearGradient id="k" x1="256" y1="110" x2="256" y2="402" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4C7DFB" />
+      <stop offset="100%" stop-color="#1E3FC4" />
+    </linearGradient>
+  </defs>
+  <!-- K desenhado como três traços (haste + dois braços), sem depender de
+       nenhuma fonte instalada no rasterizador. Dentro da zona segura (~66%)
+       do ícone adaptativo Android, que recorta o restante. -->
+  <g transform="translate(133,133) scale(1.48)" fill="none" stroke="url(#k)"
+     stroke-width="76" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M140,110 L140,402" />
+    <path d="M140,256 L372,110" />
+    <path d="M140,256 L372,402" />
+  </g>
+</svg>

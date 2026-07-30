@@ -1,0 +1,528 @@
+import { useEffect, useRef, useState } from "react";
+import { C, campo, cartao, disp, mono, rotulo } from "../theme";
+import Botao from "../components/Botao";
+import Rail from "../components/Rail";
+import QuestaoCard from "../components/QuestaoCard";
+import { Vazio } from "../components/Shell";
+import {
+  MATERIAS,
+  MIN_APROVACAO,
+  NIVEIS,
+  N_SUBS,
+  Q_POR_BLOCO,
+  Q_POR_SUB,
+  SUB_LETRAS,
+  TIPOS,
+  FORMATOS,
+} from "../lib/constants";
+import { gerarSubBloco, SemCredencialError } from "../lib/anthropic";
+import { criarBloco, fecharBloco, gravarResposta, listarBlocos } from "../lib/repo";
+import { gerarTagAssunto } from "../lib/texto";
+import type { Bloco, Config, Questao, StatusSub } from "../lib/types";
+
+type Tela = "config" | "drill" | "resultado";
+
+/**
+ * Fluxo de geração do artefato, adaptado para 4×3 questões e persistência em
+ * SQLite. Mantém o pré-carregamento em cascata: assim que o sub-bloco A chega,
+ * o B já começa a ser gerado, então o usuário raramente espera entre sub-blocos.
+ */
+export default function GerarView({ onDados }: { onDados: () => void }) {
+  const [tela, setTela] = useState<Tela>("config");
+  const [cfg, setCfg] = useState<Config>({
+    materia: MATERIAS[0],
+    materiaCustom: "",
+    topico: "",
+    tipo: "abstrato",
+    formato: "misto",
+    nivel: 3,
+  });
+
+  const [subs, setSubs] = useState<(Questao[] | null)[]>([null, null, null, null]);
+  const [statusSub, setStatusSub] = useState<StatusSub[]>(["idle", "idle", "idle", "idle"]);
+  const [qIdx, setQIdx] = useState(0);
+  const [acertos, setAcertos] = useState<number[]>([0, 0, 0, 0]);
+  const [blocoId, setBlocoId] = useState<number | null>(null);
+  const [erroApi, setErroApi] = useState<string | null>(null);
+  const [hist, setHist] = useState<Bloco[]>([]);
+
+  // dispararSub roda fora do render e precisa ler o estado mais recente.
+  const subsRef = useRef(subs);
+  subsRef.current = subs;
+
+  useEffect(() => {
+    if (tela === "config") listarBlocos(null, 5).then(setHist).catch(() => setHist([]));
+  }, [tela]);
+
+  const materiaFinal =
+    cfg.materia === "__outra" ? cfg.materiaCustom.trim() || "Matéria personalizada" : cfg.materia;
+  const c = { ...cfg, materia: materiaFinal };
+
+  /** Conceitos já usados nos sub-blocos anteriores, para não repetir padrões. */
+  function padroesDe(atuais: (Questao[] | null)[], ate: number): string[] {
+    const p: string[] = [];
+    for (let i = 0; i < ate; i++) {
+      const s = atuais[i];
+      if (s) {
+        const cs = [...new Set(s.flatMap((q) => q.conceitos))].slice(0, 4);
+        if (cs.length) p.push(`${SUB_LETRAS[i]}: ${cs.join(", ")}`);
+      }
+    }
+    return p;
+  }
+
+  function dispararSub(i: number, conf: Config & { materia: string }) {
+    setStatusSub((st) => st.map((v, k) => (k === i ? "carregando" : v)));
+    setErroApi(null);
+    gerarSubBloco(conf, i, padroesDe(subsRef.current, i))
+      .then((qs) => {
+        setSubs((s) => s.map((v, k) => (k === i ? qs : v)));
+        setStatusSub((st) => st.map((v, k) => (k === i ? "ok" : v)));
+        if (i < N_SUBS - 1) dispararSub(i + 1, conf); // pré-carrega o próximo
+      })
+      .catch((e: unknown) => {
+        setStatusSub((st) => st.map((v, k) => (k === i ? "erro" : v)));
+        setErroApi(e instanceof Error ? e.message : "Falha na geração.");
+      });
+  }
+
+  async function iniciarBloco() {
+    setSubs([null, null, null, null]);
+    setStatusSub(["idle", "idle", "idle", "idle"]);
+    setQIdx(0);
+    setAcertos([0, 0, 0, 0]);
+    setErroApi(null);
+    setTela("drill");
+    try {
+      setBlocoId(await criarBloco(c, Q_POR_BLOCO));
+    } catch (e) {
+      console.error("criar bloco", e);
+      setBlocoId(null); // o drill segue; só o vínculo com o bloco se perde
+    }
+    dispararSub(0, c);
+  }
+
+  const subAtual = Math.floor(qIdx / Q_POR_SUB);
+  const questao = subs[subAtual]?.[qIdx % Q_POR_SUB] ?? null;
+  const ultimaDoBloco = qIdx === Q_POR_BLOCO - 1;
+
+  async function responder(letra: string, acertou: boolean): Promise<number | null> {
+    if (acertou) setAcertos((a) => a.map((v, k) => (k === subAtual ? v + 1 : v)));
+    if (!questao) return null;
+    // Toda questão respondida é gravada, certa ou errada: é a base da revisão
+    // de erradas e de todos os gráficos da aba Dados.
+    return gravarResposta({
+      blocoId,
+      materia: c.materia,
+      topico: c.topico,
+      sub: SUB_LETRAS[subAtual],
+      cargaConceitual: subAtual + 1,
+      questao,
+      resposta: letra,
+      acertou,
+    });
+  }
+
+  async function proxima() {
+    if (ultimaDoBloco) {
+      const total = acertos.reduce((a, b) => a + b, 0);
+      if (blocoId != null) {
+        try {
+          await fecharBloco(blocoId, acertos, total >= MIN_APROVACAO);
+        } catch (e) {
+          console.error("fechar bloco", e);
+        }
+      }
+      setTela("resultado");
+      return;
+    }
+    setQIdx(qIdx + 1);
+  }
+
+  /* ---------- CONFIG ---------- */
+  if (tela === "config") {
+    return (
+      <div>
+        <div style={{ marginBottom: 18 }}>
+          <label style={rotulo}>Matéria</label>
+          <select
+            style={campo}
+            value={cfg.materia}
+            onChange={(e) => setCfg({ ...cfg, materia: e.target.value })}
+          >
+            {MATERIAS.map((m) => (
+              <option key={m} value={m}>
+                {m}
+              </option>
+            ))}
+            <option value="__outra">Outra…</option>
+          </select>
+          {cfg.materia === "__outra" && (
+            <input
+              style={{ ...campo, marginTop: 8 }}
+              placeholder="Digite a matéria"
+              value={cfg.materiaCustom}
+              onChange={(e) => setCfg({ ...cfg, materiaCustom: e.target.value })}
+            />
+          )}
+        </div>
+
+        <div style={{ marginBottom: 18 }}>
+          <label style={rotulo}>Tópico específico (opcional)</label>
+          <input
+            style={campo}
+            placeholder="ex.: lançamento tributário, imunidades…"
+            value={cfg.topico}
+            onChange={(e) => setCfg({ ...cfg, topico: e.target.value })}
+          />
+        </div>
+
+        <div style={{ marginBottom: 18 }}>
+          <label style={rotulo}>Tipo de cobrança</label>
+          {TIPOS.map((t) => {
+            const ativo = cfg.tipo === t.id;
+            return (
+              <button
+                key={t.id}
+                onClick={() => setCfg({ ...cfg, tipo: t.id })}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  textAlign: "left",
+                  marginBottom: 6,
+                  padding: "10px 12px",
+                  borderRadius: 8,
+                  cursor: "pointer",
+                  border: `1.5px solid ${ativo ? C.caneta : C.line}`,
+                  background: ativo ? C.canetaSoft : C.card,
+                }}
+              >
+                <div
+                  style={{
+                    ...disp,
+                    fontWeight: 600,
+                    fontSize: 14,
+                    color: ativo ? C.caneta : C.ink,
+                  }}
+                >
+                  {t.label}
+                </div>
+                <div style={{ fontSize: 12.5, color: C.sub, marginTop: 2 }}>{t.desc}</div>
+              </button>
+            );
+          })}
+        </div>
+
+        <div style={{ display: "flex", gap: 14, marginBottom: 18, flexWrap: "wrap" }}>
+          <div style={{ flex: "1 1 220px" }}>
+            <label style={rotulo}>Formato</label>
+            <div style={{ display: "flex", gap: 6 }}>
+              {FORMATOS.map((f) => {
+                const ativo = cfg.formato === f.id;
+                return (
+                  <button
+                    key={f.id}
+                    onClick={() => setCfg({ ...cfg, formato: f.id })}
+                    style={{
+                      ...mono,
+                      flex: 1,
+                      fontSize: 12,
+                      padding: "10px 4px",
+                      borderRadius: 8,
+                      cursor: "pointer",
+                      border: `1.5px solid ${ativo ? C.caneta : C.line}`,
+                      background: ativo ? C.caneta : C.card,
+                      color: ativo ? "#fff" : C.ink,
+                    }}
+                  >
+                    {f.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          <div style={{ flex: "1 1 220px" }}>
+            <label style={rotulo}>Dificuldade do conteúdo (constante)</label>
+            <div style={{ display: "flex", gap: 6 }}>
+              {[1, 2, 3, 4, 5].map((n) => {
+                const ativo = cfg.nivel === n;
+                return (
+                  <button
+                    key={n}
+                    onClick={() => setCfg({ ...cfg, nivel: n })}
+                    style={{
+                      ...mono,
+                      flex: 1,
+                      fontSize: 14,
+                      fontWeight: 600,
+                      padding: "10px 0",
+                      borderRadius: 8,
+                      cursor: "pointer",
+                      border: `1.5px solid ${ativo ? C.ink : C.line}`,
+                      background: ativo ? C.ink : C.card,
+                      color: ativo ? "#fff" : C.ink,
+                    }}
+                  >
+                    {n}
+                  </button>
+                );
+              })}
+            </div>
+            <div style={{ ...mono, fontSize: 11, color: C.sub, marginTop: 5 }}>
+              {NIVEIS[cfg.nivel - 1]}
+            </div>
+          </div>
+        </div>
+
+        <div style={{ ...cartao, padding: "12px 14px", marginBottom: 20 }}>
+          <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 2 }}>
+            RAMPA DO BLOCO — CARGA CONCEITUAL
+          </div>
+          <Rail atual={-1} />
+          <div style={{ fontSize: 12.5, color: C.sub, textAlign: "center" }}>
+            Sub-blocos A→D: de 1 conceito isolado a 4+ conceitos em paralelo. A dificuldade do
+            conteúdo não muda.
+          </div>
+        </div>
+
+        <Botao onClick={iniciarBloco} tipo="tinta">
+          Gerar bloco de {Q_POR_BLOCO} questões
+        </Botao>
+
+        {hist.length > 0 && (
+          <div style={{ marginTop: 28 }}>
+            <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
+              ÚLTIMOS BLOCOS
+            </div>
+            {hist.map((b) => (
+              <div
+                key={b.id}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  padding: "8px 0",
+                  borderBottom: `1px solid ${C.line}`,
+                  fontSize: 13,
+                }}
+              >
+                <span>
+                  {b.materia} · N{b.nivel}
+                </span>
+                <span style={{ ...mono, color: b.aprovado ? C.ok : C.ink }}>
+                  {b.total_acertos}/{b.total_questoes}
+                </span>
+              </div>
+            ))}
+            <Botao tipo="fantasma" style={{ marginTop: 12, fontSize: 13, padding: 9 }} onClick={onDados}>
+              Ver desempenho completo
+            </Botao>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  /* ---------- DRILL ---------- */
+  if (tela === "drill") {
+    const st = statusSub[subAtual];
+    return (
+      <div>
+        <Rail atual={subAtual} resultados={acertos.map((a, i) => (i < subAtual ? a : null))} />
+        <div style={{ ...mono, fontSize: 12, color: C.sub, textAlign: "center", marginBottom: 14 }}>
+          Questão {qIdx + 1}/{Q_POR_BLOCO} · Sub-bloco {SUB_LETRAS[subAtual]} · {subAtual + 1}
+          {subAtual === N_SUBS - 1 ? "+" : ""} conceito{subAtual > 0 ? "s" : ""} em paralelo
+        </div>
+
+        {st === "erro" && (
+          <div
+            style={{
+              background: C.erroSoft,
+              border: `1.5px solid ${C.erro}`,
+              borderRadius: 10,
+              padding: 16,
+              textAlign: "center",
+            }}
+          >
+            <div style={{ marginBottom: 10, fontSize: 14, lineHeight: 1.5 }}>
+              {erroApi ?? "Falha na geração."}
+            </div>
+            <Botao
+              onClick={() => dispararSub(subAtual, c)}
+              tipo="tinta"
+              style={{ maxWidth: 240, margin: "0 auto" }}
+            >
+              Tentar de novo
+            </Botao>
+          </div>
+        )}
+
+        {(st === "carregando" || st === "idle") && (
+          <div style={{ textAlign: "center", padding: "48px 0", color: C.sub }}>
+            <div style={{ ...mono, fontSize: 13 }}>
+              Gerando sub-bloco {SUB_LETRAS[subAtual]}…
+            </div>
+            <div
+              style={{
+                marginTop: 10,
+                height: 3,
+                background: C.line,
+                borderRadius: 2,
+                overflow: "hidden",
+                maxWidth: 220,
+                margin: "12px auto 0",
+              }}
+            >
+              <div
+                style={{
+                  height: "100%",
+                  width: "40%",
+                  background: C.caneta,
+                  borderRadius: 2,
+                  animation: "desliza 1.1s ease-in-out infinite alternate",
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+        {st === "ok" && questao && (
+          <QuestaoCard
+            key={qIdx}
+            questao={questao}
+            materia={c.materia}
+            tagAssunto={gerarTagAssunto(c.topico || c.materia)}
+            labelProxima={ultimaDoBloco ? "Ver resultado" : "Próxima questão"}
+            onResponder={responder}
+            onProxima={proxima}
+          />
+        )}
+
+        <button
+          onClick={() => setTela("config")}
+          style={{
+            ...mono,
+            marginTop: 18,
+            fontSize: 12,
+            background: "none",
+            border: "none",
+            color: C.sub,
+            cursor: "pointer",
+            textDecoration: "underline",
+          }}
+        >
+          Abandonar bloco
+        </button>
+      </div>
+    );
+  }
+
+  /* ---------- RESULTADO ---------- */
+  const total = acertos.reduce((a, b) => a + b, 0);
+  const passou = total >= MIN_APROVACAO;
+  return (
+    <div>
+      <div style={{ textAlign: "center", padding: "10px 0 4px" }}>
+        <div style={{ ...mono, fontSize: 12, color: C.sub, letterSpacing: 1 }}>
+          RESULTADO DO BLOCO
+        </div>
+        <div
+          style={{
+            ...disp,
+            fontSize: 64,
+            fontWeight: 800,
+            letterSpacing: -2,
+            color: passou ? C.ok : C.ink,
+          }}
+        >
+          {total}
+          <span style={{ fontSize: 28, color: C.sub, fontWeight: 600 }}>/{Q_POR_BLOCO}</span>
+        </div>
+      </div>
+
+      <div style={{ ...cartao, padding: "14px 16px", margin: "12px 0 16px" }}>
+        {acertos.map((a, i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              marginBottom: i < N_SUBS - 1 ? 8 : 0,
+            }}
+          >
+            <span style={{ ...mono, fontSize: 12, width: 74, color: C.sub }}>
+              {SUB_LETRAS[i]} · {i + 1}
+              {i === N_SUBS - 1 ? "+" : ""} conc.
+            </span>
+            <div
+              style={{
+                flex: 1,
+                height: 10,
+                background: C.paper,
+                border: `1px solid ${C.line}`,
+                borderRadius: 5,
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  height: "100%",
+                  width: `${(a / Q_POR_SUB) * 100}%`,
+                  background: a === Q_POR_SUB ? C.ok : a >= Q_POR_SUB - 1 ? C.caneta : C.erro,
+                }}
+              />
+            </div>
+            <span style={{ ...mono, fontSize: 12, width: 28, textAlign: "right" }}>
+              {a}/{Q_POR_SUB}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div
+        style={{
+          background: passou ? C.okSoft : C.canetaSoft,
+          borderRadius: 10,
+          padding: "12px 14px",
+          fontSize: 14,
+          lineHeight: 1.5,
+          marginBottom: 18,
+        }}
+      >
+        {passou
+          ? `≥ 90% de acerto: progressão liberada. No próximo bloco desta matéria, suba a dificuldade do conteúdo para o nível ${Math.min(cfg.nivel + 1, 5)}.`
+          : "Abaixo de 90%: pelo método Kumon, repita um novo bloco na mesma configuração (as questões serão variações inéditas dos mesmos padrões)."}{" "}
+        {total < Q_POR_BLOCO &&
+          "As barras vermelhas indicam em qual carga conceitual o padrão quebrou."}
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        <Botao tipo="tinta" onClick={iniciarBloco}>
+          Novo bloco · mesma configuração
+        </Botao>
+        <Botao tipo="fantasma" onClick={() => setTela("config")}>
+          Ajustar configuração
+        </Botao>
+        <Botao tipo="fantasma" onClick={onDados}>
+          Ver desempenho
+        </Botao>
+      </div>
+    </div>
+  );
+}
+
+/** Mensagem dedicada quando falta credencial — evita um erro genérico. */
+export function AvisoSemChave({ onAjustes }: { onAjustes: () => void }) {
+  return (
+    <Vazio>
+      <p style={{ margin: "0 0 14px" }}>
+        Para gerar questões é preciso configurar uma chave de API da Anthropic.
+      </p>
+      <Botao tipo="tinta" onClick={onAjustes} style={{ maxWidth: 240, margin: "0 auto" }}>
+        Abrir Ajustes
+      </Botao>
+    </Vazio>
+  );
+}
+
+export { SemCredencialError };

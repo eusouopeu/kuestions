@@ -1,0 +1,75 @@
+:root {
+  --paper: #f6f5f0;
+  --ink: #1c2733;
+  --caneta: #2044c4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Archivo", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* Impede o "rubber band" do iOS puxando a tab bar fixa. */
+  overscroll-behavior-y: none;
+}
+
+/* Área segura do notch no topo. */
+body {
+  padding-top: env(safe-area-inset-top);
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+  /* Remove o flash cinza de toque no Android/iOS. */
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* iOS dá zoom em campos com fonte < 16px; 15px + este reset evita o salto. */
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 8px;
+}
+
+textarea {
+  -webkit-appearance: none;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--caneta);
+  outline-offset: 2px;
+}
+
+code {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* Barra de progresso da geração de sub-bloco (herdada do artefato). */
+@keyframes desliza {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 60%;
+  }
+}
+
+/* jeep-sqlite é um custom element funcional, não deve ocupar layout. */
+jeep-sqlite {
+  display: none;
+}

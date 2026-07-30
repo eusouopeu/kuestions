@@ -1,0 +1,27 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="55%" stop-color="#0c0e13" />
+      <stop offset="100%" stop-color="#1e222c" />
+    </linearGradient>
+    <!-- userSpaceOnUse, não objectBoundingBox (padrão): a haste do K é uma
+         linha perfeitamente vertical, cujo bounding box geométrico tem
+         largura zero — um gradiente relativo a esse bbox degenera e o
+         librsvg simplesmente não pinta o traço. Coordenadas absolutas no
+         espaço local do <g> (0–512, antes do transform) evitam o problema. -->
+    <linearGradient id="k" x1="256" y1="110" x2="256" y2="402" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4C7DFB" />
+      <stop offset="100%" stop-color="#1E3FC4" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1024" height="1024" fill="url(#bg)" />
+  <!-- Ícone combinado (iOS + fallback legado Android): usados sem máscara,
+       então o K pode ocupar mais espaço do que na variante "foreground". -->
+  <g transform="translate(77,77) scale(1.7)" fill="none" stroke="url(#k)"
+     stroke-width="76" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M140,110 L140,402" />
+    <path d="M140,256 L372,110" />
+    <path d="M140,256 L372,402" />
+  </g>
+</svg>

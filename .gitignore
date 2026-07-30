@@ -1,0 +1,29 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Gerado por scripts/copy-wasm.mjs no postinstall/prebuild.
+public/assets/sql-wasm.wasm
+
+# Build nativo
+android/app/build/
+android/build/
+android/.gradle/
+android/local.properties
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/app/src/main/res/xml/config.xml
+ios/App/build/
+ios/App/Pods/
+ios/App/App/public/
+ios/App/App/capacitor.config.json
+ios/App/App/config.xml
+ios/App/output/
+ios/DerivedData/
+
+# Nunca comitar credenciais
+.env
+.env.local
+.dev.vars

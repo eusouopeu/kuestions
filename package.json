@@ -1,0 +1,42 @@
+{
+  "name": "kuestions",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "postinstall": "node scripts/copy-wasm.mjs",
+    "copy-wasm": "node scripts/copy-wasm.mjs",
+    "dev": "npm run copy-wasm && vite",
+    "build": "npm run copy-wasm && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "sync": "npm run build && cap sync",
+    "android": "npm run build && cap sync android && cap open android",
+    "ios": "npm run build && npm run ios:pods && cap sync ios && cap open ios",
+    "ios:pods": "cd ios/App && LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 pod install"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.115.0",
+    "@capacitor-community/sqlite": "^7.0.0",
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/app": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/filesystem": "^7.1.8",
+    "@capacitor/ios": "^7.0.0",
+    "@capacitor/preferences": "^7.0.0",
+    "@capacitor/share": "^7.0.4",
+    "jeep-sqlite": "^2.8.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.15.0",
+    "sql.js": "1.11.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.0.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7"
+  }
+}
