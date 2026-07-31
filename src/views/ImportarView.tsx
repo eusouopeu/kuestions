@@ -199,7 +199,7 @@ export default function ImportarView() {
     setErroGeral(null);
     try {
       const id = await criarBloco(
-        { materia: materiaFinal, materiaCustom: "", topico, tipo: "misturado", formato: "misto", nivel: 3 },
+        { materia: materiaFinal, materiaCustom: "", topico, tipos: [], formato: "misto", nivel: 3 },
         fila.length,
       );
       setBlocoId(id);
@@ -524,7 +524,7 @@ export default function ImportarView() {
                 onChange={(e) => setDraft({ ...draft, tipoCobranca: e.target.value as TipoId | "" })}
               >
                 <option value="">Não informar</option>
-                {TIPOS.filter((t) => t.id !== "misturado").map((t) => (
+                {TIPOS.map((t) => (
                   <option key={t.id} value={t.id}>
                     {t.label}
                   </option>

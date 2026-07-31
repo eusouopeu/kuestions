@@ -3,7 +3,7 @@
  *
  * O prompt abaixo é o do artefato Questoes-Kumon.jsx, com três acréscimos:
  *   1. 3 questões por sub-bloco (era 5);
- *   2. o tipo de cobrança `misturado`, sorteado por questão;
+ *   2. tipos de cobrança selecionáveis: 2+ tipos escolhidos = sorteado por questão;
  *   3. `explicacoes_erradas` — explicação do erro de cada alternativa errada,
  *      com o mesmo nível de detalhe em CE e em MC.
  * As regras de segurança jurídica e de brevidade vêm do artefato sem mudança.
@@ -16,14 +16,7 @@
  */
 import Anthropic from "@anthropic-ai/sdk";
 import { getApiKey, getProxyUrl } from "./secure";
-import {
-  NIVEIS,
-  Q_POR_SUB,
-  SUB_LETRAS,
-  TIPOS,
-  TIPOS_SORTEAVEIS,
-  type TipoId,
-} from "./constants";
+import { NIVEIS, Q_POR_SUB, SUB_LETRAS, TIPOS, TIPO_IDS, type TipoId } from "./constants";
 import type { Config, Questao } from "./types";
 
 export const MODEL = "claude-sonnet-5";
@@ -51,15 +44,17 @@ async function criarCliente(): Promise<Anthropic> {
 
 /* ---------- Montagem do prompt ---------- */
 
-function descricaoTipo(tipo: TipoId): string {
-  if (tipo !== "misturado") {
-    const t = TIPOS.find((x) => x.id === tipo)!;
+function descricaoTipo(tipos: TipoId[]): string {
+  if (tipos.length <= 1) {
+    const t = TIPOS.find((x) => x.id === tipos[0]) ?? TIPOS[0];
     return `${t.label} — ${t.desc}`;
   }
-  const lista = TIPOS_SORTEAVEIS.map((id) => {
-    const t = TIPOS.find((x) => x.id === id)!;
-    return `  - ${t.id}: ${t.label} — ${t.desc}`;
-  }).join("\n");
+  const lista = tipos
+    .map((id) => {
+      const t = TIPOS.find((x) => x.id === id)!;
+      return `  - ${t.id}: ${t.label} — ${t.desc}`;
+    })
+    .join("\n");
   return `MISTURADO. Sorteie um tipo diferente para cada questão deste sub-bloco, entre:
 ${lista}
 As ${Q_POR_SUB} questões do sub-bloco devem usar tipos de cobrança DIFERENTES entre si.`;
@@ -87,7 +82,7 @@ export function montarPrompt(
 CONFIGURAÇÃO
 - Matéria: ${cfg.materia}
 - Tópico: ${cfg.topico ? cfg.topico : "núcleo central da matéria"}
-- Tipo de cobrança: ${descricaoTipo(cfg.tipo)}
+- Tipo de cobrança: ${descricaoTipo(cfg.tipos)}
 - Dificuldade do CONTEÚDO (1 a 5): ${cfg.nivel} (${NIVEIS[cfg.nivel - 1]}). Esta dificuldade é CONSTANTE nas ${Q_POR_SUB} questões.
 - Formato: ${descricaoFormato(cfg.formato)}
 
@@ -208,9 +203,7 @@ export function normalizarQuestao(
     comentario: typeof q.comentario === "string" ? q.comentario.trim() : "",
     explicacoes_erradas: explicacoes,
     dispositivo: typeof q.dispositivo === "string" && q.dispositivo.trim() ? q.dispositivo.trim() : null,
-    tipo_cobranca: TIPOS_SORTEAVEIS.includes(tipo as TipoId)
-      ? (tipo as TipoId)
-      : undefined,
+    tipo_cobranca: TIPO_IDS.includes(tipo as TipoId) ? (tipo as TipoId) : undefined,
   };
 }
 

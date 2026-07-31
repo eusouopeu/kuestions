@@ -1,6 +1,8 @@
 /**
  * Constantes de domínio. MATERIAS, TIPOS, FORMATOS, NIVEIS e SUB_LETRAS vêm
- * de Questoes-Kumon.jsx sem alteração, exceto o novo tipo `misturado`.
+ * de Questoes-Kumon.jsx sem alteração. A configuração de bloco seleciona um
+ * SUBCONJUNTO de TIPOS (`Config.tipos`, ver types.ts): 1 tipo = fixo; 2+ =
+ * sorteado por questão entre os selecionados, dentro do mesmo sub-bloco.
  */
 
 export const MATERIAS = [
@@ -15,13 +17,7 @@ export const MATERIAS = [
   "Matemática Financeira",
 ] as const;
 
-export type TipoId =
-  | "abstrato"
-  | "caso"
-  | "dispositivo"
-  | "calculo"
-  | "conceito"
-  | "misturado";
+export type TipoId = "abstrato" | "caso" | "dispositivo" | "calculo" | "conceito";
 
 export const TIPOS: { id: TipoId; label: string; desc: string }[] = [
   {
@@ -49,21 +45,9 @@ export const TIPOS: { id: TipoId; label: string; desc: string }[] = [
     label: "Conceitos e classificações",
     desc: "distinção entre conceitos, espécies e classificações da matéria",
   },
-  {
-    id: "misturado",
-    label: "Misturado",
-    desc: "sorteia entre os tipos acima a cada questão, dentro do mesmo sub-bloco",
-  },
 ];
 
-/** Os tipos que `misturado` pode sortear (ele mesmo fica de fora). */
-export const TIPOS_SORTEAVEIS: TipoId[] = [
-  "abstrato",
-  "caso",
-  "dispositivo",
-  "calculo",
-  "conceito",
-];
+export const TIPO_IDS: TipoId[] = TIPOS.map((t) => t.id);
 
 export type FormatoId = "ce" | "mc" | "misto";
 

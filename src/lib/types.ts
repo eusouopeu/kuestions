@@ -5,7 +5,8 @@ export interface Config {
   materia: string;
   materiaCustom: string;
   topico: string;
-  tipo: TipoId;
+  /** Tipos de cobrança selecionados. 1 = fixo; 2+ = sorteado por questão. */
+  tipos: TipoId[];
   formato: FormatoId;
   nivel: number; // 1–5
 }
@@ -23,7 +24,7 @@ export interface Questao {
   /** Explicação do erro específico de cada alternativa errada, letra → texto. */
   explicacoes_erradas: Record<string, string>;
   dispositivo: string | null;
-  /** Tipo de cobrança efetivo desta questão (relevante quando tipo = misturado). */
+  /** Tipo de cobrança efetivo desta questão (relevante quando `tipos` tem 2+ selecionados). */
   tipo_cobranca?: TipoId;
 }
 

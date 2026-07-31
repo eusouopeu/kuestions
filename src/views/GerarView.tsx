@@ -19,6 +19,7 @@ import { gerarSubBloco, SemCredencialError } from "../lib/anthropic";
 import { criarBloco, fecharBloco, gravarResposta, listarBlocos } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
 import type { Bloco, Config, Questao, StatusSub } from "../lib/types";
+import type { TipoId } from "../lib/constants";
 
 type Tela = "config" | "drill" | "resultado";
 
@@ -33,7 +34,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
     materia: MATERIAS[0],
     materiaCustom: "",
     topico: "",
-    tipo: "abstrato",
+    tipos: ["abstrato"],
     formato: "misto",
     nivel: 3,
   });
@@ -53,6 +54,17 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
   useEffect(() => {
     if (tela === "config") listarBlocos(null, 5).then(setHist).catch(() => setHist([]));
   }, [tela]);
+
+  /** Alterna um tipo na seleção. Nunca deixa a lista vazia — desmarcar o
+   * último selecionado não faz nada, para sempre haver ao menos 1 tipo. */
+  function alternarTipo(id: TipoId) {
+    setCfg((atual) => {
+      const ja = atual.tipos.includes(id);
+      if (ja && atual.tipos.length === 1) return atual;
+      const tipos = ja ? atual.tipos.filter((t) => t !== id) : [...atual.tipos, id];
+      return { ...atual, tipos };
+    });
+  }
 
   const materiaFinal =
     cfg.materia === "__outra" ? cfg.materiaCustom.trim() || "Matéria personalizada" : cfg.materia;
@@ -179,14 +191,21 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
 
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Tipo de cobrança</label>
+          <div style={{ fontSize: 12.5, color: C.sub, margin: "-4px 0 8px" }}>
+            {cfg.tipos.length > 1
+              ? "Sorteado por questão entre os selecionados, dentro do mesmo sub-bloco."
+              : "Selecione mais de um para sortear entre eles a cada questão."}
+          </div>
           {TIPOS.map((t) => {
-            const ativo = cfg.tipo === t.id;
+            const ativo = cfg.tipos.includes(t.id);
             return (
               <button
                 key={t.id}
-                onClick={() => setCfg({ ...cfg, tipo: t.id })}
+                onClick={() => alternarTipo(t.id)}
                 style={{
-                  display: "block",
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: 10,
                   width: "100%",
                   textAlign: "left",
                   marginBottom: 6,
@@ -199,15 +218,34 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
               >
                 <div
                   style={{
-                    ...disp,
-                    fontWeight: 600,
-                    fontSize: 14,
-                    color: ativo ? C.caneta : C.ink,
+                    flex: "0 0 auto",
+                    width: 16,
+                    height: 16,
+                    marginTop: 2,
+                    borderRadius: 4,
+                    border: `1.5px solid ${ativo ? C.caneta : C.line}`,
+                    background: ativo ? C.caneta : "transparent",
+                    color: "#fff",
+                    fontSize: 11,
+                    lineHeight: "13px",
+                    textAlign: "center",
                   }}
                 >
-                  {t.label}
+                  {ativo ? "✓" : ""}
                 </div>
-                <div style={{ fontSize: 12.5, color: C.sub, marginTop: 2 }}>{t.desc}</div>
+                <div>
+                  <div
+                    style={{
+                      ...disp,
+                      fontWeight: 600,
+                      fontSize: 14,
+                      color: ativo ? C.caneta : C.ink,
+                    }}
+                  >
+                    {t.label}
+                  </div>
+                  <div style={{ fontSize: 12.5, color: C.sub, marginTop: 2 }}>{t.desc}</div>
+                </div>
               </button>
             );
           })}

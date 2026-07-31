@@ -30,7 +30,7 @@ export async function criarBloco(
       new Date().toISOString(),
       cfg.materia,
       cfg.topico || null,
-      cfg.tipo,
+      cfg.tipos.join(","),
       cfg.formato,
       cfg.nivel,
       totalQuestoes,
