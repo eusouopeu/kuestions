@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type ChangeEvent } from "react";
 import { C, campo, cartao, mono, rotulo } from "../theme";
 import Shell from "../components/Shell";
 import Botao from "../components/Botao";
+import Segmented from "../components/Segmented";
 import {
   getApiKey,
   getProxyUrl,
@@ -10,6 +11,9 @@ import {
   setProxyUrl,
 } from "../lib/secure";
 import { MODEL } from "../lib/anthropic";
+import { exportarBancoJSON, importarBancoJSON } from "../lib/db";
+import { exportarArquivo } from "../lib/exportar";
+import { getTema, setTema, type Tema } from "../lib/tema";
 
 /**
  * Configuração da credencial. A chave é digitada pelo usuário e guardada
@@ -23,6 +27,15 @@ export default function AjustesTab() {
   const [status, setStatus] = useState<{ tom: "ok" | "erro"; texto: string } | null>(null);
   const [carregado, setCarregado] = useState(false);
 
+  const [tema, setTemaLocal] = useState<Tema>("sistema");
+  const [exportandoBackup, setExportandoBackup] = useState(false);
+  const [arquivoRestauro, setArquivoRestauro] = useState<File | null>(null);
+  const [restaurando, setRestaurando] = useState(false);
+  const [statusBackup, setStatusBackup] = useState<{ tom: "ok" | "erro"; texto: string } | null>(
+    null,
+  );
+  const inputArquivoRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     Promise.all([getApiKey(), getProxyUrl()])
       .then(([k, p]) => {
@@ -30,6 +43,7 @@ export default function AjustesTab() {
         setProxy(p);
       })
       .finally(() => setCarregado(true));
+    getTema().then(setTemaLocal);
   }, []);
 
   async function salvar() {
@@ -67,8 +81,72 @@ export default function AjustesTab() {
     setStatus({ tom: "ok", texto: "Credenciais removidas do aparelho." });
   }
 
+  async function trocarTema(t: Tema) {
+    setTemaLocal(t);
+    await setTema(t);
+  }
+
+  async function exportarBackup() {
+    if (exportandoBackup) return;
+    setExportandoBackup(true);
+    setStatusBackup(null);
+    try {
+      const json = await exportarBancoJSON();
+      const data = new Date().toISOString().slice(0, 10);
+      await exportarArquivo(`kuestions-backup-${data}.json`, json, "application/json");
+    } catch (e) {
+      setStatusBackup({
+        tom: "erro",
+        texto: e instanceof Error ? e.message : "Falha ao gerar o backup.",
+      });
+    } finally {
+      setExportandoBackup(false);
+    }
+  }
+
+  function escolherArquivoRestauro(e: ChangeEvent<HTMLInputElement>) {
+    const f = e.target.files?.[0];
+    e.target.value = ""; // permite escolher o mesmo arquivo de novo
+    if (f) {
+      setStatusBackup(null);
+      setArquivoRestauro(f);
+    }
+  }
+
+  async function confirmarRestauro() {
+    if (!arquivoRestauro || restaurando) return;
+    setRestaurando(true);
+    try {
+      const texto = await arquivoRestauro.text();
+      await importarBancoJSON(texto);
+      // Todas as abas guardam listas em memória (blocos, notas, gráficos);
+      // recarregar é o jeito simples e seguro de todas lerem o banco novo.
+      location.reload();
+    } catch (e) {
+      setStatusBackup({
+        tom: "erro",
+        texto: e instanceof Error ? e.message : "Falha ao restaurar o backup.",
+      });
+      setRestaurando(false);
+      setArquivoRestauro(null);
+    }
+  }
+
   return (
     <Shell kicker="CONFIGURAÇÃO" titulo="Ajustes">
+      <div style={{ marginBottom: 18 }}>
+        <label style={rotulo}>Tema</label>
+        <Segmented
+          valor={tema}
+          opcoes={[
+            { id: "sistema" as Tema, label: "Sistema" },
+            { id: "claro" as Tema, label: "Claro" },
+            { id: "escuro" as Tema, label: "Escuro" },
+          ]}
+          onChange={trocarTema}
+        />
+      </div>
+
       <div style={{ marginBottom: 18 }}>
         <label style={rotulo}>Chave de API da Anthropic</label>
         <input
@@ -153,7 +231,81 @@ export default function AjustesTab() {
         )}
       </div>
 
-      <div style={{ ...cartao, padding: "12px 14px", marginTop: 22 }}>
+      <div style={{ ...cartao, padding: "14px 16px", marginTop: 22 }}>
+        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
+          BACKUP
+        </div>
+        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
+          Blocos, respostas e notas vivem só neste aparelho. Exporte de vez em quando — sem
+          backup, uma reinstalação ou troca de aparelho apaga tudo.
+        </div>
+
+        {statusBackup && (
+          <div
+            style={{
+              background: statusBackup.tom === "ok" ? C.okSoft : C.erroSoft,
+              border: `1.5px solid ${statusBackup.tom === "ok" ? C.ok : C.erro}`,
+              borderRadius: 10,
+              padding: "10px 12px",
+              fontSize: 13,
+              marginBottom: 12,
+            }}
+          >
+            {statusBackup.texto}
+          </div>
+        )}
+
+        {arquivoRestauro ? (
+          <div
+            style={{
+              background: C.erroSoft,
+              border: `1.5px solid ${C.erro}`,
+              borderRadius: 10,
+              padding: "12px 14px",
+            }}
+          >
+            <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
+              Restaurar <strong>{arquivoRestauro.name}</strong> substitui TODOS os dados atuais
+              (blocos, respostas e notas) pelo conteúdo do arquivo. Não há como desfazer.
+            </div>
+            <div style={{ display: "flex", gap: 8 }}>
+              <Botao
+                tipo="fantasma"
+                onClick={() => setArquivoRestauro(null)}
+                disabled={restaurando}
+                style={{ background: C.card }}
+              >
+                Cancelar
+              </Botao>
+              <Botao
+                onClick={confirmarRestauro}
+                disabled={restaurando}
+                style={{ background: C.erro, borderColor: C.erro }}
+              >
+                {restaurando ? "Restaurando…" : "Restaurar e substituir"}
+              </Botao>
+            </div>
+          </div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <Botao tipo="fantasma" onClick={exportarBackup} disabled={exportandoBackup}>
+              {exportandoBackup ? "Gerando backup…" : "Exportar backup completo"}
+            </Botao>
+            <Botao tipo="fantasma" onClick={() => inputArquivoRef.current?.click()}>
+              Restaurar de um arquivo
+            </Botao>
+            <input
+              ref={inputArquivoRef}
+              type="file"
+              accept="application/json,.json"
+              onChange={escolherArquivoRestauro}
+              style={{ display: "none" }}
+            />
+          </div>
+        )}
+      </div>
+
+      <div style={{ ...cartao, padding: "12px 14px", marginTop: 14 }}>
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
           GERAÇÃO
         </div>

@@ -8,6 +8,10 @@ import { contarErradasPorMateria, listarErradas, marcarRevisada } from "../lib/r
 import { gerarTagAssunto } from "../lib/texto";
 import type { QuestaoRespondida } from "../lib/types";
 
+/** Tamanho do lote carregado por vez — evita trazer para a memória de uma
+ * só vez um histórico de erradas que só cresce (ver listarErradas). */
+const LOTE = 150;
+
 /**
  * Refazer erradas. Não chama a API: relê as questões já gravadas em
  * `questoes_respondidas` com acertou = 0 e as reapresenta com as mesmas
@@ -19,6 +23,8 @@ export default function RefazerView() {
   const [carregando, setCarregando] = useState(true);
   const [materia, setMateria] = useState<string | null>(null);
   const [fila, setFila] = useState<QuestaoRespondida[] | null>(null);
+  const [temMaisLotes, setTemMaisLotes] = useState(false);
+  const [carregandoLote, setCarregandoLote] = useState(false);
   const [idx, setIdx] = useState(0);
   const [revisadasAgora, setRevisadasAgora] = useState(0);
   const [erro, setErro] = useState<string | null>(null);
@@ -36,13 +42,14 @@ export default function RefazerView() {
   async function abrir(m: string | null) {
     setErro(null);
     try {
-      const qs = await listarErradas(m, soPendentes);
+      const qs = await listarErradas(m, soPendentes, { limite: LOTE });
       if (!qs.length) {
         setErro("Nenhuma questão errada nesse filtro.");
         return;
       }
       setMateria(m);
       setFila(qs);
+      setTemMaisLotes(qs.length === LOTE);
       setIdx(0);
       setRevisadasAgora(0);
     } catch (e) {
@@ -50,16 +57,38 @@ export default function RefazerView() {
     }
   }
 
+  /** Busca o próximo lote e o anexa à fila em vez de recarregar tudo do zero —
+   * é o que torna a paginação de listarErradas transparente para quem revisa. */
+  async function carregarProximoLote(): Promise<QuestaoRespondida[]> {
+    if (!temMaisLotes || carregandoLote) return [];
+    setCarregandoLote(true);
+    try {
+      const proximas = await listarErradas(materia, soPendentes, {
+        limite: LOTE,
+        offset: fila?.length ?? 0,
+      });
+      setFila((f) => (f ? [...f, ...proximas] : proximas));
+      setTemMaisLotes(proximas.length === LOTE);
+      return proximas;
+    } catch (e) {
+      setErro(e instanceof Error ? e.message : "Falha ao carregar mais questões.");
+      return [];
+    } finally {
+      setCarregandoLote(false);
+    }
+  }
+
   function sair() {
     setFila(null);
     setMateria(null);
+    setTemMaisLotes(false);
     recarregar();
   }
 
   /* ---------- Drill de revisão ---------- */
   if (fila) {
     const q = fila[idx];
-    const ultima = idx === fila.length - 1;
+    const ultima = idx === fila.length - 1 && !temMaisLotes;
 
     // Agrupamento por conceito dentro da matéria: mostra o tema em revisão,
     // que é o que orienta o usuário a estudar por assunto e não por ordem.
@@ -106,7 +135,9 @@ export default function RefazerView() {
               {q.revisada ? " · JÁ REVISADA" : ""}
             </div>
           }
-          labelProxima={ultima ? "Encerrar revisão" : "Próxima questão"}
+          labelProxima={
+            ultima ? "Encerrar revisão" : carregandoLote ? "Carregando…" : "Próxima questão"
+          }
           onResponder={async (_letra, acertou) => {
             // Não apaga do histórico de erros: só marca como revisada, para o
             // filtro "só pendentes" e para os gráficos manterem o registro.
@@ -120,9 +151,20 @@ export default function RefazerView() {
             }
             return q.id;
           }}
-          onProxima={() => {
-            if (ultima) sair();
-            else setIdx(idx + 1);
+          onProxima={async () => {
+            if (ultima) {
+              sair();
+              return;
+            }
+            if (idx === fila.length - 1 && temMaisLotes) {
+              const proximas = await carregarProximoLote();
+              if (!proximas.length) {
+                // Falhou ou não havia mais nada, apesar do sinal anterior.
+                sair();
+                return;
+              }
+            }
+            setIdx(idx + 1);
           }}
         />
 

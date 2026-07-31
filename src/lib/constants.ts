@@ -10,11 +10,16 @@ export const MATERIAS = [
   "Direito Constitucional",
   "Contabilidade Geral",
   "Contabilidade Avançada",
+  "Contabilidade Pública",
   "Legislação Tributária Estadual (BA)",
   "Direito Administrativo",
   "Auditoria",
   "Administração Financeira e Orçamentária",
   "Matemática Financeira",
+  "Economia",
+  "Estatística",
+  "Português",
+  "Informática",
 ] as const;
 
 export type TipoId = "abstrato" | "caso" | "dispositivo" | "calculo" | "conceito";

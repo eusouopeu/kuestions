@@ -18,6 +18,7 @@ import {
 import { gerarSubBloco, SemCredencialError } from "../lib/anthropic";
 import { criarBloco, fecharBloco, gravarResposta, listarBlocos } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
+import { rotuloTopico, TOPICOS_POR_MATERIA } from "../lib/topicos";
 import type { Bloco, Config, Questao, StatusSub } from "../lib/types";
 import type { TipoId } from "../lib/constants";
 
@@ -46,6 +47,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
   const [blocoId, setBlocoId] = useState<number | null>(null);
   const [erroApi, setErroApi] = useState<string | null>(null);
   const [hist, setHist] = useState<Bloco[]>([]);
+  const [confirmandoAbandono, setConfirmandoAbandono] = useState(false);
 
   // dispararSub roda fora do render e precisa ler o estado mais recente.
   const subsRef = useRef(subs);
@@ -104,6 +106,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
     setQIdx(0);
     setAcertos([0, 0, 0, 0]);
     setErroApi(null);
+    setConfirmandoAbandono(false);
     setTela("drill");
     try {
       setBlocoId(await criarBloco(c, Q_POR_BLOCO));
@@ -160,7 +163,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
           <select
             style={campo}
             value={cfg.materia}
-            onChange={(e) => setCfg({ ...cfg, materia: e.target.value })}
+            onChange={(e) => setCfg({ ...cfg, materia: e.target.value, topico: "" })}
           >
             {MATERIAS.map((m) => (
               <option key={m} value={m}>
@@ -181,12 +184,27 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
 
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Tópico específico (opcional)</label>
-          <input
-            style={campo}
-            placeholder="ex.: lançamento tributário, imunidades…"
-            value={cfg.topico}
-            onChange={(e) => setCfg({ ...cfg, topico: e.target.value })}
-          />
+          {TOPICOS_POR_MATERIA[cfg.materia] ? (
+            <select
+              style={campo}
+              value={cfg.topico}
+              onChange={(e) => setCfg({ ...cfg, topico: e.target.value })}
+            >
+              <option value="">Todos os tópicos do bloco</option>
+              {TOPICOS_POR_MATERIA[cfg.materia].map((t) => (
+                <option key={t.codigo} value={rotuloTopico(t)}>
+                  {rotuloTopico(t)}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <input
+              style={campo}
+              placeholder="ex.: lançamento tributário, imunidades…"
+              value={cfg.topico}
+              onChange={(e) => setCfg({ ...cfg, topico: e.target.value })}
+            />
+          )}
         </div>
 
         <div style={{ marginBottom: 18 }}>
@@ -296,8 +314,8 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
                       padding: "10px 0",
                       borderRadius: 8,
                       cursor: "pointer",
-                      border: `1.5px solid ${ativo ? C.ink : C.line}`,
-                      background: ativo ? C.ink : C.card,
+                      border: `1.5px solid ${ativo ? C.realce : C.line}`,
+                      background: ativo ? C.realce : C.card,
                       color: ativo ? "#fff" : C.ink,
                     }}
                   >
@@ -435,21 +453,53 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
           />
         )}
 
-        <button
-          onClick={() => setTela("config")}
-          style={{
-            ...mono,
-            marginTop: 18,
-            fontSize: 12,
-            background: "none",
-            border: "none",
-            color: C.sub,
-            cursor: "pointer",
-            textDecoration: "underline",
-          }}
-        >
-          Abandonar bloco
-        </button>
+        {confirmandoAbandono ? (
+          <div
+            style={{
+              marginTop: 18,
+              background: C.erroSoft,
+              border: `1.5px solid ${C.erro}`,
+              borderRadius: 10,
+              padding: "12px 14px",
+            }}
+          >
+            <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
+              Abandonar este bloco? As {qIdx} questão{qIdx === 1 ? "" : "es"} já respondidas ficam
+              gravadas, mas o restante do bloco se perde e não há como retomar de onde parou.
+            </div>
+            <div style={{ display: "flex", gap: 8 }}>
+              <Botao
+                tipo="fantasma"
+                onClick={() => setConfirmandoAbandono(false)}
+                style={{ background: C.card }}
+              >
+                Cancelar
+              </Botao>
+              <Botao
+                onClick={() => setTela("config")}
+                style={{ background: C.erro, borderColor: C.erro }}
+              >
+                Abandonar
+              </Botao>
+            </div>
+          </div>
+        ) : (
+          <button
+            onClick={() => setConfirmandoAbandono(true)}
+            style={{
+              ...mono,
+              marginTop: 18,
+              fontSize: 12,
+              background: "none",
+              border: "none",
+              color: C.sub,
+              cursor: "pointer",
+              textDecoration: "underline",
+            }}
+          >
+            Abandonar bloco
+          </button>
+        )}
       </div>
     );
   }

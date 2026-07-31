@@ -98,7 +98,7 @@ export default function SelecaoNota({
             ...mono,
             fontSize: 12,
             fontWeight: 600,
-            background: C.ink,
+            background: C.realce,
             color: "#fff",
             padding: "9px 14px",
             borderRadius: 8,

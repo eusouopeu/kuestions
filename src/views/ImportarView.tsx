@@ -450,8 +450,8 @@ export default function ImportarView() {
                         padding: "8px 14px",
                         borderRadius: 8,
                         cursor: "pointer",
-                        border: `1.5px solid ${ativo ? C.ink : C.line}`,
-                        background: ativo ? C.ink : C.card,
+                        border: `1.5px solid ${ativo ? C.realce : C.line}`,
+                        background: ativo ? C.realce : C.card,
                         color: ativo ? "#fff" : C.ink,
                       }}
                     >

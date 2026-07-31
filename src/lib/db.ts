@@ -226,6 +226,45 @@ export async function run(
   };
 }
 
+/**
+ * Backup completo do banco (schema + dados) como JSON, via a própria API do
+ * plugin — evita reimplementar a serialização tabela a tabela. É a única
+ * forma de recuperar blocos/respostas/notas depois de uma reinstalação ou
+ * troca de aparelho: o resto do app só exporta notas (flashcards em CSV).
+ */
+export async function exportarBancoJSON(): Promise<string> {
+  const conn = await getDB();
+  const res = await conn.exportToJson("full");
+  if (!res.export) throw new Error("Falha ao gerar o backup do banco.");
+  return JSON.stringify(res.export);
+}
+
+/**
+ * Restaura um backup gerado por exportarBancoJSON, substituindo os dados
+ * atuais — o chamador deve confirmar com o usuário antes de invocar isto.
+ *
+ * O dump não carrega o PRAGMA user_version que `migrate()` usa para saber
+ * quais migrações já rodaram; sem repor esse pragma depois do import, o
+ * próximo boot rodaria de novo `ALTER TABLE ... ADD COLUMN` contra colunas
+ * que o próprio dump já trouxe, e falharia com "duplicate column". Isso só é
+ * seguro porque um backup só é restaurado de volta nesta mesma versão do
+ * app — não é um formato pensado para migrar entre versões de schema.
+ */
+export async function importarBancoJSON(json: string): Promise<void> {
+  const conn = await getDB();
+
+  const valido = (await sqlite.isJsonValid(json)).result;
+  if (!valido) throw new Error("Arquivo de backup inválido ou corrompido.");
+
+  const dump = JSON.parse(json) as Record<string, unknown>;
+  dump.database = DB_NAME;
+  dump.overwrite = true;
+  await sqlite.importFromJson(JSON.stringify(dump));
+
+  await conn.execute(`PRAGMA user_version = ${SCHEMA_VERSION};`);
+  if (isWeb) await sqlite.saveToStore(DB_NAME);
+}
+
 /** Converte 0/1 do SQLite em boolean. */
 export function toBool(v: unknown): boolean {
   return v === 1 || v === true || v === "1";
