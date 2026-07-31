@@ -1,22 +1,28 @@
 /**
  * Identidade visual herdada de Questoes-Kumon.jsx — paleta `C` e as duas
  * famílias tipográficas (Archivo para display, IBM Plex Mono para rótulos).
- * Valores idênticos ao artefato: nada aqui foi reajustado.
+ *
+ * Os valores em si (claro e escuro) vivem em styles.css como variáveis CSS —
+ * aqui só os nomes das variáveis, para que o tema escuro funcione em todo
+ * componente que já usa C.paper/C.ink/etc. sem precisar tocar em nenhum deles.
  */
 import type { CSSProperties } from "react";
 
 export const C = {
-  paper: "#F6F5F0",
-  card: "#FFFFFF",
-  ink: "#1C2733",
-  caneta: "#2044C4",
-  canetaSoft: "#E8EDFB",
-  ok: "#157A45",
-  okSoft: "#E4F2EA",
-  erro: "#B23A2F",
-  erroSoft: "#F8E9E7",
-  line: "#DDDACF",
-  sub: "#6B7280",
+  paper: "var(--paper)",
+  card: "var(--card)",
+  ink: "var(--ink)",
+  caneta: "var(--caneta)",
+  canetaSoft: "var(--caneta-soft)",
+  ok: "var(--ok)",
+  okSoft: "var(--ok-soft)",
+  erro: "var(--erro)",
+  erroSoft: "var(--erro-soft)",
+  line: "var(--line)",
+  sub: "var(--sub)",
+  /** Preenchimento sólido sempre emparelhado com texto branco fixo — ver o
+   * comentário de --realce em styles.css antes de reaproveitar `ink` aqui. */
+  realce: "var(--realce)",
 } as const;
 
 export const mono: CSSProperties = {

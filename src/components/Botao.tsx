@@ -32,7 +32,7 @@ export default function Botao({
   const temas: Record<Tipo, CSSProperties> = {
     primario: { background: C.caneta, borderColor: C.caneta, color: "#fff" },
     fantasma: { background: "transparent", borderColor: C.line, color: C.ink },
-    tinta: { background: C.ink, borderColor: C.ink, color: "#fff" },
+    tinta: { background: C.realce, borderColor: C.realce, color: "#fff" },
   };
   return (
     <button

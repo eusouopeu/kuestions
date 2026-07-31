@@ -6,6 +6,7 @@ import NotasTab from "./views/NotasTab";
 import AjustesTab from "./views/AjustesTab";
 import { getDB } from "./lib/db";
 import { temCredencial } from "./lib/secure";
+import { aplicarTema, getTema } from "./lib/tema";
 import Botao from "./components/Botao";
 
 // A aba Dados carrega recharts (~537 kB). Fora do bundle inicial: o app abre
@@ -31,6 +32,7 @@ export default function App() {
   const [visitadas, setVisitadas] = useState<Set<Aba>>(new Set(["questoes"]));
 
   useEffect(() => {
+    getTema().then(aplicarTema);
     getDB()
       .then(() => temCredencial())
       .then((tem) => {

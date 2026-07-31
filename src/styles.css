@@ -1,7 +1,77 @@
-:root {
+/*
+ * Tokens de cor: o claro é o único hardcoded na paleta `C` original
+ * (theme.ts) — aqui viram variáveis para permitir o escuro sem tocar em
+ * nenhum componente (todos já leem C.paper/C.ink/etc., que agora são só
+ * `var(--paper)`/`var(--ink)`/etc.).
+ *
+ * Precedência: media query (segue o SO) é o padrão; `data-tema` no <html>
+ * (ver src/lib/tema.ts) sobrepõe nos dois sentidos quando o usuário escolhe
+ * um tema explícito em Ajustes, em vez de "Sistema".
+ */
+:root,
+:root[data-tema="claro"] {
   --paper: #f6f5f0;
+  --card: #ffffff;
   --ink: #1c2733;
   --caneta: #2044c4;
+  --caneta-soft: #e8edfb;
+  --ok: #157a45;
+  --ok-soft: #e4f2ea;
+  --erro: #b23a2f;
+  --erro-soft: #f8e9e7;
+  --line: #dddacf;
+  --sub: #6b7280;
+  /* Preenchimento sólido "tinta" (botão primário escuro, chip ativo, pílula
+     flutuante) — sempre emparelhado com texto branco fixo. É um token à
+     parte de --ink porque --ink TAMBÉM é cor de texto e, nesse papel,
+     precisa clarear no escuro para continuar legível; se o fundo sólido
+     usasse a mesma variável, viraria um fundo claro com texto branco em
+     cima no tema escuro — quase ilegível. */
+  --realce: #1c2733;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --paper: #14181c;
+    --card: #1d2226;
+    --ink: #e9eae5;
+    --caneta: #6c8eef;
+    --caneta-soft: #1e2a4a;
+    --ok: #4fae7c;
+    --ok-soft: #163524;
+    --erro: #e2776a;
+    --erro-soft: #3a211d;
+    --line: #33383d;
+    --sub: #98a0a6;
+    --realce: #333f52;
+  }
+}
+
+/* color-scheme: só troca a UA styling nativa (scrollbar, controles de
+   formulário) — a paleta de fato continua vindo das variáveis acima. */
+:root {
+  color-scheme: light dark;
+}
+:root[data-tema="claro"] {
+  color-scheme: light;
+}
+:root[data-tema="escuro"] {
+  color-scheme: dark;
+}
+
+:root[data-tema="escuro"] {
+  --paper: #14181c;
+  --card: #1d2226;
+  --ink: #e9eae5;
+  --caneta: #6c8eef;
+  --caneta-soft: #1e2a4a;
+  --ok: #4fae7c;
+  --ok-soft: #163524;
+  --erro: #e2776a;
+  --erro-soft: #3a211d;
+  --line: #33383d;
+  --sub: #98a0a6;
+  --realce: #333f52;
 }
 
 * {

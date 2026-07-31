@@ -150,10 +150,16 @@ function mapQuestao(r: Record<string, unknown>): QuestaoRespondida {
   };
 }
 
-/** Erradas agrupáveis por matéria — base da view "Refazer erradas". */
+/**
+ * Erradas agrupáveis por matéria — base da view "Refazer erradas". Sem
+ * `opts.limite`, carrega tudo (compatível com quem já chamava assim); com
+ * limite, ativa paginação — RefazerView usa isso para não trazer para a
+ * memória de uma vez um histórico de erros que só cresce com o tempo.
+ */
 export async function listarErradas(
   materia: string | null,
   soPendentes: boolean,
+  opts: { limite?: number; offset?: number } = {},
 ): Promise<QuestaoRespondida[]> {
   const cond = ["acertou = 0"];
   const params: unknown[] = [];
@@ -163,11 +169,13 @@ export async function listarErradas(
   }
   if (soPendentes) cond.push("revisada = 0");
 
+  const { limite, offset = 0 } = opts;
   const rows = await all(
     `SELECT * FROM questoes_respondidas
      WHERE ${cond.join(" AND ")}
-     ORDER BY ts DESC`,
-    params,
+     ORDER BY ts DESC
+     ${limite ? "LIMIT ? OFFSET ?" : ""}`,
+    limite ? [...params, limite, offset] : params,
   );
   return rows.map(mapQuestao);
 }
@@ -310,22 +318,25 @@ export interface Resumo {
 }
 
 export async function resumo(materia: string | null): Promise<Resumo> {
-  const q = await one<{ n: number; a: number }>(
-    `SELECT COUNT(*) AS n, SUM(acertou) AS a
-     FROM questoes_respondidas ${materia ? "WHERE materia = ?" : ""}`,
-    materia ? [materia] : [],
-  );
-  const b = await one<{ n: number; ap: number }>(
-    `SELECT COUNT(*) AS n, SUM(aprovado) AS ap
-     FROM blocos ${materia ? "WHERE materia = ?" : ""}`,
-    materia ? [materia] : [],
-  );
+  const [q, b, conceitosSalvos] = await Promise.all([
+    one<{ n: number; a: number }>(
+      `SELECT COUNT(*) AS n, SUM(acertou) AS a
+       FROM questoes_respondidas ${materia ? "WHERE materia = ?" : ""}`,
+      materia ? [materia] : [],
+    ),
+    one<{ n: number; ap: number }>(
+      `SELECT COUNT(*) AS n, SUM(aprovado) AS ap
+       FROM blocos ${materia ? "WHERE materia = ?" : ""}`,
+      materia ? [materia] : [],
+    ),
+    contarConceitos(materia),
+  ]);
   return {
     totalQuestoes: Number(q?.n ?? 0),
     totalAcertos: Number(q?.a ?? 0),
     blocosAprovados: Number(b?.ap ?? 0),
     blocosTotais: Number(b?.n ?? 0),
-    conceitosSalvos: await contarConceitos(materia),
+    conceitosSalvos,
   };
 }
 

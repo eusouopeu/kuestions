@@ -41,7 +41,7 @@ export default function Segmented<T extends string>({
               padding: "10px 6px",
               border: "none",
               cursor: "pointer",
-              background: ativo ? C.ink : "transparent",
+              background: ativo ? C.realce : "transparent",
               color: ativo ? "#fff" : C.ink,
               transition: "background .12s",
             }}
