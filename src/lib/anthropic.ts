@@ -68,14 +68,38 @@ function descricaoFormato(formato: Config["formato"]): string {
   return `Alternar: questões 1 e 3 em Certo/Errado ("ce"); questão 2 em múltipla escolha A–E ("mc").`;
 }
 
+/**
+ * Instrução de equilíbrio do gabarito em Certo/Errado. O modelo tem viés
+ * estatístico conhecido de gerar "Certo" com frequência bem maior que
+ * "Errado" — ao contrário do viés de múltipla escolha (letra A), este não dá
+ * para corrigir reordenando nada no cliente, porque C/E não têm "posição": a
+ * própria afirmação é que precisa ser verdadeira ou falsa. A única alavanca é
+ * mostrar ao modelo o histórico real do bloco e mandar corrigir o
+ * desequilíbrio a cada novo sub-bloco.
+ */
+function instrucaoEquilibrioGabarito(gabaritosCEAnteriores: string[]): string {
+  const totalC = gabaritosCEAnteriores.filter((g) => g === "C").length;
+  const totalE = gabaritosCEAnteriores.filter((g) => g === "E").length;
+  const historico = gabaritosCEAnteriores.length
+    ? `Nos sub-blocos já gerados neste bloco: ${totalC} gabarito "Certo" e ${totalE} "Errado". `
+    : "";
+
+  return `EQUILÍBRIO DO GABARITO EM CERTO/ERRADO (obrigatório)
+- Decida o valor-verdade de cada assertiva (Certo ou Errado) pelo conteúdo jurídico, nunca por hábito de gerar mais afirmações verdadeiras do que falsas — esse viés é o erro mais comum ao elaborar questões CE.
+- ${historico}Se houver desequilíbrio acumulado, CORRIJA agora: prefira o gabarito menos usado até aqui neste sub-bloco.
+- Nas ${Q_POR_SUB} questões CE deste sub-bloco, não deixe todas com o mesmo gabarito — varie genuinamente, a menos que o conteúdo torne isso artificial.`;
+}
+
 export function montarPrompt(
   cfg: Config & { materia: string },
   subIdx: number,
   padroesAnteriores: string[],
+  gabaritosCEAnteriores: string[] = [],
 ): string {
   const carga = subIdx + 1;
   const cargaTxt =
     subIdx === 3 ? "4 ou mais conceitos" : `exatamente ${carga} conceito${carga > 1 ? "s" : ""}`;
+  const temCE = cfg.formato !== "mc";
 
   return `Você é elaborador de questões de concurso da área fiscal (padrão SEFAZ / bancas FCC, FGV, Cebraspe). Gere EXATAMENTE ${Q_POR_SUB} questões inéditas.
 
@@ -93,6 +117,8 @@ CARGA CONCEITUAL (sub-bloco ${SUB_LETRAS[subIdx]} de 4)
 LÓGICA KUMON
 - As ${Q_POR_SUB} questões devem ser quase-repetitivas entre si: mesma estrutura e mesmo padrão conceitual, variando apenas casos, sujeitos, entes e valores (automatização por repetição).
 ${padroesAnteriores.length ? `- NÃO reutilize literalmente os padrões dos sub-blocos anteriores: ${padroesAnteriores.join("; ")}.` : ""}
+
+${temCE ? instrucaoEquilibrioGabarito(gabaritosCEAnteriores) : ""}
 
 QUALIDADE DOS DISTRATORES
 - Toda alternativa errada deve ser PLAUSÍVEL: deve corresponder a um erro real de raciocínio, a uma confusão frequente entre institutos próximos, ou a uma troca de requisito/prazo/sujeito verossímil.
@@ -139,6 +165,53 @@ export function tentarParse(texto: string): { questoes?: unknown[] } {
 }
 
 const LETRAS_MC = ["A", "B", "C", "D", "E"];
+
+/** Fisher-Yates. */
+function embaralhar<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/**
+ * Reordena as alternativas de uma questão MC e recalcula letra a letra
+ * (gabarito e explicacoes_erradas). O modelo tem viés estatístico conhecido
+ * de concentrar o gabarito na letra A — em vez de tentar corrigir isso só
+ * via instrução de prompt (que o modelo pode ignorar), embaralhamos a ORDEM
+ * das alternativas no cliente depois de recebidas: a posição da resposta
+ * certa deixa de depender do modelo e passa a ser puramente aleatória, o que
+ * garante distribuição uniforme entre A–E de verdade.
+ */
+function embaralharAlternativas(q: Questao): Questao {
+  if (q.formato !== "mc" || !q.alternativas || q.alternativas.length < 2) return q;
+
+  const letras = LETRAS_MC.slice(0, q.alternativas.length);
+  const pares = q.alternativas.map((alt, i) => ({
+    letraOriginal: letras[i],
+    // Remove o prefixo "A) " etc. — é reaplicado com a nova letra abaixo.
+    texto: alt.replace(/^[A-E]\)\s*/, ""),
+  }));
+  const embaralhados = embaralhar(pares);
+
+  const alternativas = embaralhados.map((p, i) => `${letras[i]}) ${p.texto}`);
+  const mapa = new Map(embaralhados.map((p, i) => [p.letraOriginal, letras[i]]));
+
+  const explicacoes_erradas: Record<string, string> = {};
+  for (const [letraOriginal, texto] of Object.entries(q.explicacoes_erradas)) {
+    const nova = mapa.get(letraOriginal);
+    if (nova) explicacoes_erradas[nova] = texto;
+  }
+
+  return {
+    ...q,
+    alternativas,
+    gabarito: mapa.get(q.gabarito) ?? q.gabarito,
+    explicacoes_erradas,
+  };
+}
 
 /**
  * Normaliza uma questão crua (da API, de um JSON importado ou de um formulário
@@ -192,7 +265,7 @@ export function normalizarQuestao(
   }
 
   const tipo = q.tipo_cobranca;
-  return {
+  return embaralharAlternativas({
     enunciado,
     formato,
     alternativas,
@@ -204,7 +277,7 @@ export function normalizarQuestao(
     explicacoes_erradas: explicacoes,
     dispositivo: typeof q.dispositivo === "string" && q.dispositivo.trim() ? q.dispositivo.trim() : null,
     tipo_cobranca: TIPO_IDS.includes(tipo as TipoId) ? (tipo as TipoId) : undefined,
-  };
+  });
 }
 
 /* ---------- Chamada ---------- */
@@ -264,10 +337,11 @@ export async function gerarSubBloco(
   cfg: Config & { materia: string },
   subIdx: number,
   padroesAnteriores: string[],
+  gabaritosCEAnteriores: string[] = [],
   tentativa = 0,
 ): Promise<Questao[]> {
   try {
-    const texto = await chamar(montarPrompt(cfg, subIdx, padroesAnteriores));
+    const texto = await chamar(montarPrompt(cfg, subIdx, padroesAnteriores, gabaritosCEAnteriores));
     const obj = tentarParse(texto);
     const qs = (obj.questoes ?? [])
       .map((r) => normalizarQuestao(r, cfg.formato))
@@ -281,7 +355,7 @@ export async function gerarSubBloco(
       throw new Error(mensagemDeErro(e));
     }
     if (tentativa < 1) {
-      return gerarSubBloco(cfg, subIdx, padroesAnteriores, tentativa + 1);
+      return gerarSubBloco(cfg, subIdx, padroesAnteriores, gabaritosCEAnteriores, tentativa + 1);
     }
     throw new Error(mensagemDeErro(e));
   }

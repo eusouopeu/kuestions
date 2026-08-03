@@ -139,6 +139,7 @@ function mapQuestao(r: Record<string, unknown>): QuestaoRespondida {
     resposta: String(r.resposta),
     acertou: toBool(r.acertou),
     revisada: toBool(r.revisada),
+    reportada: toBool(r.reportada),
     comentario: (r.comentario as string) ?? "",
     explicacoes_erradas: parseJSON<Record<string, string>>(
       r.explicacoes_erradas,
@@ -202,6 +203,12 @@ export async function contarErradasPorMateria(
 
 export async function marcarRevisada(id: number): Promise<void> {
   await run(`UPDATE questoes_respondidas SET revisada = 1 WHERE id = ?`, [id]);
+}
+
+/** Sinaliza que a questão em si (enunciado/gabarito) está errada — não o
+ * desempenho do usuário. Serve para depois revisar o que o modelo gerou mal. */
+export async function reportarQuestao(id: number): Promise<void> {
+  await run(`UPDATE questoes_respondidas SET reportada = 1 WHERE id = ?`, [id]);
 }
 
 /* ---------- Notas (conceitos_salvos) ---------- */

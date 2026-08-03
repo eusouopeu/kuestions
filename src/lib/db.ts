@@ -18,7 +18,7 @@ import {
 } from "@capacitor-community/sqlite";
 
 const DB_NAME = "kumon_fiscal";
-const SCHEMA_VERSION = 2;
+const SCHEMA_VERSION = 3;
 
 const sqlite = new SQLiteConnection(CapacitorSQLite);
 const isWeb = Capacitor.getPlatform() === "web";
@@ -109,6 +109,16 @@ const MIGRATIONS: { version: number; sql: string }[] = [
 
       DROP INDEX IF EXISTS ix_conceitos_materia_termo;
       CREATE INDEX IF NOT EXISTS ix_conceitos_materia ON conceitos_salvos (materia);
+    `,
+  },
+  {
+    // Reportar questão com erro: sinaliza que o ENUNCIADO/gabarito da questão
+    // está errado (não que o usuário errou a resposta), para revisar depois o
+    // que o modelo gerou mal. Independente de `acertou`/`revisada`, que
+    // seguem descrevendo o desempenho do usuário.
+    version: 3,
+    sql: `
+      ALTER TABLE questoes_respondidas ADD COLUMN reportada INTEGER NOT NULL DEFAULT 0;
     `,
   },
 ];

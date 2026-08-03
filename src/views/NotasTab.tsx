@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { FolderIcon } from "@heroicons/react/24/outline";
 import { C, campo, cartao, disp, mono, rotulo } from "../theme";
 import Shell, { Vazio } from "../components/Shell";
 import Segmented from "../components/Segmented";
@@ -226,9 +227,7 @@ export default function NotasTab({ ativa }: { ativa: boolean }) {
             }}
           >
             <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.caneta} strokeWidth="1.8">
-                <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" />
-              </svg>
+              <FolderIcon width={20} height={20} stroke={C.caneta} strokeWidth={1.8} />
               <span style={{ ...disp, fontSize: 15, fontWeight: 600 }}>{p.materia}</span>
             </span>
             <span style={{ ...mono, fontSize: 12, color: C.sub }}>{p.total}</span>

@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { FlagIcon as FlagOutline } from "@heroicons/react/24/outline";
+import { FlagIcon as FlagSolid } from "@heroicons/react/24/solid";
 import { C, cartao, disp, mono } from "../theme";
 import Botao from "./Botao";
 import Chip from "./Chip";
@@ -6,6 +8,7 @@ import Opcao, { type Reveal } from "./Opcao";
 import SelecaoNota from "./SelecaoNota";
 import type { Questao } from "../lib/types";
 import { labelTipo } from "../lib/constants";
+import { reportarQuestao } from "../lib/repo";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
 
@@ -25,6 +28,7 @@ export default function QuestaoCard({
   materia,
   tagAssunto,
   questaoOrigemId,
+  reportadaInicial,
   cabecalho,
   labelProxima,
   onResponder,
@@ -36,6 +40,8 @@ export default function QuestaoCard({
   tagAssunto: string;
   /** id em questoes_respondidas, quando já existe (modo revisão). */
   questaoOrigemId?: number | null;
+  /** Já reportada em uma sessão anterior (modo revisão — QuestaoRespondida.reportada). */
+  reportadaInicial?: boolean;
   cabecalho?: React.ReactNode;
   labelProxima: string;
   /** Devolve o id da linha gravada, para vincular a nota à questão de origem. */
@@ -47,6 +53,8 @@ export default function QuestaoCard({
   const [tachadas, setTachadas] = useState<string[]>([]);
   const [origemId, setOrigemId] = useState<number | null>(questaoOrigemId ?? null);
   const [enviando, setEnviando] = useState(false);
+  const [reportada, setReportada] = useState(reportadaInicial ?? false);
+  const [reportando, setReportando] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   // Reset ao trocar de questão: sem isso a seleção da anterior vazaria.
@@ -56,7 +64,22 @@ export default function QuestaoCard({
     setTachadas([]);
     setOrigemId(questaoOrigemId ?? null);
     setEnviando(false);
-  }, [questao, questaoOrigemId]);
+    setReportada(reportadaInicial ?? false);
+    setReportando(false);
+  }, [questao, questaoOrigemId, reportadaInicial]);
+
+  async function reportar() {
+    if (reportada || reportando || origemId == null) return;
+    setReportando(true);
+    try {
+      await reportarQuestao(origemId);
+      setReportada(true);
+    } catch (e) {
+      console.error("reportar questão", e);
+    } finally {
+      setReportando(false);
+    }
+  }
 
   const letrasValidas =
     questao.formato === "ce"
@@ -188,14 +211,56 @@ export default function QuestaoCard({
         <div style={{ marginTop: 16, paddingTop: 14, borderTop: `1.5px dashed ${C.line}` }}>
           <div
             style={{
-              ...mono,
-              fontSize: 13,
-              fontWeight: 600,
-              color: acertou ? C.ok : C.erro,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 10,
               marginBottom: 8,
             }}
           >
-            {acertou ? "✓ ACERTO" : `✗ ERRO — gabarito: ${questao.gabarito}`}
+            <div
+              style={{
+                ...mono,
+                fontSize: 13,
+                fontWeight: 600,
+                color: acertou ? C.ok : C.erro,
+              }}
+            >
+              {acertou ? "✓ ACERTO" : `✗ ERRO — gabarito: ${questao.gabarito}`}
+            </div>
+
+            {origemId != null && (
+              <button
+                onClick={reportar}
+                disabled={reportada || reportando}
+                title={
+                  reportada
+                    ? "Questão reportada — obrigado pelo aviso"
+                    : "Reportar erro no enunciado ou no gabarito desta questão"
+                }
+                style={{
+                  ...mono,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 5,
+                  fontSize: 11,
+                  padding: "5px 8px",
+                  borderRadius: 6,
+                  border: `1.5px solid ${reportada ? C.erro : C.line}`,
+                  background: reportada ? C.erroSoft : "transparent",
+                  color: reportada ? C.erro : C.sub,
+                  cursor: reportada || reportando ? "default" : "pointer",
+                  flexShrink: 0,
+                }}
+              >
+                {reportada ? (
+                  <FlagSolid width={14} height={14} />
+                ) : (
+                  <FlagOutline width={14} height={14} />
+                )}
+                {reportada ? "Reportada" : reportando ? "Enviando…" : "Questão errada"}
+              </button>
+            )}
           </div>
 
           <p style={{ fontSize: 14, lineHeight: 1.5, margin: "0 0 12px" }}>

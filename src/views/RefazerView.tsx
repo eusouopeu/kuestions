@@ -118,6 +118,7 @@ export default function RefazerView() {
           materia={q.materia}
           tagAssunto={gerarTagAssunto(q.topico || q.materia)}
           questaoOrigemId={q.id}
+          reportadaInicial={q.reportada}
           cabecalho={
             <div
               style={{

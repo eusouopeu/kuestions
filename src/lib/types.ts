@@ -40,6 +40,8 @@ export interface QuestaoRespondida extends Questao {
   resposta: string;
   acertou: boolean;
   revisada: boolean;
+  /** Usuário sinalizou que a questão em si (enunciado/gabarito) está errada. */
+  reportada: boolean;
   ts: string;
 }
 

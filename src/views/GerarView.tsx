@@ -85,10 +85,22 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
     return p;
   }
 
+  /** Gabaritos de Certo/Errado já gerados nos sub-blocos anteriores deste
+   * bloco — repassado ao prompt para corrigir o viés do modelo em favor de
+   * "Certo" (ver instrucaoEquilibrioGabarito em lib/anthropic.ts). */
+  function gabaritosCEDe(atuais: (Questao[] | null)[], ate: number): string[] {
+    const g: string[] = [];
+    for (let i = 0; i < ate; i++) {
+      const s = atuais[i];
+      if (s) for (const q of s) if (q.formato === "ce") g.push(q.gabarito);
+    }
+    return g;
+  }
+
   function dispararSub(i: number, conf: Config & { materia: string }) {
     setStatusSub((st) => st.map((v, k) => (k === i ? "carregando" : v)));
     setErroApi(null);
-    gerarSubBloco(conf, i, padroesDe(subsRef.current, i))
+    gerarSubBloco(conf, i, padroesDe(subsRef.current, i), gabaritosCEDe(subsRef.current, i))
       .then((qs) => {
         setSubs((s) => s.map((v, k) => (k === i ? qs : v)));
         setStatusSub((st) => st.map((v, k) => (k === i ? "ok" : v)));

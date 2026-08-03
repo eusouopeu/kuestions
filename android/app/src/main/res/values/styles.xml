@@ -7,16 +7,25 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!-- Android 15 (API 35) força edge-to-edge para apps com targetSdk 35: sem
+             isto, a WebView passa a desenhar por baixo da status bar/home
+             indicator e o topo do app fica colado na barra de informações do
+             sistema. O CSS (env(safe-area-inset-*) em styles.css) já cobre o
+             iOS; no Android preferimos opt-out e deixar o SO reservar o espaço,
+             em vez de duplicar a lógica de inset também no WebView. -->
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:background">@null</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
     </style>
 
 
     <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
         <item name="android:background">@drawable/splash</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
     </style>
 </resources>
