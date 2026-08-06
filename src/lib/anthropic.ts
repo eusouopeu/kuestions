@@ -16,7 +16,7 @@
  */
 import Anthropic from "@anthropic-ai/sdk";
 import { getApiKey, getProxyUrl } from "./secure";
-import { NIVEIS, Q_POR_SUB, SUB_LETRAS, TIPOS, TIPO_IDS, type TipoId } from "./constants";
+import { NIVEIS, NIVEL_DESCRICOES, Q_POR_SUB, TIPOS, TIPO_IDS, type TipoId } from "./constants";
 import type { Config, Questao } from "./types";
 
 export const MODEL = "claude-sonnet-5";
@@ -90,16 +90,19 @@ function instrucaoEquilibrioGabarito(gabaritosCEAnteriores: string[]): string {
 - Nas ${Q_POR_SUB} questões CE deste sub-bloco, não deixe todas com o mesmo gabarito — varie genuinamente, a menos que o conteúdo torne isso artificial.`;
 }
 
+/** A partir daqui os distratores devem errar só por detalhe factual pontual
+ * (prazo, valor, data, nome, sujeito), não por erro de conceito — ver
+ * NIVEL_DESCRICOES em constants.ts. */
+const NIVEL_MIN_DETALHE_PONTUAL = 4;
+
 export function montarPrompt(
   cfg: Config & { materia: string },
-  subIdx: number,
+  _loteIdx: number,
   padroesAnteriores: string[],
   gabaritosCEAnteriores: string[] = [],
 ): string {
-  const carga = subIdx + 1;
-  const cargaTxt =
-    subIdx === 3 ? "4 ou mais conceitos" : `exatamente ${carga} conceito${carga > 1 ? "s" : ""}`;
   const temCE = cfg.formato !== "mc";
+  const descNivel = NIVEL_DESCRICOES[cfg.nivel - 1];
 
   return `Você é elaborador de questões de concurso da área fiscal (padrão SEFAZ / bancas FCC, FGV, Cebraspe). Gere EXATAMENTE ${Q_POR_SUB} questões inéditas.
 
@@ -107,22 +110,23 @@ CONFIGURAÇÃO
 - Matéria: ${cfg.materia}
 - Tópico: ${cfg.topico ? cfg.topico : "núcleo central da matéria"}
 - Tipo de cobrança: ${descricaoTipo(cfg.tipos)}
-- Dificuldade do CONTEÚDO (1 a 5): ${cfg.nivel} (${NIVEIS[cfg.nivel - 1]}). Esta dificuldade é CONSTANTE nas ${Q_POR_SUB} questões.
+- Dificuldade (1 a 5): ${cfg.nivel} (${NIVEIS[cfg.nivel - 1]}) — ${descNivel}
 - Formato: ${descricaoFormato(cfg.formato)}
-
-CARGA CONCEITUAL (sub-bloco ${SUB_LETRAS[subIdx]} de 4)
-- Cada questão deve exigir o conhecimento e a utilização EM PARALELO de ${cargaTxt} da matéria para ser resolvida.
-- A carga conceitual mede a COMPLEXIDADE ESTRUTURAL da questão (quantos conceitos precisam ser mobilizados juntos), NÃO a dificuldade do conteúdo, que permanece no nível ${cfg.nivel}.
 
 LÓGICA KUMON
 - As ${Q_POR_SUB} questões devem ser quase-repetitivas entre si: mesma estrutura e mesmo padrão conceitual, variando apenas casos, sujeitos, entes e valores (automatização por repetição).
-${padroesAnteriores.length ? `- NÃO reutilize literalmente os padrões dos sub-blocos anteriores: ${padroesAnteriores.join("; ")}.` : ""}
+${padroesAnteriores.length ? `- NÃO reutilize literalmente os padrões já usados neste bloco: ${padroesAnteriores.join("; ")}.` : ""}
 
 ${temCE ? instrucaoEquilibrioGabarito(gabaritosCEAnteriores) : ""}
 
 QUALIDADE DOS DISTRATORES
 - Toda alternativa errada deve ser PLAUSÍVEL: deve corresponder a um erro real de raciocínio, a uma confusão frequente entre institutos próximos, ou a uma troca de requisito/prazo/sujeito verossímil.
 - Nunca produza alternativa manifestamente absurda, nem descartável apenas pela forma (tamanho, tom, "todas as anteriores", exageros como "sempre"/"nunca" quando gratuitos).
+${
+  cfg.nivel >= NIVEL_MIN_DETALHE_PONTUAL
+    ? `- Neste nível, cada alternativa errada deve repetir quase todo o texto do gabarito e divergir por UM ÚNICO detalhe factual (um prazo, um valor, uma data, um nome, uma competência) — não por erro de conceito. O restante da frase deve ser idêntico ou equivalente ao correto.`
+    : ""
+}
 
 EXPLICAÇÃO POR ALTERNATIVA (obrigatório)
 - "comentario": por que o gabarito está correto.
@@ -140,7 +144,7 @@ SEGURANÇA JURÍDICA E AUTOVERIFICAÇÃO
 BREVIDADE (obrigatório): enunciado ≤ 45 palavras; cada alternativa ≤ 12 palavras; comentario ≤ 22 palavras; cada explicação de alternativa errada ≤ 25 palavras.
 
 Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON:
-{"questoes":[{"enunciado":"...","formato":"ce" ou "mc","alternativas":["A) ...","B) ...","C) ...","D) ...","E) ..."] ou null,"gabarito":"C"/"E" ou "A"–"E","conceitos":["conceito 1","..."],"comentario":"...","explicacoes_erradas":{"A":"...","B":"..."},"dispositivo":"art. X ..." ou null,"tipo_cobranca":"abstrato"|"caso"|"dispositivo"|"calculo"|"conceito"}]}`;
+{"questoes":[{"enunciado":"...","formato":"ce" ou "mc","alternativas":["A) ...","B) ...","C) ...","D) ...","E) ..."] ou null,"gabarito":"C"/"E" ou "A"–"E","conceitos":["conceito 1","..."],"comentario":"...","explicacoes_erradas":{"A":"...","B":"..."},"dispositivo":"art. X ..." ou null,"tipo_cobranca":"abstrato"|"caso"|"calculo"|"conceito"}]}`;
 }
 
 /* ---------- Parsing tolerante ---------- */
@@ -149,7 +153,7 @@ Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON:
  * Extrai o JSON da resposta. Herdado do artefato, incluindo o reparo por
  * truncamento: corta até o último objeto completo do array e fecha na mão.
  */
-export function tentarParse(texto: string): { questoes?: unknown[] } {
+function extrairJSON(texto: string): unknown {
   let t = texto.replace(/```json|```/g, "").trim();
   const ini = t.indexOf("{");
   const fim = t.lastIndexOf("}");
@@ -162,6 +166,10 @@ export function tentarParse(texto: string): { questoes?: unknown[] } {
     if (ult > 0) return JSON.parse(t.slice(0, ult + 1) + "]}");
     throw e;
   }
+}
+
+export function tentarParse(texto: string): { questoes?: unknown[] } {
+  return extrairJSON(texto) as { questoes?: unknown[] };
 }
 
 const LETRAS_MC = ["A", "B", "C", "D", "E"];
@@ -358,5 +366,75 @@ export async function gerarSubBloco(
       return gerarSubBloco(cfg, subIdx, padroesAnteriores, gabaritosCEAnteriores, tentativa + 1);
     }
     throw new Error(mensagemDeErro(e));
+  }
+}
+
+/* ---------- Explicações para questões reais (banco de questões) ---------- */
+
+function montarPromptExplicacoes(questoes: Questao[]): string {
+  const lista = questoes
+    .map((q, i) => {
+      const alts = q.alternativas ? q.alternativas.join(" | ") : "C) Certo | E) Errado";
+      return `${i + 1}. Enunciado: ${q.enunciado}\nAlternativas: ${alts}\nGabarito: ${q.gabarito}`;
+    })
+    .join("\n\n");
+
+  return `Você é revisor de questões de concurso da área fiscal já prontas — NÃO altere enunciado, alternativas nem gabarito, eles já vêm corretos de uma prova real. Para CADA questão abaixo, na ordem em que aparecem, escreva:
+- "comentario": por que o gabarito está correto.
+- "explicacoes_erradas": objeto letra → explicação, uma entrada para CADA alternativa que não é o gabarito, nomeando o erro específico de raciocínio, de conceito ou de detalhe (data, prazo, valor, sujeito) que leva a marcar aquela alternativa. Não escreva "está incorreta" nem repita o gabarito.
+
+BREVIDADE (obrigatório): comentario ≤ 22 palavras; cada explicação de alternativa errada ≤ 25 palavras.
+
+QUESTÕES:
+${lista}
+
+Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON, com EXATAMENTE ${questoes.length} itens na MESMA ORDEM das questões acima:
+{"explicacoes":[{"comentario":"...","explicacoes_erradas":{"A":"...","B":"..."}}]}`;
+}
+
+/**
+ * Preenche `comentario`/`explicacoes_erradas` de questões reais do banco
+ * (enunciado/alternativas/gabarito ficam intocados — só a explicação é
+ * gerada). Em caso de falha, devolve as questões como vieram (comentário
+ * vazio, explicações com "—") em vez de travar a montagem do bloco.
+ */
+export async function gerarExplicacoes(questoes: Questao[]): Promise<Questao[]> {
+  try {
+    const texto = await chamar(montarPromptExplicacoes(questoes));
+    const obj = extrairJSON(texto) as { explicacoes?: unknown[] };
+    const itens = obj.explicacoes ?? [];
+
+    return questoes.map((q, i) => {
+      const item = itens[i] as Record<string, unknown> | undefined;
+      const letrasErradas = LETRAS_MC.slice(0, q.alternativas?.length ?? 5).filter(
+        (l) => l !== q.gabarito,
+      );
+      const brutas =
+        item?.explicacoes_erradas && typeof item.explicacoes_erradas === "object"
+          ? (item.explicacoes_erradas as Record<string, unknown>)
+          : {};
+      const explicacoes_erradas: Record<string, string> = {};
+      for (const l of letrasErradas) {
+        const v = brutas[l];
+        explicacoes_erradas[l] =
+          typeof v === "string" && v.trim() ? v.trim() : "O modelo não detalhou o erro desta alternativa.";
+      }
+      return {
+        ...q,
+        comentario: typeof item?.comentario === "string" ? item.comentario.trim() : q.comentario,
+        explicacoes_erradas,
+      };
+    });
+  } catch (e) {
+    // Sem credencial ou credencial inválida: o usuário precisa ser avisado,
+    // não receber um bloco silenciosamente sem explicações. Outras falhas
+    // (parsing, timeout) degradam para o bloco sem explicação em vez de
+    // travar a montagem — a questão real em si já tem valor sozinha.
+    if (e instanceof SemCredencialError) throw e;
+    if (e instanceof Anthropic.AuthenticationError || e instanceof Anthropic.PermissionDeniedError) {
+      throw new Error(mensagemDeErro(e));
+    }
+    console.error("gerar explicações", e);
+    return questoes;
   }
 }

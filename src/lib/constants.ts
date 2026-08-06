@@ -22,7 +22,7 @@ export const MATERIAS = [
   "Informática",
 ] as const;
 
-export type TipoId = "abstrato" | "caso" | "dispositivo" | "calculo" | "conceito";
+export type TipoId = "abstrato" | "caso" | "calculo" | "conceito";
 
 export const TIPOS: { id: TipoId; label: string; desc: string }[] = [
   {
@@ -34,11 +34,6 @@ export const TIPOS: { id: TipoId; label: string; desc: string }[] = [
     id: "caso",
     label: "Norma em caso concreto",
     desc: "aplicação de leis/normas/regras a casos concretos (subsunção)",
-  },
-  {
-    id: "dispositivo",
-    label: "Dispositivo cabível",
-    desc: "identificação do dispositivo ou instituto jurídico cabível na situação exposta",
   },
   {
     id: "calculo",
@@ -62,6 +57,14 @@ export const FORMATOS: { id: FormatoId; label: string }[] = [
   { id: "misto", label: "Misto" },
 ];
 
+/**
+ * Progressão renumerada: o antigo nível 3 (Intermediário) virou o novo nível
+ * 2; o antigo nível 5 (Banca pesada) virou o novo nível 3. Isso abre espaço
+ * para dois patamares mais difíceis que qualquer coisa gerada antes (4 e 5),
+ * nos quais o conteúdo cobrado já não muda — só a distância entre o gabarito
+ * e os distratores encolhe, até sobrar apenas um detalhe pontual (prazo,
+ * data, nome, número) separando certo de errado.
+ */
 export const NIVEIS = [
   "Introdutório",
   "Básico",
@@ -69,6 +72,17 @@ export const NIVEIS = [
   "Avançado",
   "Banca pesada",
 ] as const;
+
+/** Descrição longa de cada nível, usada no prompt de geração (ver
+ * montarPrompt em lib/anthropic.ts) — orienta não só o assunto mas o tipo de
+ * erro que separa o gabarito dos distratores em cada patamar. */
+export const NIVEL_DESCRICOES: string[] = [
+  "conceitos centrais da matéria; alternativas erradas divergem do gabarito por erro de conceito, claramente identificável por quem estudou o básico do tópico.",
+  "mesmo core da matéria, com mais detalhe de regra; alternativas erradas ainda divergem por erro de conceito ou de regra, não por detalhe factual isolado.",
+  "domínio do tópico inteiro, incluindo exceções e regras correlatas; alternativas erradas exigem reconhecer a exceção certa, não só a regra geral.",
+  "alternativas erradas repetem quase todo o texto do gabarito, divergindo por UM detalhe factual específico (um prazo, um valor, um sujeito, uma competência) — o resto da frase é idêntico ou equivalente ao correto.",
+  "nível de banca pesada: alternativas quase idênticas ao gabarito, erradas só por um detalhe minúsculo (uma data, um nome, um número, uma palavra que inverte o sentido) — a pegadinha clássica de prova difícil.",
+];
 
 export const SUB_LETRAS = ["A", "B", "C", "D"] as const;
 

@@ -1,72 +1,46 @@
 import { C, mono } from "../theme";
-import { Q_POR_SUB, SUB_LETRAS } from "../lib/constants";
 
 /**
- * Trilho de carga conceitual A–D: a assinatura visual do artefato. O número de
- * barrinhas empilhadas em cada letra é a quantidade de conceitos mobilizados
- * em paralelo naquele sub-bloco (1 → 4+).
+ * Barra de progresso linear do bloco — substituiu o trilho de carga
+ * conceitual A–D (removido: a progressão de complexidade estrutural entre
+ * sub-blocos não estava rendendo questões perceptivelmente diferentes, então
+ * deixou de fazer sentido expor essa divisão ao usuário). A geração ainda
+ * roda em lotes de `Q_POR_SUB` nos bastidores (ver dispararSub em
+ * GerarView.tsx) só por latência da API — aqui só importa o total.
  */
-export default function Rail({
-  atual,
-  resultados,
-}: {
-  /** Índice do sub-bloco ativo; -1 para o estado neutro da tela de config. */
-  atual: number;
-  /** Acertos por sub-bloco já concluído; null onde ainda não houve. */
-  resultados?: (number | null)[];
-}) {
+export default function Rail({ atual, total }: { atual: number; total: number }) {
+  const pct = total > 0 ? Math.min(100, Math.round((atual / total) * 100)) : 0;
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: 14,
-        alignItems: "flex-end",
-        justifyContent: "center",
-        padding: "10px 0 2px",
-      }}
-    >
-      {SUB_LETRAS.map((l, i) => {
-        const estado = i < atual ? "feito" : i === atual ? "ativo" : "futuro";
-        const cor = estado === "feito" ? C.ink : estado === "ativo" ? C.caneta : C.line;
-        return (
-          <div key={l} style={{ textAlign: "center" }}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column-reverse",
-                gap: 2,
-                alignItems: "center",
-                minHeight: 34,
-              }}
-            >
-              {Array.from({ length: i + 1 }).map((_, k) => (
-                <div
-                  key={k}
-                  style={{
-                    width: 16,
-                    height: 6,
-                    borderRadius: 1.5,
-                    background: estado === "futuro" ? "transparent" : cor,
-                    border: `1.5px solid ${cor}`,
-                  }}
-                />
-              ))}
-            </div>
-            <div
-              style={{
-                ...mono,
-                fontSize: 11,
-                marginTop: 4,
-                color: cor,
-                fontWeight: estado === "ativo" ? 600 : 400,
-              }}
-            >
-              {l}
-              {resultados && resultados[i] != null ? ` ${resultados[i]}/${Q_POR_SUB}` : ""}
-            </div>
-          </div>
-        );
-      })}
+    <div style={{ padding: "10px 0 2px" }}>
+      <div
+        style={{
+          height: 6,
+          background: C.line,
+          borderRadius: 3,
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            height: "100%",
+            width: `${pct}%`,
+            background: C.caneta,
+            borderRadius: 3,
+            transition: "width 0.25s ease",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          ...mono,
+          fontSize: 11,
+          color: C.sub,
+          textAlign: "center",
+          marginTop: 6,
+        }}
+      >
+        {atual}/{total}
+      </div>
     </div>
   );
 }

@@ -131,8 +131,8 @@ export default function RefazerView() {
                 borderBottom: `1px solid ${C.line}`,
               }}
             >
-              SUB-BLOCO {q.sub} · CARGA {q.carga_conceitual}
-              {q.carga_conceitual === 4 ? "+" : ""} · VOCÊ MARCOU {q.resposta}
+              {q.nivel != null ? `NÍVEL ${q.nivel} · ` : ""}
+              {q.resposta ? `VOCÊ MARCOU ${q.resposta}` : "NÃO RESPONDIDA"}
               {q.revisada ? " · JÁ REVISADA" : ""}
             </div>
           }

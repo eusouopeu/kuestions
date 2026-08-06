@@ -2,32 +2,43 @@ import { useEffect, useRef, useState } from "react";
 import { C, campo, cartao, disp, mono, rotulo } from "../theme";
 import Botao from "../components/Botao";
 import Rail from "../components/Rail";
+import Segmented from "../components/Segmented";
 import QuestaoCard from "../components/QuestaoCard";
 import { Vazio } from "../components/Shell";
 import {
   MATERIAS,
   MIN_APROVACAO,
   NIVEIS,
+  NIVEL_DESCRICOES,
   N_SUBS,
   Q_POR_BLOCO,
   Q_POR_SUB,
-  SUB_LETRAS,
   TIPOS,
   FORMATOS,
 } from "../lib/constants";
 import { gerarSubBloco, SemCredencialError } from "../lib/anthropic";
 import { criarBloco, fecharBloco, gravarResposta, listarBlocos } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
-import { rotuloTopico, TOPICOS_POR_MATERIA } from "../lib/topicos";
+import {
+  blocosDeMateria,
+  descricaoBloco,
+  rotuloBloco,
+  rotuloTopico,
+  TOPICOS_POR_MATERIA,
+} from "../lib/topicos";
 import type { Bloco, Config, Questao, StatusSub } from "../lib/types";
 import type { TipoId } from "../lib/constants";
 
 type Tela = "config" | "drill" | "resultado";
+type ModoTopico = "aula" | "bloco" | "todos";
 
 /**
  * Fluxo de geração do artefato, adaptado para 4×3 questões e persistência em
- * SQLite. Mantém o pré-carregamento em cascata: assim que o sub-bloco A chega,
- * o B já começa a ser gerado, então o usuário raramente espera entre sub-blocos.
+ * SQLite. Mantém o pré-carregamento em cascata: assim que o 1º lote chega, o
+ * 2º já começa a ser gerado, então o usuário raramente espera entre lotes. A
+ * divisão em 4 lotes de 3 é só um detalhe de latência — não representa mais
+ * progressão de dificuldade (a "carga conceitual" A→D foi removida: as
+ * questões dos sub-blocos não saíam perceptivelmente diferentes).
  */
 export default function GerarView({ onDados }: { onDados: () => void }) {
   const [tela, setTela] = useState<Tela>("config");
@@ -48,6 +59,12 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
   const [erroApi, setErroApi] = useState<string | null>(null);
   const [hist, setHist] = useState<Bloco[]>([]);
   const [confirmandoAbandono, setConfirmandoAbandono] = useState(false);
+  const [abandonando, setAbandonando] = useState(false);
+  // A questão em `qIdx` já foi registrada (respondida ou reportada como
+  // errada)? Distingue, no abandono, o que já foi gravado do que ainda falta.
+  const [respondidaAtual, setRespondidaAtual] = useState(false);
+
+  const [modoTopico, setModoTopico] = useState<ModoTopico>("todos");
 
   // dispararSub roda fora do render e precisa ler o estado mais recente.
   const subsRef = useRef(subs);
@@ -56,6 +73,10 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
   useEffect(() => {
     if (tela === "config") listarBlocos(null, 5).then(setHist).catch(() => setHist([]));
   }, [tela]);
+
+  useEffect(() => {
+    setRespondidaAtual(false);
+  }, [qIdx]);
 
   /** Alterna um tipo na seleção. Nunca deixa a lista vazia — desmarcar o
    * último selecionado não faz nada, para sempre haver ao menos 1 tipo. */
@@ -72,14 +93,14 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
     cfg.materia === "__outra" ? cfg.materiaCustom.trim() || "Matéria personalizada" : cfg.materia;
   const c = { ...cfg, materia: materiaFinal };
 
-  /** Conceitos já usados nos sub-blocos anteriores, para não repetir padrões. */
+  /** Conceitos já usados nos lotes anteriores, para não repetir padrões. */
   function padroesDe(atuais: (Questao[] | null)[], ate: number): string[] {
     const p: string[] = [];
     for (let i = 0; i < ate; i++) {
       const s = atuais[i];
       if (s) {
         const cs = [...new Set(s.flatMap((q) => q.conceitos))].slice(0, 4);
-        if (cs.length) p.push(`${SUB_LETRAS[i]}: ${cs.join(", ")}`);
+        if (cs.length) p.push(`Lote ${i + 1}: ${cs.join(", ")}`);
       }
     }
     return p;
@@ -135,6 +156,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
 
   async function responder(letra: string, acertou: boolean): Promise<number | null> {
     if (acertou) setAcertos((a) => a.map((v, k) => (k === subAtual ? v + 1 : v)));
+    setRespondidaAtual(true);
     if (!questao) return null;
     // Toda questão respondida é gravada, certa ou errada: é a base da revisão
     // de erradas e de todos os gráficos da aba Dados.
@@ -142,8 +164,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
       blocoId,
       materia: c.materia,
       topico: c.topico,
-      sub: SUB_LETRAS[subAtual],
-      cargaConceitual: subAtual + 1,
+      nivel: c.nivel,
       questao,
       resposta: letra,
       acertou,
@@ -166,6 +187,52 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
     setQIdx(qIdx + 1);
   }
 
+  /** Questões já geradas mas que nunca chegaram a ser respondidas (a atual,
+   * se ainda não revelada, mais todas as de lotes já carregados à frente) —
+   * gravadas como erradas em vez de descartadas, para caírem em "Refazer
+   * erradas" na próxima visita. */
+  function questoesNaoRespondidas(): Questao[] {
+    const pendentes: Questao[] = [];
+    if (questao && !respondidaAtual) pendentes.push(questao);
+    for (let idx = qIdx + 1; idx < Q_POR_BLOCO; idx++) {
+      const s = Math.floor(idx / Q_POR_SUB);
+      const q = subs[s]?.[idx % Q_POR_SUB];
+      if (q) pendentes.push(q);
+    }
+    return pendentes;
+  }
+
+  async function abandonarBloco() {
+    setAbandonando(true);
+    try {
+      for (const q of questoesNaoRespondidas()) {
+        try {
+          await gravarResposta({
+            blocoId,
+            materia: c.materia,
+            topico: c.topico,
+            nivel: c.nivel,
+            questao: q,
+            resposta: "",
+            acertou: false,
+          });
+        } catch (e) {
+          console.error("gravar não respondida", e);
+        }
+      }
+      if (blocoId != null) {
+        try {
+          await fecharBloco(blocoId, acertos, false);
+        } catch (e) {
+          console.error("fechar bloco abandonado", e);
+        }
+      }
+    } finally {
+      setAbandonando(false);
+      setTela("config");
+    }
+  }
+
   /* ---------- CONFIG ---------- */
   if (tela === "config") {
     return (
@@ -175,7 +242,10 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
           <select
             style={campo}
             value={cfg.materia}
-            onChange={(e) => setCfg({ ...cfg, materia: e.target.value, topico: "" })}
+            onChange={(e) => {
+              setModoTopico("todos");
+              setCfg({ ...cfg, materia: e.target.value, topico: "" });
+            }}
           >
             {MATERIAS.map((m) => (
               <option key={m} value={m}>
@@ -197,18 +267,48 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Tópico específico (opcional)</label>
           {TOPICOS_POR_MATERIA[cfg.materia] ? (
-            <select
-              style={campo}
-              value={cfg.topico}
-              onChange={(e) => setCfg({ ...cfg, topico: e.target.value })}
-            >
-              <option value="">Todos os tópicos do bloco</option>
-              {TOPICOS_POR_MATERIA[cfg.materia].map((t) => (
-                <option key={t.codigo} value={rotuloTopico(t)}>
-                  {rotuloTopico(t)}
-                </option>
-              ))}
-            </select>
+            <>
+              <Segmented
+                valor={modoTopico}
+                opcoes={[
+                  { id: "aula" as ModoTopico, label: "Aula específica" },
+                  { id: "bloco" as ModoTopico, label: "Bloco de aulas" },
+                  { id: "todos" as ModoTopico, label: "Todos os tópicos" },
+                ]}
+                onChange={(m) => {
+                  setModoTopico(m);
+                  setCfg({ ...cfg, topico: "" });
+                }}
+              />
+              {modoTopico === "aula" && (
+                <select
+                  style={{ ...campo, marginTop: 8 }}
+                  value={cfg.topico}
+                  onChange={(e) => setCfg({ ...cfg, topico: e.target.value })}
+                >
+                  <option value="">Selecione uma aula…</option>
+                  {TOPICOS_POR_MATERIA[cfg.materia].map((t) => (
+                    <option key={t.codigo} value={rotuloTopico(t)}>
+                      {rotuloTopico(t)}
+                    </option>
+                  ))}
+                </select>
+              )}
+              {modoTopico === "bloco" && (
+                <select
+                  style={{ ...campo, marginTop: 8 }}
+                  value={cfg.topico}
+                  onChange={(e) => setCfg({ ...cfg, topico: e.target.value })}
+                >
+                  <option value="">Selecione um bloco…</option>
+                  {blocosDeMateria(cfg.materia).map((b) => (
+                    <option key={b.bloco} value={descricaoBloco(b)}>
+                      {rotuloBloco(b)}
+                    </option>
+                  ))}
+                </select>
+              )}
+            </>
           ) : (
             <input
               style={campo}
@@ -223,7 +323,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
           <label style={rotulo}>Tipo de cobrança</label>
           <div style={{ fontSize: 12.5, color: C.sub, margin: "-4px 0 8px" }}>
             {cfg.tipos.length > 1
-              ? "Sorteado por questão entre os selecionados, dentro do mesmo sub-bloco."
+              ? "Sorteado por questão entre os selecionados, dentro do mesmo lote."
               : "Selecione mais de um para sortear entre eles a cada questão."}
           </div>
           {TIPOS.map((t) => {
@@ -310,7 +410,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
             </div>
           </div>
           <div style={{ flex: "1 1 220px" }}>
-            <label style={rotulo}>Dificuldade do conteúdo (constante)</label>
+            <label style={rotulo}>Dificuldade</label>
             <div style={{ display: "flex", gap: 6 }}>
               {[1, 2, 3, 4, 5].map((n) => {
                 const ativo = cfg.nivel === n;
@@ -343,13 +443,11 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
         </div>
 
         <div style={{ ...cartao, padding: "12px 14px", marginBottom: 20 }}>
-          <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 2 }}>
-            RAMPA DO BLOCO — CARGA CONCEITUAL
+          <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
+            NÍVEL {cfg.nivel} — {NIVEIS[cfg.nivel - 1].toUpperCase()}
           </div>
-          <Rail atual={-1} />
-          <div style={{ fontSize: 12.5, color: C.sub, textAlign: "center" }}>
-            Sub-blocos A→D: de 1 conceito isolado a 4+ conceitos em paralelo. A dificuldade do
-            conteúdo não muda.
+          <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.5 }}>
+            {NIVEL_DESCRICOES[cfg.nivel - 1]}
           </div>
         </div>
 
@@ -374,7 +472,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
                 }}
               >
                 <span>
-                  {b.materia} · N{b.nivel}
+                  {b.materia} · {b.nivel > 0 ? `N${b.nivel}` : "banco"}
                 </span>
                 <span style={{ ...mono, color: b.aprovado ? C.ok : C.ink }}>
                   {b.total_acertos}/{b.total_questoes}
@@ -395,11 +493,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
     const st = statusSub[subAtual];
     return (
       <div>
-        <Rail atual={subAtual} resultados={acertos.map((a, i) => (i < subAtual ? a : null))} />
-        <div style={{ ...mono, fontSize: 12, color: C.sub, textAlign: "center", marginBottom: 14 }}>
-          Questão {qIdx + 1}/{Q_POR_BLOCO} · Sub-bloco {SUB_LETRAS[subAtual]} · {subAtual + 1}
-          {subAtual === N_SUBS - 1 ? "+" : ""} conceito{subAtual > 0 ? "s" : ""} em paralelo
-        </div>
+        <Rail atual={qIdx} total={Q_POR_BLOCO} />
 
         {st === "erro" && (
           <div
@@ -426,9 +520,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
 
         {(st === "carregando" || st === "idle") && (
           <div style={{ textAlign: "center", padding: "48px 0", color: C.sub }}>
-            <div style={{ ...mono, fontSize: 13 }}>
-              Gerando sub-bloco {SUB_LETRAS[subAtual]}…
-            </div>
+            <div style={{ ...mono, fontSize: 13 }}>Gerando mais questões…</div>
             <div
               style={{
                 marginTop: 10,
@@ -476,22 +568,25 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
             }}
           >
             <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
-              Abandonar este bloco? As {qIdx} questão{qIdx === 1 ? "" : "es"} já respondidas ficam
-              gravadas, mas o restante do bloco se perde e não há como retomar de onde parou.
+              Abandonar este bloco? As questões já respondidas ficam gravadas; as que faltam
+              (inclusive as já geradas e ainda não vistas) vão para "Refazer erradas" como
+              não respondidas, em vez de se perderem.
             </div>
             <div style={{ display: "flex", gap: 8 }}>
               <Botao
                 tipo="fantasma"
                 onClick={() => setConfirmandoAbandono(false)}
+                disabled={abandonando}
                 style={{ background: C.card }}
               >
                 Cancelar
               </Botao>
               <Botao
-                onClick={() => setTela("config")}
+                onClick={abandonarBloco}
+                disabled={abandonando}
                 style={{ background: C.erro, borderColor: C.erro }}
               >
-                Abandonar
+                {abandonando ? "Salvando…" : "Abandonar"}
               </Botao>
             </div>
           </div>
@@ -539,61 +634,19 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
         </div>
       </div>
 
-      <div style={{ ...cartao, padding: "14px 16px", margin: "12px 0 16px" }}>
-        {acertos.map((a, i) => (
-          <div
-            key={i}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              marginBottom: i < N_SUBS - 1 ? 8 : 0,
-            }}
-          >
-            <span style={{ ...mono, fontSize: 12, width: 74, color: C.sub }}>
-              {SUB_LETRAS[i]} · {i + 1}
-              {i === N_SUBS - 1 ? "+" : ""} conc.
-            </span>
-            <div
-              style={{
-                flex: 1,
-                height: 10,
-                background: C.paper,
-                border: `1px solid ${C.line}`,
-                borderRadius: 5,
-                overflow: "hidden",
-              }}
-            >
-              <div
-                style={{
-                  height: "100%",
-                  width: `${(a / Q_POR_SUB) * 100}%`,
-                  background: a === Q_POR_SUB ? C.ok : a >= Q_POR_SUB - 1 ? C.caneta : C.erro,
-                }}
-              />
-            </div>
-            <span style={{ ...mono, fontSize: 12, width: 28, textAlign: "right" }}>
-              {a}/{Q_POR_SUB}
-            </span>
-          </div>
-        ))}
-      </div>
-
       <div
         style={{
           background: passou ? C.okSoft : C.canetaSoft,
           borderRadius: 10,
           padding: "12px 14px",
+          marginBottom: 18,
           fontSize: 14,
           lineHeight: 1.5,
-          marginBottom: 18,
         }}
       >
         {passou
-          ? `≥ 90% de acerto: progressão liberada. No próximo bloco desta matéria, suba a dificuldade do conteúdo para o nível ${Math.min(cfg.nivel + 1, 5)}.`
-          : "Abaixo de 90%: pelo método Kumon, repita um novo bloco na mesma configuração (as questões serão variações inéditas dos mesmos padrões)."}{" "}
-        {total < Q_POR_BLOCO &&
-          "As barras vermelhas indicam em qual carga conceitual o padrão quebrou."}
+          ? `≥ 90% de acerto: progressão liberada. No próximo bloco desta matéria, suba a dificuldade para o nível ${Math.min(cfg.nivel + 1, 5)}.`
+          : "Abaixo de 90%: pelo método Kumon, repita um novo bloco na mesma configuração (as questões serão variações inéditas dos mesmos padrões)."}
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>

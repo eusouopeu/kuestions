@@ -87,25 +87,27 @@ export async function gravarResposta(args: {
   materia: string;
   /** Tópico do bloco de origem (cfg.topico) — usado para calcular a tag da nota na revisão. */
   topico: string | null;
-  sub: string;
-  cargaConceitual: number;
+  /** Nível de dificuldade (1–5) do bloco de origem; null quando não se aplica
+   * (importação, geração a partir do banco de questões reais). */
+  nivel: number | null;
   questao: Questao;
+  /** "" grava a questão como não respondida (bloco abandonado antes de
+   * chegar nela) — sempre acompanhado de `acertou: false`. */
   resposta: string;
   acertou: boolean;
 }): Promise<number> {
   const { questao: q } = args;
   const { lastId } = await run(
     `INSERT INTO questoes_respondidas
-       (bloco_id, materia, topico, sub, carga_conceitual, formato, tipo_cobranca,
+       (bloco_id, materia, topico, sub, carga_conceitual, nivel, formato, tipo_cobranca,
         enunciado, alternativas, gabarito, resposta, acertou, revisada,
         comentario, explicacoes_erradas, conceitos, dispositivo, ts)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?)`,
+     VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?)`,
     [
       args.blocoId,
       args.materia,
       args.topico || null,
-      args.sub,
-      args.cargaConceitual,
+      args.nivel,
       q.formato,
       q.tipo_cobranca ?? null,
       q.enunciado,
@@ -129,8 +131,7 @@ function mapQuestao(r: Record<string, unknown>): QuestaoRespondida {
     bloco_id: r.bloco_id == null ? null : Number(r.bloco_id),
     materia: String(r.materia),
     topico: (r.topico as string) ?? null,
-    sub: String(r.sub),
-    carga_conceitual: Number(r.carga_conceitual),
+    nivel: r.nivel == null ? null : Number(r.nivel),
     formato: String(r.formato) as "ce" | "mc",
     tipo_cobranca: (r.tipo_cobranca as QuestaoRespondida["tipo_cobranca"]) ?? undefined,
     enunciado: String(r.enunciado),
@@ -324,12 +325,21 @@ export interface Resumo {
   conceitosSalvos: number;
 }
 
-export async function resumo(materia: string | null): Promise<Resumo> {
+/**
+ * `nivel` filtra só `questoes_respondidas` (a coluna não existe em `blocos`,
+ * e um bloco pode ter sido respondido com o nível trocado no meio — não
+ * existe hoje, mas a granularidade correta é por questão). Por isso os
+ * totais de blocos aprovados/totais ignoram esse filtro.
+ */
+export async function resumo(materia: string | null, nivel: number | null = null): Promise<Resumo> {
+  const condQ = [materia ? "materia = ?" : null, nivel ? "nivel = ?" : null].filter(Boolean) as string[];
+  const paramsQ = [...(materia ? [materia] : []), ...(nivel ? [nivel] : [])];
+
   const [q, b, conceitosSalvos] = await Promise.all([
     one<{ n: number; a: number }>(
       `SELECT COUNT(*) AS n, SUM(acertou) AS a
-       FROM questoes_respondidas ${materia ? "WHERE materia = ?" : ""}`,
-      materia ? [materia] : [],
+       FROM questoes_respondidas ${condQ.length ? `WHERE ${condQ.join(" AND ")}` : ""}`,
+      paramsQ,
     ),
     one<{ n: number; ap: number }>(
       `SELECT COUNT(*) AS n, SUM(aprovado) AS ap
@@ -378,16 +388,29 @@ export interface Fatia {
  * `coluna` nunca vem do usuário — só das constantes abaixo.
  */
 async function agrupar(
-  coluna: "carga_conceitual" | "tipo_cobranca" | "formato" | "sub",
+  coluna: "nivel" | "tipo_cobranca" | "formato",
   materia: string | null,
+  nivel: number | null = null,
 ): Promise<Fatia[]> {
+  const cond = [`${coluna} IS NOT NULL`];
+  const params: unknown[] = [];
+  if (materia) {
+    cond.push("materia = ?");
+    params.push(materia);
+  }
+  // Filtrar por nível dentro do próprio agrupamento por nível não faz
+  // sentido (o filtro já é a coluna agrupada) — só se aplica a tipo/formato.
+  if (nivel && coluna !== "nivel") {
+    cond.push("nivel = ?");
+    params.push(nivel);
+  }
   const rows = await all(
     `SELECT ${coluna} AS chave, COUNT(*) AS total, SUM(acertou) AS acertos
      FROM questoes_respondidas
-     WHERE ${coluna} IS NOT NULL ${materia ? "AND materia = ?" : ""}
+     WHERE ${cond.join(" AND ")}
      GROUP BY ${coluna}
      ORDER BY ${coluna} ASC`,
-    materia ? [materia] : [],
+    params,
   );
   return rows.map((r) => {
     const total = Number(r.total);
@@ -401,9 +424,9 @@ async function agrupar(
   });
 }
 
-export const porCarga = (m: string | null) => agrupar("carga_conceitual", m);
-export const porTipo = (m: string | null) => agrupar("tipo_cobranca", m);
-export const porFormato = (m: string | null) => agrupar("formato", m);
+export const porNivel = (m: string | null) => agrupar("nivel", m);
+export const porTipo = (m: string | null, nivel: number | null = null) => agrupar("tipo_cobranca", m, nivel);
+export const porFormato = (m: string | null, nivel: number | null = null) => agrupar("formato", m, nivel);
 
 /** Matérias que já aparecem em qualquer registro — alimenta o filtro. */
 export async function materiasComDados(): Promise<string[]> {

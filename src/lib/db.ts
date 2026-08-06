@@ -18,7 +18,7 @@ import {
 } from "@capacitor-community/sqlite";
 
 const DB_NAME = "kumon_fiscal";
-const SCHEMA_VERSION = 3;
+const SCHEMA_VERSION = 4;
 
 const sqlite = new SQLiteConnection(CapacitorSQLite);
 const isWeb = Capacitor.getPlatform() === "web";
@@ -119,6 +119,24 @@ const MIGRATIONS: { version: number; sql: string }[] = [
     version: 3,
     sql: `
       ALTER TABLE questoes_respondidas ADD COLUMN reportada INTEGER NOT NULL DEFAULT 0;
+    `,
+  },
+  {
+    // A carga conceitual (sub-blocos A–D) deixou de orientar a geração: o
+    // usuário sentiu as questões parecidas demais entre sub-blocos, então a
+    // dificuldade real que importa é `nivel` (Config.nivel), que até aqui só
+    // vivia em `blocos`. Trazemos para `questoes_respondidas` para poder
+    // filtrar/agregar acerto por nível na aba Dados e no header de Refazer.
+    // `sub`/`carga_conceitual` continuam NOT NULL (mesma política de não
+    // dropar coluna já adotada nas migrações anteriores) — novas linhas
+    // gravam valores mortos ('' e 1) e o app para de lê-los.
+    version: 4,
+    sql: `
+      ALTER TABLE questoes_respondidas ADD COLUMN nivel INTEGER;
+
+      UPDATE questoes_respondidas
+      SET nivel = (SELECT nivel FROM blocos WHERE blocos.id = questoes_respondidas.bloco_id)
+      WHERE bloco_id IS NOT NULL;
     `,
   },
 ];

@@ -32,11 +32,14 @@ export interface Questao {
 export interface QuestaoRespondida extends Questao {
   id: number;
   bloco_id: number | null;
-  sub: string; // "A"–"D"
-  carga_conceitual: number; // 1–4
+  /** Nível de dificuldade (1–5) do bloco de origem; null para questões
+   * importadas ou geradas do banco, que não passam por Config.nivel. */
+  nivel: number | null;
   materia: string;
   /** Tópico do bloco de origem (cfg.topico) — usado para calcular a tag da nota. */
   topico: string | null;
+  /** "" quando a questão foi carregada mas nunca respondida (bloco
+   * abandonado) — nesse caso `acertou` é sempre false. */
   resposta: string;
   acertou: boolean;
   revisada: boolean;

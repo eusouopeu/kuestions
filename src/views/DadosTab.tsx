@@ -16,17 +16,18 @@ import { C, cartao, campo, disp, mono, rotulo } from "../theme";
 import Shell, { Vazio } from "../components/Shell";
 import {
   materiasComDados,
-  porCarga,
   porFormato,
+  porNivel,
   porTipo,
   resumo,
   serieBlocos,
   type Fatia,
   type Resumo,
 } from "../lib/repo";
-import { labelFormato, labelTipo, N_SUBS, SUB_LETRAS } from "../lib/constants";
+import { labelFormato, labelTipo, NIVEIS } from "../lib/constants";
 
 const TODAS = "__todas__";
+const TODOS_NIVEIS = 0;
 
 /** Vermelho abaixo de 70%, azul até 90%, verde a partir daí. */
 function corPct(pct: number): string {
@@ -120,10 +121,11 @@ function BarrasPct({
 export default function DadosTab({ ativa }: { ativa: boolean }) {
   const [materias, setMaterias] = useState<string[]>([]);
   const [filtro, setFiltro] = useState<string>(TODAS);
+  const [filtroNivel, setFiltroNivel] = useState<number>(TODOS_NIVEIS);
   const [carregando, setCarregando] = useState(true);
   const [res, setRes] = useState<Resumo | null>(null);
   const [serie, setSerie] = useState<{ i: number; pct: number }[]>([]);
-  const [carga, setCarga] = useState<Fatia[]>([]);
+  const [niveis, setNiveis] = useState<Fatia[]>([]);
   const [tipos, setTipos] = useState<Fatia[]>([]);
   const [formatos, setFormatos] = useState<Fatia[]>([]);
 
@@ -134,20 +136,21 @@ export default function DadosTab({ ativa }: { ativa: boolean }) {
   const carregar = useCallback(() => {
     // null = agrega todas as matérias; uma string = filtra estritamente por ela.
     const m = filtro === TODAS ? null : filtro;
+    const n = filtroNivel === TODOS_NIVEIS ? null : filtroNivel;
     setCarregando(true);
-    Promise.all([resumo(m), serieBlocos(m), porCarga(m), porTipo(m), porFormato(m)])
-      .then(([r, s, ca, ti, fo]) => {
+    Promise.all([resumo(m, n), serieBlocos(m), porNivel(m), porTipo(m, n), porFormato(m, n)])
+      .then(([r, s, ni, ti, fo]) => {
         setRes(r);
         setSerie(s);
-        setCarga(ca);
+        setNiveis(ni);
         setTipos(ti);
         setFormatos(fo);
       })
       .catch(() => setRes(null))
       .finally(() => setCarregando(false));
-  }, [filtro]);
+  }, [filtro, filtroNivel]);
 
-  // Além de rodar quando `filtro` muda, recarrega toda vez que a aba é
+  // Além de rodar quando o filtro muda, recarrega toda vez que a aba é
   // reaberta — a aba fica montada entre trocas (ver App.tsx), então sem isto
   // um bloco respondido em outra aba não apareceria aqui sem um refresh manual.
   useEffect(() => {
@@ -157,12 +160,9 @@ export default function DadosTab({ ativa }: { ativa: boolean }) {
   const semDados = !res || res.totalQuestoes === 0;
   const pctGeral = res && res.totalQuestoes ? Math.round((res.totalAcertos / res.totalQuestoes) * 100) : 0;
 
-  // Carga conceitual: nomeia cada carga pelo sub-bloco correspondente, que é
-  // como o usuário viu a rampa durante o drill.
-  const dadosCarga = carga.map((f) => {
+  const dadosNiveis = niveis.map((f) => {
     const n = Number(f.chave);
-    const letra = SUB_LETRAS[n - 1] ?? String(n);
-    return { nome: `${letra} · ${n}${n === N_SUBS ? "+" : ""} conc.`, pct: f.pct, total: f.total };
+    return { nome: `N${n} · ${NIVEIS[n - 1] ?? ""}`, pct: f.pct, total: f.total };
   });
 
   const dadosTipos = tipos.map((f) => ({ nome: labelTipo(f.chave), pct: f.pct, total: f.total }));
@@ -174,17 +174,40 @@ export default function DadosTab({ ativa }: { ativa: boolean }) {
 
   return (
     <Shell kicker="DESEMPENHO" titulo="Dados">
-      <div style={{ marginBottom: 16 }}>
-        <label style={rotulo}>Matéria</label>
-        <select style={campo} value={filtro} onChange={(e) => setFiltro(e.target.value)}>
-          <option value={TODAS}>Todas as matérias</option>
-          {materias.map((m) => (
-            <option key={m} value={m}>
-              {m}
-            </option>
-          ))}
-        </select>
+      <div style={{ display: "flex", gap: 10, marginBottom: 16, flexWrap: "wrap" }}>
+        <div style={{ flex: "1 1 160px" }}>
+          <label style={rotulo}>Matéria</label>
+          <select style={campo} value={filtro} onChange={(e) => setFiltro(e.target.value)}>
+            <option value={TODAS}>Todas as matérias</option>
+            {materias.map((m) => (
+              <option key={m} value={m}>
+                {m}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div style={{ flex: "1 1 160px" }}>
+          <label style={rotulo}>Nível de dificuldade</label>
+          <select
+            style={campo}
+            value={filtroNivel}
+            onChange={(e) => setFiltroNivel(Number(e.target.value))}
+          >
+            <option value={TODOS_NIVEIS}>Todos os níveis</option>
+            {NIVEIS.map((rot, i) => (
+              <option key={i} value={i + 1}>
+                N{i + 1} · {rot}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
+      {filtroNivel !== TODOS_NIVEIS && (
+        <div style={{ fontSize: 11.5, color: C.sub, marginTop: -10, marginBottom: 16, lineHeight: 1.4 }}>
+          O nível filtra só as questões (totais, tipo, formato) — a evolução por bloco e blocos
+          aprovados sempre consideram o bloco inteiro, não o nível.
+        </div>
+      )}
 
       {carregando ? (
         <Vazio>Calculando…</Vazio>
@@ -256,12 +279,18 @@ export default function DadosTab({ ativa }: { ativa: boolean }) {
             </ResponsiveContainer>
           </Cartao>
 
-          {/* Carga conceitual */}
+          {/* Nível de dificuldade */}
           <Cartao
-            titulo="ACERTO POR CARGA CONCEITUAL"
-            legenda="Mostra em qual carga o desempenho cai — onde o padrão quebra."
+            titulo="ACERTO POR NÍVEL DE DIFICULDADE"
+            legenda="Questões sem nível (importadas ou geradas do banco) não entram aqui."
           >
-            <BarrasPct dados={dadosCarga} />
+            {dadosNiveis.length ? (
+              <BarrasPct dados={dadosNiveis} />
+            ) : (
+              <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
+                Nenhuma questão respondida com nível registrado.
+              </div>
+            )}
           </Cartao>
 
           {/* Tipo de cobrança */}

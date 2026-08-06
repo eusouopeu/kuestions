@@ -144,3 +144,46 @@ export const TOPICOS_POR_MATERIA: Record<string, TopicoEspecifico[]> = {
 export function rotuloTopico(t: TopicoEspecifico): string {
   return `${t.codigo} ${t.nome}`;
 }
+
+export interface BlocoDeAulas {
+  /** Primeiro segmento do código, ex. "1" em "1.3". */
+  bloco: string;
+  aulas: TopicoEspecifico[];
+}
+
+/** Agrupa uma lista já ordenada de tópicos pelo prefixo antes do primeiro
+ * ".", preservando a ordem (a fonte já vem ordenada por bloco/aula). */
+export function agruparPorPrefixo(
+  itens: TopicoEspecifico[],
+  prefixoDe: (t: TopicoEspecifico) => string,
+): BlocoDeAulas[] {
+  const grupos = new Map<string, TopicoEspecifico[]>();
+  for (const item of itens) {
+    const chave = prefixoDe(item);
+    const atual = grupos.get(chave);
+    if (atual) atual.push(item);
+    else grupos.set(chave, [item]);
+  }
+  return [...grupos.entries()].map(([bloco, aulas]) => ({ bloco, aulas }));
+}
+
+/** Blocos de aulas de uma matéria (agrupa TOPICOS_POR_MATERIA pelo número
+ * antes do "."), para a seleção "bloco de aulas" em vez de aula única. */
+export function blocosDeMateria(materia: string): BlocoDeAulas[] {
+  const topicos = TOPICOS_POR_MATERIA[materia];
+  if (!topicos) return [];
+  return agruparPorPrefixo(topicos, (t) => t.codigo.split(".")[0]);
+}
+
+/** Rótulo de um bloco para o dropdown, ex. "Bloco 2 (4 aulas)". */
+export function rotuloBloco(b: BlocoDeAulas): string {
+  return `Bloco ${b.bloco} (${b.aulas.length} aula${b.aulas.length > 1 ? "s" : ""})`;
+}
+
+/** String descritiva do bloco inteiro, usada como `Config.topico` ao
+ * escolher "Bloco de aulas" — vai direto para o prompt como texto livre. */
+export function descricaoBloco(b: BlocoDeAulas): string {
+  return `Bloco ${b.bloco} (aulas ${b.aulas[0].codigo}–${b.aulas[b.aulas.length - 1].codigo}): ${b.aulas
+    .map((a) => a.nome)
+    .join("; ")}`;
+}
