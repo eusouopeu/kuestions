@@ -118,7 +118,11 @@ export default function QuestaoCard({
   const acertou = selecionada === questao.gabarito;
 
   return (
-    <div ref={cardRef} style={cartao}>
+    // WebkitTouchCallout suprime o menu nativo de seleção (Copiar/Traduzir/
+    // Buscar) do Android/iOS ao segurar o toque sobre o texto — ele compete
+    // visualmente com o botão "+ Salvar nota" de SelecaoNota, que abre no
+    // mesmo gesto. A seleção em si continua funcionando normalmente.
+    <div ref={cardRef} style={{ ...cartao, WebkitTouchCallout: "none" } as React.CSSProperties}>
       <SelecaoNota
         containerRef={cardRef}
         materia={materia}
