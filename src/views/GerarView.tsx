@@ -4,6 +4,7 @@ import Botao from "../components/Botao";
 import Rail from "../components/Rail";
 import Segmented from "../components/Segmented";
 import QuestaoCard from "../components/QuestaoCard";
+import EsqueletoQuestao from "../components/EsqueletoQuestao";
 import { Vazio } from "../components/Shell";
 import {
   MATERIAS,
@@ -17,6 +18,7 @@ import {
   FORMATOS,
 } from "../lib/constants";
 import { gerarSubBloco, SemCredencialError } from "../lib/anthropic";
+import { temCredencial } from "../lib/secure";
 import { criarBloco, fecharBloco, gravarResposta, listarBlocos } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
 import {
@@ -40,8 +42,15 @@ type ModoTopico = "aula" | "bloco" | "todos";
  * progressão de dificuldade (a "carga conceitual" A→D foi removida: as
  * questões dos sub-blocos não saíam perceptivelmente diferentes).
  */
-export default function GerarView({ onDados }: { onDados: () => void }) {
+export default function GerarView({
+  onDados,
+  onAjustes,
+}: {
+  onDados: () => void;
+  onAjustes: () => void;
+}) {
   const [tela, setTela] = useState<Tela>("config");
+  const [temChave, setTemChave] = useState(true);
   const [cfg, setCfg] = useState<Config>({
     materia: MATERIAS[0],
     materiaCustom: "",
@@ -71,7 +80,10 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
   subsRef.current = subs;
 
   useEffect(() => {
-    if (tela === "config") listarBlocos(null, 5).then(setHist).catch(() => setHist([]));
+    if (tela === "config") {
+      listarBlocos(null, 5).then(setHist).catch(() => setHist([]));
+      temCredencial().then(setTemChave);
+    }
   }, [tela]);
 
   useEffect(() => {
@@ -237,6 +249,30 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
   if (tela === "config") {
     return (
       <div>
+        {!temChave && (
+          <div
+            style={{
+              ...cartao,
+              background: C.canetaSoft,
+              borderColor: C.caneta,
+              marginBottom: 18,
+            }}
+          >
+            <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 6 }}>
+              PRIMEIRO PASSO
+            </div>
+            <p style={{ fontSize: 13.5, lineHeight: 1.55, margin: "0 0 12px" }}>
+              Para gerar ou treinar questões com IA (inclusive as do banco de questões reais) é
+              preciso configurar uma chave de API da Anthropic — leva menos de um minuto. Enquanto
+              isso, você já pode usar <strong>Importar</strong> no seletor acima para trazer
+              questões prontas de um arquivo.
+            </p>
+            <Botao tipo="tinta" onClick={onAjustes} style={{ maxWidth: 260 }}>
+              Configurar chave em Ajustes
+            </Botao>
+          </div>
+        )}
+
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Matéria</label>
           <select
@@ -451,7 +487,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
           </div>
         </div>
 
-        <Botao onClick={iniciarBloco} tipo="tinta">
+        <Botao onClick={iniciarBloco} tipo="tinta" disabled={!temChave}>
           Gerar bloco de {Q_POR_BLOCO} questões
         </Botao>
 
@@ -493,7 +529,11 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
     const st = statusSub[subAtual];
     return (
       <div>
-        <Rail atual={qIdx} total={Q_POR_BLOCO} />
+        <Rail
+          atual={qIdx}
+          total={Q_POR_BLOCO}
+          onSair={() => setConfirmandoAbandono(true)}
+        />
 
         {st === "erro" && (
           <div
@@ -518,32 +558,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
           </div>
         )}
 
-        {(st === "carregando" || st === "idle") && (
-          <div style={{ textAlign: "center", padding: "48px 0", color: C.sub }}>
-            <div style={{ ...mono, fontSize: 13 }}>Gerando mais questões…</div>
-            <div
-              style={{
-                marginTop: 10,
-                height: 3,
-                background: C.line,
-                borderRadius: 2,
-                overflow: "hidden",
-                maxWidth: 220,
-                margin: "12px auto 0",
-              }}
-            >
-              <div
-                style={{
-                  height: "100%",
-                  width: "40%",
-                  background: C.caneta,
-                  borderRadius: 2,
-                  animation: "desliza 1.1s ease-in-out infinite alternate",
-                }}
-              />
-            </div>
-          </div>
-        )}
+        {(st === "carregando" || st === "idle") && <EsqueletoQuestao />}
 
         {st === "ok" && questao && (
           <QuestaoCard
@@ -551,6 +566,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
             questao={questao}
             materia={c.materia}
             tagAssunto={gerarTagAssunto(c.topico || c.materia)}
+            origem="ia"
             labelProxima={ultimaDoBloco ? "Ver resultado" : "Próxima questão"}
             onResponder={responder}
             onProxima={proxima}
@@ -590,23 +606,7 @@ export default function GerarView({ onDados }: { onDados: () => void }) {
               </Botao>
             </div>
           </div>
-        ) : (
-          <button
-            onClick={() => setConfirmandoAbandono(true)}
-            style={{
-              ...mono,
-              marginTop: 18,
-              fontSize: 12,
-              background: "none",
-              border: "none",
-              color: C.sub,
-              cursor: "pointer",
-              textDecoration: "underline",
-            }}
-          >
-            Abandonar bloco
-          </button>
-        )}
+        ) : null}
       </div>
     );
   }

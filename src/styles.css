@@ -20,7 +20,10 @@
   --erro: #b23a2f;
   --erro-soft: #f8e9e7;
   --line: #dddacf;
-  --sub: #6b7280;
+  /* #6b7280 original dava só 4.43:1 sobre --paper — abaixo do mínimo AA
+     (4.5:1) para o texto pequeno que C.sub cobre (rótulos, legendas ~11px).
+     #65707d mantém a mesma leitura visual e sobe para 4.62:1. */
+  --sub: #65707d;
   /* Preenchimento sólido "tinta" (botão primário escuro, chip ativo, pílula
      flutuante) — sempre emparelhado com texto branco fixo. É um token à
      parte de --ink porque --ink TAMBÉM é cor de texto e, nesse papel,

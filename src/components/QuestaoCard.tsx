@@ -9,8 +9,19 @@ import SelecaoNota from "./SelecaoNota";
 import type { Questao } from "../lib/types";
 import { labelTipo } from "../lib/constants";
 import { reportarQuestao } from "../lib/repo";
+import type { MotivoReport } from "../lib/repo";
+import { vibrarAlerta, vibrarErro, vibrarSucesso } from "../lib/haptics";
+import ModalReport from "./ModalReport";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
+
+export type OrigemQuestao = "ia" | "banco" | "importada";
+
+const ROTULO_ORIGEM: Record<OrigemQuestao, string> = {
+  ia: "Gerada por IA",
+  banco: "Banco real · explicação por IA",
+  importada: "Importada",
+};
 
 /**
  * Uma questão: enunciado, alternativas com toque/arrasto, revelação com
@@ -29,6 +40,7 @@ export default function QuestaoCard({
   tagAssunto,
   questaoOrigemId,
   reportadaInicial,
+  origem,
   cabecalho,
   labelProxima,
   onResponder,
@@ -42,6 +54,11 @@ export default function QuestaoCard({
   questaoOrigemId?: number | null;
   /** Já reportada em uma sessão anterior (modo revisão — QuestaoRespondida.reportada). */
   reportadaInicial?: boolean;
+  /** De onde a questão veio — não persistido, então só aparece no drill em
+   * que a questão foi criada (Gerar/Do banco/Importar), não na revisão de
+   * erradas. Ajuda a calibrar confiança: só o comentário do modo "banco" é
+   * gerado por IA, o resto da questão é uma prova real. */
+  origem?: OrigemQuestao;
   cabecalho?: React.ReactNode;
   labelProxima: string;
   /** Devolve o id da linha gravada, para vincular a nota à questão de origem. */
@@ -55,6 +72,7 @@ export default function QuestaoCard({
   const [enviando, setEnviando] = useState(false);
   const [reportada, setReportada] = useState(reportadaInicial ?? false);
   const [reportando, setReportando] = useState(false);
+  const [modalReport, setModalReport] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   // Reset ao trocar de questão: sem isso a seleção da anterior vazaria.
@@ -66,14 +84,17 @@ export default function QuestaoCard({
     setEnviando(false);
     setReportada(reportadaInicial ?? false);
     setReportando(false);
+    setModalReport(false);
   }, [questao, questaoOrigemId, reportadaInicial]);
 
-  async function reportar() {
+  async function reportar(motivo: MotivoReport) {
     if (reportada || reportando || origemId == null) return;
     setReportando(true);
     try {
-      await reportarQuestao(origemId);
+      await reportarQuestao(origemId, motivo);
       setReportada(true);
+      setModalReport(false);
+      vibrarAlerta();
     } catch (e) {
       console.error("reportar questão", e);
     } finally {
@@ -104,6 +125,8 @@ export default function QuestaoCard({
     setEnviando(true);
     const acertou = selecionada === questao.gabarito;
     setRevelada(true);
+    if (acertou) vibrarSucesso();
+    else vibrarErro();
     try {
       const id = await onResponder(selecionada, acertou);
       if (typeof id === "number") setOrigemId(id);
@@ -131,6 +154,12 @@ export default function QuestaoCard({
       />
 
       {cabecalho}
+
+      {origem && (
+        <div style={{ marginBottom: 10 }}>
+          <Chip tom={origem === "banco" ? "ok" : "neutro"}>{ROTULO_ORIGEM[origem]}</Chip>
+        </div>
+      )}
 
       <p style={{ fontSize: 16, lineHeight: 1.55, margin: "0 0 16px" }}>
         {questao.enunciado}
@@ -235,8 +264,13 @@ export default function QuestaoCard({
 
             {origemId != null && (
               <button
-                onClick={reportar}
+                onClick={() => setModalReport(true)}
                 disabled={reportada || reportando}
+                aria-label={
+                  reportada
+                    ? "Questão já reportada"
+                    : "Reportar erro nesta questão"
+                }
                 title={
                   reportada
                     ? "Questão reportada — obrigado pelo aviso"
@@ -346,6 +380,10 @@ export default function QuestaoCard({
             {labelProxima}
           </Botao>
         </div>
+      )}
+
+      {modalReport && (
+        <ModalReport onCancelar={() => setModalReport(false)} onConfirmar={reportar} />
       )}
     </div>
   );

@@ -28,6 +28,20 @@ interface Draft {
   tipoCobranca: TipoId | "";
 }
 
+/** JSON de exemplo do placeholder, reutilizado pelo botão "Usar exemplo". */
+const JSON_EXEMPLO = `[
+  {
+    "enunciado": "...",
+    "formato": "mc",
+    "alternativas": ["A) ...","B) ...","C) ...","D) ...","E) ..."],
+    "gabarito": "B",
+    "comentario": "...",
+    "explicacoes_erradas": {"A":"...","C":"...","D":"...","E":"..."},
+    "conceitos": ["..."],
+    "dispositivo": null
+  }
+]`;
+
 function draftVazio(): Draft {
   return {
     enunciado: "",
@@ -94,6 +108,28 @@ function limparCercas(s: string): string {
   return s.replace(/^```json\s*|^```\s*|```\s*$/gim, "").trim();
 }
 
+/** Inverso de montarRawDoDraft — reconstrói o Draft a partir de uma Questao
+ * já normalizada, para reabrir um item da fila no formulário manual (editar
+ * em vez de só remover e redigitar do zero). Perde só o prefixo "A) " das
+ * alternativas, que é reaplicado ao salvar de novo. */
+function questaoParaDraft(q: Questao): Draft {
+  const alternativas = ["", "", "", "", ""];
+  (q.alternativas ?? []).forEach((alt, i) => {
+    alternativas[i] = alt.replace(/^[A-E]\)\s*/, "");
+  });
+  return {
+    enunciado: q.enunciado,
+    formato: q.formato,
+    alternativas,
+    gabarito: q.gabarito,
+    comentario: q.comentario,
+    explicacoes: q.explicacoes_erradas ?? {},
+    conceitos: q.conceitos.join(", "),
+    dispositivo: q.dispositivo ?? "",
+    tipoCobranca: q.tipo_cobranca ?? "",
+  };
+}
+
 /**
  * Importar questões prontas — sem chamar a API. Duas formas de montar o
  * conjunto (JSON colado/carregado, ou um formulário manual, questão por
@@ -114,6 +150,7 @@ export default function ImportarView() {
 
   const [draft, setDraft] = useState<Draft>(draftVazio());
   const [erroDraft, setErroDraft] = useState<string | null>(null);
+  const [preview, setPreview] = useState(false);
 
   const [fila, setFila] = useState<Questao[]>([]);
   const [erroGeral, setErroGeral] = useState<string | null>(null);
@@ -188,10 +225,31 @@ export default function ImportarView() {
     setFila((f) => [...f, q]);
     setDraft(draftVazio());
     setErroDraft(null);
+    setPreview(false);
   }
 
   function removerDaFila(i: number) {
     setFila((f) => f.filter((_, k) => k !== i));
+  }
+
+  function moverNaFila(i: number, direcao: -1 | 1) {
+    setFila((f) => {
+      const j = i + direcao;
+      if (j < 0 || j >= f.length) return f;
+      const nova = [...f];
+      [nova[i], nova[j]] = [nova[j], nova[i]];
+      return nova;
+    });
+  }
+
+  /** Reabre um item já enfileirado no formulário manual para corrigi-lo, em
+   * vez de só permitir apagar e redigitar do zero. */
+  function editarDaFila(i: number) {
+    setDraft(questaoParaDraft(fila[i]));
+    setModo("manual");
+    setPreview(false);
+    setErroDraft(null);
+    removerDaFila(i);
   }
 
   async function iniciar() {
@@ -219,6 +277,7 @@ export default function ImportarView() {
     setErroGeral(null);
     setAvisoValidacao(null);
     setBlocoId(null);
+    setPreview(false);
   }
 
   /* ---------- DRILL ---------- */
@@ -267,6 +326,7 @@ export default function ImportarView() {
           questao={questaoAtual}
           materia={materiaFinal}
           tagAssunto={gerarTagAssunto(topico || materiaFinal)}
+          origem="importada"
           labelProxima={ultima ? "Ver resultado" : "Próxima questão"}
           onResponder={responder}
           onProxima={proxima}
@@ -309,6 +369,8 @@ export default function ImportarView() {
   const letrasAtuaisDraft =
     draft.formato === "ce" ? ["C", "E"] : altsValidasDraft ? altsValidasDraft.map((_, i) => LETRAS[i]) : [];
   const letrasErradasDraft = letrasAtuaisDraft.filter((l) => l !== draft.gabarito.toUpperCase());
+  const rawPreview = montarRawDoDraft(draft);
+  const questaoPreview = rawPreview ? normalizarQuestao(rawPreview, "misto") : null;
 
   return (
     <div>
@@ -349,7 +411,10 @@ export default function ImportarView() {
             { id: "json" as Modo, label: "JSON" },
             { id: "manual" as Modo, label: "Manual" },
           ]}
-          onChange={setModo}
+          onChange={(m) => {
+            setModo(m);
+            setPreview(false);
+          }}
         />
       </div>
 
@@ -358,9 +423,7 @@ export default function ImportarView() {
           <label style={rotulo}>Colar ou carregar um arquivo .json</label>
           <textarea
             style={{ ...campo, ...mono, fontSize: 12.5, minHeight: 160, resize: "vertical", lineHeight: 1.5 }}
-            placeholder={
-              '[\n  {\n    "enunciado": "...",\n    "formato": "mc",\n    "alternativas": ["A) ...","B) ...","C) ...","D) ...","E) ..."],\n    "gabarito": "B",\n    "comentario": "...",\n    "explicacoes_erradas": {"A":"...","C":"...","D":"...","E":"..."},\n    "conceitos": ["..."],\n    "dispositivo": null\n  }\n]'
-            }
+            placeholder={JSON_EXEMPLO}
             value={jsonTexto}
             onChange={(e) => setJsonTexto(e.target.value)}
           />
@@ -379,6 +442,24 @@ export default function ImportarView() {
               Validar JSON
             </Botao>
           </div>
+          {!jsonTexto.trim() && (
+            <button
+              onClick={() => setJsonTexto(JSON_EXEMPLO)}
+              style={{
+                ...mono,
+                marginTop: 8,
+                fontSize: 11.5,
+                background: "none",
+                border: "none",
+                color: C.caneta,
+                cursor: "pointer",
+                padding: 0,
+                textDecoration: "underline",
+              }}
+            >
+              Usar exemplo
+            </button>
+          )}
           <div style={{ fontSize: 11.5, color: C.sub, marginTop: 8, lineHeight: 1.4 }}>
             Formato: "ce" (gabarito "C"/"E") ou "mc" (5 alternativas "A) …"–"E) …", gabarito
             "A"–"E"). Só <code style={{ ...mono, fontSize: 11 }}>enunciado</code>,{" "}
@@ -536,9 +617,36 @@ export default function ImportarView() {
             <div style={{ ...mono, fontSize: 12, color: C.erro, marginBottom: 10 }}>{erroDraft}</div>
           )}
 
-          <Botao tipo="tinta" onClick={adicionarDraft}>
-            Adicionar questão à fila
-          </Botao>
+          {preview && questaoPreview && (
+            <div style={{ marginBottom: 14 }}>
+              <div style={{ ...mono, fontSize: 10.5, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
+                PRÉ-VISUALIZAÇÃO — RESPONDA À VONTADE, NÃO CONTA PARA NADA
+              </div>
+              <QuestaoCard
+                key={JSON.stringify(questaoPreview)}
+                questao={questaoPreview}
+                materia={materiaFinal}
+                tagAssunto="preview"
+                labelProxima="Fechar pré-visualização"
+                onResponder={() => {}}
+                onProxima={() => setPreview(false)}
+              />
+            </div>
+          )}
+
+          <div style={{ display: "flex", gap: 8 }}>
+            <Botao
+              tipo="fantasma"
+              onClick={() => setPreview((p) => !p)}
+              disabled={!questaoPreview}
+              style={{ flex: 1 }}
+            >
+              {preview ? "Ocultar pré-visualização" : "Pré-visualizar"}
+            </Botao>
+            <Botao tipo="tinta" onClick={adicionarDraft} style={{ flex: 1 }}>
+              Adicionar à fila
+            </Botao>
+          </div>
         </div>
       )}
 
@@ -576,6 +684,24 @@ export default function ImportarView() {
                 borderTop: i > 0 ? `1px solid ${C.line}` : "none",
               }}
             >
+              <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                <button
+                  onClick={() => moverNaFila(i, -1)}
+                  disabled={i === 0}
+                  aria-label="Mover para cima"
+                  style={itemFilaBotao(i === 0)}
+                >
+                  ▲
+                </button>
+                <button
+                  onClick={() => moverNaFila(i, 1)}
+                  disabled={i === fila.length - 1}
+                  aria-label="Mover para baixo"
+                  style={itemFilaBotao(i === fila.length - 1)}
+                >
+                  ▼
+                </button>
+              </div>
               <span
                 style={{
                   fontSize: 13,
@@ -587,6 +713,21 @@ export default function ImportarView() {
               >
                 {i + 1}. {q.enunciado}
               </span>
+              <button
+                onClick={() => editarDaFila(i)}
+                aria-label="Editar"
+                style={{
+                  ...mono,
+                  fontSize: 12,
+                  color: C.caneta,
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: 4,
+                }}
+              >
+                Editar
+              </button>
               <button
                 onClick={() => removerDaFila(i)}
                 aria-label="Remover"
@@ -612,4 +753,16 @@ export default function ImportarView() {
       </Botao>
     </div>
   );
+}
+
+function itemFilaBotao(desabilitado: boolean) {
+  return {
+    fontSize: 9,
+    lineHeight: "9px",
+    color: desabilitado ? C.line : C.sub,
+    background: "none",
+    border: "none",
+    cursor: desabilitado ? "default" : "pointer",
+    padding: 2,
+  } as const;
 }

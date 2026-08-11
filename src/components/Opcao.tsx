@@ -1,5 +1,6 @@
 import { useRef, useState, type CSSProperties } from "react";
 import { C, disp } from "../theme";
+import { vibrarLeve, vibrarMedio } from "../lib/haptics";
 
 export type Reveal = "certo" | "errado" | null;
 
@@ -52,9 +53,16 @@ export default function Opcao({
     const d = dx;
     startX.current = null;
     setDx(0);
-    if (d < -50) onTachar();
-    else if (d > 50) onDestachar();
-    else if (!arrasto.current) onSelect();
+    if (d < -50) {
+      vibrarMedio();
+      onTachar();
+    } else if (d > 50) {
+      vibrarLeve();
+      onDestachar();
+    } else if (!arrasto.current) {
+      vibrarLeve();
+      onSelect();
+    }
   };
   const cancel = () => {
     startX.current = null;
@@ -70,10 +78,22 @@ export default function Opcao({
           ? [C.caneta, C.canetaSoft]
           : [C.line, C.paper];
 
+  const estado = tachada
+    ? "riscada"
+    : reveal === "certo"
+      ? "resposta certa"
+      : reveal === "errado"
+        ? "sua resposta, errada"
+        : marcada
+          ? "selecionada"
+          : "";
+
   return (
     <div
       role="button"
       tabIndex={0}
+      aria-pressed={marcada}
+      aria-label={estado ? `${texto} — ${estado}` : texto}
       onPointerDown={down}
       onPointerMove={move}
       onPointerUp={up}

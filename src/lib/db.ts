@@ -18,7 +18,7 @@ import {
 } from "@capacitor-community/sqlite";
 
 const DB_NAME = "kumon_fiscal";
-const SCHEMA_VERSION = 4;
+const SCHEMA_VERSION = 5;
 
 const sqlite = new SQLiteConnection(CapacitorSQLite);
 const isWeb = Capacitor.getPlatform() === "web";
@@ -137,6 +137,15 @@ const MIGRATIONS: { version: number; sql: string }[] = [
       UPDATE questoes_respondidas
       SET nivel = (SELECT nivel FROM blocos WHERE blocos.id = questoes_respondidas.bloco_id)
       WHERE bloco_id IS NOT NULL;
+    `,
+  },
+  {
+    // Categoriza o motivo do report (ver ModalReport.tsx) em vez de um
+    // reportada=1 genérico — orienta a curadoria do banco de questões
+    // geradas por IA direto para a causa mais provável.
+    version: 5,
+    sql: `
+      ALTER TABLE questoes_respondidas ADD COLUMN motivo_report TEXT;
     `,
   },
 ];

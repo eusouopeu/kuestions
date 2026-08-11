@@ -63,6 +63,7 @@ export default function TabBar({
           <button
             key={a.id}
             onClick={() => onChange(a.id)}
+            aria-label={a.label}
             aria-current={ativo ? "page" : undefined}
             style={{
               flex: 1,

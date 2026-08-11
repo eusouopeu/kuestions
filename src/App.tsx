@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { C, mono, TAB_BAR_H } from "./theme";
 import TabBar, { type Aba } from "./components/TabBar";
 import QuestoesTab from "./views/QuestoesTab";
@@ -30,6 +30,12 @@ export default function App() {
   // inteiro (junto com o estado do sub-bloco atual, respostas, etc.) toda vez
   // que o usuário saía da aba.
   const [visitadas, setVisitadas] = useState<Set<Aba>>(new Set(["questoes"]));
+  // Como as 4 abas compartilham o scroll da JANELA (nenhuma tem seu próprio
+  // container com overflow), trocar de aba sem isto deixa o scroll "vazado"
+  // de uma para a outra — ex.: rolar até o fim de Notas e abrir Questões já
+  // aberto no meio da tela. Guardamos o scrollY de cada aba ao sair dela e
+  // restauramos ao voltar.
+  const scrollPorAba = useRef<Partial<Record<Aba, number>>>({});
 
   useEffect(() => {
     getTema().then(aplicarTema);
@@ -48,9 +54,14 @@ export default function App() {
   }, []);
 
   function trocar(a: Aba) {
+    scrollPorAba.current[aba] = window.scrollY;
     setAba(a);
     setVisitadas((v) => (v.has(a) ? v : new Set(v).add(a)));
   }
+
+  useEffect(() => {
+    window.scrollTo(0, scrollPorAba.current[aba] ?? 0);
+  }, [aba]);
 
   if (erroBoot) {
     return (
@@ -82,8 +93,12 @@ export default function App() {
         // aba (o drill de Questões, a navegação de pastas em Notas, etc.).
         return (
           <div key={a} style={{ display: aba === a ? "block" : "none" }}>
-            {a === "questoes" && <QuestoesTab onDados={() => trocar("dados")} />}
-            {a === "notas" && <NotasTab ativa={aba === "notas"} />}
+            {a === "questoes" && (
+              <QuestoesTab onDados={() => trocar("dados")} onAjustes={() => trocar("ajustes")} />
+            )}
+            {a === "notas" && (
+              <NotasTab ativa={aba === "notas"} onQuestoes={() => trocar("questoes")} />
+            )}
             {a === "dados" && (
               <Suspense
                 fallback={
@@ -100,7 +115,7 @@ export default function App() {
                   </div>
                 }
               >
-                <DadosTab ativa={aba === "dados"} />
+                <DadosTab ativa={aba === "dados"} onQuestoes={() => trocar("questoes")} />
               </Suspense>
             )}
             {a === "ajustes" && <AjustesTab />}

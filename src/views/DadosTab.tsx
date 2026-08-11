@@ -14,6 +14,7 @@ import {
 } from "recharts";
 import { C, cartao, campo, disp, mono, rotulo } from "../theme";
 import Shell, { Vazio } from "../components/Shell";
+import Botao from "../components/Botao";
 import {
   materiasComDados,
   porFormato,
@@ -118,7 +119,13 @@ function BarrasPct({
   );
 }
 
-export default function DadosTab({ ativa }: { ativa: boolean }) {
+export default function DadosTab({
+  ativa,
+  onQuestoes,
+}: {
+  ativa: boolean;
+  onQuestoes: () => void;
+}) {
   const [materias, setMaterias] = useState<string[]>([]);
   const [filtro, setFiltro] = useState<string>(TODAS);
   const [filtroNivel, setFiltroNivel] = useState<number>(TODOS_NIVEIS);
@@ -213,9 +220,14 @@ export default function DadosTab({ ativa }: { ativa: boolean }) {
         <Vazio>Calculando…</Vazio>
       ) : semDados ? (
         <Vazio>
-          Sem dados {filtro === TODAS ? "ainda" : `para ${filtro}`}.
-          <br />
-          Responda um bloco na aba Questões.
+          <p style={{ margin: "0 0 14px" }}>
+            Sem dados {filtro === TODAS ? "ainda" : `para ${filtro}`}.
+            <br />
+            Responda um bloco na aba Questões para ver seu desempenho aqui.
+          </p>
+          <Botao tipo="tinta" onClick={onQuestoes} style={{ maxWidth: 220, margin: "0 auto" }}>
+            Ir para Questões
+          </Botao>
         </Vazio>
       ) : (
         <>

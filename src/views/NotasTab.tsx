@@ -25,7 +25,13 @@ function dataCurta(iso: string): string {
 }
 
 /** Banco de notas: pastas por matéria → lista → detalhe editável. */
-export default function NotasTab({ ativa }: { ativa: boolean }) {
+export default function NotasTab({
+  ativa,
+  onQuestoes,
+}: {
+  ativa: boolean;
+  onQuestoes: () => void;
+}) {
   const [pastas, setPastas] = useState<{ materia: string; total: number }[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [pasta, setPasta] = useState<string | null>(null);
@@ -34,6 +40,7 @@ export default function NotasTab({ ativa }: { ativa: boolean }) {
   const [aberto, setAberto] = useState<ConceitoSalvo | null>(null);
   const [exportando, setExportando] = useState(false);
   const [erroExport, setErroExport] = useState<string | null>(null);
+  const [csvExportado, setCsvExportado] = useState(false);
 
   const carregarPastas = useCallback(() => {
     setCarregando(true);
@@ -61,6 +68,7 @@ export default function NotasTab({ ativa }: { ativa: boolean }) {
     if (!pasta || !itens.length || exportando) return;
     setExportando(true);
     setErroExport(null);
+    setCsvExportado(false);
     try {
       const linhas = itens.map((n) => {
         const nItens = contarItensLista(n.corpo);
@@ -68,6 +76,8 @@ export default function NotasTab({ ativa }: { ativa: boolean }) {
         return [titulo, n.corpo, n.tag];
       });
       await exportarArquivo(`flashcards-${slugify(pasta)}.csv`, paraCSV(linhas));
+      setCsvExportado(true);
+      setTimeout(() => setCsvExportado(false), 2500);
     } catch (e) {
       setErroExport(e instanceof Error ? e.message : "Falha ao exportar.");
     } finally {
@@ -114,8 +124,17 @@ export default function NotasTab({ ativa }: { ativa: boolean }) {
 
         {itens.length > 0 && (
           <div style={{ marginBottom: 14 }}>
-            <Botao tipo="fantasma" onClick={exportarCSV} disabled={exportando}>
-              {exportando ? "Exportando…" : `Exportar flashcards (CSV) · ${itens.length}`}
+            <Botao
+              tipo="fantasma"
+              onClick={exportarCSV}
+              disabled={exportando}
+              style={csvExportado ? { borderColor: C.ok, color: C.ok } : undefined}
+            >
+              {exportando
+                ? "Exportando…"
+                : csvExportado
+                  ? "✓ Exportado"
+                  : `Exportar flashcards (CSV) · ${itens.length}`}
             </Botao>
             {erroExport && (
               <div style={{ ...mono, fontSize: 11.5, color: C.erro, marginTop: 6 }}>
@@ -205,9 +224,14 @@ export default function NotasTab({ ativa }: { ativa: boolean }) {
         <Vazio>Carregando…</Vazio>
       ) : pastas.length === 0 ? (
         <Vazio>
-          Nenhuma nota salva ainda.
-          <br />
-          Ao responder uma questão, selecione um trecho de texto para salvá-lo aqui.
+          <p style={{ margin: "0 0 14px" }}>
+            Nenhuma nota salva ainda.
+            <br />
+            Ao responder uma questão, selecione um trecho de texto para salvá-lo aqui.
+          </p>
+          <Botao tipo="tinta" onClick={onQuestoes} style={{ maxWidth: 220, margin: "0 auto" }}>
+            Ir para Questões
+          </Botao>
         </Vazio>
       ) : (
         pastas.map((p) => (

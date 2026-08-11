@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { C, campo, cartao, disp, mono, rotulo } from "../theme";
 import Botao from "../components/Botao";
+import EsqueletoQuestao from "../components/EsqueletoQuestao";
 import Rail from "../components/Rail";
 import Segmented from "../components/Segmented";
 import QuestaoCard from "../components/QuestaoCard";
@@ -16,6 +17,7 @@ import {
   type FiltroBanco,
 } from "../lib/banco";
 import { gerarExplicacoes } from "../lib/anthropic";
+import { temCredencial } from "../lib/secure";
 import { criarBloco, fecharBloco, gravarResposta } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
 import type { Questao, StatusSub } from "../lib/types";
@@ -34,8 +36,9 @@ const LOTE = 4;
  * (enunciado/alternativas/gabarito nunca são alterados) e só usa a API para
  * escrever comentário e explicação de cada alternativa errada.
  */
-export default function GerarBancoView() {
+export default function GerarBancoView({ onAjustes }: { onAjustes: () => void }) {
   const [tela, setTela] = useState<Tela>("config");
+  const [temChave, setTemChave] = useState(true);
   const [area, setArea] = useState<string>(AREAS_BANCO[0] ?? "");
   const [modo, setModo] = useState<Modo>("todos");
   const [assunto, setAssunto] = useState<string>("");
@@ -67,6 +70,10 @@ export default function GerarBancoView() {
     setRespondidaAtual(false);
   }, [qIdx]);
 
+  useEffect(() => {
+    if (tela === "config") temCredencial().then(setTemChave);
+  }, [tela]);
+
   if (!AREAS_BANCO.length) {
     return <Vazio>Banco de questões vazio ou não encontrado.</Vazio>;
   }
@@ -79,6 +86,10 @@ export default function GerarBancoView() {
         : { modo: "todos" };
 
   const disponiveis = contarDisponiveis(area, filtro);
+
+  useEffect(() => {
+    if (disponiveis > 0) setQuantidade((q) => Math.min(q, disponiveis));
+  }, [disponiveis]);
 
   function dispararLote(i: number, todas: Questao[], nLotes: number) {
     const fatia = todas.slice(i * LOTE, i * LOTE + LOTE);
@@ -210,6 +221,29 @@ export default function GerarBancoView() {
   if (tela === "config") {
     return (
       <div>
+        {!temChave && (
+          <div
+            style={{
+              ...cartao,
+              background: C.canetaSoft,
+              borderColor: C.caneta,
+              marginBottom: 18,
+            }}
+          >
+            <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 6 }}>
+              PRIMEIRO PASSO
+            </div>
+            <p style={{ fontSize: 13.5, lineHeight: 1.55, margin: "0 0 12px" }}>
+              O enunciado vem do banco real, mas o comentário e as explicações de cada
+              alternativa errada são escritos pela IA — por isso este modo também depende de uma
+              chave de API da Anthropic configurada em Ajustes.
+            </p>
+            <Botao tipo="tinta" onClick={onAjustes} style={{ maxWidth: 260 }}>
+              Configurar chave em Ajustes
+            </Botao>
+          </div>
+        )}
+
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Área</label>
           <select style={campo} value={area} onChange={(e) => setArea(e.target.value)}>
@@ -264,21 +298,42 @@ export default function GerarBancoView() {
 
         <div style={{ marginBottom: 20 }}>
           <label style={rotulo}>Quantidade de questões</label>
-          <input
-            type="number"
-            style={campo}
-            min={1}
-            max={disponiveis || 1}
-            value={quantidade}
-            onChange={(e) => setQuantidade(Math.max(1, Number(e.target.value) || 1))}
-          />
+          <div style={{ display: "flex", alignItems: "stretch", gap: 8 }}>
+            <button
+              onClick={() => setQuantidade((q) => Math.max(1, q - 1))}
+              disabled={quantidade <= 1}
+              aria-label="Diminuir quantidade"
+              style={stepperBotaoStyle(quantidade <= 1)}
+            >
+              −
+            </button>
+            <div
+              style={{
+                ...campo,
+                ...disp,
+                flex: 1,
+                textAlign: "center",
+                fontSize: 18,
+                fontWeight: 700,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {Math.min(quantidade, disponiveis || quantidade)}
+            </div>
+            <button
+              onClick={() => setQuantidade((q) => Math.min(disponiveis || 1, q + 1))}
+              disabled={quantidade >= disponiveis}
+              aria-label="Aumentar quantidade"
+              style={stepperBotaoStyle(quantidade >= disponiveis)}
+            >
+              +
+            </button>
+          </div>
           <div style={{ ...mono, fontSize: 11, color: C.sub, marginTop: 5 }}>
             {disponiveis} questão{disponiveis === 1 ? "" : "es"} disponíve
-            {disponiveis === 1 ? "l" : "is"} neste filtro
-            {quantidade > disponiveis && disponiveis > 0
-              ? ` — o bloco sairá com ${disponiveis}, todas as que existem`
-              : ""}
-            .
+            {disponiveis === 1 ? "l" : "is"} neste filtro.
           </div>
         </div>
 
@@ -300,7 +355,11 @@ export default function GerarBancoView() {
     const st = statusLote[loteAtual];
     return (
       <div>
-        <Rail atual={qIdx} total={totalQuestoes} />
+        <Rail
+          atual={qIdx}
+          total={totalQuestoes}
+          onSair={() => setConfirmandoAbandono(true)}
+        />
 
         {st === "erro" && (
           <div
@@ -325,32 +384,7 @@ export default function GerarBancoView() {
           </div>
         )}
 
-        {(st === "carregando" || st === "idle") && (
-          <div style={{ textAlign: "center", padding: "48px 0", color: C.sub }}>
-            <div style={{ ...mono, fontSize: 13 }}>Gerando explicações…</div>
-            <div
-              style={{
-                marginTop: 10,
-                height: 3,
-                background: C.line,
-                borderRadius: 2,
-                overflow: "hidden",
-                maxWidth: 220,
-                margin: "12px auto 0",
-              }}
-            >
-              <div
-                style={{
-                  height: "100%",
-                  width: "40%",
-                  background: C.caneta,
-                  borderRadius: 2,
-                  animation: "desliza 1.1s ease-in-out infinite alternate",
-                }}
-              />
-            </div>
-          </div>
-        )}
+        {(st === "carregando" || st === "idle") && <EsqueletoQuestao />}
 
         {st === "ok" && questao && (
           <QuestaoCard
@@ -358,6 +392,7 @@ export default function GerarBancoView() {
             questao={questao}
             materia={area}
             tagAssunto={gerarTagAssunto(topicoAtual)}
+            origem="banco"
             labelProxima={ultimaDoBloco ? "Ver resultado" : "Próxima questão"}
             onResponder={responder}
             onProxima={proxima}
@@ -396,23 +431,7 @@ export default function GerarBancoView() {
               </Botao>
             </div>
           </div>
-        ) : (
-          <button
-            onClick={() => setConfirmandoAbandono(true)}
-            style={{
-              ...mono,
-              marginTop: 18,
-              fontSize: 12,
-              background: "none",
-              border: "none",
-              color: C.sub,
-              cursor: "pointer",
-              textDecoration: "underline",
-            }}
-          >
-            Abandonar bloco
-          </button>
-        )}
+        ) : null}
       </div>
     );
   }
@@ -444,4 +463,19 @@ export default function GerarBancoView() {
       </Botao>
     </div>
   );
+}
+
+function stepperBotaoStyle(desabilitado: boolean) {
+  return {
+    ...disp,
+    width: 48,
+    fontSize: 22,
+    fontWeight: 700,
+    borderRadius: 8,
+    border: `1.5px solid ${C.line}`,
+    background: C.card,
+    color: C.ink,
+    cursor: desabilitado ? "default" : "pointer",
+    opacity: desabilitado ? 0.4 : 1,
+  } as const;
 }

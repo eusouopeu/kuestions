@@ -141,6 +141,7 @@ function mapQuestao(r: Record<string, unknown>): QuestaoRespondida {
     acertou: toBool(r.acertou),
     revisada: toBool(r.revisada),
     reportada: toBool(r.reportada),
+    motivo_report: (r.motivo_report as string) ?? null,
     comentario: (r.comentario as string) ?? "",
     explicacoes_erradas: parseJSON<Record<string, string>>(
       r.explicacoes_erradas,
@@ -206,10 +207,23 @@ export async function marcarRevisada(id: number): Promise<void> {
   await run(`UPDATE questoes_respondidas SET revisada = 1 WHERE id = ?`, [id]);
 }
 
+export type MotivoReport = "gabarito" | "enunciado" | "duplicada" | "outro";
+
+export const MOTIVOS_REPORT: { id: MotivoReport; label: string }[] = [
+  { id: "gabarito", label: "Gabarito errado" },
+  { id: "enunciado", label: "Enunciado confuso ou incompleto" },
+  { id: "duplicada", label: "Questão duplicada" },
+  { id: "outro", label: "Outro motivo" },
+];
+
 /** Sinaliza que a questão em si (enunciado/gabarito) está errada — não o
- * desempenho do usuário. Serve para depois revisar o que o modelo gerou mal. */
-export async function reportarQuestao(id: number): Promise<void> {
-  await run(`UPDATE questoes_respondidas SET reportada = 1 WHERE id = ?`, [id]);
+ * desempenho do usuário. Serve para depois revisar o que o modelo gerou mal.
+ * `motivo` categoriza a causa mais provável, para orientar a curadoria. */
+export async function reportarQuestao(id: number, motivo: MotivoReport): Promise<void> {
+  await run(`UPDATE questoes_respondidas SET reportada = 1, motivo_report = ? WHERE id = ?`, [
+    motivo,
+    id,
+  ]);
 }
 
 /* ---------- Notas (conceitos_salvos) ---------- */

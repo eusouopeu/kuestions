@@ -45,6 +45,8 @@ export interface QuestaoRespondida extends Questao {
   revisada: boolean;
   /** Usuário sinalizou que a questão em si (enunciado/gabarito) está errada. */
   reportada: boolean;
+  /** Categoria escolhida ao reportar — ver MotivoReport em lib/repo.ts. */
+  motivo_report: string | null;
   ts: string;
 }
 

@@ -29,7 +29,9 @@ export default function AjustesTab() {
 
   const [tema, setTemaLocal] = useState<Tema>("sistema");
   const [exportandoBackup, setExportandoBackup] = useState(false);
+  const [backupExportado, setBackupExportado] = useState(false);
   const [arquivoRestauro, setArquivoRestauro] = useState<File | null>(null);
+  const [confirmacaoRestauro, setConfirmacaoRestauro] = useState("");
   const [restaurando, setRestaurando] = useState(false);
   const [statusBackup, setStatusBackup] = useState<{ tom: "ok" | "erro"; texto: string } | null>(
     null,
@@ -90,10 +92,13 @@ export default function AjustesTab() {
     if (exportandoBackup) return;
     setExportandoBackup(true);
     setStatusBackup(null);
+    setBackupExportado(false);
     try {
       const json = await exportarBancoJSON();
       const data = new Date().toISOString().slice(0, 10);
       await exportarArquivo(`kuestions-backup-${data}.json`, json, "application/json");
+      setBackupExportado(true);
+      setTimeout(() => setBackupExportado(false), 2500);
     } catch (e) {
       setStatusBackup({
         tom: "erro",
@@ -109,12 +114,14 @@ export default function AjustesTab() {
     e.target.value = ""; // permite escolher o mesmo arquivo de novo
     if (f) {
       setStatusBackup(null);
+      setConfirmacaoRestauro("");
       setArquivoRestauro(f);
     }
   }
 
   async function confirmarRestauro() {
-    if (!arquivoRestauro || restaurando) return;
+    if (!arquivoRestauro || restaurando || confirmacaoRestauro.trim().toUpperCase() !== "RESTAURAR")
+      return;
     setRestaurando(true);
     try {
       const texto = await arquivoRestauro.text();
@@ -268,10 +275,25 @@ export default function AjustesTab() {
               Restaurar <strong>{arquivoRestauro.name}</strong> substitui TODOS os dados atuais
               (blocos, respostas e notas) pelo conteúdo do arquivo. Não há como desfazer.
             </div>
+            <label style={{ ...rotulo, color: C.erro }}>
+              Digite RESTAURAR para confirmar
+            </label>
+            <input
+              style={{ ...campo, ...mono, fontSize: 13, borderColor: C.erro, marginBottom: 12 }}
+              value={confirmacaoRestauro}
+              onChange={(e) => setConfirmacaoRestauro(e.target.value)}
+              autoCapitalize="characters"
+              autoCorrect="off"
+              spellCheck={false}
+              placeholder="RESTAURAR"
+            />
             <div style={{ display: "flex", gap: 8 }}>
               <Botao
                 tipo="fantasma"
-                onClick={() => setArquivoRestauro(null)}
+                onClick={() => {
+                  setArquivoRestauro(null);
+                  setConfirmacaoRestauro("");
+                }}
                 disabled={restaurando}
                 style={{ background: C.card }}
               >
@@ -279,7 +301,7 @@ export default function AjustesTab() {
               </Botao>
               <Botao
                 onClick={confirmarRestauro}
-                disabled={restaurando}
+                disabled={restaurando || confirmacaoRestauro.trim().toUpperCase() !== "RESTAURAR"}
                 style={{ background: C.erro, borderColor: C.erro }}
               >
                 {restaurando ? "Restaurando…" : "Restaurar e substituir"}
@@ -288,8 +310,17 @@ export default function AjustesTab() {
           </div>
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            <Botao tipo="fantasma" onClick={exportarBackup} disabled={exportandoBackup}>
-              {exportandoBackup ? "Gerando backup…" : "Exportar backup completo"}
+            <Botao
+              tipo="fantasma"
+              onClick={exportarBackup}
+              disabled={exportandoBackup}
+              style={backupExportado ? { borderColor: C.ok, color: C.ok } : undefined}
+            >
+              {exportandoBackup
+                ? "Gerando backup…"
+                : backupExportado
+                  ? "✓ Backup exportado"
+                  : "Exportar backup completo"}
             </Botao>
             <Botao tipo="fantasma" onClick={() => inputArquivoRef.current?.click()}>
               Restaurar de um arquivo
