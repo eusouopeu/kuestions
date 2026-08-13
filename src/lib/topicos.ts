@@ -180,6 +180,33 @@ export function rotuloBloco(b: BlocoDeAulas): string {
   return `Bloco ${b.bloco} (${b.aulas.length} aula${b.aulas.length > 1 ? "s" : ""})`;
 }
 
+/**
+ * Cruza a lista fixa de tópicos de uma matéria com o que já foi praticado
+ * (strings livres de `blocos.topico`, ver repo.ts `topicosPraticados`) — por
+ * substring, porque tanto `rotuloTopico` (aula específica) quanto
+ * `descricaoBloco` (bloco de aulas) embutem `t.nome` por extenso na string
+ * gravada. Só faz sentido para matérias com TOPICOS_POR_MATERIA definido; as
+ * demais usam tópico livre, sem uma lista fixa para comparar.
+ */
+export function coberturaTopicos(
+  materia: string,
+  topicosPraticados: string[],
+): { praticados: TopicoEspecifico[]; pendentes: TopicoEspecifico[] } | null {
+  const lista = TOPICOS_POR_MATERIA[materia];
+  if (!lista) return null;
+  const praticados: TopicoEspecifico[] = [];
+  const pendentes: TopicoEspecifico[] = [];
+  for (const t of lista) {
+    const visto = topicosPraticados.some((s) => s.includes(t.nome));
+    (visto ? praticados : pendentes).push(t);
+  }
+  return { praticados, pendentes };
+}
+
+/** Matérias com lista fixa de tópicos — alimenta o seletor do card de
+ * cobertura em Dados (só faz sentido oferecer o filtro para estas). */
+export const MATERIAS_COM_TOPICOS: string[] = Object.keys(TOPICOS_POR_MATERIA);
+
 /** String descritiva do bloco inteiro, usada como `Config.topico` ao
  * escolher "Bloco de aulas" — vai direto para o prompt como texto livre. */
 export function descricaoBloco(b: BlocoDeAulas): string {

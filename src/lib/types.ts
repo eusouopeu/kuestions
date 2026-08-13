@@ -26,6 +26,8 @@ export interface Questao {
   dispositivo: string | null;
   /** Tipo de cobrança efetivo desta questão (relevante quando `tipos` tem 2+ selecionados). */
   tipo_cobranca?: TipoId;
+  /** id da questão de origem em banco_questoes.json, quando veio do banco real (ver lib/banco.ts). */
+  bancoId?: string;
 }
 
 /** Linha de `questoes_respondidas` lida do banco. */
@@ -43,6 +45,11 @@ export interface QuestaoRespondida extends Questao {
   resposta: string;
   acertou: boolean;
   revisada: boolean;
+  /** Caixa de Leitner atual (1–5) — ver registrarRevisao em lib/repo.ts. */
+  caixa_leitner: number;
+  /** ISO da próxima data em que esta errada volta a ficar pendente de
+   * revisão; null = vencida agora (nunca revisada, ou errada de novo). */
+  proxima_revisao: string | null;
   /** Usuário sinalizou que a questão em si (enunciado/gabarito) está errada. */
   reportada: boolean;
   /** Categoria escolhida ao reportar — ver MotivoReport em lib/repo.ts. */

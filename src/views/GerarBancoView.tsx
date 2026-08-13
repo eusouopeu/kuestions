@@ -11,6 +11,7 @@ import {
   assuntosDeArea,
   blocosDeArea,
   contarDisponiveis,
+  contarIneditas,
   descricaoFiltroBanco,
   questaoBancoParaQuestao,
   selecionarQuestoes,
@@ -18,7 +19,7 @@ import {
 } from "../lib/banco";
 import { gerarExplicacoes } from "../lib/anthropic";
 import { temCredencial } from "../lib/secure";
-import { criarBloco, fecharBloco, gravarResposta } from "../lib/repo";
+import { criarBloco, fecharBloco, gravarResposta, idsBancoRespondidos } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
 import type { Questao, StatusSub } from "../lib/types";
 
@@ -55,6 +56,10 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
   const [confirmandoAbandono, setConfirmandoAbandono] = useState(false);
   const [abandonando, setAbandonando] = useState(false);
   const [respondidaAtual, setRespondidaAtual] = useState(false);
+  // ids do banco fixo já respondidos em qualquer bloco anterior — usado para
+  // priorizar questões inéditas (ver lib/banco.ts) e avisar quando o estoque
+  // de inéditas do filtro atual está acabando.
+  const [vistas, setVistas] = useState<Set<string>>(new Set());
 
   // Guarda a lista completa sorteada nesta rodada, para reenviar um lote que
   // falhou sem precisar sortear tudo de novo.
@@ -71,7 +76,10 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
   }, [qIdx]);
 
   useEffect(() => {
-    if (tela === "config") temCredencial().then(setTemChave);
+    if (tela === "config") {
+      temCredencial().then(setTemChave);
+      idsBancoRespondidos().then(setVistas).catch(() => setVistas(new Set()));
+    }
   }, [tela]);
 
   if (!AREAS_BANCO.length) {
@@ -86,6 +94,7 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
         : { modo: "todos" };
 
   const disponiveis = contarDisponiveis(area, filtro);
+  const ineditas = contarIneditas(area, filtro, vistas);
 
   useEffect(() => {
     if (disponiveis > 0) setQuantidade((q) => Math.min(q, disponiveis));
@@ -111,7 +120,7 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
   async function iniciar() {
     const n = Math.min(quantidade, disponiveis);
     if (n <= 0) return;
-    const selecionadas = selecionarQuestoes(area, filtro, n).map(questaoBancoParaQuestao);
+    const selecionadas = selecionarQuestoes(area, filtro, n, vistas).map(questaoBancoParaQuestao);
     const nLotes = Math.ceil(selecionadas.length / LOTE);
 
     setLotes(Array.from({ length: nLotes }, () => null));
@@ -333,8 +342,23 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
           </div>
           <div style={{ ...mono, fontSize: 11, color: C.sub, marginTop: 5 }}>
             {disponiveis} questão{disponiveis === 1 ? "" : "es"} disponíve
-            {disponiveis === 1 ? "l" : "is"} neste filtro.
+            {disponiveis === 1 ? "l" : "is"} neste filtro
+            {disponiveis > 0 && (
+              <>
+                {" · "}
+                <span style={{ color: ineditas > 0 ? C.ok : C.caneta }}>
+                  {ineditas} inédita{ineditas === 1 ? "" : "s"}
+                </span>
+              </>
+            )}
+            .
           </div>
+          {disponiveis > 0 && ineditas === 0 && (
+            <div style={{ fontSize: 12, color: C.sub, marginTop: 6, lineHeight: 1.4 }}>
+              Você já respondeu todas as questões deste filtro — o bloco vai repetir questões já
+              vistas, sorteadas de novo.
+            </div>
+          )}
         </div>
 
         <div style={{ ...cartao, padding: "12px 14px", marginBottom: 20, fontSize: 12.5, color: C.sub, lineHeight: 1.5 }}>

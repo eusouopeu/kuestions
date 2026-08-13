@@ -118,7 +118,7 @@ export default function App() {
                 <DadosTab ativa={aba === "dados"} onQuestoes={() => trocar("questoes")} />
               </Suspense>
             )}
-            {a === "ajustes" && <AjustesTab />}
+            {a === "ajustes" && <AjustesTab ativa={aba === "ajustes"} />}
           </div>
         );
       })}

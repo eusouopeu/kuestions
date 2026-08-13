@@ -15,17 +15,22 @@ import {
 import { C, cartao, campo, disp, mono, rotulo } from "../theme";
 import Shell, { Vazio } from "../components/Shell";
 import Botao from "../components/Botao";
+import Chip from "../components/Chip";
 import {
   materiasComDados,
+  porConceito,
   porFormato,
   porNivel,
   porTipo,
   resumo,
   serieBlocos,
+  streakDias,
+  topicosPraticados,
   type Fatia,
   type Resumo,
 } from "../lib/repo";
 import { labelFormato, labelTipo, NIVEIS } from "../lib/constants";
+import { coberturaTopicos, MATERIAS_COM_TOPICOS, type TopicoEspecifico } from "../lib/topicos";
 
 const TODAS = "__todas__";
 const TODOS_NIVEIS = 0;
@@ -135,6 +140,15 @@ export default function DadosTab({
   const [niveis, setNiveis] = useState<Fatia[]>([]);
   const [tipos, setTipos] = useState<Fatia[]>([]);
   const [formatos, setFormatos] = useState<Fatia[]>([]);
+  const [conceitos, setConceitos] = useState<Fatia[]>([]);
+  const [streak, setStreak] = useState<{ atual: number; recorde: number; hoje: boolean } | null>(
+    null,
+  );
+  const [cobertura, setCobertura] = useState<{
+    praticados: TopicoEspecifico[];
+    pendentes: TopicoEspecifico[];
+  } | null>(null);
+  const [mostrarTodasPendentes, setMostrarTodasPendentes] = useState(false);
 
   useEffect(() => {
     if (ativa) materiasComDados().then(setMaterias).catch(() => setMaterias([]));
@@ -145,13 +159,23 @@ export default function DadosTab({
     const m = filtro === TODAS ? null : filtro;
     const n = filtroNivel === TODOS_NIVEIS ? null : filtroNivel;
     setCarregando(true);
-    Promise.all([resumo(m, n), serieBlocos(m), porNivel(m), porTipo(m, n), porFormato(m, n)])
-      .then(([r, s, ni, ti, fo]) => {
+    Promise.all([
+      resumo(m, n),
+      serieBlocos(m),
+      porNivel(m),
+      porTipo(m, n),
+      porFormato(m, n),
+      porConceito(m, n),
+      streakDias(),
+    ])
+      .then(([r, s, ni, ti, fo, co, st]) => {
         setRes(r);
         setSerie(s);
         setNiveis(ni);
         setTipos(ti);
         setFormatos(fo);
+        setConceitos(co);
+        setStreak(st);
       })
       .catch(() => setRes(null))
       .finally(() => setCarregando(false));
@@ -163,6 +187,20 @@ export default function DadosTab({
   useEffect(() => {
     if (ativa) carregar();
   }, [ativa, carregar]);
+
+  // Cobertura de tópicos: só existe lista fixa para comparar numa matéria
+  // específica (não em "todas") e só para as que têm TOPICOS_POR_MATERIA —
+  // independente do filtro de nível, que não se aplica a blocos.topico.
+  useEffect(() => {
+    setMostrarTodasPendentes(false);
+    if (!ativa || filtro === TODAS || !MATERIAS_COM_TOPICOS.includes(filtro)) {
+      setCobertura(null);
+      return;
+    }
+    topicosPraticados(filtro)
+      .then((praticados) => setCobertura(coberturaTopicos(filtro, praticados)))
+      .catch(() => setCobertura(null));
+  }, [ativa, filtro]);
 
   const semDados = !res || res.totalQuestoes === 0;
   const pctGeral = res && res.totalQuestoes ? Math.round((res.totalAcertos / res.totalQuestoes) * 100) : 0;
@@ -178,6 +216,7 @@ export default function DadosTab({
     pct: f.pct,
     total: f.total,
   }));
+  const dadosConceitos = conceitos.map((f) => ({ nome: f.chave, pct: f.pct, total: f.total }));
 
   return (
     <Shell kicker="DESEMPENHO" titulo="Dados">
@@ -263,6 +302,50 @@ export default function DadosTab({
             ))}
           </div>
 
+          {/* Sequência de dias praticando — não é filtrada por matéria/nível:
+              é uma métrica de constância do estudo como um todo. */}
+          {streak && streak.recorde > 0 && (
+            <div
+              style={{
+                ...cartao,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "12px 16px",
+                marginBottom: 12,
+              }}
+            >
+              <div>
+                <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8 }}>
+                  SEQUÊNCIA ATUAL
+                </div>
+                <div style={{ fontSize: 12, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+                  {streak.atual > 0
+                    ? streak.hoje
+                      ? "Você já praticou hoje."
+                      : "Pratique hoje para manter a sequência."
+                    : "Responda um bloco para começar uma sequência."}
+                </div>
+              </div>
+              <div style={{ textAlign: "right", flexShrink: 0 }}>
+                <div
+                  style={{
+                    ...disp,
+                    fontSize: 26,
+                    fontWeight: 800,
+                    color: streak.atual > 0 ? C.caneta : C.ink,
+                    letterSpacing: -0.5,
+                  }}
+                >
+                  {streak.atual}d
+                </div>
+                <div style={{ ...mono, fontSize: 9.5, color: C.sub }}>
+                  RECORDE {streak.recorde}D
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Evolução por bloco */}
           <Cartao
             titulo="EVOLUÇÃO — % DE ACERTO POR BLOCO"
@@ -305,6 +388,56 @@ export default function DadosTab({
             )}
           </Cartao>
 
+          {/* Cobertura de tópicos: só aparece com uma matéria específica
+              selecionada e que tenha lista fixa de tópicos (ver topicos.ts). */}
+          {cobertura && (
+            <Cartao
+              titulo="COBERTURA DE TÓPICOS"
+              legenda={`${cobertura.praticados.length} de ${
+                cobertura.praticados.length + cobertura.pendentes.length
+              } tópicos já praticados nesta matéria (aula específica ou bloco de aulas gerado).`}
+            >
+              {cobertura.pendentes.length === 0 ? (
+                <div style={{ fontSize: 13, color: C.ok, padding: "0 4px 14px" }}>
+                  Todos os tópicos já foram praticados pelo menos uma vez.
+                </div>
+              ) : (
+                <div style={{ padding: "0 4px 14px" }}>
+                  <div style={{ fontSize: 11.5, color: C.sub, marginBottom: 8 }}>
+                    Nunca praticados:
+                  </div>
+                  {(mostrarTodasPendentes ? cobertura.pendentes : cobertura.pendentes.slice(0, 8)).map(
+                    (t) => (
+                      <Chip key={t.codigo} tom="erro">
+                        {t.nome}
+                      </Chip>
+                    ),
+                  )}
+                  {cobertura.pendentes.length > 8 && (
+                    <button
+                      onClick={() => setMostrarTodasPendentes((v) => !v)}
+                      style={{
+                        ...mono,
+                        display: "block",
+                        marginTop: 4,
+                        fontSize: 11,
+                        background: "none",
+                        border: "none",
+                        color: C.caneta,
+                        cursor: "pointer",
+                        padding: 0,
+                      }}
+                    >
+                      {mostrarTodasPendentes
+                        ? "Mostrar menos"
+                        : `+${cobertura.pendentes.length - 8} mais`}
+                    </button>
+                  )}
+                </div>
+              )}
+            </Cartao>
+          )}
+
           {/* Tipo de cobrança */}
           <Cartao titulo="ACERTO POR TIPO DE COBRANÇA">
             {dadosTipos.length ? (
@@ -312,6 +445,21 @@ export default function DadosTab({
             ) : (
               <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
                 Os blocos registrados não gravaram o tipo por questão.
+              </div>
+            )}
+          </Cartao>
+
+          {/* Conceito — a dimensão mais granular; só mostra os que já têm
+              amostra suficiente (ver porConceito em repo.ts). */}
+          <Cartao
+            titulo="ACERTO POR CONCEITO — ONDE TREINAR PRIMEIRO"
+            legenda="Só conceitos com pelo menos 3 questões respondidas, do pior para o melhor acerto."
+          >
+            {dadosConceitos.length ? (
+              <BarrasPct dados={dadosConceitos} alturaPorItem={30} />
+            ) : (
+              <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
+                Nenhum conceito com amostra suficiente ainda.
               </div>
             )}
           </Cartao>

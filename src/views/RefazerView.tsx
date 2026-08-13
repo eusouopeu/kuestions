@@ -4,13 +4,20 @@ import Botao from "../components/Botao";
 import QuestaoCard from "../components/QuestaoCard";
 import Segmented from "../components/Segmented";
 import { Vazio } from "../components/Shell";
-import { contarErradasPorMateria, listarErradas, marcarRevisada } from "../lib/repo";
+import { contarErradasPorMateria, listarErradas, registrarRevisao } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
 import type { QuestaoRespondida } from "../lib/types";
 
 /** Tamanho do lote carregado por vez — evita trazer para a memória de uma
  * só vez um histórico de erradas que só cresce (ver listarErradas). */
 const LOTE = 150;
+
+function dataCurta(iso: string): string {
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime())
+    ? "—"
+    : d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" });
+}
 
 /**
  * Refazer erradas. Não chama a API: relê as questões já gravadas em
@@ -133,22 +140,28 @@ export default function RefazerView() {
             >
               {q.nivel != null ? `NÍVEL ${q.nivel} · ` : ""}
               {q.resposta ? `VOCÊ MARCOU ${q.resposta}` : "NÃO RESPONDIDA"}
-              {q.revisada ? " · JÁ REVISADA" : ""}
+              {q.revisada
+                ? ` · CAIXA ${q.caixa_leitner}/5${
+                    q.proxima_revisao && new Date(q.proxima_revisao) > new Date()
+                      ? ` · PRÓXIMA EM ${dataCurta(q.proxima_revisao)}`
+                      : " · VENCIDA"
+                  }`
+                : ""}
             </div>
           }
           labelProxima={
             ultima ? "Encerrar revisão" : carregandoLote ? "Carregando…" : "Próxima questão"
           }
           onResponder={async (_letra, acertou) => {
-            // Não apaga do histórico de erros: só marca como revisada, para o
-            // filtro "só pendentes" e para os gráficos manterem o registro.
-            if (acertou && !q.revisada) {
-              try {
-                await marcarRevisada(q.id);
-                setRevisadasAgora((n) => n + 1);
-              } catch (e) {
-                console.error("marcar revisada", e);
-              }
+            // Não apaga do histórico de erros: registra o resultado na caixa
+            // de Leitner da questão — acertar empurra a próxima aparição para
+            // mais longe (repetição espaçada); errar de novo zera a caixa e a
+            // questão volta a ficar pendente imediatamente.
+            try {
+              await registrarRevisao(q.id, acertou);
+              if (acertou) setRevisadasAgora((n) => n + 1);
+            } catch (e) {
+              console.error("registrar revisão", e);
             }
             return q.id;
           }}

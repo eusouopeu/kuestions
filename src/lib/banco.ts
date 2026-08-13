@@ -107,9 +107,29 @@ function embaralhar<T>(arr: T[]): T[] {
   return a;
 }
 
-/** Sorteia até `quantidade` questões do filtro, sem repetição. */
-export function selecionarQuestoes(area: string, filtro: FiltroBanco, quantidade: number): QuestaoBanco[] {
-  return embaralhar(questoesFiltradas(area, filtro)).slice(0, quantidade);
+/**
+ * Sorteia até `quantidade` questões do filtro, sem repetição dentro da própria
+ * rodada. O banco é fixo (não se repõe) — `vistas` (ids já respondidos em
+ * qualquer bloco anterior, ver idsBancoRespondidos em lib/repo.ts) separa as
+ * questões em inéditas e já vistas, e prioriza as inéditas; só entra questão
+ * já vista se não houver inéditas suficientes para completar `quantidade`.
+ */
+export function selecionarQuestoes(
+  area: string,
+  filtro: FiltroBanco,
+  quantidade: number,
+  vistas: ReadonlySet<string> = new Set(),
+): QuestaoBanco[] {
+  const todas = questoesFiltradas(area, filtro);
+  const ineditas = embaralhar(todas.filter((q) => !vistas.has(q.id)));
+  const jaVistas = embaralhar(todas.filter((q) => vistas.has(q.id)));
+  return [...ineditas, ...jaVistas].slice(0, quantidade);
+}
+
+/** Quantas questões do filtro atual o usuário ainda não respondeu — usado
+ * para avisar quando o "estoque" de inéditas está acabando. */
+export function contarIneditas(area: string, filtro: FiltroBanco, vistas: ReadonlySet<string>): number {
+  return questoesFiltradas(area, filtro).filter((q) => !vistas.has(q.id)).length;
 }
 
 /** Descrição do filtro para `Config.topico` — vai para `questoes_respondidas.topico`. */
@@ -138,5 +158,6 @@ export function questaoBancoParaQuestao(q: QuestaoBanco): Questao {
     explicacoes_erradas: {},
     dispositivo: null,
     tipo_cobranca: undefined,
+    bancoId: q.id,
   };
 }

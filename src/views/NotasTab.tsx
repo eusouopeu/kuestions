@@ -8,6 +8,7 @@ import Chip from "../components/Chip";
 import {
   apagarConceito,
   atualizarNota,
+  buscarNotas,
   listarConceitos,
   listarPastas,
 } from "../lib/repo";
@@ -42,6 +43,20 @@ export default function NotasTab({
   const [erroExport, setErroExport] = useState<string | null>(null);
   const [csvExportado, setCsvExportado] = useState(false);
 
+  // Busca cross-matéria: só ativa na tela de pastas (pasta === null). Mantida
+  // separada da navegação em pastas para que voltar do detalhe de uma nota
+  // aberta a partir de um resultado de busca preserve o texto buscado.
+  const [busca, setBusca] = useState("");
+  const [buscando, setBuscando] = useState(false);
+  const [resultadosBusca, setResultadosBusca] = useState<ConceitoSalvo[]>([]);
+
+  // Seleção múltipla dentro de uma pasta, para apagar/exportar um subconjunto
+  // sem precisar ir nota por nota.
+  const [selecionando, setSelecionando] = useState(false);
+  const [selecionados, setSelecionados] = useState<Set<number>>(new Set());
+  const [confirmandoApagarSelecionadas, setConfirmandoApagarSelecionadas] = useState(false);
+  const [apagandoSelecionadas, setApagandoSelecionadas] = useState(false);
+
   const carregarPastas = useCallback(() => {
     setCarregando(true);
     listarPastas()
@@ -64,24 +79,79 @@ export default function NotasTab({
 
   useEffect(carregarItens, [carregarItens]);
 
-  async function exportarCSV() {
-    if (!pasta || !itens.length || exportando) return;
+  // Sai do modo de seleção sempre que a lista muda de baixo (troca de pasta
+  // ou de ordenação) — uma seleção antiga não deve sobreviver a isso.
+  useEffect(() => {
+    setSelecionando(false);
+    setSelecionados(new Set());
+    setConfirmandoApagarSelecionadas(false);
+  }, [pasta, ordem]);
+
+  // Debounce simples: evita uma consulta a cada tecla digitada.
+  useEffect(() => {
+    const termo = busca.trim();
+    if (!termo) {
+      setResultadosBusca([]);
+      setBuscando(false);
+      return;
+    }
+    setBuscando(true);
+    const t = setTimeout(() => {
+      buscarNotas(termo)
+        .then(setResultadosBusca)
+        .catch(() => setResultadosBusca([]))
+        .finally(() => setBuscando(false));
+    }, 250);
+    return () => clearTimeout(t);
+  }, [busca]);
+
+  async function exportarCSV(itensParaExportar: ConceitoSalvo[], nomeBase: string) {
+    if (!itensParaExportar.length || exportando) return;
     setExportando(true);
     setErroExport(null);
     setCsvExportado(false);
     try {
-      const linhas = itens.map((n) => {
+      const linhas = itensParaExportar.map((n) => {
         const nItens = contarItensLista(n.corpo);
         const titulo = nItens > 0 ? `${n.titulo} (${nItens})` : n.titulo;
         return [titulo, n.corpo, n.tag];
       });
-      await exportarArquivo(`flashcards-${slugify(pasta)}.csv`, paraCSV(linhas));
+      await exportarArquivo(`flashcards-${slugify(nomeBase)}.csv`, paraCSV(linhas));
       setCsvExportado(true);
       setTimeout(() => setCsvExportado(false), 2500);
     } catch (e) {
       setErroExport(e instanceof Error ? e.message : "Falha ao exportar.");
     } finally {
       setExportando(false);
+    }
+  }
+
+  function alternarSelecao(id: number) {
+    setSelecionados((s) => {
+      const novo = new Set(s);
+      if (novo.has(id)) novo.delete(id);
+      else novo.add(id);
+      return novo;
+    });
+  }
+
+  async function apagarSelecionadas() {
+    setApagandoSelecionadas(true);
+    try {
+      for (const id of selecionados) {
+        try {
+          await apagarConceito(id);
+        } catch (e) {
+          console.error("apagar nota selecionada", e);
+        }
+      }
+      setConfirmandoApagarSelecionadas(false);
+      setSelecionando(false);
+      setSelecionados(new Set());
+      carregarItens();
+      carregarPastas();
+    } finally {
+      setApagandoSelecionadas(false);
     }
   }
 
@@ -95,11 +165,13 @@ export default function NotasTab({
           onSalvo={(c) => {
             setAberto(c);
             carregarItens();
+            setResultadosBusca((rs) => rs.map((r) => (r.id === c.id ? c : r)));
           }}
           onApagado={() => {
             setAberto(null);
             carregarItens();
             carregarPastas();
+            setResultadosBusca((rs) => rs.filter((r) => r.id !== aberto.id));
           }}
         />
       </Shell>
@@ -108,6 +180,7 @@ export default function NotasTab({
 
   /* ---------- Lista de uma pasta ---------- */
   if (pasta) {
+    const todasSelecionadas = itens.length > 0 && selecionados.size === itens.length;
     return (
       <Shell kicker={`NOTAS · ${itens.length} NOTA${itens.length === 1 ? "" : "S"}`} titulo={pasta}>
         <div style={{ marginBottom: 14 }}>
@@ -124,18 +197,76 @@ export default function NotasTab({
 
         {itens.length > 0 && (
           <div style={{ marginBottom: 14 }}>
-            <Botao
-              tipo="fantasma"
-              onClick={exportarCSV}
-              disabled={exportando}
-              style={csvExportado ? { borderColor: C.ok, color: C.ok } : undefined}
-            >
-              {exportando
-                ? "Exportando…"
-                : csvExportado
-                  ? "✓ Exportado"
-                  : `Exportar flashcards (CSV) · ${itens.length}`}
-            </Botao>
+            {selecionando ? (
+              <div
+                style={{
+                  ...cartao,
+                  padding: "10px 12px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: 8,
+                  flexWrap: "wrap",
+                }}
+              >
+                <button
+                  onClick={() =>
+                    setSelecionados(todasSelecionadas ? new Set() : new Set(itens.map((i) => i.id)))
+                  }
+                  style={{
+                    ...mono,
+                    fontSize: 11.5,
+                    background: "none",
+                    border: "none",
+                    color: C.caneta,
+                    cursor: "pointer",
+                    padding: 0,
+                  }}
+                >
+                  {todasSelecionadas ? "Desmarcar todas" : "Selecionar todas"}
+                </button>
+                <span style={{ ...mono, fontSize: 11.5, color: C.sub }}>
+                  {selecionados.size} selecionada{selecionados.size === 1 ? "" : "s"}
+                </span>
+                <div style={{ display: "flex", gap: 10 }}>
+                  <button
+                    onClick={() => {
+                      setSelecionando(false);
+                      setSelecionados(new Set());
+                    }}
+                    style={{
+                      ...mono,
+                      fontSize: 11.5,
+                      background: "none",
+                      border: "none",
+                      color: C.sub,
+                      cursor: "pointer",
+                      padding: 0,
+                    }}
+                  >
+                    Cancelar
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <Botao
+                  tipo="fantasma"
+                  onClick={() => exportarCSV(itens, pasta)}
+                  disabled={exportando}
+                  style={csvExportado ? { borderColor: C.ok, color: C.ok, flex: 1 } : { flex: 1 }}
+                >
+                  {exportando
+                    ? "Exportando…"
+                    : csvExportado
+                      ? "✓ Exportado"
+                      : `Exportar flashcards (CSV) · ${itens.length}`}
+                </Botao>
+                <Botao tipo="fantasma" onClick={() => setSelecionando(true)} style={{ maxWidth: 120 }}>
+                  Selecionar
+                </Botao>
+              </div>
+            )}
             {erroExport && (
               <div style={{ ...mono, fontSize: 11.5, color: C.erro, marginTop: 6 }}>
                 {erroExport}
@@ -144,58 +275,134 @@ export default function NotasTab({
           </div>
         )}
 
+        {selecionando && selecionados.size > 0 && (
+          <div style={{ display: "flex", gap: 8, marginBottom: 14 }}>
+            <Botao
+              tipo="fantasma"
+              onClick={() => exportarCSV(itens.filter((i) => selecionados.has(i.id)), pasta)}
+              disabled={exportando}
+              style={{ flex: 1 }}
+            >
+              Exportar seleção ({selecionados.size})
+            </Botao>
+            <Botao
+              onClick={() => setConfirmandoApagarSelecionadas(true)}
+              style={{ flex: 1, background: C.erro, borderColor: C.erro }}
+            >
+              Apagar seleção
+            </Botao>
+          </div>
+        )}
+
+        {confirmandoApagarSelecionadas && (
+          <div
+            style={{
+              background: C.erroSoft,
+              border: `1.5px solid ${C.erro}`,
+              borderRadius: 10,
+              padding: "12px 14px",
+              marginBottom: 14,
+            }}
+          >
+            <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
+              Apagar {selecionados.size} nota{selecionados.size === 1 ? "" : "s"} selecionada
+              {selecionados.size === 1 ? "" : "s"}? Não há como desfazer.
+            </div>
+            <div style={{ display: "flex", gap: 8 }}>
+              <Botao
+                tipo="fantasma"
+                onClick={() => setConfirmandoApagarSelecionadas(false)}
+                disabled={apagandoSelecionadas}
+                style={{ background: C.card }}
+              >
+                Cancelar
+              </Botao>
+              <Botao
+                onClick={apagarSelecionadas}
+                disabled={apagandoSelecionadas}
+                style={{ background: C.erro, borderColor: C.erro }}
+              >
+                {apagandoSelecionadas ? "Apagando…" : "Apagar"}
+              </Botao>
+            </div>
+          </div>
+        )}
+
         {itens.length === 0 ? (
           <Vazio>Esta pasta está vazia.</Vazio>
         ) : (
-          itens.map((c) => (
-            <button
-              key={c.id}
-              onClick={() => setAberto(c)}
-              style={{
-                ...cartao,
-                display: "block",
-                width: "100%",
-                textAlign: "left",
-                padding: "12px 14px",
-                marginBottom: 8,
-                cursor: "pointer",
-              }}
-            >
-              <div
+          itens.map((c) => {
+            const marcada = selecionados.has(c.id);
+            return (
+              <button
+                key={c.id}
+                onClick={() => (selecionando ? alternarSelecao(c.id) : setAberto(c))}
                 style={{
+                  ...cartao,
                   display: "flex",
-                  justifyContent: "space-between",
+                  width: "100%",
+                  alignItems: "flex-start",
                   gap: 10,
-                  alignItems: "baseline",
+                  textAlign: "left",
+                  padding: "12px 14px",
+                  marginBottom: 8,
+                  cursor: "pointer",
+                  borderColor: marcada ? C.caneta : C.line,
+                  background: marcada ? C.canetaSoft : C.card,
                 }}
               >
-                <span style={{ ...disp, fontSize: 15, fontWeight: 600 }}>{c.titulo}</span>
-                <span style={{ ...mono, fontSize: 10.5, color: C.sub, flexShrink: 0 }}>
-                  {dataCurta(c.ts)}
-                </span>
-              </div>
-              <div
-                style={{
-                  fontSize: 13,
-                  color: C.sub,
-                  marginTop: 4,
-                  lineHeight: 1.45,
-                  // Trecho do corpo: 2 linhas, o resto no detalhe.
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                }}
-              >
-                {c.corpo || "Sem conteúdo."}
-              </div>
-              {c.tag && (
-                <div style={{ marginTop: 6 }}>
-                  <Chip>{c.tag}</Chip>
+                {selecionando && (
+                  <span
+                    aria-hidden
+                    style={{
+                      flexShrink: 0,
+                      marginTop: 3,
+                      width: 16,
+                      height: 16,
+                      borderRadius: 4,
+                      border: `1.5px solid ${marcada ? C.caneta : C.line}`,
+                      background: marcada ? C.caneta : "transparent",
+                    }}
+                  />
+                )}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      gap: 10,
+                      alignItems: "baseline",
+                    }}
+                  >
+                    <span style={{ ...disp, fontSize: 15, fontWeight: 600 }}>{c.titulo}</span>
+                    <span style={{ ...mono, fontSize: 10.5, color: C.sub, flexShrink: 0 }}>
+                      {dataCurta(c.ts)}
+                    </span>
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 13,
+                      color: C.sub,
+                      marginTop: 4,
+                      lineHeight: 1.45,
+                      // Trecho do corpo: 2 linhas, o resto no detalhe.
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {c.corpo || "Sem conteúdo."}
+                  </div>
+                  {c.tag && (
+                    <div style={{ marginTop: 6 }}>
+                      <Chip>{c.tag}</Chip>
+                    </div>
+                  )}
                 </div>
-              )}
-            </button>
-          ))
+              </button>
+            );
+          })
         )}
 
         <button
@@ -217,10 +424,82 @@ export default function NotasTab({
     );
   }
 
-  /* ---------- Pastas ---------- */
+  /* ---------- Pastas / busca ---------- */
+  const buscaAtiva = busca.trim().length > 0;
+
   return (
     <Shell kicker="BANCO DE NOTAS" titulo="Notas">
-      {carregando ? (
+      {pastas.length > 0 && (
+        <div style={{ marginBottom: 16 }}>
+          <input
+            style={campo}
+            placeholder="Buscar em título, corpo ou tag…"
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)}
+          />
+        </div>
+      )}
+
+      {buscaAtiva ? (
+        buscando ? (
+          <Vazio>Buscando…</Vazio>
+        ) : resultadosBusca.length === 0 ? (
+          <Vazio>Nenhuma nota encontrada para "{busca.trim()}".</Vazio>
+        ) : (
+          <>
+            <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
+              {resultadosBusca.length} RESULTADO{resultadosBusca.length === 1 ? "" : "S"}
+            </div>
+            {resultadosBusca.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => setAberto(c)}
+                style={{
+                  ...cartao,
+                  display: "block",
+                  width: "100%",
+                  textAlign: "left",
+                  padding: "12px 14px",
+                  marginBottom: 8,
+                  cursor: "pointer",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    gap: 10,
+                    alignItems: "baseline",
+                  }}
+                >
+                  <span style={{ ...disp, fontSize: 15, fontWeight: 600 }}>{c.titulo}</span>
+                  <span style={{ ...mono, fontSize: 10.5, color: C.sub, flexShrink: 0 }}>
+                    {dataCurta(c.ts)}
+                  </span>
+                </div>
+                <div
+                  style={{
+                    fontSize: 13,
+                    color: C.sub,
+                    marginTop: 4,
+                    lineHeight: 1.45,
+                    display: "-webkit-box",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }}
+                >
+                  {c.corpo || "Sem conteúdo."}
+                </div>
+                <div style={{ marginTop: 6 }}>
+                  <Chip tom="neutro">{c.materia}</Chip>
+                  {c.tag && <Chip>{c.tag}</Chip>}
+                </div>
+              </button>
+            ))}
+          </>
+        )
+      ) : carregando ? (
         <Vazio>Carregando…</Vazio>
       ) : pastas.length === 0 ? (
         <Vazio>

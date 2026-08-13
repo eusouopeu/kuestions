@@ -14,13 +14,38 @@ import { MODEL } from "../lib/anthropic";
 import { exportarBancoJSON, importarBancoJSON } from "../lib/db";
 import { exportarArquivo } from "../lib/exportar";
 import { getTema, setTema, type Tema } from "../lib/tema";
+import {
+  listarReportadas,
+  MOTIVOS_REPORT,
+  resolverReport,
+  resumo,
+  type QuestaoReportada,
+} from "../lib/repo";
+import {
+  getConfigLembrete,
+  lembreteDisponivel,
+  setConfigLembrete,
+  type ConfigLembrete,
+} from "../lib/lembretes";
+import { diasDesdeUltimoBackup, DIAS_PARA_AVISO_BACKUP, registrarBackupFeito } from "../lib/backupInfo";
+
+function dataCurta(iso: string): string {
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime())
+    ? "—"
+    : d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "2-digit" });
+}
+
+function labelMotivo(id: string | null): string {
+  return MOTIVOS_REPORT.find((m) => m.id === id)?.label ?? "Motivo não informado";
+}
 
 /**
  * Configuração da credencial. A chave é digitada pelo usuário e guardada
  * localmente (Preferences → SharedPreferences/UserDefaults do app). Nunca vai
  * para o bundle nem sai do aparelho, exceto na chamada à própria API.
  */
-export default function AjustesTab() {
+export default function AjustesTab({ ativa }: { ativa: boolean }) {
   const [chave, setChave] = useState("");
   const [proxy, setProxy] = useState("");
   const [visivel, setVisivel] = useState(false);
@@ -38,6 +63,17 @@ export default function AjustesTab() {
   );
   const inputArquivoRef = useRef<HTMLInputElement>(null);
 
+  const [reportadas, setReportadas] = useState<QuestaoReportada[]>([]);
+  const [carregandoReportadas, setCarregandoReportadas] = useState(true);
+  const [resolvendo, setResolvendo] = useState<number | null>(null);
+
+  const [lembrete, setLembreteLocal] = useState<ConfigLembrete>({ ativo: false, hora: 19 });
+  const [salvandoLembrete, setSalvandoLembrete] = useState(false);
+  const [erroLembrete, setErroLembrete] = useState<string | null>(null);
+
+  const [diasBackup, setDiasBackup] = useState<number | null>(null);
+  const [temDados, setTemDados] = useState(false);
+
   useEffect(() => {
     Promise.all([getApiKey(), getProxyUrl()])
       .then(([k, p]) => {
@@ -46,7 +82,40 @@ export default function AjustesTab() {
       })
       .finally(() => setCarregado(true));
     getTema().then(setTemaLocal);
+    getConfigLembrete().then(setLembreteLocal);
   }, []);
+
+  useEffect(() => {
+    if (!ativa) return;
+    diasDesdeUltimoBackup().then(setDiasBackup);
+    resumo(null)
+      .then((r) => setTemDados(r.totalQuestoes > 0 || r.conceitosSalvos > 0))
+      .catch(() => setTemDados(false));
+  }, [ativa]);
+
+  // Recarrega toda vez que a aba é reaberta — um report feito em Questões
+  // (outra aba, que fica montada em paralelo, ver App.tsx) só apareceria
+  // aqui depois de um refresh manual sem isto.
+  useEffect(() => {
+    if (!ativa) return;
+    setCarregandoReportadas(true);
+    listarReportadas()
+      .then(setReportadas)
+      .catch(() => setReportadas([]))
+      .finally(() => setCarregandoReportadas(false));
+  }, [ativa]);
+
+  async function resolver(id: number) {
+    setResolvendo(id);
+    try {
+      await resolverReport(id);
+      setReportadas((rs) => rs.filter((r) => r.id !== id));
+    } catch (e) {
+      console.error("resolver report", e);
+    } finally {
+      setResolvendo(null);
+    }
+  }
 
   async function salvar() {
     const k = chave.trim();
@@ -83,6 +152,36 @@ export default function AjustesTab() {
     setStatus({ tom: "ok", texto: "Credenciais removidas do aparelho." });
   }
 
+  async function alternarLembrete(ativo: boolean) {
+    setSalvandoLembrete(true);
+    setErroLembrete(null);
+    try {
+      const ok = await setConfigLembrete({ ...lembrete, ativo });
+      if (ok) setLembreteLocal((c) => ({ ...c, ativo }));
+      else
+        setErroLembrete(
+          ativo
+            ? "Permissão de notificação negada — ative nas configurações do aparelho."
+            : "Falha ao desligar o lembrete.",
+        );
+    } finally {
+      setSalvandoLembrete(false);
+    }
+  }
+
+  async function mudarHoraLembrete(hora: number) {
+    setLembreteLocal((c) => ({ ...c, hora }));
+    if (!lembrete.ativo) return; // só reagenda se já estiver ligado
+    setSalvandoLembrete(true);
+    setErroLembrete(null);
+    try {
+      const ok = await setConfigLembrete({ ativo: true, hora });
+      if (!ok) setErroLembrete("Falha ao reagendar o lembrete.");
+    } finally {
+      setSalvandoLembrete(false);
+    }
+  }
+
   async function trocarTema(t: Tema) {
     setTemaLocal(t);
     await setTema(t);
@@ -97,6 +196,8 @@ export default function AjustesTab() {
       const json = await exportarBancoJSON();
       const data = new Date().toISOString().slice(0, 10);
       await exportarArquivo(`kuestions-backup-${data}.json`, json, "application/json");
+      await registrarBackupFeito();
+      setDiasBackup(0);
       setBackupExportado(true);
       setTimeout(() => setBackupExportado(false), 2500);
     } catch (e) {
@@ -247,6 +348,25 @@ export default function AjustesTab() {
           backup, uma reinstalação ou troca de aparelho apaga tudo.
         </div>
 
+        {temDados && (diasBackup === null || diasBackup >= DIAS_PARA_AVISO_BACKUP) && (
+          <div
+            style={{
+              background: C.canetaSoft,
+              border: `1.5px solid ${C.caneta}`,
+              borderRadius: 10,
+              padding: "10px 12px",
+              fontSize: 12.5,
+              lineHeight: 1.5,
+              marginBottom: 12,
+            }}
+          >
+            {diasBackup === null
+              ? "Você ainda não exportou nenhum backup."
+              : `Já fazem ${diasBackup} dias desde o último backup.`}{" "}
+            Considere exportar agora.
+          </div>
+        )}
+
         {statusBackup && (
           <div
             style={{
@@ -332,6 +452,141 @@ export default function AjustesTab() {
               onChange={escolherArquivoRestauro}
               style={{ display: "none" }}
             />
+          </div>
+        )}
+      </div>
+
+      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
+        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
+          LEMBRETE DIÁRIO
+        </div>
+        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
+          {lembreteDisponivel
+            ? "Uma notificação por dia, no horário abaixo, para manter a sequência de prática."
+            : "Notificação disponível só no aplicativo instalado (Android/iOS) — não funciona no navegador."}
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+          <span style={{ fontSize: 13.5 }}>Avisar todo dia</span>
+          <button
+            role="switch"
+            aria-checked={lembrete.ativo}
+            disabled={!lembreteDisponivel || salvandoLembrete}
+            onClick={() => alternarLembrete(!lembrete.ativo)}
+            style={{
+              width: 44,
+              height: 26,
+              borderRadius: 13,
+              border: "none",
+              padding: 3,
+              display: "flex",
+              justifyContent: lembrete.ativo ? "flex-end" : "flex-start",
+              background: lembrete.ativo ? C.caneta : C.line,
+              cursor: !lembreteDisponivel || salvandoLembrete ? "default" : "pointer",
+              opacity: !lembreteDisponivel ? 0.5 : 1,
+              transition: "background 0.15s",
+            }}
+          >
+            <span
+              style={{
+                width: 20,
+                height: 20,
+                borderRadius: "50%",
+                background: C.card,
+              }}
+            />
+          </button>
+        </div>
+
+        {lembrete.ativo && (
+          <div style={{ marginTop: 12 }}>
+            <label style={rotulo}>Horário</label>
+            <select
+              style={campo}
+              value={lembrete.hora}
+              disabled={salvandoLembrete}
+              onChange={(e) => mudarHoraLembrete(Number(e.target.value))}
+            >
+              {Array.from({ length: 24 }, (_, h) => (
+                <option key={h} value={h}>
+                  {String(h).padStart(2, "0")}:00
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        {erroLembrete && (
+          <div style={{ ...mono, fontSize: 11.5, color: C.erro, marginTop: 10 }}>{erroLembrete}</div>
+        )}
+      </div>
+
+      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
+        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
+          QUESTÕES REPORTADAS{reportadas.length > 0 ? ` · ${reportadas.length}` : ""}
+        </div>
+        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: reportadas.length ? 12 : 0 }}>
+          Questões que você sinalizou como erradas (enunciado ou gabarito), para revisar e depois
+          corrigir na fonte.
+        </div>
+        {carregandoReportadas ? (
+          <div style={{ fontSize: 13, color: C.sub }}>Carregando…</div>
+        ) : reportadas.length === 0 ? null : (
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {reportadas.map((r) => (
+              <div
+                key={r.id}
+                style={{
+                  border: `1.5px solid ${C.line}`,
+                  borderRadius: 10,
+                  padding: "10px 12px",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    gap: 8,
+                    marginBottom: 6,
+                  }}
+                >
+                  <span style={{ ...mono, fontSize: 10.5, color: C.erro, letterSpacing: 0.5 }}>
+                    {r.materia.toUpperCase()} · {labelMotivo(r.motivo_report)}
+                  </span>
+                  <span style={{ ...mono, fontSize: 10.5, color: C.sub, flexShrink: 0 }}>
+                    {dataCurta(r.ts)}
+                  </span>
+                </div>
+                <p
+                  style={{
+                    fontSize: 13,
+                    lineHeight: 1.45,
+                    margin: "0 0 8px",
+                    display: "-webkit-box",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }}
+                >
+                  {r.enunciado}
+                </p>
+                <button
+                  onClick={() => resolver(r.id)}
+                  disabled={resolvendo === r.id}
+                  style={{
+                    ...mono,
+                    fontSize: 11,
+                    background: "none",
+                    border: "none",
+                    color: C.caneta,
+                    cursor: resolvendo === r.id ? "default" : "pointer",
+                    padding: 0,
+                  }}
+                >
+                  {resolvendo === r.id ? "Marcando…" : "Marcar como resolvido"}
+                </button>
+              </div>
+            ))}
           </div>
         )}
       </div>

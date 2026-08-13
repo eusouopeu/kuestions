@@ -101,8 +101,8 @@ export async function gravarResposta(args: {
     `INSERT INTO questoes_respondidas
        (bloco_id, materia, topico, sub, carga_conceitual, nivel, formato, tipo_cobranca,
         enunciado, alternativas, gabarito, resposta, acertou, revisada,
-        comentario, explicacoes_erradas, conceitos, dispositivo, ts)
-     VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?)`,
+        comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, ts)
+     VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?)`,
     [
       args.blocoId,
       args.materia,
@@ -119,6 +119,7 @@ export async function gravarResposta(args: {
       JSON.stringify(q.explicacoes_erradas ?? {}),
       JSON.stringify(q.conceitos ?? []),
       q.dispositivo ?? null,
+      q.bancoId ?? null,
       new Date().toISOString(),
     ],
   );
@@ -140,6 +141,8 @@ function mapQuestao(r: Record<string, unknown>): QuestaoRespondida {
     resposta: String(r.resposta),
     acertou: toBool(r.acertou),
     revisada: toBool(r.revisada),
+    caixa_leitner: Number(r.caixa_leitner ?? 1),
+    proxima_revisao: (r.proxima_revisao as string) ?? null,
     reportada: toBool(r.reportada),
     motivo_report: (r.motivo_report as string) ?? null,
     comentario: (r.comentario as string) ?? "",
@@ -152,6 +155,16 @@ function mapQuestao(r: Record<string, unknown>): QuestaoRespondida {
     ts: String(r.ts),
   };
 }
+
+/**
+ * Repetição espaçada (caixas de Leitner) para "Refazer erradas": uma errada
+ * "pendente" é a que nunca foi revisada com sucesso (`revisada = 0`) OU cuja
+ * `proxima_revisao` já venceu. `?` no meio da condição recebe o timestamp de
+ * corte (ver `agoraISO`) — comparação lexicográfica funciona porque
+ * `toISOString()` produz strings que ordenam igual às datas que representam.
+ */
+const COND_PENDENTE = "(revisada = 0 OR (proxima_revisao IS NOT NULL AND proxima_revisao <= ?))";
+const agoraISO = () => new Date().toISOString();
 
 /**
  * Erradas agrupáveis por matéria — base da view "Refazer erradas". Sem
@@ -170,7 +183,10 @@ export async function listarErradas(
     cond.push("materia = ?");
     params.push(materia);
   }
-  if (soPendentes) cond.push("revisada = 0");
+  if (soPendentes) {
+    cond.push(COND_PENDENTE);
+    params.push(agoraISO());
+  }
 
   const { limite, offset = 0 } = opts;
   const rows = await all(
@@ -189,12 +205,13 @@ export async function contarErradasPorMateria(
 ): Promise<{ materia: string; total: number; pendentes: number }[]> {
   const rows = await all(
     `SELECT materia,
-            COUNT(*)                                AS total,
-            SUM(CASE WHEN revisada = 0 THEN 1 ELSE 0 END) AS pendentes
+            COUNT(*)                                       AS total,
+            SUM(CASE WHEN ${COND_PENDENTE} THEN 1 ELSE 0 END) AS pendentes
      FROM questoes_respondidas
-     WHERE acertou = 0 ${soPendentes ? "AND revisada = 0" : ""}
+     WHERE acertou = 0 ${soPendentes ? `AND ${COND_PENDENTE}` : ""}
      GROUP BY materia
      ORDER BY total DESC`,
+    soPendentes ? [agoraISO(), agoraISO()] : [agoraISO()],
   );
   return rows.map((r) => ({
     materia: String(r.materia),
@@ -203,8 +220,47 @@ export async function contarErradasPorMateria(
   }));
 }
 
-export async function marcarRevisada(id: number): Promise<void> {
-  await run(`UPDATE questoes_respondidas SET revisada = 1 WHERE id = ?`, [id]);
+/** Dias até a próxima revisão, indexado pela caixa (1–5) alcançada ao
+ * acertar — progressão inspirada no sistema de Leitner: quem acerta de novo
+ * espera cada vez mais para revisar; quem erra volta à caixa 1 (vence agora). */
+export const INTERVALOS_LEITNER_DIAS = [1, 3, 7, 16, 35] as const;
+
+/**
+ * Registra o resultado de uma revisão em "Refazer erradas" e reagenda a
+ * próxima aparição da questão nessa fila: acertar avança uma caixa de Leitner
+ * e empurra `proxima_revisao` para a frente (progressivamente mais longe);
+ * errar de novo derruba para a caixa 1 com `proxima_revisao = NULL`, ou seja,
+ * vencida agora — a questão volta a aparecer na próxima visita a "pendentes".
+ */
+export async function registrarRevisao(id: number, acertou: boolean): Promise<void> {
+  if (!acertou) {
+    await run(
+      `UPDATE questoes_respondidas SET revisada = 0, caixa_leitner = 1, proxima_revisao = NULL WHERE id = ?`,
+      [id],
+    );
+    return;
+  }
+  const row = await one<{ caixa: number }>(
+    `SELECT caixa_leitner AS caixa FROM questoes_respondidas WHERE id = ?`,
+    [id],
+  );
+  const novaCaixa = Math.min((row?.caixa ?? 1) + 1, INTERVALOS_LEITNER_DIAS.length);
+  const dias = INTERVALOS_LEITNER_DIAS[novaCaixa - 1];
+  const proxima = new Date(Date.now() + dias * 86_400_000).toISOString();
+  await run(
+    `UPDATE questoes_respondidas SET revisada = 1, caixa_leitner = ?, proxima_revisao = ? WHERE id = ?`,
+    [novaCaixa, proxima, id],
+  );
+}
+
+/** ids de banco_questoes.json (lib/banco.ts) já usados em algum bloco
+ * respondido — usado para priorizar questões inéditas ao sortear do banco
+ * fixo, que não se repõe (ver selecionarQuestoes em lib/banco.ts). */
+export async function idsBancoRespondidos(): Promise<Set<string>> {
+  const rows = await all<{ banco_id: string }>(
+    `SELECT DISTINCT banco_id FROM questoes_respondidas WHERE banco_id IS NOT NULL`,
+  );
+  return new Set(rows.map((r) => r.banco_id));
 }
 
 export type MotivoReport = "gabarito" | "enunciado" | "duplicada" | "outro";
@@ -301,6 +357,25 @@ export async function listarConceitos(
      WHERE materia = ?
      ORDER BY ${ordem === "data" ? "ts DESC" : "titulo COLLATE NOCASE ASC"}`,
     [materia],
+  );
+  return rows.map(mapNota);
+}
+
+/**
+ * Busca notas por título, corpo ou tag, em todas as matérias — a ordenação
+ * por data/A-Z de listarConceitos já cobre uma pasta; isto cobre "onde
+ * salvei aquilo" quando o usuário não lembra em qual matéria.
+ */
+export async function buscarNotas(termo: string): Promise<ConceitoSalvo[]> {
+  const q = termo.trim();
+  if (!q) return [];
+  const like = `%${q}%`;
+  const rows = await all(
+    `SELECT * FROM conceitos_salvos
+     WHERE titulo LIKE ? OR corpo LIKE ? OR tag LIKE ?
+     ORDER BY ts DESC
+     LIMIT 100`,
+    [like, like, like],
   );
   return rows.map(mapNota);
 }
@@ -441,6 +516,146 @@ async function agrupar(
 export const porNivel = (m: string | null) => agrupar("nivel", m);
 export const porTipo = (m: string | null, nivel: number | null = null) => agrupar("tipo_cobranca", m, nivel);
 export const porFormato = (m: string | null, nivel: number | null = null) => agrupar("formato", m, nivel);
+
+/**
+ * Acerto por conceito — a dimensão mais granular que o app grava (cada
+ * questão pode listar vários), e a única que nenhum card de Dados usava até
+ * aqui. `json_each` desaninha o array JSON de `conceitos`; `HAVING` corta
+ * conceitos com poucas amostras, que só adicionariam ruído (100% ou 0% de
+ * acerto em 1 questão não diz nada). Ordenado do pior para o melhor acerto —
+ * é a lista de "onde treinar primeiro".
+ */
+export async function porConceito(
+  materia: string | null,
+  nivel: number | null = null,
+  minimoAmostras = 3,
+): Promise<Fatia[]> {
+  const cond = ["1 = 1"];
+  const params: unknown[] = [];
+  if (materia) {
+    cond.push("qr.materia = ?");
+    params.push(materia);
+  }
+  if (nivel) {
+    cond.push("qr.nivel = ?");
+    params.push(nivel);
+  }
+  const rows = await all(
+    `SELECT je.value AS chave, COUNT(*) AS total, SUM(qr.acertou) AS acertos
+     FROM questoes_respondidas qr, json_each(qr.conceitos) je
+     WHERE ${cond.join(" AND ")}
+     GROUP BY je.value
+     HAVING COUNT(*) >= ?
+     ORDER BY (CAST(SUM(qr.acertou) AS REAL) / COUNT(*)) ASC, total DESC
+     LIMIT 12`,
+    [...params, minimoAmostras],
+  );
+  return rows.map((r) => {
+    const total = Number(r.total);
+    const acertos = Number(r.acertos);
+    return {
+      chave: String(r.chave),
+      total,
+      acertos,
+      pct: total ? Math.round((acertos / total) * 100) : 0,
+    };
+  });
+}
+
+/**
+ * Sequência de dias consecutivos com pelo menos uma questão respondida.
+ * `atual` conta para trás a partir de hoje (ou de ontem, se hoje ainda não
+ * teve nenhuma resposta — não queremos zerar a sequência às 00h01 de quem
+ * ainda vai estudar mais tarde); `recorde` é o maior trecho contínuo já
+ * alcançado. As datas vêm de `ts` (ISO), comparadas pela fatia `YYYY-MM-DD`.
+ */
+export async function streakDias(): Promise<{ atual: number; recorde: number; hoje: boolean }> {
+  const rows = await all<{ dia: string }>(
+    `SELECT DISTINCT substr(ts, 1, 10) AS dia FROM questoes_respondidas ORDER BY dia DESC`,
+  );
+  const dias = rows.map((r) => r.dia);
+  if (!dias.length) return { atual: 0, recorde: 0, hoje: false };
+
+  const diasSet = new Set(dias);
+  const umDiaMs = 86_400_000;
+  const paraChave = (d: Date) => d.toISOString().slice(0, 10);
+
+  const hojeChave = paraChave(new Date());
+  const hoje = diasSet.has(hojeChave);
+
+  let cursor = new Date();
+  if (!hoje) cursor = new Date(cursor.getTime() - umDiaMs); // começa contando de ontem
+  let atual = 0;
+  while (diasSet.has(paraChave(cursor))) {
+    atual++;
+    cursor = new Date(cursor.getTime() - umDiaMs);
+  }
+
+  // Recorde: maior trecho de dias consecutivos em todo o histórico.
+  let recorde = 0;
+  let corrente = 0;
+  let anterior: Date | null = null;
+  for (let i = dias.length - 1; i >= 0; i--) {
+    const d = new Date(`${dias[i]}T00:00:00.000Z`);
+    if (anterior && d.getTime() - anterior.getTime() === umDiaMs) corrente++;
+    else corrente = 1;
+    recorde = Math.max(recorde, corrente);
+    anterior = d;
+  }
+
+  return { atual, recorde: Math.max(recorde, atual), hoje };
+}
+
+/** Tópicos (texto livre gravado em `blocos.topico`) já praticados numa
+ * matéria — cruzado com TOPICOS_POR_MATERIA (lib/topicos.ts) para mostrar o
+ * que nunca foi praticado. Só tem sentido para matérias com lista fixa de
+ * tópicos; as demais usam tópico livre sem uma referência para comparar. */
+export async function topicosPraticados(materia: string): Promise<string[]> {
+  const rows = await all<{ topico: string }>(
+    `SELECT DISTINCT topico FROM blocos WHERE materia = ? AND topico IS NOT NULL AND topico != ''`,
+    [materia],
+  );
+  return rows.map((r) => r.topico);
+}
+
+/* ---------- Questões reportadas ---------- */
+
+export interface QuestaoReportada {
+  id: number;
+  materia: string;
+  enunciado: string;
+  motivo_report: string | null;
+  ts: string;
+}
+
+/** Lista de questões sinalizadas como erradas (enunciado/gabarito), para
+ * curadoria em Ajustes — sem isto o report ficava gravado no banco sem
+ * nenhuma tela para lê-lo de volta. */
+export async function listarReportadas(): Promise<QuestaoReportada[]> {
+  const rows = await all(
+    `SELECT id, materia, enunciado, motivo_report, ts
+     FROM questoes_respondidas
+     WHERE reportada = 1
+     ORDER BY ts DESC`,
+  );
+  return rows.map((r) => ({
+    id: Number(r.id),
+    materia: String(r.materia),
+    enunciado: String(r.enunciado),
+    motivo_report: (r.motivo_report as string) ?? null,
+    ts: String(r.ts),
+  }));
+}
+
+/** Marca um report como já revisado pelo usuário (curadoria feita) — some da
+ * lista de pendentes; a questão em si e seu histórico de resposta continuam
+ * intactos, só o sinalizador de report é limpo. */
+export async function resolverReport(id: number): Promise<void> {
+  await run(
+    `UPDATE questoes_respondidas SET reportada = 0, motivo_report = NULL WHERE id = ?`,
+    [id],
+  );
+}
 
 /** Matérias que já aparecem em qualquer registro — alimenta o filtro. */
 export async function materiasComDados(): Promise<string[]> {

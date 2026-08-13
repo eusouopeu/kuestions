@@ -18,7 +18,7 @@ import {
 } from "@capacitor-community/sqlite";
 
 const DB_NAME = "kumon_fiscal";
-const SCHEMA_VERSION = 5;
+const SCHEMA_VERSION = 6;
 
 const sqlite = new SQLiteConnection(CapacitorSQLite);
 const isWeb = Capacitor.getPlatform() === "web";
@@ -146,6 +146,30 @@ const MIGRATIONS: { version: number; sql: string }[] = [
     version: 5,
     sql: `
       ALTER TABLE questoes_respondidas ADD COLUMN motivo_report TEXT;
+    `,
+  },
+  {
+    // Repetição espaçada (caixas de Leitner) em vez de um `revisada` binário:
+    // `caixa_leitner` (1–5) e `proxima_revisao` (ISO, NULL = vencida agora)
+    // decidem quando uma errada volta a aparecer em "Refazer erradas" — ver
+    // registrarRevisao em repo.ts. Linhas já marcadas `revisada = 1` na versão
+    // anterior viram caixa 2 sem data agendada: continuam fora da fila de
+    // pendentes (mesmo comportamento de antes), só passam a evoluir de caixa
+    // dali em diante.
+    //
+    // `banco_id` guarda o id da questão de origem em banco_questoes.json
+    // quando o bloco veio do banco real (ver lib/banco.ts) — permite priorizar
+    // questões inéditas do banco fixo em vez de sortear com reposição.
+    version: 6,
+    sql: `
+      ALTER TABLE questoes_respondidas ADD COLUMN caixa_leitner INTEGER NOT NULL DEFAULT 1;
+      ALTER TABLE questoes_respondidas ADD COLUMN proxima_revisao TEXT;
+      ALTER TABLE questoes_respondidas ADD COLUMN banco_id TEXT;
+
+      UPDATE questoes_respondidas SET caixa_leitner = 2 WHERE revisada = 1;
+
+      CREATE INDEX IF NOT EXISTS ix_qr_proxima_revisao ON questoes_respondidas (proxima_revisao);
+      CREATE INDEX IF NOT EXISTS ix_qr_banco_id ON questoes_respondidas (banco_id);
     `,
   },
 ];
