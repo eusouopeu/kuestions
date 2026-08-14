@@ -22,7 +22,15 @@ export interface QuestaoBanco {
   gabarito: string;
 }
 
-const BANCO = banco as QuestaoBanco[];
+// A fonte tem pelo menos um registro corrompido (gabarito null, ver
+// SEFAZ-PA-2021-Q085) — descartado aqui, na única leitura do arquivo, em vez
+// de em cada função que consome BANCO. Sem isso, `questaoBancoParaQuestao`
+// quebra ao chamar `.trim()` num gabarito nulo assim que esse registro é
+// sorteado (mais provável em filtros amplos, como "todos os assuntos" de uma
+// área inteira — caso do Simulado).
+const BANCO = (banco as QuestaoBanco[]).filter(
+  (q) => typeof q.gabarito === "string" && q.gabarito.trim() !== "",
+);
 
 /** Áreas do banco, independentes de MATERIAS — a fonte usa rótulos próprios
  * (ex. "Noções de Informática") que nem sempre batem com os da geração por
@@ -82,12 +90,39 @@ export function assuntosDeArea(area: string): AssuntoComTotal[] {
     .sort((a, b) => a.assunto.localeCompare(b.assunto, "pt-BR"));
 }
 
-export type FiltroBanco = { modo: "aula"; assunto: string } | { modo: "bloco"; bloco: string } | { modo: "todos" };
+/** Filtro adicional de proveniência, combinável com qualquer `modo` — banca
+ * (instituição) e/ou ano da prova, aplicados por cima do filtro de assunto. */
+interface FiltroProveniencia {
+  instituicao?: string;
+  ano?: number;
+}
+
+export type FiltroBanco = (
+  | { modo: "aula"; assunto: string }
+  | { modo: "bloco"; bloco: string }
+  | { modo: "todos" }
+) &
+  FiltroProveniencia;
+
+/** Instituições (bancas) com questões numa área, ordenadas alfabeticamente —
+ * alimenta o dropdown "Banca" na view "Do banco". */
+export function instituicoesDeArea(area: string): string[] {
+  return [...new Set(questoesDeArea(area).map((q) => q.instituicao))].sort((a, b) =>
+    a.localeCompare(b, "pt-BR"),
+  );
+}
+
+/** Anos com questões numa área, do mais recente para o mais antigo. */
+export function anosDeArea(area: string): number[] {
+  return [...new Set(questoesDeArea(area).map((q) => q.ano))].sort((a, b) => b - a);
+}
 
 function questoesFiltradas(area: string, filtro: FiltroBanco): QuestaoBanco[] {
-  const qs = questoesDeArea(area);
-  if (filtro.modo === "aula") return qs.filter((q) => q.assunto === filtro.assunto);
-  if (filtro.modo === "bloco") return qs.filter((q) => prefixoAssunto(q.assunto) === filtro.bloco);
+  let qs = questoesDeArea(area);
+  if (filtro.modo === "aula") qs = qs.filter((q) => q.assunto === filtro.assunto);
+  else if (filtro.modo === "bloco") qs = qs.filter((q) => prefixoAssunto(q.assunto) === filtro.bloco);
+  if (filtro.instituicao) qs = qs.filter((q) => q.instituicao === filtro.instituicao);
+  if (filtro.ano) qs = qs.filter((q) => q.ano === filtro.ano);
   return qs;
 }
 
@@ -134,9 +169,12 @@ export function contarIneditas(area: string, filtro: FiltroBanco, vistas: Readon
 
 /** Descrição do filtro para `Config.topico` — vai para `questoes_respondidas.topico`. */
 export function descricaoFiltroBanco(area: string, filtro: FiltroBanco): string {
-  if (filtro.modo === "aula") return filtro.assunto;
-  if (filtro.modo === "bloco") return `Bloco: ${filtro.bloco}`;
-  return area;
+  const base =
+    filtro.modo === "aula" ? filtro.assunto : filtro.modo === "bloco" ? `Bloco: ${filtro.bloco}` : area;
+  const proveniencia = [filtro.instituicao, filtro.ano ? String(filtro.ano) : null]
+    .filter(Boolean)
+    .join(" ");
+  return proveniencia ? `${base} (${proveniencia})` : base;
 }
 
 /**

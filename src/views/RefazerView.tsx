@@ -4,7 +4,14 @@ import Botao from "../components/Botao";
 import QuestaoCard from "../components/QuestaoCard";
 import Segmented from "../components/Segmented";
 import { Vazio } from "../components/Shell";
-import { contarErradasPorMateria, listarErradas, registrarRevisao } from "../lib/repo";
+import {
+  contarErradasPorConceito,
+  contarErradasPorMateria,
+  idsComNota,
+  listarErradas,
+  listarErradasPorConceito,
+  registrarRevisao,
+} from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
 import type { QuestaoRespondida } from "../lib/types";
 
@@ -24,58 +31,83 @@ function dataCurta(iso: string): string {
  * `questoes_respondidas` com acertou = 0 e as reapresenta com as mesmas
  * interações do drill de geração. Acertar aqui marca a questão como revisada.
  */
+/** Fonte da fila aberta: por matéria (comportamento original, `valor = null`
+ * agrega tudo) ou por conceito (novo — ataca o ponto específico que quebra,
+ * em vez de misturar conceitos fortes e fracos da mesma matéria). */
+type FonteFila = { tipo: "materia"; valor: string | null } | { tipo: "conceito"; valor: string };
+
 export default function RefazerView() {
   const [soPendentes, setSoPendentes] = useState(true);
+  const [agrupamento, setAgrupamento] = useState<"materia" | "conceito">("materia");
   const [pastas, setPastas] = useState<{ materia: string; total: number; pendentes: number }[]>([]);
+  const [conceitos, setConceitos] = useState<
+    { conceito: string; total: number; pendentes: number }[]
+  >([]);
   const [carregando, setCarregando] = useState(true);
-  const [materia, setMateria] = useState<string | null>(null);
+  const [fonte, setFonte] = useState<FonteFila | null>(null);
   const [fila, setFila] = useState<QuestaoRespondida[] | null>(null);
   const [temMaisLotes, setTemMaisLotes] = useState(false);
   const [carregandoLote, setCarregandoLote] = useState(false);
   const [idx, setIdx] = useState(0);
   const [revisadasAgora, setRevisadasAgora] = useState(0);
   const [erro, setErro] = useState<string | null>(null);
+  // ids de questoes_respondidas com nota já salva, para o selo "nota salva"
+  // no card — buscado em lote (1 consulta por página) em vez de por questão.
+  const [comNota, setComNota] = useState<Set<number>>(new Set());
 
   const recarregar = useCallback(() => {
     setCarregando(true);
-    contarErradasPorMateria(soPendentes)
-      .then(setPastas)
+    Promise.all([contarErradasPorMateria(soPendentes), contarErradasPorConceito(soPendentes)])
+      .then(([p, c]) => {
+        setPastas(p);
+        setConceitos(c);
+      })
       .catch((e) => setErro(e instanceof Error ? e.message : "Falha ao ler o histórico."))
       .finally(() => setCarregando(false));
   }, [soPendentes]);
 
   useEffect(recarregar, [recarregar]);
 
-  async function abrir(m: string | null) {
+  function buscarPagina(f: FonteFila, opts: { limite?: number; offset?: number }) {
+    return f.tipo === "conceito"
+      ? listarErradasPorConceito(f.valor, soPendentes, opts)
+      : listarErradas(f.valor, soPendentes, opts);
+  }
+
+  async function abrir(f: FonteFila) {
     setErro(null);
     try {
-      const qs = await listarErradas(m, soPendentes, { limite: LOTE });
+      const qs = await buscarPagina(f, { limite: LOTE });
       if (!qs.length) {
         setErro("Nenhuma questão errada nesse filtro.");
         return;
       }
-      setMateria(m);
+      setFonte(f);
       setFila(qs);
       setTemMaisLotes(qs.length === LOTE);
       setIdx(0);
       setRevisadasAgora(0);
+      idsComNota(qs.map((q) => q.id))
+        .then(setComNota)
+        .catch(() => setComNota(new Set()));
     } catch (e) {
       setErro(e instanceof Error ? e.message : "Falha ao carregar as questões.");
     }
   }
 
   /** Busca o próximo lote e o anexa à fila em vez de recarregar tudo do zero —
-   * é o que torna a paginação de listarErradas transparente para quem revisa. */
+   * é o que torna a paginação de listarErradas/listarErradasPorConceito
+   * transparente para quem revisa. */
   async function carregarProximoLote(): Promise<QuestaoRespondida[]> {
-    if (!temMaisLotes || carregandoLote) return [];
+    if (!temMaisLotes || carregandoLote || !fonte) return [];
     setCarregandoLote(true);
     try {
-      const proximas = await listarErradas(materia, soPendentes, {
-        limite: LOTE,
-        offset: fila?.length ?? 0,
-      });
+      const proximas = await buscarPagina(fonte, { limite: LOTE, offset: fila?.length ?? 0 });
       setFila((f) => (f ? [...f, ...proximas] : proximas));
       setTemMaisLotes(proximas.length === LOTE);
+      idsComNota(proximas.map((q) => q.id))
+        .then((novos) => setComNota((s) => new Set([...s, ...novos])))
+        .catch(() => {});
       return proximas;
     } catch (e) {
       setErro(e instanceof Error ? e.message : "Falha ao carregar mais questões.");
@@ -87,8 +119,9 @@ export default function RefazerView() {
 
   function sair() {
     setFila(null);
-    setMateria(null);
+    setFonte(null);
     setTemMaisLotes(false);
+    setComNota(new Set());
     recarregar();
   }
 
@@ -104,7 +137,8 @@ export default function RefazerView() {
     return (
       <div>
         <div style={{ ...mono, fontSize: 12, color: C.sub, textAlign: "center", marginBottom: 6 }}>
-          Revisão {idx + 1}/{fila.length} · {materia ?? "todas as matérias"}
+          Revisão {idx + 1}/{fila.length} ·{" "}
+          {fonte?.tipo === "conceito" ? fonte.valor : (fonte?.valor ?? "todas as matérias")}
         </div>
         <div
           style={{
@@ -126,6 +160,7 @@ export default function RefazerView() {
           tagAssunto={gerarTagAssunto(q.topico || q.materia)}
           questaoOrigemId={q.id}
           reportadaInicial={q.reportada}
+          temNotaInicial={comNota.has(q.id)}
           cabecalho={
             <div
               style={{
@@ -201,12 +236,13 @@ export default function RefazerView() {
     );
   }
 
-  /* ---------- Seleção de matéria ---------- */
+  /* ---------- Seleção de matéria/conceito ---------- */
   const totalGeral = pastas.reduce((a, b) => a + b.total, 0);
+  const semDados = pastas.length === 0;
 
   return (
     <div>
-      <div style={{ marginBottom: 16 }}>
+      <div style={{ marginBottom: 14 }}>
         <label style={rotulo}>Filtro</label>
         <Segmented
           valor={soPendentes ? "pend" : "todas"}
@@ -217,6 +253,26 @@ export default function RefazerView() {
           onChange={(v) => setSoPendentes(v === "pend")}
         />
       </div>
+
+      {!semDados && (
+        <div style={{ marginBottom: 16 }}>
+          <label style={rotulo}>Agrupar por</label>
+          <Segmented
+            valor={agrupamento}
+            opcoes={[
+              { id: "materia" as const, label: "Matéria" },
+              { id: "conceito" as const, label: "Conceito — onde treinar" },
+            ]}
+            onChange={setAgrupamento}
+          />
+          {agrupamento === "conceito" && (
+            <div style={{ fontSize: 11.5, color: C.sub, marginTop: 6, lineHeight: 1.4 }}>
+              Cada fila reúne erradas do mesmo conceito, mesmo que de matérias diferentes — ataca o
+              ponto específico que quebra, em vez do erro genérico da matéria inteira.
+            </div>
+          )}
+        </div>
+      )}
 
       {erro && (
         <div
@@ -235,15 +291,19 @@ export default function RefazerView() {
 
       {carregando ? (
         <Vazio>Lendo histórico…</Vazio>
-      ) : pastas.length === 0 ? (
+      ) : semDados ? (
         <Vazio>
           Nenhuma questão errada registrada{soPendentes ? " e pendente de revisão" : ""}.
           <br />
           Gere um bloco na aba Questões — toda resposta fica gravada aqui.
         </Vazio>
-      ) : (
+      ) : agrupamento === "materia" ? (
         <>
-          <Botao tipo="tinta" onClick={() => abrir(null)} style={{ marginBottom: 14 }}>
+          <Botao
+            tipo="tinta"
+            onClick={() => abrir({ tipo: "materia", valor: null })}
+            style={{ marginBottom: 14 }}
+          >
             Todas as matérias · {totalGeral} {totalGeral === 1 ? "questão" : "questões"}
           </Botao>
 
@@ -254,7 +314,7 @@ export default function RefazerView() {
           {pastas.map((p) => (
             <button
               key={p.materia}
-              onClick={() => abrir(p.materia)}
+              onClick={() => abrir({ tipo: "materia", valor: p.materia })}
               style={{
                 ...cartao,
                 display: "flex",
@@ -271,6 +331,38 @@ export default function RefazerView() {
               <span style={{ ...mono, fontSize: 12, color: C.erro }}>
                 {p.total}
                 {!soPendentes && p.pendentes !== p.total ? ` · ${p.pendentes} pend.` : ""}
+              </span>
+            </button>
+          ))}
+        </>
+      ) : conceitos.length === 0 ? (
+        <Vazio>Nenhum conceito pendente de revisão neste filtro.</Vazio>
+      ) : (
+        <>
+          <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
+            POR CONCEITO — {conceitos.length} conceito{conceitos.length === 1 ? "" : "s"}
+          </div>
+
+          {conceitos.map((c) => (
+            <button
+              key={c.conceito}
+              onClick={() => abrir({ tipo: "conceito", valor: c.conceito })}
+              style={{
+                ...cartao,
+                display: "flex",
+                width: "100%",
+                alignItems: "center",
+                justifyContent: "space-between",
+                textAlign: "left",
+                padding: "12px 14px",
+                marginBottom: 8,
+                cursor: "pointer",
+              }}
+            >
+              <span style={{ ...disp, fontSize: 14.5, fontWeight: 600 }}>{c.conceito}</span>
+              <span style={{ ...mono, fontSize: 12, color: C.erro }}>
+                {c.total}
+                {!soPendentes && c.pendentes !== c.total ? ` · ${c.pendentes} pend.` : ""}
               </span>
             </button>
           ))}

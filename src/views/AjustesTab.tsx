@@ -28,6 +28,7 @@ import {
   type ConfigLembrete,
 } from "../lib/lembretes";
 import { diasDesdeUltimoBackup, DIAS_PARA_AVISO_BACKUP, registrarBackupFeito } from "../lib/backupInfo";
+import { getConfigMeta, setConfigMeta, type ConfigMeta } from "../lib/metas";
 
 function dataCurta(iso: string): string {
   const d = new Date(iso);
@@ -71,6 +72,8 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   const [salvandoLembrete, setSalvandoLembrete] = useState(false);
   const [erroLembrete, setErroLembrete] = useState<string | null>(null);
 
+  const [meta, setMetaLocal] = useState<ConfigMeta>({ ativa: false, blocosPorSemana: 3 });
+
   const [diasBackup, setDiasBackup] = useState<number | null>(null);
   const [temDados, setTemDados] = useState(false);
 
@@ -83,6 +86,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
       .finally(() => setCarregado(true));
     getTema().then(setTemaLocal);
     getConfigLembrete().then(setLembreteLocal);
+    getConfigMeta().then(setMetaLocal);
   }, []);
 
   useEffect(() => {
@@ -179,6 +183,15 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
       if (!ok) setErroLembrete("Falha ao reagendar o lembrete.");
     } finally {
       setSalvandoLembrete(false);
+    }
+  }
+
+  async function mudarMeta(novo: ConfigMeta) {
+    setMetaLocal(novo);
+    try {
+      await setConfigMeta(novo);
+    } catch (e) {
+      console.error("salvar meta semanal", e);
     }
   }
 
@@ -518,6 +531,56 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
 
         {erroLembrete && (
           <div style={{ ...mono, fontSize: 11.5, color: C.erro, marginTop: 10 }}>{erroLembrete}</div>
+        )}
+      </div>
+
+      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
+        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
+          META SEMANAL
+        </div>
+        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
+          Quantos blocos (de qualquer origem) responder por semana — a semana reinicia toda
+          segunda-feira. O progresso aparece no topo da aba Questões.
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+          <span style={{ fontSize: 13.5 }}>Acompanhar meta</span>
+          <button
+            role="switch"
+            aria-checked={meta.ativa}
+            onClick={() => mudarMeta({ ...meta, ativa: !meta.ativa })}
+            style={{
+              width: 44,
+              height: 26,
+              borderRadius: 13,
+              border: "none",
+              padding: 3,
+              display: "flex",
+              justifyContent: meta.ativa ? "flex-end" : "flex-start",
+              background: meta.ativa ? C.caneta : C.line,
+              cursor: "pointer",
+              transition: "background 0.15s",
+            }}
+          >
+            <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+          </button>
+        </div>
+
+        {meta.ativa && (
+          <div style={{ marginTop: 12 }}>
+            <label style={rotulo}>Blocos por semana</label>
+            <select
+              style={campo}
+              value={meta.blocosPorSemana}
+              onChange={(e) => mudarMeta({ ...meta, blocosPorSemana: Number(e.target.value) })}
+            >
+              {Array.from({ length: 14 }, (_, i) => i + 1).map((n) => (
+                <option key={n} value={n}>
+                  {n} bloco{n === 1 ? "" : "s"}
+                </option>
+              ))}
+            </select>
+          </div>
         )}
       </div>
 

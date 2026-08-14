@@ -220,6 +220,69 @@ export async function contarErradasPorMateria(
   }));
 }
 
+/**
+ * Erradas agrupadas por conceito em vez de por matéria — a granularidade que
+ * "Refazer erradas" ainda não oferecia: agrupar por matéria mistura conceitos
+ * fortes e fracos da mesma matéria na mesma fila; agrupar por conceito deixa
+ * o usuário atacar exatamente o ponto que quebra, cruzando com o card
+ * "Acerto por conceito" da aba Dados (ver porConceito). `json_each` desaninha
+ * o array de `conceitos` de cada questão errada.
+ */
+export async function contarErradasPorConceito(
+  soPendentes: boolean,
+  materia: string | null = null,
+): Promise<{ conceito: string; total: number; pendentes: number }[]> {
+  const condPendenteQr = "(qr.revisada = 0 OR (qr.proxima_revisao IS NOT NULL AND qr.proxima_revisao <= ?))";
+  const cond = ["qr.acertou = 0"];
+  const paramsWhere: unknown[] = [];
+  if (materia) {
+    cond.push("qr.materia = ?");
+    paramsWhere.push(materia);
+  }
+  // A ordem dos parâmetros segue a ordem textual dos "?" na query: o do SELECT
+  // (dentro do CASE) vem antes de qualquer "?" do WHERE.
+  const rows = await all(
+    `SELECT je.value AS conceito,
+            COUNT(*) AS total,
+            SUM(CASE WHEN ${condPendenteQr} THEN 1 ELSE 0 END) AS pendentes
+     FROM questoes_respondidas qr, json_each(qr.conceitos) je
+     WHERE ${cond.join(" AND ")}
+     GROUP BY je.value
+     ${soPendentes ? `HAVING pendentes > 0` : ""}
+     ORDER BY pendentes DESC, total DESC`,
+    [agoraISO(), ...paramsWhere],
+  );
+  return rows.map((r) => ({
+    conceito: String(r.conceito),
+    total: Number(r.total),
+    pendentes: Number(r.pendentes),
+  }));
+}
+
+/** Erradas de um conceito específico (ver contarErradasPorConceito) — mesma
+ * paginação de listarErradas, para não trazer um histórico inteiro de vez. */
+export async function listarErradasPorConceito(
+  conceito: string,
+  soPendentes: boolean,
+  opts: { limite?: number; offset?: number } = {},
+): Promise<QuestaoRespondida[]> {
+  const cond = ["qr.acertou = 0", "EXISTS (SELECT 1 FROM json_each(qr.conceitos) je WHERE je.value = ?)"];
+  const params: unknown[] = [conceito];
+  if (soPendentes) {
+    cond.push(COND_PENDENTE);
+    params.push(agoraISO());
+  }
+  const { limite, offset = 0 } = opts;
+  const rows = await all(
+    `SELECT qr.* FROM questoes_respondidas qr
+     WHERE ${cond.join(" AND ")}
+     ORDER BY qr.ts DESC
+     ${limite ? "LIMIT ? OFFSET ?" : ""}`,
+    limite ? [...params, limite, offset] : params,
+  );
+  return rows.map(mapQuestao);
+}
+
 /** Dias até a próxima revisão, indexado pela caixa (1–5) alcançada ao
  * acertar — progressão inspirada no sistema de Leitner: quem acerta de novo
  * espera cada vez mais para revisar; quem erra volta à caixa 1 (vence agora). */
@@ -396,6 +459,20 @@ export async function apagarConceito(id: number): Promise<void> {
   await run(`DELETE FROM conceitos_salvos WHERE id = ?`, [id]);
 }
 
+/** ids de `questoes_respondidas` (de `ids`) que já têm ao menos uma nota
+ * vinculada — usado para mostrar um selo "nota salva" ao revisitar a questão
+ * (ex.: em "Refazer erradas"), sem precisar de uma consulta por questão. */
+export async function idsComNota(ids: number[]): Promise<Set<number>> {
+  if (!ids.length) return new Set();
+  const placeholders = ids.map(() => "?").join(",");
+  const rows = await all<{ questao_origem_id: number }>(
+    `SELECT DISTINCT questao_origem_id FROM conceitos_salvos
+     WHERE questao_origem_id IN (${placeholders})`,
+    ids,
+  );
+  return new Set(rows.map((r) => Number(r.questao_origem_id)));
+}
+
 export async function contarConceitos(materia: string | null): Promise<number> {
   const r = await one<{ n: number }>(
     `SELECT COUNT(*) AS n FROM conceitos_salvos ${materia ? "WHERE materia = ?" : ""}`,
@@ -463,6 +540,59 @@ export async function serieBlocos(
     ts: String(r.ts),
     materia: String(r.materia),
   }));
+}
+
+export interface Previsao {
+  amostras: number;
+  tendencia: "subindo" | "estavel" | "descendo";
+  jaAlcancada: boolean;
+  /** Quantos blocos a mais, no ritmo atual, até a % de acerto cruzar 90% —
+   * null quando a tendência não aponta para lá (estável/descendo) ou o
+   * limiar já foi alcançado. */
+  blocosAteAlvo: number | null;
+}
+
+const MIN_AMOSTRAS_PREVISAO = 4;
+/** Pontos percentuais de acerto por bloco, abaixo do qual a tendência conta
+ * como "estável" em vez de subindo/descendo — evita que ruído de ±1 bloco
+ * apareça como projeção. */
+const LIMIAR_INCLINACAO = 0.3;
+
+/**
+ * Projeção simples (regressão linear por mínimos quadrados, pct vs. índice
+ * do bloco) de quantos blocos faltam, no ritmo atual de evolução, para a %
+ * de acerto cruzar o limiar de aprovação (90%). Recebe a mesma série de
+ * `serieBlocos` já usada no gráfico de evolução — não introduz consulta nova.
+ * Função pura (sem SQL) para ficar fácil de testar isoladamente.
+ */
+export function preverAprovacao(serie: { i: number; pct: number }[]): Previsao | null {
+  if (serie.length < MIN_AMOSTRAS_PREVISAO) return null;
+
+  const n = serie.length;
+  const mediaX = serie.reduce((a, p) => a + p.i, 0) / n;
+  const mediaY = serie.reduce((a, p) => a + p.pct, 0) / n;
+  let num = 0;
+  let den = 0;
+  for (const p of serie) {
+    num += (p.i - mediaX) * (p.pct - mediaY);
+    den += (p.i - mediaX) ** 2;
+  }
+  const inclinacao = den === 0 ? 0 : num / den;
+  const intercepto = mediaY - inclinacao * mediaX;
+
+  const ultimoPct = serie[n - 1].pct;
+  const jaAlcancada = ultimoPct >= 90;
+  const tendencia: Previsao["tendencia"] =
+    inclinacao > LIMIAR_INCLINACAO ? "subindo" : inclinacao < -LIMIAR_INCLINACAO ? "descendo" : "estavel";
+
+  let blocosAteAlvo: number | null = null;
+  if (!jaAlcancada && tendencia === "subindo") {
+    const iAlvo = (90 - intercepto) / inclinacao;
+    const restante = Math.ceil(iAlvo - serie[n - 1].i);
+    if (restante > 0) blocosAteAlvo = restante;
+  }
+
+  return { amostras: n, tendencia, jaAlcancada, blocosAteAlvo };
 }
 
 export interface Fatia {
@@ -606,6 +736,22 @@ export async function streakDias(): Promise<{ atual: number; recorde: number; ho
   return { atual, recorde: Math.max(recorde, atual), hoje };
 }
 
+/** Blocos (qualquer origem) criados desde a segunda-feira mais recente
+ * (00h00 local) — base da meta semanal (ver lib/metas.ts). Semana de
+ * calendário, não janela rolante de 7 dias: reinicia sempre na segunda. */
+export async function blocosNaSemana(): Promise<number> {
+  const agora = new Date();
+  const diaSemana = agora.getDay(); // 0 = domingo
+  const deltaParaSegunda = diaSemana === 0 ? 6 : diaSemana - 1;
+  const segunda = new Date(agora);
+  segunda.setHours(0, 0, 0, 0);
+  segunda.setDate(segunda.getDate() - deltaParaSegunda);
+  const r = await one<{ n: number }>(`SELECT COUNT(*) AS n FROM blocos WHERE ts >= ?`, [
+    segunda.toISOString(),
+  ]);
+  return Number(r?.n ?? 0);
+}
+
 /** Tópicos (texto livre gravado em `blocos.topico`) já praticados numa
  * matéria — cruzado com TOPICOS_POR_MATERIA (lib/topicos.ts) para mostrar o
  * que nunca foi praticado. Só tem sentido para matérias com lista fixa de
@@ -616,6 +762,21 @@ export async function topicosPraticados(materia: string): Promise<string[]> {
     [materia],
   );
   return rows.map((r) => r.topico);
+}
+
+/** Tópico + acerto de cada questão respondida de uma matéria (granularidade
+ * de questão, não de bloco) — base do heatmap de desempenho por tópico (ver
+ * desempenhoPorTopico em lib/topicos.ts). Só questões cujo bloco de origem
+ * gravou um tópico (texto livre ou aula/bloco específico) entram aqui. */
+export async function questoesPorTopico(
+  materia: string,
+): Promise<{ topico: string; acertou: boolean }[]> {
+  const rows = await all<{ topico: string; acertou: number }>(
+    `SELECT topico, acertou FROM questoes_respondidas
+     WHERE materia = ? AND topico IS NOT NULL AND topico != ''`,
+    [materia],
+  );
+  return rows.map((r) => ({ topico: String(r.topico), acertou: toBool(r.acertou) }));
 }
 
 /* ---------- Questões reportadas ---------- */

@@ -22,15 +22,25 @@ import {
   porFormato,
   porNivel,
   porTipo,
+  preverAprovacao,
+  questoesPorTopico,
   resumo,
   serieBlocos,
   streakDias,
   topicosPraticados,
   type Fatia,
+  type Previsao,
   type Resumo,
 } from "../lib/repo";
 import { labelFormato, labelTipo, NIVEIS } from "../lib/constants";
-import { coberturaTopicos, MATERIAS_COM_TOPICOS, type TopicoEspecifico } from "../lib/topicos";
+import {
+  agruparPorPrefixo,
+  coberturaTopicos,
+  desempenhoPorTopico,
+  MATERIAS_COM_TOPICOS,
+  type DesempenhoTopico,
+  type TopicoEspecifico,
+} from "../lib/topicos";
 
 const TODAS = "__todas__";
 const TODOS_NIVEIS = 0;
@@ -137,6 +147,7 @@ export default function DadosTab({
   const [carregando, setCarregando] = useState(true);
   const [res, setRes] = useState<Resumo | null>(null);
   const [serie, setSerie] = useState<{ i: number; pct: number }[]>([]);
+  const [previsao, setPrevisao] = useState<Previsao | null>(null);
   const [niveis, setNiveis] = useState<Fatia[]>([]);
   const [tipos, setTipos] = useState<Fatia[]>([]);
   const [formatos, setFormatos] = useState<Fatia[]>([]);
@@ -149,6 +160,7 @@ export default function DadosTab({
     pendentes: TopicoEspecifico[];
   } | null>(null);
   const [mostrarTodasPendentes, setMostrarTodasPendentes] = useState(false);
+  const [heatmap, setHeatmap] = useState<DesempenhoTopico[] | null>(null);
 
   useEffect(() => {
     if (ativa) materiasComDados().then(setMaterias).catch(() => setMaterias([]));
@@ -171,6 +183,7 @@ export default function DadosTab({
       .then(([r, s, ni, ti, fo, co, st]) => {
         setRes(r);
         setSerie(s);
+        setPrevisao(preverAprovacao(s));
         setNiveis(ni);
         setTipos(ti);
         setFormatos(fo);
@@ -195,11 +208,15 @@ export default function DadosTab({
     setMostrarTodasPendentes(false);
     if (!ativa || filtro === TODAS || !MATERIAS_COM_TOPICOS.includes(filtro)) {
       setCobertura(null);
+      setHeatmap(null);
       return;
     }
     topicosPraticados(filtro)
       .then((praticados) => setCobertura(coberturaTopicos(filtro, praticados)))
       .catch(() => setCobertura(null));
+    questoesPorTopico(filtro)
+      .then((linhas) => setHeatmap(desempenhoPorTopico(filtro, linhas)))
+      .catch(() => setHeatmap(null));
   }, [ativa, filtro]);
 
   const semDados = !res || res.totalQuestoes === 0;
@@ -374,6 +391,41 @@ export default function DadosTab({
             </ResponsiveContainer>
           </Cartao>
 
+          {/* Previsão: regressão linear simples sobre a mesma série do
+              gráfico acima — projeta quantos blocos faltam, no ritmo atual,
+              para cruzar 90% de acerto. Só aparece com amostra suficiente
+              (ver MIN_AMOSTRAS_PREVISAO em repo.ts). */}
+          {previsao && (
+            <Cartao titulo="PREVISÃO DE APROVAÇÃO">
+              <div style={{ padding: "0 4px 14px", fontSize: 13.5, lineHeight: 1.55 }}>
+                {previsao.jaAlcancada ? (
+                  <span style={{ color: C.ok }}>
+                    Último bloco já cruzou 90% de acerto — mantenha o ritmo.
+                  </span>
+                ) : previsao.tendencia === "subindo" && previsao.blocosAteAlvo != null ? (
+                  <>
+                    No ritmo atual de evolução (últimos {previsao.amostras} blocos), você cruza 90% em
+                    aproximadamente{" "}
+                    <strong style={{ color: C.caneta }}>
+                      {previsao.blocosAteAlvo} bloco{previsao.blocosAteAlvo === 1 ? "" : "s"}
+                    </strong>
+                    .
+                  </>
+                ) : previsao.tendencia === "descendo" ? (
+                  <span style={{ color: C.erro }}>
+                    A % de acerto vem caindo nos últimos {previsao.amostras} blocos — vale revisar antes
+                    de subir o nível.
+                  </span>
+                ) : (
+                  <span style={{ color: C.sub }}>
+                    A % de acerto está estável nos últimos {previsao.amostras} blocos — sem tendência
+                    clara de subida ainda.
+                  </span>
+                )}
+              </div>
+            </Cartao>
+          )}
+
           {/* Nível de dificuldade */}
           <Cartao
             titulo="ACERTO POR NÍVEL DE DIFICULDADE"
@@ -435,6 +487,57 @@ export default function DadosTab({
                   )}
                 </div>
               )}
+            </Cartao>
+          )}
+
+          {/* Heatmap tópico × desempenho: cada quadrado é uma aula, colorido
+              pela % de acerto das questões respondidas cujo tópico bate com
+              ela (granularidade de questão — ver desempenhoPorTopico). Tópicos
+              nunca praticados ficam neutros, sem competir visualmente com os
+              que já têm sinal de desempenho. */}
+          {heatmap && heatmap.some((t) => t.total > 0) && (
+            <Cartao
+              titulo="MAPA DE CALOR — DESEMPENHO POR TÓPICO"
+              legenda="Cada quadrado é uma aula; a cor é a % de acerto das questões respondidas sobre ela. Cinza = ainda não praticada."
+            >
+              <div style={{ padding: "0 4px 14px" }}>
+                {agruparPorPrefixo(heatmap, (t) => t.codigo.split(".")[0]).map((grupo) => (
+                  <div key={grupo.bloco} style={{ marginBottom: 10 }}>
+                    <div style={{ ...mono, fontSize: 10.5, color: C.sub, marginBottom: 5 }}>
+                      BLOCO {grupo.bloco}
+                    </div>
+                    <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+                      {grupo.aulas.map((t) => {
+                        const praticada = t.total > 0;
+                        return (
+                          <div
+                            key={t.codigo}
+                            title={`${t.nome} — ${praticada ? `${t.pct}% (${t.total} questões)` : "nunca praticada"}`}
+                            style={{
+                              ...mono,
+                              width: 34,
+                              height: 34,
+                              borderRadius: 6,
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              fontSize: 10,
+                              fontWeight: 700,
+                              flexShrink: 0,
+                              cursor: "default",
+                              color: praticada ? "#fff" : C.sub,
+                              background: praticada ? corPct(t.pct) : C.paper,
+                              border: praticada ? "none" : `1.5px dashed ${C.line}`,
+                            }}
+                          >
+                            {t.codigo.split(".")[1]}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </Cartao>
           )}
 

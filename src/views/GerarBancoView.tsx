@@ -7,12 +7,14 @@ import Segmented from "../components/Segmented";
 import QuestaoCard from "../components/QuestaoCard";
 import { Vazio } from "../components/Shell";
 import {
+  anosDeArea,
   AREAS_BANCO,
   assuntosDeArea,
   blocosDeArea,
   contarDisponiveis,
   contarIneditas,
   descricaoFiltroBanco,
+  instituicoesDeArea,
   questaoBancoParaQuestao,
   selecionarQuestoes,
   type FiltroBanco,
@@ -44,6 +46,10 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
   const [modo, setModo] = useState<Modo>("todos");
   const [assunto, setAssunto] = useState<string>("");
   const [bloco, setBloco] = useState<string>("");
+  // "" = todas as bancas; 0 = todos os anos — mesma convenção de área/matéria
+  // "todas" já usada no resto do app.
+  const [instituicao, setInstituicao] = useState<string>("");
+  const [ano, setAno] = useState<number>(0);
   const [quantidade, setQuantidade] = useState<number>(12);
 
   const [lotes, setLotes] = useState<(Questao[] | null)[]>([]);
@@ -69,6 +75,8 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
     setModo("todos");
     setAssunto("");
     setBloco("");
+    setInstituicao("");
+    setAno(0);
   }, [area]);
 
   useEffect(() => {
@@ -86,12 +94,16 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
     return <Vazio>Banco de questões vazio ou não encontrado.</Vazio>;
   }
 
+  const proveniencia = {
+    ...(instituicao ? { instituicao } : {}),
+    ...(ano ? { ano } : {}),
+  };
   const filtro: FiltroBanco =
     modo === "aula" && assunto
-      ? { modo: "aula", assunto }
+      ? { modo: "aula", assunto, ...proveniencia }
       : modo === "bloco" && bloco
-        ? { modo: "bloco", bloco }
-        : { modo: "todos" };
+        ? { modo: "bloco", bloco, ...proveniencia }
+        : { modo: "todos", ...proveniencia };
 
   const disponiveis = contarDisponiveis(area, filtro);
   const ineditas = contarIneditas(area, filtro, vistas);
@@ -303,6 +315,31 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
               ))}
             </select>
           )}
+        </div>
+
+        <div style={{ display: "flex", gap: 14, marginBottom: 18, flexWrap: "wrap" }}>
+          <div style={{ flex: "1 1 160px" }}>
+            <label style={rotulo}>Banca (opcional)</label>
+            <select style={campo} value={instituicao} onChange={(e) => setInstituicao(e.target.value)}>
+              <option value="">Todas as bancas</option>
+              {instituicoesDeArea(area).map((i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div style={{ flex: "1 1 120px" }}>
+            <label style={rotulo}>Ano (opcional)</label>
+            <select style={campo} value={ano} onChange={(e) => setAno(Number(e.target.value))}>
+              <option value={0}>Todos os anos</option>
+              {anosDeArea(area).map((a) => (
+                <option key={a} value={a}>
+                  {a}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
         <div style={{ marginBottom: 20 }}>

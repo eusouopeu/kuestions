@@ -145,19 +145,21 @@ export function rotuloTopico(t: TopicoEspecifico): string {
   return `${t.codigo} ${t.nome}`;
 }
 
-export interface BlocoDeAulas {
+export interface BlocoDeAulas<T extends TopicoEspecifico = TopicoEspecifico> {
   /** Primeiro segmento do código, ex. "1" em "1.3". */
   bloco: string;
-  aulas: TopicoEspecifico[];
+  aulas: T[];
 }
 
 /** Agrupa uma lista já ordenada de tópicos pelo prefixo antes do primeiro
- * ".", preservando a ordem (a fonte já vem ordenada por bloco/aula). */
-export function agruparPorPrefixo(
-  itens: TopicoEspecifico[],
-  prefixoDe: (t: TopicoEspecifico) => string,
-): BlocoDeAulas[] {
-  const grupos = new Map<string, TopicoEspecifico[]>();
+ * ".", preservando a ordem (a fonte já vem ordenada por bloco/aula). Genérico
+ * em T (⊇ TopicoEspecifico) para preservar campos extras do chamador — ex.
+ * DesempenhoTopico no heatmap de Dados. */
+export function agruparPorPrefixo<T extends TopicoEspecifico>(
+  itens: T[],
+  prefixoDe: (t: T) => string,
+): BlocoDeAulas<T>[] {
+  const grupos = new Map<string, T[]>();
   for (const item of itens) {
     const chave = prefixoDe(item);
     const atual = grupos.get(chave);
@@ -206,6 +208,32 @@ export function coberturaTopicos(
 /** Matérias com lista fixa de tópicos — alimenta o seletor do card de
  * cobertura em Dados (só faz sentido oferecer o filtro para estas). */
 export const MATERIAS_COM_TOPICOS: string[] = Object.keys(TOPICOS_POR_MATERIA);
+
+export interface DesempenhoTopico extends TopicoEspecifico {
+  total: number;
+  acertos: number;
+  pct: number;
+}
+
+/**
+ * Cruza a lista fixa de tópicos com o desempenho POR QUESTÃO (não por bloco,
+ * como coberturaTopicos acima) — alimenta o heatmap de Dados. Mesmo
+ * casamento por substring: os textos gravados em `questoes_respondidas.topico`
+ * (rotuloTopico / descricaoBloco) embutem `t.nome` por extenso.
+ */
+export function desempenhoPorTopico(
+  materia: string,
+  linhas: { topico: string; acertou: boolean }[],
+): DesempenhoTopico[] | null {
+  const lista = TOPICOS_POR_MATERIA[materia];
+  if (!lista) return null;
+  return lista.map((t) => {
+    const doTopico = linhas.filter((l) => l.topico.includes(t.nome));
+    const total = doTopico.length;
+    const acertos = doTopico.filter((l) => l.acertou).length;
+    return { ...t, total, acertos, pct: total ? Math.round((acertos / total) * 100) : 0 };
+  });
+}
 
 /** String descritiva do bloco inteiro, usada como `Config.topico` ao
  * escolher "Bloco de aulas" — vai direto para o prompt como texto livre. */

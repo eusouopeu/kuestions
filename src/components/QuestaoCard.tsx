@@ -40,6 +40,7 @@ export default function QuestaoCard({
   tagAssunto,
   questaoOrigemId,
   reportadaInicial,
+  temNotaInicial,
   origem,
   cabecalho,
   labelProxima,
@@ -54,6 +55,10 @@ export default function QuestaoCard({
   questaoOrigemId?: number | null;
   /** Já reportada em uma sessão anterior (modo revisão — QuestaoRespondida.reportada). */
   reportadaInicial?: boolean;
+  /** Já existe uma nota vinculada a esta questão (ver idsComNota em repo.ts) —
+   * só faz sentido no modo revisão, onde `questaoOrigemId` já existe antes de
+   * qualquer resposta nesta sessão. */
+  temNotaInicial?: boolean;
   /** De onde a questão veio — não persistido, então só aparece no drill em
    * que a questão foi criada (Gerar/Do banco/Importar), não na revisão de
    * erradas. Ajuda a calibrar confiança: só o comentário do modo "banco" é
@@ -73,6 +78,7 @@ export default function QuestaoCard({
   const [reportada, setReportada] = useState(reportadaInicial ?? false);
   const [reportando, setReportando] = useState(false);
   const [modalReport, setModalReport] = useState(false);
+  const [temNota, setTemNota] = useState(temNotaInicial ?? false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   // Reset ao trocar de questão: sem isso a seleção da anterior vazaria.
@@ -85,7 +91,8 @@ export default function QuestaoCard({
     setReportada(reportadaInicial ?? false);
     setReportando(false);
     setModalReport(false);
-  }, [questao, questaoOrigemId, reportadaInicial]);
+    setTemNota(temNotaInicial ?? false);
+  }, [questao, questaoOrigemId, reportadaInicial, temNotaInicial]);
 
   async function reportar(motivo: MotivoReport) {
     if (reportada || reportando || origemId == null) return;
@@ -151,13 +158,15 @@ export default function QuestaoCard({
         materia={materia}
         tagPadrao={tagAssunto}
         questaoOrigemId={origemId}
+        onSalvo={() => setTemNota(true)}
       />
 
       {cabecalho}
 
-      {origem && (
+      {(origem || temNota) && (
         <div style={{ marginBottom: 10 }}>
-          <Chip tom={origem === "banco" ? "ok" : "neutro"}>{ROTULO_ORIGEM[origem]}</Chip>
+          {origem && <Chip tom={origem === "banco" ? "ok" : "neutro"}>{ROTULO_ORIGEM[origem]}</Chip>}
+          {temNota && <Chip tom="ok">📝 Nota salva</Chip>}
         </div>
       )}
 
