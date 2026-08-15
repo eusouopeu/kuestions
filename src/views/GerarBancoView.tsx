@@ -166,7 +166,7 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
   const ultimaDoBloco = qIdx === totalQuestoes - 1;
   const topicoAtual = descricaoFiltroBanco(area, filtro);
 
-  async function responder(letra: string, acertou: boolean): Promise<number | null> {
+  async function responder(letra: string, acertou: boolean, tempoMs: number): Promise<number | null> {
     if (acertou) setAcertos((a) => a + 1);
     setRespondidaAtual(true);
     if (!questao) return null;
@@ -178,6 +178,7 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
       questao,
       resposta: letra,
       acertou,
+      tempoMs,
     });
   }
 

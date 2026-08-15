@@ -54,6 +54,10 @@ export interface QuestaoRespondida extends Questao {
   reportada: boolean;
   /** Categoria escolhida ao reportar — ver MotivoReport em lib/repo.ts. */
   motivo_report: string | null;
+  /** Tempo entre a questão aparecer e a resposta ser enviada, em ms — ver
+   * QuestaoCard. null quando não medido (dados anteriores a esta coluna, ou
+   * origem sem QuestaoCard, como o simulado cronometrado). */
+  tempo_ms: number | null;
   ts: string;
 }
 
@@ -88,6 +92,13 @@ export interface ConceitoSalvo {
   /** Assunto do bloco de origem, resumido a ≤3 palavras hifenizadas. */
   tag: string;
   questao_origem_id: number | null;
+  /** Caixa de Leitner atual (1–5) da revisão ativa desta nota — ver
+   * registrarRevisaoNota em lib/repo.ts. Mesmo esquema de repetição espaçada
+   * de QuestaoRespondida, aplicado à nota em vez da questão de origem. */
+  caixa_leitner: number;
+  /** ISO da próxima revisão; null = vencida agora (nunca revisada, ou "não
+   * lembrei" na última passagem). */
+  proxima_revisao: string | null;
   ts: string;
 }
 

@@ -9,8 +9,11 @@ import {
   apagarConceito,
   atualizarNota,
   buscarNotas,
+  contarNotasPendentesPorMateria,
   listarConceitos,
+  listarNotasPendentes,
   listarPastas,
+  registrarRevisaoNota,
 } from "../lib/repo";
 import { exportarArquivo, paraCSV } from "../lib/exportar";
 import { contarItensLista, slugify } from "../lib/texto";
@@ -36,6 +39,13 @@ export default function NotasTab({
   const [pastas, setPastas] = useState<{ materia: string; total: number }[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [pasta, setPasta] = useState<string | null>(null);
+  // Revisão ativa por repetição espaçada das notas salvas (ver
+  // registrarRevisaoNota em repo.ts) — `null` = fora do modo revisão;
+  // `{ materia: null }` = revisão cruzando todas as matérias.
+  const [revisando, setRevisando] = useState<{ materia: string | null } | null>(null);
+  const [pendentesPorMateria, setPendentesPorMateria] = useState<
+    { materia: string; total: number; pendentes: number }[]
+  >([]);
   const [ordem, setOrdem] = useState<Ordem>("data");
   const [itens, setItens] = useState<ConceitoSalvo[]>([]);
   const [aberto, setAberto] = useState<ConceitoSalvo | null>(null);
@@ -59,9 +69,15 @@ export default function NotasTab({
 
   const carregarPastas = useCallback(() => {
     setCarregando(true);
-    listarPastas()
-      .then(setPastas)
-      .catch(() => setPastas([]))
+    Promise.all([listarPastas(), contarNotasPendentesPorMateria()])
+      .then(([p, pend]) => {
+        setPastas(p);
+        setPendentesPorMateria(pend);
+      })
+      .catch(() => {
+        setPastas([]);
+        setPendentesPorMateria([]);
+      })
       .finally(() => setCarregando(false));
   }, []);
 
@@ -155,6 +171,21 @@ export default function NotasTab({
     }
   }
 
+  /* ---------- Revisão ativa (repetição espaçada) ---------- */
+  if (revisando) {
+    return (
+      <Shell kicker="NOTAS" titulo="Revisão">
+        <RevisaoNotas
+          materia={revisando.materia}
+          onSair={() => {
+            setRevisando(null);
+            carregarPastas();
+          }}
+        />
+      </Shell>
+    );
+  }
+
   /* ---------- Detalhe ---------- */
   if (aberto) {
     return (
@@ -181,8 +212,19 @@ export default function NotasTab({
   /* ---------- Lista de uma pasta ---------- */
   if (pasta) {
     const todasSelecionadas = itens.length > 0 && selecionados.size === itens.length;
+    const pendentesPasta = pendentesPorMateria.find((p) => p.materia === pasta)?.pendentes ?? 0;
     return (
       <Shell kicker={`NOTAS · ${itens.length} NOTA${itens.length === 1 ? "" : "S"}`} titulo={pasta}>
+        {pendentesPasta > 0 && (
+          <Botao
+            tipo="tinta"
+            onClick={() => setRevisando({ materia: pasta })}
+            style={{ marginBottom: 14 }}
+          >
+            Revisar pendentes desta pasta · {pendentesPasta}
+          </Botao>
+        )}
+
         <div style={{ marginBottom: 14 }}>
           <label style={rotulo}>Ordenar</label>
           <Segmented
@@ -426,9 +468,20 @@ export default function NotasTab({
 
   /* ---------- Pastas / busca ---------- */
   const buscaAtiva = busca.trim().length > 0;
+  const totalPendentes = pendentesPorMateria.reduce((a, p) => a + p.pendentes, 0);
 
   return (
     <Shell kicker="BANCO DE NOTAS" titulo="Notas">
+      {totalPendentes > 0 && !buscaAtiva && (
+        <Botao
+          tipo="tinta"
+          onClick={() => setRevisando({ materia: null })}
+          style={{ marginBottom: 14 }}
+        >
+          Revisar notas pendentes · {totalPendentes}
+        </Botao>
+      )}
+
       {pastas.length > 0 && (
         <div style={{ marginBottom: 16 }}>
           <input
@@ -697,6 +750,142 @@ function Detalhe({
         }}
       >
         ← Voltar à lista
+      </button>
+    </div>
+  );
+}
+
+/* ---------- Revisão ativa (repetição espaçada) ---------- */
+
+/**
+ * Flashcard virado: mostra o título, o usuário se autoavalia antes de virar
+ * ("lembrei" / "não lembrei" do conteúdo), então revela o corpo. Mesmo
+ * esquema de caixas de Leitner de "Refazer erradas" (ver
+ * registrarRevisaoNota em repo.ts), aplicado à nota em vez à questão de
+ * origem — permite revisar ativamente sem depender do Anki.
+ */
+function RevisaoNotas({
+  materia,
+  onSair,
+}: {
+  materia: string | null;
+  onSair: () => void;
+}) {
+  const [fila, setFila] = useState<ConceitoSalvo[] | null>(null);
+  const [idx, setIdx] = useState(0);
+  const [revelado, setRevelado] = useState(false);
+  const [lembradas, setLembradas] = useState(0);
+  const [avaliando, setAvaliando] = useState(false);
+  const [erro, setErro] = useState<string | null>(null);
+
+  useEffect(() => {
+    listarNotasPendentes(materia, { limite: 100 })
+      .then((qs) => {
+        if (!qs.length) {
+          setErro("Nenhuma nota pendente de revisão neste filtro.");
+          return;
+        }
+        setFila(qs);
+      })
+      .catch(() => setErro("Falha ao carregar as notas."));
+  }, [materia]);
+
+  if (erro) {
+    return (
+      <div>
+        <Vazio>{erro}</Vazio>
+        <Botao tipo="fantasma" onClick={onSair} style={{ marginTop: 12 }}>
+          Voltar
+        </Botao>
+      </div>
+    );
+  }
+  if (!fila) return <Vazio>Carregando…</Vazio>;
+
+  const nota = fila[idx];
+  const ultima = idx === fila.length - 1;
+
+  async function avaliar(lembrou: boolean) {
+    if (avaliando) return;
+    setAvaliando(true);
+    try {
+      await registrarRevisaoNota(nota.id, lembrou);
+      if (lembrou) setLembradas((n) => n + 1);
+    } catch (e) {
+      console.error("registrar revisão de nota", e);
+    } finally {
+      setAvaliando(false);
+    }
+    if (ultima) {
+      onSair();
+      return;
+    }
+    setRevelado(false);
+    setIdx((i) => i + 1);
+  }
+
+  return (
+    <div>
+      <div style={{ ...mono, fontSize: 12, color: C.sub, textAlign: "center", marginBottom: 14 }}>
+        Revisão {idx + 1}/{fila.length} · {materia ?? "todas as matérias"}
+      </div>
+
+      <div style={{ ...cartao, minHeight: 180, display: "flex", flexDirection: "column" }}>
+        <div style={{ ...mono, fontSize: 10.5, color: C.sub, letterSpacing: 0.8, marginBottom: 10 }}>
+          {nota.materia.toUpperCase()}
+          {nota.tag ? ` · ${nota.tag}` : ""}
+        </div>
+        <div style={{ ...disp, fontSize: 18, fontWeight: 700 }}>{nota.titulo}</div>
+        {revelado && (
+          <p
+            style={{
+              fontSize: 14.5,
+              lineHeight: 1.6,
+              whiteSpace: "pre-wrap",
+              margin: "14px 0 0",
+              paddingTop: 12,
+              borderTop: `1.5px dashed ${C.line}`,
+            }}
+          >
+            {nota.corpo || "Sem conteúdo."}
+          </p>
+        )}
+      </div>
+
+      {!revelado ? (
+        <Botao onClick={() => setRevelado(true)} style={{ marginTop: 16 }}>
+          Mostrar conteúdo
+        </Botao>
+      ) : (
+        <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
+          <Botao
+            tipo="fantasma"
+            onClick={() => avaliar(false)}
+            disabled={avaliando}
+            style={{ flex: 1, color: C.erro }}
+          >
+            Não lembrei
+          </Botao>
+          <Botao onClick={() => avaliar(true)} disabled={avaliando} style={{ flex: 1 }}>
+            Lembrei
+          </Botao>
+        </div>
+      )}
+
+      <button
+        onClick={onSair}
+        style={{
+          ...mono,
+          marginTop: 18,
+          fontSize: 12,
+          background: "none",
+          border: "none",
+          color: C.sub,
+          cursor: "pointer",
+          textDecoration: "underline",
+        }}
+      >
+        Sair da revisão{lembradas ? ` (${lembradas} lembrada${lembradas > 1 ? "s" : ""})` : ""}
       </button>
     </div>
   );

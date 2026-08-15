@@ -17,6 +17,7 @@ import Shell, { Vazio } from "../components/Shell";
 import Botao from "../components/Botao";
 import Chip from "../components/Chip";
 import {
+  estimarNotaProvavel,
   materiasComDados,
   porConceito,
   porFormato,
@@ -25,13 +26,19 @@ import {
   preverAprovacao,
   questoesPorTopico,
   resumo,
+  resumoPorMateria,
   serieBlocos,
   streakDias,
+  tempoMedioGeral,
+  tempoPorMateria,
   topicosPraticados,
   type Fatia,
+  type FatiaTempo,
+  type NotaEstimada,
   type Previsao,
   type Resumo,
 } from "../lib/repo";
+import { getPesosEdital } from "../lib/edital";
 import { labelFormato, labelTipo, NIVEIS } from "../lib/constants";
 import {
   agruparPorPrefixo,
@@ -44,6 +51,14 @@ import {
 
 const TODAS = "__todas__";
 const TODOS_NIVEIS = 0;
+
+/** "1min 24s" / "38s" — formato compacto para os cartões de tempo médio. */
+function formatarDuracao(ms: number): string {
+  const s = Math.round(ms / 1000);
+  const m = Math.floor(s / 60);
+  const resto = s % 60;
+  return m > 0 ? `${m}min ${resto}s` : `${resto}s`;
+}
 
 /** Vermelho abaixo de 70%, azul até 90%, verde a partir daí. */
 function corPct(pct: number): string {
@@ -137,9 +152,11 @@ function BarrasPct({
 export default function DadosTab({
   ativa,
   onQuestoes,
+  onAjustes,
 }: {
   ativa: boolean;
   onQuestoes: () => void;
+  onAjustes: () => void;
 }) {
   const [materias, setMaterias] = useState<string[]>([]);
   const [filtro, setFiltro] = useState<string>(TODAS);
@@ -161,6 +178,11 @@ export default function DadosTab({
   } | null>(null);
   const [mostrarTodasPendentes, setMostrarTodasPendentes] = useState(false);
   const [heatmap, setHeatmap] = useState<DesempenhoTopico[] | null>(null);
+  const [notaEstimada, setNotaEstimada] = useState<NotaEstimada | null>(null);
+  const [tempoGeral, setTempoGeral] = useState<{ tempoMedioMs: number; amostras: number } | null>(
+    null,
+  );
+  const [tempoMaterias, setTempoMaterias] = useState<FatiaTempo[]>([]);
 
   useEffect(() => {
     if (ativa) materiasComDados().then(setMaterias).catch(() => setMaterias([]));
@@ -179,8 +201,12 @@ export default function DadosTab({
       porFormato(m, n),
       porConceito(m, n),
       streakDias(),
+      tempoMedioGeral(m),
+      tempoPorMateria(),
+      // Nota estimada só faz sentido na visão agregada — ver corpo abaixo.
+      filtro === TODAS ? Promise.all([resumoPorMateria(n), getPesosEdital()]) : Promise.resolve(null),
     ])
-      .then(([r, s, ni, ti, fo, co, st]) => {
+      .then(([r, s, ni, ti, fo, co, st, tg, tm, baseNota]) => {
         setRes(r);
         setSerie(s);
         setPrevisao(preverAprovacao(s));
@@ -189,6 +215,9 @@ export default function DadosTab({
         setFormatos(fo);
         setConceitos(co);
         setStreak(st);
+        setTempoGeral(tg);
+        setTempoMaterias(tm);
+        setNotaEstimada(baseNota ? estimarNotaProvavel(baseNota[0], baseNota[1]) : null);
       })
       .catch(() => setRes(null))
       .finally(() => setCarregando(false));
@@ -363,6 +392,111 @@ export default function DadosTab({
             </div>
           )}
 
+          {/* Nota provável estimada: acerto por matéria ponderado pelo peso
+              de cada uma no edital (configurado em Ajustes) — só na visão
+              agregada, onde comparar matérias com pesos diferentes faz
+              sentido. */}
+          {filtro === TODAS && (
+            <Cartao
+              titulo="NOTA PROVÁVEL ESTIMADA"
+              legenda={
+                notaEstimada
+                  ? "% de acerto por matéria, ponderada pelo peso de cada uma no edital."
+                  : undefined
+              }
+            >
+              {notaEstimada ? (
+                <div style={{ padding: "0 4px 14px" }}>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 10 }}>
+                    <div
+                      style={{
+                        ...disp,
+                        fontSize: 40,
+                        fontWeight: 800,
+                        letterSpacing: -1,
+                        color: corPct(notaEstimada.notaEstimada),
+                      }}
+                    >
+                      {notaEstimada.notaEstimada}%
+                    </div>
+                    <div style={{ ...mono, fontSize: 11, color: C.sub }}>
+                      {notaEstimada.materiasIncluidas.length} matéria
+                      {notaEstimada.materiasIncluidas.length === 1 ? "" : "s"} · {notaEstimada.amostras}{" "}
+                      questões
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: 10 }}>
+                    {[...notaEstimada.materiasIncluidas]
+                      .sort((a, b) => b.peso - a.peso || a.pct - b.pct)
+                      .map((m) => (
+                        <div
+                          key={m.materia}
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            gap: 8,
+                            fontSize: 12.5,
+                          }}
+                        >
+                          <span>
+                            {m.materia}{" "}
+                            <span style={{ ...mono, fontSize: 10.5, color: C.sub }}>
+                              (peso {m.peso})
+                            </span>
+                          </span>
+                          <span style={{ ...mono, color: corPct(m.pct), flexShrink: 0 }}>{m.pct}%</span>
+                        </div>
+                      ))}
+                  </div>
+                  {notaEstimada.materiasExcluidas.length > 0 && (
+                    <div style={{ fontSize: 11, color: C.sub, lineHeight: 1.4 }}>
+                      Fora da conta: {notaEstimada.materiasExcluidas.map((e) => e.materia).join(", ")} (
+                      {notaEstimada.materiasExcluidas[0]?.motivo === "peso-zero"
+                        ? "peso zero ou amostra insuficiente"
+                        : "amostra insuficiente"}
+                      ).
+                    </div>
+                  )}
+                  <button
+                    onClick={onAjustes}
+                    style={{
+                      ...mono,
+                      display: "block",
+                      marginTop: 8,
+                      fontSize: 11,
+                      background: "none",
+                      border: "none",
+                      color: C.caneta,
+                      cursor: "pointer",
+                      padding: 0,
+                    }}
+                  >
+                    Configurar peso do edital →
+                  </button>
+                </div>
+              ) : (
+                <div style={{ fontSize: 13, color: C.sub, padding: "0 4px 14px", lineHeight: 1.5 }}>
+                  Responda pelo menos 5 questões de alguma matéria com peso configurado (ou o peso
+                  padrão) para ver uma projeção.{" "}
+                  <button
+                    onClick={onAjustes}
+                    style={{
+                      ...mono,
+                      fontSize: 12,
+                      background: "none",
+                      border: "none",
+                      color: C.caneta,
+                      cursor: "pointer",
+                      padding: 0,
+                    }}
+                  >
+                    Configurar peso do edital →
+                  </button>
+                </div>
+              )}
+            </Cartao>
+          )}
+
           {/* Evolução por bloco */}
           <Cartao
             titulo="EVOLUÇÃO — % DE ACERTO POR BLOCO"
@@ -439,6 +573,64 @@ export default function DadosTab({
               </div>
             )}
           </Cartao>
+
+          {/* Tempo médio por questão: cronometrado em QuestaoCard. Cruza com
+              acerto por matéria para separar "erra" (domínio baixo) de
+              "acerta mas devagar" (fluência baixa) — dois problemas
+              diferentes que pedem treino diferente. */}
+          {tempoGeral && (
+            <Cartao
+              titulo="TEMPO MÉDIO POR QUESTÃO"
+              legenda={
+                filtro === TODAS && tempoMaterias.length > 1
+                  ? "Do mais lento para o mais rápido. Só questões respondidas após esta versão têm tempo medido."
+                  : "Só questões respondidas após esta versão têm tempo medido."
+              }
+            >
+              <div style={{ padding: "0 4px 14px" }}>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: filtro === TODAS && tempoMaterias.length > 1 ? 12 : 0 }}>
+                  <div style={{ ...disp, fontSize: 28, fontWeight: 800, letterSpacing: -0.5 }}>
+                    {formatarDuracao(tempoGeral.tempoMedioMs)}
+                  </div>
+                  <div style={{ ...mono, fontSize: 11, color: C.sub }}>{tempoGeral.amostras} questões</div>
+                </div>
+                {filtro === TODAS && tempoMaterias.length > 1 && (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+                    {tempoMaterias.map((t) => {
+                      const maior = tempoMaterias[0]?.tempoMedioMs || 1;
+                      return (
+                        <div key={t.chave}>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              fontSize: 12,
+                              marginBottom: 2,
+                            }}
+                          >
+                            <span>{t.chave}</span>
+                            <span style={{ ...mono, color: C.sub, flexShrink: 0 }}>
+                              {formatarDuracao(t.tempoMedioMs)}
+                            </span>
+                          </div>
+                          <div style={{ height: 5, background: C.line, borderRadius: 3, overflow: "hidden" }}>
+                            <div
+                              style={{
+                                height: "100%",
+                                width: `${Math.max(4, Math.round((t.tempoMedioMs / maior) * 100))}%`,
+                                background: C.caneta,
+                                borderRadius: 3,
+                              }}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            </Cartao>
+          )}
 
           {/* Cobertura de tópicos: só aparece com uma matéria específica
               selecionada e que tenha lista fixa de tópicos (ver topicos.ts). */}

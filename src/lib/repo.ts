@@ -95,14 +95,17 @@ export async function gravarResposta(args: {
    * chegar nela) — sempre acompanhado de `acertou: false`. */
   resposta: string;
   acertou: boolean;
+  /** Tempo entre a questão aparecer e a resposta ser enviada, em ms — ver
+   * QuestaoCard. Ausente/null quando a origem não mede (ex.: simulado). */
+  tempoMs?: number | null;
 }): Promise<number> {
   const { questao: q } = args;
   const { lastId } = await run(
     `INSERT INTO questoes_respondidas
        (bloco_id, materia, topico, sub, carga_conceitual, nivel, formato, tipo_cobranca,
         enunciado, alternativas, gabarito, resposta, acertou, revisada,
-        comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, ts)
-     VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?)`,
+        comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, tempo_ms, ts)
+     VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?)`,
     [
       args.blocoId,
       args.materia,
@@ -120,6 +123,7 @@ export async function gravarResposta(args: {
       JSON.stringify(q.conceitos ?? []),
       q.dispositivo ?? null,
       q.bancoId ?? null,
+      args.tempoMs ?? null,
       new Date().toISOString(),
     ],
   );
@@ -145,6 +149,7 @@ function mapQuestao(r: Record<string, unknown>): QuestaoRespondida {
     proxima_revisao: (r.proxima_revisao as string) ?? null,
     reportada: toBool(r.reportada),
     motivo_report: (r.motivo_report as string) ?? null,
+    tempo_ms: r.tempo_ms == null ? null : Number(r.tempo_ms),
     comentario: (r.comentario as string) ?? "",
     explicacoes_erradas: parseJSON<Record<string, string>>(
       r.explicacoes_erradas,
@@ -391,8 +396,100 @@ function mapNota(r: Record<string, unknown>): ConceitoSalvo {
     tag: String(r.tag ?? ""),
     questao_origem_id:
       r.questao_origem_id == null ? null : Number(r.questao_origem_id),
+    caixa_leitner: Number(r.caixa_leitner ?? 1),
+    proxima_revisao: (r.proxima_revisao as string) ?? null,
     ts: String(r.ts),
   };
+}
+
+/** Notas "pendentes" de revisão ativa: nunca revisadas (proxima_revisao NULL,
+ * o estado de toda nota nova) ou cuja `proxima_revisao` já venceu — mesmo
+ * critério de COND_PENDENTE, mas sem depender de `acertou`/`revisada`, que
+ * não existem para notas. */
+const COND_PENDENTE_NOTA = "(proxima_revisao IS NULL OR proxima_revisao <= ?)";
+
+export async function contarNotasPendentes(materia: string | null = null): Promise<number> {
+  const cond = [COND_PENDENTE_NOTA];
+  const params: unknown[] = [agoraISO()];
+  if (materia) {
+    cond.push("materia = ?");
+    params.push(materia);
+  }
+  const r = await one<{ n: number }>(
+    `SELECT COUNT(*) AS n FROM conceitos_salvos WHERE ${cond.join(" AND ")}`,
+    params,
+  );
+  return Number(r?.n ?? 0);
+}
+
+/** Contagem de notas pendentes por matéria, para os cartões de seleção da
+ * revisão ativa (mesmo papel de contarErradasPorMateria para questões). */
+export async function contarNotasPendentesPorMateria(): Promise<
+  { materia: string; total: number; pendentes: number }[]
+> {
+  const rows = await all(
+    `SELECT materia,
+            COUNT(*) AS total,
+            SUM(CASE WHEN ${COND_PENDENTE_NOTA} THEN 1 ELSE 0 END) AS pendentes
+     FROM conceitos_salvos
+     GROUP BY materia
+     ORDER BY materia COLLATE NOCASE ASC`,
+    [agoraISO()],
+  );
+  return rows.map((r) => ({
+    materia: String(r.materia),
+    total: Number(r.total),
+    pendentes: Number(r.pendentes),
+  }));
+}
+
+/** Fila de notas pendentes para a revisão ativa — mais antigas primeiro
+ * (mesma lógica de "o que está esperando há mais tempo entra primeiro"). */
+export async function listarNotasPendentes(
+  materia: string | null,
+  opts: { limite?: number } = {},
+): Promise<ConceitoSalvo[]> {
+  const cond = [COND_PENDENTE_NOTA];
+  const params: unknown[] = [agoraISO()];
+  if (materia) {
+    cond.push("materia = ?");
+    params.push(materia);
+  }
+  const { limite } = opts;
+  const rows = await all(
+    `SELECT * FROM conceitos_salvos
+     WHERE ${cond.join(" AND ")}
+     ORDER BY ts ASC
+     ${limite ? "LIMIT ?" : ""}`,
+    limite ? [...params, limite] : params,
+  );
+  return rows.map(mapNota);
+}
+
+/**
+ * Registra o resultado de uma revisão ativa de nota ("lembrei" / "não
+ * lembrei") — mesmo esquema de caixas de Leitner de registrarRevisao, só que
+ * sem o conceito de "acertar/errar uma resposta": aqui é autoavaliação.
+ */
+export async function registrarRevisaoNota(id: number, lembrou: boolean): Promise<void> {
+  if (!lembrou) {
+    await run(
+      `UPDATE conceitos_salvos SET caixa_leitner = 1, proxima_revisao = NULL WHERE id = ?`,
+      [id],
+    );
+    return;
+  }
+  const row = await one<{ caixa: number }>(
+    `SELECT caixa_leitner AS caixa FROM conceitos_salvos WHERE id = ?`,
+    [id],
+  );
+  const novaCaixa = Math.min((row?.caixa ?? 1) + 1, INTERVALOS_LEITNER_DIAS.length);
+  const dias = INTERVALOS_LEITNER_DIAS[novaCaixa - 1];
+  const proxima = new Date(Date.now() + dias * 86_400_000).toISOString();
+  await run(
+    `UPDATE conceitos_salvos SET caixa_leitner = ?, proxima_revisao = ? WHERE id = ?`,
+    [novaCaixa, proxima, id],
+  );
 }
 
 /** Pastas da aba Notas: uma por matéria que já tenha alguma nota salva. */
@@ -647,6 +744,119 @@ export const porNivel = (m: string | null) => agrupar("nivel", m);
 export const porTipo = (m: string | null, nivel: number | null = null) => agrupar("tipo_cobranca", m, nivel);
 export const porFormato = (m: string | null, nivel: number | null = null) => agrupar("formato", m, nivel);
 
+/** Acerto por matéria — base da nota provável estimada (ver
+ * estimarNotaProvavel), que pondera esta % pelo peso do edital de cada
+ * matéria (lib/edital.ts). Só faz sentido sem filtro de matéria (a visão
+ * "todas"); por isso não recebe `materia` como parâmetro. */
+export async function resumoPorMateria(nivel: number | null = null): Promise<Fatia[]> {
+  const rows = await all(
+    `SELECT materia AS chave, COUNT(*) AS total, SUM(acertou) AS acertos
+     FROM questoes_respondidas
+     ${nivel ? "WHERE nivel = ?" : ""}
+     GROUP BY materia
+     ORDER BY materia COLLATE NOCASE ASC`,
+    nivel ? [nivel] : [],
+  );
+  return rows.map((r) => {
+    const total = Number(r.total);
+    const acertos = Number(r.acertos);
+    return {
+      chave: String(r.chave),
+      total,
+      acertos,
+      pct: total ? Math.round((acertos / total) * 100) : 0,
+    };
+  });
+}
+
+export interface NotaEstimada {
+  /** % ponderada pelo peso do edital de cada matéria incluída. */
+  notaEstimada: number;
+  /** Total de questões respondidas nas matérias incluídas. */
+  amostras: number;
+  materiasIncluidas: { materia: string; pct: number; peso: number; total: number }[];
+  materiasExcluidas: { materia: string; motivo: "peso-zero" | "poucas-amostras" }[];
+}
+
+/**
+ * Projeta uma nota provável combinando o acerto por matéria (resumoPorMateria)
+ * com o peso de cada matéria no edital (lib/edital.ts, configurado em
+ * Ajustes) — matérias sem peso configurado contam peso 1 (padrão). Matérias
+ * com peso 0 ("não cai") ou com amostra insuficiente para o % de acerto ser
+ * confiável ficam de fora do cálculo, mas aparecem em `materiasExcluidas`
+ * para transparência. Função pura (sem SQL) para ficar fácil de testar,
+ * mesmo padrão de preverAprovacao.
+ */
+export function estimarNotaProvavel(
+  porMateria: Fatia[],
+  pesos: Record<string, number>,
+  minimoAmostras = 5,
+): NotaEstimada | null {
+  const incluidas: NotaEstimada["materiasIncluidas"] = [];
+  const excluidas: NotaEstimada["materiasExcluidas"] = [];
+
+  for (const f of porMateria) {
+    const peso = pesos[f.chave] ?? 1;
+    if (peso <= 0) {
+      excluidas.push({ materia: f.chave, motivo: "peso-zero" });
+      continue;
+    }
+    if (f.total < minimoAmostras) {
+      excluidas.push({ materia: f.chave, motivo: "poucas-amostras" });
+      continue;
+    }
+    incluidas.push({ materia: f.chave, pct: f.pct, peso, total: f.total });
+  }
+  if (!incluidas.length) return null;
+
+  const somaPesos = incluidas.reduce((a, m) => a + m.peso, 0);
+  const notaEstimada = Math.round(
+    incluidas.reduce((a, m) => a + m.pct * m.peso, 0) / somaPesos,
+  );
+  const amostras = incluidas.reduce((a, m) => a + m.total, 0);
+  return { notaEstimada, amostras, materiasIncluidas: incluidas, materiasExcluidas: excluidas };
+}
+
+export interface FatiaTempo {
+  chave: string;
+  total: number;
+  tempoMedioMs: number;
+}
+
+/** Tempo médio de resposta por matéria, do mais lento para o mais rápido —
+ * cruza com "acerto por matéria" para achar onde o usuário acerta mas
+ * devagar (fluência baixa), diferente de onde erra (domínio baixo). Só
+ * considera questões com tempo medido (ver QuestaoCard/gravarResposta). */
+export async function tempoPorMateria(): Promise<FatiaTempo[]> {
+  const rows = await all(
+    `SELECT materia AS chave, COUNT(*) AS total, AVG(tempo_ms) AS media
+     FROM questoes_respondidas
+     WHERE tempo_ms IS NOT NULL
+     GROUP BY materia
+     ORDER BY media DESC`,
+  );
+  return rows.map((r) => ({
+    chave: String(r.chave),
+    total: Number(r.total),
+    tempoMedioMs: Math.round(Number(r.media)),
+  }));
+}
+
+/** Tempo médio geral (ou de uma matéria), para o número de destaque do
+ * cartão — null quando nenhuma questão da seleção tem tempo medido. */
+export async function tempoMedioGeral(
+  materia: string | null = null,
+): Promise<{ tempoMedioMs: number; amostras: number } | null> {
+  const r = await one<{ media: number | null; n: number }>(
+    `SELECT AVG(tempo_ms) AS media, COUNT(*) AS n
+     FROM questoes_respondidas
+     WHERE tempo_ms IS NOT NULL ${materia ? "AND materia = ?" : ""}`,
+    materia ? [materia] : [],
+  );
+  if (!r || !r.n || r.media == null) return null;
+  return { tempoMedioMs: Math.round(Number(r.media)), amostras: Number(r.n) };
+}
+
 /**
  * Acerto por conceito — a dimensão mais granular que o app grava (cada
  * questão pode listar vários), e a única que nenhum card de Dados usava até
@@ -738,17 +948,20 @@ export async function streakDias(): Promise<{ atual: number; recorde: number; ho
 
 /** Blocos (qualquer origem) criados desde a segunda-feira mais recente
  * (00h00 local) — base da meta semanal (ver lib/metas.ts). Semana de
- * calendário, não janela rolante de 7 dias: reinicia sempre na segunda. */
-export async function blocosNaSemana(): Promise<number> {
+ * calendário, não janela rolante de 7 dias: reinicia sempre na segunda.
+ * `materia` filtra a meta por matéria (ver getMetasPorMateria); omitido ou
+ * null conta todos os blocos da semana, como antes. */
+export async function blocosNaSemana(materia: string | null = null): Promise<number> {
   const agora = new Date();
   const diaSemana = agora.getDay(); // 0 = domingo
   const deltaParaSegunda = diaSemana === 0 ? 6 : diaSemana - 1;
   const segunda = new Date(agora);
   segunda.setHours(0, 0, 0, 0);
   segunda.setDate(segunda.getDate() - deltaParaSegunda);
-  const r = await one<{ n: number }>(`SELECT COUNT(*) AS n FROM blocos WHERE ts >= ?`, [
-    segunda.toISOString(),
-  ]);
+  const r = await one<{ n: number }>(
+    `SELECT COUNT(*) AS n FROM blocos WHERE ts >= ? ${materia ? "AND materia = ?" : ""}`,
+    materia ? [segunda.toISOString(), materia] : [segunda.toISOString()],
+  );
   return Number(r?.n ?? 0);
 }
 

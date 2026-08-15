@@ -8,6 +8,7 @@ import { Preferences } from "@capacitor/preferences";
 
 const K_ATIVA = "meta-semanal-ativa";
 const K_BLOCOS = "meta-semanal-blocos";
+const K_POR_MATERIA = "meta-semanal-por-materia";
 
 /** Meta razoável para quem está começando: um pouco menos de 1 bloco por dia útil. */
 export const META_PADRAO_BLOCOS = 3;
@@ -37,4 +38,26 @@ export async function setConfigMeta(cfg: ConfigMeta): Promise<void> {
     Preferences.set({ key: K_ATIVA, value: cfg.ativa ? "1" : "0" }),
     Preferences.set({ key: K_BLOCOS, value: String(cfg.blocosPorSemana) }),
   ]);
+}
+
+/**
+ * Metas semanais por matéria — independentes da meta geral acima: um mapa
+ * matéria → blocos/semana. A presença da matéria no mapa já significa "meta
+ * ativa para ela" (sem um `ativa` por entrada); removê-la do mapa desativa.
+ * Serve para quem quer garantir um mínimo de prática numa matéria fraca, em
+ * vez de só um total de blocos que pode se concentrar todo numa matéria forte.
+ */
+export async function getMetasPorMateria(): Promise<Record<string, number>> {
+  try {
+    const r = await Preferences.get({ key: K_POR_MATERIA });
+    if (!r.value) return {};
+    const obj = JSON.parse(r.value) as unknown;
+    return obj && typeof obj === "object" ? (obj as Record<string, number>) : {};
+  } catch {
+    return {};
+  }
+}
+
+export async function setMetasPorMateria(metas: Record<string, number>): Promise<void> {
+  await Preferences.set({ key: K_POR_MATERIA, value: JSON.stringify(metas) });
 }

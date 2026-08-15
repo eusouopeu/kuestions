@@ -285,7 +285,7 @@ export default function ImportarView() {
     const questaoAtual = fila[idx] ?? null;
     const ultima = idx === fila.length - 1;
 
-    async function responder(letra: string, acertou: boolean): Promise<number | null> {
+    async function responder(letra: string, acertou: boolean, tempoMs: number): Promise<number | null> {
       if (acertou) setAcertos((a) => a + 1);
       if (!questaoAtual) return null;
       return gravarResposta({
@@ -296,6 +296,7 @@ export default function ImportarView() {
         questao: questaoAtual,
         resposta: letra,
         acertou,
+        tempoMs,
       });
     }
 

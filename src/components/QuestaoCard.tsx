@@ -66,8 +66,14 @@ export default function QuestaoCard({
   origem?: OrigemQuestao;
   cabecalho?: React.ReactNode;
   labelProxima: string;
-  /** Devolve o id da linha gravada, para vincular a nota à questão de origem. */
-  onResponder: (letra: string, acertou: boolean) => Promise<number | null> | void;
+  /** `tempoMs` é o tempo entre a questão aparecer e a resposta ser enviada
+   * (cronometrado aqui). Devolve o id da linha gravada, para vincular a nota
+   * à questão de origem. */
+  onResponder: (
+    letra: string,
+    acertou: boolean,
+    tempoMs: number,
+  ) => Promise<number | null> | void;
   onProxima: () => void;
 }) {
   const [selecionada, setSelecionada] = useState<string | null>(null);
@@ -80,6 +86,9 @@ export default function QuestaoCard({
   const [modalReport, setModalReport] = useState(false);
   const [temNota, setTemNota] = useState(temNotaInicial ?? false);
   const cardRef = useRef<HTMLDivElement>(null);
+  // Início da cronometragem desta questão — reseta junto com o resto ao
+  // trocar de questão (ver o mesmo efeito abaixo).
+  const inicioRef = useRef(Date.now());
 
   // Reset ao trocar de questão: sem isso a seleção da anterior vazaria.
   useEffect(() => {
@@ -92,6 +101,7 @@ export default function QuestaoCard({
     setReportando(false);
     setModalReport(false);
     setTemNota(temNotaInicial ?? false);
+    inicioRef.current = Date.now();
   }, [questao, questaoOrigemId, reportadaInicial, temNotaInicial]);
 
   async function reportar(motivo: MotivoReport) {
@@ -134,8 +144,9 @@ export default function QuestaoCard({
     setRevelada(true);
     if (acertou) vibrarSucesso();
     else vibrarErro();
+    const tempoMs = Date.now() - inicioRef.current;
     try {
-      const id = await onResponder(selecionada, acertou);
+      const id = await onResponder(selecionada, acertou, tempoMs);
       if (typeof id === "number") setOrigemId(id);
     } catch (e) {
       // A resposta já está revelada; falha de gravação não deve travar o drill.

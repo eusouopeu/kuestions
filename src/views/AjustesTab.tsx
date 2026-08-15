@@ -28,7 +28,25 @@ import {
   type ConfigLembrete,
 } from "../lib/lembretes";
 import { diasDesdeUltimoBackup, DIAS_PARA_AVISO_BACKUP, registrarBackupFeito } from "../lib/backupInfo";
-import { getConfigMeta, setConfigMeta, type ConfigMeta } from "../lib/metas";
+import {
+  getConfigMeta,
+  getMetasPorMateria,
+  setConfigMeta,
+  setMetasPorMateria,
+  type ConfigMeta,
+} from "../lib/metas";
+import { getPesosEdital, PESO_MAX, PESO_PADRAO, setPesosEdital, type PesosEdital } from "../lib/edital";
+import { MATERIAS } from "../lib/constants";
+import { AREAS_BANCO } from "../lib/banco";
+
+/** Matérias/áreas cujo peso no edital pode ser configurado: união das
+ * matérias de geração (MATERIAS) com as áreas do banco de questões reais
+ * (AREAS_BANCO) — os rótulos nem sempre batem 1:1 entre os dois (ver
+ * comentário em lib/banco.ts), então a união cobre nota estimada e simulado
+ * sem exigir que o usuário configure a mesma matéria duas vezes. */
+const MATERIAS_E_AREAS: string[] = [...new Set([...MATERIAS, ...AREAS_BANCO])].sort((a, b) =>
+  a.localeCompare(b, "pt-BR"),
+);
 
 function dataCurta(iso: string): string {
   const d = new Date(iso);
@@ -73,6 +91,9 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   const [erroLembrete, setErroLembrete] = useState<string | null>(null);
 
   const [meta, setMetaLocal] = useState<ConfigMeta>({ ativa: false, blocosPorSemana: 3 });
+  const [metasPorMateria, setMetasPorMateriaLocal] = useState<Record<string, number>>({});
+  const [materiaParaAdicionar, setMateriaParaAdicionar] = useState("");
+  const [pesos, setPesosLocal] = useState<PesosEdital>({});
 
   const [diasBackup, setDiasBackup] = useState<number | null>(null);
   const [temDados, setTemDados] = useState(false);
@@ -87,6 +108,8 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     getTema().then(setTemaLocal);
     getConfigLembrete().then(setLembreteLocal);
     getConfigMeta().then(setMetaLocal);
+    getMetasPorMateria().then(setMetasPorMateriaLocal);
+    getPesosEdital().then(setPesosLocal);
   }, []);
 
   useEffect(() => {
@@ -192,6 +215,37 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
       await setConfigMeta(novo);
     } catch (e) {
       console.error("salvar meta semanal", e);
+    }
+  }
+
+  async function salvarMetasPorMateria(novo: Record<string, number>) {
+    setMetasPorMateriaLocal(novo);
+    try {
+      await setMetasPorMateria(novo);
+    } catch (e) {
+      console.error("salvar meta por matéria", e);
+    }
+  }
+
+  function adicionarMetaMateria() {
+    const m = materiaParaAdicionar;
+    if (!m || m in metasPorMateria) return;
+    setMateriaParaAdicionar("");
+    salvarMetasPorMateria({ ...metasPorMateria, [m]: 3 });
+  }
+
+  function removerMetaMateria(m: string) {
+    const { [m]: _removida, ...resto } = metasPorMateria;
+    salvarMetasPorMateria(resto);
+  }
+
+  async function mudarPeso(materia: string, peso: number) {
+    const novo = { ...pesos, [materia]: peso };
+    setPesosLocal(novo);
+    try {
+      await setPesosEdital(novo);
+    } catch (e) {
+      console.error("salvar peso do edital", e);
     }
   }
 
@@ -582,6 +636,106 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
             </select>
           </div>
         )}
+      </div>
+
+      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
+        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
+          METAS POR MATÉRIA
+        </div>
+        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
+          Um mínimo de blocos por semana para matérias específicas — útil para garantir prática numa
+          matéria fraca, independente da meta geral acima.
+        </div>
+
+        {Object.keys(metasPorMateria).length > 0 && (
+          <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
+            {Object.entries(metasPorMateria).map(([m, blocos]) => (
+              <div key={m} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 13.5, flex: 1 }}>{m}</span>
+                <select
+                  style={{ ...campo, ...mono, fontSize: 12, width: "auto", padding: "6px 8px" }}
+                  value={blocos}
+                  onChange={(e) =>
+                    salvarMetasPorMateria({ ...metasPorMateria, [m]: Number(e.target.value) })
+                  }
+                >
+                  {Array.from({ length: 14 }, (_, i) => i + 1).map((n) => (
+                    <option key={n} value={n}>
+                      {n} bloco{n === 1 ? "" : "s"}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  onClick={() => removerMetaMateria(m)}
+                  aria-label={`Remover meta de ${m}`}
+                  style={{
+                    ...mono,
+                    fontSize: 13,
+                    background: "none",
+                    border: "none",
+                    color: C.erro,
+                    cursor: "pointer",
+                    padding: "4px 6px",
+                  }}
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div style={{ display: "flex", gap: 8 }}>
+          <select
+            style={campo}
+            value={materiaParaAdicionar}
+            onChange={(e) => setMateriaParaAdicionar(e.target.value)}
+          >
+            <option value="">Escolher matéria…</option>
+            {MATERIAS.filter((m) => !(m in metasPorMateria)).map((m) => (
+              <option key={m} value={m}>
+                {m}
+              </option>
+            ))}
+          </select>
+          <Botao
+            tipo="fantasma"
+            onClick={adicionarMetaMateria}
+            disabled={!materiaParaAdicionar}
+            style={{ maxWidth: 100 }}
+          >
+            Adicionar
+          </Botao>
+        </div>
+      </div>
+
+      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
+        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
+          PESO DO EDITAL
+        </div>
+        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
+          Quanto cada matéria pesa na prova alvo (0 = não cai, 5 = maior peso). Usado na nota
+          provável estimada (aba Dados) e para distribuir o simulado cronometrado proporcionalmente
+          ao edital, em vez de igualmente entre as áreas.
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          {MATERIAS_E_AREAS.map((m) => (
+            <div key={m} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontSize: 13, flex: 1 }}>{m}</span>
+              <select
+                style={{ ...campo, ...mono, fontSize: 12, width: "auto", padding: "6px 8px" }}
+                value={pesos[m] ?? PESO_PADRAO}
+                onChange={(e) => mudarPeso(m, Number(e.target.value))}
+              >
+                {Array.from({ length: PESO_MAX + 1 }, (_, n) => n).map((n) => (
+                  <option key={n} value={n}>
+                    {n === 0 ? "Não cai" : `Peso ${n}`}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>

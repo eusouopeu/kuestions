@@ -16,7 +16,7 @@ import ImportarView from "./ImportarView";
 import SimuladoView from "./SimuladoView";
 import { Q_POR_BLOCO } from "../lib/constants";
 import { blocosNaSemana, resumo, type Resumo } from "../lib/repo";
-import { getConfigMeta } from "../lib/metas";
+import { getConfigMeta, getMetasPorMateria } from "../lib/metas";
 
 type View = "gerar" | "banco" | "importar" | "refazer" | "simulado";
 
@@ -114,6 +114,80 @@ function ProgressoGeral({ onDados }: { onDados: () => void }) {
           </div>
         </div>
       )}
+
+      <MetasPorMateria />
+    </div>
+  );
+}
+
+/** Progresso semanal de cada matéria com meta específica configurada (ver
+ * lib/metas.ts) — independente da meta geral acima, e só aparece quando o
+ * usuário configurou pelo menos uma em Ajustes. */
+function MetasPorMateria() {
+  const [metas, setMetas] = useState<{ materia: string; alvo: number; naSemana: number }[] | null>(
+    null,
+  );
+
+  useEffect(() => {
+    getMetasPorMateria()
+      .then(async (mapa) => {
+        const entradas = Object.entries(mapa);
+        if (!entradas.length) {
+          setMetas([]);
+          return;
+        }
+        const linhas = await Promise.all(
+          entradas.map(async ([materia, alvo]) => ({
+            materia,
+            alvo,
+            naSemana: await blocosNaSemana(materia).catch(() => 0),
+          })),
+        );
+        setMetas(linhas);
+      })
+      .catch(() => setMetas([]));
+  }, []);
+
+  if (!metas || metas.length === 0) return null;
+
+  return (
+    <div style={{ marginBottom: 18, display: "flex", flexDirection: "column", gap: 8 }}>
+      <div style={{ ...mono, fontSize: 10, color: C.sub, letterSpacing: 0.8 }}>
+        METAS POR MATÉRIA
+      </div>
+      {metas.map((m) => {
+        const batida = m.naSemana >= m.alvo;
+        return (
+          <div key={m.materia} style={{ ...cartao, padding: "10px 12px" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+                marginBottom: 5,
+                gap: 8,
+              }}
+            >
+              <span style={{ fontSize: 13, flex: 1 }}>{m.materia}</span>
+              <span style={{ ...mono, fontSize: 11, color: batida ? C.ok : C.sub, flexShrink: 0 }}>
+                {m.naSemana}/{m.alvo} bloco{m.alvo === 1 ? "" : "s"}
+                {batida ? " ✓" : ""}
+              </span>
+            </div>
+            <div style={{ height: 5, background: C.line, borderRadius: 3, overflow: "hidden" }}>
+              <div
+                style={{
+                  height: "100%",
+                  width: `${Math.min(100, Math.round((m.naSemana / m.alvo) * 100))}%`,
+                  background: batida ? C.ok : C.caneta,
+                  borderRadius: 3,
+                  transition: "width 0.25s ease",
+                }}
+              />
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

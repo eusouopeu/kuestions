@@ -18,7 +18,7 @@ import {
 } from "@capacitor-community/sqlite";
 
 const DB_NAME = "kumon_fiscal";
-const SCHEMA_VERSION = 6;
+const SCHEMA_VERSION = 7;
 
 const sqlite = new SQLiteConnection(CapacitorSQLite);
 const isWeb = Capacitor.getPlatform() === "web";
@@ -170,6 +170,28 @@ const MIGRATIONS: { version: number; sql: string }[] = [
 
       CREATE INDEX IF NOT EXISTS ix_qr_proxima_revisao ON questoes_respondidas (proxima_revisao);
       CREATE INDEX IF NOT EXISTS ix_qr_banco_id ON questoes_respondidas (banco_id);
+    `,
+  },
+  {
+    // Tempo por questão: `tempo_ms` guarda quanto tempo o usuário levou entre
+    // a questão aparecer e o envio da resposta — cronometrado em QuestaoCard.
+    // NULL para respostas gravadas antes desta versão (não há como recuperar
+    // o tempo retroativamente) e para o simulado cronometrado, que tem sua
+    // própria UI sem QuestaoCard e já mede o tempo agregado do bloco inteiro.
+    //
+    // Notas passam a ter repetição espaçada própria (mesmo esquema de caixas
+    // de Leitner de questoes_respondidas — ver INTERVALOS_LEITNER_DIAS em
+    // repo.ts), para revisão ativa das notas salvas dentro do próprio app,
+    // não só exportação para o Anki. `proxima_revisao = NULL` (o padrão de
+    // toda nota nova) significa "nunca revisada" — vencida agora.
+    version: 7,
+    sql: `
+      ALTER TABLE questoes_respondidas ADD COLUMN tempo_ms INTEGER;
+
+      ALTER TABLE conceitos_salvos ADD COLUMN caixa_leitner INTEGER NOT NULL DEFAULT 1;
+      ALTER TABLE conceitos_salvos ADD COLUMN proxima_revisao TEXT;
+
+      CREATE INDEX IF NOT EXISTS ix_conceitos_proxima_revisao ON conceitos_salvos (proxima_revisao);
     `,
   },
 ];

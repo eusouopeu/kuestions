@@ -115,7 +115,11 @@ export default function App() {
                   </div>
                 }
               >
-                <DadosTab ativa={aba === "dados"} onQuestoes={() => trocar("questoes")} />
+                <DadosTab
+                  ativa={aba === "dados"}
+                  onQuestoes={() => trocar("questoes")}
+                  onAjustes={() => trocar("ajustes")}
+                />
               </Suspense>
             )}
             {a === "ajustes" && <AjustesTab ativa={aba === "ajustes"} />}

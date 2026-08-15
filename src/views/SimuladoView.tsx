@@ -13,6 +13,7 @@ import {
   type QuestaoBanco,
 } from "../lib/banco";
 import { gravarResposta, idsBancoRespondidos } from "../lib/repo";
+import { getPesosEdital, pesoDe, type PesosEdital } from "../lib/edital";
 import type { Questao } from "../lib/types";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
@@ -63,6 +64,61 @@ function alocarQuantidades(
   return alocado;
 }
 
+/**
+ * Mesma ideia de alocarQuantidades, mas a proporção-base vem do peso de cada
+ * área no edital (lib/edital.ts) em vez da disponibilidade de questões —
+ * simula a prova de verdade, onde uma área que cai mais pesa mais no
+ * simulado independente de quantas questões o banco tem dela. Ainda respeita
+ * a capacidade de cada área (nunca aloca mais que o disponível): quando uma
+ * área bate no teto, o excedente é redistribuído entre as demais pelo mesmo
+ * critério de peso, em rodadas sucessivas até esgotar `quantidade` ou não
+ * haver mais área com capacidade — por isso o `while` abaixo.
+ */
+function alocarPorPeso(
+  areas: string[],
+  quantidade: number,
+  disponiveis: Record<string, number>,
+  pesos: PesosEdital,
+): Record<string, number> {
+  const cap = Object.fromEntries(areas.map((a) => [a, disponiveis[a] ?? 0]));
+  const alocado: Record<string, number> = Object.fromEntries(areas.map((a) => [a, 0]));
+  let restante = Math.min(quantidade, areas.reduce((s, a) => s + cap[a], 0));
+  let ativos = areas.filter((a) => cap[a] > 0);
+
+  while (restante > 0 && ativos.length > 0) {
+    const totalPeso = ativos.reduce((s, a) => s + Math.max(pesoDe(pesos, a), 0.0001), 0);
+    const bruta = ativos.map((a) => ({
+      area: a,
+      exata: (restante * Math.max(pesoDe(pesos, a), 0.0001)) / totalPeso,
+    }));
+
+    let algumAlocado = false;
+    for (const b of bruta) {
+      const capacidade = cap[b.area] - alocado[b.area];
+      const quota = Math.min(Math.floor(b.exata), capacidade);
+      if (quota > 0) {
+        alocado[b.area] += quota;
+        restante -= quota;
+        algumAlocado = true;
+      }
+    }
+    if (restante > 0) {
+      const ordenados = [...bruta].sort((a, b) => (b.exata % 1) - (a.exata % 1));
+      for (const b of ordenados) {
+        if (restante <= 0) break;
+        if (alocado[b.area] < cap[b.area]) {
+          alocado[b.area]++;
+          restante--;
+          algumAlocado = true;
+        }
+      }
+    }
+    ativos = ativos.filter((a) => alocado[a] < cap[a]);
+    if (!algumAlocado) break; // guarda contra loop infinito com pesos degenerados
+  }
+  return alocado;
+}
+
 function formatarTempo(segundos: number): string {
   const m = Math.floor(segundos / 60);
   const s = segundos % 60;
@@ -91,6 +147,8 @@ export default function SimuladoView() {
   const [quantidade, setQuantidade] = useState(20);
   const [minutos, setMinutos] = useState(60);
   const [vistas, setVistas] = useState<Set<string>>(new Set());
+  const [usarPesoEdital, setUsarPesoEdital] = useState(false);
+  const [pesosEdital, setPesosEdital] = useState<PesosEdital>({});
 
   const [perguntas, setPerguntas] = useState<Pergunta[]>([]);
   const [respostas, setRespostas] = useState<(string | null)[]>([]);
@@ -106,6 +164,10 @@ export default function SimuladoView() {
 
   useEffect(() => {
     if (tela === "config") idsBancoRespondidos().then(setVistas).catch(() => setVistas(new Set()));
+  }, [tela]);
+
+  useEffect(() => {
+    if (tela === "config") getPesosEdital().then(setPesosEdital).catch(() => setPesosEdital({}));
   }, [tela]);
 
   const disponivelPorArea = Object.fromEntries(
@@ -129,7 +191,9 @@ export default function SimuladoView() {
   function iniciar() {
     const areas = [...areasSelecionadas];
     if (!areas.length || disponivelTotal <= 0) return;
-    const alocacao = alocarQuantidades(areas, quantidade, disponivelPorArea);
+    const alocacao = usarPesoEdital
+      ? alocarPorPeso(areas, quantidade, disponivelPorArea, pesosEdital)
+      : alocarQuantidades(areas, quantidade, disponivelPorArea);
 
     const sorteadas: Pergunta[] = [];
     for (const area of areas) {
@@ -312,6 +376,45 @@ export default function SimuladoView() {
                 </button>
               );
             })}
+          </div>
+        </div>
+
+        <div style={{ marginBottom: 22 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 10,
+            }}
+          >
+            <div>
+              <div style={{ fontSize: 13.5 }}>Distribuir por peso do edital</div>
+              <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+                Em vez de dividir igualmente pela disponibilidade, usa o peso de cada área
+                configurado em Ajustes → Peso do edital.
+              </div>
+            </div>
+            <button
+              role="switch"
+              aria-checked={usarPesoEdital}
+              onClick={() => setUsarPesoEdital((v) => !v)}
+              style={{
+                width: 44,
+                height: 26,
+                borderRadius: 13,
+                border: "none",
+                padding: 3,
+                flexShrink: 0,
+                display: "flex",
+                justifyContent: usarPesoEdital ? "flex-end" : "flex-start",
+                background: usarPesoEdital ? C.caneta : C.line,
+                cursor: "pointer",
+                transition: "background 0.15s",
+              }}
+            >
+              <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+            </button>
           </div>
         </div>
 

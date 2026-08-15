@@ -166,7 +166,7 @@ export default function GerarView({
   const questao = subs[subAtual]?.[qIdx % Q_POR_SUB] ?? null;
   const ultimaDoBloco = qIdx === Q_POR_BLOCO - 1;
 
-  async function responder(letra: string, acertou: boolean): Promise<number | null> {
+  async function responder(letra: string, acertou: boolean, tempoMs: number): Promise<number | null> {
     if (acertou) setAcertos((a) => a.map((v, k) => (k === subAtual ? v + 1 : v)));
     setRespondidaAtual(true);
     if (!questao) return null;
@@ -180,6 +180,7 @@ export default function GerarView({
       questao,
       resposta: letra,
       acertou,
+      tempoMs,
     });
   }
 
