@@ -215,6 +215,24 @@ export default function NotasTab({
     const pendentesPasta = pendentesPorMateria.find((p) => p.materia === pasta)?.pendentes ?? 0;
     return (
       <Shell kicker={`NOTAS · ${itens.length} NOTA${itens.length === 1 ? "" : "S"}`} titulo={pasta}>
+        <button
+          onClick={() => setPasta(null)}
+          style={{
+            ...mono,
+            display: "block",
+            marginBottom: 14,
+            fontSize: 12,
+            background: "none",
+            border: "none",
+            color: C.sub,
+            cursor: "pointer",
+            textDecoration: "underline",
+            padding: 0,
+          }}
+        >
+          ← Todas as pastas
+        </button>
+
         {pendentesPasta > 0 && (
           <Botao
             tipo="tinta"
@@ -446,22 +464,6 @@ export default function NotasTab({
             );
           })
         )}
-
-        <button
-          onClick={() => setPasta(null)}
-          style={{
-            ...mono,
-            marginTop: 18,
-            fontSize: 12,
-            background: "none",
-            border: "none",
-            color: C.sub,
-            cursor: "pointer",
-            textDecoration: "underline",
-          }}
-        >
-          ← Todas as pastas
-        </button>
       </Shell>
     );
   }
@@ -676,6 +678,24 @@ function Detalhe({
 
   return (
     <div>
+      <button
+        onClick={onVoltar}
+        style={{
+          ...mono,
+          display: "block",
+          marginBottom: 14,
+          fontSize: 12,
+          background: "none",
+          border: "none",
+          color: C.sub,
+          cursor: "pointer",
+          textDecoration: "underline",
+          padding: 0,
+        }}
+      >
+        ← Voltar à lista
+      </button>
+
       <div style={{ ...cartao, marginBottom: 14 }}>
         <div style={{ ...mono, fontSize: 10.5, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
           {conceito.materia.toUpperCase()} · {dataCurta(conceito.ts)}
@@ -735,22 +755,6 @@ function Detalhe({
 
         {erro && <div style={{ ...mono, fontSize: 12, color: C.erro }}>{erro}</div>}
       </div>
-
-      <button
-        onClick={onVoltar}
-        style={{
-          ...mono,
-          marginTop: 18,
-          fontSize: 12,
-          background: "none",
-          border: "none",
-          color: C.sub,
-          cursor: "pointer",
-          textDecoration: "underline",
-        }}
-      >
-        ← Voltar à lista
-      </button>
     </div>
   );
 }

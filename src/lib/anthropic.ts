@@ -115,6 +115,7 @@ export function montarPrompt(
   _loteIdx: number,
   padroesAnteriores: string[],
   gabaritosCEAnteriores: string[] = [],
+  comExplicacoes = true,
 ): PromptPartes {
   const temCE = cfg.formato !== "mc";
   const descNivel = NIVEL_DESCRICOES[cfg.nivel - 1];
@@ -139,7 +140,9 @@ ${
     ? `- Neste nível, cada alternativa errada deve repetir quase todo o texto do gabarito e divergir por UM ÚNICO detalhe factual (um prazo, um valor, uma data, um nome, uma competência) — não por erro de conceito. O restante da frase deve ser idêntico ou equivalente ao correto.`
     : ""
 }
-
+${
+  comExplicacoes
+    ? `
 EXPLICAÇÃO POR ALTERNATIVA (obrigatório)
 - "comentario": por que o gabarito está correto.
 - "explicacoes_erradas": objeto letra → explicação. Uma entrada para CADA alternativa errada.
@@ -147,16 +150,18 @@ EXPLICAÇÃO POR ALTERNATIVA (obrigatório)
   - Em Certo/Errado: a única letra errada ("C" se o gabarito é "E", ou "E" se o gabarito é "C").
 - Cada explicação deve nomear o ERRO ESPECÍFICO de raciocínio ou de memória que leva a marcar aquela alternativa (qual conceito foi trocado por qual, qual requisito foi ignorado, qual prazo/sujeito foi confundido). Não escreva "está incorreta" nem repita o gabarito.
 - O nível de detalhe deve ser o MESMO em Certo/Errado e em múltipla escolha: a explicação da alternativa errada em CE é tão detalhada quanto a de cada distrator em MC.
-
+`
+    : ""
+}
 SEGURANÇA JURÍDICA E AUTOVERIFICAÇÃO
 - Cite dispositivo legal (ex.: "art. 150, III, b, CF/88") SOMENTE se tiver plena certeza; na dúvida, indique apenas o nome do instituto e deixe "dispositivo" como null.
 - Nunca invente números de artigos, súmulas, alíquotas, prazos ou percentuais.
 - Antes de fechar o JSON, revise cada questão e confirme: (a) o gabarito está factualmente correto; (b) nenhuma outra alternativa também está correta; (c) todo dispositivo citado existe e diz o que você afirmou; (d) todo número usado em cálculo fecha na conta. Se algum item não passar, corrija a questão antes de responder.
 
-BREVIDADE (obrigatório): enunciado ≤ 45 palavras; cada alternativa ≤ 12 palavras; comentario ≤ 22 palavras; cada explicação de alternativa errada ≤ 25 palavras.
+BREVIDADE (obrigatório): enunciado ≤ 45 palavras; cada alternativa ≤ 12 palavras${comExplicacoes ? "; comentario ≤ 22 palavras; cada explicação de alternativa errada ≤ 25 palavras" : ""}.
 
 Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON:
-{"questoes":[{"enunciado":"...","formato":"ce" ou "mc","alternativas":["A) ...","B) ...","C) ...","D) ...","E) ..."] ou null,"gabarito":"C"/"E" ou "A"–"E","conceitos":["conceito 1","..."],"comentario":"...","explicacoes_erradas":{"A":"...","B":"..."},"dispositivo":"art. X ..." ou null,"tipo_cobranca":"abstrato"|"caso"|"calculo"|"conceito"}]}`;
+{"questoes":[{"enunciado":"...","formato":"ce" ou "mc","alternativas":["A) ...","B) ...","C) ...","D) ...","E) ..."] ou null,"gabarito":"C"/"E" ou "A"–"E","conceitos":["conceito 1","..."]${comExplicacoes ? ',"comentario":"...","explicacoes_erradas":{"A":"...","B":"..."}' : ""},"dispositivo":"art. X ..." ou null,"tipo_cobranca":"abstrato"|"caso"|"calculo"|"conceito"}]}`;
 
   const dinamico = [
     padroesAnteriores.length
@@ -256,6 +261,7 @@ function embaralharAlternativas(q: Questao): Questao {
 export function normalizarQuestao(
   raw: unknown,
   formatoEsperado: Config["formato"],
+  comExplicacoes = true,
 ): Questao | null {
   if (!raw || typeof raw !== "object") return null;
   const q = raw as Record<string, unknown>;
@@ -286,13 +292,19 @@ export function normalizarQuestao(
     q.explicacoes_erradas && typeof q.explicacoes_erradas === "object"
       ? (q.explicacoes_erradas as Record<string, unknown>)
       : {};
+  // Quando o toggle "explicações de IA" está desligado (ver GerarView/
+  // GerarBancoView), o prompt nem pede comentario/explicacoes_erradas — a
+  // questão fica sem explicação até o usuário pedir sob demanda (ver
+  // gerarExplicacaoParcial), então aqui não preenchemos placeholder nenhum.
   const explicacoes: Record<string, string> = {};
-  for (const l of erradas) {
-    const v = brutas[l];
-    explicacoes[l] =
-      typeof v === "string" && v.trim()
-        ? v.trim()
-        : "O modelo não detalhou o erro desta alternativa.";
+  if (comExplicacoes) {
+    for (const l of erradas) {
+      const v = brutas[l];
+      explicacoes[l] =
+        typeof v === "string" && v.trim()
+          ? v.trim()
+          : "O modelo não detalhou o erro desta alternativa.";
+    }
   }
 
   const tipo = q.tipo_cobranca;
@@ -304,7 +316,7 @@ export function normalizarQuestao(
     conceitos: Array.isArray(q.conceitos)
       ? q.conceitos.filter((x): x is string => typeof x === "string" && !!x.trim())
       : [],
-    comentario: typeof q.comentario === "string" ? q.comentario.trim() : "",
+    comentario: comExplicacoes && typeof q.comentario === "string" ? q.comentario.trim() : "",
     explicacoes_erradas: explicacoes,
     dispositivo: typeof q.dispositivo === "string" && q.dispositivo.trim() ? q.dispositivo.trim() : null,
     tipo_cobranca: TIPO_IDS.includes(tipo as TipoId) ? (tipo as TipoId) : undefined,
@@ -321,7 +333,10 @@ export function normalizarQuestao(
  * a API cobra esse prefixo como leitura de cache em vez de reprocessá-lo
  * inteiro — o prefixo (config + regras do método) é idêntico nas 4 chamadas.
  */
-async function chamar(prompt: string | PromptPartes): Promise<string> {
+async function chamar(
+  prompt: string | PromptPartes,
+  effort: "low" | "medium" = "medium",
+): Promise<string> {
   const client = await criarCliente();
 
   const content: Anthropic.TextBlockParam[] =
@@ -339,7 +354,10 @@ async function chamar(prompt: string | PromptPartes): Promise<string> {
     max_tokens: 24000,
     // effort médio: equilíbrio entre a autoverificação factual pedida no
     // prompt e custo/latência por chamada — cada bloco já são 4 chamadas.
-    output_config: { effort: "medium" },
+    // effort baixo é usado só na explicação avulsa sob demanda (ver
+    // gerarExplicacaoParcial): uma tarefa pequena e bem definida, sem a
+    // autoverificação de uma questão inteira.
+    output_config: { effort },
     messages: [{ role: "user", content }],
   });
 
@@ -360,7 +378,7 @@ async function chamar(prompt: string | PromptPartes): Promise<string> {
     .join("\n");
 }
 
-function mensagemDeErro(e: unknown): string {
+export function mensagemDeErro(e: unknown): string {
   if (e instanceof SemCredencialError) return e.message;
   if (e instanceof Anthropic.AuthenticationError)
     return "Chave de API inválida ou expirada. Confira em Ajustes.";
@@ -385,13 +403,16 @@ export async function gerarSubBloco(
   subIdx: number,
   padroesAnteriores: string[],
   gabaritosCEAnteriores: string[] = [],
+  comExplicacoes = true,
   tentativa = 0,
 ): Promise<Questao[]> {
   try {
-    const texto = await chamar(montarPrompt(cfg, subIdx, padroesAnteriores, gabaritosCEAnteriores));
+    const texto = await chamar(
+      montarPrompt(cfg, subIdx, padroesAnteriores, gabaritosCEAnteriores, comExplicacoes),
+    );
     const obj = tentarParse(texto);
     const qs = (obj.questoes ?? [])
-      .map((r) => normalizarQuestao(r, cfg.formato))
+      .map((r) => normalizarQuestao(r, cfg.formato, comExplicacoes))
       .filter((q): q is Questao => q !== null);
 
     if (qs.length < Q_POR_SUB) throw new Error("questões insuficientes");
@@ -402,7 +423,7 @@ export async function gerarSubBloco(
       throw new Error(mensagemDeErro(e));
     }
     if (tentativa < 1) {
-      return gerarSubBloco(cfg, subIdx, padroesAnteriores, gabaritosCEAnteriores, tentativa + 1);
+      return gerarSubBloco(cfg, subIdx, padroesAnteriores, gabaritosCEAnteriores, comExplicacoes, tentativa + 1);
     }
     throw new Error(mensagemDeErro(e));
   }
@@ -476,4 +497,68 @@ export async function gerarExplicacoes(questoes: Questao[]): Promise<Questao[]> 
     console.error("gerar explicações", e);
     return questoes;
   }
+}
+
+/* ---------- Explicação avulsa, sob demanda ---------- */
+
+/** Letras que o usuário já pode escolher para explicar (gabarito incluso —
+ * ele pode querer saber por que a certa está certa, não só por que as
+ * outras estão erradas). */
+export function letrasExplicaveis(questao: Questao): string[] {
+  return questao.formato === "ce"
+    ? ["C", "E"]
+    : LETRAS_MC.slice(0, questao.alternativas?.length ?? 5);
+}
+
+function montarPromptExplicacaoParcial(questao: Questao, letras: string[]): string {
+  const alts = questao.alternativas ? questao.alternativas.join(" | ") : "C) Certo | E) Errado";
+  const pedidos = letras
+    .map((l) =>
+      l === questao.gabarito
+        ? `${l} — é o GABARITO: explique por que está CERTA`
+        : `${l} — explique por que está ERRADA`,
+    )
+    .join("\n- ");
+
+  return `Você é revisor de uma questão de concurso da área fiscal já pronta — NÃO altere enunciado, alternativas nem gabarito. O usuário respondeu a questão e pediu explicação só das alternativas abaixo, porque ficou com dúvida especificamente nelas — capriche no detalhe, mais do que numa explicação padrão de bloco inteiro (não há limite apertado de palavras aqui).
+
+ENUNCIADO: ${questao.enunciado}
+ALTERNATIVAS: ${alts}
+GABARITO: ${questao.gabarito}
+
+EXPLICAR SOMENTE:
+- ${pedidos}
+
+Para a alternativa-gabarito, explique por que ela está correta. Para as demais, nomeie o erro específico de raciocínio, conceito ou detalhe (data, prazo, valor, sujeito) que leva a marcá-la — não escreva "está incorreta" nem repita o gabarito.
+
+Responda APENAS com JSON válido, sem markdown, com uma entrada para CADA letra pedida acima e nenhuma outra:
+{"explicacoes":{"<LETRA>":"..."}}`;
+}
+
+/**
+ * Explicação sob demanda de uma ou mais alternativas de UMA questão já
+ * respondida — usada quando o bloco/simulado foi montado sem explicações de
+ * IA (ver toggle em GerarView/GerarBancoView) ou quando faltou explicar
+ * alguma alternativa específica. Chamada minúscula e barata (`effort: low`,
+ * uma questão só) comparada a gerar explicação do bloco inteiro — é
+ * literalmente o ponto do recurso: gastar tokens só no que o usuário de
+ * fato quer entender.
+ */
+export async function gerarExplicacaoParcial(
+  questao: Questao,
+  letras: string[],
+): Promise<{ comentario?: string; explicacoes_erradas: Record<string, string> }> {
+  const texto = await chamar(montarPromptExplicacaoParcial(questao, letras), "low");
+  const obj = extrairJSON(texto) as { explicacoes?: Record<string, unknown> };
+  const brutas = obj.explicacoes && typeof obj.explicacoes === "object" ? obj.explicacoes : {};
+
+  let comentario: string | undefined;
+  const explicacoes_erradas: Record<string, string> = {};
+  for (const l of letras) {
+    const v = brutas[l];
+    const texto2 = typeof v === "string" && v.trim() ? v.trim() : "O modelo não detalhou esta alternativa.";
+    if (l === questao.gabarito) comentario = texto2;
+    else explicacoes_erradas[l] = texto2;
+  }
+  return { comentario, explicacoes_erradas };
 }

@@ -74,6 +74,11 @@ export default function GerarView({
   const [respondidaAtual, setRespondidaAtual] = useState(false);
 
   const [modoTopico, setModoTopico] = useState<ModoTopico>("todos");
+  // Gerar comentário/explicações já na criação do bloco, ou deixar a
+  // questão sem explicação e só gerar sob demanda depois de respondida (ver
+  // QuestaoCard) — economiza tokens e latência na geração, e a explicação
+  // sob demanda fica mais aprofundada por focar só no que gerou dúvida.
+  const [comExplicacoes, setComExplicacoes] = useState(true);
 
   // dispararSub roda fora do render e precisa ler o estado mais recente.
   const subsRef = useRef(subs);
@@ -133,7 +138,13 @@ export default function GerarView({
   function dispararSub(i: number, conf: Config & { materia: string }) {
     setStatusSub((st) => st.map((v, k) => (k === i ? "carregando" : v)));
     setErroApi(null);
-    gerarSubBloco(conf, i, padroesDe(subsRef.current, i), gabaritosCEDe(subsRef.current, i))
+    gerarSubBloco(
+      conf,
+      i,
+      padroesDe(subsRef.current, i),
+      gabaritosCEDe(subsRef.current, i),
+      comExplicacoes,
+    )
       .then((qs) => {
         setSubs((s) => s.map((v, k) => (k === i ? qs : v)));
         setStatusSub((st) => st.map((v, k) => (k === i ? "ok" : v)));
@@ -490,6 +501,39 @@ export default function GerarView({
           </div>
           <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.5 }}>
             {NIVEL_DESCRICOES[cfg.nivel - 1]}
+          </div>
+        </div>
+
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 13.5 }}>Explicações de IA na geração</div>
+              <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+                {comExplicacoes
+                  ? "Cada questão já sai com comentário e explicação de cada alternativa errada."
+                  : "Questões saem sem explicação — depois de responder, escolha só as alternativas que quer entender e peça a explicação na hora, mais aprofundada e mais barata."}
+              </div>
+            </div>
+            <button
+              role="switch"
+              aria-checked={comExplicacoes}
+              onClick={() => setComExplicacoes((v) => !v)}
+              style={{
+                width: 44,
+                height: 26,
+                borderRadius: 13,
+                border: "none",
+                padding: 3,
+                flexShrink: 0,
+                display: "flex",
+                justifyContent: comExplicacoes ? "flex-end" : "flex-start",
+                background: comExplicacoes ? C.caneta : C.line,
+                cursor: "pointer",
+                transition: "background 0.15s",
+              }}
+            >
+              <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+            </button>
           </div>
         </div>
 

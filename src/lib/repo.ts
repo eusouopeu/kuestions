@@ -476,6 +476,53 @@ export async function salvarExplicacoesBanco(
   );
 }
 
+/**
+ * Grava a explicação de uma ou mais alternativas geradas SOB DEMANDA (ver
+ * gerarExplicacaoParcial em anthropic.ts) numa questão já respondida —
+ * MESCLA com o que já existir em vez de sobrescrever, porque o usuário pode
+ * pedir explicação de alternativas diferentes em momentos diferentes.
+ * `comentario` só é atualizado quando informado (gabarito foi uma das
+ * letras pedidas desta vez).
+ */
+export async function mesclarExplicacoesRespondida(
+  id: number,
+  comentario: string | undefined,
+  novasExplicacoes: Record<string, string>,
+): Promise<void> {
+  const row = await one<{ comentario: string; explicacoes_erradas: string }>(
+    `SELECT comentario, explicacoes_erradas FROM questoes_respondidas WHERE id = ?`,
+    [id],
+  );
+  if (!row) return;
+  const atuais = parseJSON<Record<string, string>>(row.explicacoes_erradas, {});
+  const mescladas = { ...atuais, ...novasExplicacoes };
+  await run(`UPDATE questoes_respondidas SET comentario = ?, explicacoes_erradas = ? WHERE id = ?`, [
+    comentario ?? row.comentario,
+    JSON.stringify(mescladas),
+    id,
+  ]);
+}
+
+/** Mesma mescla de `mesclarExplicacoesRespondida`, para o cache de
+ * explicações do banco fixo (`explicacoes_banco`) — assim uma explicação
+ * pedida sob demanda para uma questão do banco também fica pronta da
+ * próxima vez que ela for sorteada (ver buscarExplicacoesBanco). */
+export async function mesclarExplicacoesBanco(
+  bancoId: string,
+  comentario: string | undefined,
+  novasExplicacoes: Record<string, string>,
+): Promise<void> {
+  const cache = await buscarExplicacoesBanco([bancoId]);
+  const atual = cache.get(bancoId);
+  await salvarExplicacoesBanco([
+    {
+      bancoId,
+      comentario: comentario ?? atual?.comentario ?? "",
+      explicacoes_erradas: { ...(atual?.explicacoes_erradas ?? {}), ...novasExplicacoes },
+    },
+  ]);
+}
+
 export type MotivoReport = "gabarito" | "enunciado" | "duplicada" | "outro";
 
 export const MOTIVOS_REPORT: { id: MotivoReport; label: string }[] = [

@@ -114,11 +114,15 @@ function ProgressoGeral({ onDados }: { onDados: () => void }) {
 
 /** Progresso semanal de cada matéria com meta específica configurada (ver
  * lib/metas.ts) — independente da meta geral acima, e só aparece quando o
- * usuário configurou pelo menos uma em Ajustes. */
+ * usuário configurou pelo menos uma em Ajustes. Fica recolhida por padrão
+ * (só um botão-resumo): expandida, uma meta por matéria já polui bastante a
+ * tela de abertura da aba; o detalhe (barra por matéria) só aparece quando
+ * o usuário pede. */
 function MetasPorMateria() {
   const [metas, setMetas] = useState<{ materia: string; alvo: number; naSemana: number }[] | null>(
     null,
   );
+  const [expandido, setExpandido] = useState(false);
 
   useEffect(() => {
     getMetasPorMateria()
@@ -142,44 +146,83 @@ function MetasPorMateria() {
 
   if (!metas || metas.length === 0) return null;
 
+  const batidas = metas.filter((m) => m.naSemana >= m.alvo).length;
+  const todasBatidas = batidas === metas.length;
+
   return (
-    <div style={{ marginBottom: 18, display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ ...mono, fontSize: 10, color: C.sub, letterSpacing: 0.8 }}>
-        METAS POR MATÉRIA
-      </div>
-      {metas.map((m) => {
-        const batida = m.naSemana >= m.alvo;
-        return (
-          <div key={m.materia} style={{ ...cartao, padding: "10px 12px" }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "baseline",
-                marginBottom: 5,
-                gap: 8,
-              }}
-            >
-              <span style={{ fontSize: 13, flex: 1 }}>{m.materia}</span>
-              <span style={{ ...mono, fontSize: 11, color: batida ? C.ok : C.sub, flexShrink: 0 }}>
-                {m.naSemana}/{m.alvo} bloco{m.alvo === 1 ? "" : "s"}
-                {batida ? " ✓" : ""}
-              </span>
-            </div>
-            <div style={{ height: 5, background: C.line, borderRadius: 3, overflow: "hidden" }}>
-              <div
-                style={{
-                  height: "100%",
-                  width: `${Math.min(100, Math.round((m.naSemana / m.alvo) * 100))}%`,
-                  background: batida ? C.ok : C.caneta,
-                  borderRadius: 3,
-                  transition: "width 0.25s ease",
-                }}
-              />
-            </div>
-          </div>
-        );
-      })}
+    <div style={{ marginBottom: 18 }}>
+      <button
+        onClick={() => setExpandido((v) => !v)}
+        aria-expanded={expandido}
+        style={{
+          ...cartao,
+          display: "flex",
+          width: "100%",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 10,
+          textAlign: "left",
+          padding: "10px 12px",
+          cursor: "pointer",
+        }}
+      >
+        <span style={{ ...mono, fontSize: 10, color: C.sub, letterSpacing: 0.8 }}>
+          METAS POR MATÉRIA · {metas.length}
+        </span>
+        <span
+          style={{
+            ...mono,
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+            fontSize: 11,
+            color: todasBatidas ? C.ok : C.sub,
+            flexShrink: 0,
+          }}
+        >
+          {batidas}/{metas.length} batida{metas.length === 1 ? "" : "s"}
+          {todasBatidas ? " ✓" : ""}
+          <span style={{ fontSize: 9 }}>{expandido ? "▲" : "▼"}</span>
+        </span>
+      </button>
+
+      {expandido && (
+        <div style={{ marginTop: 8, display: "flex", flexDirection: "column", gap: 8 }}>
+          {metas.map((m) => {
+            const batida = m.naSemana >= m.alvo;
+            return (
+              <div key={m.materia} style={{ ...cartao, padding: "10px 12px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "baseline",
+                    marginBottom: 5,
+                    gap: 8,
+                  }}
+                >
+                  <span style={{ fontSize: 13, flex: 1 }}>{m.materia}</span>
+                  <span style={{ ...mono, fontSize: 11, color: batida ? C.ok : C.sub, flexShrink: 0 }}>
+                    {m.naSemana}/{m.alvo} bloco{m.alvo === 1 ? "" : "s"}
+                    {batida ? " ✓" : ""}
+                  </span>
+                </div>
+                <div style={{ height: 5, background: C.line, borderRadius: 3, overflow: "hidden" }}>
+                  <div
+                    style={{
+                      height: "100%",
+                      width: `${Math.min(100, Math.round((m.naSemana / m.alvo) * 100))}%`,
+                      background: batida ? C.ok : C.caneta,
+                      borderRadius: 3,
+                      transition: "width 0.25s ease",
+                    }}
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

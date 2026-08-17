@@ -12,8 +12,9 @@ import {
   selecionarQuestoes,
   type QuestaoBanco,
 } from "../lib/banco";
-import { gravarRespostasEmLote, idsBancoRespondidos } from "../lib/repo";
+import { gravarRespostasEmLote, idsBancoRespondidos, mesclarExplicacoesBanco } from "../lib/repo";
 import { getPesosEdital, pesoDe, PRESETS_PESO_EDITAL, type PesosEdital } from "../lib/edital";
+import { gerarExplicacaoParcial, mensagemDeErro } from "../lib/anthropic";
 import type { Questao } from "../lib/types";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
@@ -133,6 +134,19 @@ export default function SimuladoView() {
   const [finalizando, setFinalizando] = useState(false);
   const [acertos, setAcertos] = useState(0);
   const [expandida, setExpandida] = useState<number | null>(null);
+  // Explicação sob demanda de uma errada expandida na revisão — o Simulado
+  // nunca chama a API na hora da prova, então toda explicação aqui é sob
+  // demanda (ver gerarExplicacaoParcial em anthropic.ts). Um item aberto por
+  // vez, então um único conjunto de seleção serve para qualquer um.
+  const [selecionadasExplicar, setSelecionadasExplicar] = useState<Set<string>>(new Set());
+  const [gerandoExplicacao, setGerandoExplicacao] = useState(false);
+  const [erroExplicacao, setErroExplicacao] = useState<string | null>(null);
+
+  useEffect(() => {
+    setSelecionadasExplicar(new Set());
+    setGerandoExplicacao(false);
+    setErroExplicacao(null);
+  }, [expandida]);
 
   const intervaloRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -625,8 +639,58 @@ export default function SimuladoView() {
 
   /* ---------- RESULTADO ---------- */
   const erradas = perguntas
-    .map((p, i) => ({ ...p, resposta: respostas[i] ?? "" }))
+    .map((p, i) => ({ ...p, resposta: respostas[i] ?? "", idxOriginal: i }))
     .filter((p) => p.resposta !== p.questao.gabarito);
+
+  function alternarSelecaoExplicar(l: string) {
+    setSelecionadasExplicar((s) => {
+      const novo = new Set(s);
+      if (novo.has(l)) novo.delete(l);
+      else novo.add(l);
+      return novo;
+    });
+  }
+
+  /** O Simulado nunca liga a explicação na hora da prova (nem sequer revela
+   * o gabarito até o fim) — toda explicação aqui é sob demanda, na revisão.
+   * Persiste só no cache do banco (banco_id): o Simulado não cria um bloco
+   * de verdade, então não há uma linha em `questoes_respondidas` por
+   * pergunta para atualizar (ver gravarRespostasEmLote), mas a próxima vez
+   * que esta mesma questão real aparecer — noutro simulado ou bloco do
+   * banco — já vem explicada. */
+  async function explicarSelecionadasRevisao(idxOriginal: number, questao: Questao) {
+    if (!selecionadasExplicar.size || gerandoExplicacao) return;
+    setGerandoExplicacao(true);
+    setErroExplicacao(null);
+    const letras = [...selecionadasExplicar];
+    try {
+      const { comentario, explicacoes_erradas } = await gerarExplicacaoParcial(questao, letras);
+      setPerguntas((ps) =>
+        ps.map((p, i) =>
+          i === idxOriginal
+            ? {
+                ...p,
+                questao: {
+                  ...p.questao,
+                  comentario: comentario ?? p.questao.comentario,
+                  explicacoes_erradas: { ...p.questao.explicacoes_erradas, ...explicacoes_erradas },
+                },
+              }
+            : p,
+        ),
+      );
+      setSelecionadasExplicar(new Set());
+      if (questao.bancoId) {
+        mesclarExplicacoesBanco(questao.bancoId, comentario, explicacoes_erradas).catch((e) =>
+          console.error("persistir explicação sob demanda (banco)", e),
+        );
+      }
+    } catch (e) {
+      setErroExplicacao(mensagemDeErro(e));
+    } finally {
+      setGerandoExplicacao(false);
+    }
+  }
 
   return (
     <div>
@@ -718,6 +782,79 @@ export default function SimuladoView() {
                         <div style={{ ...mono, fontSize: 11, color: C.sub }}>Você não respondeu esta questão.</div>
                       )}
                     </div>
+
+                    {/* Explicação sob demanda — o Simulado nunca gera
+                        explicação sozinho, então toda alternativa começa
+                        sem explicação; o usuário escolhe o que quer
+                        entender. */}
+                    <div style={{ marginBottom: 10 }}>
+                      {(e.questao.formato === "ce"
+                        ? ["C", "E"]
+                        : LETRAS.slice(0, e.questao.alternativas?.length ?? 5)
+                      ).map((l) => {
+                        const ehGabarito = l === e.questao.gabarito;
+                        const texto = ehGabarito
+                          ? e.questao.comentario
+                          : e.questao.explicacoes_erradas?.[l];
+                        if (texto) {
+                          return (
+                            <div
+                              key={l}
+                              style={{ display: "flex", gap: 8, padding: "6px 0", borderTop: `1px solid ${C.line}` }}
+                            >
+                              <span style={{ ...mono, fontSize: 12, fontWeight: 600, color: ehGabarito ? C.ok : C.sub, minWidth: 16 }}>
+                                {l}
+                              </span>
+                              <span style={{ fontSize: 13, lineHeight: 1.4, flex: 1 }}>{texto}</span>
+                            </div>
+                          );
+                        }
+                        const marcada = selecionadasExplicar.has(l);
+                        return (
+                          <label
+                            key={l}
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 8,
+                              padding: "6px 0",
+                              borderTop: `1px solid ${C.line}`,
+                              cursor: "pointer",
+                            }}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={marcada}
+                              onChange={() => alternarSelecaoExplicar(l)}
+                              style={{ flexShrink: 0, width: 16, height: 16, cursor: "pointer" }}
+                            />
+                            <span style={{ ...mono, fontSize: 12, fontWeight: 600, color: C.sub, minWidth: 16 }}>
+                              {l}
+                            </span>
+                            <span style={{ fontSize: 12, color: C.sub, flex: 1, fontStyle: "italic" }}>
+                              {ehGabarito ? "Por que está certa" : "Ainda não explicada"}
+                            </span>
+                          </label>
+                        );
+                      })}
+
+                      {selecionadasExplicar.size > 0 && (
+                        <Botao
+                          tipo="fantasma"
+                          onClick={() => explicarSelecionadasRevisao(e.idxOriginal, e.questao)}
+                          disabled={gerandoExplicacao}
+                          style={{ marginTop: 8 }}
+                        >
+                          {gerandoExplicacao
+                            ? "Gerando explicação…"
+                            : `Explicar ${selecionadasExplicar.size} selecionada${selecionadasExplicar.size === 1 ? "" : "s"}`}
+                        </Botao>
+                      )}
+                      {erroExplicacao && (
+                        <div style={{ ...mono, fontSize: 11, color: C.erro, marginTop: 6 }}>{erroExplicacao}</div>
+                      )}
+                    </div>
+
                     <Chip tom="neutro">{e.area}</Chip>
                   </div>
                 )}

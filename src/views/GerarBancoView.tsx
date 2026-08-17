@@ -40,28 +40,15 @@ type Modo = "aula" | "bloco" | "todos";
  * cascata de pré-carregamento de GerarView — o usuário raramente espera. */
 const LOTE = 4;
 
-/** Preenche comentário/explicações com um texto neutro quando a explicação
- * não pôde ser gerada (sem chave de API) — em vez de deixar em branco, o que
- * pareceria um bug na tela de revelação. */
-function semExplicacaoOffline(q: Questao): Questao {
-  if (q.comentario) return q; // já tem (veio do cache ou já foi gerada antes)
-  const letras = q.alternativas ? q.alternativas.map((_, i) => "ABCDE"[i]) : ["C", "E"];
-  const explicacoes_erradas: Record<string, string> = {};
-  for (const l of letras) if (l !== q.gabarito) explicacoes_erradas[l] = "Sem chave de API — configure uma em Ajustes para gerar a explicação.";
-  return {
-    ...q,
-    comentario: "Comentário indisponível sem chave de API — configure uma em Ajustes para gerá-lo.",
-    explicacoes_erradas,
-  };
-}
-
 /**
  * 4ª forma de montar um bloco na aba Questões: em vez de gerar questões
  * inéditas via IA, sorteia questões REAIS de um banco de provas anexado
  * (enunciado/alternativas/gabarito nunca são alterados) e só usa a API para
- * escrever comentário e explicação de cada alternativa errada. Funciona
- * mesmo sem chave de API configurada (ou offline): a questão real em si já
- * tem valor sozinha, só o comentário/explicações ficam indisponíveis.
+ * escrever comentário e explicação de cada alternativa errada — e mesmo isso
+ * é opcional (ver `comExplicacoes`). Funciona mesmo sem chave de API
+ * configurada (ou offline): a questão real em si já tem valor sozinha, só o
+ * comentário/explicações ficam indisponíveis até serem geradas (na criação
+ * ou sob demanda depois de responder, ver QuestaoCard).
  */
 export default function GerarBancoView({ onAjustes }: { onAjustes: () => void }) {
   const [tela, setTela] = useState<Tela>("config");
@@ -75,6 +62,9 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
   const [instituicao, setInstituicao] = useState<string>("");
   const [ano, setAno] = useState<number>(0);
   const [quantidade, setQuantidade] = useState<number>(12);
+  // Gerar comentário/explicações já na montagem do bloco, ou deixar para
+  // sob demanda depois de responder — mesma ideia de GerarView.
+  const [comExplicacoes, setComExplicacoes] = useState(true);
 
   const [lotes, setLotes] = useState<(Questao[] | null)[]>([]);
   const [statusLote, setStatusLote] = useState<StatusSub[]>([]);
@@ -141,8 +131,12 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
    * gerado, ver lib/repo.ts) — relevante porque o banco tem só ~1100
    * questões e, esgotado o estoque de inéditas de uma área, a mesma questão
    * real volta a ser sorteada e não precisa gerar a mesma explicação de novo.
-   * Só as questões sem cache disparam `gerarExplicacoes`; o resultado novo é
-   * gravado no cache para as próximas vezes.
+   * Uma explicação já em cache aparece de graça mesmo com o toggle
+   * `comExplicacoes` desligado — só a geração de uma explicação NOVA é que
+   * respeita o toggle. Questões que saem sem explicação (cache ausente e
+   * toggle desligado, ou sem chave de API) ficam com comentario/
+   * explicacoes_erradas vazios — QuestaoCard oferece pedir a explicação sob
+   * demanda depois de respondida.
    */
   async function dispararLote(i: number, todas: Questao[], nLotes: number) {
     const fatia = todas.slice(i * LOTE, i * LOTE + LOTE);
@@ -155,22 +149,23 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
 
       const semCache = fatia.filter((q) => !q.bancoId || !cache.has(q.bancoId));
       let geradas: Questao[] = [];
-      try {
-        geradas = semCache.length ? await gerarExplicacoes(semCache) : [];
-      } catch (e) {
-        // Sem chave de API: a 4ª forma de montar bloco não depende dela para
-        // funcionar (as questões já são reais, vêm prontas do banco) — só o
-        // comentário/explicações ficam sem gerar, em vez de travar o bloco
-        // inteiro com um erro.
-        if (!(e instanceof SemCredencialError)) throw e;
+      if (comExplicacoes) {
+        try {
+          geradas = semCache.length ? await gerarExplicacoes(semCache) : [];
+        } catch (e) {
+          // Sem chave de API: a 4ª forma de montar bloco não depende dela
+          // para funcionar (as questões já são reais, vêm prontas do banco)
+          // — só o comentário/explicações ficam sem gerar, em vez de travar
+          // o bloco inteiro com um erro.
+          if (!(e instanceof SemCredencialError)) throw e;
+        }
       }
       const geradasPorId = new Map(geradas.map((q) => [q.bancoId, q]));
 
       const qs = fatia.map((q) => {
         const doCache = q.bancoId ? cache.get(q.bancoId) : undefined;
         if (doCache) return { ...q, ...doCache };
-        const gerada = q.bancoId && geradasPorId.get(q.bancoId);
-        return semExplicacaoOffline(gerada || q);
+        return (q.bancoId && geradasPorId.get(q.bancoId)) || q;
       });
 
       const novasParaCache = geradas
@@ -466,6 +461,39 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
           Estas são questões reais de prova, extraídas de um banco anexado. Enunciado, alternativas
           e gabarito não são alterados — só o comentário e a explicação de cada alternativa errada
           são gerados pela IA.
+        </div>
+
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 13.5 }}>Explicações de IA na geração</div>
+              <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+                {comExplicacoes
+                  ? "Cada questão já sai com comentário e explicação de cada alternativa errada."
+                  : "Questões saem sem explicação (exceto as já explicadas antes) — depois de responder, peça a explicação só do que quiser entender."}
+              </div>
+            </div>
+            <button
+              role="switch"
+              aria-checked={comExplicacoes}
+              onClick={() => setComExplicacoes((v) => !v)}
+              style={{
+                width: 44,
+                height: 26,
+                borderRadius: 13,
+                border: "none",
+                padding: 3,
+                flexShrink: 0,
+                display: "flex",
+                justifyContent: comExplicacoes ? "flex-end" : "flex-start",
+                background: comExplicacoes ? C.caneta : C.line,
+                cursor: "pointer",
+                transition: "background 0.15s",
+              }}
+            >
+              <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+            </button>
+          </div>
         </div>
 
         <Botao onClick={iniciar} tipo="tinta" disabled={disponiveis === 0}>

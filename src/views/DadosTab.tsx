@@ -116,21 +116,43 @@ const eixo = {
   stroke: C.line,
 } as const;
 
+/** O `<Text>` de tick do recharts quebra rótulos longos em várias linhas
+ * dentro da largura do eixo (`largura`) — sem prever isso, `alturaPorItem`
+ * fixo faz linhas de categorias com nome longo (ex. conceitos) se sobrepor
+ * verticalmente. Estimativa grosseira (chars por linha ~ largura/(fonte*0.6),
+ * arredondado por cima) só para dimensionar o card; não precisa ser exata. */
+function alturaRotuloQuebrado(nome: string, largura: number, fonte = 11): number {
+  const charsPorLinha = Math.max(6, Math.floor(largura / (fonte * 0.6)));
+  const linhas = Math.max(1, Math.ceil(nome.length / charsPorLinha));
+  return linhas * (fonte * 1.3);
+}
+
 /** Barras de % de acerto com rótulo textual — usado em 3 dos 4 gráficos. */
 function BarrasPct({
   dados,
   alturaPorItem = 34,
+  larguraEixo = 104,
 }: {
   dados: { nome: string; pct: number; total: number }[];
   alturaPorItem?: number;
+  /** Largura do eixo Y (rótulo da categoria) — aumentar reduz quebra de
+   * linha em nomes longos (ver conceito, mais abaixo). */
+  larguraEixo?: number;
 }) {
-  const altura = Math.max(120, dados.length * alturaPorItem + 24);
+  // Uniforme entre as linhas (o BarChart do recharts aloca a mesma altura
+  // para cada categoria) — usa o rótulo mais longo do conjunto, com uma
+  // margem mínima de `alturaPorItem` para conjuntos de nomes curtos.
+  const alturaMinLinha = Math.max(
+    alturaPorItem,
+    ...dados.map((d) => alturaRotuloQuebrado(d.nome, larguraEixo) + 16),
+  );
+  const altura = Math.max(120, dados.length * alturaMinLinha + 24);
   return (
     <ResponsiveContainer width="100%" height={altura}>
       <BarChart data={dados} layout="vertical" margin={{ top: 4, right: 44, bottom: 4, left: 4 }}>
         <CartesianGrid horizontal={false} stroke={C.line} />
         <XAxis type="number" domain={[0, 100]} unit="%" {...eixo} />
-        <YAxis type="category" dataKey="nome" width={104} {...eixo} />
+        <YAxis type="category" dataKey="nome" width={larguraEixo} {...eixo} />
         <Tooltip
           {...tooltipStyle}
           formatter={(v: number, _n, p) => [
@@ -744,24 +766,28 @@ export default function DadosTab({
             )}
           </Cartao>
 
+          {/* Formato */}
+          <Cartao titulo="ACERTO POR FORMATO (CE VS MC)">
+            <BarrasPct dados={dadosFormatos} alturaPorItem={40} />
+          </Cartao>
+
           {/* Conceito — a dimensão mais granular; só mostra os que já têm
-              amostra suficiente (ver porConceito em repo.ts). */}
+              amostra suficiente (ver porConceito em repo.ts). Nomes de
+              conceito podem ser bem longos, por isso um eixo Y mais largo
+              (menos quebra de linha) e altura por item calculada a partir
+              do rótulo mais longo (ver alturaRotuloQuebrado) — o card fica
+              alto, mas nenhuma legenda se sobrepõe. */}
           <Cartao
             titulo="ACERTO POR CONCEITO — ONDE TREINAR PRIMEIRO"
             legenda="Só conceitos com pelo menos 3 questões respondidas, do pior para o melhor acerto."
           >
             {dadosConceitos.length ? (
-              <BarrasPct dados={dadosConceitos} alturaPorItem={30} />
+              <BarrasPct dados={dadosConceitos} alturaPorItem={30} larguraEixo={140} />
             ) : (
               <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
                 Nenhum conceito com amostra suficiente ainda.
               </div>
             )}
-          </Cartao>
-
-          {/* Formato */}
-          <Cartao titulo="ACERTO POR FORMATO (CE VS MC)">
-            <BarrasPct dados={dadosFormatos} alturaPorItem={40} />
           </Cartao>
         </>
       )}
