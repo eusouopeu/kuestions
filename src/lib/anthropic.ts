@@ -95,16 +95,31 @@ function instrucaoEquilibrioGabarito(gabaritosCEAnteriores: string[]): string {
  * NIVEL_DESCRICOES em constants.ts. */
 const NIVEL_MIN_DETALHE_PONTUAL = 4;
 
+/**
+ * O prompt de cada sub-bloco é montado em duas partes para permitir prompt
+ * caching (ver `chamar`): `estatico` é idêntico nos 4 sub-blocos de um mesmo
+ * bloco (mesma config — matéria/tópico/tipo/nível/formato — e mesmas regras
+ * fixas do método), `dinamico` é o que muda a cada sub-bloco (padrões já
+ * usados, equilíbrio do gabarito C/E). Sem essa separação, as 4 chamadas
+ * sequenciais reprocessariam do zero o mesmo texto de regras/schema a cada
+ * vez — texto que o próprio README já trata como custo relevante (efeito do
+ * `effort: medium`, escolhido "por causa do custo").
+ */
+export interface PromptPartes {
+  estatico: string;
+  dinamico: string;
+}
+
 export function montarPrompt(
   cfg: Config & { materia: string },
   _loteIdx: number,
   padroesAnteriores: string[],
   gabaritosCEAnteriores: string[] = [],
-): string {
+): PromptPartes {
   const temCE = cfg.formato !== "mc";
   const descNivel = NIVEL_DESCRICOES[cfg.nivel - 1];
 
-  return `Você é elaborador de questões de concurso da área fiscal (padrão SEFAZ / bancas FCC, FGV, Cebraspe). Gere EXATAMENTE ${Q_POR_SUB} questões inéditas.
+  const estatico = `Você é elaborador de questões de concurso da área fiscal (padrão SEFAZ / bancas FCC, FGV, Cebraspe). Gere EXATAMENTE ${Q_POR_SUB} questões inéditas.
 
 CONFIGURAÇÃO
 - Matéria: ${cfg.materia}
@@ -115,9 +130,6 @@ CONFIGURAÇÃO
 
 LÓGICA KUMON
 - As ${Q_POR_SUB} questões devem ser quase-repetitivas entre si: mesma estrutura e mesmo padrão conceitual, variando apenas casos, sujeitos, entes e valores (automatização por repetição).
-${padroesAnteriores.length ? `- NÃO reutilize literalmente os padrões já usados neste bloco: ${padroesAnteriores.join("; ")}.` : ""}
-
-${temCE ? instrucaoEquilibrioGabarito(gabaritosCEAnteriores) : ""}
 
 QUALIDADE DOS DISTRATORES
 - Toda alternativa errada deve ser PLAUSÍVEL: deve corresponder a um erro real de raciocínio, a uma confusão frequente entre institutos próximos, ou a uma troca de requisito/prazo/sujeito verossímil.
@@ -145,6 +157,17 @@ BREVIDADE (obrigatório): enunciado ≤ 45 palavras; cada alternativa ≤ 12 pal
 
 Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON:
 {"questoes":[{"enunciado":"...","formato":"ce" ou "mc","alternativas":["A) ...","B) ...","C) ...","D) ...","E) ..."] ou null,"gabarito":"C"/"E" ou "A"–"E","conceitos":["conceito 1","..."],"comentario":"...","explicacoes_erradas":{"A":"...","B":"..."},"dispositivo":"art. X ..." ou null,"tipo_cobranca":"abstrato"|"caso"|"calculo"|"conceito"}]}`;
+
+  const dinamico = [
+    padroesAnteriores.length
+      ? `NÃO reutilize literalmente os padrões já usados neste bloco: ${padroesAnteriores.join("; ")}.`
+      : "",
+    temCE ? instrucaoEquilibrioGabarito(gabaritosCEAnteriores) : "",
+  ]
+    .filter(Boolean)
+    .join("\n\n");
+
+  return { estatico, dinamico };
 }
 
 /* ---------- Parsing tolerante ---------- */
@@ -290,8 +313,24 @@ export function normalizarQuestao(
 
 /* ---------- Chamada ---------- */
 
-async function chamar(prompt: string): Promise<string> {
+/**
+ * Aceita tanto um prompt simples (`gerarExplicacoes`, chamada avulsa sem
+ * repetição) quanto as duas partes de `montarPrompt` (`gerarSubBloco`, 4
+ * chamadas por bloco). Quando há `estatico`+`dinamico`, o bloco estático vai
+ * marcado com `cache_control`: da 2ª chamada em diante dentro do mesmo bloco,
+ * a API cobra esse prefixo como leitura de cache em vez de reprocessá-lo
+ * inteiro — o prefixo (config + regras do método) é idêntico nas 4 chamadas.
+ */
+async function chamar(prompt: string | PromptPartes): Promise<string> {
   const client = await criarCliente();
+
+  const content: Anthropic.TextBlockParam[] =
+    typeof prompt === "string"
+      ? [{ type: "text", text: prompt }]
+      : [
+          { type: "text", text: prompt.estatico, cache_control: { type: "ephemeral" } },
+          ...(prompt.dinamico ? [{ type: "text" as const, text: prompt.dinamico }] : []),
+        ];
 
   // Streaming: com adaptive thinking ligado, o raciocínio consome parte do
   // max_tokens, e um max_tokens alto sem streaming arrisca timeout de HTTP.
@@ -301,7 +340,7 @@ async function chamar(prompt: string): Promise<string> {
     // effort médio: equilíbrio entre a autoverificação factual pedida no
     // prompt e custo/latência por chamada — cada bloco já são 4 chamadas.
     output_config: { effort: "medium" },
-    messages: [{ role: "user", content: prompt }],
+    messages: [{ role: "user", content }],
   });
 
   const msg = await stream.finalMessage();

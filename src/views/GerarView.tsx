@@ -187,13 +187,18 @@ export default function GerarView({
   async function proxima() {
     if (ultimaDoBloco) {
       const total = acertos.reduce((a, b) => a + b, 0);
+      const passou = total >= MIN_APROVACAO;
       if (blocoId != null) {
         try {
-          await fecharBloco(blocoId, acertos, total >= MIN_APROVACAO);
+          await fecharBloco(blocoId, acertos, passou);
         } catch (e) {
           console.error("fechar bloco", e);
         }
       }
+      // Progressão Kumon de fato automática: "Novo bloco · mesma configuração"
+      // já sai no nível sugerido, em vez de só narrar a sugestão em texto e
+      // exigir que o usuário volte a "Ajustar configuração" para subir.
+      if (passou) setCfg((atual) => ({ ...atual, nivel: Math.min(atual.nivel + 1, 5) }));
       setTela("resultado");
       return;
     }
@@ -646,7 +651,7 @@ export default function GerarView({
         }}
       >
         {passou
-          ? `≥ 90% de acerto: progressão liberada. No próximo bloco desta matéria, suba a dificuldade para o nível ${Math.min(cfg.nivel + 1, 5)}.`
+          ? `≥ 90% de acerto: progressão liberada. "Novo bloco" já sai no nível ${cfg.nivel} desta matéria.`
           : "Abaixo de 90%: pelo método Kumon, repita um novo bloco na mesma configuração (as questões serão variações inéditas dos mesmos padrões)."}
       </div>
 

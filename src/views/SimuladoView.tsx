@@ -12,7 +12,7 @@ import {
   selecionarQuestoes,
   type QuestaoBanco,
 } from "../lib/banco";
-import { gravarResposta, idsBancoRespondidos } from "../lib/repo";
+import { gravarRespostasEmLote, idsBancoRespondidos } from "../lib/repo";
 import { getPesosEdital, pesoDe, type PesosEdital } from "../lib/edital";
 import type { Questao } from "../lib/types";
 
@@ -219,24 +219,24 @@ export default function SimuladoView() {
     setFinalizando(true);
     if (intervaloRef.current) clearInterval(intervaloRef.current);
     let n = 0;
-    for (let i = 0; i < perguntas.length; i++) {
-      const { area, questao } = perguntas[i];
+    const itens = perguntas.map(({ area, questao }, i) => {
       const resposta = respostas[i] ?? "";
       const acertou = resposta !== "" && resposta === questao.gabarito;
       if (acertou) n++;
-      try {
-        await gravarResposta({
-          blocoId: null,
-          materia: area,
-          topico: TOPICO_SIMULADO,
-          nivel: null,
-          questao,
-          resposta,
-          acertou,
-        });
-      } catch (e) {
-        console.error("gravar resposta simulado", e);
-      }
+      return {
+        blocoId: null,
+        materia: area,
+        topico: TOPICO_SIMULADO,
+        nivel: null,
+        questao,
+        resposta,
+        acertou,
+      };
+    });
+    try {
+      await gravarRespostasEmLote(itens);
+    } catch (e) {
+      console.error("gravar respostas simulado", e);
     }
     setAcertos(n);
     setFinalizando(false);

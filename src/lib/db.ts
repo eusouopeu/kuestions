@@ -18,7 +18,7 @@ import {
 } from "@capacitor-community/sqlite";
 
 const DB_NAME = "kumon_fiscal";
-const SCHEMA_VERSION = 7;
+const SCHEMA_VERSION = 8;
 
 const sqlite = new SQLiteConnection(CapacitorSQLite);
 const isWeb = Capacitor.getPlatform() === "web";
@@ -194,6 +194,25 @@ const MIGRATIONS: { version: number; sql: string }[] = [
       CREATE INDEX IF NOT EXISTS ix_conceitos_proxima_revisao ON conceitos_salvos (proxima_revisao);
     `,
   },
+  {
+    // Cache de comentário/explicações por questão real do banco fixo
+    // (banco_id, ver lib/banco.ts). Sem isso, toda vez que o estoque de
+    // questões inéditas de uma matéria acaba e `selecionarQuestoes` sorteia
+    // de novo uma questão já vista, a mesma questão real disparava uma nova
+    // chamada de API para gerar a mesma explicação de novo — o banco tem só
+    // ~1100 questões e um usuário ativo esgota rápido o estoque de uma área.
+    // Preenchida na primeira geração (ver gerarExplicacoesComCache em
+    // repo.ts) e consultada antes de qualquer nova chamada.
+    version: 8,
+    sql: `
+      CREATE TABLE IF NOT EXISTS explicacoes_banco (
+        banco_id            TEXT PRIMARY KEY,
+        comentario          TEXT NOT NULL DEFAULT '',
+        explicacoes_erradas TEXT NOT NULL DEFAULT '{}',
+        ts                  TEXT NOT NULL
+      );
+    `,
+  },
 ];
 
 /** Elemento Stencil do jeep-sqlite, com o hook de hidratação que ele expõe. */
@@ -307,6 +326,23 @@ export async function run(
     lastId: Number(res.changes?.lastId ?? 0),
     changes: Number(res.changes?.changes ?? 0),
   };
+}
+
+/**
+ * Várias escritas (INSERT/UPDATE/DELETE) numa única transação — uma só
+ * chamada nativa e, no navegador, um só `saveToStore` ao final, em vez de um
+ * flush completo do IndexedDB por statement (ver `run`). Usado onde o
+ * chamador já sabe de antemão todas as escritas que vai fazer em sequência,
+ * como gravar as respostas de um simulado inteiro de uma vez.
+ */
+export async function runBatch(statements: { sql: string; params?: unknown[] }[]): Promise<void> {
+  if (!statements.length) return;
+  const conn = await getDB();
+  await conn.executeSet(
+    statements.map((s) => ({ statement: s.sql, values: (s.params ?? []) as never[] })),
+    true,
+  );
+  await commit();
 }
 
 /**

@@ -7,7 +7,8 @@
  * monta um WHERE opcional em vez de filtrar depois, para que "todas" e
  * "uma matéria" sigam exatamente o mesmo caminho de código.
  */
-import { all, one, parseJSON, run, toBool } from "./db";
+import { all, one, parseJSON, run, runBatch, toBool } from "./db";
+import { talvezFazerBackupAutomatico } from "./backupAuto";
 import type {
   Bloco,
   ConceitoSalvo,
@@ -49,6 +50,9 @@ export async function fecharBloco(
     `UPDATE blocos SET total_acertos = ?, por_sub = ?, aprovado = ? WHERE id = ?`,
     [total, JSON.stringify(porSub), aprovado ? 1 : 0, blocoId],
   );
+  // Não aguarda: o backup automático (ver lib/backupAuto.ts) não pode atrasar
+  // a transição de tela de quem acabou de fechar um bloco.
+  void talvezFazerBackupAutomatico();
 }
 
 function mapBloco(r: Record<string, unknown>): Bloco {
@@ -128,6 +132,49 @@ export async function gravarResposta(args: {
     ],
   );
   return lastId;
+}
+
+/**
+ * Mesma gravação de `gravarResposta`, para várias respostas de uma vez, numa
+ * única transação (ver `runBatch` em db.ts) — usado pelo Simulado, que grava
+ * até 120 questões de uma vez ao finalizar e não pode pagar um flush completo
+ * do banco por questão (perceptível como travamento na tela "Gravando…").
+ */
+export async function gravarRespostasEmLote(
+  itens: Parameters<typeof gravarResposta>[0][],
+): Promise<void> {
+  if (!itens.length) return;
+  const statements = itens.map((args) => {
+    const q = args.questao;
+    return {
+      sql: `INSERT INTO questoes_respondidas
+         (bloco_id, materia, topico, sub, carga_conceitual, nivel, formato, tipo_cobranca,
+          enunciado, alternativas, gabarito, resposta, acertou, revisada,
+          comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, tempo_ms, ts)
+       VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?)`,
+      params: [
+        args.blocoId,
+        args.materia,
+        args.topico || null,
+        args.nivel,
+        q.formato,
+        q.tipo_cobranca ?? null,
+        q.enunciado,
+        q.alternativas ? JSON.stringify(q.alternativas) : null,
+        q.gabarito,
+        args.resposta,
+        args.acertou ? 1 : 0,
+        q.comentario ?? "",
+        JSON.stringify(q.explicacoes_erradas ?? {}),
+        JSON.stringify(q.conceitos ?? []),
+        q.dispositivo ?? null,
+        q.bancoId ?? null,
+        args.tempoMs ?? null,
+        new Date().toISOString(),
+      ],
+    };
+  });
+  await runBatch(statements);
 }
 
 function mapQuestao(r: Record<string, unknown>): QuestaoRespondida {
@@ -329,6 +376,50 @@ export async function idsBancoRespondidos(): Promise<Set<string>> {
     `SELECT DISTINCT banco_id FROM questoes_respondidas WHERE banco_id IS NOT NULL`,
   );
   return new Set(rows.map((r) => r.banco_id));
+}
+
+export interface ExplicacaoBanco {
+  comentario: string;
+  explicacoes_erradas: Record<string, string>;
+}
+
+/** Comentário/explicações já geradas para questões do banco fixo (banco_id),
+ * indexadas pelo próprio banco_id — ver `explicacoes_banco` em db.ts. */
+export async function buscarExplicacoesBanco(
+  ids: string[],
+): Promise<Map<string, ExplicacaoBanco>> {
+  const unicos = [...new Set(ids)];
+  if (!unicos.length) return new Map();
+  const placeholders = unicos.map(() => "?").join(",");
+  const rows = await all<{ banco_id: string; comentario: string; explicacoes_erradas: string }>(
+    `SELECT banco_id, comentario, explicacoes_erradas FROM explicacoes_banco WHERE banco_id IN (${placeholders})`,
+    unicos,
+  );
+  return new Map(
+    rows.map((r) => [
+      r.banco_id,
+      { comentario: r.comentario, explicacoes_erradas: parseJSON(r.explicacoes_erradas, {}) },
+    ]),
+  );
+}
+
+/** Grava (ou substitui) o comentário/explicações de questões do banco fixo,
+ * numa única transação — chamado depois de toda geração via API. */
+export async function salvarExplicacoesBanco(
+  itens: { bancoId: string; comentario: string; explicacoes_erradas: Record<string, string> }[],
+): Promise<void> {
+  if (!itens.length) return;
+  await runBatch(
+    itens.map((it) => ({
+      sql: `INSERT INTO explicacoes_banco (banco_id, comentario, explicacoes_erradas, ts)
+            VALUES (?, ?, ?, ?)
+            ON CONFLICT(banco_id) DO UPDATE SET
+              comentario = excluded.comentario,
+              explicacoes_erradas = excluded.explicacoes_erradas,
+              ts = excluded.ts`,
+      params: [it.bancoId, it.comentario, JSON.stringify(it.explicacoes_erradas), new Date().toISOString()],
+    })),
+  );
 }
 
 export type MotivoReport = "gabarito" | "enunciado" | "duplicada" | "outro";

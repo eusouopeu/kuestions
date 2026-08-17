@@ -21,7 +21,14 @@ import {
 } from "../lib/banco";
 import { gerarExplicacoes } from "../lib/anthropic";
 import { temCredencial } from "../lib/secure";
-import { criarBloco, fecharBloco, gravarResposta, idsBancoRespondidos } from "../lib/repo";
+import {
+  buscarExplicacoesBanco,
+  criarBloco,
+  fecharBloco,
+  gravarResposta,
+  idsBancoRespondidos,
+  salvarExplicacoesBanco,
+} from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
 import type { Questao, StatusSub } from "../lib/types";
 
@@ -112,21 +119,49 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
     if (disponiveis > 0) setQuantidade((q) => Math.min(q, disponiveis));
   }, [disponiveis]);
 
-  function dispararLote(i: number, todas: Questao[], nLotes: number) {
+  /**
+   * Antes de chamar a API, consulta o cache local (banco_id → comentário já
+   * gerado, ver lib/repo.ts) — relevante porque o banco tem só ~1100
+   * questões e, esgotado o estoque de inéditas de uma área, a mesma questão
+   * real volta a ser sorteada e não precisa gerar a mesma explicação de novo.
+   * Só as questões sem cache disparam `gerarExplicacoes`; o resultado novo é
+   * gravado no cache para as próximas vezes.
+   */
+  async function dispararLote(i: number, todas: Questao[], nLotes: number) {
     const fatia = todas.slice(i * LOTE, i * LOTE + LOTE);
     if (!fatia.length) return;
     setStatusLote((st) => st.map((v, k) => (k === i ? "carregando" : v)));
     setErro(null);
-    gerarExplicacoes(fatia)
-      .then((qs) => {
-        setLotes((l) => l.map((v, k) => (k === i ? qs : v)));
-        setStatusLote((st) => st.map((v, k) => (k === i ? "ok" : v)));
-        if (i < nLotes - 1) dispararLote(i + 1, todas, nLotes);
-      })
-      .catch((e: unknown) => {
-        setStatusLote((st) => st.map((v, k) => (k === i ? "erro" : v)));
-        setErro(e instanceof Error ? e.message : "Falha ao gerar explicações.");
+    try {
+      const idsComCache = fatia.map((q) => q.bancoId).filter((id): id is string => !!id);
+      const cache = await buscarExplicacoesBanco(idsComCache);
+
+      const semCache = fatia.filter((q) => !q.bancoId || !cache.has(q.bancoId));
+      const geradas = semCache.length ? await gerarExplicacoes(semCache) : [];
+      const geradasPorId = new Map(geradas.map((q) => [q.bancoId, q]));
+
+      const qs = fatia.map((q) => {
+        const doCache = q.bancoId ? cache.get(q.bancoId) : undefined;
+        if (doCache) return { ...q, ...doCache };
+        return (q.bancoId && geradasPorId.get(q.bancoId)) || q;
       });
+
+      const novasParaCache = geradas
+        .filter((q): q is Questao & { bancoId: string } => !!q.bancoId)
+        .map((q) => ({
+          bancoId: q.bancoId,
+          comentario: q.comentario,
+          explicacoes_erradas: q.explicacoes_erradas,
+        }));
+      if (novasParaCache.length) salvarExplicacoesBanco(novasParaCache).catch((e) => console.error("cache explicações", e));
+
+      setLotes((l) => l.map((v, k) => (k === i ? qs : v)));
+      setStatusLote((st) => st.map((v, k) => (k === i ? "ok" : v)));
+      if (i < nLotes - 1) dispararLote(i + 1, todas, nLotes);
+    } catch (e: unknown) {
+      setStatusLote((st) => st.map((v, k) => (k === i ? "erro" : v)));
+      setErro(e instanceof Error ? e.message : "Falha ao gerar explicações.");
+    }
   }
 
   async function iniciar() {

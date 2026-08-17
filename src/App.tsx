@@ -8,6 +8,7 @@ import { getDB } from "./lib/db";
 import { temCredencial } from "./lib/secure";
 import { aplicarTema, getTema } from "./lib/tema";
 import Botao from "./components/Botao";
+import OfflineBanner from "./components/OfflineBanner";
 
 // A aba Dados carrega recharts (~537 kB). Fora do bundle inicial: o app abre
 // em Questões, e quem nunca abrir Dados nunca baixa o gráfico.
@@ -87,6 +88,7 @@ export default function App() {
 
   return (
     <div style={{ minHeight: "100vh", background: C.paper, paddingBottom: TAB_BAR_H }}>
+      <OfflineBanner />
       {TODAS_ABAS.map((a) => {
         if (!visitadas.has(a)) return null;
         // display:none em vez de desmontar: preserva o estado interno de cada
