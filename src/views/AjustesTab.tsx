@@ -410,11 +410,6 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
           BACKUP
         </div>
-        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
-          Blocos, respostas e notas vivem só neste aparelho. Exporte de vez em quando — sem
-          backup, uma reinstalação ou troca de aparelho apaga tudo.
-        </div>
-
         {temDados && (diasBackup === null || diasBackup >= DIAS_PARA_AVISO_BACKUP) && (
           <div
             style={{
@@ -527,11 +522,11 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
           LEMBRETE DIÁRIO
         </div>
-        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
-          {lembreteDisponivel
-            ? "Uma notificação por dia, no horário abaixo, para manter a sequência de prática."
-            : "Notificação disponível só no aplicativo instalado (Android/iOS) — não funciona no navegador."}
-        </div>
+        {lembreteDisponivel && (
+          <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
+            Uma notificação por dia, no horário abaixo, para manter a sequência de prática.
+          </div>
+        )}
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
           <span style={{ fontSize: 13.5 }}>Avisar todo dia</span>
@@ -592,11 +587,6 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
           META SEMANAL
         </div>
-        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
-          Quantos blocos (de qualquer origem) responder por semana — a semana reinicia toda
-          segunda-feira. O progresso aparece no topo da aba Questões.
-        </div>
-
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
           <span style={{ fontSize: 13.5 }}>Acompanhar meta</span>
           <button
@@ -642,11 +632,6 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
           METAS POR MATÉRIA
         </div>
-        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
-          Um mínimo de blocos por semana para matérias específicas — útil para garantir prática numa
-          matéria fraca, independente da meta geral acima.
-        </div>
-
         {Object.keys(metasPorMateria).length > 0 && (
           <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
             {Object.entries(metasPorMateria).map(([m, blocos]) => (
@@ -712,11 +697,6 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
       <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
           PESO DO EDITAL
-        </div>
-        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
-          Quanto cada matéria pesa na prova alvo (0 = não cai, 5 = maior peso). Usado na nota
-          provável estimada (aba Dados) e para distribuir o simulado cronometrado proporcionalmente
-          ao edital, em vez de igualmente entre as áreas.
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           {MATERIAS_E_AREAS.map((m) => (

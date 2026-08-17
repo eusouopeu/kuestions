@@ -13,12 +13,14 @@ import {
   type QuestaoBanco,
 } from "../lib/banco";
 import { gravarRespostasEmLote, idsBancoRespondidos } from "../lib/repo";
-import { getPesosEdital, pesoDe, type PesosEdital } from "../lib/edital";
+import { getPesosEdital, pesoDe, PRESETS_PESO_EDITAL, type PesosEdital } from "../lib/edital";
 import type { Questao } from "../lib/types";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
 const TOPICO_SIMULADO = "Simulado cronometrado";
-const MINUTOS_PRESETS = [15, 30, 45, 60, 90, 120];
+const MIN_MINUTOS = 5;
+const MAX_MINUTOS = 240;
+const PASSO_MINUTOS = 5;
 
 /** Fisher-Yates — mesma lógica de lib/banco.ts (não exportada de lá). */
 function embaralhar<T>(arr: T[]): T[] {
@@ -31,45 +33,11 @@ function embaralhar<T>(arr: T[]): T[] {
 }
 
 /**
- * Distribui `quantidade` proporcionalmente entre `areas`, respeitando o
- * disponível de cada uma — maior parte fracionária recebe o resto da divisão,
- * até o alvo (min(quantidade, soma dos disponíveis)) ser atingido.
- */
-function alocarQuantidades(
-  areas: string[],
-  quantidade: number,
-  disponiveis: Record<string, number>,
-): Record<string, number> {
-  const totalDisp = areas.reduce((a, ar) => a + (disponiveis[ar] ?? 0), 0);
-  const alvo = Math.min(quantidade, totalDisp);
-  const alocado: Record<string, number> = Object.fromEntries(areas.map((a) => [a, 0]));
-  if (alvo <= 0) return alocado;
-
-  const bruta = areas.map((a) => ({ area: a, exata: (alvo * (disponiveis[a] ?? 0)) / totalDisp }));
-  let somaFloor = 0;
-  for (const b of bruta) {
-    const f = Math.min(Math.floor(b.exata), disponiveis[b.area] ?? 0);
-    alocado[b.area] = f;
-    somaFloor += f;
-  }
-  let restante = alvo - somaFloor;
-  const ordenados = [...bruta].sort((a, b) => (b.exata % 1) - (a.exata % 1));
-  for (const b of ordenados) {
-    if (restante <= 0) break;
-    if (alocado[b.area] < (disponiveis[b.area] ?? 0)) {
-      alocado[b.area]++;
-      restante--;
-    }
-  }
-  return alocado;
-}
-
-/**
- * Mesma ideia de alocarQuantidades, mas a proporção-base vem do peso de cada
- * área no edital (lib/edital.ts) em vez da disponibilidade de questões —
- * simula a prova de verdade, onde uma área que cai mais pesa mais no
- * simulado independente de quantas questões o banco tem dela. Ainda respeita
- * a capacidade de cada área (nunca aloca mais que o disponível): quando uma
+ * Distribui `quantidade` entre `areas` proporcionalmente ao peso de cada uma
+ * no edital (lib/edital.ts) — usado só pelo botão "Aplicar distribuição" para
+ * sugerir uma quantidade por matéria; o usuário pode ajustar cada matéria
+ * manualmente depois com os steppers da própria lista. Ainda respeita a
+ * capacidade de cada área (nunca aloca mais que o disponível): quando uma
  * área bate no teto, o excedente é redistribuído entre as demais pelo mesmo
  * critério de peso, em rodadas sucessivas até esgotar `quantidade` ou não
  * haver mais área com capacidade — por isso o `while` abaixo.
@@ -143,12 +111,18 @@ type Tela = "config" | "drill" | "resultado";
  */
 export default function SimuladoView() {
   const [tela, setTela] = useState<Tela>("config");
-  const [areasSelecionadas, setAreasSelecionadas] = useState<Set<string>>(new Set());
-  const [quantidade, setQuantidade] = useState(20);
+  // Quantidade de questões por área, decidida matéria a matéria (0 = área
+  // fora do simulado) — em vez de um total único redistribuído sozinho pelo
+  // app. "Aplicar distribuição" ainda preenche isto automaticamente a partir
+  // do preset/peso escolhido abaixo, mas o usuário pode ajustar qualquer
+  // matéria depois com o próprio stepper da linha.
+  const [qtdPorArea, setQtdPorArea] = useState<Record<string, number>>({});
   const [minutos, setMinutos] = useState(60);
   const [vistas, setVistas] = useState<Set<string>>(new Set());
-  const [usarPesoEdital, setUsarPesoEdital] = useState(false);
+  const [pesoPreset, setPesoPreset] = useState(PRESETS_PESO_EDITAL[0].id);
+  const [pesoPersonalizado, setPesoPersonalizado] = useState(false);
   const [pesosEdital, setPesosEdital] = useState<PesosEdital>({});
+  const [alvoDistribuicao, setAlvoDistribuicao] = useState(20);
 
   const [perguntas, setPerguntas] = useState<Pergunta[]>([]);
   const [respostas, setRespostas] = useState<(string | null)[]>([]);
@@ -173,31 +147,41 @@ export default function SimuladoView() {
   const disponivelPorArea = Object.fromEntries(
     AREAS_BANCO.map((a) => [a, contarDisponiveis(a, { modo: "todos" })]),
   );
-  const disponivelTotal = [...areasSelecionadas].reduce((a, ar) => a + (disponivelPorArea[ar] ?? 0), 0);
+  const areasSelecionadas = AREAS_BANCO.filter((a) => (qtdPorArea[a] ?? 0) > 0);
+  const quantidadeTotal = areasSelecionadas.reduce((s, a) => s + (qtdPorArea[a] ?? 0), 0);
 
-  useEffect(() => {
-    if (disponivelTotal > 0) setQuantidade((q) => Math.min(q, disponivelTotal));
-  }, [disponivelTotal]);
+  const presetSelecionado =
+    PRESETS_PESO_EDITAL.find((p) => p.id === pesoPreset) ?? PRESETS_PESO_EDITAL[0];
+  const pesosEfetivos = pesoPersonalizado ? pesosEdital : presetSelecionado.pesos;
 
-  function alternarArea(area: string) {
-    setAreasSelecionadas((s) => {
-      const novo = new Set(s);
-      if (novo.has(area)) novo.delete(area);
-      else novo.add(area);
-      return novo;
+  function alterarQtdArea(area: string, delta: number) {
+    setQtdPorArea((q) => {
+      const max = disponivelPorArea[area] ?? 0;
+      const atual = q[area] ?? 0;
+      return { ...q, [area]: Math.max(0, Math.min(max, atual + delta)) };
     });
   }
 
+  function alterarMinutos(delta: number) {
+    setMinutos((m) => Math.max(MIN_MINUTOS, Math.min(MAX_MINUTOS, m + delta)));
+  }
+
+  /** Preenche `qtdPorArea` a partir do preset/peso personalizado selecionado
+   * — ponto de partida rápido que o usuário ainda pode ajustar matéria a
+   * matéria antes de iniciar. */
+  function aplicarDistribuicao() {
+    const areasComDisponivel = AREAS_BANCO.filter((a) => (disponivelPorArea[a] ?? 0) > 0);
+    if (!areasComDisponivel.length) return;
+    setQtdPorArea(alocarPorPeso(areasComDisponivel, alvoDistribuicao, disponivelPorArea, pesosEfetivos));
+  }
+
   function iniciar() {
-    const areas = [...areasSelecionadas];
-    if (!areas.length || disponivelTotal <= 0) return;
-    const alocacao = usarPesoEdital
-      ? alocarPorPeso(areas, quantidade, disponivelPorArea, pesosEdital)
-      : alocarQuantidades(areas, quantidade, disponivelPorArea);
+    const areas = areasSelecionadas;
+    if (!areas.length) return;
 
     const sorteadas: Pergunta[] = [];
     for (const area of areas) {
-      const n = alocacao[area] ?? 0;
+      const n = Math.min(qtdPorArea[area] ?? 0, disponivelPorArea[area] ?? 0);
       if (n <= 0) continue;
       const qs: QuestaoBanco[] = selecionarQuestoes(area, { modo: "todos" }, n, vistas);
       for (const q of qs) sorteadas.push({ area, questao: questaoBancoParaQuestao(q) });
@@ -274,49 +258,80 @@ export default function SimuladoView() {
         </div>
 
         <div style={{ marginBottom: 18 }}>
-          <label style={rotulo}>Áreas ({areasSelecionadas.size} selecionada{areasSelecionadas.size === 1 ? "" : "s"})</label>
+          <label style={rotulo}>
+            Áreas e questões por matéria ({areasSelecionadas.length} selecionada
+            {areasSelecionadas.length === 1 ? "" : "s"} · {quantidadeTotal}{" "}
+            {quantidadeTotal === 1 ? "questão" : "questões"})
+          </label>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             {AREAS_BANCO.map((a) => {
-              const ativa = areasSelecionadas.has(a);
-              const disp_ = disponivelPorArea[a] ?? 0;
+              const max = disponivelPorArea[a] ?? 0;
+              const qtd = qtdPorArea[a] ?? 0;
+              const ativa = qtd > 0;
               return (
-                <button
+                <div
                   key={a}
-                  onClick={() => alternarArea(a)}
-                  disabled={disp_ === 0}
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
                     gap: 10,
-                    width: "100%",
-                    textAlign: "left",
-                    padding: "10px 12px",
+                    padding: "8px 8px 8px 12px",
                     borderRadius: 8,
-                    cursor: disp_ === 0 ? "default" : "pointer",
-                    opacity: disp_ === 0 ? 0.4 : 1,
+                    opacity: max === 0 ? 0.4 : 1,
                     border: `1.5px solid ${ativa ? C.caneta : C.line}`,
                     background: ativa ? C.canetaSoft : C.card,
                   }}
                 >
-                  <span style={{ ...disp, fontSize: 14, fontWeight: ativa ? 600 : 400, color: ativa ? C.caneta : C.ink }}>
-                    {a}
-                  </span>
-                  <span style={{ ...mono, fontSize: 11, color: C.sub, flexShrink: 0 }}>{disp_}</span>
-                </button>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <div
+                      style={{
+                        ...disp,
+                        fontSize: 14,
+                        fontWeight: ativa ? 600 : 400,
+                        color: ativa ? C.caneta : C.ink,
+                      }}
+                    >
+                      {a}
+                    </div>
+                    <div style={{ ...mono, fontSize: 10.5, color: C.sub, marginTop: 2 }}>
+                      {max} disponíve{max === 1 ? "l" : "is"}
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 4, flexShrink: 0 }}>
+                    <button
+                      onClick={() => alterarQtdArea(a, -1)}
+                      disabled={qtd <= 0}
+                      aria-label={`Diminuir questões de ${a}`}
+                      style={areaStepperBotaoStyle(qtd <= 0)}
+                    >
+                      −
+                    </button>
+                    <div style={{ ...mono, width: 26, textAlign: "center", fontSize: 14, fontWeight: 700 }}>
+                      {qtd}
+                    </div>
+                    <button
+                      onClick={() => alterarQtdArea(a, 1)}
+                      disabled={qtd >= max}
+                      aria-label={`Aumentar questões de ${a}`}
+                      style={areaStepperBotaoStyle(qtd >= max)}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
               );
             })}
           </div>
         </div>
 
-        <div style={{ marginBottom: 18 }}>
-          <label style={rotulo}>Quantidade de questões</label>
-          <div style={{ display: "flex", alignItems: "stretch", gap: 8 }}>
+        <div style={{ ...cartao, padding: "12px 14px", marginBottom: 18 }}>
+          <label style={rotulo}>Distribuir automaticamente</label>
+          <div style={{ display: "flex", alignItems: "stretch", gap: 8, margin: "6px 0 10px" }}>
             <button
-              onClick={() => setQuantidade((q) => Math.max(1, q - 5))}
-              disabled={quantidade <= 1}
-              aria-label="Diminuir quantidade"
-              style={stepperBotaoStyle(quantidade <= 1)}
+              onClick={() => setAlvoDistribuicao((v) => Math.max(1, v - 5))}
+              aria-label="Diminuir alvo da distribuição"
+              style={stepperBotaoStyle(false)}
             >
               −
             </button>
@@ -333,49 +348,38 @@ export default function SimuladoView() {
                 justifyContent: "center",
               }}
             >
-              {Math.min(quantidade, disponivelTotal || quantidade)}
+              {alvoDistribuicao}
             </div>
             <button
-              onClick={() => setQuantidade((q) => Math.min(disponivelTotal || 1, q + 5))}
-              disabled={quantidade >= disponivelTotal}
-              aria-label="Aumentar quantidade"
-              style={stepperBotaoStyle(quantidade >= disponivelTotal)}
+              onClick={() => setAlvoDistribuicao((v) => v + 5)}
+              aria-label="Aumentar alvo da distribuição"
+              style={stepperBotaoStyle(false)}
             >
               +
             </button>
           </div>
-          <div style={{ ...mono, fontSize: 11, color: C.sub, marginTop: 5 }}>
-            {disponivelTotal} {disponivelTotal === 1 ? "questão disponível" : "questões disponíveis"}{" "}
-            nas áreas selecionadas.
-          </div>
+          <Botao tipo="fantasma" onClick={aplicarDistribuicao} style={{ background: C.card }}>
+            Aplicar — {alvoDistribuicao} questões pelo peso das matérias
+          </Botao>
         </div>
 
-        <div style={{ marginBottom: 22 }}>
-          <label style={rotulo}>Tempo</label>
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-            {MINUTOS_PRESETS.map((m) => {
-              const ativo = minutos === m;
-              return (
-                <button
-                  key={m}
-                  onClick={() => setMinutos(m)}
-                  style={{
-                    ...mono,
-                    flex: "1 1 60px",
-                    fontSize: 13,
-                    fontWeight: 600,
-                    padding: "10px 4px",
-                    borderRadius: 8,
-                    cursor: "pointer",
-                    border: `1.5px solid ${ativo ? C.realce : C.line}`,
-                    background: ativo ? C.realce : C.card,
-                    color: ativo ? "#fff" : C.ink,
-                  }}
-                >
-                  {m}min
-                </button>
-              );
-            })}
+        <div style={{ marginBottom: 18 }}>
+          <label style={rotulo}>Peso das matérias</label>
+          <select
+            style={campo}
+            value={pesoPreset}
+            onChange={(e) => setPesoPreset(e.target.value)}
+            disabled={pesoPersonalizado}
+          >
+            {PRESETS_PESO_EDITAL.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.label}
+              </option>
+            ))}
+          </select>
+          <div style={{ fontSize: 11.5, color: C.sub, marginTop: 6, lineHeight: 1.4 }}>
+            Usado por "Aplicar" acima para sugerir quantas questões vêm de cada matéria — pesos
+            aproximados a partir do padrão de editais anteriores dessas bancas.
           </div>
         </div>
 
@@ -389,16 +393,16 @@ export default function SimuladoView() {
             }}
           >
             <div>
-              <div style={{ fontSize: 13.5 }}>Distribuir por peso do edital</div>
+              <div style={{ fontSize: 13.5 }}>Peso personalizado</div>
               <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
-                Em vez de dividir igualmente pela disponibilidade, usa o peso de cada área
-                configurado em Ajustes → Peso do edital.
+                Em vez do preset acima, usa os pesos que você mesmo configurou em Ajustes → Peso
+                do edital.
               </div>
             </div>
             <button
               role="switch"
-              aria-checked={usarPesoEdital}
-              onClick={() => setUsarPesoEdital((v) => !v)}
+              aria-checked={pesoPersonalizado}
+              onClick={() => setPesoPersonalizado((v) => !v)}
               style={{
                 width: 44,
                 height: 26,
@@ -407,8 +411,8 @@ export default function SimuladoView() {
                 padding: 3,
                 flexShrink: 0,
                 display: "flex",
-                justifyContent: usarPesoEdital ? "flex-end" : "flex-start",
-                background: usarPesoEdital ? C.caneta : C.line,
+                justifyContent: pesoPersonalizado ? "flex-end" : "flex-start",
+                background: pesoPersonalizado ? C.caneta : C.line,
                 cursor: "pointer",
                 transition: "background 0.15s",
               }}
@@ -418,8 +422,45 @@ export default function SimuladoView() {
           </div>
         </div>
 
-        <Botao onClick={iniciar} tipo="tinta" disabled={areasSelecionadas.size === 0 || disponivelTotal === 0}>
-          Iniciar simulado{disponivelTotal ? ` (${Math.min(quantidade, disponivelTotal)} questões, ${minutos}min)` : ""}
+        <div style={{ marginBottom: 22 }}>
+          <label style={rotulo}>Tempo</label>
+          <div style={{ display: "flex", alignItems: "stretch", gap: 8 }}>
+            <button
+              onClick={() => alterarMinutos(-PASSO_MINUTOS)}
+              disabled={minutos <= MIN_MINUTOS}
+              aria-label="Diminuir tempo"
+              style={stepperBotaoStyle(minutos <= MIN_MINUTOS)}
+            >
+              −
+            </button>
+            <div
+              style={{
+                ...campo,
+                ...disp,
+                flex: 1,
+                textAlign: "center",
+                fontSize: 18,
+                fontWeight: 700,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {minutos}min
+            </div>
+            <button
+              onClick={() => alterarMinutos(PASSO_MINUTOS)}
+              disabled={minutos >= MAX_MINUTOS}
+              aria-label="Aumentar tempo"
+              style={stepperBotaoStyle(minutos >= MAX_MINUTOS)}
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <Botao onClick={iniciar} tipo="tinta" disabled={areasSelecionadas.length === 0}>
+          Iniciar simulado{quantidadeTotal ? ` (${quantidadeTotal} questões, ${minutos}min)` : ""}
         </Botao>
       </div>
     );
@@ -705,5 +746,25 @@ function stepperBotaoStyle(desabilitado: boolean) {
     color: C.ink,
     cursor: desabilitado ? "default" : "pointer",
     opacity: desabilitado ? 0.4 : 1,
+  } as const;
+}
+
+/** Stepper menor, para o −/+ de cada linha de área (cabe ao lado do rótulo
+ * sem alargar demais cada linha da lista). */
+function areaStepperBotaoStyle(desabilitado: boolean) {
+  return {
+    ...disp,
+    width: 28,
+    height: 28,
+    fontSize: 16,
+    fontWeight: 700,
+    borderRadius: 6,
+    border: `1.5px solid ${C.line}`,
+    background: C.card,
+    color: C.ink,
+    cursor: desabilitado ? "default" : "pointer",
+    opacity: desabilitado ? 0.4 : 1,
+    lineHeight: "26px",
+    padding: 0,
   } as const;
 }

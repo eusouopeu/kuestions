@@ -3,14 +3,20 @@ import {
   Cog6ToothIcon,
   DocumentTextIcon,
   FolderIcon,
+  RectangleStackIcon,
 } from "@heroicons/react/24/outline";
 import { C, mono } from "../theme";
 import { TAB_BAR_H } from "../theme";
 
-export type Aba = "questoes" | "notas" | "dados" | "ajustes";
+export type Aba = "blocos" | "questoes" | "notas" | "dados" | "ajustes";
 
 /** Tab bar nativa própria, sem biblioteca de UI (além dos ícones, do HeroIcons). */
 const ABAS: { id: Aba; label: string; icone: (cor: string) => JSX.Element }[] = [
+  {
+    id: "blocos",
+    label: "Blocos",
+    icone: (cor) => <RectangleStackIcon width={22} height={22} stroke={cor} strokeWidth={1.8} />,
+  },
   {
     id: "questoes",
     label: "Questões",

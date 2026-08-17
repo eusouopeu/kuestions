@@ -19,7 +19,7 @@ import {
   selecionarQuestoes,
   type FiltroBanco,
 } from "../lib/banco";
-import { gerarExplicacoes } from "../lib/anthropic";
+import { gerarExplicacoes, SemCredencialError } from "../lib/anthropic";
 import { temCredencial } from "../lib/secure";
 import {
   buscarExplicacoesBanco,
@@ -40,11 +40,28 @@ type Modo = "aula" | "bloco" | "todos";
  * cascata de pré-carregamento de GerarView — o usuário raramente espera. */
 const LOTE = 4;
 
+/** Preenche comentário/explicações com um texto neutro quando a explicação
+ * não pôde ser gerada (sem chave de API) — em vez de deixar em branco, o que
+ * pareceria um bug na tela de revelação. */
+function semExplicacaoOffline(q: Questao): Questao {
+  if (q.comentario) return q; // já tem (veio do cache ou já foi gerada antes)
+  const letras = q.alternativas ? q.alternativas.map((_, i) => "ABCDE"[i]) : ["C", "E"];
+  const explicacoes_erradas: Record<string, string> = {};
+  for (const l of letras) if (l !== q.gabarito) explicacoes_erradas[l] = "Sem chave de API — configure uma em Ajustes para gerar a explicação.";
+  return {
+    ...q,
+    comentario: "Comentário indisponível sem chave de API — configure uma em Ajustes para gerá-lo.",
+    explicacoes_erradas,
+  };
+}
+
 /**
  * 4ª forma de montar um bloco na aba Questões: em vez de gerar questões
  * inéditas via IA, sorteia questões REAIS de um banco de provas anexado
  * (enunciado/alternativas/gabarito nunca são alterados) e só usa a API para
- * escrever comentário e explicação de cada alternativa errada.
+ * escrever comentário e explicação de cada alternativa errada. Funciona
+ * mesmo sem chave de API configurada (ou offline): a questão real em si já
+ * tem valor sozinha, só o comentário/explicações ficam indisponíveis.
  */
 export default function GerarBancoView({ onAjustes }: { onAjustes: () => void }) {
   const [tela, setTela] = useState<Tela>("config");
@@ -137,13 +154,23 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
       const cache = await buscarExplicacoesBanco(idsComCache);
 
       const semCache = fatia.filter((q) => !q.bancoId || !cache.has(q.bancoId));
-      const geradas = semCache.length ? await gerarExplicacoes(semCache) : [];
+      let geradas: Questao[] = [];
+      try {
+        geradas = semCache.length ? await gerarExplicacoes(semCache) : [];
+      } catch (e) {
+        // Sem chave de API: a 4ª forma de montar bloco não depende dela para
+        // funcionar (as questões já são reais, vêm prontas do banco) — só o
+        // comentário/explicações ficam sem gerar, em vez de travar o bloco
+        // inteiro com um erro.
+        if (!(e instanceof SemCredencialError)) throw e;
+      }
       const geradasPorId = new Map(geradas.map((q) => [q.bancoId, q]));
 
       const qs = fatia.map((q) => {
         const doCache = q.bancoId ? cache.get(q.bancoId) : undefined;
         if (doCache) return { ...q, ...doCache };
-        return (q.bancoId && geradasPorId.get(q.bancoId)) || q;
+        const gerada = q.bancoId && geradasPorId.get(q.bancoId);
+        return semExplicacaoOffline(gerada || q);
       });
 
       const novasParaCache = geradas
@@ -288,14 +315,15 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
             }}
           >
             <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 6 }}>
-              PRIMEIRO PASSO
+              SEM CHAVE DE API CONFIGURADA
             </div>
             <p style={{ fontSize: 13.5, lineHeight: 1.55, margin: "0 0 12px" }}>
-              O enunciado vem do banco real, mas o comentário e as explicações de cada
-              alternativa errada são escritos pela IA — por isso este modo também depende de uma
-              chave de API da Anthropic configurada em Ajustes.
+              Sem problema: o enunciado, as alternativas e o gabarito vêm prontos do banco real e
+              funcionam normalmente, inclusive offline. Só o comentário e a explicação de cada
+              alternativa errada — escritos pela IA — ficam indisponíveis até você configurar uma
+              chave em Ajustes.
             </p>
-            <Botao tipo="tinta" onClick={onAjustes} style={{ maxWidth: 260 }}>
+            <Botao tipo="fantasma" onClick={onAjustes} style={{ maxWidth: 260, background: C.card }}>
               Configurar chave em Ajustes
             </Botao>
           </div>

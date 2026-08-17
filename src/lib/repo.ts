@@ -335,6 +335,59 @@ export async function listarErradasPorConceito(
   return rows.map(mapQuestao);
 }
 
+/**
+ * Contagem por matéria de TODAS as questões já respondidas dentro de um
+ * bloco de verdade (certas e erradas) — base do agrupamento "Matéria" dentro
+ * do filtro "Blocos anteriores" de Refazer. `bloco_id IS NOT NULL` é o que
+ * distingue isto de `contarErradasPorMateria`: exclui respostas do Simulado
+ * (que nunca cria um bloco, ver SimuladoView) e não se limita a erradas.
+ */
+export async function contarTodasPorMateria(): Promise<{ materia: string; total: number }[]> {
+  const rows = await all(
+    `SELECT materia, COUNT(*) AS total
+     FROM questoes_respondidas
+     WHERE bloco_id IS NOT NULL
+     GROUP BY materia
+     ORDER BY total DESC`,
+  );
+  return rows.map((r) => ({ materia: String(r.materia), total: Number(r.total) }));
+}
+
+/** Todas as questões (certas e erradas) de blocos de verdade, de uma matéria
+ * ou de todas — par de `contarTodasPorMateria`, com a mesma paginação de
+ * `listarErradas` para não trazer um histórico grande de uma vez. */
+export async function listarTodasPorMateria(
+  materia: string | null,
+  opts: { limite?: number; offset?: number } = {},
+): Promise<QuestaoRespondida[]> {
+  const cond = ["bloco_id IS NOT NULL"];
+  const params: unknown[] = [];
+  if (materia) {
+    cond.push("materia = ?");
+    params.push(materia);
+  }
+  const { limite, offset = 0 } = opts;
+  const rows = await all(
+    `SELECT * FROM questoes_respondidas
+     WHERE ${cond.join(" AND ")}
+     ORDER BY ts DESC
+     ${limite ? "LIMIT ? OFFSET ?" : ""}`,
+    limite ? [...params, limite, offset] : params,
+  );
+  return rows.map(mapQuestao);
+}
+
+/** Todas as questões de UM bloco específico, na ordem em que apareceram —
+ * base do agrupamento "Bloco" dentro do filtro "Blocos anteriores" de
+ * Refazer, que reabre um bloco já fechado (gerado por IA, importado ou
+ * montado do banco de questões) inteiro para nova prática. */
+export async function listarPorBloco(blocoId: number): Promise<QuestaoRespondida[]> {
+  const rows = await all(`SELECT * FROM questoes_respondidas WHERE bloco_id = ? ORDER BY id ASC`, [
+    blocoId,
+  ]);
+  return rows.map(mapQuestao);
+}
+
 /** Dias até a próxima revisão, indexado pela caixa (1–5) alcançada ao
  * acertar — progressão inspirada no sistema de Leitner: quem acerta de novo
  * espera cada vez mais para revisar; quem erra volta à caixa 1 (vence agora). */

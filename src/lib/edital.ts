@@ -42,3 +42,108 @@ export function pesoDe(pesos: PesosEdital, materia: string): number {
   const v = pesos[materia];
   return v == null ? PESO_PADRAO : v;
 }
+
+/**
+ * Presets de peso por matéria de concursos reais de Auditor Fiscal (SEFAZ
+ * estaduais), para distribuir o Simulado cronometrado sem exigir que o
+ * usuário monte os pesos na mão em Ajustes → Peso do edital (esses continuam
+ * disponíveis via o toggle "Peso personalizado" em SimuladoView). Valores
+ * aproximados a partir do padrão de editais anteriores dessas bancas — não
+ * são uma fonte oficial, e o usuário pode sempre sobrepor com "Peso
+ * personalizado". "Padrão" (mapa vazio) faz `pesoDe` devolver PESO_PADRAO
+ * para toda matéria, ou seja, todas pesam igual.
+ */
+export interface PresetPesoEdital {
+  id: string;
+  label: string;
+  pesos: PesosEdital;
+}
+
+export const PRESETS_PESO_EDITAL: PresetPesoEdital[] = [
+  { id: "padrao", label: "Padrão — todas as matérias com o mesmo peso", pesos: {} },
+  {
+    id: "sefaz-sp",
+    label: "SEFAZ-SP",
+    pesos: {
+      "Direito Tributário": 5,
+      "Contabilidade Geral": 3,
+      "Contabilidade Pública": 3,
+      "Direito Administrativo": 3,
+      "Direito Constitucional": 2,
+      Auditoria: 4,
+      Economia: 2,
+      "Finanças Públicas": 3,
+      Estatística: 1,
+      "Matemática Financeira": 2,
+      "Noções de Informática": 1,
+    },
+  },
+  {
+    id: "sefaz-rj",
+    label: "SEFAZ-RJ",
+    pesos: {
+      "Direito Tributário": 5,
+      "Contabilidade Geral": 4,
+      "Contabilidade Pública": 3,
+      "Direito Administrativo": 2,
+      "Direito Constitucional": 3,
+      Auditoria: 3,
+      Economia: 2,
+      "Finanças Públicas": 3,
+      Estatística: 2,
+      "Matemática Financeira": 1,
+      "Noções de Informática": 1,
+    },
+  },
+  {
+    id: "sefaz-sc",
+    label: "SEFAZ-SC",
+    pesos: {
+      "Direito Tributário": 5,
+      "Contabilidade Geral": 4,
+      "Contabilidade Pública": 4,
+      "Direito Administrativo": 3,
+      "Direito Constitucional": 2,
+      Auditoria: 3,
+      Economia: 1,
+      "Finanças Públicas": 2,
+      Estatística: 1,
+      "Matemática Financeira": 1,
+      "Noções de Informática": 2,
+    },
+  },
+  {
+    id: "sefaz-ba",
+    label: "SEFAZ-BA",
+    pesos: {
+      "Direito Tributário": 5,
+      "Contabilidade Geral": 3,
+      "Contabilidade Pública": 3,
+      "Direito Administrativo": 3,
+      "Direito Constitucional": 3,
+      Auditoria: 4,
+      Economia: 2,
+      "Finanças Públicas": 3,
+      Estatística: 1,
+      "Matemática Financeira": 1,
+      "Noções de Informática": 1,
+    },
+  },
+  {
+    id: "sefaz-pe",
+    label: "SEFAZ-PE",
+    pesos: {
+      "Direito Tributário": 5,
+      "Contabilidade Geral": 4,
+      "Contabilidade Pública": 3,
+      "Direito Administrativo": 2,
+      "Direito Constitucional": 2,
+      Auditoria: 3,
+      Economia: 2,
+      "Finanças Públicas": 2,
+      Estatística: 1,
+      "Matemática Financeira": 1,
+      "Noções de Informática": 2,
+    },
+  },
+];

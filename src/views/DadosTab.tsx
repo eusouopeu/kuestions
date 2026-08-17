@@ -308,10 +308,10 @@ export default function DadosTab({
           <p style={{ margin: "0 0 14px" }}>
             Sem dados {filtro === TODAS ? "ainda" : `para ${filtro}`}.
             <br />
-            Responda um bloco na aba Questões para ver seu desempenho aqui.
+            Responda um bloco na aba Blocos para ver seu desempenho aqui.
           </p>
           <Botao tipo="tinta" onClick={onQuestoes} style={{ maxWidth: 220, margin: "0 auto" }}>
-            Ir para Questões
+            Ir para Blocos
           </Botao>
         </Vazio>
       ) : (

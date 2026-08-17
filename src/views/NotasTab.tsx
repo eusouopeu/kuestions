@@ -562,7 +562,7 @@ export default function NotasTab({
             Ao responder uma questão, selecione um trecho de texto para salvá-lo aqui.
           </p>
           <Botao tipo="tinta" onClick={onQuestoes} style={{ maxWidth: 220, margin: "0 auto" }}>
-            Ir para Questões
+            Ir para Blocos
           </Botao>
         </Vazio>
       ) : (
