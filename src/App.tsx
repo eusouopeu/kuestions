@@ -99,7 +99,7 @@ export default function App() {
             {a === "blocos" && (
               <BlocosTab onDados={() => trocar("dados")} onAjustes={() => trocar("ajustes")} />
             )}
-            {a === "questoes" && <QuestoesTab onAjustes={() => trocar("ajustes")} />}
+            {a === "questoes" && <QuestoesTab />}
             {a === "notas" && (
               <NotasTab ativa={aba === "notas"} onQuestoes={() => trocar("blocos")} />
             )}

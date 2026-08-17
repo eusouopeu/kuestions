@@ -4,6 +4,9 @@
  * snapshot do banco inteiro a cada `N_BLOCOS_PARA_BACKUP` blocos fechados,
  * guardando só os últimos `MAX_SNAPSHOTS` — protege meses de histórico de
  * erros e notas de uma desinstalação acidental sem exigir disciplina manual.
+ * Este snapshot fica num diretório interno do app (invisível fora dele); o
+ * mesmo gatilho também atualiza o espelho legível em Documentos/kuestion
+ * (ver lib/exportarDocumentos.ts).
  *
  * Só roda no nativo (Android/iOS): é o cenário que motiva isto (perder o app
  * do celular); no navegador de desenvolvimento o sandbox de arquivos não tem
@@ -14,6 +17,7 @@ import { Directory, Encoding, Filesystem } from "@capacitor/filesystem";
 import { Preferences } from "@capacitor/preferences";
 import { exportarBancoJSON } from "./db";
 import { registrarBackupFeito } from "./backupInfo";
+import { sincronizarBancoDocumentos } from "./exportarDocumentos";
 
 const PASTA = "backups-auto";
 const N_BLOCOS_PARA_BACKUP = 5;
@@ -51,6 +55,11 @@ async function fazerSnapshot(): Promise<void> {
   }
 
   await registrarBackupFeito();
+
+  // Mesmo gatilho também mantém o espelho legível em Documentos/kuestion
+  // (ver lib/exportarDocumentos.ts) atualizado — uma falha aqui não pode
+  // derrubar o backup rotativo em si, que já terminou com sucesso acima.
+  await sincronizarBancoDocumentos().catch((e) => console.error("sincronizar Documentos", e));
 }
 
 /**

@@ -28,6 +28,8 @@ import {
   type ConfigLembrete,
 } from "../lib/lembretes";
 import { diasDesdeUltimoBackup, DIAS_PARA_AVISO_BACKUP, registrarBackupFeito } from "../lib/backupInfo";
+import { sincronizarDocumentos } from "../lib/exportarDocumentos";
+import { Capacitor } from "@capacitor/core";
 import {
   getConfigMeta,
   getMetasPorMateria,
@@ -35,7 +37,15 @@ import {
   setMetasPorMateria,
   type ConfigMeta,
 } from "../lib/metas";
-import { getPesosEdital, PESO_MAX, PESO_PADRAO, setPesosEdital, type PesosEdital } from "../lib/edital";
+import {
+  getPesosEdital,
+  pesoDe,
+  PESO_MAX,
+  PESO_PADRAO,
+  PRESETS_PESO_EDITAL,
+  setPesosEdital,
+  type PesosEdital,
+} from "../lib/edital";
 import { MATERIAS } from "../lib/constants";
 import { AREAS_BANCO } from "../lib/banco";
 
@@ -82,6 +92,9 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   );
   const inputArquivoRef = useRef<HTMLInputElement>(null);
 
+  const [sincronizandoDocs, setSincronizandoDocs] = useState(false);
+  const [docsSincronizados, setDocsSincronizados] = useState(false);
+
   const [reportadas, setReportadas] = useState<QuestaoReportada[]>([]);
   const [carregandoReportadas, setCarregandoReportadas] = useState(true);
   const [resolvendo, setResolvendo] = useState<number | null>(null);
@@ -94,6 +107,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   const [metasPorMateria, setMetasPorMateriaLocal] = useState<Record<string, number>>({});
   const [materiaParaAdicionar, setMateriaParaAdicionar] = useState("");
   const [pesos, setPesosLocal] = useState<PesosEdital>({});
+  const [presetPeso, setPresetPeso] = useState("");
 
   const [diasBackup, setDiasBackup] = useState<number | null>(null);
   const [temDados, setTemDados] = useState(false);
@@ -249,6 +263,23 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     }
   }
 
+  /** Preenche o peso de cada matéria a partir de um dos presets de concurso
+   * (mesmos usados em SimuladoView → "Peso das matérias") — deixa explícito
+   * qual é o peso de cada matéria em cada edital, e ainda dá o ponto de
+   * partida para o usuário ajustar manualmente depois. */
+  async function aplicarPresetPeso(id: string) {
+    setPresetPeso(id);
+    const preset = PRESETS_PESO_EDITAL.find((p) => p.id === id);
+    if (!preset) return;
+    const novo = Object.fromEntries(MATERIAS_E_AREAS.map((m) => [m, pesoDe(preset.pesos, m)]));
+    setPesosLocal(novo);
+    try {
+      await setPesosEdital(novo);
+    } catch (e) {
+      console.error("aplicar preset de peso do edital", e);
+    }
+  }
+
   async function trocarTema(t: Tema) {
     setTemaLocal(t);
     await setTema(t);
@@ -274,6 +305,24 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
       });
     } finally {
       setExportandoBackup(false);
+    }
+  }
+
+  async function sincronizarComDocumentos() {
+    if (sincronizandoDocs) return;
+    setSincronizandoDocs(true);
+    setDocsSincronizados(false);
+    try {
+      await sincronizarDocumentos();
+      setDocsSincronizados(true);
+      setTimeout(() => setDocsSincronizados(false), 2500);
+    } catch (e) {
+      setStatusBackup({
+        tom: "erro",
+        texto: e instanceof Error ? e.message : "Falha ao sincronizar com Documentos.",
+      });
+    } finally {
+      setSincronizandoDocs(false);
     }
   }
 
@@ -518,6 +567,31 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         )}
       </div>
 
+      {Capacitor.isNativePlatform() && (
+        <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
+          <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
+            PASTA NO CELULAR
+          </div>
+          <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
+            Mantém uma cópia legível em Documentos/kuestion: o banco de questões em JSON e cada
+            nota em Markdown, separadas por matéria — para abrir fora do app, com qualquer leitor
+            de arquivos. Atualiza sozinha a cada bloco fechado e a cada nota salva.
+          </div>
+          <Botao
+            tipo="fantasma"
+            onClick={sincronizarComDocumentos}
+            disabled={sincronizandoDocs}
+            style={docsSincronizados ? { borderColor: C.ok, color: C.ok } : undefined}
+          >
+            {sincronizandoDocs
+              ? "Sincronizando…"
+              : docsSincronizados
+                ? "✓ Sincronizado"
+                : "Sincronizar agora"}
+          </Botao>
+        </div>
+      )}
+
       <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
           LEMBRETE DIÁRIO
@@ -698,6 +772,27 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
           PESO DO EDITAL
         </div>
+
+        <label style={{ ...rotulo, marginTop: 4 }}>Preencher a partir de um edital</label>
+        <select
+          style={{ ...campo, marginBottom: 12 }}
+          value={presetPeso}
+          onChange={(e) => aplicarPresetPeso(e.target.value)}
+        >
+          <option value="" disabled>
+            Escolher um concurso…
+          </option>
+          {PRESETS_PESO_EDITAL.map((p) => (
+            <option key={p.id} value={p.id}>
+              {p.label}
+            </option>
+          ))}
+        </select>
+        <div style={{ fontSize: 11.5, color: C.sub, marginTop: -6, marginBottom: 12, lineHeight: 1.4 }}>
+          Preenche o peso de cada matéria abaixo com o preset do concurso escolhido — pesos
+          aproximados, que você ainda pode ajustar matéria a matéria.
+        </div>
+
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           {MATERIAS_E_AREAS.map((m) => (
             <div key={m} style={{ display: "flex", alignItems: "center", gap: 8 }}>

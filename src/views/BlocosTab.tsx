@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import { ArrowUpTrayIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { ArrowUpTrayIcon, CircleStackIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { C, cartao, disp, mono } from "../theme";
 import Shell from "../components/Shell";
 import Segmented from "../components/Segmented";
 import GerarView from "./GerarView";
+import GerarBancoView from "./GerarBancoView";
 import ImportarView from "./ImportarView";
 import { Q_POR_BLOCO } from "../lib/constants";
 import { blocosNaSemana, resumo, type Resumo } from "../lib/repo";
 import { getConfigMeta, getMetasPorMateria } from "../lib/metas";
 
-type View = "gerar" | "importar";
+type View = "gerar" | "banco" | "importar";
 
 /** Resumo compacto de progresso: reforço motivacional visível ao abrir a
  * aba, sem duplicar os gráficos completos da aba Dados. */
@@ -184,10 +185,10 @@ function MetasPorMateria() {
 }
 
 /**
- * Aba Blocos: montar blocos novos, seja gerando com IA, seja importando
- * questões prontas. As duas formas de montar um bloco DO ZERO (em vez de
- * praticar conteúdo já existente, que fica na aba Questões) ficam num
- * seletor no topo da própria aba, não em abas separadas.
+ * Aba Blocos: montar blocos novos — gerando com IA, sorteando do banco de
+ * questões reais, ou importando questões prontas. Praticar conteúdo já
+ * existente (refazer, simulado) fica na aba Questões. As três formas ficam
+ * num seletor no topo da própria aba, não em abas separadas.
  */
 export default function BlocosTab({
   onDados,
@@ -212,6 +213,13 @@ export default function BlocosTab({
               icone: (cor) => <SparklesIcon width={16} height={16} stroke={cor} strokeWidth={1.8} />,
             },
             {
+              id: "banco" as View,
+              label: "Do banco",
+              icone: (cor) => (
+                <CircleStackIcon width={16} height={16} stroke={cor} strokeWidth={1.8} />
+              ),
+            },
+            {
               id: "importar" as View,
               label: "Importar",
               icone: (cor) => (
@@ -224,6 +232,7 @@ export default function BlocosTab({
       </div>
 
       {view === "gerar" && <GerarView onDados={onDados} onAjustes={onAjustes} />}
+      {view === "banco" && <GerarBancoView onAjustes={onAjustes} />}
       {view === "importar" && <ImportarView />}
     </Shell>
   );

@@ -1,6 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
 import { C, disp } from "../theme";
-import { vibrarLeve } from "../lib/haptics";
 
 type Tipo = "primario" | "fantasma" | "tinta";
 
@@ -42,7 +41,6 @@ export default function Botao({
       style={{ ...base, ...temas[tipo], ...style }}
       onPointerDown={(e) => {
         e.currentTarget.style.transform = "scale(.985)";
-        if (!disabled) vibrarLeve();
       }}
       onPointerUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
       onPointerLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}

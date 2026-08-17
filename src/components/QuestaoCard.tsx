@@ -10,7 +10,6 @@ import type { Questao } from "../lib/types";
 import { labelTipo } from "../lib/constants";
 import { reportarQuestao } from "../lib/repo";
 import type { MotivoReport } from "../lib/repo";
-import { vibrarAlerta, vibrarErro, vibrarSucesso } from "../lib/haptics";
 import ModalReport from "./ModalReport";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
@@ -111,7 +110,6 @@ export default function QuestaoCard({
       await reportarQuestao(origemId, motivo);
       setReportada(true);
       setModalReport(false);
-      vibrarAlerta();
     } catch (e) {
       console.error("reportar questão", e);
     } finally {
@@ -142,8 +140,6 @@ export default function QuestaoCard({
     setEnviando(true);
     const acertou = selecionada === questao.gabarito;
     setRevelada(true);
-    if (acertou) vibrarSucesso();
-    else vibrarErro();
     const tempoMs = Date.now() - inicioRef.current;
     try {
       const id = await onResponder(selecionada, acertou, tempoMs);

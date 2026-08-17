@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { C, mono } from "../theme";
-import { vibrarLeve } from "../lib/haptics";
 
 /**
  * Seletor de duas ou mais views. Usado no topo da aba Questões (Gerar novas /
@@ -38,10 +37,7 @@ export default function Segmented<T extends string>({
             key={o.id}
             role="tab"
             aria-selected={ativo}
-            onClick={() => {
-              vibrarLeve();
-              onChange(o.id);
-            }}
+            onClick={() => onChange(o.id)}
             style={{
               ...mono,
               display: "flex",

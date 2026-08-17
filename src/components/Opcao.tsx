@@ -1,6 +1,5 @@
 import { useRef, useState, type CSSProperties } from "react";
 import { C, disp } from "../theme";
-import { vibrarLeve, vibrarMedio } from "../lib/haptics";
 
 export type Reveal = "certo" | "errado" | null;
 
@@ -54,13 +53,10 @@ export default function Opcao({
     startX.current = null;
     setDx(0);
     if (d < -50) {
-      vibrarMedio();
       onTachar();
     } else if (d > 50) {
-      vibrarLeve();
       onDestachar();
     } else if (!arrasto.current) {
-      vibrarLeve();
       onSelect();
     }
   };

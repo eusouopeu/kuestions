@@ -9,6 +9,7 @@
  */
 import { all, one, parseJSON, run, runBatch, toBool } from "./db";
 import { talvezFazerBackupAutomatico } from "./backupAuto";
+import { sincronizarNotasDocumentos } from "./exportarDocumentos";
 import type {
   Bloco,
   ConceitoSalvo,
@@ -528,6 +529,9 @@ export async function salvarNota(args: {
       new Date().toISOString(),
     ],
   );
+  // Não aguarda: mantém o espelho em Documentos/kuestion (ver
+  // lib/exportarDocumentos.ts) atualizado sem atrasar quem salvou a nota.
+  void sincronizarNotasDocumentos();
   return lastId;
 }
 
@@ -694,10 +698,12 @@ export async function atualizarNota(
     `UPDATE conceitos_salvos SET titulo = ?, corpo = ?, tag = ? WHERE id = ?`,
     [titulo, corpo, tag, id],
   );
+  void sincronizarNotasDocumentos();
 }
 
 export async function apagarConceito(id: number): Promise<void> {
   await run(`DELETE FROM conceitos_salvos WHERE id = ?`, [id]);
+  void sincronizarNotasDocumentos();
 }
 
 /** ids de `questoes_respondidas` (de `ids`) que já têm ao menos uma nota
