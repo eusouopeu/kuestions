@@ -1,9 +1,10 @@
 /**
  * Espelha os dados do usuário numa pasta "kuestion" visível em Documentos do
- * celular (@capacitor/filesystem, `Directory.Documents`) — diferente do
+ * aparelho — celular (`@capacitor/filesystem`, `Directory.Documents`) ou
+ * desktop (`@tauri-apps/plugin-fs`, `BaseDirectory.Document`). Diferente do
  * backup completo (ver `exportarBancoJSON` em db.ts e o snapshot rotativo em
  * backupAuto.ts), que é um único JSON opaco pensado só para restaurar dentro
- * do próprio app. Aqui o formato é para ser lido FORA do app, por qualquer
+ * do próprio app, aqui o formato é para ser lido FORA do app, por qualquer
  * leitor de arquivos: o banco de questões em JSON, as notas em Markdown —
  * uma por arquivo, nomeada pelo título, separadas em subpastas por matéria.
  *
@@ -14,40 +15,80 @@
  */
 import { Capacitor } from "@capacitor/core";
 import { Directory, Encoding, Filesystem } from "@capacitor/filesystem";
+import { isTauri } from "@tauri-apps/api/core";
+import { BaseDirectory } from "@tauri-apps/api/path";
+import { mkdir as tauriMkdir, readDir as tauriReadDir, remove as tauriRemove, writeTextFile as tauriWriteTextFile } from "@tauri-apps/plugin-fs";
 import { all, exportarBancoJSON } from "./db";
 
 const RAIZ = "kuestion";
 const PASTA_BANCOS = `${RAIZ}/bancos`;
 const PASTA_NOTAS = `${RAIZ}/notas`;
 
-async function garantirPasta(caminho: string): Promise<void> {
-  await Filesystem.mkdir({ path: caminho, directory: Directory.Documents, recursive: true }).catch(
-    () => {
-      // já existe — mkdir com recursive:true nem sempre é idempotente em todo device.
-    },
-  );
+type Plataforma = "capacitor" | "tauri" | "nenhuma";
+
+/** No nativo mobile é `@capacitor/filesystem`; no desktop (Tauri) é
+ * `@tauri-apps/plugin-fs` — os dois dão acesso a um diretório de Documentos
+ * de verdade, algo que não existe no navegador de desenvolvimento. */
+function plataforma(): Plataforma {
+  if (isTauri()) return "tauri";
+  if (Capacitor.isNativePlatform()) return "capacitor";
+  return "nenhuma";
+}
+
+async function garantirPasta(caminho: string, p: Plataforma): Promise<void> {
+  if (p === "tauri") {
+    await tauriMkdir(caminho, { baseDir: BaseDirectory.Document, recursive: true }).catch(() => {});
+    return;
+  }
+  await Filesystem.mkdir({ path: caminho, directory: Directory.Documents, recursive: true }).catch(() => {
+    // já existe — mkdir com recursive:true nem sempre é idempotente em todo device.
+  });
+}
+
+async function escreverArquivo(caminho: string, conteudo: string, p: Plataforma): Promise<void> {
+  if (p === "tauri") {
+    await tauriWriteTextFile(caminho, conteudo, { baseDir: BaseDirectory.Document });
+    return;
+  }
+  await Filesystem.writeFile({
+    path: caminho,
+    data: conteudo,
+    directory: Directory.Documents,
+    encoding: Encoding.UTF8,
+  });
+}
+
+async function nomesDosArquivosEm(caminho: string, p: Plataforma): Promise<string[]> {
+  try {
+    if (p === "tauri") {
+      const entradas = await tauriReadDir(caminho, { baseDir: BaseDirectory.Document });
+      return entradas.filter((e) => e.isFile).map((e) => e.name);
+    }
+    const { files } = await Filesystem.readdir({ path: caminho, directory: Directory.Documents });
+    return files.filter((f) => f.type === "file").map((f) => f.name);
+  } catch {
+    return []; // pasta ainda não existe — nada para listar.
+  }
+}
+
+async function apagarArquivo(caminho: string, p: Plataforma): Promise<void> {
+  if (p === "tauri") {
+    await tauriRemove(caminho, { baseDir: BaseDirectory.Document }).catch(() => {});
+    return;
+  }
+  await Filesystem.deleteFile({ path: caminho, directory: Directory.Documents }).catch(() => {});
 }
 
 /** Remove todo arquivo de uma pasta antes de regravá-la do zero — mais
  * simples e confiável do que rastrear arquivos órfãos quando uma nota é
  * renomeada ou apagada entre duas sincronizações. */
-async function limparArquivosDe(caminho: string): Promise<void> {
-  try {
-    const { files } = await Filesystem.readdir({ path: caminho, directory: Directory.Documents });
-    for (const f of files) {
-      if (f.type === "file") {
-        await Filesystem.deleteFile({ path: `${caminho}/${f.name}`, directory: Directory.Documents }).catch(
-          () => {},
-        );
-      }
-    }
-  } catch {
-    // pasta ainda não existe — nada para limpar.
-  }
+async function limparArquivosDe(caminho: string, p: Plataforma): Promise<void> {
+  const nomes = await nomesDosArquivosEm(caminho, p);
+  for (const nome of nomes) await apagarArquivo(`${caminho}/${nome}`, p);
 }
 
 /** Nome de arquivo seguro a partir de texto livre — troca caracteres
- * inválidos em Android/iOS por "-" e limita o tamanho. */
+ * inválidos em Android/iOS/Windows por "-" e limita o tamanho. */
 function nomeDeArquivo(texto: string): string {
   const limpo = texto.trim().replace(/[\\/:*?"<>|]/g, "-").replace(/\s+/g, " ").slice(0, 120);
   return limpo || "sem-titulo";
@@ -57,15 +98,11 @@ function nomeDeArquivo(texto: string): string {
  * como JSON em `Documentos/kuestion/bancos/`. Sobrescreve um único arquivo —
  * este espelho é sempre o estado mais atual, não um histórico. */
 export async function sincronizarBancoDocumentos(): Promise<void> {
-  if (!Capacitor.isNativePlatform()) return;
-  await garantirPasta(PASTA_BANCOS);
+  const p = plataforma();
+  if (p === "nenhuma") return;
+  await garantirPasta(PASTA_BANCOS, p);
   const json = await exportarBancoJSON();
-  await Filesystem.writeFile({
-    path: `${PASTA_BANCOS}/banco-de-questoes.json`,
-    data: json,
-    directory: Directory.Documents,
-    encoding: Encoding.UTF8,
-  });
+  await escreverArquivo(`${PASTA_BANCOS}/banco-de-questoes.json`, json, p);
 }
 
 interface NotaParaArquivo {
@@ -87,7 +124,8 @@ function notaParaMarkdown(n: NotaParaArquivo): string {
  * `Documentos/kuestion/notas/<matéria>/<título>.md`. Cada matéria é
  * completamente regravada a cada chamada (ver `limparArquivosDe`). */
 export async function sincronizarNotasDocumentos(): Promise<void> {
-  if (!Capacitor.isNativePlatform()) return;
+  const p = plataforma();
+  if (p === "nenhuma") return;
   const notas = await all<NotaParaArquivo>(
     `SELECT id, materia, titulo, corpo, tag FROM conceitos_salvos ORDER BY materia, titulo COLLATE NOCASE ASC`,
   );
@@ -99,23 +137,20 @@ export async function sincronizarNotasDocumentos(): Promise<void> {
     porMateria.set(n.materia, lista);
   }
 
-  await garantirPasta(PASTA_NOTAS);
+  await garantirPasta(PASTA_NOTAS, p);
   for (const [materia, lista] of porMateria) {
     const pastaMateria = `${PASTA_NOTAS}/${nomeDeArquivo(materia)}`;
-    await garantirPasta(pastaMateria);
-    await limparArquivosDe(pastaMateria);
+    await garantirPasta(pastaMateria, p);
+    await limparArquivosDe(pastaMateria, p);
 
     const usados = new Set<string>();
     for (const n of lista) {
       let nome = nomeDeArquivo(n.titulo);
       if (usados.has(nome)) nome = `${nome}-${n.id}`; // títulos duplicados na mesma matéria
       usados.add(nome);
-      await Filesystem.writeFile({
-        path: `${pastaMateria}/${nome}.md`,
-        data: notaParaMarkdown(n),
-        directory: Directory.Documents,
-        encoding: Encoding.UTF8,
-      }).catch((e) => console.error("gravar nota .md", e));
+      await escreverArquivo(`${pastaMateria}/${nome}.md`, notaParaMarkdown(n), p).catch((e) =>
+        console.error("gravar nota .md", e),
+      );
     }
   }
 }
@@ -124,7 +159,7 @@ export async function sincronizarNotasDocumentos(): Promise<void> {
  * em Ajustes e, automaticamente, junto do backup rotativo (ver
  * backupAuto.ts). Nunca lança: uma falha aqui não pode travar quem chamou. */
 export async function sincronizarDocumentos(): Promise<void> {
-  if (!Capacitor.isNativePlatform()) return;
+  if (plataforma() === "nenhuma") return;
   try {
     await Promise.all([sincronizarBancoDocumentos(), sincronizarNotasDocumentos()]);
   } catch (e) {

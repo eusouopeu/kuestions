@@ -30,6 +30,7 @@ import {
 import { diasDesdeUltimoBackup, DIAS_PARA_AVISO_BACKUP, registrarBackupFeito } from "../lib/backupInfo";
 import { sincronizarDocumentos } from "../lib/exportarDocumentos";
 import { Capacitor } from "@capacitor/core";
+import { isTauri } from "@tauri-apps/api/core";
 import {
   getConfigMeta,
   getMetasPorMateria,
@@ -567,10 +568,10 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         )}
       </div>
 
-      {Capacitor.isNativePlatform() && (
+      {(Capacitor.isNativePlatform() || isTauri()) && (
         <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
           <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-            PASTA NO CELULAR
+            PASTA NO APARELHO
           </div>
           <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
             Mantém uma cópia legível em Documentos/kuestion: o banco de questões em JSON e cada

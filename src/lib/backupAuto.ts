@@ -4,17 +4,20 @@
  * snapshot do banco inteiro a cada `N_BLOCOS_PARA_BACKUP` blocos fechados,
  * guardando só os últimos `MAX_SNAPSHOTS` — protege meses de histórico de
  * erros e notas de uma desinstalação acidental sem exigir disciplina manual.
- * Este snapshot fica num diretório interno do app (invisível fora dele); o
- * mesmo gatilho também atualiza o espelho legível em Documentos/kuestion
- * (ver lib/exportarDocumentos.ts).
+ * Este snapshot fica num diretório interno do app (invisível fora dele) e só
+ * existe no Capacitor (mobile) — desktop (Tauri) não tem hoje um análogo de
+ * "Directory.Data" já mapeado, e o risco que motiva isto (perder o app do
+ * celular) não se aplica do mesmo jeito. O mesmo gatilho, em qualquer
+ * plataforma nativa, também atualiza o espelho legível em Documentos/kuestion
+ * (ver lib/exportarDocumentos.ts), que é quem de fato importa aqui.
  *
- * Só roda no nativo (Android/iOS): é o cenário que motiva isto (perder o app
- * do celular); no navegador de desenvolvimento o sandbox de arquivos não tem
- * o mesmo valor de proteção contra perda de dados.
+ * Só roda no nativo (Android/iOS/desktop): no navegador de desenvolvimento o
+ * sandbox de arquivos não tem o mesmo valor de proteção contra perda de dados.
  */
 import { Capacitor } from "@capacitor/core";
 import { Directory, Encoding, Filesystem } from "@capacitor/filesystem";
 import { Preferences } from "@capacitor/preferences";
+import { isTauri } from "@tauri-apps/api/core";
 import { exportarBancoJSON } from "./db";
 import { registrarBackupFeito } from "./backupInfo";
 import { sincronizarBancoDocumentos } from "./exportarDocumentos";
@@ -33,7 +36,9 @@ async function salvarContador(n: number): Promise<void> {
   await Preferences.set({ key: K_CONTADOR, value: String(n) });
 }
 
-async function fazerSnapshot(): Promise<void> {
+/** Rotação interna (Directory.Data) — só existe no Capacitor; ver comentário
+ * do módulo sobre por que o desktop não tem um equivalente ainda. */
+async function fazerRotacaoInterna(): Promise<void> {
   const json = await exportarBancoJSON();
   await Filesystem.mkdir({ path: PASTA, directory: Directory.Data, recursive: true }).catch(() => {
     // já existe — mkdir com recursive:true nem sempre é idempotente em todo device.
@@ -53,12 +58,13 @@ async function fazerSnapshot(): Promise<void> {
   for (const f of excedentes) {
     await Filesystem.deleteFile({ path: `${PASTA}/${f.name}`, directory: Directory.Data }).catch(() => {});
   }
+}
 
+async function fazerSnapshot(): Promise<void> {
+  if (Capacitor.isNativePlatform()) await fazerRotacaoInterna();
   await registrarBackupFeito();
-
   // Mesmo gatilho também mantém o espelho legível em Documentos/kuestion
-  // (ver lib/exportarDocumentos.ts) atualizado — uma falha aqui não pode
-  // derrubar o backup rotativo em si, que já terminou com sucesso acima.
+  // atualizado — uma falha aqui não pode derrubar o resto do snapshot.
   await sincronizarBancoDocumentos().catch((e) => console.error("sincronizar Documentos", e));
 }
 
@@ -68,7 +74,7 @@ async function fazerSnapshot(): Promise<void> {
  * bloco em si, que é a ação que o usuário realmente pediu.
  */
 export async function talvezFazerBackupAutomatico(): Promise<void> {
-  if (!Capacitor.isNativePlatform()) return;
+  if (!Capacitor.isNativePlatform() && !isTauri()) return;
   try {
     const atual = (await lerContador()) + 1;
     if (atual >= N_BLOCOS_PARA_BACKUP) {

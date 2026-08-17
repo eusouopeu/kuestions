@@ -13,7 +13,9 @@
     "sync": "npm run build && cap sync",
     "android": "npm run build && cap sync android && cap open android",
     "ios": "npm run build && npm run ios:pods && cap sync ios && cap open ios",
-    "ios:pods": "cd ios/App && LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 pod install"
+    "ios:pods": "cd ios/App && LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 pod install",
+    "desktop:dev": "tauri dev",
+    "desktop:build": "tauri build"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",
@@ -27,6 +29,8 @@
     "@capacitor/preferences": "^7.0.0",
     "@capacitor/share": "^7.0.4",
     "@heroicons/react": "^2.2.0",
+    "@tauri-apps/api": "^2.11.1",
+    "@tauri-apps/plugin-fs": "^2.5.1",
     "jeep-sqlite": "^2.8.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -35,6 +39,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^7.0.0",
+    "@tauri-apps/cli": "^2.11.4",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
