@@ -20,6 +20,8 @@ import {
 import { gerarSubBloco, SemCredencialError } from "../lib/anthropic";
 import { temCredencial } from "../lib/secure";
 import { criarBloco, fecharBloco, gravarResposta, listarBlocos } from "../lib/repo";
+import { sugerirNivel, type SugestaoNivel } from "../lib/sugestao";
+import { getRascunho, limparRascunho, salvarRascunho, type RascunhoBloco } from "../lib/blocoRascunho";
 import { gerarTagAssunto } from "../lib/texto";
 import {
   blocosDeMateria,
@@ -73,6 +75,16 @@ export default function GerarView({
   // errada)? Distingue, no abandono, o que já foi gravado do que ainda falta.
   const [respondidaAtual, setRespondidaAtual] = useState(false);
 
+  // Sugestão de nível por matéria (ver lib/sugestao.ts) — baseada no último
+  // bloco JÁ RESPONDIDO daquela matéria, não no que está selecionado agora.
+  const [sugestaoNivel, setSugestaoNivel] = useState<SugestaoNivel | null>(null);
+
+  // Rascunho de um bloco em andamento encontrado ao abrir a tela (ver
+  // lib/blocoRascunho.ts) — sobrevive ao app sendo fechado/morto no meio do
+  // drill, diferente do abandono explícito (que já tratava só a saída manual).
+  const [rascunho, setRascunho] = useState<RascunhoBloco | null>(null);
+  const [restaurandoRascunho, setRestaurandoRascunho] = useState(false);
+
   const [modoTopico, setModoTopico] = useState<ModoTopico>("todos");
   // Gerar comentário/explicações já na criação do bloco, ou deixar a
   // questão sem explicação e só gerar sob demanda depois de respondida (ver
@@ -90,6 +102,46 @@ export default function GerarView({
       temCredencial().then(setTemChave);
     }
   }, [tela]);
+
+  // Só procura rascunho uma vez, ao montar — depois de "Continuar" ou
+  // "Descartar" o rascunho já foi tratado (aplicado ou apagado) e não deve
+  // reaparecer sozinho enquanto o usuário segue usando esta mesma sessão.
+  useEffect(() => {
+    getRascunho()
+      .then((r) => {
+        // Um rascunho sem nenhuma questão gerada ainda não representa
+        // trabalho pago na API perdido — não vale interromper com um banner.
+        if (r && r.subs.some((s) => s)) setRascunho(r);
+      })
+      .catch(() => {});
+  }, []);
+
+  // Sugestão de nível: olha o último bloco JÁ FECHADO desta matéria (gerado
+  // por IA — só esses gravam `nivel` 1–5; blocos do banco de questões reais
+  // gravam nivel 0 e ficam de fora, ver Bloco.nivel). Refaz sempre que a
+  // matéria muda ou a tela de config reabre (o usuário pode ter respondido
+  // mais blocos desde a última vez que passou por aqui).
+  useEffect(() => {
+    if (tela !== "config") return;
+    const materia =
+      cfg.materia === "__outra" ? cfg.materiaCustom.trim() : cfg.materia;
+    if (!materia) {
+      setSugestaoNivel(null);
+      return;
+    }
+    let cancelado = false;
+    listarBlocos(materia, 1)
+      .then(([ultimo]) => {
+        if (cancelado) return;
+        setSugestaoNivel(ultimo && ultimo.nivel >= 1 ? sugerirNivel(ultimo) : null);
+      })
+      .catch(() => {
+        if (!cancelado) setSugestaoNivel(null);
+      });
+    return () => {
+      cancelado = true;
+    };
+  }, [tela, cfg.materia, cfg.materiaCustom]);
 
   useEffect(() => {
     setRespondidaAtual(false);
@@ -109,6 +161,19 @@ export default function GerarView({
   const materiaFinal =
     cfg.materia === "__outra" ? cfg.materiaCustom.trim() || "Matéria personalizada" : cfg.materia;
   const c = { ...cfg, materia: materiaFinal };
+
+  // Persiste o progresso do drill a cada avanço (novo sub-bloco recebido,
+  // resposta gravada) — ver lib/blocoRascunho.ts. Não salva antes do 1º
+  // sub-bloco chegar (nada pago na API ainda) nem depois de restaurar um
+  // rascunho (evita reescrever o que acabou de ser lido de volta). Guarda `c`
+  // (não `cfg` cru): resolve "__outra" para o nome digitado, senão o
+  // rascunho perderia a matéria personalizada ao restaurar.
+  useEffect(() => {
+    if (tela !== "drill" || restaurandoRascunho) return;
+    if (!subs.some((s) => s)) return;
+    salvarRascunho({ cfg: c, subs, statusSub, qIdx, acertos, blocoId, comExplicacoes });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- `c` é derivado de cfg (já nas deps) a cada render.
+  }, [tela, cfg, subs, statusSub, qIdx, acertos, blocoId, comExplicacoes, restaurandoRascunho]);
 
   /** Conceitos já usados nos lotes anteriores, para não repetir padrões. */
   function padroesDe(atuais: (Questao[] | null)[], ate: number): string[] {
@@ -210,6 +275,7 @@ export default function GerarView({
       // já sai no nível sugerido, em vez de só narrar a sugestão em texto e
       // exigir que o usuário volte a "Ajustar configuração" para subir.
       if (passou) setCfg((atual) => ({ ...atual, nivel: Math.min(atual.nivel + 1, 5) }));
+      void limparRascunho();
       setTela("resultado");
       return;
     }
@@ -256,16 +322,76 @@ export default function GerarView({
           console.error("fechar bloco abandonado", e);
         }
       }
+      await limparRascunho();
     } finally {
       setAbandonando(false);
       setTela("config");
     }
   }
 
+  /** Restaura um rascunho encontrado ao abrir a tela (ver lib/blocoRascunho.ts)
+   * e retoma a geração de qualquer sub-bloco que ficou "carregando" no
+   * instante em que o app fechou — essa promessa morreu junto com a página,
+   * então sem isto o drill ficaria com o esqueleto de carregamento para
+   * sempre naquele sub-bloco. */
+  function continuarRascunho(r: RascunhoBloco) {
+    setRestaurandoRascunho(true);
+    setCfg(r.cfg);
+    setComExplicacoes(r.comExplicacoes);
+    setBlocoId(r.blocoId);
+    setQIdx(r.qIdx);
+    setAcertos(r.acertos);
+    setSubs(r.subs);
+    setStatusSub(r.statusSub);
+    setConfirmandoAbandono(false);
+    setTela("drill");
+    setRascunho(null);
+    setTimeout(() => {
+      setRestaurandoRascunho(false);
+      r.statusSub.forEach((s, i) => {
+        if (s === "carregando") dispararSub(i, r.cfg);
+      });
+    }, 0);
+  }
+
+  function descartarRascunho() {
+    setRascunho(null);
+    void limparRascunho();
+  }
+
   /* ---------- CONFIG ---------- */
   if (tela === "config") {
     return (
       <div>
+        {rascunho && (
+          <div
+            style={{
+              ...cartao,
+              background: C.canetaSoft,
+              borderColor: C.caneta,
+              marginBottom: 18,
+            }}
+          >
+            <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 6 }}>
+              BLOCO EM ANDAMENTO
+            </div>
+            <p style={{ fontSize: 13.5, lineHeight: 1.55, margin: "0 0 12px" }}>
+              Você tinha um bloco de <strong>{rascunho.cfg.materia}</strong> em andamento (
+              {rascunho.qIdx + (rascunho.subs[Math.floor(rascunho.qIdx / Q_POR_SUB)] ? 1 : 0)}/
+              {Q_POR_BLOCO} questões) quando o app fechou — as questões já geradas não precisam ser
+              pagas de novo.
+            </p>
+            <div style={{ display: "flex", gap: 8 }}>
+              <Botao tipo="fantasma" onClick={descartarRascunho} style={{ flex: 1 }}>
+                Descartar
+              </Botao>
+              <Botao tipo="tinta" onClick={() => continuarRascunho(rascunho)} style={{ flex: 1 }}>
+                Continuar
+              </Botao>
+            </div>
+          </div>
+        )}
+
         {!temChave && (
           <div
             style={{
@@ -316,6 +442,41 @@ export default function GerarView({
             />
           )}
         </div>
+
+        {sugestaoNivel && sugestaoNivel.nivel !== cfg.nivel && (
+          <div
+            style={{
+              ...cartao,
+              padding: "10px 12px",
+              marginBottom: 18,
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              flexWrap: "wrap",
+              background: C.canetaSoft,
+              borderColor: C.caneta,
+            }}
+          >
+            <div style={{ fontSize: 12.5, lineHeight: 1.4, flex: 1 }}>{sugestaoNivel.motivo}</div>
+            <button
+              onClick={() => setCfg((atual) => ({ ...atual, nivel: sugestaoNivel.nivel }))}
+              style={{
+                ...mono,
+                fontSize: 11.5,
+                fontWeight: 600,
+                background: "none",
+                border: "none",
+                color: C.caneta,
+                cursor: "pointer",
+                textDecoration: "underline",
+                padding: 0,
+                flexShrink: 0,
+              }}
+            >
+              Usar nível {sugestaoNivel.nivel}
+            </button>
+          </div>
+        )}
 
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Tópico específico (opcional)</label>

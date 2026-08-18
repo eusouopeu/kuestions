@@ -1,6 +1,7 @@
 import { useEffect, useState, type RefObject } from "react";
 import { C, campo, cartao, mono, rotulo } from "../theme";
 import Botao from "./Botao";
+import CampoCorpoNota from "./CampoCorpoNota";
 import { salvarNota } from "../lib/repo";
 
 interface Selecao {
@@ -203,12 +204,7 @@ function NotaModal({
         />
 
         <div style={{ height: 14 }} />
-        <label style={rotulo}>Corpo</label>
-        <textarea
-          style={{ ...campo, minHeight: 130, resize: "vertical", lineHeight: 1.5 }}
-          value={corpo}
-          onChange={(e) => setCorpo(e.target.value)}
-        />
+        <CampoCorpoNota valor={corpo} onChange={setCorpo} />
 
         <div style={{ height: 14 }} />
         <label style={rotulo}>Tag</label>

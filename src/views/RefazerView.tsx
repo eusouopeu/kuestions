@@ -346,10 +346,6 @@ export default function RefazerView() {
             ]}
             onChange={setAgrupBlocos}
           />
-          <div style={{ fontSize: 11.5, color: C.sub, marginTop: 6, lineHeight: 1.4 }}>
-            Todas as questões de blocos já fechados — gerados com IA, importados ou montados do
-            banco de questões —, certas e erradas, não só as erradas dos outros filtros.
-          </div>
         </div>
       )}
 

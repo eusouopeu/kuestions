@@ -5,19 +5,22 @@ import Shell, { Vazio } from "../components/Shell";
 import Segmented from "../components/Segmented";
 import Botao from "../components/Botao";
 import Chip from "../components/Chip";
+import CampoCorpoNota from "../components/CampoCorpoNota";
 import {
   apagarConceito,
   atualizarNota,
   buscarNotas,
+  buscarQuestaoPorId,
   contarNotasPendentesPorMateria,
   listarConceitos,
   listarNotasPendentes,
   listarPastas,
   registrarRevisaoNota,
 } from "../lib/repo";
-import { exportarArquivo, paraCSV } from "../lib/exportar";
-import { contarItensLista, slugify } from "../lib/texto";
-import type { ConceitoSalvo } from "../lib/types";
+import { exportarArquivo } from "../lib/exportar";
+import { gerarArquivosFlashcards } from "../lib/flashcards";
+import { slugify } from "../lib/texto";
+import type { ConceitoSalvo, QuestaoRespondida } from "../lib/types";
 
 type Ordem = "data" | "alfabetica";
 
@@ -121,18 +124,23 @@ export default function NotasTab({
     return () => clearTimeout(t);
   }, [busca]);
 
+  /**
+   * Exporta só o CORPO de cada nota (não o título — ver lib/flashcards.ts): é
+   * classificado em Cloze (marca-texto ou lista enumerada) ou Básico
+   * (frente/verso por "=", ou fallback frente-só) e sai em até dois arquivos
+   * CSV, um por tipo de nota do Anki — misturar os dois formatos num único
+   * CSV exigiria de qualquer forma duas importações manuais no Anki.
+   */
   async function exportarCSV(itensParaExportar: ConceitoSalvo[], nomeBase: string) {
     if (!itensParaExportar.length || exportando) return;
     setExportando(true);
     setErroExport(null);
     setCsvExportado(false);
     try {
-      const linhas = itensParaExportar.map((n) => {
-        const nItens = contarItensLista(n.corpo);
-        const titulo = nItens > 0 ? `${n.titulo} (${nItens})` : n.titulo;
-        return [titulo, n.corpo, n.tag];
-      });
-      await exportarArquivo(`flashcards-${slugify(nomeBase)}.csv`, paraCSV(linhas));
+      const { cloze, basico } = gerarArquivosFlashcards(itensParaExportar);
+      const slug = slugify(nomeBase);
+      if (basico) await exportarArquivo(`flashcards-basico-${slug}.csv`, basico);
+      if (cloze) await exportarArquivo(`flashcards-cloze-${slug}.csv`, cloze);
       setCsvExportado(true);
       setTimeout(() => setCsvExportado(false), 2500);
     } catch (e) {
@@ -615,6 +623,7 @@ function Detalhe({
   const [tag, setTag] = useState(conceito.tag);
   const [confirmando, setConfirmando] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
+  const [vendoOrigem, setVendoOrigem] = useState(false);
 
   async function salvar() {
     const t = titulo.trim();
@@ -641,12 +650,7 @@ function Detalhe({
           <input style={campo} value={titulo} onChange={(e) => setTitulo(e.target.value)} />
         </div>
         <div style={{ marginBottom: 14 }}>
-          <label style={rotulo}>Corpo</label>
-          <textarea
-            style={{ ...campo, minHeight: 160, resize: "vertical", lineHeight: 1.5 }}
-            value={corpo}
-            onChange={(e) => setCorpo(e.target.value)}
-          />
+          <CampoCorpoNota valor={corpo} onChange={setCorpo} minHeight={160} />
         </div>
         <div style={{ marginBottom: 14 }}>
           <label style={rotulo}>Tag</label>
@@ -706,10 +710,22 @@ function Detalhe({
         {conceito.tag && <Chip>{conceito.tag}</Chip>}
       </div>
 
+      {vendoOrigem && conceito.questao_origem_id != null && (
+        <div style={{ marginBottom: 14 }}>
+          <QuestaoOrigem id={conceito.questao_origem_id} onFechar={() => setVendoOrigem(false)} />
+        </div>
+      )}
+
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         <Botao tipo="fantasma" onClick={() => setEditando(true)}>
           Editar
         </Botao>
+
+        {conceito.questao_origem_id != null && !vendoOrigem && (
+          <Botao tipo="fantasma" onClick={() => setVendoOrigem(true)}>
+            Ver questão de origem
+          </Botao>
+        )}
 
         {confirmando ? (
           <div
@@ -891,6 +907,107 @@ function RevisaoNotas({
       >
         Sair da revisão{lembradas ? ` (${lembradas} lembrada${lembradas > 1 ? "s" : ""})` : ""}
       </button>
+    </div>
+  );
+}
+
+/* ---------- Questão de origem (rec. 10 — link nota → questão) ---------- */
+
+const LETRAS_ORIGEM = ["A", "B", "C", "D", "E"];
+
+/** Resumo somente-leitura da questão que originou a nota — não é o
+ * QuestaoCard interativo do drill (essa questão já foi respondida em algum
+ * momento passado); só mostra enunciado, gabarito e o que o usuário marcou. */
+function QuestaoOrigem({ id, onFechar }: { id: number; onFechar: () => void }) {
+  const [questao, setQuestao] = useState<QuestaoRespondida | null | undefined>(undefined);
+
+  useEffect(() => {
+    buscarQuestaoPorId(id)
+      .then(setQuestao)
+      .catch(() => setQuestao(null));
+  }, [id]);
+
+  if (questao === undefined) return <Vazio>Carregando…</Vazio>;
+  if (questao === null) {
+    return <Vazio>Questão de origem não encontrada (pode ter sido removida).</Vazio>;
+  }
+
+  return (
+    <div style={{ ...cartao }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          marginBottom: 8,
+        }}
+      >
+        <div style={{ ...mono, fontSize: 10.5, color: C.sub, letterSpacing: 0.8 }}>
+          QUESTÃO DE ORIGEM · {dataCurta(questao.ts)}
+        </div>
+        <button
+          onClick={onFechar}
+          style={{
+            ...mono,
+            fontSize: 11,
+            background: "none",
+            border: "none",
+            color: C.sub,
+            cursor: "pointer",
+            textDecoration: "underline",
+            padding: 0,
+          }}
+        >
+          Fechar
+        </button>
+      </div>
+
+      <p style={{ fontSize: 14.5, lineHeight: 1.55, margin: "0 0 10px" }}>{questao.enunciado}</p>
+
+      {questao.formato === "mc" && questao.alternativas ? (
+        <div style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: 10 }}>
+          {questao.alternativas.map((alt, i) => {
+            const l = LETRAS_ORIGEM[i];
+            const ehGabarito = l === questao.gabarito;
+            const ehResposta = l === questao.resposta;
+            return (
+              <div
+                key={l}
+                style={{
+                  fontSize: 13,
+                  padding: "5px 8px",
+                  borderRadius: 6,
+                  background: ehGabarito ? C.okSoft : ehResposta ? C.erroSoft : "transparent",
+                  color: ehGabarito ? C.ok : ehResposta ? C.erro : C.ink,
+                }}
+              >
+                {alt}
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div style={{ ...mono, fontSize: 12.5, marginBottom: 10, color: C.sub }}>
+          Gabarito: {questao.gabarito === "C" ? "CERTO" : "ERRADO"} · Sua resposta:{" "}
+          {questao.resposta ? (questao.resposta === "C" ? "CERTO" : "ERRADO") : "—"}
+        </div>
+      )}
+
+      <div
+        style={{
+          ...mono,
+          fontSize: 11.5,
+          fontWeight: 600,
+          color: questao.acertou ? C.ok : C.erro,
+          marginBottom: questao.comentario ? 8 : 0,
+        }}
+      >
+        {questao.resposta ? (questao.acertou ? "✓ Você acertou" : "✗ Você errou") : "Não respondida"}
+      </div>
+
+      {questao.comentario && (
+        <p style={{ fontSize: 13, lineHeight: 1.5, color: C.sub, margin: 0 }}>{questao.comentario}</p>
+      )}
     </div>
   );
 }

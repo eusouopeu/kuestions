@@ -378,6 +378,18 @@ export async function listarTodasPorMateria(
   return rows.map(mapQuestao);
 }
 
+/** Uma questão respondida específica, pelo id — usado para "Ver questão de
+ * origem" a partir de uma nota (conceitos_salvos.questao_origem_id). null
+ * quando o id não existe mais (não deveria acontecer, já que a FK é
+ * ON DELETE SET NULL, mas a nota pode ter sido salva antes dessa garantia). */
+export async function buscarQuestaoPorId(id: number): Promise<QuestaoRespondida | null> {
+  const row = await one<Record<string, unknown>>(
+    `SELECT * FROM questoes_respondidas WHERE id = ?`,
+    [id],
+  );
+  return row ? mapQuestao(row) : null;
+}
+
 /** Todas as questões de UM bloco específico, na ordem em que apareceram —
  * base do agrupamento "Bloco" dentro do filtro "Blocos anteriores" de
  * Refazer, que reabre um bloco já fechado (gerado por IA, importado ou

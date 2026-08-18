@@ -789,10 +789,6 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
             </option>
           ))}
         </select>
-        <div style={{ fontSize: 11.5, color: C.sub, marginTop: -6, marginBottom: 12, lineHeight: 1.4 }}>
-          Preenche o peso de cada matéria abaixo com o preset do concurso escolhido — pesos
-          aproximados, que você ainda pode ajustar matéria a matéria.
-        </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           {MATERIAS_E_AREAS.map((m) => (
