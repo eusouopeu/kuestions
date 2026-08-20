@@ -265,12 +265,6 @@ export default function SimuladoView() {
   if (tela === "config") {
     return (
       <div>
-        <div style={{ ...cartao, padding: "12px 14px", marginBottom: 20, fontSize: 12.5, color: C.sub, lineHeight: 1.5 }}>
-          Mistura questões reais de prova de uma ou mais áreas sob tempo limite, sem chamar a API.
-          As respostas só são reveladas ao final — como numa prova de verdade — e o simulado não
-          exige 90% de acerto: só registra o placar.
-        </div>
-
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>
             Áreas e questões por matéria ({areasSelecionadas.length} selecionada
@@ -373,7 +367,7 @@ export default function SimuladoView() {
             </button>
           </div>
           <Botao tipo="fantasma" onClick={aplicarDistribuicao} style={{ background: C.card }}>
-            Aplicar — {alvoDistribuicao} questões pelo peso das matérias
+            Aplicar
           </Botao>
         </div>
 
@@ -391,10 +385,6 @@ export default function SimuladoView() {
               </option>
             ))}
           </select>
-          <div style={{ fontSize: 11.5, color: C.sub, marginTop: 6, lineHeight: 1.4 }}>
-            Usado por "Aplicar" acima para sugerir quantas questões vêm de cada matéria — pesos
-            aproximados a partir do padrão de editais anteriores dessas bancas.
-          </div>
         </div>
 
         <div style={{ marginBottom: 22 }}>
@@ -408,10 +398,6 @@ export default function SimuladoView() {
           >
             <div>
               <div style={{ fontSize: 13.5 }}>Peso personalizado</div>
-              <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
-                Em vez do preset acima, usa os pesos que você mesmo configurou em Ajustes → Peso
-                do edital.
-              </div>
             </div>
             <button
               role="switch"

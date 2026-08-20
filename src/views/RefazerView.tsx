@@ -203,12 +203,6 @@ export default function RefazerView() {
             ]}
             onChange={setAgrupErradas}
           />
-          {agrupErradas === "conceito" && (
-            <div style={{ fontSize: 11.5, color: C.sub, marginTop: 6, lineHeight: 1.4 }}>
-              Cada fila reúne erradas do mesmo conceito, mesmo que de matérias diferentes — ataca o
-              ponto específico que quebra, em vez do erro genérico da matéria inteira.
-            </div>
-          )}
         </div>
       )}
 

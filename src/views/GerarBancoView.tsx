@@ -469,12 +469,6 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
           )}
         </div>
 
-        <div style={{ ...cartao, padding: "12px 14px", marginBottom: 20, fontSize: 12.5, color: C.sub, lineHeight: 1.5 }}>
-          Estas são questões reais de prova, extraídas de um banco anexado. Enunciado, alternativas
-          e gabarito não são alterados — só o comentário e a explicação de cada alternativa errada
-          são gerados pela IA.
-        </div>
-
         <Botao onClick={iniciar} tipo="tinta" disabled={disponiveis === 0}>
           Gerar bloco do banco{disponiveis ? ` (${Math.min(quantidade, disponiveis)} questões)` : ""}
         </Botao>

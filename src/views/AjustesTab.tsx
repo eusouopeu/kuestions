@@ -1065,16 +1065,9 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
             <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
           </button>
         </div>
-        <div style={{ fontSize: 11, color: C.sub, marginTop: 10 }}>
-          Vale para blocos gerados com IA e para o banco de questões reais — configurado uma vez,
-          continua valendo para os próximos blocos.
-        </div>
 
         <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginTop: 14, paddingTop: 12, borderTop: `1px solid ${C.line}` }}>
           Modelo: <code style={{ ...mono, fontSize: 12, color: C.ink }}>{MODEL}</code>
-          <br />
-          Raciocínio adaptativo com esforço médio, equilibrando a autoverificação factual do
-          conteúdo jurídico e contábil com custo e latência por chamada.
         </div>
       </div>
     </Shell>

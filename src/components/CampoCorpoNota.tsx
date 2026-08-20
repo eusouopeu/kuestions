@@ -76,11 +76,6 @@ export default function CampoCorpoNota({
         onChange={(e) => onChange(e.target.value)}
       />
 
-      <div style={{ fontSize: 11.5, color: C.sub, marginTop: 6, lineHeight: 1.4 }}>
-        Selecione um trecho acima e toque num marca-texto para virar cloze na exportação para
-        flashcards. Um "=" na linha vira frente/verso; uma lista numerada vira cloze automático.
-      </div>
-
       {temMarcacao && (
         <div
           style={{

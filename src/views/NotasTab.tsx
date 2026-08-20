@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { FolderIcon } from "@heroicons/react/24/outline";
-import { C, campo, cartao, disp, mono, rotulo } from "../theme";
+import { C, campo, cartao, disp, mono } from "../theme";
 import Shell, { Vazio } from "../components/Shell";
 import Segmented from "../components/Segmented";
 import Botao from "../components/Botao";
@@ -23,8 +23,6 @@ import { slugify } from "../lib/texto";
 import TextoComMarcaTexto from "../components/TextoComMarcaTexto";
 import ResumoQuestaoRespondida from "../components/ResumoQuestaoRespondida";
 import type { ConceitoSalvo, QuestaoRespondida } from "../lib/types";
-
-type Ordem = "data" | "alfabetica";
 
 /** Banco de notas: pastas por matéria → lista, cada nota por inteiro (ver
  * NotaCard) — não há mais uma tela de detalhe separada: visualizar, editar,
@@ -56,7 +54,6 @@ export default function NotasTab({
   const [pendentesPorMateria, setPendentesPorMateria] = useState<
     { materia: string; total: number; pendentes: number }[]
   >([]);
-  const [ordem, setOrdem] = useState<Ordem>("data");
   const [itens, setItens] = useState<ConceitoSalvo[]>([]);
   const [exportando, setExportando] = useState(false);
   const [erroExport, setErroExport] = useState<string | null>(null);
@@ -103,8 +100,8 @@ export default function NotasTab({
 
   const carregarItens = useCallback(() => {
     if (!pasta) return;
-    listarConceitos(pasta, ordem).then(setItens).catch(() => setItens([]));
-  }, [pasta, ordem]);
+    listarConceitos(pasta, "data").then(setItens).catch(() => setItens([]));
+  }, [pasta]);
 
   useEffect(carregarItens, [carregarItens]);
 
@@ -127,13 +124,13 @@ export default function NotasTab({
       .catch(() => setItensTag([]));
   }
 
-  // Sai do modo de seleção sempre que a lista muda de baixo (troca de pasta
-  // ou de ordenação) — uma seleção antiga não deve sobreviver a isso.
+  // Sai do modo de seleção sempre que a pasta muda — uma seleção antiga não
+  // deve sobreviver a isso.
   useEffect(() => {
     setSelecionando(false);
     setSelecionados(new Set());
     setConfirmandoApagarSelecionadas(false);
-  }, [pasta, ordem]);
+  }, [pasta]);
 
   // Debounce simples: evita uma consulta a cada tecla digitada. Busca em
   // paralelo nas duas fontes (notas e questões respondidas) — ver
@@ -343,18 +340,6 @@ export default function NotasTab({
           </Botao>
         )}
 
-        <div style={{ marginBottom: 14 }}>
-          <label style={rotulo}>Ordenar</label>
-          <Segmented
-            valor={ordem}
-            opcoes={[
-              { id: "data" as Ordem, label: "Mais recentes" },
-              { id: "alfabetica" as Ordem, label: "A–Z" },
-            ]}
-            onChange={setOrdem}
-          />
-        </div>
-
         {itens.length > 0 && (
           <div style={{ marginBottom: 14 }}>
             {selecionando ? (
@@ -417,7 +402,7 @@ export default function NotasTab({
                     disabled={exportando}
                     style={csvExportado ? { borderColor: C.ok, color: C.ok, flex: 1 } : { flex: 1 }}
                   >
-                    {exportando ? "Exportando…" : csvExportado ? "✓ Exportado" : `CSV (2 arquivos) · ${itens.length}`}
+                    {exportando ? "Exportando…" : csvExportado ? "✓ Exportado" : `CSV · ${itens.length}`}
                   </Botao>
                   <Botao
                     tipo="fantasma"
@@ -425,7 +410,7 @@ export default function NotasTab({
                     disabled={exportandoApkg}
                     style={apkgExportado ? { borderColor: C.ok, color: C.ok, flex: 1 } : { flex: 1 }}
                   >
-                    {exportandoApkg ? "Exportando…" : apkgExportado ? "✓ Exportado" : `.apkg (1 arquivo) · ${itens.length}`}
+                    {exportandoApkg ? "Exportando…" : apkgExportado ? "✓ Exportado" : `.apkg · ${itens.length}`}
                   </Botao>
                 </div>
                 <Botao tipo="fantasma" onClick={() => setSelecionando(true)}>
