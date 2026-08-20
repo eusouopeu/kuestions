@@ -7,6 +7,7 @@ import QuestaoCard, { type Confianca } from "../components/QuestaoCard";
 import EsqueletoQuestao from "../components/EsqueletoQuestao";
 import { Vazio } from "../components/Shell";
 import {
+  LIMIAR_APROVACAO,
   MATERIAS,
   NIVEIS,
   NIVEL_DESCRICOES,
@@ -296,7 +297,7 @@ export default function GerarView({
   }
 
   const totalQuestoesAtual = subs.length * Q_POR_SUB;
-  const minAprovacaoAtual = Math.ceil(totalQuestoesAtual * 0.9);
+  const minAprovacaoAtual = Math.ceil(totalQuestoesAtual * LIMIAR_APROVACAO);
   const subAtual = Math.floor(qIdx / Q_POR_SUB);
   const questao = subs[subAtual]?.[qIdx % Q_POR_SUB] ?? null;
   const ultimaDoBloco = qIdx === totalQuestoesAtual - 1;
@@ -925,8 +926,8 @@ export default function GerarView({
         }}
       >
         {passou
-          ? `≥ 90% de acerto: progressão liberada. "Novo bloco" já sai no nível ${cfg.nivel} desta matéria.`
-          : "Abaixo de 90%: pelo método Kumon, repita um novo bloco na mesma configuração (as questões serão variações inéditas dos mesmos padrões)."}
+          ? `≥ 80% de acerto: progressão liberada. "Novo bloco" já sai no nível ${cfg.nivel} desta matéria.`
+          : "Abaixo de 80%: pelo método Kumon, repita um novo bloco na mesma configuração (as questões serão variações inéditas dos mesmos padrões)."}
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>

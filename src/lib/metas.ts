@@ -1,7 +1,7 @@
 /**
  * Meta semanal de blocos (qualquer tipo — gerado, do banco, importado ou
  * simulado, ver Bloco em types.ts). Preferência guardada com o mesmo
- * mecanismo de tema.ts/lembretes.ts (@capacitor/preferences); a contagem em
+ * mecanismo de tema.ts (@capacitor/preferences); a contagem em
  * si vem de blocosNaSemana em repo.ts.
  */
 import { Preferences } from "@capacitor/preferences";

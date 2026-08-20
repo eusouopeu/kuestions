@@ -4,7 +4,7 @@ import Botao from "../components/Botao";
 import Segmented from "../components/Segmented";
 import QuestaoCard from "../components/QuestaoCard";
 import { Vazio } from "../components/Shell";
-import { MATERIAS, TIPOS, type TipoId } from "../lib/constants";
+import { LIMIAR_APROVACAO, MATERIAS, TIPOS, type TipoId } from "../lib/constants";
 import { normalizarQuestao } from "../lib/anthropic";
 import { criarBloco, fecharBloco, gravarResposta } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
@@ -304,7 +304,7 @@ export default function ImportarView() {
       if (ultima) {
         if (blocoId != null) {
           try {
-            await fecharBloco(blocoId, [acertos], acertos / fila.length >= 0.9);
+            await fecharBloco(blocoId, [acertos], acertos / fila.length >= LIMIAR_APROVACAO);
           } catch (e) {
             console.error("fechar bloco importado", e);
           }
@@ -338,7 +338,7 @@ export default function ImportarView() {
 
   /* ---------- RESULTADO ---------- */
   if (fase === "resultado") {
-    const passou = acertos / fila.length >= 0.9;
+    const passou = acertos / fila.length >= LIMIAR_APROVACAO;
     return (
       <div>
         <div style={{ textAlign: "center", padding: "10px 0 4px" }}>

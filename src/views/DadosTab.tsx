@@ -38,7 +38,7 @@ import {
   type Resumo,
 } from "../lib/repo";
 import { getPesosEdital, PRESETS_PESO_EDITAL, type PesosEdital } from "../lib/edital";
-import { labelFormato, labelTipo, NIVEIS } from "../lib/constants";
+import { labelFormato, labelTipo, LIMIAR_APROVACAO, NIVEIS } from "../lib/constants";
 import {
   agruparPorPrefixo,
   coberturaTopicos,
@@ -50,9 +50,9 @@ import {
 
 const TODAS = "__todas__";
 const TODOS_NIVEIS = 0;
-/** Janela do calendário de sequência (heatmap) — 15 semanas cabe inteira na
- * largura de uma tela de celular sem precisar rolar para o lado. */
-const DIAS_HEATMAP = 105;
+/** Janela do calendário de sequência (heatmap) — 20 semanas. */
+const DIAS_HEATMAP = 140;
+const LIMIAR_APROVACAO_PCT = LIMIAR_APROVACAO * 100;
 
 /** "1min 24s" / "38s" — formato compacto para os cartões de tempo médio. */
 function formatarDuracao(ms: number): string {
@@ -62,10 +62,11 @@ function formatarDuracao(ms: number): string {
   return m > 0 ? `${m}min ${resto}s` : `${resto}s`;
 }
 
-/** Vermelho abaixo de 70%, azul até 90%, verde a partir daí. */
+/** Vermelho abaixo de 60%, azul até 80% (o limiar de aprovação, ver
+ * LIMIAR_APROVACAO), verde a partir daí. */
 function corPct(pct: number): string {
-  if (pct >= 90) return C.ok;
-  if (pct >= 70) return C.caneta;
+  if (pct >= LIMIAR_APROVACAO_PCT) return C.ok;
+  if (pct >= LIMIAR_APROVACAO_PCT - 20) return C.caneta;
   return C.erro;
 }
 
@@ -93,7 +94,8 @@ function Cartao({
         style={{
           ...mono,
           fontSize: 11,
-          color: C.sub,
+          fontWeight: 700,
+          color: C.caneta,
           letterSpacing: 0.8,
           marginBottom: legenda ? 2 : 10,
           paddingLeft: 4,
@@ -138,6 +140,38 @@ function alturaRotuloQuebrado(nome: string, largura: number, fonte = 11): number
   return linhas * (fonte * 1.3);
 }
 
+let ctxMedidaTexto: CanvasRenderingContext2D | null | undefined;
+
+/** Largura real (px) de um texto na fonte/tamanho do eixo — Canvas 2D mede de
+ * verdade, ao contrário da estimativa grosseira de alturaRotuloQuebrado
+ * (que só precisa acertar a ALTURA da quebra, não a largura de cada linha). */
+function larguraTexto(texto: string): number {
+  if (ctxMedidaTexto === undefined) {
+    ctxMedidaTexto = document.createElement("canvas").getContext("2d");
+  }
+  if (!ctxMedidaTexto) return texto.length * 6.3; // fallback bruto, sem Canvas
+  ctxMedidaTexto.font = `${eixo.tick.fontSize}px ${eixo.tick.fontFamily}`;
+  return ctxMedidaTexto.measureText(texto).width;
+}
+
+/**
+ * Largura de eixo Y ajustada ao comprimento típico dos rótulos deste
+ * conjunto, em vez de uma largura fixa genérica — o recharts alinha o texto
+ * do eixo à direita (colado na barra), então uma coluna mais larga que o
+ * texto sobra em branco à ESQUERDA, entre a borda do cartão e o rótulo.
+ * Usa o percentil 60 dos comprimentos (não o maior) de propósito: a maioria
+ * dos rótulos passa a caber numa linha só e ocupar quase toda a coluna; só os
+ * poucos nomes bem mais longos que a maioria continuam quebrando em várias
+ * linhas (ver alturaRotuloQuebrado), em vez de esticar a coluna pra todo
+ * mundo por causa de um único nome extenso.
+ */
+function larguraIdealEixo(dados: { nome: string }[], min = 70, max = 190): number {
+  if (!dados.length) return min;
+  const larguras = dados.map((d) => larguraTexto(d.nome)).sort((a, b) => a - b);
+  const p60 = larguras[Math.floor((larguras.length - 1) * 0.6)];
+  return Math.round(Math.min(max, Math.max(min, p60 + 10)));
+}
+
 /** Barras de % de acerto com rótulo textual — usado em 3 dos 4 gráficos. */
 function BarrasPct({
   dados,
@@ -171,7 +205,7 @@ function BarrasPct({
             "acerto",
           ]}
         />
-        <ReferenceLine x={90} stroke={C.ok} strokeDasharray="3 3" />
+        <ReferenceLine x={LIMIAR_APROVACAO_PCT} stroke={C.ok} strokeDasharray="3 3" />
         <Bar dataKey="pct" radius={[0, 4, 4, 0]} barSize={14} isAnimationActive={false}>
           {dados.map((d) => (
             <Cell key={d.nome} fill={corPct(d.pct)} />
@@ -522,7 +556,7 @@ export default function DadosTab({
 
           {/* Calendário de sequência — mesma constância "do estudo como um
               todo", não filtrada por matéria/nível (ver comentário acima). */}
-          <Cartao titulo="CALENDÁRIO DE SEQUÊNCIA" legenda="Questões respondidas por dia, últimas 15 semanas.">
+          <Cartao titulo="CALENDÁRIO DE SEQUÊNCIA" legenda="Questões respondidas por dia, últimas 20 semanas.">
             <div style={{ padding: "0 4px 14px" }}>
               <CalendarioSequencia atividade={atividade} dias={DIAS_HEATMAP} />
             </div>
@@ -650,7 +684,7 @@ export default function DadosTab({
             legenda={
               serie.length < 2
                 ? "Um único bloco registrado: a linha aparece a partir do segundo."
-                : "Linha tracejada = 90%, o limiar de aprovação."
+                : `Linha tracejada = ${LIMIAR_APROVACAO_PCT}%, o limiar de aprovação.`
             }
           >
             <ResponsiveContainer width="100%" height={180}>
@@ -659,7 +693,7 @@ export default function DadosTab({
                 <XAxis dataKey="i" {...eixo} />
                 <YAxis domain={[0, 100]} unit="%" {...eixo} />
                 <Tooltip {...tooltipStyle} formatter={(v: number) => [`${v}%`, "acerto"]} labelFormatter={(l) => `Bloco ${l}`} />
-                <ReferenceLine y={90} stroke={C.ok} strokeDasharray="3 3" />
+                <ReferenceLine y={LIMIAR_APROVACAO_PCT} stroke={C.ok} strokeDasharray="3 3" />
                 <Line
                   type="monotone"
                   dataKey="pct"
@@ -884,7 +918,11 @@ export default function DadosTab({
               alto, mas nenhuma legenda se sobrepõe. */}
           <Cartao titulo="ACERTO POR CONCEITO">
             {dadosConceitos.length ? (
-              <BarrasPct dados={dadosConceitos} alturaPorItem={30} larguraEixo={175} />
+              <BarrasPct
+                dados={dadosConceitos}
+                alturaPorItem={30}
+                larguraEixo={larguraIdealEixo(dadosConceitos)}
+              />
             ) : (
               <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
                 Nenhum conceito com amostra suficiente ainda.

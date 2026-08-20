@@ -103,7 +103,7 @@ type Tela = "config" | "drill" | "resultado";
 
 /**
  * Simulado cronometrado: mistura questões REAIS do banco (ver lib/banco.ts)
- * de várias áreas sob um tempo limite, sem o rigor de aprovação ≥90% do
+ * de várias áreas sob um tempo limite, sem o rigor de aprovação ≥80% do
  * método Kumon — só o placar final. Diferente dos outros drills do app, as
  * respostas ficam ocultas (sem revelar gabarito por questão) até o fim, como
  * numa prova de verdade; por isso não usa QuestaoCard (que sempre revela

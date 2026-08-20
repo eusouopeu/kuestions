@@ -32,6 +32,6 @@ export function sugerirNivel(
 
   return {
     nivel: ultimoBloco.nivel,
-    motivo: `Seu último bloco desta matéria ficou abaixo de 90% (${placar}) — sugerido continuar no nível ${ultimoBloco.nivel} para consolidar.`,
+    motivo: `Seu último bloco desta matéria ficou abaixo de 80% (${placar}) — sugerido continuar no nível ${ultimoBloco.nivel} para consolidar.`,
   };
 }

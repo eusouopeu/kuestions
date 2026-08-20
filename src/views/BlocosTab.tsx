@@ -8,6 +8,7 @@ import GerarBancoView from "./GerarBancoView";
 import ImportarView from "./ImportarView";
 import { blocosNaSemana, resumo, type Resumo } from "../lib/repo";
 import { getConfigMeta, getMetasPorMateria } from "../lib/metas";
+import { LIMIAR_APROVACAO } from "../lib/constants";
 
 type View = "gerar" | "banco" | "importar";
 
@@ -65,7 +66,7 @@ function ProgressoGeral({ onDados }: { onDados: () => void }) {
               ...disp,
               fontSize: 22,
               fontWeight: 800,
-              color: pct >= 90 ? C.ok : C.caneta,
+              color: pct >= LIMIAR_APROVACAO * 100 ? C.ok : C.caneta,
               flexShrink: 0,
             }}
           >

@@ -34,6 +34,7 @@ import {
   salvarExplicacoesBanco,
 } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
+import { LIMIAR_APROVACAO } from "../lib/constants";
 import type { Questao, StatusSub } from "../lib/types";
 
 type Tela = "config" | "drill" | "resultado";
@@ -271,7 +272,7 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
     if (ultimaDoBloco) {
       if (blocoId != null) {
         try {
-          await fecharBloco(blocoId, [acertos], acertos / totalQuestoes >= 0.9);
+          await fecharBloco(blocoId, [acertos], acertos / totalQuestoes >= LIMIAR_APROVACAO);
         } catch (e) {
           console.error("fechar bloco do banco", e);
         }
@@ -579,7 +580,7 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
   }
 
   /* ---------- RESULTADO ---------- */
-  const passou = totalQuestoes > 0 && acertos / totalQuestoes >= 0.9;
+  const passou = totalQuestoes > 0 && acertos / totalQuestoes >= LIMIAR_APROVACAO;
   return (
     <div>
       <div style={{ textAlign: "center", padding: "10px 0 4px" }}>

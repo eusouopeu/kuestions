@@ -25,12 +25,6 @@ import {
   type QuestaoReportada,
   type ResultadoMesclagem,
 } from "../lib/repo";
-import {
-  getConfigLembrete,
-  lembreteDisponivel,
-  setConfigLembrete,
-  type ConfigLembrete,
-} from "../lib/lembretes";
 import { diasDesdeUltimoBackup, DIAS_PARA_AVISO_BACKUP, registrarBackupFeito } from "../lib/backupInfo";
 import { sincronizarDocumentos } from "../lib/exportarDocumentos";
 import { Capacitor } from "@capacitor/core";
@@ -114,10 +108,6 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   const [carregandoReportadas, setCarregandoReportadas] = useState(true);
   const [resolvendo, setResolvendo] = useState<number | null>(null);
 
-  const [lembrete, setLembreteLocal] = useState<ConfigLembrete>({ ativo: false, hora: 19 });
-  const [salvandoLembrete, setSalvandoLembrete] = useState(false);
-  const [erroLembrete, setErroLembrete] = useState<string | null>(null);
-
   const [meta, setMetaLocal] = useState<ConfigMeta>({ ativa: false, blocosPorSemana: 3 });
   const [metasPorMateria, setMetasPorMateriaLocal] = useState<Record<string, number>>({});
   const [materiaParaAdicionar, setMateriaParaAdicionar] = useState("");
@@ -137,7 +127,6 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
       })
       .finally(() => setCarregado(true));
     getTema().then(setTemaLocal);
-    getConfigLembrete().then(setLembreteLocal);
     getConfigMeta().then(setMetaLocal);
     getMetasPorMateria().then(setMetasPorMateriaLocal);
     getPesosEdital().then(setPesosLocal);
@@ -214,36 +203,6 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     setChave("");
     setProxy("");
     setStatus({ tom: "ok", texto: "Credenciais removidas do aparelho." });
-  }
-
-  async function alternarLembrete(ativo: boolean) {
-    setSalvandoLembrete(true);
-    setErroLembrete(null);
-    try {
-      const ok = await setConfigLembrete({ ...lembrete, ativo });
-      if (ok) setLembreteLocal((c) => ({ ...c, ativo }));
-      else
-        setErroLembrete(
-          ativo
-            ? "Permissão de notificação negada — ative nas configurações do aparelho."
-            : "Falha ao desligar o lembrete.",
-        );
-    } finally {
-      setSalvandoLembrete(false);
-    }
-  }
-
-  async function mudarHoraLembrete(hora: number) {
-    setLembreteLocal((c) => ({ ...c, hora }));
-    if (!lembrete.ativo) return; // só reagenda se já estiver ligado
-    setSalvandoLembrete(true);
-    setErroLembrete(null);
-    try {
-      const ok = await setConfigLembrete({ ativo: true, hora });
-      if (!ok) setErroLembrete("Falha ao reagendar o lembrete.");
-    } finally {
-      setSalvandoLembrete(false);
-    }
   }
 
   async function mudarMeta(novo: ConfigMeta) {
@@ -742,71 +701,6 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
           </Botao>
         </div>
       )}
-
-      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
-        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-          LEMBRETE DIÁRIO
-        </div>
-        {lembreteDisponivel && (
-          <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
-            Uma notificação por dia, no horário abaixo, para manter a sequência de prática.
-          </div>
-        )}
-
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
-          <span style={{ fontSize: 13.5 }}>Avisar todo dia</span>
-          <button
-            role="switch"
-            aria-checked={lembrete.ativo}
-            disabled={!lembreteDisponivel || salvandoLembrete}
-            onClick={() => alternarLembrete(!lembrete.ativo)}
-            style={{
-              width: 44,
-              height: 26,
-              borderRadius: 13,
-              border: "none",
-              padding: 3,
-              display: "flex",
-              justifyContent: lembrete.ativo ? "flex-end" : "flex-start",
-              background: lembrete.ativo ? C.caneta : C.line,
-              cursor: !lembreteDisponivel || salvandoLembrete ? "default" : "pointer",
-              opacity: !lembreteDisponivel ? 0.5 : 1,
-              transition: "background 0.15s",
-            }}
-          >
-            <span
-              style={{
-                width: 20,
-                height: 20,
-                borderRadius: "50%",
-                background: C.card,
-              }}
-            />
-          </button>
-        </div>
-
-        {lembrete.ativo && (
-          <div style={{ marginTop: 12 }}>
-            <label style={rotulo}>Horário</label>
-            <select
-              style={campo}
-              value={lembrete.hora}
-              disabled={salvandoLembrete}
-              onChange={(e) => mudarHoraLembrete(Number(e.target.value))}
-            >
-              {Array.from({ length: 24 }, (_, h) => (
-                <option key={h} value={h}>
-                  {String(h).padStart(2, "0")}:00
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
-
-        {erroLembrete && (
-          <div style={{ ...mono, fontSize: 11.5, color: C.erro, marginTop: 10 }}>{erroLembrete}</div>
-        )}
-      </div>
 
       <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>

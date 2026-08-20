@@ -20,7 +20,7 @@ describe("sugerirNivel", () => {
   it("bloco reprovado sugere repetir o mesmo nível", () => {
     const r = sugerirNivel({ nivel: 3, total_acertos: 8, total_questoes: 12, aprovado: false });
     expect(r?.nivel).toBe(3);
-    expect(r?.motivo).toContain("abaixo de 90%");
+    expect(r?.motivo).toContain("abaixo de 80%");
   });
 
   it("bloco sem questões (total_questoes 0) não sugere nada", () => {

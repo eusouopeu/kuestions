@@ -91,11 +91,9 @@ export const Q_POR_SUB = 3;
 export const N_SUBS = 4;
 export const Q_POR_BLOCO = Q_POR_SUB * N_SUBS; // 12
 
-/**
- * Aprovação em ≥ 90% de acerto. Com 12 questões, 90% = 10,8 → exige 11.
- * Mantém o critério do artefato (18/20 = 90%) na nova contagem.
- */
-export const MIN_APROVACAO = Math.ceil(Q_POR_BLOCO * 0.9); // 11
+/** Aprovação em ≥ 80% de acerto (ver minAprovacaoAtual em GerarView.tsx e o
+ * mesmo limiar em GerarBancoView/ImportarView). */
+export const LIMIAR_APROVACAO = 0.8;
 
 export function labelTipo(id: string): string {
   return TIPOS.find((t) => t.id === id)?.label ?? id;

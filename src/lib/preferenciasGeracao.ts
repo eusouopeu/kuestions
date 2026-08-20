@@ -2,7 +2,7 @@
  * Preferência única (Ajustes) para "gerar comentário/explicações de IA já na
  * criação do bloco" — antes era um toggle repetido em cada tela de geração
  * (GerarView, GerarBancoView), que resetava para o padrão a cada visita.
- * Guardado com o mesmo mecanismo de tema.ts/lembretes.ts (@capacitor/preferences).
+ * Guardado com o mesmo mecanismo de tema.ts (@capacitor/preferences).
  */
 import { Preferences } from "@capacitor/preferences";
 

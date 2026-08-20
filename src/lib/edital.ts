@@ -6,7 +6,7 @@
  * proporcionalmente ao peso em vez de por disponibilidade (ver SimuladoView).
  *
  * Guardado como um mapa livre nome→peso (mesmo mecanismo de Preferences de
- * metas.ts/lembretes.ts) em vez de amarrado a MATERIAS ou AREAS_BANCO: os
+ * metas.ts) em vez de amarrado a MATERIAS ou AREAS_BANCO: os
  * dois conjuntos têm rótulos que não batem 1:1 (ver comentário em
  * lib/banco.ts), então um mapa por string cobre os dois sem precisar de
  * mapeamento manual entre eles. Uma matéria sem entrada no mapa conta peso
