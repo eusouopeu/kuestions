@@ -14,7 +14,7 @@ export const MATERIAS = [
   "Legislação Tributária Estadual (BA)",
   "Direito Administrativo",
   "Auditoria",
-  "Administração Financeira e Orçamentária",
+  "AFO",
   "Matemática Financeira",
   "Economia",
   "Estatística",

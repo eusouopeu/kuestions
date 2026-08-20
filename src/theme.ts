@@ -1,6 +1,7 @@
 /**
- * Identidade visual herdada de Questoes-Kumon.jsx — paleta `C` e as duas
- * famílias tipográficas (Archivo para display, IBM Plex Mono para rótulos).
+ * Identidade visual: paleta `C` (roxo como cor primária, fundo branco/cinza
+ * no tema claro — inspirada no Estratégia) e uma família tipográfica só,
+ * Montserrat, sem serifa nem monoespaçado.
  *
  * Os valores em si (claro e escuro) vivem em styles.css como variáveis CSS —
  * aqui só os nomes das variáveis, para que o tema escuro funcione em todo
@@ -25,12 +26,17 @@ export const C = {
   realce: "var(--realce)",
 } as const;
 
+// Uma família só (Montserrat) para todo o app — sem serifa, sem monoespaçado.
+// `mono` continua existindo como token separado (rótulos, chips, datas usam
+// peso/tamanho/letter-spacing diferentes de `disp`), só a fonte em si mudou.
+const SANS = "'Montserrat', system-ui, -apple-system, sans-serif";
+
 export const mono: CSSProperties = {
-  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+  fontFamily: SANS,
 };
 
 export const disp: CSSProperties = {
-  fontFamily: "'Archivo', system-ui, sans-serif",
+  fontFamily: SANS,
 };
 
 /** Rótulo de campo: mono, minúsculo→caixa alta, cinza. */

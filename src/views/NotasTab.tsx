@@ -246,7 +246,7 @@ export default function NotasTab({
   /* ---------- Revisão ativa (repetição espaçada) ---------- */
   if (revisando) {
     return (
-      <Shell kicker="NOTAS" titulo="Revisão">
+      <Shell titulo="Revisão">
         <RevisaoNotas
           materia={revisando.materia}
           onSair={() => {
@@ -261,7 +261,7 @@ export default function NotasTab({
   /* ---------- Notas de uma tag (nuvem de tags) ---------- */
   if (tagAberta) {
     return (
-      <Shell kicker={`NOTAS · TAG`} titulo={tagAberta}>
+      <Shell titulo={tagAberta}>
         <button
           onClick={() => {
             setTagAberta(null);
@@ -314,7 +314,7 @@ export default function NotasTab({
     const todasSelecionadas = itens.length > 0 && selecionados.size === itens.length;
     const pendentesPasta = pendentesPorMateria.find((p) => p.materia === pasta)?.pendentes ?? 0;
     return (
-      <Shell kicker={`NOTAS · ${itens.length} NOTA${itens.length === 1 ? "" : "S"}`} titulo={pasta}>
+      <Shell titulo={pasta}>
         <button
           onClick={() => setPasta(null)}
           style={{
@@ -523,7 +523,7 @@ export default function NotasTab({
   const totalPendentes = pendentesPorMateria.reduce((a, p) => a + p.pendentes, 0);
 
   return (
-    <Shell kicker="BANCO DE NOTAS" titulo="Notas">
+    <Shell titulo="Notas">
       {totalPendentes > 0 && !buscaAtiva && (
         <Botao
           tipo="tinta"

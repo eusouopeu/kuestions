@@ -109,13 +109,13 @@ const tooltipStyle = {
     border: `1.5px solid ${C.line}`,
     borderRadius: 8,
     fontSize: 12,
-    fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+    fontFamily: "'Montserrat', system-ui, sans-serif",
   },
   labelStyle: { color: C.sub, fontSize: 11 },
 } as const;
 
 const eixo = {
-  tick: { fontSize: 11, fill: C.sub, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" },
+  tick: { fontSize: 11, fill: C.sub, fontFamily: "'Montserrat', system-ui, sans-serif" },
   stroke: C.line,
 } as const;
 
@@ -377,7 +377,7 @@ export default function DadosTab({
   }));
 
   return (
-    <Shell kicker="DESEMPENHO" titulo="Dados">
+    <Shell titulo="Dados">
       <div style={{ display: "flex", gap: 10, marginBottom: 16, flexWrap: "wrap" }}>
         <div style={{ flex: "1 1 160px" }}>
           <label style={rotulo}>Matéria</label>

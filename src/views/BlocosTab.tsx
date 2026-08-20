@@ -6,7 +6,6 @@ import Segmented from "../components/Segmented";
 import GerarView from "./GerarView";
 import GerarBancoView from "./GerarBancoView";
 import ImportarView from "./ImportarView";
-import { Q_POR_BLOCO } from "../lib/constants";
 import { blocosNaSemana, resumo, type Resumo } from "../lib/repo";
 import { getConfigMeta, getMetasPorMateria } from "../lib/metas";
 
@@ -243,7 +242,7 @@ export default function BlocosTab({
   const [view, setView] = useState<View>("gerar");
 
   return (
-    <Shell kicker={`BLOCO DE ${Q_POR_BLOCO} · MÉTODO KUMON · ÁREA FISCAL`} titulo="Blocos">
+    <Shell titulo="Blocos">
       <ProgressoGeral onDados={onDados} />
 
       <div style={{ marginBottom: 18 }}>

@@ -430,7 +430,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   }
 
   return (
-    <Shell kicker="CONFIGURAÇÃO" titulo="Ajustes">
+    <Shell titulo="Ajustes">
       <div style={{ marginBottom: 18 }}>
         <label style={rotulo}>Tema</label>
         <Segmented

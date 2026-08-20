@@ -18,7 +18,7 @@ import {
 } from "@capacitor-community/sqlite";
 
 const DB_NAME = "kumon_fiscal";
-const SCHEMA_VERSION = 10;
+const SCHEMA_VERSION = 11;
 
 const sqlite = new SQLiteConnection(CapacitorSQLite);
 const isWeb = Capacitor.getPlatform() === "web";
@@ -238,6 +238,19 @@ const MIGRATIONS: { version: number; sql: string }[] = [
     version: 10,
     sql: `
       ALTER TABLE questoes_respondidas ADD COLUMN confianca TEXT;
+    `,
+  },
+  {
+    // "Administração Financeira e Orçamentária" virou "AFO" em MATERIAS
+    // (constants.ts) — renomeia também o histórico já gravado com o nome
+    // antigo, para não fragmentar blocos/respostas/notas da mesma matéria
+    // em dois nomes diferentes nas agregações da aba Dados e nas pastas de
+    // Notas.
+    version: 11,
+    sql: `
+      UPDATE blocos SET materia = 'AFO' WHERE materia = 'Administração Financeira e Orçamentária';
+      UPDATE questoes_respondidas SET materia = 'AFO' WHERE materia = 'Administração Financeira e Orçamentária';
+      UPDATE conceitos_salvos SET materia = 'AFO' WHERE materia = 'Administração Financeira e Orçamentária';
     `,
   },
 ];

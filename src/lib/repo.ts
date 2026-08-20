@@ -415,17 +415,6 @@ export async function buscarQuestoesRespondidas(termo: string): Promise<QuestaoR
   return rows.map(mapQuestao);
 }
 
-/** Todas as questões de UM bloco específico, na ordem em que apareceram —
- * base do agrupamento "Bloco" dentro do filtro "Blocos anteriores" de
- * Refazer, que reabre um bloco já fechado (gerado por IA, importado ou
- * montado do banco de questões) inteiro para nova prática. */
-export async function listarPorBloco(blocoId: number): Promise<QuestaoRespondida[]> {
-  const rows = await all(`SELECT * FROM questoes_respondidas WHERE bloco_id = ? ORDER BY id ASC`, [
-    blocoId,
-  ]);
-  return rows.map(mapQuestao);
-}
-
 /** Dias até a próxima revisão, indexado pela caixa (1–5) alcançada ao
  * acertar — progressão inspirada no sistema de Leitner: quem acerta de novo
  * espera cada vez mais para revisar; quem erra volta à caixa 1 (vence agora). */

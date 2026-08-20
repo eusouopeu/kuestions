@@ -1,25 +1,25 @@
 import { useState } from "react";
-import { ArrowPathIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { ArrowPathIcon, ClockIcon, RectangleStackIcon } from "@heroicons/react/24/outline";
 import Shell from "../components/Shell";
 import Segmented from "../components/Segmented";
 import RefazerView from "./RefazerView";
+import BlocosAnterioresView from "./BlocosAnterioresView";
 import SimuladoView from "./SimuladoView";
-import { Q_POR_BLOCO } from "../lib/constants";
 
-type View = "refazer" | "simulado";
+type View = "refazer" | "simulado" | "blocos-anteriores";
 
 /**
  * Aba Questões: praticar conteúdo já existente — refazer o que já foi
- * respondido, ou fazer um simulado cronometrado. Montar bloco do zero
- * (gerar com IA, sortear do banco de questões ou importar) ficou na aba
- * Blocos. As duas formas ficam num seletor no topo da própria aba, não em
- * abas separadas.
+ * respondido, reabrir blocos anteriores inteiros, ou fazer um simulado
+ * cronometrado. Montar bloco do zero (gerar com IA, sortear do banco de
+ * questões ou importar) ficou na aba Blocos. As três formas ficam num
+ * seletor no topo da própria aba, não em abas separadas.
  */
 export default function QuestoesTab() {
   const [view, setView] = useState<View>("refazer");
 
   return (
-    <Shell kicker={`BLOCO DE ${Q_POR_BLOCO} · MÉTODO KUMON · ÁREA FISCAL`} titulo="Questões">
+    <Shell titulo="Questões">
       <div style={{ marginBottom: 18 }}>
         <Segmented
           valor={view}
@@ -34,6 +34,11 @@ export default function QuestoesTab() {
               label: "Simulado",
               icone: (cor) => <ClockIcon width={16} height={16} stroke={cor} strokeWidth={1.8} />,
             },
+            {
+              id: "blocos-anteriores" as View,
+              label: "Blocos anteriores",
+              icone: (cor) => <RectangleStackIcon width={16} height={16} stroke={cor} strokeWidth={1.8} />,
+            },
           ]}
           onChange={setView}
         />
@@ -41,6 +46,7 @@ export default function QuestoesTab() {
 
       {view === "refazer" && <RefazerView />}
       {view === "simulado" && <SimuladoView />}
+      {view === "blocos-anteriores" && <BlocosAnterioresView />}
     </Shell>
   );
 }

@@ -1,13 +1,11 @@
 import type { ReactNode } from "react";
-import { C, disp, mono, TAB_BAR_H } from "../theme";
+import { C, disp, TAB_BAR_H } from "../theme";
 
 /** Cabeçalho + coluna centrada de 620px, como no artefato. */
 export default function Shell({
-  kicker,
   titulo,
   children,
 }: {
-  kicker: string;
   titulo: string;
   children: ReactNode;
 }) {
@@ -20,13 +18,12 @@ export default function Shell({
           marginBottom: 18,
         }}
       >
-        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 1 }}>{kicker}</div>
         <h1
           style={{
             ...disp,
             fontSize: 26,
             fontWeight: 800,
-            margin: "4px 0 10px",
+            margin: "0 0 10px",
             letterSpacing: -0.5,
           }}
         >
