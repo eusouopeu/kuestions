@@ -78,19 +78,21 @@ export interface Bloco {
 
 /**
  * Linha de `conceitos_salvos` — uma nota criada ao selecionar um trecho de
- * texto de uma questão. `termo`/`definicao` (nomes antigos, do fluxo de chip
- * de conceito) não são mais lidos pelo app; sobrevivem só como colunas
- * mortas para não exigir DROP COLUMN em todo aparelho já com o app instalado.
+ * texto de uma questão. `termo`/`definicao`/`titulo`/`tag` (nomes antigos, dos
+ * fluxos de chip de conceito e de nota com título) não são mais lidos pelo
+ * app; sobrevivem só como colunas mortas para não exigir DROP COLUMN em todo
+ * aparelho já com o app instalado.
  */
 export interface ConceitoSalvo {
   id: number;
   materia: string;
-  /** Digitado pelo usuário ao salvar a seleção. */
-  titulo: string;
   /** O trecho selecionado na questão (editável antes de salvar). */
   corpo: string;
-  /** Assunto do bloco de origem, resumido a ≤3 palavras hifenizadas. */
-  tag: string;
+  /** Tags livres, em ordem de criação. `tags[0]` é sempre a "tag de origem" —
+   * assunto do bloco de origem, resumido a ≤3 palavras hifenizadas, atribuída
+   * ao salvar a nota — e fica travada contra remoção na edição; o resto é
+   * livre para o usuário adicionar/remover. */
+  tags: string[];
   questao_origem_id: number | null;
   /** Caixa de Leitner atual (1–5) da revisão ativa desta nota — ver
    * registrarRevisaoNota em lib/repo.ts. Mesmo esquema de repetição espaçada

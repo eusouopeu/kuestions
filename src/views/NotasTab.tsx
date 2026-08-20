@@ -4,13 +4,10 @@ import { C, campo, cartao, disp, mono, rotulo } from "../theme";
 import Shell, { Vazio } from "../components/Shell";
 import Segmented from "../components/Segmented";
 import Botao from "../components/Botao";
-import Chip from "../components/Chip";
-import CampoCorpoNota from "../components/CampoCorpoNota";
+import NotaCard from "../components/NotaCard";
 import {
   apagarConceito,
-  atualizarNota,
   buscarNotas,
-  buscarQuestaoPorId,
   contarNotasPendentesPorMateria,
   listarConceitos,
   listarNotasPendentes,
@@ -20,18 +17,15 @@ import {
 import { exportarArquivo } from "../lib/exportar";
 import { gerarArquivosFlashcards } from "../lib/flashcards";
 import { slugify } from "../lib/texto";
-import type { ConceitoSalvo, QuestaoRespondida } from "../lib/types";
+import TextoComMarcaTexto from "../components/TextoComMarcaTexto";
+import type { ConceitoSalvo } from "../lib/types";
 
 type Ordem = "data" | "alfabetica";
 
-function dataCurta(iso: string): string {
-  const d = new Date(iso);
-  return Number.isNaN(d.getTime())
-    ? "—"
-    : d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "2-digit" });
-}
-
-/** Banco de notas: pastas por matéria → lista → detalhe editável. */
+/** Banco de notas: pastas por matéria → lista, cada nota por inteiro (ver
+ * NotaCard) — não há mais uma tela de detalhe separada: visualizar, editar,
+ * ver a questão de origem e apagar acontecem tudo dentro do próprio cartão
+ * da nota, na lista. */
 export default function NotasTab({
   ativa,
   onQuestoes,
@@ -51,14 +45,13 @@ export default function NotasTab({
   >([]);
   const [ordem, setOrdem] = useState<Ordem>("data");
   const [itens, setItens] = useState<ConceitoSalvo[]>([]);
-  const [aberto, setAberto] = useState<ConceitoSalvo | null>(null);
   const [exportando, setExportando] = useState(false);
   const [erroExport, setErroExport] = useState<string | null>(null);
   const [csvExportado, setCsvExportado] = useState(false);
 
   // Busca cross-matéria: só ativa na tela de pastas (pasta === null). Mantida
-  // separada da navegação em pastas para que voltar do detalhe de uma nota
-  // aberta a partir de um resultado de busca preserve o texto buscado.
+  // separada da navegação em pastas para que trocar de pasta não perca o
+  // texto buscado.
   const [busca, setBusca] = useState("");
   const [buscando, setBuscando] = useState(false);
   const [resultadosBusca, setResultadosBusca] = useState<ConceitoSalvo[]>([]);
@@ -188,29 +181,6 @@ export default function NotasTab({
           onSair={() => {
             setRevisando(null);
             carregarPastas();
-          }}
-        />
-      </Shell>
-    );
-  }
-
-  /* ---------- Detalhe ---------- */
-  if (aberto) {
-    return (
-      <Shell kicker="NOTAS" titulo={aberto.titulo}>
-        <Detalhe
-          conceito={aberto}
-          onVoltar={() => setAberto(null)}
-          onSalvo={(c) => {
-            setAberto(c);
-            carregarItens();
-            setResultadosBusca((rs) => rs.map((r) => (r.id === c.id ? c : r)));
-          }}
-          onApagado={() => {
-            setAberto(null);
-            carregarItens();
-            carregarPastas();
-            setResultadosBusca((rs) => rs.filter((r) => r.id !== aberto.id));
           }}
         />
       </Shell>
@@ -399,78 +369,22 @@ export default function NotasTab({
         {itens.length === 0 ? (
           <Vazio>Esta pasta está vazia.</Vazio>
         ) : (
-          itens.map((c) => {
-            const marcada = selecionados.has(c.id);
-            return (
-              <button
-                key={c.id}
-                onClick={() => (selecionando ? alternarSelecao(c.id) : setAberto(c))}
-                style={{
-                  ...cartao,
-                  display: "flex",
-                  width: "100%",
-                  alignItems: "flex-start",
-                  gap: 10,
-                  textAlign: "left",
-                  padding: "12px 14px",
-                  marginBottom: 8,
-                  cursor: "pointer",
-                  borderColor: marcada ? C.caneta : C.line,
-                  background: marcada ? C.canetaSoft : C.card,
-                }}
-              >
-                {selecionando && (
-                  <span
-                    aria-hidden
-                    style={{
-                      flexShrink: 0,
-                      marginTop: 3,
-                      width: 16,
-                      height: 16,
-                      borderRadius: 4,
-                      border: `1.5px solid ${marcada ? C.caneta : C.line}`,
-                      background: marcada ? C.caneta : "transparent",
-                    }}
-                  />
-                )}
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      gap: 10,
-                      alignItems: "baseline",
-                    }}
-                  >
-                    <span style={{ ...disp, fontSize: 15, fontWeight: 600 }}>{c.titulo}</span>
-                    <span style={{ ...mono, fontSize: 10.5, color: C.sub, flexShrink: 0 }}>
-                      {dataCurta(c.ts)}
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      fontSize: 13,
-                      color: C.sub,
-                      marginTop: 4,
-                      lineHeight: 1.45,
-                      // Trecho do corpo: 2 linhas, o resto no detalhe.
-                      display: "-webkit-box",
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                    }}
-                  >
-                    {c.corpo || "Sem conteúdo."}
-                  </div>
-                  {c.tag && (
-                    <div style={{ marginTop: 6 }}>
-                      <Chip>{c.tag}</Chip>
-                    </div>
-                  )}
-                </div>
-              </button>
-            );
-          })
+          itens.map((c) => (
+            <NotaCard
+              key={c.id}
+              conceito={c}
+              selecionando={selecionando}
+              marcada={selecionados.has(c.id)}
+              onToggleSelecao={() => alternarSelecao(c.id)}
+              onAtualizado={(atualizado) => {
+                setItens((is) => is.map((i) => (i.id === atualizado.id ? atualizado : i)));
+              }}
+              onApagado={() => {
+                carregarItens();
+                carregarPastas();
+              }}
+            />
+          ))
         )}
       </Shell>
     );
@@ -496,7 +410,7 @@ export default function NotasTab({
         <div style={{ marginBottom: 16 }}>
           <input
             style={campo}
-            placeholder="Buscar em título, corpo ou tag…"
+            placeholder="Buscar em corpo ou tag…"
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
           />
@@ -514,51 +428,21 @@ export default function NotasTab({
               {resultadosBusca.length} RESULTADO{resultadosBusca.length === 1 ? "" : "S"}
             </div>
             {resultadosBusca.map((c) => (
-              <button
+              <NotaCard
                 key={c.id}
-                onClick={() => setAberto(c)}
-                style={{
-                  ...cartao,
-                  display: "block",
-                  width: "100%",
-                  textAlign: "left",
-                  padding: "12px 14px",
-                  marginBottom: 8,
-                  cursor: "pointer",
+                conceito={c}
+                mostrarMateria
+                selecionando={false}
+                marcada={false}
+                onToggleSelecao={() => {}}
+                onAtualizado={(atualizado) => {
+                  setResultadosBusca((rs) => rs.map((r) => (r.id === atualizado.id ? atualizado : r)));
                 }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    gap: 10,
-                    alignItems: "baseline",
-                  }}
-                >
-                  <span style={{ ...disp, fontSize: 15, fontWeight: 600 }}>{c.titulo}</span>
-                  <span style={{ ...mono, fontSize: 10.5, color: C.sub, flexShrink: 0 }}>
-                    {dataCurta(c.ts)}
-                  </span>
-                </div>
-                <div
-                  style={{
-                    fontSize: 13,
-                    color: C.sub,
-                    marginTop: 4,
-                    lineHeight: 1.45,
-                    display: "-webkit-box",
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }}
-                >
-                  {c.corpo || "Sem conteúdo."}
-                </div>
-                <div style={{ marginTop: 6 }}>
-                  <Chip tom="neutro">{c.materia}</Chip>
-                  {c.tag && <Chip>{c.tag}</Chip>}
-                </div>
-              </button>
+                onApagado={() => {
+                  setResultadosBusca((rs) => rs.filter((r) => r.id !== c.id));
+                  carregarPastas();
+                }}
+              />
             ))}
           </>
         )
@@ -604,182 +488,11 @@ export default function NotasTab({
   );
 }
 
-/* ---------- Detalhe / edição ---------- */
-
-function Detalhe({
-  conceito,
-  onVoltar,
-  onSalvo,
-  onApagado,
-}: {
-  conceito: ConceitoSalvo;
-  onVoltar: () => void;
-  onSalvo: (c: ConceitoSalvo) => void;
-  onApagado: () => void;
-}) {
-  const [editando, setEditando] = useState(false);
-  const [titulo, setTitulo] = useState(conceito.titulo);
-  const [corpo, setCorpo] = useState(conceito.corpo);
-  const [tag, setTag] = useState(conceito.tag);
-  const [confirmando, setConfirmando] = useState(false);
-  const [erro, setErro] = useState<string | null>(null);
-  const [vendoOrigem, setVendoOrigem] = useState(false);
-
-  async function salvar() {
-    const t = titulo.trim();
-    if (!t) {
-      setErro("O título não pode ficar vazio.");
-      return;
-    }
-    setErro(null);
-    try {
-      const tagFinal = tag.trim() || "geral";
-      await atualizarNota(conceito.id, t, corpo.trim(), tagFinal);
-      onSalvo({ ...conceito, titulo: t, corpo: corpo.trim(), tag: tagFinal });
-      setEditando(false);
-    } catch {
-      setErro("Falha ao salvar.");
-    }
-  }
-
-  if (editando) {
-    return (
-      <div>
-        <div style={{ marginBottom: 14 }}>
-          <label style={rotulo}>Título</label>
-          <input style={campo} value={titulo} onChange={(e) => setTitulo(e.target.value)} />
-        </div>
-        <div style={{ marginBottom: 14 }}>
-          <CampoCorpoNota valor={corpo} onChange={setCorpo} minHeight={160} />
-        </div>
-        <div style={{ marginBottom: 14 }}>
-          <label style={rotulo}>Tag</label>
-          <input style={{ ...campo, ...mono, fontSize: 13 }} value={tag} onChange={(e) => setTag(e.target.value)} />
-        </div>
-        {erro && (
-          <div style={{ ...mono, fontSize: 12, color: C.erro, marginBottom: 10 }}>{erro}</div>
-        )}
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          <Botao tipo="tinta" onClick={salvar}>
-            Salvar alterações
-          </Botao>
-          <Botao
-            tipo="fantasma"
-            onClick={() => {
-              setTitulo(conceito.titulo);
-              setCorpo(conceito.corpo);
-              setTag(conceito.tag);
-              setErro(null);
-              setEditando(false);
-            }}
-          >
-            Cancelar
-          </Botao>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <button
-        onClick={onVoltar}
-        style={{
-          ...mono,
-          display: "block",
-          marginBottom: 14,
-          fontSize: 12,
-          background: "none",
-          border: "none",
-          color: C.sub,
-          cursor: "pointer",
-          textDecoration: "underline",
-          padding: 0,
-        }}
-      >
-        ← Voltar à lista
-      </button>
-
-      <div style={{ ...cartao, marginBottom: 14 }}>
-        <div style={{ ...mono, fontSize: 10.5, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
-          {conceito.materia.toUpperCase()} · {dataCurta(conceito.ts)}
-        </div>
-        <p style={{ fontSize: 15, lineHeight: 1.6, margin: "0 0 12px", whiteSpace: "pre-wrap" }}>
-          {conceito.corpo || "Sem conteúdo. Toque em Editar para escrever."}
-        </p>
-        {conceito.tag && <Chip>{conceito.tag}</Chip>}
-      </div>
-
-      {vendoOrigem && conceito.questao_origem_id != null && (
-        <div style={{ marginBottom: 14 }}>
-          <QuestaoOrigem id={conceito.questao_origem_id} onFechar={() => setVendoOrigem(false)} />
-        </div>
-      )}
-
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        <Botao tipo="fantasma" onClick={() => setEditando(true)}>
-          Editar
-        </Botao>
-
-        {conceito.questao_origem_id != null && !vendoOrigem && (
-          <Botao tipo="fantasma" onClick={() => setVendoOrigem(true)}>
-            Ver questão de origem
-          </Botao>
-        )}
-
-        {confirmando ? (
-          <div
-            style={{
-              background: C.erroSoft,
-              border: `1.5px solid ${C.erro}`,
-              borderRadius: 10,
-              padding: "12px 14px",
-            }}
-          >
-            <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
-              Apagar “{conceito.titulo}” desta pasta? Não há como desfazer.
-            </div>
-            <div style={{ display: "flex", gap: 8 }}>
-              <Botao
-                tipo="fantasma"
-                onClick={() => setConfirmando(false)}
-                style={{ background: C.card }}
-              >
-                Cancelar
-              </Botao>
-              <Botao
-                onClick={async () => {
-                  try {
-                    await apagarConceito(conceito.id);
-                    onApagado();
-                  } catch {
-                    setErro("Falha ao apagar.");
-                    setConfirmando(false);
-                  }
-                }}
-                style={{ background: C.erro, borderColor: C.erro }}
-              >
-                Apagar
-              </Botao>
-            </div>
-          </div>
-        ) : (
-          <Botao tipo="fantasma" onClick={() => setConfirmando(true)} style={{ color: C.erro }}>
-            Apagar nota
-          </Botao>
-        )}
-
-        {erro && <div style={{ ...mono, fontSize: 12, color: C.erro }}>{erro}</div>}
-      </div>
-    </div>
-  );
-}
-
 /* ---------- Revisão ativa (repetição espaçada) ---------- */
 
 /**
- * Flashcard virado: mostra o título, o usuário se autoavalia antes de virar
- * ("lembrei" / "não lembrei" do conteúdo), então revela o corpo. Mesmo
+ * Flashcard virado: mostra matéria e tags, o usuário se autoavalia antes de
+ * virar ("lembrei" / "não lembrei" do conteúdo), então revela o corpo. Mesmo
  * esquema de caixas de Leitner de "Refazer erradas" (ver
  * registrarRevisaoNota em repo.ts), aplicado à nota em vez à questão de
  * origem — permite revisar ativamente sem depender do Anki.
@@ -851,11 +564,10 @@ function RevisaoNotas({
       </div>
 
       <div style={{ ...cartao, minHeight: 180, display: "flex", flexDirection: "column" }}>
-        <div style={{ ...mono, fontSize: 10.5, color: C.sub, letterSpacing: 0.8, marginBottom: 10 }}>
+        <div style={{ ...mono, fontSize: 10.5, color: C.sub, letterSpacing: 0.8 }}>
           {nota.materia.toUpperCase()}
-          {nota.tag ? ` · ${nota.tag}` : ""}
+          {nota.tags.length ? ` · ${nota.tags.join(" · ")}` : ""}
         </div>
-        <div style={{ ...disp, fontSize: 18, fontWeight: 700 }}>{nota.titulo}</div>
         {revelado && (
           <p
             style={{
@@ -867,7 +579,7 @@ function RevisaoNotas({
               borderTop: `1.5px dashed ${C.line}`,
             }}
           >
-            {nota.corpo || "Sem conteúdo."}
+            {nota.corpo ? <TextoComMarcaTexto texto={nota.corpo} /> : "Sem conteúdo."}
           </p>
         )}
       </div>
@@ -907,107 +619,6 @@ function RevisaoNotas({
       >
         Sair da revisão{lembradas ? ` (${lembradas} lembrada${lembradas > 1 ? "s" : ""})` : ""}
       </button>
-    </div>
-  );
-}
-
-/* ---------- Questão de origem (rec. 10 — link nota → questão) ---------- */
-
-const LETRAS_ORIGEM = ["A", "B", "C", "D", "E"];
-
-/** Resumo somente-leitura da questão que originou a nota — não é o
- * QuestaoCard interativo do drill (essa questão já foi respondida em algum
- * momento passado); só mostra enunciado, gabarito e o que o usuário marcou. */
-function QuestaoOrigem({ id, onFechar }: { id: number; onFechar: () => void }) {
-  const [questao, setQuestao] = useState<QuestaoRespondida | null | undefined>(undefined);
-
-  useEffect(() => {
-    buscarQuestaoPorId(id)
-      .then(setQuestao)
-      .catch(() => setQuestao(null));
-  }, [id]);
-
-  if (questao === undefined) return <Vazio>Carregando…</Vazio>;
-  if (questao === null) {
-    return <Vazio>Questão de origem não encontrada (pode ter sido removida).</Vazio>;
-  }
-
-  return (
-    <div style={{ ...cartao }}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "baseline",
-          marginBottom: 8,
-        }}
-      >
-        <div style={{ ...mono, fontSize: 10.5, color: C.sub, letterSpacing: 0.8 }}>
-          QUESTÃO DE ORIGEM · {dataCurta(questao.ts)}
-        </div>
-        <button
-          onClick={onFechar}
-          style={{
-            ...mono,
-            fontSize: 11,
-            background: "none",
-            border: "none",
-            color: C.sub,
-            cursor: "pointer",
-            textDecoration: "underline",
-            padding: 0,
-          }}
-        >
-          Fechar
-        </button>
-      </div>
-
-      <p style={{ fontSize: 14.5, lineHeight: 1.55, margin: "0 0 10px" }}>{questao.enunciado}</p>
-
-      {questao.formato === "mc" && questao.alternativas ? (
-        <div style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: 10 }}>
-          {questao.alternativas.map((alt, i) => {
-            const l = LETRAS_ORIGEM[i];
-            const ehGabarito = l === questao.gabarito;
-            const ehResposta = l === questao.resposta;
-            return (
-              <div
-                key={l}
-                style={{
-                  fontSize: 13,
-                  padding: "5px 8px",
-                  borderRadius: 6,
-                  background: ehGabarito ? C.okSoft : ehResposta ? C.erroSoft : "transparent",
-                  color: ehGabarito ? C.ok : ehResposta ? C.erro : C.ink,
-                }}
-              >
-                {alt}
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div style={{ ...mono, fontSize: 12.5, marginBottom: 10, color: C.sub }}>
-          Gabarito: {questao.gabarito === "C" ? "CERTO" : "ERRADO"} · Sua resposta:{" "}
-          {questao.resposta ? (questao.resposta === "C" ? "CERTO" : "ERRADO") : "—"}
-        </div>
-      )}
-
-      <div
-        style={{
-          ...mono,
-          fontSize: 11.5,
-          fontWeight: 600,
-          color: questao.acertou ? C.ok : C.erro,
-          marginBottom: questao.comentario ? 8 : 0,
-        }}
-      >
-        {questao.resposta ? (questao.acertou ? "✓ Você acertou" : "✗ Você errou") : "Não respondida"}
-      </div>
-
-      {questao.comentario && (
-        <p style={{ fontSize: 13, lineHeight: 1.5, color: C.sub, margin: 0 }}>{questao.comentario}</p>
-      )}
     </div>
   );
 }

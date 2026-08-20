@@ -132,6 +132,16 @@ export function segmentarMarcaTexto(corpo: string): SegmentoMarcaTexto[] {
   return segmentos;
 }
 
+/** Data curta ("18/08/26") a partir de um ISO — usado nos cartões de nota e
+ * de questão de origem. Data inválida/ausente vira "—" em vez de "Invalid
+ * Date" na tela. */
+export function dataCurta(iso: string): string {
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime())
+    ? "—"
+    : d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "2-digit" });
+}
+
 /** Nome de arquivo seguro a partir de um texto livre (ex.: nome da matéria). */
 export function slugify(texto: string): string {
   const s = semAcento(texto.toLowerCase())

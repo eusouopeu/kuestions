@@ -23,7 +23,6 @@ import {
   porFormato,
   porNivel,
   porTipo,
-  preverAprovacao,
   questoesPorTopico,
   resumo,
   resumoPorMateria,
@@ -35,7 +34,6 @@ import {
   type Fatia,
   type FatiaTempo,
   type NotaEstimada,
-  type Previsao,
   type Resumo,
 } from "../lib/repo";
 import { getPesosEdital } from "../lib/edital";
@@ -186,7 +184,6 @@ export default function DadosTab({
   const [carregando, setCarregando] = useState(true);
   const [res, setRes] = useState<Resumo | null>(null);
   const [serie, setSerie] = useState<{ i: number; pct: number }[]>([]);
-  const [previsao, setPrevisao] = useState<Previsao | null>(null);
   const [niveis, setNiveis] = useState<Fatia[]>([]);
   const [tipos, setTipos] = useState<Fatia[]>([]);
   const [formatos, setFormatos] = useState<Fatia[]>([]);
@@ -231,7 +228,6 @@ export default function DadosTab({
       .then(([r, s, ni, ti, fo, co, st, tg, tm, baseNota]) => {
         setRes(r);
         setSerie(s);
-        setPrevisao(preverAprovacao(s));
         setNiveis(ni);
         setTipos(ti);
         setFormatos(fo);
@@ -447,7 +443,7 @@ export default function DadosTab({
                       questões
                     </div>
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: 10 }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 10 }}>
                     {[...notaEstimada.materiasIncluidas]
                       .sort((a, b) => b.peso - a.peso || a.pct - b.pct)
                       .map((m) => (
@@ -546,41 +542,6 @@ export default function DadosTab({
               </LineChart>
             </ResponsiveContainer>
           </Cartao>
-
-          {/* Previsão: regressão linear simples sobre a mesma série do
-              gráfico acima — projeta quantos blocos faltam, no ritmo atual,
-              para cruzar 90% de acerto. Só aparece com amostra suficiente
-              (ver MIN_AMOSTRAS_PREVISAO em repo.ts). */}
-          {previsao && (
-            <Cartao titulo="PREVISÃO DE APROVAÇÃO">
-              <div style={{ padding: "0 4px 14px", fontSize: 13.5, lineHeight: 1.55 }}>
-                {previsao.jaAlcancada ? (
-                  <span style={{ color: C.ok }}>
-                    Último bloco já cruzou 90% de acerto — mantenha o ritmo.
-                  </span>
-                ) : previsao.tendencia === "subindo" && previsao.blocosAteAlvo != null ? (
-                  <>
-                    No ritmo atual de evolução (últimos {previsao.amostras} blocos), você cruza 90% em
-                    aproximadamente{" "}
-                    <strong style={{ color: C.caneta }}>
-                      {previsao.blocosAteAlvo} bloco{previsao.blocosAteAlvo === 1 ? "" : "s"}
-                    </strong>
-                    .
-                  </>
-                ) : previsao.tendencia === "descendo" ? (
-                  <span style={{ color: C.erro }}>
-                    A % de acerto vem caindo nos últimos {previsao.amostras} blocos — vale revisar antes
-                    de subir o nível.
-                  </span>
-                ) : (
-                  <span style={{ color: C.sub }}>
-                    A % de acerto está estável nos últimos {previsao.amostras} blocos — sem tendência
-                    clara de subida ainda.
-                  </span>
-                )}
-              </div>
-            </Cartao>
-          )}
 
           {/* Nível de dificuldade */}
           <Cartao

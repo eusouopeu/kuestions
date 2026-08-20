@@ -558,32 +558,29 @@ export async function reportarQuestao(id: number, motivo: MotivoReport): Promise
 
 /**
  * Salva uma nota criada a partir de um trecho selecionado na questão. Sem
- * dedup: título é escolhido pelo próprio usuário a cada seleção, então duas
- * notas com o mesmo título (partes diferentes de uma mesma questão, por
+ * dedup: corpo é escolhido pelo próprio usuário a cada seleção, então duas
+ * notas com o mesmo corpo (partes diferentes de uma mesma questão, por
  * exemplo) são um caso de uso legítimo, não um erro a prevenir.
  *
- * `termo`/`definicao` são espelhados com `titulo`/`corpo`: essas colunas do
- * fluxo antigo (chip de conceito) continuam `NOT NULL` no schema — a v2 não
- * as apaga (ver comentário em db.ts) — então todo INSERT novo precisa
- * preenchê-las mesmo sem mais lê-las.
+ * `tag` vira o único item inicial de `tags` — a "tag de origem" travada
+ * contra remoção (ver atualizarNota). `termo`/`definicao`/`titulo` são
+ * colunas do fluxo antigo (chip de conceito / nota com título) que
+ * continuam `NOT NULL` no schema sem DEFAULT (ver comentário em db.ts);
+ * ficam com string vazia em todo INSERT novo, sem serem mais lidas.
  */
 export async function salvarNota(args: {
   materia: string;
-  titulo: string;
   corpo: string;
   tag: string;
   questaoOrigemId: number | null;
 }): Promise<number> {
   const { lastId } = await run(
-    `INSERT INTO conceitos_salvos (materia, termo, definicao, titulo, corpo, tag, questao_origem_id, ts)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    `INSERT INTO conceitos_salvos (materia, termo, definicao, corpo, tags, questao_origem_id, ts)
+     VALUES (?, '', '', ?, ?, ?, ?)`,
     [
       args.materia,
-      args.titulo,
       args.corpo,
-      args.titulo,
-      args.corpo,
-      args.tag,
+      JSON.stringify([args.tag]),
       args.questaoOrigemId,
       new Date().toISOString(),
     ],
@@ -598,9 +595,8 @@ function mapNota(r: Record<string, unknown>): ConceitoSalvo {
   return {
     id: Number(r.id),
     materia: String(r.materia),
-    titulo: String(r.titulo ?? ""),
     corpo: String(r.corpo ?? ""),
-    tag: String(r.tag ?? ""),
+    tags: parseJSON<string[]>(r.tags, []),
     questao_origem_id:
       r.questao_origem_id == null ? null : Number(r.questao_origem_id),
     caixa_leitner: Number(r.caixa_leitner ?? 1),
@@ -722,16 +718,18 @@ export async function listarConceitos(
   const rows = await all(
     `SELECT * FROM conceitos_salvos
      WHERE materia = ?
-     ORDER BY ${ordem === "data" ? "ts DESC" : "titulo COLLATE NOCASE ASC"}`,
+     ORDER BY ${ordem === "data" ? "ts DESC" : "corpo COLLATE NOCASE ASC"}`,
     [materia],
   );
   return rows.map(mapNota);
 }
 
 /**
- * Busca notas por título, corpo ou tag, em todas as matérias — a ordenação
- * por data/A-Z de listarConceitos já cobre uma pasta; isto cobre "onde
- * salvei aquilo" quando o usuário não lembra em qual matéria.
+ * Busca notas por corpo ou tags, em todas as matérias — a ordenação por
+ * data/A-Z de listarConceitos já cobre uma pasta; isto cobre "onde salvei
+ * aquilo" quando o usuário não lembra em qual matéria. `tags` é buscada como
+ * texto bruto do array JSON — impreciso na borda (ex.: casaria uma tag que
+ * seja substring de outra), mas simples e suficiente para achar a nota.
  */
 export async function buscarNotas(termo: string): Promise<ConceitoSalvo[]> {
   const q = termo.trim();
@@ -739,24 +737,20 @@ export async function buscarNotas(termo: string): Promise<ConceitoSalvo[]> {
   const like = `%${q}%`;
   const rows = await all(
     `SELECT * FROM conceitos_salvos
-     WHERE titulo LIKE ? OR corpo LIKE ? OR tag LIKE ?
+     WHERE corpo LIKE ? OR tags LIKE ?
      ORDER BY ts DESC
      LIMIT 100`,
-    [like, like, like],
+    [like, like],
   );
   return rows.map(mapNota);
 }
 
-export async function atualizarNota(
-  id: number,
-  titulo: string,
-  corpo: string,
-  tag: string,
-): Promise<void> {
-  await run(
-    `UPDATE conceitos_salvos SET titulo = ?, corpo = ?, tag = ? WHERE id = ?`,
-    [titulo, corpo, tag, id],
-  );
+export async function atualizarNota(id: number, corpo: string, tags: string[]): Promise<void> {
+  await run(`UPDATE conceitos_salvos SET corpo = ?, tags = ? WHERE id = ?`, [
+    corpo,
+    JSON.stringify(tags),
+    id,
+  ]);
   void sincronizarNotasDocumentos();
 }
 

@@ -18,7 +18,7 @@ import {
 } from "@capacitor-community/sqlite";
 
 const DB_NAME = "kumon_fiscal";
-const SCHEMA_VERSION = 8;
+const SCHEMA_VERSION = 9;
 
 const sqlite = new SQLiteConnection(CapacitorSQLite);
 const isWeb = Capacitor.getPlatform() === "web";
@@ -211,6 +211,22 @@ const MIGRATIONS: { version: number; sql: string }[] = [
         explicacoes_erradas TEXT NOT NULL DEFAULT '{}',
         ts                  TEXT NOT NULL
       );
+    `,
+  },
+  {
+    // Nota deixa de ter um único `tag` e passa a ter `tags` (array JSON):
+    // a primeira posição é sempre a "tag de origem" (a que já existia,
+    // derivada do assunto do bloco), agora travada contra exclusão na edição
+    // — o usuário só pode adicionar/remover as demais. O campo `titulo`
+    // também é abandonado (a pasta da matéria já organiza as notas; um
+    // título livre só duplicava trabalho na criação/edição): igual a
+    // `termo`/`definicao`/`tag` na v2, a coluna continua `NOT NULL DEFAULT
+    // ''` no schema (sem DROP COLUMN) e o app simplesmente para de lê-la.
+    version: 9,
+    sql: `
+      ALTER TABLE conceitos_salvos ADD COLUMN tags TEXT NOT NULL DEFAULT '[]';
+
+      UPDATE conceitos_salvos SET tags = json_array(tag) WHERE tag != '';
     `,
   },
 ];

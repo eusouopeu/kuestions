@@ -4,9 +4,10 @@
  * desktop (`@tauri-apps/plugin-fs`, `BaseDirectory.Document`). Diferente do
  * backup completo (ver `exportarBancoJSON` em db.ts e o snapshot rotativo em
  * backupAuto.ts), que é um único JSON opaco pensado só para restaurar dentro
- * do próprio app, aqui o formato é para ser lido FORA do app, por qualquer
- * leitor de arquivos: o banco de questões em JSON, as notas em Markdown —
- * uma por arquivo, nomeada pelo título, separadas em subpastas por matéria.
+ * do próprio app, aqui o formato é para ser lido (ou importado) FORA do app:
+ * o banco de questões em JSON, as notas em TSV+HTML — um arquivo por
+ * matéria, um pronto para o import de texto do Anki (`#separator:tab`,
+ * `#html:true`, tags na 2ª coluna).
  *
  * Usa `all()` de db.ts diretamente (não repo.ts) para não criar um ciclo de
  * import: repo.ts também depende deste módulo (via backupAuto.ts) para
@@ -17,8 +18,8 @@ import { Capacitor } from "@capacitor/core";
 import { Directory, Encoding, Filesystem } from "@capacitor/filesystem";
 import { isTauri } from "@tauri-apps/api/core";
 import { BaseDirectory } from "@tauri-apps/api/path";
-import { mkdir as tauriMkdir, readDir as tauriReadDir, remove as tauriRemove, writeTextFile as tauriWriteTextFile } from "@tauri-apps/plugin-fs";
-import { all, exportarBancoJSON } from "./db";
+import { mkdir as tauriMkdir, remove as tauriRemove, writeTextFile as tauriWriteTextFile } from "@tauri-apps/plugin-fs";
+import { all, exportarBancoJSON, parseJSON } from "./db";
 
 const RAIZ = "kuestion";
 const PASTA_BANCOS = `${RAIZ}/bancos`;
@@ -58,33 +59,16 @@ async function escreverArquivo(caminho: string, conteudo: string, p: Plataforma)
   });
 }
 
-async function nomesDosArquivosEm(caminho: string, p: Plataforma): Promise<string[]> {
-  try {
-    if (p === "tauri") {
-      const entradas = await tauriReadDir(caminho, { baseDir: BaseDirectory.Document });
-      return entradas.filter((e) => e.isFile).map((e) => e.name);
-    }
-    const { files } = await Filesystem.readdir({ path: caminho, directory: Directory.Documents });
-    return files.filter((f) => f.type === "file").map((f) => f.name);
-  } catch {
-    return []; // pasta ainda não existe — nada para listar.
-  }
-}
-
-async function apagarArquivo(caminho: string, p: Plataforma): Promise<void> {
+/** Remove uma pasta inteira (com o que houver dentro) antes de regravá-la do
+ * zero — mais simples e confiável do que rastrear arquivos/matérias órfãos
+ * entre duas sincronizações (uma matéria renomeada ou esvaziada, por
+ * exemplo). Não lança quando a pasta ainda não existe (primeira sincronização). */
+async function apagarPasta(caminho: string, p: Plataforma): Promise<void> {
   if (p === "tauri") {
-    await tauriRemove(caminho, { baseDir: BaseDirectory.Document }).catch(() => {});
+    await tauriRemove(caminho, { baseDir: BaseDirectory.Document, recursive: true }).catch(() => {});
     return;
   }
-  await Filesystem.deleteFile({ path: caminho, directory: Directory.Documents }).catch(() => {});
-}
-
-/** Remove todo arquivo de uma pasta antes de regravá-la do zero — mais
- * simples e confiável do que rastrear arquivos órfãos quando uma nota é
- * renomeada ou apagada entre duas sincronizações. */
-async function limparArquivosDe(caminho: string, p: Plataforma): Promise<void> {
-  const nomes = await nomesDosArquivosEm(caminho, p);
-  for (const nome of nomes) await apagarArquivo(`${caminho}/${nome}`, p);
+  await Filesystem.rmdir({ path: caminho, directory: Directory.Documents, recursive: true }).catch(() => {});
 }
 
 /** Nome de arquivo seguro a partir de texto livre — troca caracteres
@@ -106,52 +90,55 @@ export async function sincronizarBancoDocumentos(): Promise<void> {
 }
 
 interface NotaParaArquivo {
-  id: number;
   materia: string;
-  titulo: string;
   corpo: string;
-  tag: string;
+  tags: string[];
 }
 
-function notaParaMarkdown(n: NotaParaArquivo): string {
-  const linhas = [`# ${n.titulo || "Sem título"}`, ""];
-  if (n.tag) linhas.push(`*Tag: ${n.tag}*`, "");
-  linhas.push(n.corpo);
-  return linhas.join("\n");
+/** Cabeçalho reconhecido pelo importador de texto do Anki: separador tab,
+ * campos com HTML habilitado, tags lidas da 2ª coluna. Um `{{c1::…}}`/
+ * `{{c2::…}}` de marca-texto (ver texto.ts) é sintaxe de Cloze do Anki, não
+ * HTML — sai tal como está no corpo; `#html:true` só afeta como o Anki
+ * interpreta tags HTML de fato presentes no campo (ex.: o `<br>` abaixo). */
+const CABECALHO_TSV = ["#separator:tab", "#html:true", "#tags column:2"].join("\n");
+
+/** Uma linha de TSV não pode conter tab nem quebra de linha literal — tabs
+ * viram espaço (não deveriam aparecer em texto normal) e quebras de linha
+ * viram `<br>`, a marcação HTML equivalente dentro de um campo do Anki. */
+function corpoParaCampoTSV(corpo: string): string {
+  return corpo.replace(/\t/g, " ").replace(/\r?\n/g, "<br>");
 }
 
-/** Grava cada nota salva (ver `conceitos_salvos`) como um `.md` próprio em
- * `Documentos/kuestion/notas/<matéria>/<título>.md`. Cada matéria é
- * completamente regravada a cada chamada (ver `limparArquivosDe`). */
+function notaParaLinhaTSV(n: NotaParaArquivo): string {
+  return `${corpoParaCampoTSV(n.corpo)}\t${n.tags.join(" ")}`;
+}
+
+/** Grava as notas salvas (ver `conceitos_salvos`) num único `.tsv` por
+ * matéria em `Documentos/kuestion/notas/<matéria>.tsv` — pronto para import
+ * de texto no Anki (ver CABECALHO_TSV). A pasta inteira é regravada do zero
+ * a cada chamada (ver `apagarPasta`), então uma matéria renomeada ou
+ * esvaziada não deixa arquivo órfão para trás. */
 export async function sincronizarNotasDocumentos(): Promise<void> {
   const p = plataforma();
   if (p === "nenhuma") return;
-  const notas = await all<NotaParaArquivo>(
-    `SELECT id, materia, titulo, corpo, tag FROM conceitos_salvos ORDER BY materia, titulo COLLATE NOCASE ASC`,
+  const notas = await all<{ materia: string; corpo: string; tags: unknown }>(
+    `SELECT materia, corpo, tags FROM conceitos_salvos ORDER BY materia, ts ASC`,
   );
 
   const porMateria = new Map<string, NotaParaArquivo[]>();
   for (const n of notas) {
     const lista = porMateria.get(n.materia) ?? [];
-    lista.push(n);
+    lista.push({ materia: n.materia, corpo: n.corpo, tags: parseJSON<string[]>(n.tags, []) });
     porMateria.set(n.materia, lista);
   }
 
+  await apagarPasta(PASTA_NOTAS, p);
   await garantirPasta(PASTA_NOTAS, p);
   for (const [materia, lista] of porMateria) {
-    const pastaMateria = `${PASTA_NOTAS}/${nomeDeArquivo(materia)}`;
-    await garantirPasta(pastaMateria, p);
-    await limparArquivosDe(pastaMateria, p);
-
-    const usados = new Set<string>();
-    for (const n of lista) {
-      let nome = nomeDeArquivo(n.titulo);
-      if (usados.has(nome)) nome = `${nome}-${n.id}`; // títulos duplicados na mesma matéria
-      usados.add(nome);
-      await escreverArquivo(`${pastaMateria}/${nome}.md`, notaParaMarkdown(n), p).catch((e) =>
-        console.error("gravar nota .md", e),
-      );
-    }
+    const linhas = [CABECALHO_TSV, ...lista.map(notaParaLinhaTSV)].join("\n");
+    await escreverArquivo(`${PASTA_NOTAS}/${nomeDeArquivo(materia)}.tsv`, linhas, p).catch((e) =>
+      console.error("gravar notas .tsv da matéria", e),
+    );
   }
 }
 

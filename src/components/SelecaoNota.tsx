@@ -13,7 +13,7 @@ interface Selecao {
 /**
  * Escuta seleção de texto dentro de `containerRef` e mostra um botão
  * flutuante "+ Salvar nota" perto do trecho selecionado. Ao tocar, abre um
- * formulário para título + corpo (pré-preenchido com o trecho) + tag.
+ * formulário para corpo (pré-preenchido com o trecho) + tag.
  *
  * `selectionchange` é global (não há evento de seleção por elemento), então
  * cada seleção é filtrada por `container.contains(range.commonAncestorContainer)`
@@ -117,8 +117,8 @@ export default function SelecaoNota({
           corpoInicial={pendente}
           tagInicial={tagPadrao}
           onCancelar={fecharTudo}
-          onSalvar={async (titulo, corpo, tag) => {
-            await salvarNota({ materia, titulo, corpo, tag, questaoOrigemId });
+          onSalvar={async (corpo, tag) => {
+            await salvarNota({ materia, corpo, tag, questaoOrigemId });
             fecharTudo();
             onSalvo?.();
           }}
@@ -137,19 +137,14 @@ function NotaModal({
   corpoInicial: string;
   tagInicial: string;
   onCancelar: () => void;
-  onSalvar: (titulo: string, corpo: string, tag: string) => Promise<void>;
+  onSalvar: (corpo: string, tag: string) => Promise<void>;
 }) {
-  const [titulo, setTitulo] = useState("");
   const [corpo, setCorpo] = useState(corpoInicial);
   const [tag, setTag] = useState(tagInicial);
   const [salvando, setSalvando] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
 
   async function salvar() {
-    if (!titulo.trim()) {
-      setErro("Dê um título para a nota.");
-      return;
-    }
     if (!corpo.trim()) {
       setErro("O corpo não pode ficar vazio.");
       return;
@@ -157,7 +152,7 @@ function NotaModal({
     setSalvando(true);
     setErro(null);
     try {
-      await onSalvar(titulo.trim(), corpo.trim(), tag.trim() || "geral");
+      await onSalvar(corpo.trim(), tag.trim() || "geral");
     } catch (e) {
       setErro(e instanceof Error ? e.message : "Falha ao salvar a nota.");
       setSalvando(false);
@@ -193,17 +188,6 @@ function NotaModal({
           NOVA NOTA
         </div>
 
-        <label style={rotulo}>Título</label>
-        {/* eslint-disable-next-line jsx-a11y/no-autofocus -- abrir o teclado direto no campo principal é o ponto do modal */}
-        <input
-          autoFocus
-          style={campo}
-          value={titulo}
-          onChange={(e) => setTitulo(e.target.value)}
-          placeholder="ex.: Hipóteses de suspensão da exigibilidade"
-        />
-
-        <div style={{ height: 14 }} />
         <CampoCorpoNota valor={corpo} onChange={setCorpo} />
 
         <div style={{ height: 14 }} />

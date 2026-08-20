@@ -1,12 +1,7 @@
 import { useRef } from "react";
 import { C, campo, rotulo } from "../theme";
 import { aplicarMarcaTexto, segmentarMarcaTexto, type CorMarcaTexto } from "../lib/texto";
-
-/** Cor de fundo/texto de cada marca-texto — literais (não `C.*`) porque um
- * marcador amarelo/laranja precisa continuar reconhecível tanto no tema claro
- * quanto no escuro, ao contrário do resto da paleta. */
-const COR_FUNDO: Record<CorMarcaTexto, string> = { amarelo: "#FFE58A", laranja: "#FFB870" };
-const COR_TEXTO: Record<CorMarcaTexto, string> = { amarelo: "#1c1c1c", laranja: "#1c1c1c" };
+import TextoComMarcaTexto, { COR_FUNDO_MARCA_TEXTO } from "./TextoComMarcaTexto";
 
 /**
  * Campo "Corpo" da nota com dois botões de marca-texto (amarelo → cloze 1,
@@ -53,7 +48,7 @@ export default function CampoCorpoNota({
               height: 26,
               borderRadius: 6,
               border: `1.5px solid ${C.line}`,
-              background: COR_FUNDO.amarelo,
+              background: COR_FUNDO_MARCA_TEXTO.amarelo,
               cursor: "pointer",
             }}
           />
@@ -67,7 +62,7 @@ export default function CampoCorpoNota({
               height: 26,
               borderRadius: 6,
               border: `1.5px solid ${C.line}`,
-              background: COR_FUNDO.laranja,
+              background: COR_FUNDO_MARCA_TEXTO.laranja,
               cursor: "pointer",
             }}
           />
@@ -98,23 +93,7 @@ export default function CampoCorpoNota({
             whiteSpace: "pre-wrap",
           }}
         >
-          {segmentos.map((s, i) =>
-            s.cor ? (
-              <mark
-                key={i}
-                style={{
-                  background: COR_FUNDO[s.cor],
-                  color: COR_TEXTO[s.cor],
-                  borderRadius: 3,
-                  padding: "0 2px",
-                }}
-              >
-                {s.texto}
-              </mark>
-            ) : (
-              <span key={i}>{s.texto}</span>
-            ),
-          )}
+          <TextoComMarcaTexto texto={valor} />
         </div>
       )}
     </div>

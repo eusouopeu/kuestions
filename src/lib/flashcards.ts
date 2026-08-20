@@ -1,8 +1,8 @@
 /**
- * Classifica o CORPO de uma nota (nunca o título — o usuário decidiu que o
- * título só serve para navegar dentro do app, não para virar flashcard) em
- * um de dois formatos de exportação, na ordem abaixo. Cada regra é checada só
- * se a anterior não se aplicou:
+ * Classifica o CORPO de uma nota em um de dois formatos de exportação, na
+ * ordem abaixo (a coluna Tags do CSV recebe todas as `tags` da nota,
+ * separadas por espaço — mesmo formato de tags do Anki). Cada regra é
+ * checada só se a anterior não se aplicou:
  *
  * 1. Marca-texto (ver `aplicarMarcaTexto`/`segmentarMarcaTexto` em texto.ts):
  *    o corpo já contém `{{c1::…}}` (amarelo) e/ou `{{c2::…}}` (laranja) —
@@ -38,9 +38,9 @@ export type Flashcard = FlashcardCloze | FlashcardBasico;
 
 const RE_TEM_CLOZE = /\{\{c[12]::/;
 
-export function paraFlashcard(nota: { corpo: string; tag: string }): Flashcard {
+export function paraFlashcard(nota: { corpo: string; tags: string[] }): Flashcard {
   const corpo = nota.corpo.trim();
-  const tag = nota.tag;
+  const tag = nota.tags.join(" ");
 
   if (RE_TEM_CLOZE.test(corpo)) {
     return { tipo: "cloze", texto: corpo, tag };
@@ -79,7 +79,7 @@ export interface ArquivosFlashcards {
  * Anki — um único CSV misturando as duas formas exigiria duas importações
  * manuais com mapeamentos de coluna diferentes de qualquer forma.
  */
-export function gerarArquivosFlashcards(notas: { corpo: string; tag: string }[]): ArquivosFlashcards {
+export function gerarArquivosFlashcards(notas: { corpo: string; tags: string[] }[]): ArquivosFlashcards {
   const clozes: string[][] = [];
   const basicos: string[][] = [];
   for (const nota of notas) {
