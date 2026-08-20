@@ -6,7 +6,7 @@ export default function Shell({
   titulo,
   children,
 }: {
-  titulo: string;
+  titulo: ReactNode;
   children: ReactNode;
 }) {
   return (

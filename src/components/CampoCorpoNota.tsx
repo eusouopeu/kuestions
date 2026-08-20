@@ -1,15 +1,14 @@
 import { useRef } from "react";
 import { C, campo, rotulo } from "../theme";
-import { aplicarMarcaTexto, segmentarMarcaTexto, type CorMarcaTexto } from "../lib/texto";
-import TextoComMarcaTexto, { COR_FUNDO_MARCA_TEXTO } from "./TextoComMarcaTexto";
+import { aplicarMarcaTexto, type CorMarcaTexto } from "../lib/texto";
+import { COR_FUNDO_MARCA_TEXTO } from "./TextoComMarcaTexto";
 
 /**
  * Campo "Corpo" da nota com dois botões de marca-texto (amarelo → cloze 1,
- * laranja → cloze 2, ver aplicarMarcaTexto em lib/texto.ts) e uma prévia
- * abaixo do textarea mostrando os trechos marcados coloridos, em vez da
- * sintaxe crua `{{c1::…}}` do Anki. Marcar exige selecionar o trecho no
- * textarea nativo (seleção lida via `selectionStart`/`selectionEnd`) antes de
- * tocar no botão — não há edição rica, é texto puro com marcadores embutidos.
+ * laranja → cloze 2, ver aplicarMarcaTexto em lib/texto.ts). Marcar exige
+ * selecionar o trecho no textarea nativo (seleção lida via
+ * `selectionStart`/`selectionEnd`) antes de tocar no botão — não há edição
+ * rica, é texto puro com marcadores embutidos.
  */
 export default function CampoCorpoNota({
   valor,
@@ -29,9 +28,6 @@ export default function CampoCorpoNota({
     if (selectionStart == null || selectionEnd == null || selectionStart === selectionEnd) return;
     onChange(aplicarMarcaTexto(valor, selectionStart, selectionEnd, cor));
   }
-
-  const segmentos = segmentarMarcaTexto(valor);
-  const temMarcacao = segmentos.some((s) => s.cor);
 
   return (
     <div>
@@ -75,22 +71,6 @@ export default function CampoCorpoNota({
         value={valor}
         onChange={(e) => onChange(e.target.value)}
       />
-
-      {temMarcacao && (
-        <div
-          style={{
-            marginTop: 8,
-            padding: "10px 12px",
-            borderRadius: 8,
-            border: `1.5px dashed ${C.line}`,
-            fontSize: 13,
-            lineHeight: 1.6,
-            whiteSpace: "pre-wrap",
-          }}
-        >
-          <TextoComMarcaTexto texto={valor} />
-        </div>
-      )}
     </div>
   );
 }

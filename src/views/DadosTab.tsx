@@ -35,10 +35,9 @@ import {
   topicosPraticados,
   type Fatia,
   type FatiaTempo,
-  type NotaEstimada,
   type Resumo,
 } from "../lib/repo";
-import { getPesosEdital } from "../lib/edital";
+import { getPesosEdital, PRESETS_PESO_EDITAL, type PesosEdital } from "../lib/edital";
 import { labelFormato, labelTipo, NIVEIS } from "../lib/constants";
 import {
   agruparPorPrefixo,
@@ -143,7 +142,7 @@ function alturaRotuloQuebrado(nome: string, largura: number, fonte = 11): number
 function BarrasPct({
   dados,
   alturaPorItem = 34,
-  larguraEixo = 104,
+  larguraEixo = 84,
 }: {
   dados: { nome: string; pct: number; total: number }[];
   alturaPorItem?: number;
@@ -161,7 +160,7 @@ function BarrasPct({
   const altura = Math.max(120, dados.length * alturaMinLinha + 24);
   return (
     <ResponsiveContainer width="100%" height={altura}>
-      <BarChart data={dados} layout="vertical" margin={{ top: 4, right: 44, bottom: 4, left: 4 }}>
+      <BarChart data={dados} layout="vertical" margin={{ top: 4, right: 16, bottom: 4, left: 4 }}>
         <CartesianGrid horizontal={false} stroke={C.line} />
         <XAxis type="number" domain={[0, 100]} unit="%" {...eixo} />
         <YAxis type="category" dataKey="nome" width={larguraEixo} {...eixo} />
@@ -292,7 +291,13 @@ export default function DadosTab({
   } | null>(null);
   const [mostrarTodasPendentes, setMostrarTodasPendentes] = useState(false);
   const [heatmap, setHeatmap] = useState<DesempenhoTopico[] | null>(null);
-  const [notaEstimada, setNotaEstimada] = useState<NotaEstimada | null>(null);
+  // Base da nota provável (acerto por matéria + pesos REAIS configurados em
+  // Ajustes) separada do resultado final — o dropdown de simulação abaixo
+  // recalcula `notaEstimada` (função pura) trocando só os pesos, sem
+  // consultar o banco de novo nem gravar nada.
+  const [porMateriaNota, setPorMateriaNota] = useState<Fatia[] | null>(null);
+  const [pesosReais, setPesosReais] = useState<PesosEdital>({});
+  const [presetSimulacao, setPresetSimulacao] = useState<string>("");
   const [tempoGeral, setTempoGeral] = useState<{ tempoMedioMs: number; amostras: number } | null>(
     null,
   );
@@ -334,7 +339,8 @@ export default function DadosTab({
         setAtividade(at);
         setTempoGeral(tg);
         setTempoMaterias(tm);
-        setNotaEstimada(baseNota ? estimarNotaProvavel(baseNota[0], baseNota[1]) : null);
+        setPorMateriaNota(baseNota ? baseNota[0] : null);
+        setPesosReais(baseNota ? baseNota[1] : {});
       })
       .catch(() => setRes(null))
       .finally(() => setCarregando(false));
@@ -367,6 +373,13 @@ export default function DadosTab({
 
   const semDados = !res || res.totalQuestoes === 0;
   const pctGeral = res && res.totalQuestoes ? Math.round((res.totalAcertos / res.totalQuestoes) * 100) : 0;
+
+  // Pesos usados na nota provável: os REAIS configurados em Ajustes por
+  // padrão, ou os de um preset de concurso quando o dropdown de simulação
+  // está com um preset selecionado — puramente local, nunca grava nada.
+  const presetSelecionado = PRESETS_PESO_EDITAL.find((p) => p.id === presetSimulacao);
+  const pesosParaNota = presetSelecionado ? presetSelecionado.pesos : pesosReais;
+  const notaEstimada = porMateriaNota ? estimarNotaProvavel(porMateriaNota, pesosParaNota) : null;
 
   const dadosNiveis = niveis.map((f) => {
     const n = Number(f.chave);
@@ -443,8 +456,6 @@ export default function DadosTab({
           <div
             style={{
               display: "grid",
-              // 2×2 em tela de telefone; 4 colunas a partir de ~480px. Com
-              // auto-fit/96px o quarto cartão ficava órfão numa linha só dele.
               gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
               gap: 8,
               marginBottom: 12,
@@ -453,12 +464,6 @@ export default function DadosTab({
             {[
               { rot: "Acerto geral", val: `${pctGeral}%`, cor: corPct(pctGeral) },
               { rot: "Questões", val: String(res!.totalQuestoes), cor: C.ink },
-              {
-                rot: "Blocos aprovados",
-                val: `${res!.blocosAprovados}/${res!.blocosTotais}`,
-                cor: C.ink,
-              },
-              { rot: "Conceitos salvos", val: String(res!.conceitosSalvos), cor: C.caneta },
             ].map((k) => (
               <div key={k.rot} style={{ ...cartao, padding: "12px 10px", textAlign: "center" }}>
                 <div style={{ ...disp, fontSize: 22, fontWeight: 800, color: k.cor, letterSpacing: -0.5 }}>
@@ -528,14 +533,21 @@ export default function DadosTab({
               agregada, onde comparar matérias com pesos diferentes faz
               sentido. */}
           {filtro === TODAS && (
-            <Cartao
-              titulo="NOTA PROVÁVEL ESTIMADA"
-              legenda={
-                notaEstimada
-                  ? "% de acerto por matéria, ponderada pelo peso de cada uma no edital."
-                  : undefined
-              }
-            >
+            <Cartao titulo="NOTA PROVÁVEL ESTIMADA">
+              <div style={{ padding: "0 4px 14px" }}>
+                <select
+                  style={{ ...campo, ...mono, fontSize: 12, marginBottom: 12 }}
+                  value={presetSimulacao}
+                  onChange={(e) => setPresetSimulacao(e.target.value)}
+                >
+                  <option value="">Peso configurado em Ajustes</option>
+                  {PRESETS_PESO_EDITAL.map((p) => (
+                    <option key={p.id} value={p.id}>
+                      Simular: {p.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
               {notaEstimada ? (
                 <div style={{ padding: "0 4px 14px" }}>
                   <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 10 }}>
@@ -608,22 +620,6 @@ export default function DadosTab({
                       ).
                     </div>
                   )}
-                  <button
-                    onClick={onAjustes}
-                    style={{
-                      ...mono,
-                      display: "block",
-                      marginTop: 8,
-                      fontSize: 11,
-                      background: "none",
-                      border: "none",
-                      color: C.caneta,
-                      cursor: "pointer",
-                      padding: 0,
-                    }}
-                  >
-                    Configurar peso do edital →
-                  </button>
                 </div>
               ) : (
                 <div style={{ fontSize: 13, color: C.sub, padding: "0 4px 14px", lineHeight: 1.5 }}>
@@ -870,10 +866,7 @@ export default function DadosTab({
               porConfianca em repo.ts). Só existe para respostas novas
               gravadas depois deste recurso; revisão em Refazer erradas e
               simulado não perguntam confiança. */}
-          <Cartao
-            titulo="ACERTO POR CONFIANÇA"
-            legenda="Autoavaliação feita antes de ver o gabarito — respostas de revisão e do simulado não entram aqui."
-          >
+          <Cartao titulo="ACERTO POR CONFIANÇA">
             {dadosConfianca.length ? (
               <BarrasPct dados={dadosConfianca} alturaPorItem={40} />
             ) : (
@@ -889,12 +882,9 @@ export default function DadosTab({
               (menos quebra de linha) e altura por item calculada a partir
               do rótulo mais longo (ver alturaRotuloQuebrado) — o card fica
               alto, mas nenhuma legenda se sobrepõe. */}
-          <Cartao
-            titulo="ACERTO POR CONCEITO — ONDE TREINAR PRIMEIRO"
-            legenda="Só conceitos com pelo menos 3 questões respondidas, do pior para o melhor acerto."
-          >
+          <Cartao titulo="ACERTO POR CONCEITO">
             {dadosConceitos.length ? (
-              <BarrasPct dados={dadosConceitos} alturaPorItem={30} larguraEixo={140} />
+              <BarrasPct dados={dadosConceitos} alturaPorItem={30} larguraEixo={175} />
             ) : (
               <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
                 Nenhum conceito com amostra suficiente ainda.

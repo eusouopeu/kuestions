@@ -1,5 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
-import { FolderIcon } from "@heroicons/react/24/outline";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
+import {
+  ArrowLeftIcon,
+  ArrowPathIcon,
+  CheckCircleIcon,
+  FolderIcon,
+} from "@heroicons/react/24/outline";
 import { C, campo, cartao, disp, mono } from "../theme";
 import Shell, { Vazio } from "../components/Shell";
 import Segmented from "../components/Segmented";
@@ -311,35 +316,20 @@ export default function NotasTab({
     const todasSelecionadas = itens.length > 0 && selecionados.size === itens.length;
     const pendentesPasta = pendentesPorMateria.find((p) => p.materia === pasta)?.pendentes ?? 0;
     return (
-      <Shell titulo={pasta}>
-        <button
-          onClick={() => setPasta(null)}
-          style={{
-            ...mono,
-            display: "block",
-            marginBottom: 14,
-            fontSize: 12,
-            background: "none",
-            border: "none",
-            color: C.sub,
-            cursor: "pointer",
-            textDecoration: "underline",
-            padding: 0,
-          }}
-        >
-          ← Todas as pastas
-        </button>
-
-        {pendentesPasta > 0 && (
-          <Botao
-            tipo="tinta"
-            onClick={() => setRevisando({ materia: pasta })}
-            style={{ marginBottom: 14 }}
-          >
-            Revisar pendentes desta pasta · {pendentesPasta}
-          </Botao>
-        )}
-
+      <Shell
+        titulo={
+          <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <BotaoIcone
+              onClick={() => setPasta(null)}
+              aria-label="Voltar para todas as pastas"
+              title="Todas as pastas"
+            >
+              <ArrowLeftIcon width={18} height={18} stroke={C.ink} strokeWidth={1.8} />
+            </BotaoIcone>
+            {pasta}
+          </span>
+        }
+      >
         {itens.length > 0 && (
           <div style={{ marginBottom: 14 }}>
             {selecionando ? (
@@ -394,27 +384,40 @@ export default function NotasTab({
                 </div>
               </div>
             ) : (
-              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                  <Botao
-                    tipo="fantasma"
-                    onClick={() => exportarCSV(itens, pasta)}
-                    disabled={exportando}
-                    style={csvExportado ? { borderColor: C.ok, color: C.ok, flex: 1 } : { flex: 1 }}
+              <div style={{ display: "flex", gap: 8 }}>
+                {pendentesPasta > 0 && (
+                  <BotaoIcone
+                    onClick={() => setRevisando({ materia: pasta })}
+                    aria-label={`Revisar pendentes desta pasta · ${pendentesPasta}`}
+                    title={`Revisar pendentes desta pasta · ${pendentesPasta}`}
+                    tom="tinta"
+                    contador={pendentesPasta}
                   >
-                    {exportando ? "Exportando…" : csvExportado ? "✓ Exportado" : `CSV · ${itens.length}`}
-                  </Botao>
-                  <Botao
-                    tipo="fantasma"
-                    onClick={() => exportarApkg(itens, pasta)}
-                    disabled={exportandoApkg}
-                    style={apkgExportado ? { borderColor: C.ok, color: C.ok, flex: 1 } : { flex: 1 }}
-                  >
-                    {exportandoApkg ? "Exportando…" : apkgExportado ? "✓ Exportado" : `.apkg · ${itens.length}`}
-                  </Botao>
-                </div>
-                <Botao tipo="fantasma" onClick={() => setSelecionando(true)}>
-                  Selecionar
+                    <ArrowPathIcon width={17} height={17} stroke="#fff" strokeWidth={1.8} />
+                  </BotaoIcone>
+                )}
+                <BotaoIcone
+                  onClick={() => setSelecionando(true)}
+                  aria-label="Selecionar notas"
+                  title="Selecionar"
+                >
+                  <CheckCircleIcon width={18} height={18} stroke={C.ink} strokeWidth={1.8} />
+                </BotaoIcone>
+                <Botao
+                  tipo="fantasma"
+                  onClick={() => exportarCSV(itens, pasta)}
+                  disabled={exportando}
+                  style={csvExportado ? { borderColor: C.ok, color: C.ok, flex: 1 } : { flex: 1 }}
+                >
+                  {exportando ? "Exportando…" : csvExportado ? "✓ Exportado" : `CSV · ${itens.length}`}
+                </Botao>
+                <Botao
+                  tipo="fantasma"
+                  onClick={() => exportarApkg(itens, pasta)}
+                  disabled={exportandoApkg}
+                  style={apkgExportado ? { borderColor: C.ok, color: C.ok, flex: 1 } : { flex: 1 }}
+                >
+                  {exportandoApkg ? "Exportando…" : apkgExportado ? "✓ Exportado" : `.apkg · ${itens.length}`}
                 </Botao>
               </div>
             )}
@@ -684,6 +687,70 @@ export default function NotasTab({
         </>
       )}
     </Shell>
+  );
+}
+
+/** Botão quadrado só com ícone — cabeçalho da pasta (voltar) e ações rápidas
+ * (revisar pendentes, selecionar) ao lado dos botões de exportação, todos na
+ * mesma linha. `contador`, quando informado, desenha um selo numérico no
+ * canto — só usado em "revisar pendentes", para não perder a contagem que a
+ * versão em texto mostrava. */
+function BotaoIcone({
+  children,
+  onClick,
+  tom = "fantasma",
+  contador,
+  ...resto
+}: {
+  children: ReactNode;
+  onClick: () => void;
+  tom?: "fantasma" | "tinta";
+  contador?: number;
+  "aria-label": string;
+  title?: string;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        position: "relative",
+        flexShrink: 0,
+        width: 40,
+        height: 40,
+        borderRadius: 8,
+        border: `1.5px solid ${tom === "tinta" ? C.caneta : C.line}`,
+        background: tom === "tinta" ? C.caneta : C.card,
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      {...resto}
+    >
+      {children}
+      {!!contador && (
+        <span
+          style={{
+            ...mono,
+            position: "absolute",
+            top: -6,
+            right: -6,
+            minWidth: 16,
+            height: 16,
+            padding: "0 3px",
+            borderRadius: 8,
+            background: C.erro,
+            color: "#fff",
+            fontSize: 9.5,
+            fontWeight: 700,
+            lineHeight: "16px",
+            textAlign: "center",
+          }}
+        >
+          {contador}
+        </span>
+      )}
+    </button>
   );
 }
 
