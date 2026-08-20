@@ -3,7 +3,7 @@ import { C, campo, cartao, disp, mono, rotulo } from "../theme";
 import Botao from "../components/Botao";
 import Rail from "../components/Rail";
 import Segmented from "../components/Segmented";
-import QuestaoCard from "../components/QuestaoCard";
+import QuestaoCard, { type Confianca } from "../components/QuestaoCard";
 import EsqueletoQuestao from "../components/EsqueletoQuestao";
 import { Vazio } from "../components/Shell";
 import {
@@ -19,6 +19,7 @@ import {
 } from "../lib/constants";
 import { gerarSubBloco, SemCredencialError } from "../lib/anthropic";
 import { temCredencial } from "../lib/secure";
+import { getComExplicacoesIA } from "../lib/preferenciasGeracao";
 import { criarBloco, fecharBloco, gravarResposta, listarBlocos } from "../lib/repo";
 import { sugerirNivel, type SugestaoNivel } from "../lib/sugestao";
 import { getRascunho, limparRascunho, salvarRascunho, type RascunhoBloco } from "../lib/blocoRascunho";
@@ -90,7 +91,13 @@ export default function GerarView({
   // questão sem explicação e só gerar sob demanda depois de respondida (ver
   // QuestaoCard) — economiza tokens e latência na geração, e a explicação
   // sob demanda fica mais aprofundada por focar só no que gerou dúvida.
+  // Preferência única em Ajustes (ver lib/preferenciasGeracao.ts) — carregada
+  // ao montar, não mais um toggle local que resetava a cada visita.
   const [comExplicacoes, setComExplicacoes] = useState(true);
+
+  useEffect(() => {
+    getComExplicacoesIA().then(setComExplicacoes);
+  }, []);
 
   // dispararSub roda fora do render e precisa ler o estado mais recente.
   const subsRef = useRef(subs);
@@ -242,7 +249,12 @@ export default function GerarView({
   const questao = subs[subAtual]?.[qIdx % Q_POR_SUB] ?? null;
   const ultimaDoBloco = qIdx === Q_POR_BLOCO - 1;
 
-  async function responder(letra: string, acertou: boolean, tempoMs: number): Promise<number | null> {
+  async function responder(
+    letra: string,
+    acertou: boolean,
+    tempoMs: number,
+    confianca: Confianca | null,
+  ): Promise<number | null> {
     if (acertou) setAcertos((a) => a.map((v, k) => (k === subAtual ? v + 1 : v)));
     setRespondidaAtual(true);
     if (!questao) return null;
@@ -257,6 +269,7 @@ export default function GerarView({
       resposta: letra,
       acertou,
       tempoMs,
+      confianca,
     });
   }
 
@@ -662,39 +675,6 @@ export default function GerarView({
           </div>
           <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.5 }}>
             {NIVEL_DESCRICOES[cfg.nivel - 1]}
-          </div>
-        </div>
-
-        <div style={{ marginBottom: 20 }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
-            <div>
-              <div style={{ fontSize: 13.5 }}>Explicações de IA na geração</div>
-              <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
-                {comExplicacoes
-                  ? "Cada questão já sai com comentário e explicação de cada alternativa errada."
-                  : "Questões saem sem explicação — depois de responder, escolha só as alternativas que quer entender e peça a explicação na hora, mais aprofundada e mais barata."}
-              </div>
-            </div>
-            <button
-              role="switch"
-              aria-checked={comExplicacoes}
-              onClick={() => setComExplicacoes((v) => !v)}
-              style={{
-                width: 44,
-                height: 26,
-                borderRadius: 13,
-                border: "none",
-                padding: 3,
-                flexShrink: 0,
-                display: "flex",
-                justifyContent: comExplicacoes ? "flex-end" : "flex-start",
-                background: comExplicacoes ? C.caneta : C.line,
-                cursor: "pointer",
-                transition: "background 0.15s",
-              }}
-            >
-              <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
-            </button>
           </div>
         </div>
 

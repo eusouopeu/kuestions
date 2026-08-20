@@ -103,14 +103,17 @@ export async function gravarResposta(args: {
   /** Tempo entre a questão aparecer e a resposta ser enviada, em ms — ver
    * QuestaoCard. Ausente/null quando a origem não mede (ex.: simulado). */
   tempoMs?: number | null;
+  /** Autoavaliação de confiança, registrada antes de revelar o gabarito (ver
+   * QuestaoCard) — ausente/null quando o fluxo não pergunta. */
+  confianca?: "certeza" | "chute" | null;
 }): Promise<number> {
   const { questao: q } = args;
   const { lastId } = await run(
     `INSERT INTO questoes_respondidas
        (bloco_id, materia, topico, sub, carga_conceitual, nivel, formato, tipo_cobranca,
         enunciado, alternativas, gabarito, resposta, acertou, revisada,
-        comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, tempo_ms, ts)
-     VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?)`,
+        comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, tempo_ms, confianca, ts)
+     VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?)`,
     [
       args.blocoId,
       args.materia,
@@ -129,6 +132,7 @@ export async function gravarResposta(args: {
       q.dispositivo ?? null,
       q.bancoId ?? null,
       args.tempoMs ?? null,
+      args.confianca ?? null,
       new Date().toISOString(),
     ],
   );
@@ -151,8 +155,8 @@ export async function gravarRespostasEmLote(
       sql: `INSERT INTO questoes_respondidas
          (bloco_id, materia, topico, sub, carga_conceitual, nivel, formato, tipo_cobranca,
           enunciado, alternativas, gabarito, resposta, acertou, revisada,
-          comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, tempo_ms, ts)
-       VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?)`,
+          comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, tempo_ms, confianca, ts)
+       VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?)`,
       params: [
         args.blocoId,
         args.materia,
@@ -171,6 +175,7 @@ export async function gravarRespostasEmLote(
         q.dispositivo ?? null,
         q.bancoId ?? null,
         args.tempoMs ?? null,
+        args.confianca ?? null,
         new Date().toISOString(),
       ],
     };
@@ -205,6 +210,7 @@ function mapQuestao(r: Record<string, unknown>): QuestaoRespondida {
     ),
     conceitos: parseJSON<string[]>(r.conceitos, []),
     dispositivo: (r.dispositivo as string) ?? null,
+    confianca: (r.confianca as QuestaoRespondida["confianca"]) ?? null,
     ts: String(r.ts),
   };
 }
@@ -388,6 +394,25 @@ export async function buscarQuestaoPorId(id: number): Promise<QuestaoRespondida 
     [id],
   );
   return row ? mapQuestao(row) : null;
+}
+
+/**
+ * Busca em enunciado e comentário de questões já respondidas — metade da
+ * busca global da aba Notas (ver buscarNotas para a outra metade). Mais
+ * recentes primeiro, mesmo critério de buscarNotas.
+ */
+export async function buscarQuestoesRespondidas(termo: string): Promise<QuestaoRespondida[]> {
+  const q = termo.trim();
+  if (!q) return [];
+  const like = `%${q}%`;
+  const rows = await all(
+    `SELECT * FROM questoes_respondidas
+     WHERE enunciado LIKE ? OR comentario LIKE ?
+     ORDER BY ts DESC
+     LIMIT 100`,
+    [like, like],
+  );
+  return rows.map(mapQuestao);
 }
 
 /** Todas as questões de UM bloco específico, na ordem em que apareceram —
@@ -711,6 +736,35 @@ export async function listarPastas(): Promise<
   }));
 }
 
+/**
+ * Tags de todas as notas, com contagem — base da nuvem de tags da aba Notas
+ * (ver NotasTab), uma visão cruzando matérias que a navegação por pasta não
+ * oferece: a mesma tag pode aparecer em notas de matérias diferentes.
+ * `json_each` desaninha o array JSON de `tags` (mesmo mecanismo de
+ * contarErradasPorConceito para o array `conceitos` de questoes_respondidas).
+ */
+export async function listarTagsComContagem(): Promise<{ tag: string; total: number }[]> {
+  const rows = await all<{ tag: string; total: number }>(
+    `SELECT je.value AS tag, COUNT(*) AS total
+     FROM conceitos_salvos, json_each(conceitos_salvos.tags) je
+     GROUP BY je.value
+     ORDER BY total DESC, tag COLLATE NOCASE ASC`,
+  );
+  return rows.map((r) => ({ tag: String(r.tag), total: Number(r.total) }));
+}
+
+/** Todas as notas com uma tag específica, em qualquer matéria — o que a
+ * nuvem de tags abre ao tocar numa tag. */
+export async function listarNotasPorTag(tag: string): Promise<ConceitoSalvo[]> {
+  const rows = await all(
+    `SELECT conceitos_salvos.* FROM conceitos_salvos, json_each(conceitos_salvos.tags) je
+     WHERE je.value = ?
+     ORDER BY ts DESC`,
+    [tag],
+  );
+  return rows.map(mapNota);
+}
+
 export async function listarConceitos(
   materia: string,
   ordem: "data" | "alfabetica",
@@ -907,7 +961,7 @@ export interface Fatia {
  * `coluna` nunca vem do usuário — só das constantes abaixo.
  */
 async function agrupar(
-  coluna: "nivel" | "tipo_cobranca" | "formato",
+  coluna: "nivel" | "tipo_cobranca" | "formato" | "confianca",
   materia: string | null,
   nivel: number | null = null,
 ): Promise<Fatia[]> {
@@ -918,7 +972,7 @@ async function agrupar(
     params.push(materia);
   }
   // Filtrar por nível dentro do próprio agrupamento por nível não faz
-  // sentido (o filtro já é a coluna agrupada) — só se aplica a tipo/formato.
+  // sentido (o filtro já é a coluna agrupada) — só se aplica a tipo/formato/confiança.
   if (nivel && coluna !== "nivel") {
     cond.push("nivel = ?");
     params.push(nivel);
@@ -946,6 +1000,10 @@ async function agrupar(
 export const porNivel = (m: string | null) => agrupar("nivel", m);
 export const porTipo = (m: string | null, nivel: number | null = null) => agrupar("tipo_cobranca", m, nivel);
 export const porFormato = (m: string | null, nivel: number | null = null) => agrupar("formato", m, nivel);
+/** Acerto por confiança autoavaliada ("certeza" vs "chute", ver QuestaoCard)
+ * — separa acerto por conhecimento de acerto por sorte, o que o % geral não
+ * distingue. Só conta respostas em que a confiança foi perguntada. */
+export const porConfianca = (m: string | null, nivel: number | null = null) => agrupar("confianca", m, nivel);
 
 /** Acerto por matéria — base da nota provável estimada (ver
  * estimarNotaProvavel), que pondera esta % pelo peso do edital de cada
@@ -1149,6 +1207,26 @@ export async function streakDias(): Promise<{ atual: number; recorde: number; ho
   return { atual, recorde: Math.max(recorde, atual), hoje };
 }
 
+/**
+ * Quantidade de questões respondidas por dia, nos últimos `dias` dias — base
+ * do calendário de sequência (heatmap estilo GitHub) na aba Dados. Mesma
+ * fonte de streakDias (não filtrada por matéria: é constância do estudo como
+ * um todo), mas com o total por dia em vez de só a sequência atual/recorde.
+ * Dias sem nenhuma resposta simplesmente não aparecem na linha — quem chama
+ * preenche os buracos com 0 para montar a grade completa.
+ */
+export async function atividadePorDia(dias: number): Promise<{ data: string; total: number }[]> {
+  const desde = new Date(Date.now() - (dias - 1) * 86_400_000).toISOString().slice(0, 10);
+  const rows = await all<{ dia: string; total: number }>(
+    `SELECT substr(ts, 1, 10) AS dia, COUNT(*) AS total
+     FROM questoes_respondidas
+     WHERE substr(ts, 1, 10) >= ?
+     GROUP BY dia`,
+    [desde],
+  );
+  return rows.map((r) => ({ data: r.dia, total: Number(r.total) }));
+}
+
 /** Blocos (qualquer origem) criados desde a segunda-feira mais recente
  * (00h00 local) — base da meta semanal (ver lib/metas.ts). Semana de
  * calendário, não janela rolante de 7 dias: reinicia sempre na segunda.
@@ -1243,4 +1321,182 @@ export async function materiasComDados(): Promise<string[]> {
      ORDER BY materia COLLATE NOCASE ASC`,
   );
   return rows.map((r) => String(r.materia));
+}
+
+/* ---------- Mesclagem entre aparelhos (rec. 9 — "sync") ---------- */
+
+/**
+ * Formato dedicado à mesclagem entre aparelhos — diferente do backup
+ * completo (exportarBancoJSON/importarBancoJSON em db.ts), que SUBSTITUI
+ * tudo, aqui cada linha é inserida sem apagar o que já existe localmente.
+ * Não é sincronização em tempo real (o app não tem backend/conta): é um
+ * merge manual, sob demanda — exporta de um aparelho, mescla no outro.
+ */
+export interface DumpMesclagem {
+  versao: 1;
+  blocos: Record<string, unknown>[];
+  questoes_respondidas: Record<string, unknown>[];
+  conceitos_salvos: Record<string, unknown>[];
+  explicacoes_banco: Record<string, unknown>[];
+}
+
+export async function exportarParaMesclagem(): Promise<string> {
+  const [blocos, questoes, conceitos, explicacoes] = await Promise.all([
+    all(`SELECT * FROM blocos`),
+    all(`SELECT * FROM questoes_respondidas`),
+    all(`SELECT * FROM conceitos_salvos`),
+    all(`SELECT * FROM explicacoes_banco`),
+  ]);
+  const dump: DumpMesclagem = {
+    versao: 1,
+    blocos,
+    questoes_respondidas: questoes,
+    conceitos_salvos: conceitos,
+    explicacoes_banco: explicacoes,
+  };
+  return JSON.stringify(dump);
+}
+
+export interface ResultadoMesclagem {
+  blocosNovos: number;
+  questoesNovas: number;
+  notasNovas: number;
+  explicacoesNovas: number;
+}
+
+/**
+ * Insere o conteúdo de um dump de outro aparelho SEM apagar nada local. Cada
+ * tabela tem uma chave de deduplicação por CONTEÚDO — os `id` do dump não
+ * servem (cada aparelho usa AUTOINCREMENT independente, então o mesmo número
+ * em dois aparelhos não é a mesma linha): bloco por (materia, topico, ts,
+ * total_questoes); questão respondida por (materia, enunciado, ts); nota por
+ * (materia, corpo); cache de explicação do banco por banco_id (já é chave
+ * natural). `bloco_id`/`questao_origem_id` são remapeados para os ids locais
+ * recém-inseridos (ou ficam null quando o bloco/questão de origem não fez
+ * parte deste dump).
+ *
+ * Sequencial (uma consulta de existência + um insert por linha), não em lote
+ * — mais lento que `runBatch` em conjuntos grandes, mas é o preço de decidir
+ * duplicata por conteúdo linha a linha; aceitável para uma ação manual e
+ * ocasional, não um caminho quente do app.
+ */
+export async function mesclarBackup(json: string): Promise<ResultadoMesclagem> {
+  const dump = JSON.parse(json) as DumpMesclagem;
+  if (dump.versao !== 1 || !Array.isArray(dump.blocos) || !Array.isArray(dump.questoes_respondidas)) {
+    throw new Error("Arquivo não é um backup de mesclagem reconhecido.");
+  }
+
+  const resultado: ResultadoMesclagem = {
+    blocosNovos: 0,
+    questoesNovas: 0,
+    notasNovas: 0,
+    explicacoesNovas: 0,
+  };
+
+  const mapaBloco = new Map<number, number>();
+  for (const b of dump.blocos) {
+    const oldId = Number(b.id);
+    const existente = await one<{ id: number }>(
+      `SELECT id FROM blocos
+       WHERE materia = ? AND IFNULL(topico,'') = IFNULL(?,'') AND ts = ? AND total_questoes = ?`,
+      [b.materia, b.topico ?? null, b.ts, b.total_questoes],
+    );
+    if (existente) {
+      mapaBloco.set(oldId, existente.id);
+      continue;
+    }
+    const { lastId } = await run(
+      `INSERT INTO blocos (ts, materia, topico, tipo, formato, nivel, total_acertos, total_questoes, por_sub, aprovado)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [b.ts, b.materia, b.topico ?? null, b.tipo, b.formato, b.nivel, b.total_acertos, b.total_questoes, b.por_sub, b.aprovado],
+    );
+    mapaBloco.set(oldId, lastId);
+    resultado.blocosNovos++;
+  }
+
+  const mapaQuestao = new Map<number, number>();
+  for (const q of dump.questoes_respondidas) {
+    const oldId = Number(q.id);
+    const existente = await one<{ id: number }>(
+      `SELECT id FROM questoes_respondidas WHERE materia = ? AND enunciado = ? AND ts = ?`,
+      [q.materia, q.enunciado, q.ts],
+    );
+    if (existente) {
+      mapaQuestao.set(oldId, existente.id);
+      continue;
+    }
+    const blocoIdOriginal = q.bloco_id == null ? null : Number(q.bloco_id);
+    const blocoIdNovo = blocoIdOriginal == null ? null : (mapaBloco.get(blocoIdOriginal) ?? null);
+    const { lastId } = await run(
+      `INSERT INTO questoes_respondidas
+         (bloco_id, materia, topico, sub, carga_conceitual, nivel, formato, tipo_cobranca,
+          enunciado, alternativas, gabarito, resposta, acertou, revisada, caixa_leitner, proxima_revisao,
+          comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, tempo_ms, confianca,
+          reportada, motivo_report, ts)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        blocoIdNovo,
+        q.materia,
+        q.topico ?? null,
+        q.sub ?? "",
+        q.carga_conceitual ?? 1,
+        q.nivel ?? null,
+        q.formato,
+        q.tipo_cobranca ?? null,
+        q.enunciado,
+        q.alternativas ?? null,
+        q.gabarito,
+        q.resposta,
+        q.acertou,
+        q.revisada ?? 0,
+        q.caixa_leitner ?? 1,
+        q.proxima_revisao ?? null,
+        q.comentario ?? "",
+        q.explicacoes_erradas ?? "{}",
+        q.conceitos ?? "[]",
+        q.dispositivo ?? null,
+        q.banco_id ?? null,
+        q.tempo_ms ?? null,
+        q.confianca ?? null,
+        q.reportada ?? 0,
+        q.motivo_report ?? null,
+        q.ts,
+      ],
+    );
+    mapaQuestao.set(oldId, lastId);
+    resultado.questoesNovas++;
+  }
+
+  for (const n of dump.conceitos_salvos) {
+    const existente = await one<{ id: number }>(
+      `SELECT id FROM conceitos_salvos WHERE materia = ? AND corpo = ?`,
+      [n.materia, n.corpo],
+    );
+    if (existente) continue;
+    const origemOriginal = n.questao_origem_id == null ? null : Number(n.questao_origem_id);
+    const origemNova = origemOriginal == null ? null : (mapaQuestao.get(origemOriginal) ?? null);
+    await run(
+      `INSERT INTO conceitos_salvos (materia, termo, definicao, corpo, tags, questao_origem_id, caixa_leitner, proxima_revisao, ts)
+       VALUES (?, '', '', ?, ?, ?, ?, ?, ?)`,
+      [n.materia, n.corpo, n.tags ?? "[]", origemNova, n.caixa_leitner ?? 1, n.proxima_revisao ?? null, n.ts],
+    );
+    resultado.notasNovas++;
+  }
+
+  for (const e of dump.explicacoes_banco) {
+    const existente = await one<{ banco_id: string }>(
+      `SELECT banco_id FROM explicacoes_banco WHERE banco_id = ?`,
+      [e.banco_id],
+    );
+    if (existente) continue;
+    await run(
+      `INSERT INTO explicacoes_banco (banco_id, comentario, explicacoes_erradas, ts) VALUES (?, ?, ?, ?)`,
+      [e.banco_id, e.comentario ?? "", e.explicacoes_erradas ?? "{}", e.ts],
+    );
+    resultado.explicacoesNovas++;
+  }
+
+  if (resultado.notasNovas > 0) void sincronizarNotasDocumentos();
+  void talvezFazerBackupAutomatico();
+  return resultado;
 }

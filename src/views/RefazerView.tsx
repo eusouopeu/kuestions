@@ -244,6 +244,7 @@ export default function RefazerView() {
           labelProxima={
             ultima ? "Encerrar revisão" : carregandoLote ? "Carregando…" : "Próxima questão"
           }
+          pedirConfianca={false}
           onResponder={async (_letra, acertou) => {
             // Não apaga do histórico: registra o resultado na caixa de
             // Leitner da questão — acertar empurra a próxima aparição para

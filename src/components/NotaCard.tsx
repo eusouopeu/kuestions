@@ -4,12 +4,12 @@ import Botao from "./Botao";
 import Chip from "./Chip";
 import CampoCorpoNota from "./CampoCorpoNota";
 import TextoComMarcaTexto from "./TextoComMarcaTexto";
+import ResumoQuestaoRespondida from "./ResumoQuestaoRespondida";
 import { apagarConceito, atualizarNota, buscarQuestaoPorId } from "../lib/repo";
 import { dataCurta } from "../lib/texto";
 import type { ConceitoSalvo, QuestaoRespondida } from "../lib/types";
 
 const LARGURA_APAGAR = 76;
-const LETRAS_ORIGEM = ["A", "B", "C", "D", "E"];
 
 /**
  * Um cartão de nota, na íntegra (sem tela de detalhe própria — ver
@@ -422,9 +422,8 @@ export default function NotaCard({
   );
 }
 
-/** Resumo somente-leitura da questão que originou a nota — não é o
- * QuestaoCard interativo do drill (essa questão já foi respondida em algum
- * momento passado); só mostra enunciado, gabarito e o que o usuário marcou. */
+/** Busca a questão que originou a nota por id e delega a exibição a
+ * ResumoQuestaoRespondida (compartilhado com a busca global, ver NotasTab). */
 function QuestaoOrigem({ id }: { id: number }) {
   const [questao, setQuestao] = useState<QuestaoRespondida | null | undefined>(undefined);
 
@@ -447,63 +446,5 @@ function QuestaoOrigem({ id }: { id: number }) {
     );
   }
 
-  return (
-    <div
-      style={{
-        borderTop: `1.5px dashed ${C.line}`,
-        paddingTop: 10,
-      }}
-    >
-      <div style={{ ...mono, fontSize: 10.5, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
-        QUESTÃO DE ORIGEM · {dataCurta(questao.ts)}
-      </div>
-
-      <p style={{ fontSize: 14, lineHeight: 1.55, margin: "0 0 10px" }}>{questao.enunciado}</p>
-
-      {questao.formato === "mc" && questao.alternativas ? (
-        <div style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: 10 }}>
-          {questao.alternativas.map((alt, i) => {
-            const l = LETRAS_ORIGEM[i];
-            const ehGabarito = l === questao.gabarito;
-            const ehResposta = l === questao.resposta;
-            return (
-              <div
-                key={l}
-                style={{
-                  fontSize: 13,
-                  padding: "5px 8px",
-                  borderRadius: 6,
-                  background: ehGabarito ? C.okSoft : ehResposta ? C.erroSoft : "transparent",
-                  color: ehGabarito ? C.ok : ehResposta ? C.erro : C.ink,
-                }}
-              >
-                {alt}
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div style={{ ...mono, fontSize: 12.5, marginBottom: 10, color: C.sub }}>
-          Gabarito: {questao.gabarito === "C" ? "CERTO" : "ERRADO"} · Sua resposta:{" "}
-          {questao.resposta ? (questao.resposta === "C" ? "CERTO" : "ERRADO") : "—"}
-        </div>
-      )}
-
-      <div
-        style={{
-          ...mono,
-          fontSize: 11.5,
-          fontWeight: 600,
-          color: questao.acertou ? C.ok : C.erro,
-          marginBottom: questao.comentario ? 8 : 0,
-        }}
-      >
-        {questao.resposta ? (questao.acertou ? "✓ Você acertou" : "✗ Você errou") : "Não respondida"}
-      </div>
-
-      {questao.comentario && (
-        <p style={{ fontSize: 13, lineHeight: 1.5, color: C.sub, margin: 0 }}>{questao.comentario}</p>
-      )}
-    </div>
-  );
+  return <ResumoQuestaoRespondida questao={questao} />;
 }

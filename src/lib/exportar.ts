@@ -58,3 +58,48 @@ export async function exportarArquivo(
   a.click();
   URL.revokeObjectURL(a.href);
 }
+
+/** Converte bytes para base64 em pedaços — passar o array inteiro de uma vez
+ * para `String.fromCharCode(...bytes)` estoura a pilha em arquivos maiores
+ * que uns 100 KB (limite de argumentos de função do motor JS). */
+function bytesParaBase64(bytes: Uint8Array): string {
+  const TAMANHO_PEDACO = 8192;
+  let binario = "";
+  for (let i = 0; i < bytes.length; i += TAMANHO_PEDACO) {
+    binario += String.fromCharCode(...bytes.subarray(i, i + TAMANHO_PEDACO));
+  }
+  return btoa(binario);
+}
+
+/** Mesma entrega de `exportarArquivo`, para conteúdo binário (ver
+ * lib/apkg.ts) — no nativo, `Filesystem.writeFile` sem `encoding` espera
+ * base64; no navegador/Tauri, o Blob recebe os bytes direto. */
+export async function exportarArquivoBinario(
+  nomeArquivo: string,
+  bytes: Uint8Array,
+  mime: string,
+): Promise<void> {
+  if (Capacitor.isNativePlatform()) {
+    const gravado = await Filesystem.writeFile({
+      path: nomeArquivo,
+      data: bytesParaBase64(bytes),
+      directory: Directory.Cache,
+    });
+    await Share.share({
+      title: nomeArquivo,
+      url: gravado.uri,
+      dialogTitle: "Exportar",
+    });
+    return;
+  }
+
+  // O cast é só de tipo: lib.dom exige que o ArrayBuffer por trás do
+  // Uint8Array não seja um SharedArrayBuffer (nunca é o caso aqui — os bytes
+  // vêm sempre de um `new Uint8Array(...)` fresco em zip.ts/apkg.ts).
+  const blob = new Blob([bytes as BlobPart], { type: mime });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = nomeArquivo;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}

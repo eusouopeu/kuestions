@@ -58,6 +58,10 @@ export interface QuestaoRespondida extends Questao {
    * QuestaoCard. null quando não medido (dados anteriores a esta coluna, ou
    * origem sem QuestaoCard, como o simulado cronometrado). */
   tempo_ms: number | null;
+  /** Autoavaliação de confiança, registrada ANTES de revelar o gabarito (ver
+   * QuestaoCard) — null quando não perguntada (revisão em Refazer erradas,
+   * simulado, ou resposta anterior a este campo). */
+  confianca: "certeza" | "chute" | null;
   ts: string;
 }
 

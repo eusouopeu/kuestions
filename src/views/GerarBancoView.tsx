@@ -4,7 +4,7 @@ import Botao from "../components/Botao";
 import EsqueletoQuestao from "../components/EsqueletoQuestao";
 import Rail from "../components/Rail";
 import Segmented from "../components/Segmented";
-import QuestaoCard from "../components/QuestaoCard";
+import QuestaoCard, { type Confianca } from "../components/QuestaoCard";
 import { Vazio } from "../components/Shell";
 import {
   anosDeArea,
@@ -21,6 +21,7 @@ import {
 } from "../lib/banco";
 import { gerarExplicacoes, SemCredencialError } from "../lib/anthropic";
 import { temCredencial } from "../lib/secure";
+import { getComExplicacoesIA } from "../lib/preferenciasGeracao";
 import {
   buscarExplicacoesBanco,
   criarBloco,
@@ -63,8 +64,13 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
   const [ano, setAno] = useState<number>(0);
   const [quantidade, setQuantidade] = useState<number>(12);
   // Gerar comentário/explicações já na montagem do bloco, ou deixar para
-  // sob demanda depois de responder — mesma ideia de GerarView.
+  // sob demanda depois de responder — mesma ideia de GerarView. Preferência
+  // única em Ajustes (ver lib/preferenciasGeracao.ts).
   const [comExplicacoes, setComExplicacoes] = useState(true);
+
+  useEffect(() => {
+    getComExplicacoesIA().then(setComExplicacoes);
+  }, []);
 
   const [lotes, setLotes] = useState<(Questao[] | null)[]>([]);
   const [statusLote, setStatusLote] = useState<StatusSub[]>([]);
@@ -223,7 +229,12 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
   const ultimaDoBloco = qIdx === totalQuestoes - 1;
   const topicoAtual = descricaoFiltroBanco(area, filtro);
 
-  async function responder(letra: string, acertou: boolean, tempoMs: number): Promise<number | null> {
+  async function responder(
+    letra: string,
+    acertou: boolean,
+    tempoMs: number,
+    confianca: Confianca | null,
+  ): Promise<number | null> {
     if (acertou) setAcertos((a) => a + 1);
     setRespondidaAtual(true);
     if (!questao) return null;
@@ -236,6 +247,7 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
       resposta: letra,
       acertou,
       tempoMs,
+      confianca,
     });
   }
 
@@ -461,39 +473,6 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
           Estas são questões reais de prova, extraídas de um banco anexado. Enunciado, alternativas
           e gabarito não são alterados — só o comentário e a explicação de cada alternativa errada
           são gerados pela IA.
-        </div>
-
-        <div style={{ marginBottom: 20 }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
-            <div>
-              <div style={{ fontSize: 13.5 }}>Explicações de IA na geração</div>
-              <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
-                {comExplicacoes
-                  ? "Cada questão já sai com comentário e explicação de cada alternativa errada."
-                  : "Questões saem sem explicação (exceto as já explicadas antes) — depois de responder, peça a explicação só do que quiser entender."}
-              </div>
-            </div>
-            <button
-              role="switch"
-              aria-checked={comExplicacoes}
-              onClick={() => setComExplicacoes((v) => !v)}
-              style={{
-                width: 44,
-                height: 26,
-                borderRadius: 13,
-                border: "none",
-                padding: 3,
-                flexShrink: 0,
-                display: "flex",
-                justifyContent: comExplicacoes ? "flex-end" : "flex-start",
-                background: comExplicacoes ? C.caneta : C.line,
-                cursor: "pointer",
-                transition: "background 0.15s",
-              }}
-            >
-              <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
-            </button>
-          </div>
         </div>
 
         <Botao onClick={iniciar} tipo="tinta" disabled={disponiveis === 0}>

@@ -11,15 +11,19 @@ import {
   setProxyUrl,
 } from "../lib/secure";
 import { MODEL } from "../lib/anthropic";
+import { getComExplicacoesIA, setComExplicacoesIA } from "../lib/preferenciasGeracao";
 import { exportarBancoJSON, importarBancoJSON } from "../lib/db";
 import { exportarArquivo } from "../lib/exportar";
 import { getTema, setTema, type Tema } from "../lib/tema";
 import {
+  exportarParaMesclagem,
   listarReportadas,
+  mesclarBackup,
   MOTIVOS_REPORT,
   resolverReport,
   resumo,
   type QuestaoReportada,
+  type ResultadoMesclagem,
 } from "../lib/repo";
 import {
   getConfigLembrete,
@@ -93,6 +97,16 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   );
   const inputArquivoRef = useRef<HTMLInputElement>(null);
 
+  // Mesclagem entre aparelhos (rec. 9 — "sync"): diferente de exportar/
+  // restaurar backup (que SUBSTITUI tudo), aqui o conteúdo de outro aparelho
+  // é inserido sem apagar nada local — ver mesclarBackup em repo.ts.
+  const [exportandoMesclagem, setExportandoMesclagem] = useState(false);
+  const [mesclagemExportada, setMesclagemExportada] = useState(false);
+  const [arquivoMesclagem, setArquivoMesclagem] = useState<File | null>(null);
+  const [mesclando, setMesclando] = useState(false);
+  const [resultadoMesclagem, setResultadoMesclagem] = useState<ResultadoMesclagem | null>(null);
+  const inputMesclagemRef = useRef<HTMLInputElement>(null);
+
   const [sincronizandoDocs, setSincronizandoDocs] = useState(false);
   const [docsSincronizados, setDocsSincronizados] = useState(false);
 
@@ -113,6 +127,8 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   const [diasBackup, setDiasBackup] = useState<number | null>(null);
   const [temDados, setTemDados] = useState(false);
 
+  const [comExplicacoesIA, setComExplicacoesIALocal] = useState(true);
+
   useEffect(() => {
     Promise.all([getApiKey(), getProxyUrl()])
       .then(([k, p]) => {
@@ -125,7 +141,13 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     getConfigMeta().then(setMetaLocal);
     getMetasPorMateria().then(setMetasPorMateriaLocal);
     getPesosEdital().then(setPesosLocal);
+    getComExplicacoesIA().then(setComExplicacoesIALocal);
   }, []);
+
+  async function alternarComExplicacoesIA(v: boolean) {
+    setComExplicacoesIALocal(v);
+    await setComExplicacoesIA(v);
+  }
 
   useEffect(() => {
     if (!ativa) return;
@@ -357,6 +379,56 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     }
   }
 
+  async function exportarMesclagem() {
+    if (exportandoMesclagem) return;
+    setExportandoMesclagem(true);
+    setStatusBackup(null);
+    setMesclagemExportada(false);
+    try {
+      const json = await exportarParaMesclagem();
+      const data = new Date().toISOString().slice(0, 10);
+      await exportarArquivo(`kuestions-mesclar-${data}.json`, json, "application/json");
+      setMesclagemExportada(true);
+      setTimeout(() => setMesclagemExportada(false), 2500);
+    } catch (e) {
+      setStatusBackup({
+        tom: "erro",
+        texto: e instanceof Error ? e.message : "Falha ao gerar o arquivo para mesclar.",
+      });
+    } finally {
+      setExportandoMesclagem(false);
+    }
+  }
+
+  function escolherArquivoMesclagem(e: ChangeEvent<HTMLInputElement>) {
+    const f = e.target.files?.[0];
+    e.target.value = "";
+    if (f) {
+      setStatusBackup(null);
+      setResultadoMesclagem(null);
+      setArquivoMesclagem(f);
+    }
+  }
+
+  async function confirmarMesclagem() {
+    if (!arquivoMesclagem || mesclando) return;
+    setMesclando(true);
+    setStatusBackup(null);
+    try {
+      const texto = await arquivoMesclagem.text();
+      const resultado = await mesclarBackup(texto);
+      setResultadoMesclagem(resultado);
+      setArquivoMesclagem(null);
+    } catch (e) {
+      setStatusBackup({
+        tom: "erro",
+        texto: e instanceof Error ? e.message : "Falha ao mesclar o arquivo.",
+      });
+    } finally {
+      setMesclando(false);
+    }
+  }
+
   return (
     <Shell kicker="CONFIGURAÇÃO" titulo="Ajustes">
       <div style={{ marginBottom: 18 }}>
@@ -562,6 +634,84 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
               type="file"
               accept="application/json,.json"
               onChange={escolherArquivoRestauro}
+              style={{ display: "none" }}
+            />
+          </div>
+        )}
+      </div>
+
+      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
+        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
+          MESCLAR ENTRE APARELHOS
+        </div>
+        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
+          Diferente de restaurar um backup (que substitui tudo), mesclar ADICIONA o conteúdo do
+          arquivo sem apagar nada daqui — exporte deste aparelho, mescle no outro (e vice-versa) para
+          manter os dois com o histórico completo.
+        </div>
+
+        {resultadoMesclagem && (
+          <div
+            style={{
+              background: C.okSoft,
+              border: `1.5px solid ${C.ok}`,
+              borderRadius: 10,
+              padding: "10px 12px",
+              fontSize: 13,
+              lineHeight: 1.5,
+              marginBottom: 12,
+            }}
+          >
+            Mesclado: {resultadoMesclagem.blocosNovos} bloco{resultadoMesclagem.blocosNovos === 1 ? "" : "s"},{" "}
+            {resultadoMesclagem.questoesNovas} questão{resultadoMesclagem.questoesNovas === 1 ? "" : "ões"}{" "}
+            respondida{resultadoMesclagem.questoesNovas === 1 ? "" : "s"}, {resultadoMesclagem.notasNovas} nota
+            {resultadoMesclagem.notasNovas === 1 ? "" : "s"} e {resultadoMesclagem.explicacoesNovas} explicação
+            {resultadoMesclagem.explicacoesNovas === 1 ? "" : "ões"} nova{resultadoMesclagem.explicacoesNovas === 1 ? "" : "s"} — nada foi apagado.
+          </div>
+        )}
+
+        {arquivoMesclagem ? (
+          <div>
+            <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
+              Mesclar <strong>{arquivoMesclagem.name}</strong> aqui — o que já existir (mesmo
+              conteúdo) é ignorado, o resto é adicionado.
+            </div>
+            <div style={{ display: "flex", gap: 8 }}>
+              <Botao
+                tipo="fantasma"
+                onClick={() => setArquivoMesclagem(null)}
+                disabled={mesclando}
+                style={{ background: C.card, flex: 1 }}
+              >
+                Cancelar
+              </Botao>
+              <Botao onClick={confirmarMesclagem} disabled={mesclando} style={{ flex: 1 }}>
+                {mesclando ? "Mesclando…" : "Mesclar"}
+              </Botao>
+            </div>
+          </div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <Botao
+              tipo="fantasma"
+              onClick={exportarMesclagem}
+              disabled={exportandoMesclagem}
+              style={mesclagemExportada ? { borderColor: C.ok, color: C.ok } : undefined}
+            >
+              {exportandoMesclagem
+                ? "Gerando…"
+                : mesclagemExportada
+                  ? "✓ Exportado"
+                  : "Exportar para mesclar em outro aparelho"}
+            </Botao>
+            <Botao tipo="fantasma" onClick={() => inputMesclagemRef.current?.click()}>
+              Mesclar de um arquivo
+            </Botao>
+            <input
+              ref={inputMesclagemRef}
+              type="file"
+              accept="application/json,.json"
+              onChange={escolherArquivoMesclagem}
               style={{ display: "none" }}
             />
           </div>
@@ -884,7 +1034,43 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
           GERAÇÃO
         </div>
-        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6 }}>
+
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+          <div>
+            <div style={{ fontSize: 13.5 }}>Explicações de IA na geração</div>
+            <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+              {comExplicacoesIA
+                ? "Cada questão já sai com comentário e explicação de cada alternativa errada."
+                : "Questões saem sem explicação — depois de responder, escolha só as alternativas que quer entender e peça a explicação na hora, mais aprofundada e mais barata."}
+            </div>
+          </div>
+          <button
+            role="switch"
+            aria-checked={comExplicacoesIA}
+            onClick={() => alternarComExplicacoesIA(!comExplicacoesIA)}
+            style={{
+              width: 44,
+              height: 26,
+              borderRadius: 13,
+              border: "none",
+              padding: 3,
+              flexShrink: 0,
+              display: "flex",
+              justifyContent: comExplicacoesIA ? "flex-end" : "flex-start",
+              background: comExplicacoesIA ? C.caneta : C.line,
+              cursor: "pointer",
+              transition: "background 0.15s",
+            }}
+          >
+            <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+          </button>
+        </div>
+        <div style={{ fontSize: 11, color: C.sub, marginTop: 10 }}>
+          Vale para blocos gerados com IA e para o banco de questões reais — configurado uma vez,
+          continua valendo para os próximos blocos.
+        </div>
+
+        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginTop: 14, paddingTop: 12, borderTop: `1px solid ${C.line}` }}>
           Modelo: <code style={{ ...mono, fontSize: 12, color: C.ink }}>{MODEL}</code>
           <br />
           Raciocínio adaptativo com esforço médio, equilibrando a autoverificação factual do

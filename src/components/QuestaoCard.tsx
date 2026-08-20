@@ -5,6 +5,7 @@ import { C, cartao, disp, mono } from "../theme";
 import Botao from "./Botao";
 import Chip from "./Chip";
 import Opcao, { type Reveal } from "./Opcao";
+import Segmented from "./Segmented";
 import SelecaoNota from "./SelecaoNota";
 import type { Questao } from "../lib/types";
 import { labelTipo } from "../lib/constants";
@@ -14,6 +15,8 @@ import { gerarExplicacaoParcial, mensagemDeErro } from "../lib/anthropic";
 import ModalReport from "./ModalReport";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
+
+export type Confianca = "certeza" | "chute";
 
 export type OrigemQuestao = "ia" | "banco" | "importada";
 
@@ -44,6 +47,7 @@ export default function QuestaoCard({
   origem,
   cabecalho,
   labelProxima,
+  pedirConfianca = true,
   onResponder,
   onProxima,
 }: {
@@ -66,17 +70,24 @@ export default function QuestaoCard({
   origem?: OrigemQuestao;
   cabecalho?: React.ReactNode;
   labelProxima: string;
+  /** Pergunta "certeza"/"chute" antes de revelar o gabarito (ver
+   * lib/repo.ts → porConfianca) — só faz sentido numa resposta nova, gravada
+   * de verdade; desligado em Refazer erradas (que não grava uma linha nova,
+   * só avança a caixa de Leitner da mesma questão). */
+  pedirConfianca?: boolean;
   /** `tempoMs` é o tempo entre a questão aparecer e a resposta ser enviada
-   * (cronometrado aqui). Devolve o id da linha gravada, para vincular a nota
-   * à questão de origem. */
+   * (cronometrado aqui). `confianca` é null quando `pedirConfianca` é false.
+   * Devolve o id da linha gravada, para vincular a nota à questão de origem. */
   onResponder: (
     letra: string,
     acertou: boolean,
     tempoMs: number,
+    confianca: Confianca | null,
   ) => Promise<number | null> | void;
   onProxima: () => void;
 }) {
   const [selecionada, setSelecionada] = useState<string | null>(null);
+  const [confianca, setConfianca] = useState<Confianca>("certeza");
   const [revelada, setRevelada] = useState(false);
   const [tachadas, setTachadas] = useState<string[]>([]);
   const [origemId, setOrigemId] = useState<number | null>(questaoOrigemId ?? null);
@@ -102,6 +113,7 @@ export default function QuestaoCard({
   // Reset ao trocar de questão: sem isso a seleção da anterior vazaria.
   useEffect(() => {
     setSelecionada(null);
+    setConfianca("certeza");
     setRevelada(false);
     setTachadas([]);
     setOrigemId(questaoOrigemId ?? null);
@@ -205,7 +217,7 @@ export default function QuestaoCard({
     setRevelada(true);
     const tempoMs = Date.now() - inicioRef.current;
     try {
-      const id = await onResponder(selecionada, acertou, tempoMs);
+      const id = await onResponder(selecionada, acertou, tempoMs, pedirConfianca ? confianca : null);
       if (typeof id === "number") setOrigemId(id);
     } catch (e) {
       // A resposta já está revelada; falha de gravação não deve travar o drill.
@@ -300,6 +312,18 @@ export default function QuestaoCard({
 
       {!revelada && (
         <div>
+          {pedirConfianca && selecionada != null && (
+            <div style={{ marginTop: 14 }}>
+              <Segmented
+                valor={confianca}
+                opcoes={[
+                  { id: "certeza" as Confianca, label: "Tenho certeza" },
+                  { id: "chute" as Confianca, label: "Estou no chute" },
+                ]}
+                onChange={setConfianca}
+              />
+            </div>
+          )}
           <Botao onClick={enviar} disabled={selecionada == null} style={{ marginTop: 14 }}>
             Enviar resposta
           </Botao>

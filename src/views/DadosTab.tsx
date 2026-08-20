@@ -17,10 +17,12 @@ import Shell, { Vazio } from "../components/Shell";
 import Botao from "../components/Botao";
 import Chip from "../components/Chip";
 import {
+  atividadePorDia,
   estimarNotaProvavel,
   materiasComDados,
   porConceito,
   porFormato,
+  porConfianca,
   porNivel,
   porTipo,
   questoesPorTopico,
@@ -49,6 +51,9 @@ import {
 
 const TODAS = "__todas__";
 const TODOS_NIVEIS = 0;
+/** Janela do calendário de sequência (heatmap) — 26 semanas cabe numa grade
+ * legível em tela de celular, rolável na horizontal se precisar. */
+const DIAS_HEATMAP = 182;
 
 /** "1min 24s" / "38s" — formato compacto para os cartões de tempo médio. */
 function formatarDuracao(ms: number): string {
@@ -169,6 +174,83 @@ function BarrasPct({
   );
 }
 
+/** Um dia do calendário de sequência: `total` null = fora da janela (célula
+ * de preenchimento, só para a grade fechar em semanas completas). */
+function addDiasISO(dataISO: string, n: number): string {
+  const d = new Date(`${dataISO}T00:00:00.000Z`);
+  d.setUTCDate(d.getUTCDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+
+/** Calendário de sequência (heatmap estilo GitHub): uma coluna por semana,
+ * uma célula por dia, mais escura quanto mais questões respondidas naquele
+ * dia — visão rápida de constância que o número isolado de "sequência atual"
+ * não mostra. Datas em UTC (mesma convenção de `ts`/streakDias) para não
+ * desalinhar a grade por fuso horário. */
+function CalendarioSequencia({ atividade, dias }: { atividade: { data: string; total: number }[]; dias: number }) {
+  const porDia = new Map(atividade.map((a) => [a.data, a.total]));
+  const hojeISO = new Date().toISOString().slice(0, 10);
+  const inicioISO = addDiasISO(hojeISO, -(dias - 1));
+  const diaDaSemana = new Date(`${inicioISO}T00:00:00.000Z`).getUTCDay();
+  const inicioSemanaISO = addDiasISO(inicioISO, -diaDaSemana);
+
+  const celulas: { chave: string; total: number | null }[] = [];
+  for (let d = inicioSemanaISO; d <= hojeISO; d = addDiasISO(d, 1)) {
+    celulas.push({ chave: d, total: d < inicioISO ? null : (porDia.get(d) ?? 0) });
+  }
+  const semanas: (typeof celulas)[] = [];
+  for (let i = 0; i < celulas.length; i += 7) semanas.push(celulas.slice(i, i + 7));
+
+  function cor(total: number | null): string {
+    if (total == null) return "transparent";
+    if (total === 0) return C.paper;
+    if (total <= 2) return C.canetaSoft;
+    return C.caneta;
+  }
+
+  return (
+    <div>
+      <div style={{ overflowX: "auto", paddingBottom: 4 }}>
+        <div style={{ display: "flex", gap: 3, width: "max-content" }}>
+          {semanas.map((semana, i) => (
+            <div key={i} style={{ display: "flex", flexDirection: "column", gap: 3 }}>
+              {semana.map((d) => (
+                <div
+                  key={d.chave}
+                  title={d.total == null ? undefined : `${d.chave} · ${d.total} questão${d.total === 1 ? "" : "es"}`}
+                  style={{
+                    width: 11,
+                    height: 11,
+                    borderRadius: 3,
+                    background: cor(d.total),
+                    border: d.total === 0 ? `1px solid ${C.line}` : "none",
+                  }}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 8 }}>
+        <span style={{ fontSize: 10.5, color: C.sub }}>Menos</span>
+        {[0, 1, 3].map((t) => (
+          <div
+            key={t}
+            style={{
+              width: 11,
+              height: 11,
+              borderRadius: 3,
+              background: cor(t),
+              border: `1px solid ${C.line}`,
+            }}
+          />
+        ))}
+        <span style={{ fontSize: 10.5, color: C.sub }}>Mais</span>
+      </div>
+    </div>
+  );
+}
+
 export default function DadosTab({
   ativa,
   onQuestoes,
@@ -187,6 +269,8 @@ export default function DadosTab({
   const [niveis, setNiveis] = useState<Fatia[]>([]);
   const [tipos, setTipos] = useState<Fatia[]>([]);
   const [formatos, setFormatos] = useState<Fatia[]>([]);
+  const [confiancas, setConfiancas] = useState<Fatia[]>([]);
+  const [atividade, setAtividade] = useState<{ data: string; total: number }[]>([]);
   const [conceitos, setConceitos] = useState<Fatia[]>([]);
   const [streak, setStreak] = useState<{ atual: number; recorde: number; hoje: boolean } | null>(
     null,
@@ -219,20 +303,24 @@ export default function DadosTab({
       porTipo(m, n),
       porFormato(m, n),
       porConceito(m, n),
+      porConfianca(m, n),
       streakDias(),
+      atividadePorDia(DIAS_HEATMAP),
       tempoMedioGeral(m),
       tempoPorMateria(),
       // Nota estimada só faz sentido na visão agregada — ver corpo abaixo.
       filtro === TODAS ? Promise.all([resumoPorMateria(n), getPesosEdital()]) : Promise.resolve(null),
     ])
-      .then(([r, s, ni, ti, fo, co, st, tg, tm, baseNota]) => {
+      .then(([r, s, ni, ti, fo, co, cf, st, at, tg, tm, baseNota]) => {
         setRes(r);
         setSerie(s);
         setNiveis(ni);
         setTipos(ti);
         setFormatos(fo);
         setConceitos(co);
+        setConfiancas(cf);
         setStreak(st);
+        setAtividade(at);
         setTempoGeral(tg);
         setTempoMaterias(tm);
         setNotaEstimada(baseNota ? estimarNotaProvavel(baseNota[0], baseNota[1]) : null);
@@ -281,6 +369,12 @@ export default function DadosTab({
     total: f.total,
   }));
   const dadosConceitos = conceitos.map((f) => ({ nome: f.chave, pct: f.pct, total: f.total }));
+  const LABEL_CONFIANCA: Record<string, string> = { certeza: "Certeza", chute: "Chute" };
+  const dadosConfianca = confiancas.map((f) => ({
+    nome: LABEL_CONFIANCA[f.chave] ?? f.chave,
+    pct: f.pct,
+    total: f.total,
+  }));
 
   return (
     <Shell kicker="DESEMPENHO" titulo="Dados">
@@ -409,6 +503,14 @@ export default function DadosTab({
               </div>
             </div>
           )}
+
+          {/* Calendário de sequência — mesma constância "do estudo como um
+              todo", não filtrada por matéria/nível (ver comentário acima). */}
+          <Cartao titulo="CALENDÁRIO DE SEQUÊNCIA" legenda="Questões respondidas por dia, últimas 26 semanas.">
+            <div style={{ padding: "0 4px 14px" }}>
+              <CalendarioSequencia atividade={atividade} dias={DIAS_HEATMAP} />
+            </div>
+          </Cartao>
 
           {/* Nota provável estimada: acerto por matéria ponderado pelo peso
               de cada uma no edital (configurado em Ajustes) — só na visão
@@ -730,6 +832,24 @@ export default function DadosTab({
           {/* Formato */}
           <Cartao titulo="ACERTO POR FORMATO (CE VS MC)">
             <BarrasPct dados={dadosFormatos} alturaPorItem={40} />
+          </Cartao>
+
+          {/* Confiança — separa acerto por conhecimento de acerto por
+              sorte, o que o % geral não distingue (ver QuestaoCard e
+              porConfianca em repo.ts). Só existe para respostas novas
+              gravadas depois deste recurso; revisão em Refazer erradas e
+              simulado não perguntam confiança. */}
+          <Cartao
+            titulo="ACERTO POR CONFIANÇA"
+            legenda="Autoavaliação feita antes de ver o gabarito — respostas de revisão e do simulado não entram aqui."
+          >
+            {dadosConfianca.length ? (
+              <BarrasPct dados={dadosConfianca} alturaPorItem={40} />
+            ) : (
+              <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
+                Nenhuma resposta com autoavaliação de confiança ainda.
+              </div>
+            )}
           </Cartao>
 
           {/* Conceito — a dimensão mais granular; só mostra os que já têm

@@ -8,17 +8,21 @@ import NotaCard from "../components/NotaCard";
 import {
   apagarConceito,
   buscarNotas,
+  buscarQuestoesRespondidas,
   contarNotasPendentesPorMateria,
   listarConceitos,
   listarNotasPendentes,
+  listarNotasPorTag,
   listarPastas,
+  listarTagsComContagem,
   registrarRevisaoNota,
 } from "../lib/repo";
-import { exportarArquivo } from "../lib/exportar";
+import { exportarArquivo, exportarArquivoBinario } from "../lib/exportar";
 import { gerarArquivosFlashcards } from "../lib/flashcards";
 import { slugify } from "../lib/texto";
 import TextoComMarcaTexto from "../components/TextoComMarcaTexto";
-import type { ConceitoSalvo } from "../lib/types";
+import ResumoQuestaoRespondida from "../components/ResumoQuestaoRespondida";
+import type { ConceitoSalvo, QuestaoRespondida } from "../lib/types";
 
 type Ordem = "data" | "alfabetica";
 
@@ -36,6 +40,15 @@ export default function NotasTab({
   const [pastas, setPastas] = useState<{ materia: string; total: number }[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [pasta, setPasta] = useState<string | null>(null);
+
+  // Nuvem de tags: outra forma de navegar as notas, cruzando matérias (a
+  // mesma tag pode aparecer em notas de matérias diferentes) — alternativa à
+  // navegação por pasta, só na tela de topo (pasta === null, busca inativa).
+  const [modoTop, setModoTop] = useState<"pastas" | "tags">("pastas");
+  const [tags, setTags] = useState<{ tag: string; total: number }[]>([]);
+  const [carregandoTags, setCarregandoTags] = useState(false);
+  const [tagAberta, setTagAberta] = useState<string | null>(null);
+  const [itensTag, setItensTag] = useState<ConceitoSalvo[] | null>(null);
   // Revisão ativa por repetição espaçada das notas salvas (ver
   // registrarRevisaoNota em repo.ts) — `null` = fora do modo revisão;
   // `{ materia: null }` = revisão cruzando todas as matérias.
@@ -48,13 +61,17 @@ export default function NotasTab({
   const [exportando, setExportando] = useState(false);
   const [erroExport, setErroExport] = useState<string | null>(null);
   const [csvExportado, setCsvExportado] = useState(false);
+  const [exportandoApkg, setExportandoApkg] = useState(false);
+  const [apkgExportado, setApkgExportado] = useState(false);
 
-  // Busca cross-matéria: só ativa na tela de pastas (pasta === null). Mantida
-  // separada da navegação em pastas para que trocar de pasta não perca o
-  // texto buscado.
+  // Busca global (notas + questões já respondidas — enunciado/comentário):
+  // só ativa na tela de pastas (pasta === null). Mantida separada da
+  // navegação em pastas para que trocar de pasta não perca o texto buscado.
   const [busca, setBusca] = useState("");
   const [buscando, setBuscando] = useState(false);
   const [resultadosBusca, setResultadosBusca] = useState<ConceitoSalvo[]>([]);
+  const [resultadosQuestoes, setResultadosQuestoes] = useState<QuestaoRespondida[]>([]);
+  const [questaoAberta, setQuestaoAberta] = useState<number | null>(null);
 
   // Seleção múltipla dentro de uma pasta, para apagar/exportar um subconjunto
   // sem precisar ir nota por nota.
@@ -91,6 +108,25 @@ export default function NotasTab({
 
   useEffect(carregarItens, [carregarItens]);
 
+  // Nuvem de tags: carrega só quando o modo está ativo (evita uma consulta
+  // extra em toda visita à aba para quem nunca usa essa vista).
+  useEffect(() => {
+    if (!ativa || pasta || modoTop !== "tags") return;
+    setCarregandoTags(true);
+    listarTagsComContagem()
+      .then(setTags)
+      .catch(() => setTags([]))
+      .finally(() => setCarregandoTags(false));
+  }, [ativa, pasta, modoTop]);
+
+  function abrirTag(tag: string) {
+    setTagAberta(tag);
+    setItensTag(null);
+    listarNotasPorTag(tag)
+      .then(setItensTag)
+      .catch(() => setItensTag([]));
+  }
+
   // Sai do modo de seleção sempre que a lista muda de baixo (troca de pasta
   // ou de ordenação) — uma seleção antiga não deve sobreviver a isso.
   useEffect(() => {
@@ -99,19 +135,30 @@ export default function NotasTab({
     setConfirmandoApagarSelecionadas(false);
   }, [pasta, ordem]);
 
-  // Debounce simples: evita uma consulta a cada tecla digitada.
+  // Debounce simples: evita uma consulta a cada tecla digitada. Busca em
+  // paralelo nas duas fontes (notas e questões respondidas) — ver
+  // buscarNotas/buscarQuestoesRespondidas em repo.ts.
   useEffect(() => {
     const termo = busca.trim();
     if (!termo) {
       setResultadosBusca([]);
+      setResultadosQuestoes([]);
+      setQuestaoAberta(null);
       setBuscando(false);
       return;
     }
     setBuscando(true);
     const t = setTimeout(() => {
-      buscarNotas(termo)
-        .then(setResultadosBusca)
-        .catch(() => setResultadosBusca([]))
+      Promise.all([buscarNotas(termo), buscarQuestoesRespondidas(termo)])
+        .then(([notas, questoes]) => {
+          setResultadosBusca(notas);
+          setResultadosQuestoes(questoes);
+          setQuestaoAberta(null);
+        })
+        .catch(() => {
+          setResultadosBusca([]);
+          setResultadosQuestoes([]);
+        })
         .finally(() => setBuscando(false));
     }, 250);
     return () => clearTimeout(t);
@@ -140,6 +187,30 @@ export default function NotasTab({
       setErroExport(e instanceof Error ? e.message : "Falha ao exportar.");
     } finally {
       setExportando(false);
+    }
+  }
+
+  /**
+   * Exporta um único .apkg — o formato de import nativo do Anki (ver
+   * lib/apkg.ts) — em vez de dois CSVs: cloze e básico misturados no mesmo
+   * arquivo, cada nota já com o notetype certo, uma importação só.
+   */
+  async function exportarApkg(itensParaExportar: ConceitoSalvo[], nomeBase: string) {
+    if (!itensParaExportar.length || exportandoApkg) return;
+    setExportandoApkg(true);
+    setErroExport(null);
+    setApkgExportado(false);
+    try {
+      const { gerarApkg } = await import("../lib/apkg");
+      const bytes = await gerarApkg(itensParaExportar, nomeBase);
+      const slug = slugify(nomeBase);
+      await exportarArquivoBinario(`kuestions-${slug}.apkg`, bytes, "application/octet-stream");
+      setApkgExportado(true);
+      setTimeout(() => setApkgExportado(false), 2500);
+    } catch (e) {
+      setErroExport(e instanceof Error ? e.message : "Falha ao exportar .apkg.");
+    } finally {
+      setExportandoApkg(false);
     }
   }
 
@@ -183,6 +254,57 @@ export default function NotasTab({
             carregarPastas();
           }}
         />
+      </Shell>
+    );
+  }
+
+  /* ---------- Notas de uma tag (nuvem de tags) ---------- */
+  if (tagAberta) {
+    return (
+      <Shell kicker={`NOTAS · TAG`} titulo={tagAberta}>
+        <button
+          onClick={() => {
+            setTagAberta(null);
+            setItensTag(null);
+          }}
+          style={{
+            ...mono,
+            display: "block",
+            marginBottom: 14,
+            fontSize: 12,
+            background: "none",
+            border: "none",
+            color: C.sub,
+            cursor: "pointer",
+            textDecoration: "underline",
+            padding: 0,
+          }}
+        >
+          ← Nuvem de tags
+        </button>
+
+        {itensTag === null ? (
+          <Vazio>Carregando…</Vazio>
+        ) : itensTag.length === 0 ? (
+          <Vazio>Nenhuma nota com esta tag.</Vazio>
+        ) : (
+          itensTag.map((c) => (
+            <NotaCard
+              key={c.id}
+              conceito={c}
+              mostrarMateria
+              selecionando={false}
+              marcada={false}
+              onToggleSelecao={() => {}}
+              onAtualizado={(atualizado) => {
+                setItensTag((is) => (is ? is.map((i) => (i.id === atualizado.id ? atualizado : i)) : is));
+              }}
+              onApagado={() => {
+                setItensTag((is) => (is ? is.filter((i) => i.id !== c.id) : is));
+              }}
+            />
+          ))
+        )}
       </Shell>
     );
   }
@@ -287,20 +409,26 @@ export default function NotasTab({
                 </div>
               </div>
             ) : (
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                <Botao
-                  tipo="fantasma"
-                  onClick={() => exportarCSV(itens, pasta)}
-                  disabled={exportando}
-                  style={csvExportado ? { borderColor: C.ok, color: C.ok, flex: 1 } : { flex: 1 }}
-                >
-                  {exportando
-                    ? "Exportando…"
-                    : csvExportado
-                      ? "✓ Exportado"
-                      : `Exportar flashcards (CSV) · ${itens.length}`}
-                </Botao>
-                <Botao tipo="fantasma" onClick={() => setSelecionando(true)} style={{ maxWidth: 120 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                  <Botao
+                    tipo="fantasma"
+                    onClick={() => exportarCSV(itens, pasta)}
+                    disabled={exportando}
+                    style={csvExportado ? { borderColor: C.ok, color: C.ok, flex: 1 } : { flex: 1 }}
+                  >
+                    {exportando ? "Exportando…" : csvExportado ? "✓ Exportado" : `CSV (2 arquivos) · ${itens.length}`}
+                  </Botao>
+                  <Botao
+                    tipo="fantasma"
+                    onClick={() => exportarApkg(itens, pasta)}
+                    disabled={exportandoApkg}
+                    style={apkgExportado ? { borderColor: C.ok, color: C.ok, flex: 1 } : { flex: 1 }}
+                  >
+                    {exportandoApkg ? "Exportando…" : apkgExportado ? "✓ Exportado" : `.apkg (1 arquivo) · ${itens.length}`}
+                  </Botao>
+                </div>
+                <Botao tipo="fantasma" onClick={() => setSelecionando(true)}>
                   Selecionar
                 </Botao>
               </div>
@@ -410,7 +538,7 @@ export default function NotasTab({
         <div style={{ marginBottom: 16 }}>
           <input
             style={campo}
-            placeholder="Buscar em corpo ou tag…"
+            placeholder="Buscar em notas e em questões já respondidas…"
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
           />
@@ -420,30 +548,95 @@ export default function NotasTab({
       {buscaAtiva ? (
         buscando ? (
           <Vazio>Buscando…</Vazio>
-        ) : resultadosBusca.length === 0 ? (
-          <Vazio>Nenhuma nota encontrada para "{busca.trim()}".</Vazio>
+        ) : resultadosBusca.length === 0 && resultadosQuestoes.length === 0 ? (
+          <Vazio>Nada encontrado para "{busca.trim()}".</Vazio>
         ) : (
           <>
-            <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
-              {resultadosBusca.length} RESULTADO{resultadosBusca.length === 1 ? "" : "S"}
-            </div>
-            {resultadosBusca.map((c) => (
-              <NotaCard
-                key={c.id}
-                conceito={c}
-                mostrarMateria
-                selecionando={false}
-                marcada={false}
-                onToggleSelecao={() => {}}
-                onAtualizado={(atualizado) => {
-                  setResultadosBusca((rs) => rs.map((r) => (r.id === atualizado.id ? atualizado : r)));
-                }}
-                onApagado={() => {
-                  setResultadosBusca((rs) => rs.filter((r) => r.id !== c.id));
-                  carregarPastas();
-                }}
-              />
-            ))}
+            {resultadosBusca.length > 0 && (
+              <div style={{ marginBottom: resultadosQuestoes.length > 0 ? 22 : 0 }}>
+                <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
+                  NOTAS · {resultadosBusca.length}
+                </div>
+                {resultadosBusca.map((c) => (
+                  <NotaCard
+                    key={c.id}
+                    conceito={c}
+                    mostrarMateria
+                    selecionando={false}
+                    marcada={false}
+                    onToggleSelecao={() => {}}
+                    onAtualizado={(atualizado) => {
+                      setResultadosBusca((rs) => rs.map((r) => (r.id === atualizado.id ? atualizado : r)));
+                    }}
+                    onApagado={() => {
+                      setResultadosBusca((rs) => rs.filter((r) => r.id !== c.id));
+                      carregarPastas();
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+
+            {resultadosQuestoes.length > 0 && (
+              <div>
+                <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
+                  QUESTÕES RESPONDIDAS · {resultadosQuestoes.length}
+                </div>
+                {resultadosQuestoes.map((q) => {
+                  const aberta = questaoAberta === q.id;
+                  return (
+                    <button
+                      key={q.id}
+                      onClick={() => setQuestaoAberta((atual) => (atual === q.id ? null : q.id))}
+                      style={{
+                        ...cartao,
+                        display: "block",
+                        width: "100%",
+                        textAlign: "left",
+                        padding: "12px 14px",
+                        marginBottom: 8,
+                        cursor: "pointer",
+                      }}
+                    >
+                      {aberta ? (
+                        <ResumoQuestaoRespondida questao={q} comBorda={false} />
+                      ) : (
+                        <>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              gap: 10,
+                              alignItems: "baseline",
+                              marginBottom: 4,
+                            }}
+                          >
+                            <span style={{ ...mono, fontSize: 10.5, color: C.sub }}>
+                              {q.materia.toUpperCase()}
+                            </span>
+                            <span style={{ ...mono, fontSize: 10.5, color: q.acertou ? C.ok : C.erro, flexShrink: 0 }}>
+                              {q.acertou ? "✓ acertou" : "✗ errou"}
+                            </span>
+                          </div>
+                          <div
+                            style={{
+                              fontSize: 13.5,
+                              lineHeight: 1.45,
+                              display: "-webkit-box",
+                              WebkitLineClamp: 2,
+                              WebkitBoxOrient: "vertical",
+                              overflow: "hidden",
+                            }}
+                          >
+                            {q.enunciado}
+                          </div>
+                        </>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </>
         )
       ) : carregando ? (
@@ -460,31 +653,97 @@ export default function NotasTab({
           </Botao>
         </Vazio>
       ) : (
-        pastas.map((p) => (
-          <button
-            key={p.materia}
-            onClick={() => setPasta(p.materia)}
-            style={{
-              ...cartao,
-              display: "flex",
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "space-between",
-              textAlign: "left",
-              padding: "14px",
-              marginBottom: 8,
-              cursor: "pointer",
-            }}
-          >
-            <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <FolderIcon width={20} height={20} stroke={C.caneta} strokeWidth={1.8} />
-              <span style={{ ...disp, fontSize: 15, fontWeight: 600 }}>{p.materia}</span>
-            </span>
-            <span style={{ ...mono, fontSize: 12, color: C.sub }}>{p.total}</span>
-          </button>
-        ))
+        <>
+          <div style={{ marginBottom: 14 }}>
+            <Segmented
+              valor={modoTop}
+              opcoes={[
+                { id: "pastas" as const, label: "Pastas" },
+                { id: "tags" as const, label: "Nuvem de tags" },
+              ]}
+              onChange={setModoTop}
+            />
+          </div>
+
+          {modoTop === "pastas" ? (
+            pastas.map((p) => (
+              <button
+                key={p.materia}
+                onClick={() => setPasta(p.materia)}
+                style={{
+                  ...cartao,
+                  display: "flex",
+                  width: "100%",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  textAlign: "left",
+                  padding: "14px",
+                  marginBottom: 8,
+                  cursor: "pointer",
+                }}
+              >
+                <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <FolderIcon width={20} height={20} stroke={C.caneta} strokeWidth={1.8} />
+                  <span style={{ ...disp, fontSize: 15, fontWeight: 600 }}>{p.materia}</span>
+                </span>
+                <span style={{ ...mono, fontSize: 12, color: C.sub }}>{p.total}</span>
+              </button>
+            ))
+          ) : carregandoTags ? (
+            <Vazio>Carregando…</Vazio>
+          ) : tags.length === 0 ? (
+            <Vazio>Nenhuma tag ainda.</Vazio>
+          ) : (
+            <NuvemDeTags tags={tags} onAbrir={abrirTag} />
+          )}
+        </>
       )}
     </Shell>
+  );
+}
+
+/** Nuvem de tags: outra forma de navegar as notas, cruzando matérias — o
+ * tamanho de cada tag é proporcional a quantas notas a usam (min 12px, max
+ * 26px). Tocar abre a lista de notas com aquela tag (ver abrirTag). */
+function NuvemDeTags({
+  tags,
+  onAbrir,
+}: {
+  tags: { tag: string; total: number }[];
+  onAbrir: (tag: string) => void;
+}) {
+  const totais = tags.map((t) => t.total);
+  const max = Math.max(...totais);
+  const min = Math.min(...totais);
+
+  function tamanho(total: number): number {
+    if (max === min) return 15;
+    return Math.round(12 + ((total - min) / (max - min)) * 14);
+  }
+
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
+      {tags.map((t) => (
+        <button
+          key={t.tag}
+          onClick={() => onAbrir(t.tag)}
+          title={`${t.total} nota${t.total === 1 ? "" : "s"}`}
+          style={{
+            ...mono,
+            fontSize: tamanho(t.total),
+            fontWeight: t.total >= (min + max) / 2 ? 700 : 400,
+            padding: "5px 10px",
+            borderRadius: 8,
+            border: `1.5px solid ${C.line}`,
+            background: C.card,
+            color: C.caneta,
+            cursor: "pointer",
+          }}
+        >
+          {t.tag}
+        </button>
+      ))}
+    </div>
   );
 }
 

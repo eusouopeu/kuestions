@@ -520,7 +520,7 @@ function montarPromptExplicacaoParcial(questao: Questao, letras: string[]): stri
     )
     .join("\n- ");
 
-  return `Você é revisor de uma questão de concurso da área fiscal já pronta — NÃO altere enunciado, alternativas nem gabarito. O usuário respondeu a questão e pediu explicação só das alternativas abaixo, porque ficou com dúvida especificamente nelas — capriche no detalhe, mais do que numa explicação padrão de bloco inteiro (não há limite apertado de palavras aqui).
+  return `Você é revisor de uma questão de concurso da área fiscal já pronta — NÃO altere enunciado, alternativas nem gabarito. O usuário respondeu a questão e pediu explicação só das alternativas abaixo, porque ficou com dúvida especificamente nelas — pode ir um pouco mais fundo que numa explicação padrão de bloco inteiro, mas continua sendo texto para tela de celular, não um parágrafo de livro.
 
 ENUNCIADO: ${questao.enunciado}
 ALTERNATIVAS: ${alts}
@@ -530,6 +530,8 @@ EXPLICAR SOMENTE:
 - ${pedidos}
 
 Para a alternativa-gabarito, explique por que ela está correta. Para as demais, nomeie o erro específico de raciocínio, conceito ou detalhe (data, prazo, valor, sujeito) que leva a marcá-la — não escreva "está incorreta" nem repita o gabarito.
+
+BREVIDADE (obrigatório): cada explicação ≤ 35 palavras — um pouco mais detalhada que a de um bloco inteiro (que é ≤ 25), mas sem passar de ~4 linhas na tela de um app mobile.
 
 Responda APENAS com JSON válido, sem markdown, com uma entrada para CADA letra pedida acima e nenhuma outra:
 {"explicacoes":{"<LETRA>":"..."}}`;

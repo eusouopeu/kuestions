@@ -18,7 +18,7 @@ import {
 } from "@capacitor-community/sqlite";
 
 const DB_NAME = "kumon_fiscal";
-const SCHEMA_VERSION = 9;
+const SCHEMA_VERSION = 10;
 
 const sqlite = new SQLiteConnection(CapacitorSQLite);
 const isWeb = Capacitor.getPlatform() === "web";
@@ -227,6 +227,17 @@ const MIGRATIONS: { version: number; sql: string }[] = [
       ALTER TABLE conceitos_salvos ADD COLUMN tags TEXT NOT NULL DEFAULT '[]';
 
       UPDATE conceitos_salvos SET tags = json_array(tag) WHERE tag != '';
+    `,
+  },
+  {
+    // Confiança da resposta ("certeza" ou "chute"), registrada ANTES de
+    // revelar o gabarito (ver QuestaoCard) — separa acerto por conhecimento
+    // de acerto por sorte na aba Dados (ver porConfianca em repo.ts). NULL
+    // para toda resposta anterior a esta versão e para fluxos que não pedem
+    // confiança (revisão em Refazer erradas, simulado cronometrado).
+    version: 10,
+    sql: `
+      ALTER TABLE questoes_respondidas ADD COLUMN confianca TEXT;
     `,
   },
 ];
