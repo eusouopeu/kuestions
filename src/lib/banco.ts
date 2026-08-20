@@ -7,6 +7,7 @@
  * (ver gerarExplicacoes em lib/anthropic.ts), porque a fonte não os traz.
  */
 import banco from "../data/banco_questoes.json";
+import { pesoPonderado } from "./pontuacaoTopicos";
 import type { Questao } from "./types";
 
 export interface QuestaoBanco {
@@ -90,6 +91,35 @@ export function assuntosDeArea(area: string): AssuntoComTotal[] {
     .sort((a, b) => a.assunto.localeCompare(b.assunto, "pt-BR"));
 }
 
+export interface AssuntoPontuado extends AssuntoComTotal {
+  pontos: number;
+  /** Quantas respostas dadas contam para essa pontuação — não confundir com
+   * `total`, que é a contagem de questões DISPONÍVEIS no banco. */
+  respondidas: number;
+}
+
+/**
+ * Cruza os assuntos de uma área com a pontuação por resposta (ver
+ * pontosResposta em lib/pontuacaoTopicos.ts e pontosPorConceito em
+ * lib/repo.ts — cada questão do banco grava seu `assunto` como único item de
+ * `conceitos`, ver questaoBancoParaQuestao abaixo) — usado para direcionar a
+ * amostragem quando o usuário deixa "Todos os assuntos"/"Bloco de aulas"
+ * marcado em GerarBancoView.
+ */
+export function pontuarAssuntos(
+  area: string,
+  linhas: { conceito: string; pontos: number }[],
+): AssuntoPontuado[] {
+  return assuntosDeArea(area).map((a) => {
+    const doAssunto = linhas.filter((l) => l.conceito === a.assunto);
+    return {
+      ...a,
+      respondidas: doAssunto.length,
+      pontos: doAssunto.reduce((s, l) => s + l.pontos, 0),
+    };
+  });
+}
+
 /** Filtro adicional de proveniência, combinável com qualquer `modo` — banca
  * (instituição) e/ou ano da prova, aplicados por cima do filtro de assunto. */
 interface FiltroProveniencia {
@@ -142,22 +172,53 @@ function embaralhar<T>(arr: T[]): T[] {
   return a;
 }
 
+/** Mapa assunto → peso de sorteio (ver pesoPonderado em
+ * lib/pontuacaoTopicos.ts), a partir da pontuação por assunto (ver
+ * pontuarAssuntos). */
+export function pesosPorAssunto(pontuados: AssuntoPontuado[]): Map<string, number> {
+  return new Map(
+    pontuados.map((p) => [p.assunto, pesoPonderado({ pontos: p.pontos, total: p.respondidas })]),
+  );
+}
+
+/**
+ * Amostragem ponderada sem reposição (algoritmo A-ES de Efraimidis-Spirakis):
+ * cada item recebe uma chave aleatória elevada ao inverso do seu peso — quanto
+ * maior o peso, mais essa chave tende a 1 — e os `quantidade` maiores vencem.
+ * Equivalente a `embaralhar` quando todo peso é igual.
+ */
+function amostraPonderada<T>(itens: T[], peso: (item: T) => number, quantidade: number): T[] {
+  return itens
+    .map((item) => ({ item, chave: Math.random() ** (1 / Math.max(peso(item), 1e-6)) }))
+    .sort((a, b) => b.chave - a.chave)
+    .slice(0, quantidade)
+    .map((c) => c.item);
+}
+
 /**
  * Sorteia até `quantidade` questões do filtro, sem repetição dentro da própria
  * rodada. O banco é fixo (não se repõe) — `vistas` (ids já respondidos em
  * qualquer bloco anterior, ver idsBancoRespondidos em lib/repo.ts) separa as
  * questões em inéditas e já vistas, e prioriza as inéditas; só entra questão
  * já vista se não houver inéditas suficientes para completar `quantidade`.
+ *
+ * `pesosAssunto`, quando informado (ver pesosPorAssunto), direciona a
+ * amostragem para os assuntos mais fracos — usado quando o filtro cobre mais
+ * de um assunto ("Todos os assuntos"/"Bloco de aulas" em GerarBancoView),
+ * sem restringir a quantidade disponível a um único assunto.
  */
 export function selecionarQuestoes(
   area: string,
   filtro: FiltroBanco,
   quantidade: number,
   vistas: ReadonlySet<string> = new Set(),
+  pesosAssunto?: Map<string, number>,
 ): QuestaoBanco[] {
   const todas = questoesFiltradas(area, filtro);
-  const ineditas = embaralhar(todas.filter((q) => !vistas.has(q.id)));
-  const jaVistas = embaralhar(todas.filter((q) => vistas.has(q.id)));
+  const sortear = (qs: QuestaoBanco[]) =>
+    pesosAssunto ? amostraPonderada(qs, (q) => pesosAssunto.get(q.assunto) ?? 1, qs.length) : embaralhar(qs);
+  const ineditas = sortear(todas.filter((q) => !vistas.has(q.id)));
+  const jaVistas = sortear(todas.filter((q) => vistas.has(q.id)));
   return [...ineditas, ...jaVistas].slice(0, quantidade);
 }
 

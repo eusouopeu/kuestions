@@ -8,25 +8,33 @@ import EsqueletoQuestao from "../components/EsqueletoQuestao";
 import { Vazio } from "../components/Shell";
 import {
   MATERIAS,
-  MIN_APROVACAO,
   NIVEIS,
   NIVEL_DESCRICOES,
-  N_SUBS,
-  Q_POR_BLOCO,
   Q_POR_SUB,
+  Q_POR_BLOCO,
   TIPOS,
   FORMATOS,
 } from "../lib/constants";
 import { gerarSubBloco, SemCredencialError } from "../lib/anthropic";
 import { temCredencial } from "../lib/secure";
 import { getComExplicacoesIA } from "../lib/preferenciasGeracao";
-import { criarBloco, fecharBloco, gravarResposta, listarBlocos } from "../lib/repo";
+import {
+  atualizarTotalQuestoesBloco,
+  buscarBlocoReaproveitavel,
+  criarBloco,
+  fecharBloco,
+  gravarResposta,
+  listarBlocos,
+  pontosPorTopico,
+} from "../lib/repo";
+import { escolherPonderado } from "../lib/pontuacaoTopicos";
 import { sugerirNivel, type SugestaoNivel } from "../lib/sugestao";
 import { getRascunho, limparRascunho, salvarRascunho, type RascunhoBloco } from "../lib/blocoRascunho";
 import { gerarTagAssunto } from "../lib/texto";
 import {
   blocosDeMateria,
   descricaoBloco,
+  pontuarTopicos,
   rotuloBloco,
   rotuloTopico,
   TOPICOS_POR_MATERIA,
@@ -36,6 +44,10 @@ import type { TipoId } from "../lib/constants";
 
 type Tela = "config" | "drill" | "resultado";
 type ModoTopico = "aula" | "bloco" | "todos";
+
+/** Teto do stepper de quantidade — generoso, mas evita uma sequência de
+ * toques acidental disparar um bloco absurdamente longo (e caro em API). */
+const QUANTIDADE_MAX = Q_POR_SUB * 20;
 
 /**
  * Fluxo de geração do artefato, adaptado para 4×3 questões e persistência em
@@ -63,6 +75,10 @@ export default function GerarView({
     nivel: 3,
   });
 
+  // Quantidade de questões do bloco — personalizável em múltiplos de
+  // Q_POR_SUB (cada chamada à API gera um sub-bloco inteiro, ver
+  // dispararSub), mesma ideia do stepper de GerarBancoView.
+  const [quantidade, setQuantidade] = useState<number>(Q_POR_BLOCO);
   const [subs, setSubs] = useState<(Questao[] | null)[]>([null, null, null, null]);
   const [statusSub, setStatusSub] = useState<StatusSub[]>(["idle", "idle", "idle", "idle"]);
   const [qIdx, setQIdx] = useState(0);
@@ -220,7 +236,9 @@ export default function GerarView({
       .then((qs) => {
         setSubs((s) => s.map((v, k) => (k === i ? qs : v)));
         setStatusSub((st) => st.map((v, k) => (k === i ? "ok" : v)));
-        if (i < N_SUBS - 1) dispararSub(i + 1, conf); // pré-carrega o próximo
+        // Pré-carrega o próximo sub-bloco — subsRef.current.length é o total
+        // desta rodada (personalizável, ver `quantidade`), não mais fixo em 4.
+        if (i < subsRef.current.length - 1) dispararSub(i + 1, conf);
       })
       .catch((e: unknown) => {
         setStatusSub((st) => st.map((v, k) => (k === i ? "erro" : v)));
@@ -229,25 +247,59 @@ export default function GerarView({
   }
 
   async function iniciarBloco() {
-    setSubs([null, null, null, null]);
-    setStatusSub(["idle", "idle", "idle", "idle"]);
+    const numSubs = Math.max(1, Math.round(quantidade / Q_POR_SUB));
+    setSubs(Array.from({ length: numSubs }, () => null));
+    setStatusSub(Array.from({ length: numSubs }, () => "idle" as StatusSub));
     setQIdx(0);
-    setAcertos([0, 0, 0, 0]);
+    setAcertos(Array.from({ length: numSubs }, () => 0));
     setErroApi(null);
     setConfirmandoAbandono(false);
     setTela("drill");
+
+    // "Todos os tópicos": em vez de deixar o tópico livre (núcleo central da
+    // matéria), direciona por sorteio ponderado para o tópico com pontuação
+    // mais fraca (ver lib/pontuacaoTopicos.ts) — só faz sentido para matérias
+    // com lista fixa de tópicos (ver TOPICOS_POR_MATERIA).
+    let topicoEfetivo = c.topico;
+    if (modoTopico === "todos" && TOPICOS_POR_MATERIA[c.materia]) {
+      try {
+        const linhas = await pontosPorTopico(c.materia);
+        const pontuados = pontuarTopicos(c.materia, linhas);
+        const escolhido = pontuados && escolherPonderado(pontuados);
+        if (escolhido) topicoEfetivo = rotuloTopico(escolhido);
+      } catch (e) {
+        console.error("direcionar tópico por pontuação", e);
+      }
+    }
+    const cEfetivo = { ...c, topico: topicoEfetivo };
+    if (topicoEfetivo !== cfg.topico) setCfg((atual) => ({ ...atual, topico: topicoEfetivo }));
+
+    const totalQuestoesBloco = numSubs * Q_POR_SUB;
     try {
-      setBlocoId(await criarBloco(c, Q_POR_BLOCO));
+      // Reaproveita um bloco existente com a mesma configuração que ainda não
+      // foi feito (ou só teve 1-2 questões feitas) em vez de criar outro —
+      // ver buscarBlocoReaproveitavel em lib/repo.ts.
+      const existente = await buscarBlocoReaproveitavel(cEfetivo);
+      if (existente) {
+        setBlocoId(existente.id);
+        if (existente.total_questoes !== totalQuestoesBloco) {
+          await atualizarTotalQuestoesBloco(existente.id, totalQuestoesBloco);
+        }
+      } else {
+        setBlocoId(await criarBloco(cEfetivo, totalQuestoesBloco));
+      }
     } catch (e) {
       console.error("criar bloco", e);
       setBlocoId(null); // o drill segue; só o vínculo com o bloco se perde
     }
-    dispararSub(0, c);
+    dispararSub(0, cEfetivo);
   }
 
+  const totalQuestoesAtual = subs.length * Q_POR_SUB;
+  const minAprovacaoAtual = Math.ceil(totalQuestoesAtual * 0.9);
   const subAtual = Math.floor(qIdx / Q_POR_SUB);
   const questao = subs[subAtual]?.[qIdx % Q_POR_SUB] ?? null;
-  const ultimaDoBloco = qIdx === Q_POR_BLOCO - 1;
+  const ultimaDoBloco = qIdx === totalQuestoesAtual - 1;
 
   async function responder(
     letra: string,
@@ -276,7 +328,7 @@ export default function GerarView({
   async function proxima() {
     if (ultimaDoBloco) {
       const total = acertos.reduce((a, b) => a + b, 0);
-      const passou = total >= MIN_APROVACAO;
+      const passou = total >= minAprovacaoAtual;
       if (blocoId != null) {
         try {
           await fecharBloco(blocoId, acertos, passou);
@@ -302,7 +354,7 @@ export default function GerarView({
   function questoesNaoRespondidas(): Questao[] {
     const pendentes: Questao[] = [];
     if (questao && !respondidaAtual) pendentes.push(questao);
-    for (let idx = qIdx + 1; idx < Q_POR_BLOCO; idx++) {
+    for (let idx = qIdx + 1; idx < totalQuestoesAtual; idx++) {
       const s = Math.floor(idx / Q_POR_SUB);
       const q = subs[s]?.[idx % Q_POR_SUB];
       if (q) pendentes.push(q);
@@ -391,7 +443,7 @@ export default function GerarView({
             <p style={{ fontSize: 13.5, lineHeight: 1.55, margin: "0 0 12px" }}>
               Você tinha um bloco de <strong>{rascunho.cfg.materia}</strong> em andamento (
               {rascunho.qIdx + (rascunho.subs[Math.floor(rascunho.qIdx / Q_POR_SUB)] ? 1 : 0)}/
-              {Q_POR_BLOCO} questões) quando o app fechou — as questões já geradas não precisam ser
+              {rascunho.subs.length * Q_POR_SUB} questões) quando o app fechou — as questões já geradas não precisam ser
               pagas de novo.
             </p>
             <div style={{ display: "flex", gap: 8 }}>
@@ -678,8 +730,45 @@ export default function GerarView({
           </div>
         </div>
 
+        <div style={{ marginBottom: 20 }}>
+          <label style={rotulo}>Quantidade de questões</label>
+          <div style={{ display: "flex", alignItems: "stretch", gap: 8 }}>
+            <button
+              onClick={() => setQuantidade((q) => Math.max(Q_POR_SUB, q - Q_POR_SUB))}
+              disabled={quantidade <= Q_POR_SUB}
+              aria-label="Diminuir quantidade"
+              style={stepperBotaoStyle(quantidade <= Q_POR_SUB)}
+            >
+              −
+            </button>
+            <div
+              style={{
+                ...campo,
+                ...disp,
+                flex: 1,
+                textAlign: "center",
+                fontSize: 18,
+                fontWeight: 700,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {quantidade}
+            </div>
+            <button
+              onClick={() => setQuantidade((q) => Math.min(QUANTIDADE_MAX, q + Q_POR_SUB))}
+              disabled={quantidade >= QUANTIDADE_MAX}
+              aria-label="Aumentar quantidade"
+              style={stepperBotaoStyle(quantidade >= QUANTIDADE_MAX)}
+            >
+              +
+            </button>
+          </div>
+        </div>
+
         <Botao onClick={iniciarBloco} tipo="tinta" disabled={!temChave}>
-          Gerar bloco de {Q_POR_BLOCO} questões
+          Gerar bloco de {quantidade} questões
         </Botao>
 
         {hist.length > 0 && (
@@ -722,7 +811,7 @@ export default function GerarView({
       <div>
         <Rail
           atual={qIdx}
-          total={Q_POR_BLOCO}
+          total={totalQuestoesAtual}
           onSair={() => setConfirmandoAbandono(true)}
         />
 
@@ -804,7 +893,7 @@ export default function GerarView({
 
   /* ---------- RESULTADO ---------- */
   const total = acertos.reduce((a, b) => a + b, 0);
-  const passou = total >= MIN_APROVACAO;
+  const passou = total >= minAprovacaoAtual;
   return (
     <div>
       <div style={{ textAlign: "center", padding: "10px 0 4px" }}>
@@ -821,7 +910,7 @@ export default function GerarView({
           }}
         >
           {total}
-          <span style={{ fontSize: 28, color: C.sub, fontWeight: 600 }}>/{Q_POR_BLOCO}</span>
+          <span style={{ fontSize: 28, color: C.sub, fontWeight: 600 }}>/{totalQuestoesAtual}</span>
         </div>
       </div>
 
@@ -870,3 +959,18 @@ export function AvisoSemChave({ onAjustes }: { onAjustes: () => void }) {
 }
 
 export { SemCredencialError };
+
+function stepperBotaoStyle(desabilitado: boolean) {
+  return {
+    ...disp,
+    width: 48,
+    fontSize: 22,
+    fontWeight: 700,
+    borderRadius: 8,
+    border: `1.5px solid ${C.line}`,
+    background: C.card,
+    color: C.ink,
+    cursor: desabilitado ? "default" : "pointer",
+    opacity: desabilitado ? 0.4 : 1,
+  } as const;
+}

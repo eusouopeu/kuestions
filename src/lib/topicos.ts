@@ -235,6 +235,34 @@ export function desempenhoPorTopico(
   });
 }
 
+export interface TopicoPontuado extends TopicoEspecifico {
+  pontos: number;
+  total: number;
+}
+
+/**
+ * Cruza a lista fixa de tópicos de uma matéria com a pontuação por resposta
+ * (ver pontosResposta em lib/pontuacaoTopicos.ts e pontosPorTopico em
+ * lib/repo.ts) — mesmo casamento por substring de desempenhoPorTopico, usado
+ * para escolher (por sorteio ponderado) qual tópico direcionar quando o
+ * usuário deixa "Todos os tópicos" marcado em GerarView.
+ */
+export function pontuarTopicos(
+  materia: string,
+  linhas: { topico: string; pontos: number }[],
+): TopicoPontuado[] | null {
+  const lista = TOPICOS_POR_MATERIA[materia];
+  if (!lista) return null;
+  return lista.map((t) => {
+    const doTopico = linhas.filter((l) => l.topico.includes(t.nome));
+    return {
+      ...t,
+      total: doTopico.length,
+      pontos: doTopico.reduce((a, l) => a + l.pontos, 0),
+    };
+  });
+}
+
 /** String descritiva do bloco inteiro, usada como `Config.topico` ao
  * escolher "Bloco de aulas" — vai direto para o prompt como texto livre. */
 export function descricaoBloco(b: BlocoDeAulas): string {

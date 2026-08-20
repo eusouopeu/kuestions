@@ -24,6 +24,11 @@ export const C = {
   /** Preenchimento sólido sempre emparelhado com texto branco fixo — ver o
    * comentário de --realce em styles.css antes de reaproveitar `ink` aqui. */
   realce: "var(--realce)",
+  /** Degradê roxo do calendário de sequência (heatmap) — ver styles.css. */
+  heat1: "var(--heat-1)",
+  heat2: "var(--heat-2)",
+  heat3: "var(--heat-3)",
+  heat4: "var(--heat-4)",
 } as const;
 
 // Uma família só (Montserrat) para todo o app — sem serifa, sem monoespaçado.

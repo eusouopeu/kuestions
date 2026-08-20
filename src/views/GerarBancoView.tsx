@@ -15,6 +15,8 @@ import {
   contarIneditas,
   descricaoFiltroBanco,
   instituicoesDeArea,
+  pesosPorAssunto,
+  pontuarAssuntos,
   questaoBancoParaQuestao,
   selecionarQuestoes,
   type FiltroBanco,
@@ -28,6 +30,7 @@ import {
   fecharBloco,
   gravarResposta,
   idsBancoRespondidos,
+  pontosPorConceito,
   salvarExplicacoesBanco,
 } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
@@ -195,7 +198,20 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
   async function iniciar() {
     const n = Math.min(quantidade, disponiveis);
     if (n <= 0) return;
-    const selecionadas = selecionarQuestoes(area, filtro, n, vistas).map(questaoBancoParaQuestao);
+
+    // Direciona a amostragem para os assuntos mais fracos (ver
+    // pontuarAssuntos/pesosPorAssunto em lib/banco.ts) sempre que o filtro
+    // cobre mais de um assunto ("Todos os assuntos"/"Bloco de aulas") — não
+    // restringe a quantidade disponível, só reordena a prioridade do sorteio.
+    let pesos: Map<string, number> | undefined;
+    try {
+      const linhas = await pontosPorConceito(area);
+      pesos = pesosPorAssunto(pontuarAssuntos(area, linhas));
+    } catch (e) {
+      console.error("direcionar assunto por pontuação", e);
+    }
+
+    const selecionadas = selecionarQuestoes(area, filtro, n, vistas, pesos).map(questaoBancoParaQuestao);
     const nLotes = Math.ceil(selecionadas.length / LOTE);
 
     setLotes(Array.from({ length: nLotes }, () => null));

@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import { C, disp } from "../theme";
 
-type Tipo = "primario" | "fantasma" | "tinta";
+type Tipo = "primario" | "fantasma" | "tinta" | "cinza";
 
 /** Botão do artefato: 1.5px de borda, raio 8, leve scale no press. */
 export default function Botao({
@@ -33,6 +33,7 @@ export default function Botao({
     primario: { background: C.caneta, borderColor: C.caneta, color: "#fff" },
     fantasma: { background: "transparent", borderColor: C.line, color: C.ink },
     tinta: { background: C.realce, borderColor: C.realce, color: "#fff" },
+    cinza: { background: C.line, borderColor: C.line, color: C.sub },
   };
   return (
     <button

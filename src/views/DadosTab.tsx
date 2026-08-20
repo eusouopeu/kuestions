@@ -51,9 +51,9 @@ import {
 
 const TODAS = "__todas__";
 const TODOS_NIVEIS = 0;
-/** Janela do calendário de sequência (heatmap) — 26 semanas cabe numa grade
- * legível em tela de celular, rolável na horizontal se precisar. */
-const DIAS_HEATMAP = 182;
+/** Janela do calendário de sequência (heatmap) — 15 semanas cabe inteira na
+ * largura de uma tela de celular sem precisar rolar para o lado. */
+const DIAS_HEATMAP = 105;
 
 /** "1min 24s" / "38s" — formato compacto para os cartões de tempo médio. */
 function formatarDuracao(ms: number): string {
@@ -69,6 +69,15 @@ function corPct(pct: number): string {
   if (pct >= 70) return C.caneta;
   return C.erro;
 }
+
+/** Agrupamento da "Nota provável estimada" em 3 faixas de acerto — cada uma
+ * com seu próprio fundo/texto, do melhor domínio (roxo) ao mais fraco
+ * (vermelho), nessa ordem fixa de exibição. */
+const GRUPOS_NOTA: { rotulo: string; pertence: (pct: number) => boolean; fundo: string; cor: string }[] = [
+  { rotulo: "alto", pertence: (pct) => pct >= 80, fundo: C.canetaSoft, cor: C.caneta },
+  { rotulo: "medio", pertence: (pct) => pct >= 50 && pct < 80, fundo: C.okSoft, cor: C.ok },
+  { rotulo: "baixo", pertence: (pct) => pct < 50, fundo: C.erroSoft, cor: C.erro },
+];
 
 function Cartao({
   titulo,
@@ -204,8 +213,10 @@ function CalendarioSequencia({ atividade, dias }: { atividade: { data: string; t
   function cor(total: number | null): string {
     if (total == null) return "transparent";
     if (total === 0) return C.paper;
-    if (total <= 2) return C.canetaSoft;
-    return C.caneta;
+    if (total <= 3) return C.heat1;
+    if (total <= 7) return C.heat2;
+    if (total <= 14) return C.heat3;
+    return C.heat4;
   }
 
   return (
@@ -233,7 +244,7 @@ function CalendarioSequencia({ atividade, dias }: { atividade: { data: string; t
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 8 }}>
         <span style={{ fontSize: 10.5, color: C.sub }}>Menos</span>
-        {[0, 1, 3].map((t) => (
+        {[0, 1, 4, 8, 15].map((t) => (
           <div
             key={t}
             style={{
@@ -506,7 +517,7 @@ export default function DadosTab({
 
           {/* Calendário de sequência — mesma constância "do estudo como um
               todo", não filtrada por matéria/nível (ver comentário acima). */}
-          <Cartao titulo="CALENDÁRIO DE SEQUÊNCIA" legenda="Questões respondidas por dia, últimas 26 semanas.">
+          <Cartao titulo="CALENDÁRIO DE SEQUÊNCIA" legenda="Questões respondidas por dia, últimas 15 semanas.">
             <div style={{ padding: "0 4px 14px" }}>
               <CalendarioSequencia atividade={atividade} dias={DIAS_HEATMAP} />
             </div>
@@ -545,28 +556,48 @@ export default function DadosTab({
                       questões
                     </div>
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 10 }}>
-                    {[...notaEstimada.materiasIncluidas]
-                      .sort((a, b) => b.peso - a.peso || a.pct - b.pct)
-                      .map((m) => (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 10 }}>
+                    {GRUPOS_NOTA.map((grupo) => {
+                      const materiasDoGrupo = notaEstimada.materiasIncluidas
+                        .filter((m) => grupo.pertence(m.pct))
+                        .sort((a, b) => b.pct - a.pct);
+                      if (!materiasDoGrupo.length) return null;
+                      return (
                         <div
-                          key={m.materia}
+                          key={grupo.rotulo}
                           style={{
+                            background: grupo.fundo,
+                            borderRadius: 8,
+                            padding: "10px 12px",
                             display: "flex",
-                            justifyContent: "space-between",
+                            flexDirection: "column",
                             gap: 8,
-                            fontSize: 12.5,
                           }}
                         >
-                          <span>
-                            {m.materia}{" "}
-                            <span style={{ ...mono, fontSize: 10.5, color: C.sub }}>
-                              (peso {m.peso})
-                            </span>
-                          </span>
-                          <span style={{ ...mono, color: corPct(m.pct), flexShrink: 0 }}>{m.pct}%</span>
+                          {materiasDoGrupo.map((m) => (
+                            <div
+                              key={m.materia}
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                gap: 8,
+                                fontSize: 12.5,
+                              }}
+                            >
+                              <span>
+                                {m.materia}{" "}
+                                <span style={{ ...mono, fontSize: 10.5, color: C.sub }}>
+                                  (peso {m.peso})
+                                </span>
+                              </span>
+                              <span style={{ ...mono, color: grupo.cor, flexShrink: 0, fontWeight: 600 }}>
+                                {m.pct}%
+                              </span>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      );
+                    })}
                   </div>
                   {notaEstimada.materiasExcluidas.length > 0 && (
                     <div style={{ fontSize: 11, color: C.sub, lineHeight: 1.4 }}>

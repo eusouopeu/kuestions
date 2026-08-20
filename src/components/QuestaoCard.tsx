@@ -5,7 +5,6 @@ import { C, cartao, disp, mono } from "../theme";
 import Botao from "./Botao";
 import Chip from "./Chip";
 import Opcao, { type Reveal } from "./Opcao";
-import Segmented from "./Segmented";
 import SelecaoNota from "./SelecaoNota";
 import type { Questao } from "../lib/types";
 import { labelTipo } from "../lib/constants";
@@ -87,7 +86,6 @@ export default function QuestaoCard({
   onProxima: () => void;
 }) {
   const [selecionada, setSelecionada] = useState<string | null>(null);
-  const [confianca, setConfianca] = useState<Confianca>("certeza");
   const [revelada, setRevelada] = useState(false);
   const [tachadas, setTachadas] = useState<string[]>([]);
   const [origemId, setOrigemId] = useState<number | null>(questaoOrigemId ?? null);
@@ -113,7 +111,6 @@ export default function QuestaoCard({
   // Reset ao trocar de questão: sem isso a seleção da anterior vazaria.
   useEffect(() => {
     setSelecionada(null);
-    setConfianca("certeza");
     setRevelada(false);
     setTachadas([]);
     setOrigemId(questaoOrigemId ?? null);
@@ -210,7 +207,9 @@ export default function QuestaoCard({
     setTachadas((t) => t.filter((x) => x !== l));
   }
 
-  async function enviar() {
+  /** A prerrogativa é ter certeza — `confianca` só vira "chute" quando o
+   * próprio botão "Chute" (ao lado de "Enviar") é o que dispara o envio. */
+  async function enviar(confianca: Confianca = "certeza") {
     if (revelada || selecionada == null || enviando) return;
     setEnviando(true);
     const acertou = selecionada === questao.gabarito;
@@ -312,21 +311,21 @@ export default function QuestaoCard({
 
       {!revelada && (
         <div>
-          {pedirConfianca && selecionada != null && (
-            <div style={{ marginTop: 14 }}>
-              <Segmented
-                valor={confianca}
-                opcoes={[
-                  { id: "certeza" as Confianca, label: "Tenho certeza" },
-                  { id: "chute" as Confianca, label: "Estou no chute" },
-                ]}
-                onChange={setConfianca}
-              />
-            </div>
-          )}
-          <Botao onClick={enviar} disabled={selecionada == null} style={{ marginTop: 14 }}>
-            Enviar resposta
-          </Botao>
+          <div style={{ display: "flex", gap: 8, marginTop: 14 }}>
+            {pedirConfianca && (
+              <Botao
+                tipo="cinza"
+                onClick={() => enviar("chute")}
+                disabled={selecionada == null || enviando}
+                style={{ flex: "0 0 32%" }}
+              >
+                Chute
+              </Botao>
+            )}
+            <Botao onClick={() => enviar("certeza")} disabled={selecionada == null} style={{ flex: 1 }}>
+              Enviar
+            </Botao>
+          </div>
           <div
             style={{
               ...mono,

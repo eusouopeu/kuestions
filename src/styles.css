@@ -33,6 +33,14 @@
      cima no tema escuro — quase ilegível. Mesmo roxo de --caneta: um único
      tom de marca em vez de dois tons concorrendo (era azul + grafite). */
   --realce: #6d28d9;
+  /* Degradê do calendário de sequência (heatmap) — 4 tons de roxo Tailwind
+     (purple-200/400/600/800), crescentes em saturação, independentes de
+     --caneta (que no escuro é azul, ver abaixo) para o heatmap continuar
+     sempre em roxo nos dois temas. */
+  --heat-1: #e9d5ff;
+  --heat-2: #c084fc;
+  --heat-3: #9333ea;
+  --heat-4: #6b21a8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,6 +57,12 @@
     --line: #33383d;
     --sub: #98a0a6;
     --realce: #333f52;
+    /* Mesma escala Tailwind, invertida (purple-900→300): sobre fundo escuro,
+       a intensidade cresce clareando em vez de escurecendo. */
+    --heat-1: #581c87;
+    --heat-2: #7e22ce;
+    --heat-3: #a855f7;
+    --heat-4: #d8b4fe;
   }
 }
 
@@ -77,6 +91,10 @@
   --line: #33383d;
   --sub: #98a0a6;
   --realce: #333f52;
+  --heat-1: #581c87;
+  --heat-2: #7e22ce;
+  --heat-3: #a855f7;
+  --heat-4: #d8b4fe;
 }
 
 * {

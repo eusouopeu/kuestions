@@ -10,6 +10,7 @@
 import { all, one, parseJSON, run, runBatch, toBool } from "./db";
 import { talvezFazerBackupAutomatico } from "./backupAuto";
 import { sincronizarNotasDocumentos } from "./exportarDocumentos";
+import { pontosResposta, type ConfiancaResposta } from "./pontuacaoTopicos";
 import type {
   Bloco,
   ConceitoSalvo,
@@ -17,6 +18,17 @@ import type {
   Questao,
   QuestaoRespondida,
 } from "./types";
+
+/**
+ * Um bloco só conta para estatísticas e para "últimos blocos" quando tem mais
+ * de 2 questões DE VERDADE respondidas (`resposta != ''` — string vazia marca
+ * questão carregada mas nunca respondida, ver QuestaoRespondida.resposta).
+ * Sem isto, um bloco criado e abandonado sem nenhuma questão feita (ou só
+ * 1-2) poluiria a lista e inflaria "blocos totais" — ver buscarBlocoReaproveitavel,
+ * que reaproveita exatamente esses blocos em vez de criar um novo.
+ */
+const COND_BLOCO_FEITO =
+  "(SELECT COUNT(*) FROM questoes_respondidas qr WHERE qr.bloco_id = blocos.id AND qr.resposta != '') > 2";
 
 /* ---------- Blocos ---------- */
 
@@ -39,6 +51,33 @@ export async function criarBloco(
     ],
   );
   return lastId;
+}
+
+/**
+ * Bloco de IA existente com a MESMA configuração (matéria, tópico, tipo de
+ * cobrança, formato e dificuldade) que ainda não foi feito, ou só teve 1-2
+ * questões feitas — ver COND_BLOCO_FEITO. Reaproveitado em vez de criar um
+ * bloco novo (ver iniciarBloco em GerarView), para não acumular uma lista
+ * crescente de blocos abandonados quase intocados a cada nova tentativa.
+ */
+export async function buscarBlocoReaproveitavel(
+  cfg: Config & { materia: string },
+): Promise<Bloco | null> {
+  const row = await one<Record<string, unknown>>(
+    `SELECT * FROM blocos
+     WHERE materia = ? AND IFNULL(topico,'') = IFNULL(?,'') AND tipo = ? AND formato = ? AND nivel = ?
+       AND NOT ${COND_BLOCO_FEITO}
+     ORDER BY ts DESC LIMIT 1`,
+    [cfg.materia, cfg.topico || null, cfg.tipos.join(","), cfg.formato, cfg.nivel],
+  );
+  return row ? mapBloco(row) : null;
+}
+
+/** Ajusta `total_questoes` de um bloco reaproveitado (ver
+ * buscarBlocoReaproveitavel) quando a quantidade escolhida desta vez difere
+ * da tentativa anterior — a config combinada não inclui a quantidade. */
+export async function atualizarTotalQuestoesBloco(id: number, totalQuestoes: number): Promise<void> {
+  await run(`UPDATE blocos SET total_questoes = ? WHERE id = ?`, [totalQuestoes, id]);
 }
 
 export async function fecharBloco(
@@ -78,7 +117,7 @@ export async function listarBlocos(
 ): Promise<Bloco[]> {
   const rows = await all(
     `SELECT * FROM blocos
-     ${materia ? "WHERE materia = ?" : ""}
+     WHERE ${COND_BLOCO_FEITO} ${materia ? "AND materia = ?" : ""}
      ORDER BY ts DESC LIMIT ?`,
     materia ? [materia, limite] : [limite],
   );
@@ -852,7 +891,7 @@ export async function resumo(materia: string | null, nivel: number | null = null
     ),
     one<{ n: number; ap: number }>(
       `SELECT COUNT(*) AS n, SUM(aprovado) AS ap
-       FROM blocos ${materia ? "WHERE materia = ?" : ""}`,
+       FROM blocos WHERE ${COND_BLOCO_FEITO} ${materia ? "AND materia = ?" : ""}`,
       materia ? [materia] : [],
     ),
     contarConceitos(materia),
@@ -873,7 +912,7 @@ export async function serieBlocos(
   const rows = await all(
     `SELECT ts, materia, total_acertos, total_questoes
      FROM blocos
-     WHERE total_questoes > 0 ${materia ? "AND materia = ?" : ""}
+     WHERE total_questoes > 0 AND ${COND_BLOCO_FEITO} ${materia ? "AND materia = ?" : ""}
      ORDER BY ts ASC`,
     materia ? [materia] : [],
   );
@@ -1229,7 +1268,7 @@ export async function blocosNaSemana(materia: string | null = null): Promise<num
   segunda.setHours(0, 0, 0, 0);
   segunda.setDate(segunda.getDate() - deltaParaSegunda);
   const r = await one<{ n: number }>(
-    `SELECT COUNT(*) AS n FROM blocos WHERE ts >= ? ${materia ? "AND materia = ?" : ""}`,
+    `SELECT COUNT(*) AS n FROM blocos WHERE ts >= ? AND ${COND_BLOCO_FEITO} ${materia ? "AND materia = ?" : ""}`,
     materia ? [segunda.toISOString(), materia] : [segunda.toISOString()],
   );
   return Number(r?.n ?? 0);
@@ -1260,6 +1299,39 @@ export async function questoesPorTopico(
     [materia],
   );
   return rows.map((r) => ({ topico: String(r.topico), acertou: toBool(r.acertou) }));
+}
+
+/** Pontuação (ver pontosResposta em lib/pontuacaoTopicos.ts) de cada questão
+ * respondida de uma matéria com tópico gravado — base do sorteio ponderado de
+ * tópico ao gerar bloco com "Todos os tópicos" (ver pontuarTopicos em
+ * lib/topicos.ts e iniciarBloco em GerarView). */
+export async function pontosPorTopico(materia: string): Promise<{ topico: string; pontos: number }[]> {
+  const rows = await all<{ topico: string; acertou: number; confianca: string | null; formato: string }>(
+    `SELECT topico, acertou, confianca, formato FROM questoes_respondidas
+     WHERE materia = ? AND topico IS NOT NULL AND topico != ''`,
+    [materia],
+  );
+  return rows.map((r) => ({
+    topico: String(r.topico),
+    pontos: pontosResposta(toBool(r.acertou), r.confianca as ConfiancaResposta, r.formato as "ce" | "mc"),
+  }));
+}
+
+/** Mesma pontuação de pontosPorTopico, por conceito em vez de tópico — cada
+ * questão do banco fixo grava seu assunto como único item de `conceitos` (ver
+ * questaoBancoParaQuestao em lib/banco.ts), então isto dá a pontuação por
+ * assunto para o sorteio ponderado em GerarBancoView (ver pontuarAssuntos). */
+export async function pontosPorConceito(materia: string): Promise<{ conceito: string; pontos: number }[]> {
+  const rows = await all<{ conceito: string; acertou: number; confianca: string | null; formato: string }>(
+    `SELECT je.value AS conceito, qr.acertou AS acertou, qr.confianca AS confianca, qr.formato AS formato
+     FROM questoes_respondidas qr, json_each(qr.conceitos) je
+     WHERE qr.materia = ?`,
+    [materia],
+  );
+  return rows.map((r) => ({
+    conceito: String(r.conceito),
+    pontos: pontosResposta(toBool(r.acertou), r.confianca as ConfiancaResposta, r.formato as "ce" | "mc"),
+  }));
 }
 
 /* ---------- Questões reportadas ---------- */
