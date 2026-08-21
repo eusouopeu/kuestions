@@ -109,7 +109,14 @@ export default function Opcao({
         border: `2px solid ${borda}`,
         background: fundo,
         borderRadius: 8,
-        padding: big ? "14px 0" : "11px 12px",
+        padding: big ? "14px 0" : "12px 12px",
+        // Alvo de toque mínimo de 44px (48 no botão grande de Certo/Errado):
+        // a alternativa também é área de arrasto para riscar, e um alvo curto
+        // faz o toque escapar com o polegar em movimento.
+        minHeight: big ? 48 : 44,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: big ? "center" : "flex-start",
         textAlign: big ? "center" : "left",
         fontSize: big ? 15 : 14.5,
         fontWeight: big ? 700 : 400,

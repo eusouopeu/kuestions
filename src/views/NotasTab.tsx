@@ -16,16 +16,14 @@ import {
   buscarQuestoesRespondidas,
   contarNotasPendentesPorMateria,
   listarConceitos,
-  listarNotasPendentes,
   listarNotasPorTag,
   listarPastas,
   listarTagsComContagem,
-  registrarRevisaoNota,
 } from "../lib/repo";
 import { exportarArquivo, exportarArquivoBinario } from "../lib/exportar";
 import { gerarArquivosFlashcards } from "../lib/flashcards";
+import RevisaoNotas from "./notas/RevisaoNotas";
 import { slugify } from "../lib/texto";
-import TextoComMarcaTexto from "../components/TextoComMarcaTexto";
 import ResumoQuestaoRespondida from "../components/ResumoQuestaoRespondida";
 import type { ConceitoSalvo, QuestaoRespondida } from "../lib/types";
 
@@ -795,141 +793,6 @@ function NuvemDeTags({
           {t.tag}
         </button>
       ))}
-    </div>
-  );
-}
-
-/* ---------- Revisão ativa (repetição espaçada) ---------- */
-
-/**
- * Flashcard virado: mostra matéria e tags, o usuário se autoavalia antes de
- * virar ("lembrei" / "não lembrei" do conteúdo), então revela o corpo. Mesmo
- * esquema de caixas de Leitner de "Refazer erradas" (ver
- * registrarRevisaoNota em repo.ts), aplicado à nota em vez à questão de
- * origem — permite revisar ativamente sem depender do Anki.
- */
-function RevisaoNotas({
-  materia,
-  onSair,
-}: {
-  materia: string | null;
-  onSair: () => void;
-}) {
-  const [fila, setFila] = useState<ConceitoSalvo[] | null>(null);
-  const [idx, setIdx] = useState(0);
-  const [revelado, setRevelado] = useState(false);
-  const [lembradas, setLembradas] = useState(0);
-  const [avaliando, setAvaliando] = useState(false);
-  const [erro, setErro] = useState<string | null>(null);
-
-  useEffect(() => {
-    listarNotasPendentes(materia, { limite: 100 })
-      .then((qs) => {
-        if (!qs.length) {
-          setErro("Nenhuma nota pendente de revisão neste filtro.");
-          return;
-        }
-        setFila(qs);
-      })
-      .catch(() => setErro("Falha ao carregar as notas."));
-  }, [materia]);
-
-  if (erro) {
-    return (
-      <div>
-        <Vazio>{erro}</Vazio>
-        <Botao tipo="fantasma" onClick={onSair} style={{ marginTop: 12 }}>
-          Voltar
-        </Botao>
-      </div>
-    );
-  }
-  if (!fila) return <Vazio>Carregando…</Vazio>;
-
-  const nota = fila[idx];
-  const ultima = idx === fila.length - 1;
-
-  async function avaliar(lembrou: boolean) {
-    if (avaliando) return;
-    setAvaliando(true);
-    try {
-      await registrarRevisaoNota(nota.id, lembrou);
-      if (lembrou) setLembradas((n) => n + 1);
-    } catch (e) {
-      console.error("registrar revisão de nota", e);
-    } finally {
-      setAvaliando(false);
-    }
-    if (ultima) {
-      onSair();
-      return;
-    }
-    setRevelado(false);
-    setIdx((i) => i + 1);
-  }
-
-  return (
-    <div>
-      <div style={{ ...mono, fontSize: 12, color: C.sub, textAlign: "center", marginBottom: 14 }}>
-        Revisão {idx + 1}/{fila.length} · {materia ?? "todas as matérias"}
-      </div>
-
-      <div style={{ ...cartao, minHeight: 180, display: "flex", flexDirection: "column" }}>
-        <div style={{ ...mono, fontSize: 10.5, color: C.sub, letterSpacing: 0.8 }}>
-          {nota.materia.toUpperCase()}
-          {nota.tags.length ? ` · ${nota.tags.join(" · ")}` : ""}
-        </div>
-        {revelado && (
-          <p
-            style={{
-              fontSize: 14.5,
-              lineHeight: 1.6,
-              whiteSpace: "pre-wrap",
-              margin: "14px 0 0",
-              paddingTop: 12,
-              borderTop: `1.5px dashed ${C.line}`,
-            }}
-          >
-            {nota.corpo ? <TextoComMarcaTexto texto={nota.corpo} /> : "Sem conteúdo."}
-          </p>
-        )}
-      </div>
-
-      {!revelado ? (
-        <Botao onClick={() => setRevelado(true)} style={{ marginTop: 16 }}>
-          Mostrar conteúdo
-        </Botao>
-      ) : (
-        <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
-          <Botao
-            tipo="fantasma"
-            onClick={() => avaliar(false)}
-            disabled={avaliando}
-            style={{ flex: 1, color: C.erro }}
-          >
-            Não lembrei
-          </Botao>
-          <Botao onClick={() => avaliar(true)} disabled={avaliando} style={{ flex: 1 }}>
-            Lembrei
-          </Botao>
-        </div>
-      )}
-
-      <button
-        onClick={onSair}
-        style={{
-          ...mono,
-          marginTop: 18,
-          fontSize: 12,
-          background: "none",
-          border: "none",
-          color: C.sub,
-          cursor: "pointer",
-          textDecoration: "underline",
-        }}
-      >
-        Sair da revisão{lembradas ? ` (${lembradas} lembrada${lembradas > 1 ? "s" : ""})` : ""}
-      </button>
     </div>
   );
 }

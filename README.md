@@ -123,27 +123,43 @@ Em qualquer questão (respondida ou não), **selecione um trecho de texto** — 
 
 Uma pasta por matéria, ordenável por data ou A–Z, com edição e exclusão. Cada pasta tem um botão **Exportar flashcards (CSV)**: gera um CSV de 3 colunas (título, corpo, tag), sem cabeçalho, pronto para importar no Anki. Se o corpo contiver uma lista (linhas começando com `-`, `*`, `1.`, `1)`, `a)` — pelo menos 2 para não confundir com uma citação solta de artigo), o título exportado ganha a contagem entre parênteses, ex. `Hipóteses de suspensão da exigibilidade (6)`. No Android/iOS, a exportação abre a folha de compartilhamento nativa (Drive, Arquivos, e-mail…); no navegador, baixa direto.
 
+A revisão dentro do app (botão **Revisar notas pendentes**) usa a MESMA classificação da exportação: nota com "=" abre mostrando só o que vem antes do sinal e revela o resto ao virar; nota com marca-texto abre com os trechos marcados tarjados e os revela ao virar — igual ao cartão que o Anki vai mostrar depois. A exportação em `.apkg` dá a cada nota um GUID derivado do seu id no banco, então reexportar a mesma pasta ATUALIZA os cartões no Anki em vez de duplicá-los e zerar o agendamento.
+
 ### Aba Dados
 
 Filtro por matéria ("todas" agrega; uma matéria filtra estritamente) e:
 
-- evolução do % de acerto por bloco no tempo (linha, com o limiar de 90%);
-- acerto por carga conceitual (barras — onde o desempenho cai);
-- acerto por tipo de cobrança;
-- acerto por formato (CE vs MC);
-- totais: questões respondidas, blocos aprovados, notas salvas.
+- evolução do % de acerto por bloco no tempo (linha, com o limiar de aprovação);
+- acerto por nível, por tipo de cobrança, por formato (CE vs MC), por confiança e por conceito — todos no mesmo componente de barras, com a mesma largura de eixo, para que a área de plotagem seja comparável entre eles;
+- **erro perigoso** — quantas questões você marcou com "certeza" e mesmo assim errou, e que % das suas certezas isso representa. É o erro que não se revisa sozinho (sem dúvida percebida, não se volta ao ponto); por isso a fila de "Refazer erradas" passa a mostrar essas questões primeiro;
+- **custo da API** — gasto do mês, gasto total, número de chamadas e quanto dos tokens de entrada veio do cache. O teto mensal é configurado em Ajustes: com 80% ou mais dele consumido, gerar um bloco novo pede confirmação (nunca bloqueia — o teto é do usuário, não uma política do app);
+- totais: acerto geral, questões respondidas e sequência de dias, os três numa linha.
 
 Toda questão respondida é gravada, certa ou errada. É a mesma base para a revisão de erradas e para os gráficos.
+
+### Prioridade de estudo e acessibilidade
+
+Na tela de configuração de bloco, um cartão **Estudar agora** aponta a matéria mais urgente, cruzando peso no edital × fraqueza (% de acerto) × dias sem praticar ([`src/lib/prioridade.ts`](src/lib/prioridade.ts)) — multiplicação, não soma, para que peso 0 ("não cai no meu edital") zere a prioridade por mais fraca que a matéria esteja. Um toque aplica a matéria na configuração.
+
+Em Ajustes há **tamanho da interface** (padrão/grande/maior — aplica `zoom` na raiz, então cresce texto e alvo de toque juntos) e, em cada questão, um botão de **ouvir** que lê enunciado, alternativas e — depois de revelada — gabarito e comentário, pela síntese de voz do próprio aparelho (sem rede, sem custo).
+
+### Simulado: relatório pós-prova
+
+Além do placar, o simulado cronometra cada questão e fecha com um relatório: nota ponderada pelo peso do edital, tempo médio por questão, questões deixadas em branco, acerto por área (barra mais grossa quanto maior o peso) e as **questões mais lentas** — acima de 2× o seu tempo médio. Acertar gastando o dobro do tempo é fluência baixa, um problema diferente de errar, e o único que o placar conta como acerto.
 
 ---
 
 ## 4. Notas técnicas
 
+### Testes e CI
+
+`npm test` (vitest, ambiente node) cobre as funções puras — `texto.ts`, `flashcards.ts`, `sugestao.ts`, `prioridade.ts`, `custo.ts`, `blocoUtils.ts`, `pontuacaoTopicos.ts` — e as **migrações do schema**, que rodam de verdade contra o SQLite do `sql.js` (`src/lib/migrations.test.ts`): banco antigo com dados, migração até a última versão, dados intactos. As migrações vivem em [`src/lib/migrations.ts`](src/lib/migrations.ts), separadas de `db.ts` justamente para poderem ser carregadas fora do Capacitor. O workflow em `.github/workflows/ci.yml` roda typecheck, testes, build web e o APK de debug a cada push.
+
 ### Schema SQLite
 
-`@capacitor-community/sqlite`, com o schema versionado por `PRAGMA user_version` e migrado no boot ([`src/lib/db.ts`](src/lib/db.ts)). Abrir uma versão nova de schema aplica só as migrações pendentes — não recria nem apaga dados. Atualmente na versão 2: a v2 adiciona `topico` a `questoes_respondidas` (para calcular a tag da nota também na revisão de erradas, onde não há mais acesso à config do bloco) e migra `conceitos_salvos` do fluxo antigo de "chip de conceito" (`termo`/`definicao`, únicos por matéria) para o de seleção de texto (`titulo`/`corpo`/`tag`, sem unicidade — o usuário decide o título a cada seleção, então duas notas com o mesmo título são um uso legítimo). As colunas `termo`/`definicao` ficam mortas no banco (sem `DROP COLUMN`, para não depender da versão do SQLite de cada aparelho já em campo).
+`@capacitor-community/sqlite`, com o schema versionado por `PRAGMA user_version` e migrado no boot ([`src/lib/db.ts`](src/lib/db.ts), com as migrações em [`src/lib/migrations.ts`](src/lib/migrations.ts)). Abrir uma versão nova de schema aplica só as migrações pendentes — não recria nem apaga dados. Atualmente na versão 12 (a última acrescenta `uso_api`, o registro de tokens e custo por chamada). A v2 adiciona `topico` a `questoes_respondidas` (para calcular a tag da nota também na revisão de erradas, onde não há mais acesso à config do bloco) e migra `conceitos_salvos` do fluxo antigo de "chip de conceito" (`termo`/`definicao`, únicos por matéria) para o de seleção de texto (`titulo`/`corpo`/`tag`, sem unicidade — o usuário decide o título a cada seleção, então duas notas com o mesmo título são um uso legítimo). As colunas `termo`/`definicao` ficam mortas no banco (sem `DROP COLUMN`, para não depender da versão do SQLite de cada aparelho já em campo).
 
-Três tabelas: `blocos`, `questoes_respondidas`, `conceitos_salvos`. As agregações da aba Dados são feitas em SQL (`GROUP BY`), não em memória — é a razão de usar SQLite em vez de Preferences.
+Tabelas: `blocos`, `questoes_respondidas`, `conceitos_salvos`, `explicacoes_banco` e `uso_api`. As agregações da aba Dados são feitas em SQL (`GROUP BY`), não em memória — é a razão de usar SQLite em vez de Preferences.
 
 ### Abas ficam montadas (não desmontadas) ao trocar
 
@@ -152,6 +168,8 @@ Três tabelas: `blocos`, `questoes_respondidas`, `conceitos_salvos`. As agregaç
 ### `temperature: 0` foi substituído
 
 A especificação original pedia `temperature: 0` para reduzir alucinação. **O parâmetro foi removido nos modelos atuais e uma requisição que o envie recebe erro 400.** O controle equivalente é raciocínio adaptativo com `output_config.effort`, que dá ao modelo espaço para executar a autoverificação factual que o prompt exige (conferir gabarito, dispositivo citado e contas) antes de fechar o JSON. As instruções de segurança jurídica do artefato foram mantidas na íntegra.
+
+O prompt de cada sub-bloco é montado em três partes, do mais estável ao mais volátil — método (regras fixas), configuração (matéria/tópico/nível/formato) e dinâmico (padrões já usados, equilíbrio C/E) — com `cache_control` nas duas primeiras. Como o cache é casamento de prefixo, pôr as regras fixas ANTES da configuração faz o cache sobreviver à troca de matéria e de bloco, não só aos sub-blocos de um mesmo bloco. Toda chamada concluída grava tokens e custo em `uso_api` (ver [`src/lib/custo.ts`](src/lib/custo.ts) e o cartão CUSTO DA API na aba Dados); leitura de cache custa 10% do token de entrada, então o efeito da divisão é visível ali.
 
 Modelo: `claude-sonnet-5`, esforço `medium` — equilíbrio entre a autoverificação factual e o custo por chamada (cada bloco de 12 questões já são 4 chamadas). As chamadas usam streaming, porque com raciocínio ligado o `max_tokens` cobre raciocínio + resposta e um valor alto sem streaming arriscaria timeout de HTTP.
 

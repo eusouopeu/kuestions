@@ -1,0 +1,53 @@
+name: CI
+
+# Roda a cada push e pull request na main. O objetivo é pegar, antes de o APK
+# ir para o aparelho, as três coisas que só apareciam manualmente: erro de
+# tipo, teste quebrado e build de produção que falha (o `vite build` já chama
+# `tsc --noEmit`, mas o passo separado dá um erro mais legível).
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  web:
+    name: Typecheck, testes e build web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+  android:
+    name: APK de debug
+    runs-on: ubuntu-latest
+    # Só depois que o web passa: sem bundle válido não há APK que preste, e o
+    # job do Gradle é o caro dos dois.
+    needs: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      # Java 21: exigência do @capacitor/android 7 (ver CLAUDE.md).
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - run: npm ci
+      - run: npm run build
+      - run: npx cap sync android
+      - run: ./gradlew assembleDebug
+        working-directory: android
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: android/app/build/outputs/apk/debug/app-debug.apk

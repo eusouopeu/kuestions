@@ -8,7 +8,9 @@ import { C, mono } from "../theme";
  * modos (que não são abas de verdade, e por isso pedem um reforço além do
  * texto para o usuário situar-se rápido em qual fluxo está).
  */
-export default function Segmented<T extends string>({
+// `T extends string | number`: além dos ids textuais (abas, ordenação), a
+// escala da interface em Ajustes usa números (100/110/125) como id.
+export default function Segmented<T extends string | number>({
   valor,
   opcoes,
   onChange,

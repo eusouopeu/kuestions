@@ -96,17 +96,29 @@ function instrucaoEquilibrioGabarito(gabaritosCEAnteriores: string[]): string {
 const NIVEL_MIN_DETALHE_PONTUAL = 4;
 
 /**
- * O prompt de cada sub-bloco é montado em duas partes para permitir prompt
- * caching (ver `chamar`): `estatico` é idêntico nos 4 sub-blocos de um mesmo
- * bloco (mesma config — matéria/tópico/tipo/nível/formato — e mesmas regras
- * fixas do método), `dinamico` é o que muda a cada sub-bloco (padrões já
- * usados, equilíbrio do gabarito C/E). Sem essa separação, as 4 chamadas
- * sequenciais reprocessariam do zero o mesmo texto de regras/schema a cada
- * vez — texto que o próprio README já trata como custo relevante (efeito do
- * `effort: medium`, escolhido "por causa do custo").
+ * O prompt de cada sub-bloco é montado em TRÊS partes, do mais estável para o
+ * mais volátil, porque o prompt caching é casamento de PREFIXO: qualquer byte
+ * que mude invalida tudo que vem depois.
+ *
+ *   1. `metodo`  — regras do método Kumon, qualidade de distrator, segurança
+ *      jurídica, brevidade e schema de resposta. Não depende de matéria,
+ *      tópico, nível nem formato: é idêntico entre blocos DIFERENTES e entre
+ *      sessões, então o cache continua valendo do bloco de ontem para o de
+ *      hoje (dentro da janela do cache), não só entre os 4 sub-blocos de um
+ *      mesmo bloco.
+ *   2. `config`  — matéria/tópico/tipo/nível/formato: muda a cada bloco, mas
+ *      é igual nos 4 sub-blocos dele.
+ *   3. `dinamico` — o que muda a cada sub-bloco (padrões já usados,
+ *      equilíbrio do gabarito C/E). Nunca cacheado.
+ *
+ * `chamar` marca 1 e 2 com `cache_control`. Se `metodo` sozinho não atingir o
+ * mínimo cacheável do modelo (~1024 tokens), aquele primeiro ponto de corte
+ * simplesmente não gera entrada de cache — o segundo (metodo+config)
+ * continua valendo, que é exatamente o comportamento anterior a esta divisão.
  */
 export interface PromptPartes {
-  estatico: string;
+  metodo: string;
+  config: string;
   dinamico: string;
 }
 
@@ -120,14 +132,10 @@ export function montarPrompt(
   const temCE = cfg.formato !== "mc";
   const descNivel = NIVEL_DESCRICOES[cfg.nivel - 1];
 
-  const estatico = `Você é elaborador de questões de concurso da área fiscal (padrão SEFAZ / bancas FCC, FGV, Cebraspe). Gere EXATAMENTE ${Q_POR_SUB} questões inéditas.
-
-CONFIGURAÇÃO
-- Matéria: ${cfg.materia}
-- Tópico: ${cfg.topico ? cfg.topico : "núcleo central da matéria"}
-- Tipo de cobrança: ${descricaoTipo(cfg.tipos)}
-- Dificuldade (1 a 5): ${cfg.nivel} (${NIVEIS[cfg.nivel - 1]}) — ${descNivel}
-- Formato: ${descricaoFormato(cfg.formato)}
+  // 1) Método: idêntico para qualquer matéria/nível/formato — só varia com
+  // `comExplicacoes` (uma preferência que muda raramente). É o prefixo longo
+  // que se quer manter em cache entre blocos e sessões.
+  const metodo = `Você é elaborador de questões de concurso da área fiscal (padrão SEFAZ / bancas FCC, FGV, Cebraspe). Gere EXATAMENTE ${Q_POR_SUB} questões inéditas, seguindo as regras abaixo e a CONFIGURAÇÃO informada mais adiante.
 
 LÓGICA KUMON
 - As ${Q_POR_SUB} questões devem ser quase-repetitivas entre si: mesma estrutura e mesmo padrão conceitual, variando apenas casos, sujeitos, entes e valores (automatização por repetição).
@@ -135,11 +143,6 @@ LÓGICA KUMON
 QUALIDADE DOS DISTRATORES
 - Toda alternativa errada deve ser PLAUSÍVEL: deve corresponder a um erro real de raciocínio, a uma confusão frequente entre institutos próximos, ou a uma troca de requisito/prazo/sujeito verossímil.
 - Nunca produza alternativa manifestamente absurda, nem descartável apenas pela forma (tamanho, tom, "todas as anteriores", exageros como "sempre"/"nunca" quando gratuitos).
-${
-  cfg.nivel >= NIVEL_MIN_DETALHE_PONTUAL
-    ? `- Neste nível, cada alternativa errada deve repetir quase todo o texto do gabarito e divergir por UM ÚNICO detalhe factual (um prazo, um valor, uma data, um nome, uma competência) — não por erro de conceito. O restante da frase deve ser idêntico ou equivalente ao correto.`
-    : ""
-}
 ${
   comExplicacoes
     ? `
@@ -158,8 +161,23 @@ SEGURANÇA JURÍDICA E AUTOVERIFICAÇÃO
 - Nunca invente números de artigos, súmulas, alíquotas, prazos ou percentuais.
 - Antes de fechar o JSON, revise cada questão e confirme: (a) o gabarito está factualmente correto; (b) nenhuma outra alternativa também está correta; (c) todo dispositivo citado existe e diz o que você afirmou; (d) todo número usado em cálculo fecha na conta. Se algum item não passar, corrija a questão antes de responder.
 
-BREVIDADE (obrigatório): enunciado ≤ 45 palavras; cada alternativa ≤ 12 palavras${comExplicacoes ? "; comentario ≤ 22 palavras; cada explicação de alternativa errada ≤ 25 palavras" : ""}.
+BREVIDADE (obrigatório): enunciado ≤ 45 palavras; cada alternativa ≤ 12 palavras${comExplicacoes ? "; comentario ≤ 22 palavras; cada explicação de alternativa errada ≤ 25 palavras" : ""}.`;
 
+  // 2) Configuração do bloco: igual nos sub-blocos dele, diferente do bloco
+  // seguinte. Fecha com o formato de resposta, que precisa vir depois das
+  // regras e o mais perto possível do fim do prompt.
+  const config = `
+CONFIGURAÇÃO
+- Matéria: ${cfg.materia}
+- Tópico: ${cfg.topico ? cfg.topico : "núcleo central da matéria"}
+- Tipo de cobrança: ${descricaoTipo(cfg.tipos)}
+- Dificuldade (1 a 5): ${cfg.nivel} (${NIVEIS[cfg.nivel - 1]}) — ${descNivel}
+- Formato: ${descricaoFormato(cfg.formato)}
+${
+  cfg.nivel >= NIVEL_MIN_DETALHE_PONTUAL
+    ? `- Neste nível, cada alternativa errada deve repetir quase todo o texto do gabarito e divergir por UM ÚNICO detalhe factual (um prazo, um valor, uma data, um nome, uma competência) — não por erro de conceito. O restante da frase deve ser idêntico ou equivalente ao correto.`
+    : ""
+}
 Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON:
 {"questoes":[{"enunciado":"...","formato":"ce" ou "mc","alternativas":["A) ...","B) ...","C) ...","D) ...","E) ..."] ou null,"gabarito":"C"/"E" ou "A"–"E","conceitos":["conceito 1","..."]${comExplicacoes ? ',"comentario":"...","explicacoes_erradas":{"A":"...","B":"..."}' : ""},"dispositivo":"art. X ..." ou null,"tipo_cobranca":"abstrato"|"caso"|"calculo"|"conceito"}]}`;
 
@@ -172,7 +190,7 @@ Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON:
     .filter(Boolean)
     .join("\n\n");
 
-  return { estatico, dinamico };
+  return { metodo, config, dinamico };
 }
 
 /* ---------- Parsing tolerante ---------- */
@@ -327,15 +345,21 @@ export function normalizarQuestao(
 
 /**
  * Aceita tanto um prompt simples (`gerarExplicacoes`, chamada avulsa sem
- * repetição) quanto as duas partes de `montarPrompt` (`gerarSubBloco`, 4
- * chamadas por bloco). Quando há `estatico`+`dinamico`, o bloco estático vai
- * marcado com `cache_control`: da 2ª chamada em diante dentro do mesmo bloco,
- * a API cobra esse prefixo como leitura de cache em vez de reprocessá-lo
- * inteiro — o prefixo (config + regras do método) é idêntico nas 4 chamadas.
+ * repetição) quanto as três partes de `montarPrompt` (`gerarSubBloco`, uma
+ * chamada por sub-bloco). Nesse caso há DOIS pontos de corte de cache: um
+ * depois do método (prefixo que sobrevive à troca de matéria e de bloco) e
+ * outro depois da configuração (idêntico entre os sub-blocos de um bloco).
+ * Da 2ª chamada em diante a API cobra esses prefixos como leitura de cache
+ * (0,1× o preço de entrada) em vez de reprocessá-los.
+ *
+ * Toda chamada concluída registra tokens e custo em `uso_api` (ver
+ * registrarUsoApi em repo.ts) — falha de gravação nunca derruba a geração:
+ * perder o registro de custo é menos grave que perder o bloco pago.
  */
 async function chamar(
   prompt: string | PromptPartes,
   effort: "low" | "medium" = "medium",
+  origem = "outra",
 ): Promise<string> {
   const client = await criarCliente();
 
@@ -343,7 +367,8 @@ async function chamar(
     typeof prompt === "string"
       ? [{ type: "text", text: prompt }]
       : [
-          { type: "text", text: prompt.estatico, cache_control: { type: "ephemeral" } },
+          { type: "text", text: prompt.metodo, cache_control: { type: "ephemeral" } },
+          { type: "text", text: prompt.config, cache_control: { type: "ephemeral" } },
           ...(prompt.dinamico ? [{ type: "text" as const, text: prompt.dinamico }] : []),
         ];
 
@@ -362,6 +387,22 @@ async function chamar(
   });
 
   const msg = await stream.finalMessage();
+
+  try {
+    const { registrarUsoApi } = await import("./repo");
+    await registrarUsoApi({
+      modelo: MODEL,
+      origem,
+      uso: {
+        entrada: msg.usage.input_tokens ?? 0,
+        saida: msg.usage.output_tokens ?? 0,
+        cacheEscrita: msg.usage.cache_creation_input_tokens ?? 0,
+        cacheLeitura: msg.usage.cache_read_input_tokens ?? 0,
+      },
+    });
+  } catch (e) {
+    console.error("registrar uso da API", e);
+  }
 
   if (msg.stop_reason === "refusal") {
     throw new Error(
@@ -409,6 +450,8 @@ export async function gerarSubBloco(
   try {
     const texto = await chamar(
       montarPrompt(cfg, subIdx, padroesAnteriores, gabaritosCEAnteriores, comExplicacoes),
+      "medium",
+      "sub-bloco",
     );
     const obj = tentarParse(texto);
     const qs = (obj.questoes ?? [])
@@ -460,7 +503,7 @@ Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON, com EXAT
  */
 export async function gerarExplicacoes(questoes: Questao[]): Promise<Questao[]> {
   try {
-    const texto = await chamar(montarPromptExplicacoes(questoes));
+    const texto = await chamar(montarPromptExplicacoes(questoes), "medium", "explicações do bloco");
     const obj = extrairJSON(texto) as { explicacoes?: unknown[] };
     const itens = obj.explicacoes ?? [];
 
@@ -550,7 +593,7 @@ export async function gerarExplicacaoParcial(
   questao: Questao,
   letras: string[],
 ): Promise<{ comentario?: string; explicacoes_erradas: Record<string, string> }> {
-  const texto = await chamar(montarPromptExplicacaoParcial(questao, letras), "low");
+  const texto = await chamar(montarPromptExplicacaoParcial(questao, letras), "low", "explicação sob demanda");
   const obj = extrairJSON(texto) as { explicacoes?: Record<string, unknown> };
   const brutas = obj.explicacoes && typeof obj.explicacoes === "object" ? obj.explicacoes : {};
 

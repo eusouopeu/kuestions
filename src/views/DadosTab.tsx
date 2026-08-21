@@ -1,9 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
-  Bar,
-  BarChart,
   CartesianGrid,
-  Cell,
   Line,
   LineChart,
   ReferenceLine,
@@ -12,47 +9,27 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import {
+  BarrasPct,
+  CalendarioSequencia,
+  corPct,
+  eixo,
+  LIMIAR_APROVACAO_PCT,
+  tooltipStyle,
+} from "./dados/graficos";
 import { C, cartao, campo, disp, mono, rotulo } from "../theme";
 import Shell, { Vazio } from "../components/Shell";
 import Botao from "../components/Botao";
 import Chip from "../components/Chip";
-import {
-  atividadePorDia,
-  estimarNotaProvavel,
-  materiasComDados,
-  porConceito,
-  porFormato,
-  porConfianca,
-  porNivel,
-  porTipo,
-  questoesPorTopico,
-  resumo,
-  resumoPorMateria,
-  serieBlocos,
-  streakDias,
-  tempoMedioGeral,
-  tempoPorMateria,
-  topicosPraticados,
-  type Fatia,
-  type FatiaTempo,
-  type Resumo,
-} from "../lib/repo";
-import { getPesosEdital, PRESETS_PESO_EDITAL, type PesosEdital } from "../lib/edital";
-import { labelFormato, labelTipo, LIMIAR_APROVACAO, NIVEIS } from "../lib/constants";
-import {
-  agruparPorPrefixo,
-  coberturaTopicos,
-  desempenhoPorTopico,
-  MATERIAS_COM_TOPICOS,
-  type DesempenhoTopico,
-  type TopicoEspecifico,
-} from "../lib/topicos";
+import { estimarNotaProvavel } from "../lib/repo";
+import { useDadosAgregados, DIAS_HEATMAP } from "./dados/useDadosAgregados";
+import { PRESETS_PESO_EDITAL } from "../lib/edital";
+import { formatarUSD, situacaoTeto } from "../lib/custo";
+import { labelFormato, labelTipo, NIVEIS } from "../lib/constants";
+import { agruparPorPrefixo } from "../lib/topicos";
 
 const TODAS = "__todas__";
 const TODOS_NIVEIS = 0;
-/** Janela do calendário de sequência (heatmap) — 20 semanas. */
-const DIAS_HEATMAP = 140;
-const LIMIAR_APROVACAO_PCT = LIMIAR_APROVACAO * 100;
 
 /** "1min 24s" / "38s" — formato compacto para os cartões de tempo médio. */
 function formatarDuracao(ms: number): string {
@@ -60,14 +37,6 @@ function formatarDuracao(ms: number): string {
   const m = Math.floor(s / 60);
   const resto = s % 60;
   return m > 0 ? `${m}min ${resto}s` : `${resto}s`;
-}
-
-/** Vermelho abaixo de 60%, azul até 80% (o limiar de aprovação, ver
- * LIMIAR_APROVACAO), verde a partir daí. */
-function corPct(pct: number): string {
-  if (pct >= LIMIAR_APROVACAO_PCT) return C.ok;
-  if (pct >= LIMIAR_APROVACAO_PCT - 20) return C.caneta;
-  return C.erro;
 }
 
 /** Agrupamento da "Nota provável estimada" em 3 faixas de acerto — cada uma
@@ -113,188 +82,6 @@ function Cartao({
   );
 }
 
-const tooltipStyle = {
-  contentStyle: {
-    background: C.card,
-    border: `1.5px solid ${C.line}`,
-    borderRadius: 8,
-    fontSize: 12,
-    fontFamily: "'Montserrat', system-ui, sans-serif",
-  },
-  labelStyle: { color: C.sub, fontSize: 11 },
-} as const;
-
-const eixo = {
-  tick: { fontSize: 11, fill: C.sub, fontFamily: "'Montserrat', system-ui, sans-serif" },
-  stroke: C.line,
-} as const;
-
-/** O `<Text>` de tick do recharts quebra rótulos longos em várias linhas
- * dentro da largura do eixo (`largura`) — sem prever isso, `alturaPorItem`
- * fixo faz linhas de categorias com nome longo (ex. conceitos) se sobrepor
- * verticalmente. Estimativa grosseira (chars por linha ~ largura/(fonte*0.6),
- * arredondado por cima) só para dimensionar o card; não precisa ser exata. */
-function alturaRotuloQuebrado(nome: string, largura: number, fonte = 11): number {
-  const charsPorLinha = Math.max(6, Math.floor(largura / (fonte * 0.6)));
-  const linhas = Math.max(1, Math.ceil(nome.length / charsPorLinha));
-  return linhas * (fonte * 1.3);
-}
-
-let ctxMedidaTexto: CanvasRenderingContext2D | null | undefined;
-
-/** Largura real (px) de um texto na fonte/tamanho do eixo — Canvas 2D mede de
- * verdade, ao contrário da estimativa grosseira de alturaRotuloQuebrado
- * (que só precisa acertar a ALTURA da quebra, não a largura de cada linha). */
-function larguraTexto(texto: string): number {
-  if (ctxMedidaTexto === undefined) {
-    ctxMedidaTexto = document.createElement("canvas").getContext("2d");
-  }
-  if (!ctxMedidaTexto) return texto.length * 6.3; // fallback bruto, sem Canvas
-  ctxMedidaTexto.font = `${eixo.tick.fontSize}px ${eixo.tick.fontFamily}`;
-  return ctxMedidaTexto.measureText(texto).width;
-}
-
-/**
- * Largura de eixo Y ajustada ao comprimento típico dos rótulos deste
- * conjunto, em vez de uma largura fixa genérica — o recharts alinha o texto
- * do eixo à direita (colado na barra), então uma coluna mais larga que o
- * texto sobra em branco à ESQUERDA, entre a borda do cartão e o rótulo.
- * Usa o percentil 60 dos comprimentos (não o maior) de propósito: a maioria
- * dos rótulos passa a caber numa linha só e ocupar quase toda a coluna; só os
- * poucos nomes bem mais longos que a maioria continuam quebrando em várias
- * linhas (ver alturaRotuloQuebrado), em vez de esticar a coluna pra todo
- * mundo por causa de um único nome extenso.
- */
-function larguraIdealEixo(dados: { nome: string }[], min = 70, max = 190): number {
-  if (!dados.length) return min;
-  const larguras = dados.map((d) => larguraTexto(d.nome)).sort((a, b) => a - b);
-  const p60 = larguras[Math.floor((larguras.length - 1) * 0.6)];
-  return Math.round(Math.min(max, Math.max(min, p60 + 10)));
-}
-
-/** Barras de % de acerto com rótulo textual — usado em 3 dos 4 gráficos. */
-function BarrasPct({
-  dados,
-  alturaPorItem = 34,
-  larguraEixo = 84,
-}: {
-  dados: { nome: string; pct: number; total: number }[];
-  alturaPorItem?: number;
-  /** Largura do eixo Y (rótulo da categoria) — aumentar reduz quebra de
-   * linha em nomes longos (ver conceito, mais abaixo). */
-  larguraEixo?: number;
-}) {
-  // Uniforme entre as linhas (o BarChart do recharts aloca a mesma altura
-  // para cada categoria) — usa o rótulo mais longo do conjunto, com uma
-  // margem mínima de `alturaPorItem` para conjuntos de nomes curtos.
-  const alturaMinLinha = Math.max(
-    alturaPorItem,
-    ...dados.map((d) => alturaRotuloQuebrado(d.nome, larguraEixo) + 16),
-  );
-  const altura = Math.max(120, dados.length * alturaMinLinha + 24);
-  return (
-    <ResponsiveContainer width="100%" height={altura}>
-      <BarChart data={dados} layout="vertical" margin={{ top: 4, right: 16, bottom: 4, left: 4 }}>
-        <CartesianGrid horizontal={false} stroke={C.line} />
-        <XAxis type="number" domain={[0, 100]} unit="%" {...eixo} />
-        <YAxis type="category" dataKey="nome" width={larguraEixo} {...eixo} />
-        <Tooltip
-          {...tooltipStyle}
-          formatter={(v: number, _n, p) => [
-            `${v}% (${(p.payload as { total: number }).total} questões)`,
-            "acerto",
-          ]}
-        />
-        <ReferenceLine x={LIMIAR_APROVACAO_PCT} stroke={C.ok} strokeDasharray="3 3" />
-        <Bar dataKey="pct" radius={[0, 4, 4, 0]} barSize={14} isAnimationActive={false}>
-          {dados.map((d) => (
-            <Cell key={d.nome} fill={corPct(d.pct)} />
-          ))}
-        </Bar>
-      </BarChart>
-    </ResponsiveContainer>
-  );
-}
-
-/** Um dia do calendário de sequência: `total` null = fora da janela (célula
- * de preenchimento, só para a grade fechar em semanas completas). */
-function addDiasISO(dataISO: string, n: number): string {
-  const d = new Date(`${dataISO}T00:00:00.000Z`);
-  d.setUTCDate(d.getUTCDate() + n);
-  return d.toISOString().slice(0, 10);
-}
-
-/** Calendário de sequência (heatmap estilo GitHub): uma coluna por semana,
- * uma célula por dia, mais escura quanto mais questões respondidas naquele
- * dia — visão rápida de constância que o número isolado de "sequência atual"
- * não mostra. Datas em UTC (mesma convenção de `ts`/streakDias) para não
- * desalinhar a grade por fuso horário. */
-function CalendarioSequencia({ atividade, dias }: { atividade: { data: string; total: number }[]; dias: number }) {
-  const porDia = new Map(atividade.map((a) => [a.data, a.total]));
-  const hojeISO = new Date().toISOString().slice(0, 10);
-  const inicioISO = addDiasISO(hojeISO, -(dias - 1));
-  const diaDaSemana = new Date(`${inicioISO}T00:00:00.000Z`).getUTCDay();
-  const inicioSemanaISO = addDiasISO(inicioISO, -diaDaSemana);
-
-  const celulas: { chave: string; total: number | null }[] = [];
-  for (let d = inicioSemanaISO; d <= hojeISO; d = addDiasISO(d, 1)) {
-    celulas.push({ chave: d, total: d < inicioISO ? null : (porDia.get(d) ?? 0) });
-  }
-  const semanas: (typeof celulas)[] = [];
-  for (let i = 0; i < celulas.length; i += 7) semanas.push(celulas.slice(i, i + 7));
-
-  function cor(total: number | null): string {
-    if (total == null) return "transparent";
-    if (total === 0) return C.paper;
-    if (total <= 3) return C.heat1;
-    if (total <= 7) return C.heat2;
-    if (total <= 14) return C.heat3;
-    return C.heat4;
-  }
-
-  return (
-    <div>
-      <div style={{ overflowX: "auto", paddingBottom: 4 }}>
-        <div style={{ display: "flex", gap: 3, width: "max-content" }}>
-          {semanas.map((semana, i) => (
-            <div key={i} style={{ display: "flex", flexDirection: "column", gap: 3 }}>
-              {semana.map((d) => (
-                <div
-                  key={d.chave}
-                  title={d.total == null ? undefined : `${d.chave} · ${d.total} questão${d.total === 1 ? "" : "es"}`}
-                  style={{
-                    width: 11,
-                    height: 11,
-                    borderRadius: 3,
-                    background: cor(d.total),
-                    border: d.total === 0 ? `1px solid ${C.line}` : "none",
-                  }}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 8 }}>
-        <span style={{ fontSize: 10.5, color: C.sub }}>Menos</span>
-        {[0, 1, 4, 8, 15].map((t) => (
-          <div
-            key={t}
-            style={{
-              width: 11,
-              height: 11,
-              borderRadius: 3,
-              background: cor(t),
-              border: `1px solid ${C.line}`,
-            }}
-          />
-        ))}
-        <span style={{ fontSize: 10.5, color: C.sub }}>Mais</span>
-      </div>
-    </div>
-  );
-}
-
 export default function DadosTab({
   ativa,
   onQuestoes,
@@ -304,106 +91,45 @@ export default function DadosTab({
   onQuestoes: () => void;
   onAjustes: () => void;
 }) {
-  const [materias, setMaterias] = useState<string[]>([]);
   const [filtro, setFiltro] = useState<string>(TODAS);
   const [filtroNivel, setFiltroNivel] = useState<number>(TODOS_NIVEIS);
-  const [carregando, setCarregando] = useState(true);
-  const [res, setRes] = useState<Resumo | null>(null);
-  const [serie, setSerie] = useState<{ i: number; pct: number }[]>([]);
-  const [niveis, setNiveis] = useState<Fatia[]>([]);
-  const [tipos, setTipos] = useState<Fatia[]>([]);
-  const [formatos, setFormatos] = useState<Fatia[]>([]);
-  const [confiancas, setConfiancas] = useState<Fatia[]>([]);
-  const [atividade, setAtividade] = useState<{ data: string; total: number }[]>([]);
-  const [conceitos, setConceitos] = useState<Fatia[]>([]);
-  const [streak, setStreak] = useState<{ atual: number; recorde: number; hoje: boolean } | null>(
-    null,
-  );
-  const [cobertura, setCobertura] = useState<{
-    praticados: TopicoEspecifico[];
-    pendentes: TopicoEspecifico[];
-  } | null>(null);
-  const [mostrarTodasPendentes, setMostrarTodasPendentes] = useState(false);
-  const [heatmap, setHeatmap] = useState<DesempenhoTopico[] | null>(null);
-  // Base da nota provável (acerto por matéria + pesos REAIS configurados em
-  // Ajustes) separada do resultado final — o dropdown de simulação abaixo
-  // recalcula `notaEstimada` (função pura) trocando só os pesos, sem
-  // consultar o banco de novo nem gravar nada.
-  const [porMateriaNota, setPorMateriaNota] = useState<Fatia[] | null>(null);
-  const [pesosReais, setPesosReais] = useState<PesosEdital>({});
   const [presetSimulacao, setPresetSimulacao] = useState<string>("");
-  const [tempoGeral, setTempoGeral] = useState<{ tempoMedioMs: number; amostras: number } | null>(
-    null,
-  );
-  const [tempoMaterias, setTempoMaterias] = useState<FatiaTempo[]>([]);
+  const [mostrarTodasPendentes, setMostrarTodasPendentes] = useState(false);
 
-  useEffect(() => {
-    if (ativa) materiasComDados().then(setMaterias).catch(() => setMaterias([]));
-  }, [ativa]);
+  // Busca e agregação vivem no hook (ver ./dados/useDadosAgregados.ts); aqui
+  // ficam só os filtros da tela e o desenho.
+  const {
+    materias,
+    carregando,
+    res,
+    serie,
+    niveis,
+    tipos,
+    formatos,
+    confiancas,
+    conceitos,
+    atividade,
+    streak,
+    cobertura,
+    heatmap,
+    porMateriaNota,
+    pesosReais,
+    tempoGeral,
+    tempoMaterias,
+    confiancaResumo,
+    custo,
+    teto,
+  } = useDadosAgregados({
+    ativa,
+    materia: filtro === TODAS ? null : filtro,
+    nivel: filtroNivel === TODOS_NIVEIS ? null : filtroNivel,
+  });
 
-  const carregar = useCallback(() => {
-    // null = agrega todas as matérias; uma string = filtra estritamente por ela.
-    const m = filtro === TODAS ? null : filtro;
-    const n = filtroNivel === TODOS_NIVEIS ? null : filtroNivel;
-    setCarregando(true);
-    Promise.all([
-      resumo(m, n),
-      serieBlocos(m),
-      porNivel(m),
-      porTipo(m, n),
-      porFormato(m, n),
-      porConceito(m, n),
-      porConfianca(m, n),
-      streakDias(),
-      atividadePorDia(DIAS_HEATMAP),
-      tempoMedioGeral(m),
-      tempoPorMateria(),
-      // Nota estimada só faz sentido na visão agregada — ver corpo abaixo.
-      filtro === TODAS ? Promise.all([resumoPorMateria(n), getPesosEdital()]) : Promise.resolve(null),
-    ])
-      .then(([r, s, ni, ti, fo, co, cf, st, at, tg, tm, baseNota]) => {
-        setRes(r);
-        setSerie(s);
-        setNiveis(ni);
-        setTipos(ti);
-        setFormatos(fo);
-        setConceitos(co);
-        setConfiancas(cf);
-        setStreak(st);
-        setAtividade(at);
-        setTempoGeral(tg);
-        setTempoMaterias(tm);
-        setPorMateriaNota(baseNota ? baseNota[0] : null);
-        setPesosReais(baseNota ? baseNota[1] : {});
-      })
-      .catch(() => setRes(null))
-      .finally(() => setCarregando(false));
-  }, [filtro, filtroNivel]);
-
-  // Além de rodar quando o filtro muda, recarrega toda vez que a aba é
-  // reaberta — a aba fica montada entre trocas (ver App.tsx), então sem isto
-  // um bloco respondido em outra aba não apareceria aqui sem um refresh manual.
-  useEffect(() => {
-    if (ativa) carregar();
-  }, [ativa, carregar]);
-
-  // Cobertura de tópicos: só existe lista fixa para comparar numa matéria
-  // específica (não em "todas") e só para as que têm TOPICOS_POR_MATERIA —
-  // independente do filtro de nível, que não se aplica a blocos.topico.
+  // A lista de pendentes recolhe sozinha ao trocar de matéria — o estado de
+  // "ver todas" era da matéria anterior.
   useEffect(() => {
     setMostrarTodasPendentes(false);
-    if (!ativa || filtro === TODAS || !MATERIAS_COM_TOPICOS.includes(filtro)) {
-      setCobertura(null);
-      setHeatmap(null);
-      return;
-    }
-    topicosPraticados(filtro)
-      .then((praticados) => setCobertura(coberturaTopicos(filtro, praticados)))
-      .catch(() => setCobertura(null));
-    questoesPorTopico(filtro)
-      .then((linhas) => setHeatmap(desempenhoPorTopico(filtro, linhas)))
-      .catch(() => setHeatmap(null));
-  }, [ativa, filtro]);
+  }, [filtro]);
 
   const semDados = !res || res.totalQuestoes === 0;
   const pctGeral = res && res.totalQuestoes ? Math.round((res.totalAcertos / res.totalQuestoes) * 100) : 0;
@@ -486,73 +212,45 @@ export default function DadosTab({
         </Vazio>
       ) : (
         <>
-          {/* Totais */}
+          {/* Totais + sequência, os três numa linha só: são os indicadores
+              de leitura instantânea da aba, e empilhados empurravam todo o
+              resto para baixo da dobra. A sequência não é filtrada por
+              matéria/nível — é constância do estudo como um todo. */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
               gap: 8,
               marginBottom: 12,
             }}
           >
             {[
-              { rot: "Acerto geral", val: `${pctGeral}%`, cor: corPct(pctGeral) },
-              { rot: "Questões", val: String(res!.totalQuestoes), cor: C.ink },
+              { rot: "Acerto geral", val: `${pctGeral}%`, cor: corPct(pctGeral), sub: "" },
+              { rot: "Questões", val: String(res!.totalQuestoes), cor: C.ink, sub: "" },
+              ...(streak && streak.recorde > 0
+                ? [
+                    {
+                      rot: "Sequência",
+                      val: `${streak.atual}d`,
+                      cor: streak.atual > 0 ? C.caneta : C.ink,
+                      sub: `RECORDE ${streak.recorde}D`,
+                    },
+                  ]
+                : []),
             ].map((k) => (
-              <div key={k.rot} style={{ ...cartao, padding: "12px 10px", textAlign: "center" }}>
+              <div key={k.rot} style={{ ...cartao, padding: "12px 8px", textAlign: "center" }}>
                 <div style={{ ...disp, fontSize: 22, fontWeight: 800, color: k.cor, letterSpacing: -0.5 }}>
                   {k.val}
                 </div>
                 <div style={{ ...mono, fontSize: 9.5, color: C.sub, marginTop: 2, lineHeight: 1.3 }}>
                   {k.rot.toUpperCase()}
                 </div>
+                {k.sub && (
+                  <div style={{ ...mono, fontSize: 9, color: C.sub, marginTop: 1 }}>{k.sub}</div>
+                )}
               </div>
             ))}
           </div>
-
-          {/* Sequência de dias praticando — não é filtrada por matéria/nível:
-              é uma métrica de constância do estudo como um todo. */}
-          {streak && streak.recorde > 0 && (
-            <div
-              style={{
-                ...cartao,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                padding: "12px 16px",
-                marginBottom: 12,
-              }}
-            >
-              <div>
-                <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8 }}>
-                  SEQUÊNCIA ATUAL
-                </div>
-                <div style={{ fontSize: 12, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
-                  {streak.atual > 0
-                    ? streak.hoje
-                      ? "Você já praticou hoje."
-                      : "Pratique hoje para manter a sequência."
-                    : "Responda um bloco para começar uma sequência."}
-                </div>
-              </div>
-              <div style={{ textAlign: "right", flexShrink: 0 }}>
-                <div
-                  style={{
-                    ...disp,
-                    fontSize: 26,
-                    fontWeight: 800,
-                    color: streak.atual > 0 ? C.caneta : C.ink,
-                    letterSpacing: -0.5,
-                  }}
-                >
-                  {streak.atual}d
-                </div>
-                <div style={{ ...mono, fontSize: 9.5, color: C.sub }}>
-                  RECORDE {streak.recorde}D
-                </div>
-              </div>
-            </div>
-          )}
 
           {/* Calendário de sequência — mesma constância "do estudo como um
               todo", não filtrada por matéria/nível (ver comentário acima). */}
@@ -910,6 +608,109 @@ export default function DadosTab({
             )}
           </Cartao>
 
+          {/* Erro perigoso: marcou "certeza" e errou. É o erro que não se
+              revisa sozinho — sem dúvida percebida, o candidato não volta
+              naquele ponto nem na véspera. A fila de "Refazer erradas" já
+              coloca esses primeiro (ver listarErradas em repo.ts); aqui o
+              número existe para o hábito ficar visível. */}
+          {confiancaResumo && confiancaResumo.certezas > 0 && (
+            <Cartao
+              titulo="ERRO PERIGOSO"
+              legenda="Questões que você marcou com certeza e mesmo assim errou — entram primeiro na fila de revisão."
+            >
+              <div style={{ display: "flex", gap: 8, padding: "0 4px 14px" }}>
+                {[
+                  {
+                    rot: "Erros com certeza",
+                    val: String(confiancaResumo.perigosos),
+                    cor: confiancaResumo.perigosos > 0 ? C.erro : C.ok,
+                  },
+                  {
+                    rot: "Excesso de confiança",
+                    val: `${confiancaResumo.pctExcessoConfianca}%`,
+                    cor: corPct(100 - confiancaResumo.pctExcessoConfianca),
+                  },
+                  {
+                    rot: "Acertos no chute",
+                    val: String(confiancaResumo.sorte),
+                    cor: C.ink,
+                  },
+                ].map((k) => (
+                  <div
+                    key={k.rot}
+                    style={{
+                      flex: 1,
+                      border: `1.5px solid ${C.line}`,
+                      borderRadius: 8,
+                      padding: "10px 6px",
+                      textAlign: "center",
+                    }}
+                  >
+                    <div style={{ ...disp, fontSize: 20, fontWeight: 800, color: k.cor }}>{k.val}</div>
+                    <div style={{ ...mono, fontSize: 9, color: C.sub, marginTop: 2, lineHeight: 1.3 }}>
+                      {k.rot.toUpperCase()}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ fontSize: 12, color: C.sub, padding: "0 4px 14px", lineHeight: 1.45 }}>
+                {confiancaResumo.perigosos === 0
+                  ? "Nenhum erro com certeza no histórico — sua percepção de dúvida está calibrada."
+                  : `${confiancaResumo.pctExcessoConfianca}% do que você marcou com certeza deu errado. Numa prova, esse é o erro que passa despercebido na revisão.`}
+              </div>
+            </Cartao>
+          )}
+
+          {/* Custo da API: o app gasta a conta pessoal do usuário na
+              Anthropic (4 chamadas por bloco gerado). Sem isto, o gasto só
+              aparecia na fatura. `cacheLeituraMes` mostra o efeito do prompt
+              caching de anthropic.ts — tokens que NÃO foram cobrados cheios. */}
+          {custo && custo.total > 0 && (
+            <Cartao titulo="CUSTO DA API" legenda="Gasto na sua chave da Anthropic. O teto mensal é configurado em Ajustes.">
+              <div style={{ display: "flex", gap: 8, padding: "0 4px 12px" }}>
+                {[
+                  {
+                    rot: "Este mês",
+                    val: formatarUSD(custo.mes),
+                    cor:
+                      situacaoTeto(custo.mes, teto) === "estourado"
+                        ? C.erro
+                        : situacaoTeto(custo.mes, teto) === "perto"
+                          ? C.caneta
+                          : C.ink,
+                  },
+                  { rot: "Desde o início", val: formatarUSD(custo.total), cor: C.ink },
+                  { rot: "Chamadas no mês", val: String(custo.chamadasMes), cor: C.ink },
+                ].map((k) => (
+                  <div
+                    key={k.rot}
+                    style={{
+                      flex: 1,
+                      border: `1.5px solid ${C.line}`,
+                      borderRadius: 8,
+                      padding: "10px 6px",
+                      textAlign: "center",
+                    }}
+                  >
+                    <div style={{ ...disp, fontSize: 18, fontWeight: 800, color: k.cor }}>{k.val}</div>
+                    <div style={{ ...mono, fontSize: 9, color: C.sub, marginTop: 2, lineHeight: 1.3 }}>
+                      {k.rot.toUpperCase()}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ fontSize: 12, color: C.sub, padding: "0 4px 14px", lineHeight: 1.45 }}>
+                {teto > 0
+                  ? `Teto de ${formatarUSD(teto)}/mês — ${Math.min(100, Math.round((custo.mes / teto) * 100))}% usado.`
+                  : "Sem teto mensal configurado."}
+                {custo.cacheLeituraMes > 0 &&
+                  ` ${Math.round(
+                    (custo.cacheLeituraMes / Math.max(1, custo.cacheLeituraMes + custo.entradaMes)) * 100,
+                  )}% dos tokens de entrada do mês vieram do cache (10% do preço).`}
+              </div>
+            </Cartao>
+          )}
+
           {/* Conceito — a dimensão mais granular; só mostra os que já têm
               amostra suficiente (ver porConceito em repo.ts). Nomes de
               conceito podem ser bem longos, por isso um eixo Y mais largo
@@ -918,11 +719,7 @@ export default function DadosTab({
               alto, mas nenhuma legenda se sobrepõe. */}
           <Cartao titulo="ACERTO POR CONCEITO">
             {dadosConceitos.length ? (
-              <BarrasPct
-                dados={dadosConceitos}
-                alturaPorItem={30}
-                larguraEixo={larguraIdealEixo(dadosConceitos)}
-              />
+              <BarrasPct dados={dadosConceitos} alturaPorItem={30} />
             ) : (
               <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
                 Nenhum conceito com amostra suficiente ainda.

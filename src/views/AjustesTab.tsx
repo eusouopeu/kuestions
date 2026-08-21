@@ -15,6 +15,9 @@ import { getComExplicacoesIA, setComExplicacoesIA } from "../lib/preferenciasGer
 import { exportarBancoJSON, importarBancoJSON } from "../lib/db";
 import { exportarArquivo } from "../lib/exportar";
 import { getTema, setTema, type Tema } from "../lib/tema";
+import { ESCALAS, getEscala, setEscala, type Escala } from "../lib/acessibilidade";
+import { formatarUSD, getTetoMensal, setTetoMensal, situacaoTeto } from "../lib/custo";
+import { resumoCusto } from "../lib/repo";
 import {
   exportarParaMesclagem,
   listarReportadas,
@@ -81,6 +84,11 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   const [carregado, setCarregado] = useState(false);
 
   const [tema, setTemaLocal] = useState<Tema>("sistema");
+  const [escala, setEscalaLocal] = useState<Escala>(100);
+  // Teto de gasto mensal na API (ver lib/custo.ts). 0 = sem teto: o app só
+  // acompanha o gasto, nunca bloqueia a geração.
+  const [tetoMensal, setTetoMensalLocal] = useState(0);
+  const [gastoMes, setGastoMes] = useState(0);
   const [exportandoBackup, setExportandoBackup] = useState(false);
   const [backupExportado, setBackupExportado] = useState(false);
   const [arquivoRestauro, setArquivoRestauro] = useState<File | null>(null);
@@ -127,6 +135,11 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
       })
       .finally(() => setCarregado(true));
     getTema().then(setTemaLocal);
+    getEscala().then(setEscalaLocal);
+    getTetoMensal().then(setTetoMensalLocal).catch(() => {});
+    resumoCusto()
+      .then((c) => setGastoMes(c.mes))
+      .catch(() => setGastoMes(0));
     getConfigMeta().then(setMetaLocal);
     getMetasPorMateria().then(setMetasPorMateriaLocal);
     getPesosEdital().then(setPesosLocal);
@@ -260,6 +273,16 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     } catch (e) {
       console.error("aplicar preset de peso do edital", e);
     }
+  }
+
+  async function trocarEscala(e: Escala) {
+    setEscalaLocal(e);
+    await setEscala(e);
+  }
+
+  async function trocarTeto(valor: number) {
+    setTetoMensalLocal(valor);
+    await setTetoMensal(valor);
   }
 
   async function trocarTema(t: Tema) {
@@ -403,6 +426,18 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         />
       </div>
 
+      {/* Escala da interface: todo o app dimensiona em px absolutos, então
+          isto aplica `zoom` na raiz (ver lib/acessibilidade.ts) — cresce
+          texto E alvo de toque juntos, não só a fonte. */}
+      <div style={{ marginBottom: 18 }}>
+        <label style={rotulo}>Tamanho da interface</label>
+        <Segmented
+          valor={escala}
+          opcoes={ESCALAS.map((e) => ({ id: e.valor, label: e.label }))}
+          onChange={trocarEscala}
+        />
+      </div>
+
       <div style={{ marginBottom: 18 }}>
         <label style={rotulo}>Chave de API da Anthropic</label>
         <input
@@ -458,6 +493,36 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
           expor <code style={{ ...mono, fontSize: 12 }}>/v1/messages</code>. Deixe vazio para usar a
           chave acima diretamente. Veja <code style={{ ...mono, fontSize: 12 }}>proxy/</code> no
           repositório.
+        </div>
+      </div>
+
+      {/* Teto de gasto mensal: o custo da API sai da conta pessoal do
+          usuário (4 chamadas por bloco gerado). O teto não bloqueia sozinho —
+          é lido antes de disparar um bloco em GerarView, que avisa e pede
+          confirmação. Ver lib/custo.ts e o cartão CUSTO DA API em Dados. */}
+      <div style={{ marginBottom: 18 }}>
+        <label style={rotulo}>Teto de gasto mensal (US$)</label>
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          <input
+            style={{ ...campo, ...mono, fontSize: 14, flex: 1 }}
+            type="number"
+            inputMode="decimal"
+            min={0}
+            step={1}
+            placeholder="0 = sem teto"
+            value={tetoMensal || ""}
+            onChange={(e) => void trocarTeto(Math.max(0, Number(e.target.value) || 0))}
+          />
+        </div>
+        <div style={{ fontSize: 12.5, color: C.sub, marginTop: 8, lineHeight: 1.5 }}>
+          Gasto deste mês: <strong>{formatarUSD(gastoMes)}</strong>
+          {tetoMensal > 0
+            ? situacaoTeto(gastoMes, tetoMensal) === "estourado"
+              ? " — teto atingido; o app avisa antes de gerar um bloco novo."
+              : situacaoTeto(gastoMes, tetoMensal) === "perto"
+                ? " — perto do teto; o app avisa antes de gerar um bloco novo."
+                : "."
+            : ". Sem teto configurado, o app apenas registra o gasto."}
         </div>
       </div>
 

@@ -13,6 +13,7 @@ import {
   type QuestaoBanco,
 } from "../lib/banco";
 import { gravarRespostasEmLote, idsBancoRespondidos, mesclarExplicacoesBanco } from "../lib/repo";
+import RelatorioSimulado from "./simulado/RelatorioSimulado";
 import { getPesosEdital, pesoDe, PRESETS_PESO_EDITAL, type PesosEdital } from "../lib/edital";
 import { gerarExplicacaoParcial, mensagemDeErro } from "../lib/anthropic";
 import type { Questao } from "../lib/types";
@@ -149,6 +150,25 @@ export default function SimuladoView() {
   }, [expandida]);
 
   const intervaloRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // Tempo gasto em CADA questão (ms), acumulado enquanto ela está na tela —
+  // o usuário pode voltar a uma questão já vista, então é soma, não um único
+  // início/fim. Base do relatório pós-prova (ver RelatorioSimulado) e do
+  // `tempo_ms` gravado em questoes_respondidas.
+  const temposRef = useRef<number[]>([]);
+  const entradaQuestaoRef = useRef<number>(Date.now());
+  const [tempos, setTempos] = useState<number[]>([]);
+  const [segundosUsados, setSegundosUsados] = useState(0);
+
+  /** Fecha a contagem da questão em que o usuário estava e reinicia o
+   * cronômetro para a próxima. Chamado na troca de questão e ao finalizar. */
+  function fecharTempoDaQuestao(indice: number) {
+    const agora = Date.now();
+    const gasto = agora - entradaQuestaoRef.current;
+    entradaQuestaoRef.current = agora;
+    if (indice >= 0 && gasto > 0) {
+      temposRef.current[indice] = (temposRef.current[indice] ?? 0) + gasto;
+    }
+  }
 
   useEffect(() => {
     if (tela === "config") idsBancoRespondidos().then(setVistas).catch(() => setVistas(new Set()));
@@ -207,6 +227,10 @@ export default function SimuladoView() {
     setTachadasPorQuestao(misturadas.map(() => []));
     setIdx(0);
     setSegundosRestantes(minutos * 60);
+    temposRef.current = misturadas.map(() => 0);
+    entradaQuestaoRef.current = Date.now();
+    setTempos([]);
+    setSegundosUsados(0);
     setConfirmandoEncerrar(false);
     setExpandida(null);
     setTela("drill");
@@ -215,6 +239,9 @@ export default function SimuladoView() {
   async function finalizar() {
     if (finalizando) return;
     setFinalizando(true);
+    fecharTempoDaQuestao(idx);
+    setTempos([...temposRef.current]);
+    setSegundosUsados(minutos * 60 - segundosRestantes);
     if (intervaloRef.current) clearInterval(intervaloRef.current);
     let n = 0;
     const itens = perguntas.map(({ area, questao }, i) => {
@@ -229,6 +256,7 @@ export default function SimuladoView() {
         questao,
         resposta,
         acertou,
+        tempoMs: temposRef.current[i] ?? null,
       };
     });
     try {
@@ -584,7 +612,17 @@ export default function SimuladoView() {
             Toque para marcar · deslize ← para riscar · deslize → para desfazer
           </div>
 
-          <Botao onClick={() => (ultima ? setConfirmandoEncerrar(true) : setIdx(idx + 1))} style={{ marginTop: 16 }}>
+          <Botao
+            onClick={() => {
+              if (ultima) {
+                setConfirmandoEncerrar(true);
+                return;
+              }
+              fecharTempoDaQuestao(idx);
+              setIdx(idx + 1);
+            }}
+            style={{ marginTop: 16 }}
+          >
             {ultima ? "Finalizar simulado" : "Próxima questão"}
           </Botao>
         </div>
@@ -702,6 +740,18 @@ export default function SimuladoView() {
             : ""}
         </div>
       </div>
+
+      <RelatorioSimulado
+        itens={perguntas.map(({ area, questao }, i) => ({
+          area,
+          acertou: respostas[i] !== null && respostas[i] === questao.gabarito,
+          resposta: respostas[i] ?? "",
+          tempoMs: tempos[i] ?? 0,
+          enunciado: questao.enunciado,
+        }))}
+        segundosUsados={segundosUsados}
+        pesos={pesosEfetivos}
+      />
 
       {erradas.length > 0 && (
         <div style={{ marginTop: 20, marginBottom: 18 }}>

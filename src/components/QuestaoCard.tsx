@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { FlagIcon as FlagOutline } from "@heroicons/react/24/outline";
+import { FlagIcon as FlagOutline, SpeakerWaveIcon, StopIcon } from "@heroicons/react/24/outline";
 import { FlagIcon as FlagSolid } from "@heroicons/react/24/solid";
 import { C, cartao, disp, mono } from "../theme";
 import Botao from "./Botao";
@@ -12,6 +12,7 @@ import { mesclarExplicacoesBanco, mesclarExplicacoesRespondida, reportarQuestao 
 import type { MotivoReport } from "../lib/repo";
 import { gerarExplicacaoParcial, mensagemDeErro } from "../lib/anthropic";
 import ModalReport from "./ModalReport";
+import { lerEmVoz, pararLeitura, vozDisponivel } from "../lib/acessibilidade";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
 
@@ -103,6 +104,9 @@ export default function QuestaoCard({
   const [selecionadasExplicar, setSelecionadasExplicar] = useState<Set<string>>(new Set());
   const [gerandoExplicacao, setGerandoExplicacao] = useState(false);
   const [erroExplicacao, setErroExplicacao] = useState<string | null>(null);
+  // Leitura em voz alta (ver lib/acessibilidade.ts) — permite acompanhar o
+  // enunciado sem olhar a tela. Só aparece onde a WebView tem síntese de voz.
+  const [lendo, setLendo] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   // Início da cronometragem desta questão — reseta junto com o resto ao
   // trocar de questão (ver o mesmo efeito abaixo).
@@ -124,8 +128,15 @@ export default function QuestaoCard({
     setSelecionadasExplicar(new Set());
     setGerandoExplicacao(false);
     setErroExplicacao(null);
+    // A voz não pode continuar lendo a questão anterior depois de virar a
+    // página (ver lib/acessibilidade.ts).
+    pararLeitura();
+    setLendo(false);
     inicioRef.current = Date.now();
   }, [questao, questaoOrigemId, reportadaInicial, temNotaInicial]);
+
+  // Sair do drill (desmontar o card) também interrompe a leitura.
+  useEffect(() => () => pararLeitura(), []);
 
   async function reportar(motivo: MotivoReport) {
     if (reportada || reportando || origemId == null) return;
@@ -226,6 +237,24 @@ export default function QuestaoCard({
     }
   }
 
+  /** Lê o que está visível na tela: antes de revelar, enunciado e
+   * alternativas; depois, também o gabarito e o comentário — que é o trecho
+   * que interessa ouvir na revisão. */
+  function alternarLeitura() {
+    if (lendo) {
+      pararLeitura();
+      setLendo(false);
+      return;
+    }
+    const partes = [questao.enunciado, ...(questao.alternativas ?? [])];
+    if (revelada) {
+      partes.push(`Gabarito: ${questao.gabarito}.`);
+      if (comentarioAtual) partes.push(comentarioAtual);
+    }
+    setLendo(true);
+    lerEmVoz(partes.join(". "), () => setLendo(false));
+  }
+
   const acertou = selecionada === questao.gabarito;
 
   return (
@@ -251,9 +280,31 @@ export default function QuestaoCard({
         </div>
       )}
 
-      <p style={{ fontSize: 16, lineHeight: 1.55, margin: "0 0 16px" }}>
-        {questao.enunciado}
-      </p>
+      <div style={{ display: "flex", alignItems: "flex-start", gap: 8, margin: "0 0 16px" }}>
+        <p style={{ fontSize: 16, lineHeight: 1.55, margin: 0, flex: 1 }}>{questao.enunciado}</p>
+        {vozDisponivel() && (
+          <button
+            onClick={alternarLeitura}
+            aria-label={lendo ? "Parar leitura" : "Ouvir a questão"}
+            title={lendo ? "Parar leitura" : "Ouvir enunciado e alternativas"}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 36,
+              height: 36,
+              flexShrink: 0,
+              borderRadius: 8,
+              border: `1.5px solid ${lendo ? C.caneta : C.line}`,
+              background: lendo ? C.canetaSoft : "transparent",
+              color: lendo ? C.caneta : C.sub,
+              cursor: "pointer",
+            }}
+          >
+            {lendo ? <StopIcon width={17} height={17} /> : <SpeakerWaveIcon width={17} height={17} />}
+          </button>
+        )}
+      </div>
 
       {questao.formato === "ce" ? (
         <div style={{ display: "flex", gap: 10 }}>

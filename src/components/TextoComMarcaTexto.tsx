@@ -18,7 +18,16 @@ export const COR_TEXTO_MARCA_TEXTO: Record<CorMarcaTexto, string> = {
  * crua do Anki — usado tanto na prévia de CampoCorpoNota (editando) quanto na
  * visualização normal de uma nota (NotaCard).
  */
-export default function TextoComMarcaTexto({ texto }: { texto: string }) {
+export default function TextoComMarcaTexto({
+  texto,
+  ocultar = false,
+}: {
+  texto: string;
+  /** Esconde o conteúdo marcado atrás de uma tarja, preservando a largura
+   * aproximada do trecho — é a "frente" do flashcard cloze na revisão dentro
+   * do app (ver RevisaoNotas), o mesmo comportamento do Anki. */
+  ocultar?: boolean;
+}) {
   const segmentos = segmentarMarcaTexto(texto);
   return (
     <>
@@ -28,12 +37,15 @@ export default function TextoComMarcaTexto({ texto }: { texto: string }) {
             key={i}
             style={{
               background: COR_FUNDO_MARCA_TEXTO[s.cor],
-              color: COR_TEXTO_MARCA_TEXTO[s.cor],
+              color: ocultar ? "transparent" : COR_TEXTO_MARCA_TEXTO[s.cor],
               borderRadius: 3,
               padding: "0 2px",
+              ...(ocultar
+                ? { userSelect: "none" as const, textShadow: "none" }
+                : {}),
             }}
           >
-            {s.texto}
+            {ocultar ? "•".repeat(Math.max(3, Math.min(s.texto.length, 40))) : s.texto}
           </mark>
         ) : (
           <span key={i}>{s.texto}</span>

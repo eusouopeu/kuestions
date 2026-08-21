@@ -17,7 +17,6 @@ import {
   FORMATOS,
 } from "../lib/constants";
 import { gerarSubBloco, SemCredencialError } from "../lib/anthropic";
-import { temCredencial } from "../lib/secure";
 import { getComExplicacoesIA } from "../lib/preferenciasGeracao";
 import {
   atualizarTotalQuestoesBloco,
@@ -25,11 +24,12 @@ import {
   criarBloco,
   fecharBloco,
   gravarResposta,
-  listarBlocos,
   pontosPorTopico,
 } from "../lib/repo";
 import { escolherPonderado } from "../lib/pontuacaoTopicos";
-import { sugerirNivel, type SugestaoNivel } from "../lib/sugestao";
+import { gabaritosCEDe, padroesDe, questoesNaoRespondidas } from "../lib/blocoUtils";
+import { useContextoConfig } from "./gerar/useContextoConfig";
+import { formatarUSD, situacaoTeto } from "../lib/custo";
 import { getRascunho, limparRascunho, salvarRascunho, type RascunhoBloco } from "../lib/blocoRascunho";
 import { gerarTagAssunto } from "../lib/texto";
 import {
@@ -40,7 +40,7 @@ import {
   rotuloTopico,
   TOPICOS_POR_MATERIA,
 } from "../lib/topicos";
-import type { Bloco, Config, Questao, StatusSub } from "../lib/types";
+import type { Config, Questao, StatusSub } from "../lib/types";
 import type { TipoId } from "../lib/constants";
 
 type Tela = "config" | "drill" | "resultado";
@@ -66,7 +66,6 @@ export default function GerarView({
   onAjustes: () => void;
 }) {
   const [tela, setTela] = useState<Tela>("config");
-  const [temChave, setTemChave] = useState(true);
   const [cfg, setCfg] = useState<Config>({
     materia: MATERIAS[0],
     materiaCustom: "",
@@ -86,16 +85,11 @@ export default function GerarView({
   const [acertos, setAcertos] = useState<number[]>([0, 0, 0, 0]);
   const [blocoId, setBlocoId] = useState<number | null>(null);
   const [erroApi, setErroApi] = useState<string | null>(null);
-  const [hist, setHist] = useState<Bloco[]>([]);
   const [confirmandoAbandono, setConfirmandoAbandono] = useState(false);
   const [abandonando, setAbandonando] = useState(false);
   // A questão em `qIdx` já foi registrada (respondida ou reportada como
   // errada)? Distingue, no abandono, o que já foi gravado do que ainda falta.
   const [respondidaAtual, setRespondidaAtual] = useState(false);
-
-  // Sugestão de nível por matéria (ver lib/sugestao.ts) — baseada no último
-  // bloco JÁ RESPONDIDO daquela matéria, não no que está selecionado agora.
-  const [sugestaoNivel, setSugestaoNivel] = useState<SugestaoNivel | null>(null);
 
   // Rascunho de um bloco em andamento encontrado ao abrir a tela (ver
   // lib/blocoRascunho.ts) — sobrevive ao app sendo fechado/morto no meio do
@@ -120,13 +114,6 @@ export default function GerarView({
   const subsRef = useRef(subs);
   subsRef.current = subs;
 
-  useEffect(() => {
-    if (tela === "config") {
-      listarBlocos(null, 5).then(setHist).catch(() => setHist([]));
-      temCredencial().then(setTemChave);
-    }
-  }, [tela]);
-
   // Só procura rascunho uma vez, ao montar — depois de "Continuar" ou
   // "Descartar" o rascunho já foi tratado (aplicado ou apagado) e não deve
   // reaparecer sozinho enquanto o usuário segue usando esta mesma sessão.
@@ -139,33 +126,6 @@ export default function GerarView({
       })
       .catch(() => {});
   }, []);
-
-  // Sugestão de nível: olha o último bloco JÁ FECHADO desta matéria (gerado
-  // por IA — só esses gravam `nivel` 1–5; blocos do banco de questões reais
-  // gravam nivel 0 e ficam de fora, ver Bloco.nivel). Refaz sempre que a
-  // matéria muda ou a tela de config reabre (o usuário pode ter respondido
-  // mais blocos desde a última vez que passou por aqui).
-  useEffect(() => {
-    if (tela !== "config") return;
-    const materia =
-      cfg.materia === "__outra" ? cfg.materiaCustom.trim() : cfg.materia;
-    if (!materia) {
-      setSugestaoNivel(null);
-      return;
-    }
-    let cancelado = false;
-    listarBlocos(materia, 1)
-      .then(([ultimo]) => {
-        if (cancelado) return;
-        setSugestaoNivel(ultimo && ultimo.nivel >= 1 ? sugerirNivel(ultimo) : null);
-      })
-      .catch(() => {
-        if (!cancelado) setSugestaoNivel(null);
-      });
-    return () => {
-      cancelado = true;
-    };
-  }, [tela, cfg.materia, cfg.materiaCustom]);
 
   useEffect(() => {
     setRespondidaAtual(false);
@@ -186,6 +146,16 @@ export default function GerarView({
     cfg.materia === "__outra" ? cfg.materiaCustom.trim() || "Matéria personalizada" : cfg.materia;
   const c = { ...cfg, materia: materiaFinal };
 
+  // Histórico, credencial, sugestão de nível, prioridade de estudo e custo —
+  // tudo que a tela de configuração lê do banco (ver ./gerar/useContextoConfig).
+  const { hist, temChave, sugestaoNivel, prioridade, custoMes, tetoMes, custoEstimado } =
+    useContextoConfig({
+      ativa: tela === "config",
+      materia: cfg.materia === "__outra" ? cfg.materiaCustom.trim() : cfg.materia,
+      quantidade,
+    });
+  const [confirmandoCusto, setConfirmandoCusto] = useState(false);
+
   // Persiste o progresso do drill a cada avanço (novo sub-bloco recebido,
   // resposta gravada) — ver lib/blocoRascunho.ts. Não salva antes do 1º
   // sub-bloco chegar (nada pago na API ainda) nem depois de restaurar um
@@ -198,31 +168,6 @@ export default function GerarView({
     salvarRascunho({ cfg: c, subs, statusSub, qIdx, acertos, blocoId, comExplicacoes });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- `c` é derivado de cfg (já nas deps) a cada render.
   }, [tela, cfg, subs, statusSub, qIdx, acertos, blocoId, comExplicacoes, restaurandoRascunho]);
-
-  /** Conceitos já usados nos lotes anteriores, para não repetir padrões. */
-  function padroesDe(atuais: (Questao[] | null)[], ate: number): string[] {
-    const p: string[] = [];
-    for (let i = 0; i < ate; i++) {
-      const s = atuais[i];
-      if (s) {
-        const cs = [...new Set(s.flatMap((q) => q.conceitos))].slice(0, 4);
-        if (cs.length) p.push(`Lote ${i + 1}: ${cs.join(", ")}`);
-      }
-    }
-    return p;
-  }
-
-  /** Gabaritos de Certo/Errado já gerados nos sub-blocos anteriores deste
-   * bloco — repassado ao prompt para corrigir o viés do modelo em favor de
-   * "Certo" (ver instrucaoEquilibrioGabarito em lib/anthropic.ts). */
-  function gabaritosCEDe(atuais: (Questao[] | null)[], ate: number): string[] {
-    const g: string[] = [];
-    for (let i = 0; i < ate; i++) {
-      const s = atuais[i];
-      if (s) for (const q of s) if (q.formato === "ce") g.push(q.gabarito);
-    }
-    return g;
-  }
 
   function dispararSub(i: number, conf: Config & { materia: string }) {
     setStatusSub((st) => st.map((v, k) => (k === i ? "carregando" : v)));
@@ -245,6 +190,19 @@ export default function GerarView({
         setStatusSub((st) => st.map((v, k) => (k === i ? "erro" : v)));
         setErroApi(e instanceof Error ? e.message : "Falha na geração.");
       });
+  }
+
+  /** Porta de entrada do botão "Gerar bloco": com teto configurado e gasto do
+   * mês em 80% ou mais dele (ver situacaoTeto), pede confirmação antes de
+   * torrar mais API. Sem teto, gera direto — o teto é do usuário, não uma
+   * política do app. */
+  function pedirGeracao() {
+    const situacao = situacaoTeto(custoMes, tetoMes);
+    if (situacao === "perto" || situacao === "estourado") {
+      setConfirmandoCusto(true);
+      return;
+    }
+    void iniciarBloco();
   }
 
   async function iniciarBloco() {
@@ -348,25 +306,17 @@ export default function GerarView({
     setQIdx(qIdx + 1);
   }
 
-  /** Questões já geradas mas que nunca chegaram a ser respondidas (a atual,
-   * se ainda não revelada, mais todas as de lotes já carregados à frente) —
-   * gravadas como erradas em vez de descartadas, para caírem em "Refazer
-   * erradas" na próxima visita. */
-  function questoesNaoRespondidas(): Questao[] {
-    const pendentes: Questao[] = [];
-    if (questao && !respondidaAtual) pendentes.push(questao);
-    for (let idx = qIdx + 1; idx < totalQuestoesAtual; idx++) {
-      const s = Math.floor(idx / Q_POR_SUB);
-      const q = subs[s]?.[idx % Q_POR_SUB];
-      if (q) pendentes.push(q);
-    }
-    return pendentes;
-  }
-
   async function abandonarBloco() {
     setAbandonando(true);
     try {
-      for (const q of questoesNaoRespondidas()) {
+      const pendentes = questoesNaoRespondidas({
+        subs,
+        qIdx,
+        totalQuestoes: totalQuestoesAtual,
+        qPorSub: Q_POR_SUB,
+        respondidaAtual,
+      });
+      for (const q of pendentes) {
         try {
           await gravarResposta({
             blocoId,
@@ -478,6 +428,38 @@ export default function GerarView({
             </p>
             <Botao tipo="tinta" onClick={onAjustes} style={{ maxWidth: 260 }}>
               Configurar chave em Ajustes
+            </Botao>
+          </div>
+        )}
+
+        {prioridade && prioridade.materia !== materiaFinal && (
+          <div
+            style={{
+              ...cartao,
+              padding: "12px 14px",
+              marginBottom: 18,
+              background: C.canetaSoft,
+              borderColor: C.caneta,
+            }}
+          >
+            <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 6 }}>
+              ESTUDAR AGORA
+            </div>
+            <p style={{ fontSize: 13.5, lineHeight: 1.5, margin: "0 0 4px" }}>
+              <strong>{prioridade.materia}</strong>
+            </p>
+            <p style={{ fontSize: 12, color: C.sub, lineHeight: 1.45, margin: "0 0 12px" }}>
+              {prioridade.motivo}
+            </p>
+            <Botao
+              tipo="tinta"
+              onClick={() => {
+                setModoTopico("todos");
+                setCfg((atual) => ({ ...atual, materia: prioridade.materia, topico: "" }));
+              }}
+              style={{ maxWidth: 260 }}
+            >
+              Usar esta matéria
             </Botao>
           </div>
         )}
@@ -768,9 +750,44 @@ export default function GerarView({
           </div>
         </div>
 
-        <Botao onClick={iniciarBloco} tipo="tinta" disabled={!temChave}>
-          Gerar bloco de {quantidade} questões
-        </Botao>
+        {confirmandoCusto ? (
+          <div style={{ ...cartao, borderColor: C.erro, background: C.erroSoft, padding: "12px 14px" }}>
+            <div style={{ ...mono, fontSize: 11, color: C.erro, letterSpacing: 0.8, marginBottom: 6 }}>
+              TETO DE GASTO
+            </div>
+            <p style={{ fontSize: 13.5, lineHeight: 1.5, margin: "0 0 12px" }}>
+              Você já gastou <strong>{formatarUSD(custoMes)}</strong> na API este mês, com teto de{" "}
+              {formatarUSD(tetoMes)}
+              {custoEstimado != null ? ` — este bloco deve custar cerca de ${formatarUSD(custoEstimado)}` : ""}.
+              Gerar assim mesmo?
+            </p>
+            <div style={{ display: "flex", gap: 8 }}>
+              <Botao tipo="fantasma" onClick={() => setConfirmandoCusto(false)} style={{ flex: 1 }}>
+                Cancelar
+              </Botao>
+              <Botao
+                tipo="tinta"
+                onClick={() => {
+                  setConfirmandoCusto(false);
+                  void iniciarBloco();
+                }}
+                style={{ flex: 1 }}
+              >
+                Gerar assim mesmo
+              </Botao>
+            </div>
+          </div>
+        ) : (
+          <Botao onClick={pedirGeracao} tipo="tinta" disabled={!temChave}>
+            Gerar bloco de {quantidade} questões
+          </Botao>
+        )}
+
+        {custoEstimado != null && !confirmandoCusto && (
+          <div style={{ ...mono, fontSize: 11, color: C.sub, textAlign: "center", marginTop: 8 }}>
+            Custo estimado deste bloco: {formatarUSD(custoEstimado)} · {formatarUSD(custoMes)} gastos no mês
+          </div>
+        )}
 
         {hist.length > 0 && (
           <div style={{ marginTop: 28 }}>

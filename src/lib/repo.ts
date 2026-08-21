@@ -11,6 +11,8 @@ import { all, one, parseJSON, run, runBatch, toBool } from "./db";
 import { talvezFazerBackupAutomatico } from "./backupAuto";
 import { sincronizarNotasDocumentos } from "./exportarDocumentos";
 import { pontosResposta, type ConfiancaResposta } from "./pontuacaoTopicos";
+import { calcularCusto, mesAtual, type UsoTokens } from "./custo";
+import { Q_POR_SUB } from "./constants";
 import type {
   Bloco,
   ConceitoSalvo,
@@ -287,10 +289,14 @@ export async function listarErradas(
   }
 
   const { limite, offset = 0 } = opts;
+  // Erro perigoso primeiro (marcou "certeza" e errou — ver COND_ERRO_PERIGOSO
+  // e resumoConfianca): é o erro que o candidato não revisaria sozinho, porque
+  // não percebeu dúvida nenhuma na hora. Dentro de cada grupo, a ordem de
+  // sempre (mais recente primeiro).
   const rows = await all(
     `SELECT * FROM questoes_respondidas
      WHERE ${cond.join(" AND ")}
-     ORDER BY ts DESC
+     ORDER BY (CASE WHEN confianca = 'certeza' THEN 0 ELSE 1 END), ts DESC
      ${limite ? "LIMIT ? OFFSET ?" : ""}`,
     limite ? [...params, limite, offset] : params,
   );
@@ -1560,4 +1566,179 @@ export async function mesclarBackup(json: string): Promise<ResultadoMesclagem> {
   if (resultado.notasNovas > 0) void sincronizarNotasDocumentos();
   void talvezFazerBackupAutomatico();
   return resultado;
+}
+
+/* ---------- Uso e custo da API ---------- */
+
+/**
+ * Uma linha por chamada concluída à API (ver `chamar` em anthropic.ts). O
+ * custo é calculado na hora da gravação e persistido junto: se a tabela de
+ * preços de lib/custo.ts mudar, o histórico continua refletindo o que de fato
+ * foi cobrado na época.
+ */
+export async function registrarUsoApi(args: {
+  modelo: string;
+  /** Rótulo curto do que motivou a chamada ("sub-bloco", "explicação"…) —
+   * permite ver depois onde o dinheiro está indo. */
+  origem: string;
+  uso: UsoTokens;
+}): Promise<void> {
+  const custo = calcularCusto(args.modelo, args.uso);
+  await run(
+    `INSERT INTO uso_api
+       (ts, modelo, origem, tokens_entrada, tokens_saida, cache_escrita, cache_leitura, custo_usd)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    [
+      new Date().toISOString(),
+      args.modelo,
+      args.origem,
+      args.uso.entrada,
+      args.uso.saida,
+      args.uso.cacheEscrita,
+      args.uso.cacheLeitura,
+      custo,
+    ],
+  );
+}
+
+export interface ResumoCusto {
+  /** Gasto do mês corrente, em dólares. */
+  mes: number;
+  /** Gasto acumulado desde a instalação. */
+  total: number;
+  /** Chamadas no mês corrente. */
+  chamadasMes: number;
+  /** Tokens lidos do cache no mês — quanto o prompt caching está poupando. */
+  cacheLeituraMes: number;
+  /** Tokens de entrada cobrados cheios no mês, para comparar com o de cima. */
+  entradaMes: number;
+}
+
+export async function resumoCusto(): Promise<ResumoCusto> {
+  const mes = mesAtual();
+  const linhaMes = await one<{
+    custo: number | null;
+    chamadas: number;
+    cache: number | null;
+    entrada: number | null;
+  }>(
+    `SELECT SUM(custo_usd) AS custo, COUNT(*) AS chamadas,
+            SUM(cache_leitura) AS cache, SUM(tokens_entrada) AS entrada
+     FROM uso_api WHERE substr(ts, 1, 7) = ?`,
+    [mes],
+  );
+  const linhaTotal = await one<{ custo: number | null }>(
+    `SELECT SUM(custo_usd) AS custo FROM uso_api`,
+  );
+  return {
+    mes: Number(linhaMes?.custo ?? 0),
+    total: Number(linhaTotal?.custo ?? 0),
+    chamadasMes: Number(linhaMes?.chamadas ?? 0),
+    cacheLeituraMes: Number(linhaMes?.cache ?? 0),
+    entradaMes: Number(linhaMes?.entrada ?? 0),
+  };
+}
+
+/** Custo médio de um bloco gerado, para estimar o preço do próximo antes de
+ * disparar. Usa as chamadas de sub-bloco dos últimos 30 dias (as únicas com
+ * volume previsível) e devolve null sem amostra suficiente. */
+export async function custoMedioPorBloco(questoesPorBloco: number): Promise<number | null> {
+  const linha = await one<{ custo: number | null; chamadas: number }>(
+    `SELECT SUM(custo_usd) AS custo, COUNT(*) AS chamadas
+     FROM uso_api
+     WHERE origem = 'sub-bloco' AND ts >= ?`,
+    [new Date(Date.now() - 30 * 86_400_000).toISOString()],
+  );
+  const chamadas = Number(linha?.chamadas ?? 0);
+  if (chamadas < 2) return null;
+  const custoPorSub = Number(linha?.custo ?? 0) / chamadas;
+  return custoPorSub * (questoesPorBloco / Q_POR_SUB);
+}
+
+/* ---------- Erro perigoso (certeza + errou) ---------- */
+
+/**
+ * Questão em que o usuário marcou "certeza" ANTES de revelar o gabarito e
+ * mesmo assim errou (ver `confianca` em QuestaoCard). É o erro mais caro numa
+ * prova de verdade: sem dúvida percebida, o candidato não revisaria aquele
+ * ponto nem no dia anterior. Aqui isso vira prioridade de revisão (ver
+ * listarErradas, que ordena esses primeiro) e um indicador próprio na aba
+ * Dados.
+ */
+const COND_ERRO_PERIGOSO = "acertou = 0 AND confianca = 'certeza'";
+
+export interface ResumoConfianca {
+  /** Respostas com autoavaliação registrada (base dos percentuais). */
+  comConfianca: number;
+  /** Marcou "certeza" e errou. */
+  perigosos: number;
+  /** Marcou "certeza" (acertando ou não). */
+  certezas: number;
+  /** Marcou "chute" e acertou — o outro lado da má calibração. */
+  sorte: number;
+  /** % de excesso de confiança: perigosos / certezas. */
+  pctExcessoConfianca: number;
+}
+
+export async function resumoConfianca(materia: string | null = null): Promise<ResumoConfianca> {
+  const cond = ["confianca IS NOT NULL"];
+  const params: unknown[] = [];
+  if (materia) {
+    cond.push("materia = ?");
+    params.push(materia);
+  }
+  const linha = await one<{
+    total: number;
+    perigosos: number;
+    certezas: number;
+    sorte: number;
+  }>(
+    `SELECT COUNT(*) AS total,
+            SUM(CASE WHEN acertou = 0 AND confianca = 'certeza' THEN 1 ELSE 0 END) AS perigosos,
+            SUM(CASE WHEN confianca = 'certeza' THEN 1 ELSE 0 END) AS certezas,
+            SUM(CASE WHEN acertou = 1 AND confianca = 'chute' THEN 1 ELSE 0 END) AS sorte
+     FROM questoes_respondidas WHERE ${cond.join(" AND ")}`,
+    params,
+  );
+  const certezas = Number(linha?.certezas ?? 0);
+  const perigosos = Number(linha?.perigosos ?? 0);
+  return {
+    comConfianca: Number(linha?.total ?? 0),
+    perigosos,
+    certezas,
+    sorte: Number(linha?.sorte ?? 0),
+    pctExcessoConfianca: certezas ? Math.round((perigosos / certezas) * 100) : 0,
+  };
+}
+
+/** Quantos erros perigosos ainda estão pendentes de revisão — a contagem que
+ * o botão de revisão prioritária exibe. */
+export async function contarErrosPerigososPendentes(materia: string | null = null): Promise<number> {
+  const cond = [COND_ERRO_PERIGOSO, COND_PENDENTE];
+  const params: unknown[] = [agoraISO()];
+  if (materia) {
+    cond.splice(1, 0, "materia = ?");
+    params.unshift(materia);
+  }
+  const linha = await one<{ total: number }>(
+    `SELECT COUNT(*) AS total FROM questoes_respondidas WHERE ${cond.join(" AND ")}`,
+    params,
+  );
+  return Number(linha?.total ?? 0);
+}
+
+/* ---------- Prioridade de estudo ---------- */
+
+/**
+ * Última resposta de cada matéria (ISO) — a variável de "atraso" da
+ * priorização (ver lib/prioridade.ts). Matéria sem nenhuma resposta
+ * simplesmente não aparece aqui; quem chama decide o que fazer com isso.
+ */
+export async function ultimaPraticaPorMateria(): Promise<Record<string, string>> {
+  const rows = await all<{ materia: string; ts: string }>(
+    `SELECT materia, MAX(ts) AS ts FROM questoes_respondidas GROUP BY materia`,
+  );
+  const mapa: Record<string, string> = {};
+  for (const r of rows) mapa[String(r.materia)] = String(r.ts);
+  return mapa;
 }

@@ -30,6 +30,15 @@ const initSqlJs = ((sqlJsModule as { default?: unknown }).default ?? sqlJsModule
 
 const SEPARADOR_CAMPO = "\x1f";
 
+/** Nota do app pronta para virar cartão. `id` é o da tabela
+ * `conceitos_salvos` — quando presente, dá ao cartão um guid estável (ver
+ * guidDaNota) e torna a reexportação uma atualização, não uma duplicata. */
+export interface NotaExportavel {
+  id?: number;
+  corpo: string;
+  tags: string[];
+}
+
 const MID_BASICO = 1;
 const MID_CLOZE = 2;
 const DID_DECK = 2; // "1" é sempre o Default; o deck do export usa o próximo id.
@@ -77,6 +86,21 @@ function guidAleatorio(): string {
     .map((b) => b.toString(36))
     .join("")
     .slice(0, 10);
+}
+
+/**
+ * GUID ESTÁVEL a partir do id da nota no banco do app. O Anki usa o guid para
+ * decidir, na importação, se uma nota é nova ou é a mesma de antes: com guid
+ * aleatório (o comportamento anterior), reexportar a mesma pasta criava
+ * cartões duplicados e zerava o histórico de revisão deles. Com guid derivado
+ * do id, a segunda importação ATUALIZA a nota existente e preserva o
+ * agendamento — exportar vira sincronização incremental.
+ *
+ * O prefixo "kq" evita colisão improvável com guids de outras coleções, e o
+ * id vai em base 36 para caber no formato curto que o Anki usa.
+ */
+function guidDaNota(id: number): string {
+  return `kq${id.toString(36)}`;
 }
 
 function jsonModeloBasico(agora: number): unknown {
@@ -211,7 +235,7 @@ CREATE INDEX ix_notes_csum on notes (csum);
  * (cloze pode virar mais de um, um por marca-texto distinto).
  */
 async function montarBancoAnki(
-  notas: { corpo: string; tags: string[] }[],
+  notas: NotaExportavel[],
   nomeDeck: string,
 ): Promise<SqlJsDatabase> {
   const SQL = await carregarSqlJs();
@@ -276,7 +300,7 @@ async function montarBancoAnki(
     const nid = novoId();
     db.run(
       `INSERT INTO notes (id, guid, mid, mod, usn, tags, flds, sfld, csum, flags, data) VALUES (?, ?, ?, ?, -1, ?, ?, ?, ?, 0, '')`,
-      [nid, guidAleatorio(), mid, agoraS, tagsAnki, flds, sfld, csum],
+      [nid, nota.id != null ? guidDaNota(nota.id) : guidAleatorio(), mid, agoraS, tagsAnki, flds, sfld, csum],
     );
 
     const ords = fc.tipo === "cloze" ? ordinaisCloze(fc.texto) : [0];
@@ -296,7 +320,7 @@ async function montarBancoAnki(
  * todas as notas dadas (cloze e básico misturados, cada um com seu
  * notetype). */
 export async function gerarApkg(
-  notas: { corpo: string; tags: string[] }[],
+  notas: NotaExportavel[],
   nomeDeck: string,
 ): Promise<Uint8Array> {
   const db = await montarBancoAnki(notas, nomeDeck);

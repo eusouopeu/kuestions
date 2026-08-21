@@ -8,6 +8,7 @@ import AjustesTab from "./views/AjustesTab";
 import { getDB } from "./lib/db";
 import { temCredencial } from "./lib/secure";
 import { aplicarTema, getTema } from "./lib/tema";
+import { aplicarEscala, getEscala } from "./lib/acessibilidade";
 import Botao from "./components/Botao";
 import OfflineBanner from "./components/OfflineBanner";
 
@@ -41,6 +42,7 @@ export default function App() {
 
   useEffect(() => {
     getTema().then(aplicarTema);
+    getEscala().then(aplicarEscala);
     getDB()
       .then(() => temCredencial())
       .then((tem) => {
