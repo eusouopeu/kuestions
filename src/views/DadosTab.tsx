@@ -434,14 +434,7 @@ export default function DadosTab({
               "acerta mas devagar" (fluência baixa) — dois problemas
               diferentes que pedem treino diferente. */}
           {tempoGeral && (
-            <Cartao
-              titulo="TEMPO MÉDIO POR QUESTÃO"
-              legenda={
-                filtro === TODAS && tempoMaterias.length > 1
-                  ? "Do mais lento para o mais rápido. Só questões respondidas após esta versão têm tempo medido."
-                  : "Só questões respondidas após esta versão têm tempo medido."
-              }
-            >
+            <Cartao titulo="TEMPO MÉDIO POR QUESTÃO">
               <div style={{ padding: "0 4px 14px" }}>
                 <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: filtro === TODAS && tempoMaterias.length > 1 ? 12 : 0 }}>
                   <div style={{ ...disp, fontSize: 28, fontWeight: 800, letterSpacing: -0.5 }}>
@@ -625,10 +618,7 @@ export default function DadosTab({
               coloca esses primeiro (ver listarErradas em repo.ts); aqui o
               número existe para o hábito ficar visível. */}
           {confiancaResumo && confiancaResumo.certezas > 0 && (
-            <Cartao
-              titulo="ERRO PERIGOSO"
-              legenda="Questões que você marcou com certeza e mesmo assim errou — entram primeiro na fila de revisão."
-            >
+            <Cartao titulo="ERRO PERIGOSO">
               <div style={{ display: "flex", gap: 8, padding: "0 4px 14px" }}>
                 {[
                   {
@@ -663,11 +653,6 @@ export default function DadosTab({
                     </div>
                   </div>
                 ))}
-              </div>
-              <div style={{ fontSize: 12, color: C.sub, padding: "0 4px 14px", lineHeight: 1.45 }}>
-                {confiancaResumo.perigosos === 0
-                  ? "Nenhum erro com certeza no histórico — sua percepção de dúvida está calibrada."
-                  : `${confiancaResumo.pctExcessoConfianca}% do que você marcou com certeza deu errado. Numa prova, esse é o erro que passa despercebido na revisão.`}
               </div>
             </Cartao>
           )}

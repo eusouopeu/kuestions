@@ -118,15 +118,12 @@ export default function GerarView({
   const [restaurandoRascunho, setRestaurandoRascunho] = useState(false);
 
   const [modoTopico, setModoTopico] = useState<ModoTopico>("todos");
-  // Os dois cartões de recomendação (Estudar agora / Nunca praticados)
-  // começam fechados — são um empurrão, não o primeiro passo da tela; abrir
-  // por padrão empurraria o formulário de configuração para baixo da dobra
-  // toda vez que a tela abre.
-  const [prioridadeAberta, setPrioridadeAberta] = useState(false);
+  // O cartão de recomendação (Nunca praticados) começa fechado — é um
+  // empurrão, não o primeiro passo da tela; aberto por padrão empurraria o
+  // formulário de configuração para baixo da dobra toda vez que a tela abre.
   const [lacunasAbertas, setLacunasAbertas] = useState(false);
-  // Toggle em Ajustes (ver lib/preferenciasGeracao.ts) — liga/desliga os
-  // dois cartões de recomendação de uma vez, para quem já decidiu sozinho o
-  // que estudar e prefere a tela indo direto ao formulário.
+  // Toggle em Ajustes (ver lib/preferenciasGeracao.ts) — para quem já
+  // decidiu sozinho o que estudar e prefere a tela indo direto ao formulário.
   const [mostrarRecomendacoes, setMostrarRecomendacoes] = useState(true);
   // Gerar comentário/explicações já na criação do bloco, ou deixar a
   // questão sem explicação e só gerar sob demanda depois de respondida (ver
@@ -177,9 +174,9 @@ export default function GerarView({
     cfg.materia === "__outra" ? cfg.materiaCustom.trim() || "Matéria personalizada" : cfg.materia;
   const c = { ...cfg, materia: materiaFinal };
 
-  // Histórico, credencial, sugestão de nível, prioridade de estudo e custo —
+  // Histórico, credencial, sugestão de nível, lacunas do edital e custo —
   // tudo que a tela de configuração lê do banco (ver ./gerar/useContextoConfig).
-  const { hist, temChave, sugestaoNivel, prioridade, lacunas, custoMes, tetoMes, custoEstimado } =
+  const { hist, temChave, sugestaoNivel, lacunas, custoMes, tetoMes, custoEstimado } =
     useContextoConfig({
       ativa: tela === "config",
       materia: cfg.materia === "__outra" ? cfg.materiaCustom.trim() : cfg.materia,
@@ -454,89 +451,21 @@ export default function GerarView({
               marginBottom: 18,
             }}
           >
-            <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 6 }}>
+            <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 10 }}>
               PRIMEIRO PASSO
             </div>
-            <p style={{ fontSize: 13.5, lineHeight: 1.55, margin: "0 0 12px" }}>
-              Para gerar ou treinar questões com IA (inclusive as do banco de questões reais) é
-              preciso configurar uma chave de API da Anthropic — leva menos de um minuto. Enquanto
-              isso, você já pode usar <strong>Importar</strong> no seletor acima para trazer
-              questões prontas de um arquivo.
-            </p>
             <Botao tipo="tinta" onClick={onAjustes} style={{ maxWidth: 260 }}>
               Configurar chave em Ajustes
             </Botao>
           </div>
         )}
 
-        {mostrarRecomendacoes && prioridade && prioridade.materia !== materiaFinal && (
-          <div style={{ marginBottom: 18 }}>
-            <button
-              onClick={() => setPrioridadeAberta((v) => !v)}
-              aria-expanded={prioridadeAberta}
-              style={{
-                ...cartao,
-                display: "flex",
-                width: "100%",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: 10,
-                textAlign: "left",
-                padding: "12px 14px",
-                cursor: "pointer",
-                background: C.canetaSoft,
-                borderColor: C.caneta,
-              }}
-            >
-              <div>
-                <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 4 }}>
-                  ESTUDAR AGORA
-                </div>
-                <div style={{ fontSize: 13.5, lineHeight: 1.3 }}>
-                  <strong>{prioridade.materia}</strong>
-                </div>
-              </div>
-              <span style={{ ...mono, fontSize: 12, color: C.caneta, flexShrink: 0 }}>
-                {prioridadeAberta ? "▲" : "▼"}
-              </span>
-            </button>
-
-            {prioridadeAberta && (
-              <div
-                style={{
-                  ...cartao,
-                  borderTop: "none",
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 0,
-                  marginTop: -1,
-                  padding: "12px 14px",
-                  background: C.canetaSoft,
-                  borderColor: C.caneta,
-                }}
-              >
-                <p style={{ fontSize: 12, color: C.sub, lineHeight: 1.45, margin: "0 0 12px" }}>
-                  {prioridade.motivo}
-                </p>
-                <Botao
-                  tipo="tinta"
-                  onClick={() => {
-                    setModoTopico("todos");
-                    setCfg((atual) => ({ ...atual, materia: prioridade.materia, topico: "" }));
-                  }}
-                  style={{ maxWidth: 260 }}
-                >
-                  Usar esta matéria
-                </Botao>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Tópicos do edital com ZERO prática (ver lacunasDoEdital em
-            lib/topicos.ts). O cartão "Estudar agora" acima ordena por
-            fraqueza — % de acerto —, que é indefinida em tópico nunca
-            respondido: sem esta lista, o que você nunca abriu não aparece em
-            lugar nenhum do app. Ordem por peso da matéria no edital. */}
+        {/* Tópicos do edital com ZERO prática, mas só de matéria que você já
+            estuda bem (acerto geral acima de 50%, ver lacunasDoEdital em
+            lib/topicos.ts) — matéria nunca aberta ou ainda fraca no geral
+            teria TODOS os tópicos como "lacuna", o que não seria uma
+            sugestão cirúrgica, seria a matéria inteira. Ordem por peso da
+            matéria no edital. */}
         {mostrarRecomendacoes && lacunas.length > 0 && (
           <div style={{ marginBottom: 18 }}>
             <button

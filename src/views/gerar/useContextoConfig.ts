@@ -1,10 +1,9 @@
 /**
  * Tudo o que a TELA DE CONFIGURAÇÃO de GerarView precisa saber do banco antes
- * de o usuário disparar um bloco — histórico recente, credencial, sugestão de
- * nível, prioridade de estudo e custo — reunido num hook próprio. GerarView
- * passou a acumular seis efeitos assíncronos entre o estado do drill e o
- * layout; aqui eles ficam juntos, e a view volta a tratar só do drill e do
- * desenho.
+ * de o usuário disparar um bloco — histórico recente, credencial, lacunas do
+ * edital e custo — reunido num hook próprio. GerarView passou a acumular
+ * efeitos assíncronos entre o estado do drill e o layout; aqui eles ficam
+ * juntos, e a view volta a tratar só do drill e do desenho.
  *
  * Todos recarregam quando a tela de configuração reabre: entre uma visita e
  * outra o usuário pode ter respondido blocos em outra aba (que fica montada,
@@ -17,15 +16,12 @@ import {
   resumoCusto,
   resumoPorMateria,
   topicosPraticadosPorMateria,
-  ultimaPraticaPorMateria,
 } from "../../lib/repo";
 import { getPesosEdital, PESO_PADRAO } from "../../lib/edital";
 import { lacunasDoEdital, type LacunaEdital } from "../../lib/topicos";
 import { getTetoMensal } from "../../lib/custo";
-import { priorizar, type Prioridade } from "../../lib/prioridade";
 import { sugerirNivel, type SugestaoNivel } from "../../lib/sugestao";
 import { temCredencial } from "../../lib/secure";
-import { MATERIAS } from "../../lib/constants";
 import type { Bloco } from "../../lib/types";
 
 export function useContextoConfig({
@@ -42,13 +38,8 @@ export function useContextoConfig({
   const [hist, setHist] = useState<Bloco[]>([]);
   const [temChave, setTemChave] = useState(true);
   const [sugestaoNivel, setSugestaoNivel] = useState<SugestaoNivel | null>(null);
-  // "Estudar o que mais importa agora": peso no edital × fraqueza × tempo sem
-  // praticar (ver lib/prioridade.ts). Só a primeira colocada interessa — a
-  // ideia é substituir a decisão, não oferecer mais um menu.
-  const [prioridade, setPrioridade] = useState<Prioridade | null>(null);
-  // Tópicos do edital com zero prática (ver lacunasDoEdital) — o ponto cego
-  // de `prioridade`, que ordena por fraqueza e por isso não enxerga o que
-  // nunca foi respondido.
+  // Tópicos do edital com zero prática, mas só dentro de matéria já
+  // trabalhada (ver lacunasDoEdital em lib/topicos.ts).
   const [lacunas, setLacunas] = useState<LacunaEdital[]>([]);
   const [custoMes, setCustoMes] = useState(0);
   const [tetoMes, setTetoMes] = useState(0);
@@ -68,27 +59,13 @@ export function useContextoConfig({
 
   useEffect(() => {
     if (!ativa) return;
-    Promise.all([resumoPorMateria(null), getPesosEdital(), ultimaPraticaPorMateria()])
-      .then(([fatias, pesos, ultimas]) => {
-        const entradas = fatias
-          // Só matérias da lista fixa: sugerir "Matéria personalizada" não
-          // daria uma configuração aplicável em um toque.
-          .filter((f) => (MATERIAS as readonly string[]).includes(f.chave))
-          .map((f) => ({
-            materia: f.chave,
-            pct: f.pct,
-            total: f.total,
-            ultimaPratica: ultimas[f.chave] ?? null,
-          }));
-        setPrioridade(priorizar(entradas, pesos)[0] ?? null);
+    Promise.all([topicosPraticadosPorMateria(), resumoPorMateria(null), getPesosEdital()])
+      .then(([praticados, fatias, pesos]) => {
+        const acertoPorMateria = Object.fromEntries(
+          fatias.map((f) => [f.chave, { total: f.total, pct: f.pct }]),
+        );
+        setLacunas(lacunasDoEdital(praticados, acertoPorMateria, pesos, PESO_PADRAO));
       })
-      .catch(() => setPrioridade(null));
-  }, [ativa]);
-
-  useEffect(() => {
-    if (!ativa) return;
-    Promise.all([topicosPraticadosPorMateria(), getPesosEdital()])
-      .then(([praticados, pesos]) => setLacunas(lacunasDoEdital(praticados, pesos, PESO_PADRAO)))
       .catch(() => setLacunas([]));
   }, [ativa]);
 
@@ -124,5 +101,5 @@ export function useContextoConfig({
     };
   }, [ativa, materia]);
 
-  return { hist, temChave, sugestaoNivel, prioridade, lacunas, custoMes, tetoMes, custoEstimado };
+  return { hist, temChave, sugestaoNivel, lacunas, custoMes, tetoMes, custoEstimado };
 }

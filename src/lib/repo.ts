@@ -1857,18 +1857,3 @@ export async function contarErrosPerigososPendentes(materia: string | null = nul
   return Number(linha?.total ?? 0);
 }
 
-/* ---------- Prioridade de estudo ---------- */
-
-/**
- * Última resposta de cada matéria (ISO) — a variável de "atraso" da
- * priorização (ver lib/prioridade.ts). Matéria sem nenhuma resposta
- * simplesmente não aparece aqui; quem chama decide o que fazer com isso.
- */
-export async function ultimaPraticaPorMateria(): Promise<Record<string, string>> {
-  const rows = await all<{ materia: string; ts: string }>(
-    `SELECT materia, MAX(ts) AS ts FROM questoes_respondidas GROUP BY materia`,
-  );
-  const mapa: Record<string, string> = {};
-  for (const r of rows) mapa[String(r.materia)] = String(r.ts);
-  return mapa;
-}

@@ -18,11 +18,10 @@ export async function setComExplicacoesIA(v: boolean): Promise<void> {
 }
 
 /**
- * Mostrar os cartões "Estudar agora" (prioridade por peso do edital ×
- * fraqueza × atraso, ver lib/prioridade.ts) e "Nunca praticados" (ver
- * lacunasDoEdital em lib/topicos.ts) no topo da tela de configuração de
- * GerarView. Ligado por padrão; quem já decidiu sozinho o que estudar pode
- * desligar para a tela abrir direto no formulário.
+ * Mostrar o cartão "Nunca praticados" (ver lacunasDoEdital em
+ * lib/topicos.ts) no topo da tela de configuração de GerarView. Ligado por
+ * padrão; quem já decidiu sozinho o que estudar pode desligar para a tela
+ * abrir direto no formulário.
  */
 const K_MOSTRAR_RECOMENDACOES = "geracao-mostrar-recomendacoes";
 

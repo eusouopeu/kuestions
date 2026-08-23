@@ -278,22 +278,31 @@ export interface LacunaEdital extends TopicoEspecifico {
   peso: number;
 }
 
+/** Abaixo disto a matéria ainda não está "estudada o bastante" para caber
+ * nesta lista — ver `lacunasDoEdital`. */
+const PCT_MINIMO_MATERIA_DOMINADA = 50;
+
 /**
- * Tópicos do edital com ZERO prática, de todas as matérias com lista fixa,
- * ordenados por peso da matéria.
+ * Tópicos do edital com ZERO prática, mas SÓ dentro de matérias em que a
+ * fraqueza já foi trabalhada: pelo menos uma questão respondida e acerto
+ * geral acima de `PCT_MINIMO_MATERIA_DOMINADA`.
  *
- * É o ponto cego que `prioridade.ts` não cobre: lá a urgência é peso ×
- * FRAQUEZA × atraso, e fraqueza é 100 − % de acerto — indefinida num tópico
- * que nunca foi respondido. Um tópico intocado de matéria pesada some do
- * ranking justamente por não ter dado nenhum erro ainda.
+ * Sem esse filtro, a lista inteira de uma matéria nunca sequer aberta virava
+ * "lacuna" — tecnicamente verdade (zero prática em cada tópico dela), mas
+ * inútil como sugestão: se você não estudou a matéria, faltam TODOS os
+ * tópicos, não um em especial, e a sugestão certa ali é "estude a matéria",
+ * não "responda estas questões". Esta lista serve para o caso mais
+ * cirúrgico: matéria que você já domina no geral, mas com um ponto cego
+ * específico dentro dela.
  *
  * Função pura: recebe o que já foi praticado por matéria (ver
- * topicosPraticadosPorMateria em lib/repo.ts) e os pesos (getPesosEdital).
- * Matéria com peso 0 ("não cai no meu edital") fica de fora — mesma regra de
- * `priorizar`.
+ * topicosPraticadosPorMateria em lib/repo.ts), o acerto geral por matéria
+ * (ver resumoPorMateria em lib/repo.ts) e os pesos (getPesosEdital). Matéria
+ * com peso 0 ("não cai no meu edital") também fica de fora.
  */
 export function lacunasDoEdital(
   praticadosPorMateria: Record<string, string[]>,
+  acertoPorMateria: Record<string, { total: number; pct: number }>,
   pesos: Record<string, number>,
   pesoPadrao: number,
 ): LacunaEdital[] {
@@ -301,6 +310,9 @@ export function lacunasDoEdital(
   for (const [materia, lista] of Object.entries(TOPICOS_POR_MATERIA)) {
     const peso = pesos[materia] ?? pesoPadrao;
     if (peso <= 0) continue;
+    const desempenho = acertoPorMateria[materia];
+    if (!desempenho || desempenho.total === 0) continue;
+    if (desempenho.pct <= PCT_MINIMO_MATERIA_DOMINADA) continue;
     const praticados = praticadosPorMateria[materia] ?? [];
     for (const t of lista) {
       if (praticados.some((s) => s.includes(t.nome))) continue;

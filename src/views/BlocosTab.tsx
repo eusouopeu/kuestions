@@ -113,7 +113,7 @@ function MetasSemanais() {
   const barra = (m: { chave: string; alvo: number; naSemana: number }) => {
     const batida = m.naSemana >= m.alvo;
     return (
-      <div key={m.chave} style={{ ...cartao, padding: "10px 12px" }}>
+      <div key={m.chave} style={{ padding: "10px 0", borderTop: `1px solid ${C.line}` }}>
         <div
           style={{
             display: "flex",
@@ -144,21 +144,27 @@ function MetasSemanais() {
     );
   };
 
+  // Um único cartão para a seção inteira — antes cada meta tinha sua própria
+  // borda e raio (um mini-cartão por linha), o que empilhava várias caixas
+  // separadas em vez de uma lista só. Aqui as linhas dividem por um traço
+  // fino (mesmo padrão de QuestaoCard → explicação por alternativa), e só o
+  // contorno externo é um cartão.
   return (
-    <div style={{ marginTop: 8, marginBottom: 18 }}>
-      {metas.length > 1 && (
+    <div style={{ ...cartao, padding: "10px 12px", marginTop: 8, marginBottom: 18 }}>
+      {metas.length > 1 ? (
         <button
           onClick={() => setExpandido((v) => !v)}
           aria-expanded={expandido}
           style={{
-            ...cartao,
             display: "flex",
             width: "100%",
             alignItems: "center",
             justifyContent: "space-between",
             gap: 10,
             textAlign: "left",
-            padding: "10px 12px",
+            background: "none",
+            border: "none",
+            padding: 0,
             cursor: "pointer",
           }}
         >
@@ -181,20 +187,13 @@ function MetasSemanais() {
             <span style={{ fontSize: 9 }}>{expandido ? "▲" : "▼"}</span>
           </span>
         </button>
+      ) : (
+        <span style={{ ...mono, fontSize: 10, color: C.sub, letterSpacing: 0.8 }}>
+          METAS SEMANAIS
+        </span>
       )}
 
-      {aberto && (
-        <div
-          style={{
-            marginTop: metas.length > 1 ? 8 : 0,
-            display: "flex",
-            flexDirection: "column",
-            gap: 8,
-          }}
-        >
-          {metas.map(barra)}
-        </div>
-      )}
+      {aberto && <div style={{ marginTop: 8 }}>{metas.map(barra)}</div>}
     </div>
   );
 }

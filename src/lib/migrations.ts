@@ -291,4 +291,20 @@ export const MIGRATIONS: Migracao[] = [
          AND proxima_revisao IS NULL;
     `,
   },
+  {
+    // "AFO" e "Finanças Públicas" são a mesma matéria com dois nomes: AFO
+    // era o nome curto usado em MATERIAS (geração por IA, ver constants.ts)
+    // e "Finanças Públicas" é o nome da mesma área no banco de questões
+    // reais (lib/banco.ts) — sem unificar, um bloco gerado por IA e um
+    // bloco do banco da mesma matéria apareciam como matérias diferentes em
+    // toda agregação da aba Dados, nas pastas de Notas e no peso do edital.
+    // Mantém "Finanças Públicas" (o nome que já existia no banco real) em
+    // vez de "AFO" — é o lado com mais dados e o mais descritivo dos dois.
+    version: 14,
+    sql: `
+      UPDATE blocos SET materia = 'Finanças Públicas' WHERE materia = 'AFO';
+      UPDATE questoes_respondidas SET materia = 'Finanças Públicas' WHERE materia = 'AFO';
+      UPDATE conceitos_salvos SET materia = 'Finanças Públicas' WHERE materia = 'AFO';
+    `,
+  },
 ];

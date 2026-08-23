@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import { C, cartao, disp, mono, rotulo } from "../theme";
-import Botao from "../components/Botao";
 import FilaRevisaoDrill from "../components/FilaRevisaoDrill";
 import Segmented from "../components/Segmented";
 import { Vazio } from "../components/Shell";
@@ -41,7 +40,7 @@ type Filtro = EscopoRevisao;
 type AgrupamentoErradas = "materia" | "conceito";
 
 /** Fonte da fila aberta. */
-type FonteFila = { tipo: "materia"; valor: string | null } | { tipo: "conceito"; valor: string };
+type FonteFila = { tipo: "materia"; valor: string } | { tipo: "conceito"; valor: string };
 
 export default function RefazerView() {
   const [filtro, setFiltro] = useState<Filtro>("pendentes");
@@ -138,7 +137,7 @@ export default function RefazerView() {
 
   /* ---------- Drill de revisão ---------- */
   if (fila) {
-    const labelFonte = fonte?.tipo === "conceito" ? fonte.valor : (fonte?.valor ?? "todas as matérias");
+    const labelFonte = fonte?.valor ?? "";
     return (
       <FilaRevisaoDrill
         fila={fila}
@@ -208,7 +207,7 @@ export default function RefazerView() {
             valor={agrupErradas}
             opcoes={[
               { id: "materia" as const, label: "Matéria" },
-              { id: "conceito" as const, label: "Conceito — onde treinar" },
+              { id: "conceito" as const, label: "Conceito" },
             ]}
             onChange={setAgrupErradas}
           />
@@ -242,15 +241,6 @@ export default function RefazerView() {
         </Vazio>
       ) : agrupErradas === "materia" ? (
         <>
-          <Botao
-            tipo="tinta"
-            onClick={() => abrir({ tipo: "materia", valor: null })}
-            style={{ marginBottom: 14 }}
-          >
-            Todas as matérias · {pastas.reduce((a, b) => a + b.total, 0)}{" "}
-            {pastas.reduce((a, b) => a + b.total, 0) === 1 ? "questão" : "questões"}
-          </Botao>
-
           <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
             POR MATÉRIA
           </div>

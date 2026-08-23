@@ -89,7 +89,7 @@ describe("MIGRATIONS", () => {
     db.close();
   });
 
-  it("renomeia AFO no histórico já gravado (v11) sem tocar nas outras matérias", async () => {
+  it("renomeia Administração Financeira e Orçamentária até Finanças Públicas, passando por AFO (v11 + v14 encadeadas)", async () => {
     const db = await novoBanco();
     aplicar(db, 0, 10);
     db.run(
@@ -98,12 +98,34 @@ describe("MIGRATIONS", () => {
               ('2026-01-02T00:00:00.000Z', 'Direito Tributário', NULL, 'abstrato', 'ce', 3, 9, 12, '[]', 0)`,
     );
 
+    // Um banco bem antigo passa pelas duas migrações em sequência: v11 dá o
+    // nome curto "AFO", v14 dá o nome final "Finanças Públicas" — nenhuma
+    // delas conhece a outra, e o encadeamento é o que garante que o dado
+    // chegue correto independentemente de quantas versões atrás ele começou.
     aplicar(db, 10, ULTIMA);
 
     const materias = db
       .exec("SELECT materia FROM blocos ORDER BY ts")[0]
       .values.map((v: unknown[]) => String(v[0]));
-    expect(materias).toEqual(["AFO", "Direito Tributário"]);
+    expect(materias).toEqual(["Finanças Públicas", "Direito Tributário"]);
+    db.close();
+  });
+
+  it("renomeia AFO para Finanças Públicas no histórico já gravado (v14)", async () => {
+    const db = await novoBanco();
+    aplicar(db, 0, 13);
+    db.run(
+      `INSERT INTO blocos (ts, materia, topico, tipo, formato, nivel, total_acertos, total_questoes, por_sub, aprovado)
+       VALUES ('2026-01-01T00:00:00.000Z', 'AFO', NULL, 'abstrato', 'ce', 3, 9, 12, '[]', 0),
+              ('2026-01-02T00:00:00.000Z', 'Direito Tributário', NULL, 'abstrato', 'ce', 3, 9, 12, '[]', 0)`,
+    );
+
+    aplicar(db, 13, ULTIMA);
+
+    const materias = db
+      .exec("SELECT materia FROM blocos ORDER BY ts")[0]
+      .values.map((v: unknown[]) => String(v[0]));
+    expect(materias).toEqual(["Finanças Públicas", "Direito Tributário"]);
     db.close();
   });
 

@@ -442,118 +442,86 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         />
       </div>
 
-      <div style={{ marginBottom: 18 }}>
-        <label style={rotulo}>Chave de API da Anthropic</label>
-        <input
-          style={{ ...campo, ...mono, fontSize: 13 }}
-          type={visivel ? "text" : "password"}
-          placeholder="sk-ant-…"
-          autoCapitalize="none"
-          autoCorrect="off"
-          spellCheck={false}
-          value={chave}
-          onChange={(e) => {
-            setChave(e.target.value);
-            setStatus(null);
-          }}
-        />
-        <button
-          onClick={() => setVisivel((v) => !v)}
-          style={{
-            ...mono,
-            marginTop: 6,
-            fontSize: 11,
-            background: "none",
-            border: "none",
-            color: C.caneta,
-            cursor: "pointer",
-            padding: 0,
-          }}
-        >
-          {visivel ? "Ocultar" : "Mostrar"} chave
-        </button>
-        <div style={{ fontSize: 12.5, color: C.sub, marginTop: 8, lineHeight: 1.5 }}>
-          Gere uma chave em console.anthropic.com → API Keys. Ela fica guardada apenas neste
-          aparelho e é enviada só para a API da Anthropic.
+      <div style={{ ...cartao, padding: "12px 14px", marginTop: 14 }}>
+        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
+          GERAÇÃO
         </div>
-      </div>
 
-      <div style={{ marginBottom: 18 }}>
-        <label style={rotulo}>Backend próprio (opcional)</label>
-        <input
-          style={{ ...campo, ...mono, fontSize: 13 }}
-          placeholder="https://meu-worker.workers.dev"
-          autoCapitalize="none"
-          autoCorrect="off"
-          spellCheck={false}
-          value={proxy}
-          onChange={(e) => {
-            setProxy(e.target.value);
-            setStatus(null);
-          }}
-        />
-        <div style={{ fontSize: 12.5, color: C.sub, marginTop: 8, lineHeight: 1.5 }}>
-          Se preenchido, o app fala com esta URL em vez de api.anthropic.com — o backend precisa
-          expor <code style={{ ...mono, fontSize: 12 }}>/v1/messages</code>. Deixe vazio para usar a
-          chave acima diretamente. Veja <code style={{ ...mono, fontSize: 12 }}>proxy/</code> no
-          repositório.
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+          <div>
+            <div style={{ fontSize: 13.5 }}>Explicações de IA na geração</div>
+            <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+              {comExplicacoesIA
+                ? "Cada questão já sai com comentário e explicação de cada alternativa errada."
+                : "Questões saem sem explicação — depois de responder, escolha só as alternativas que quer entender e peça a explicação na hora, mais aprofundada e mais barata."}
+            </div>
+          </div>
+          <button
+            role="switch"
+            aria-checked={comExplicacoesIA}
+            onClick={() => alternarComExplicacoesIA(!comExplicacoesIA)}
+            style={{
+              width: 44,
+              height: 26,
+              borderRadius: 13,
+              border: "none",
+              padding: 3,
+              flexShrink: 0,
+              display: "flex",
+              justifyContent: comExplicacoesIA ? "flex-end" : "flex-start",
+              background: comExplicacoesIA ? C.caneta : C.line,
+              cursor: "pointer",
+              transition: "background 0.15s",
+            }}
+          >
+            <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+          </button>
         </div>
-      </div>
 
-      {/* Teto de gasto mensal: o custo da API sai da conta pessoal do
-          usuário (4 chamadas por bloco gerado). O teto não bloqueia sozinho —
-          é lido antes de disparar um bloco em GerarView, que avisa e pede
-          confirmação. Ver lib/custo.ts e o cartão CUSTO DA API em Dados. */}
-      <div style={{ marginBottom: 18 }}>
-        <label style={rotulo}>Teto de gasto mensal (US$)</label>
-        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-          <input
-            style={{ ...campo, ...mono, fontSize: 14, flex: 1 }}
-            type="number"
-            inputMode="decimal"
-            min={0}
-            step={1}
-            placeholder="0 = sem teto"
-            value={tetoMensal || ""}
-            onChange={(e) => void trocarTeto(Math.max(0, Number(e.target.value) || 0))}
-          />
-        </div>
-        <div style={{ fontSize: 12.5, color: C.sub, marginTop: 8, lineHeight: 1.5 }}>
-          Gasto deste mês: <strong>{formatarUSD(gastoMes)}</strong>
-          {tetoMensal > 0
-            ? situacaoTeto(gastoMes, tetoMensal) === "estourado"
-              ? " — teto atingido; o app avisa antes de gerar um bloco novo."
-              : situacaoTeto(gastoMes, tetoMensal) === "perto"
-                ? " — perto do teto; o app avisa antes de gerar um bloco novo."
-                : "."
-            : ". Sem teto configurado, o app apenas registra o gasto."}
-        </div>
-      </div>
-
-      {status && (
         <div
           style={{
-            background: status.tom === "ok" ? C.okSoft : C.erroSoft,
-            border: `1.5px solid ${status.tom === "ok" ? C.ok : C.erro}`,
-            borderRadius: 10,
-            padding: "10px 12px",
-            fontSize: 13,
-            marginBottom: 14,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 10,
+            marginTop: 14,
+            paddingTop: 12,
+            borderTop: `1px solid ${C.line}`,
           }}
         >
-          {status.texto}
+          <div>
+            <div style={{ fontSize: 13.5 }}>Recomendações na tela de gerar</div>
+            <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+              {mostrarRecomendacoes
+                ? 'Mostra "Nunca praticados" antes do formulário.'
+                : "Tela de gerar abre direto no formulário, sem o cartão de recomendação."}
+            </div>
+          </div>
+          <button
+            role="switch"
+            aria-checked={mostrarRecomendacoes}
+            onClick={() => alternarMostrarRecomendacoes(!mostrarRecomendacoes)}
+            style={{
+              width: 44,
+              height: 26,
+              borderRadius: 13,
+              border: "none",
+              padding: 3,
+              flexShrink: 0,
+              display: "flex",
+              justifyContent: mostrarRecomendacoes ? "flex-end" : "flex-start",
+              background: mostrarRecomendacoes ? C.caneta : C.line,
+              cursor: "pointer",
+              transition: "background 0.15s",
+            }}
+          >
+            <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+          </button>
         </div>
-      )}
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        <Botao tipo="tinta" onClick={salvar} disabled={!carregado}>
-          Salvar
-        </Botao>
-        {(chave || proxy) && (
-          <Botao tipo="fantasma" onClick={limpar} style={{ color: C.erro }}>
-            Remover credenciais
-          </Botao>
-        )}
+        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginTop: 14, paddingTop: 12, borderTop: `1px solid ${C.line}` }}>
+          Modelo: <code style={{ ...mono, fontSize: 12, color: C.ink }}>{MODEL}</code>
+        </div>
       </div>
 
       <div style={{ ...cartao, padding: "14px 16px", marginTop: 22 }}>
@@ -671,11 +639,6 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
       <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
           MESCLAR ENTRE APARELHOS
-        </div>
-        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
-          Diferente de restaurar um backup (que substitui tudo), mesclar ADICIONA o conteúdo do
-          arquivo sem apagar nada daqui — exporte deste aparelho, mescle no outro (e vice-versa) para
-          manter os dois com o histórico completo.
         </div>
 
         {resultadoMesclagem && (
@@ -956,86 +919,114 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         )}
       </div>
 
-      <div style={{ ...cartao, padding: "12px 14px", marginTop: 14 }}>
-        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-          GERAÇÃO
-        </div>
-
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
-          <div>
-            <div style={{ fontSize: 13.5 }}>Explicações de IA na geração</div>
-            <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
-              {comExplicacoesIA
-                ? "Cada questão já sai com comentário e explicação de cada alternativa errada."
-                : "Questões saem sem explicação — depois de responder, escolha só as alternativas que quer entender e peça a explicação na hora, mais aprofundada e mais barata."}
-            </div>
-          </div>
-          <button
-            role="switch"
-            aria-checked={comExplicacoesIA}
-            onClick={() => alternarComExplicacoesIA(!comExplicacoesIA)}
-            style={{
-              width: 44,
-              height: 26,
-              borderRadius: 13,
-              border: "none",
-              padding: 3,
-              flexShrink: 0,
-              display: "flex",
-              justifyContent: comExplicacoesIA ? "flex-end" : "flex-start",
-              background: comExplicacoesIA ? C.caneta : C.line,
-              cursor: "pointer",
-              transition: "background 0.15s",
-            }}
-          >
-            <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
-          </button>
-        </div>
-
-        <div
+      <div style={{ marginBottom: 18, marginTop: 22 }}>
+        <label style={rotulo}>Chave de API da Anthropic</label>
+        <input
+          style={{ ...campo, ...mono, fontSize: 13 }}
+          type={visivel ? "text" : "password"}
+          placeholder="sk-ant-…"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck={false}
+          value={chave}
+          onChange={(e) => {
+            setChave(e.target.value);
+            setStatus(null);
+          }}
+        />
+        <button
+          onClick={() => setVisivel((v) => !v)}
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 10,
-            marginTop: 14,
-            paddingTop: 12,
-            borderTop: `1px solid ${C.line}`,
+            ...mono,
+            marginTop: 6,
+            fontSize: 11,
+            background: "none",
+            border: "none",
+            color: C.caneta,
+            cursor: "pointer",
+            padding: 0,
           }}
         >
-          <div>
-            <div style={{ fontSize: 13.5 }}>Recomendações na tela de gerar</div>
-            <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
-              {mostrarRecomendacoes
-                ? 'Mostra "Estudar agora" e "Nunca praticados" antes do formulário.'
-                : "Tela de gerar abre direto no formulário, sem os cartões de recomendação."}
-            </div>
-          </div>
-          <button
-            role="switch"
-            aria-checked={mostrarRecomendacoes}
-            onClick={() => alternarMostrarRecomendacoes(!mostrarRecomendacoes)}
-            style={{
-              width: 44,
-              height: 26,
-              borderRadius: 13,
-              border: "none",
-              padding: 3,
-              flexShrink: 0,
-              display: "flex",
-              justifyContent: mostrarRecomendacoes ? "flex-end" : "flex-start",
-              background: mostrarRecomendacoes ? C.caneta : C.line,
-              cursor: "pointer",
-              transition: "background 0.15s",
-            }}
-          >
-            <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
-          </button>
-        </div>
+          {visivel ? "Ocultar" : "Mostrar"} chave
+        </button>
+      </div>
 
-        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginTop: 14, paddingTop: 12, borderTop: `1px solid ${C.line}` }}>
-          Modelo: <code style={{ ...mono, fontSize: 12, color: C.ink }}>{MODEL}</code>
+      <div style={{ marginBottom: 18 }}>
+        <label style={rotulo}>Backend próprio (opcional)</label>
+        <input
+          style={{ ...campo, ...mono, fontSize: 13 }}
+          placeholder="https://meu-worker.workers.dev"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck={false}
+          value={proxy}
+          onChange={(e) => {
+            setProxy(e.target.value);
+            setStatus(null);
+          }}
+        />
+        <div style={{ fontSize: 12.5, color: C.sub, marginTop: 8, lineHeight: 1.5 }}>
+          Se preenchido, o app fala com esta URL em vez de api.anthropic.com — o backend precisa
+          expor <code style={{ ...mono, fontSize: 12 }}>/v1/messages</code>. Deixe vazio para usar a
+          chave acima diretamente. Veja <code style={{ ...mono, fontSize: 12 }}>proxy/</code> no
+          repositório.
         </div>
+      </div>
+
+      {/* Teto de gasto mensal: o custo da API sai da conta pessoal do
+          usuário (4 chamadas por bloco gerado). O teto não bloqueia sozinho —
+          é lido antes de disparar um bloco em GerarView, que avisa e pede
+          confirmação. Ver lib/custo.ts e o cartão CUSTO DA API em Dados. */}
+      <div style={{ marginBottom: 18 }}>
+        <label style={rotulo}>Teto de gasto mensal (US$)</label>
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          <input
+            style={{ ...campo, ...mono, fontSize: 14, flex: 1 }}
+            type="number"
+            inputMode="decimal"
+            min={0}
+            step={1}
+            placeholder="0 = sem teto"
+            value={tetoMensal || ""}
+            onChange={(e) => void trocarTeto(Math.max(0, Number(e.target.value) || 0))}
+          />
+        </div>
+        <div style={{ fontSize: 12.5, color: C.sub, marginTop: 8, lineHeight: 1.5 }}>
+          Gasto deste mês: <strong>{formatarUSD(gastoMes)}</strong>
+          {tetoMensal > 0
+            ? situacaoTeto(gastoMes, tetoMensal) === "estourado"
+              ? " — teto atingido; o app avisa antes de gerar um bloco novo."
+              : situacaoTeto(gastoMes, tetoMensal) === "perto"
+                ? " — perto do teto; o app avisa antes de gerar um bloco novo."
+                : "."
+            : ". Sem teto configurado, o app apenas registra o gasto."}
+        </div>
+      </div>
+
+      {status && (
+        <div
+          style={{
+            background: status.tom === "ok" ? C.okSoft : C.erroSoft,
+            border: `1.5px solid ${status.tom === "ok" ? C.ok : C.erro}`,
+            borderRadius: 10,
+            padding: "10px 12px",
+            fontSize: 13,
+            marginBottom: 14,
+          }}
+        >
+          {status.texto}
+        </div>
+      )}
+
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        <Botao tipo="tinta" onClick={salvar} disabled={!carregado}>
+          Salvar
+        </Botao>
+        {(chave || proxy) && (
+          <Botao tipo="fantasma" onClick={limpar} style={{ color: C.erro }}>
+            Remover credenciais
+          </Botao>
+        )}
       </div>
     </Shell>
   );
