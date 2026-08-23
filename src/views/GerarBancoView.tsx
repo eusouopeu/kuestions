@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { C, campo, cartao, disp, mono, rotulo } from "../theme";
+import { C, campo, disp, mono, rotulo } from "../theme";
 import Botao from "../components/Botao";
 import EsqueletoQuestao from "../components/EsqueletoQuestao";
 import Rail from "../components/Rail";
@@ -23,7 +23,6 @@ import {
   NIVEL_BANCO,
 } from "../lib/banco";
 import { gerarExplicacoes, SemCredencialError } from "../lib/anthropic";
-import { temCredencial } from "../lib/secure";
 import { getComExplicacoesIA } from "../lib/preferenciasGeracao";
 import {
   buscarExplicacoesBanco,
@@ -56,9 +55,8 @@ const LOTE = 4;
  * comentário/explicações ficam indisponíveis até serem geradas (na criação
  * ou sob demanda depois de responder, ver QuestaoCard).
  */
-export default function GerarBancoView({ onAjustes }: { onAjustes: () => void }) {
+export default function GerarBancoView() {
   const [tela, setTela] = useState<Tela>("config");
-  const [temChave, setTemChave] = useState(true);
   const [area, setArea] = useState<string>(AREAS_BANCO[0] ?? "");
   const [modo, setModo] = useState<Modo>("todos");
   const [assunto, setAssunto] = useState<string>("");
@@ -110,7 +108,6 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
 
   useEffect(() => {
     if (tela === "config") {
-      temCredencial().then(setTemChave);
       idsBancoRespondidos().then(setVistas).catch(() => setVistas(new Set()));
     }
   }, [tela]);
@@ -340,30 +337,6 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
   if (tela === "config") {
     return (
       <div>
-        {!temChave && (
-          <div
-            style={{
-              ...cartao,
-              background: C.canetaSoft,
-              borderColor: C.caneta,
-              marginBottom: 18,
-            }}
-          >
-            <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 6 }}>
-              SEM CHAVE DE API CONFIGURADA
-            </div>
-            <p style={{ fontSize: 13.5, lineHeight: 1.55, margin: "0 0 12px" }}>
-              Sem problema: o enunciado, as alternativas e o gabarito vêm prontos do banco real e
-              funcionam normalmente, inclusive offline. Só o comentário e a explicação de cada
-              alternativa errada — escritos pela IA — ficam indisponíveis até você configurar uma
-              chave em Ajustes.
-            </p>
-            <Botao tipo="fantasma" onClick={onAjustes} style={{ maxWidth: 260, background: C.card }}>
-              Configurar chave em Ajustes
-            </Botao>
-          </div>
-        )}
-
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Área</label>
           <select style={campo} value={area} onChange={(e) => setArea(e.target.value)}>

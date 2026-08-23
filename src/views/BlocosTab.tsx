@@ -1,73 +1,16 @@
 import { useEffect, useState } from "react";
 import { ArrowUpTrayIcon, CircleStackIcon, SparklesIcon } from "@heroicons/react/24/outline";
-import { C, cartao, disp, mono } from "../theme";
+import { C, cartao, mono } from "../theme";
 import Shell from "../components/Shell";
 import Segmented from "../components/Segmented";
 import GerarView from "./GerarView";
 import GerarBancoView from "./GerarBancoView";
 import ImportarView from "./ImportarView";
-import { blocosNaSemana, resumo, type Resumo } from "../lib/repo";
+import { blocosNaSemana } from "../lib/repo";
 import { getMetas, META_GERAL, rotuloMeta } from "../lib/metas";
-import { LIMIAR_APROVACAO } from "../lib/constants";
 import { temCredencial } from "../lib/secure";
 
 type View = "gerar" | "banco" | "importar";
-
-/** Resumo compacto de progresso: reforço motivacional visível ao abrir a
- * aba, sem duplicar os gráficos completos da aba Dados. */
-function ProgressoGeral({ onDados }: { onDados: () => void }) {
-  const [res, setRes] = useState<Resumo | null>(null);
-
-  useEffect(() => {
-    resumo(null).then(setRes).catch(() => setRes(null));
-  }, []);
-
-  const semDados = !res || res.totalQuestoes === 0;
-  const pct = res && res.totalQuestoes ? Math.round((res.totalAcertos / res.totalQuestoes) * 100) : 0;
-
-  return (
-    <div style={{ marginBottom: 18 }}>
-      {!semDados && (
-        <button
-          onClick={onDados}
-          style={{
-            ...cartao,
-            display: "flex",
-            width: "100%",
-            alignItems: "center",
-            justifyContent: "space-between",
-            textAlign: "left",
-            padding: "12px 14px",
-            marginBottom: 0,
-            cursor: "pointer",
-          }}
-        >
-          <div>
-            <div style={{ ...mono, fontSize: 10, color: C.sub, letterSpacing: 0.8, marginBottom: 3 }}>
-              SEU PROGRESSO
-            </div>
-            <div style={{ ...disp, fontSize: 13.5 }}>
-              {res!.blocosAprovados}/{res!.blocosTotais} blocos aprovados · {res!.totalQuestoes} questões
-            </div>
-          </div>
-          <div
-            style={{
-              ...disp,
-              fontSize: 22,
-              fontWeight: 800,
-              color: pct >= LIMIAR_APROVACAO * 100 ? C.ok : C.caneta,
-              flexShrink: 0,
-            }}
-          >
-            {pct}%
-          </div>
-        </button>
-      )}
-
-      <MetasSemanais />
-    </div>
-  );
-}
 
 /**
  * Progresso das metas semanais configuradas em Ajustes (ver lib/metas.ts) —
@@ -226,7 +169,7 @@ export default function BlocosTab({
 
   return (
     <Shell titulo="Blocos">
-      <ProgressoGeral onDados={onDados} />
+      <MetasSemanais />
 
       <div style={{ marginBottom: 18 }}>
         <Segmented
@@ -257,7 +200,7 @@ export default function BlocosTab({
       </div>
 
       {view === "gerar" && <GerarView onDados={onDados} onAjustes={onAjustes} />}
-      {view === "banco" && <GerarBancoView onAjustes={onAjustes} />}
+      {view === "banco" && <GerarBancoView />}
       {view === "importar" && <ImportarView />}
     </Shell>
   );
