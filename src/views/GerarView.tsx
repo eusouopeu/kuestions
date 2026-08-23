@@ -18,7 +18,7 @@ import {
   FORMATOS,
 } from "../lib/constants";
 import { gerarSubBloco, SemCredencialError } from "../lib/anthropic";
-import { getComExplicacoesIA } from "../lib/preferenciasGeracao";
+import { getComExplicacoesIA, getMostrarRecomendacoes } from "../lib/preferenciasGeracao";
 import {
   atualizarTotalQuestoesBloco,
   buscarBlocoReaproveitavel,
@@ -118,6 +118,16 @@ export default function GerarView({
   const [restaurandoRascunho, setRestaurandoRascunho] = useState(false);
 
   const [modoTopico, setModoTopico] = useState<ModoTopico>("todos");
+  // Os dois cartões de recomendação (Estudar agora / Nunca praticados)
+  // começam fechados — são um empurrão, não o primeiro passo da tela; abrir
+  // por padrão empurraria o formulário de configuração para baixo da dobra
+  // toda vez que a tela abre.
+  const [prioridadeAberta, setPrioridadeAberta] = useState(false);
+  const [lacunasAbertas, setLacunasAbertas] = useState(false);
+  // Toggle em Ajustes (ver lib/preferenciasGeracao.ts) — liga/desliga os
+  // dois cartões de recomendação de uma vez, para quem já decidiu sozinho o
+  // que estudar e prefere a tela indo direto ao formulário.
+  const [mostrarRecomendacoes, setMostrarRecomendacoes] = useState(true);
   // Gerar comentário/explicações já na criação do bloco, ou deixar a
   // questão sem explicação e só gerar sob demanda depois de respondida (ver
   // QuestaoCard) — economiza tokens e latência na geração, e a explicação
@@ -128,6 +138,7 @@ export default function GerarView({
 
   useEffect(() => {
     getComExplicacoesIA().then(setComExplicacoes);
+    getMostrarRecomendacoes().then(setMostrarRecomendacoes);
   }, []);
 
   // dispararSub roda fora do render e precisa ler o estado mais recente.
@@ -458,35 +469,66 @@ export default function GerarView({
           </div>
         )}
 
-        {prioridade && prioridade.materia !== materiaFinal && (
-          <div
-            style={{
-              ...cartao,
-              padding: "12px 14px",
-              marginBottom: 18,
-              background: C.canetaSoft,
-              borderColor: C.caneta,
-            }}
-          >
-            <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 6 }}>
-              ESTUDAR AGORA
-            </div>
-            <p style={{ fontSize: 13.5, lineHeight: 1.5, margin: "0 0 4px" }}>
-              <strong>{prioridade.materia}</strong>
-            </p>
-            <p style={{ fontSize: 12, color: C.sub, lineHeight: 1.45, margin: "0 0 12px" }}>
-              {prioridade.motivo}
-            </p>
-            <Botao
-              tipo="tinta"
-              onClick={() => {
-                setModoTopico("todos");
-                setCfg((atual) => ({ ...atual, materia: prioridade.materia, topico: "" }));
+        {mostrarRecomendacoes && prioridade && prioridade.materia !== materiaFinal && (
+          <div style={{ marginBottom: 18 }}>
+            <button
+              onClick={() => setPrioridadeAberta((v) => !v)}
+              aria-expanded={prioridadeAberta}
+              style={{
+                ...cartao,
+                display: "flex",
+                width: "100%",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 10,
+                textAlign: "left",
+                padding: "12px 14px",
+                cursor: "pointer",
+                background: C.canetaSoft,
+                borderColor: C.caneta,
               }}
-              style={{ maxWidth: 260 }}
             >
-              Usar esta matéria
-            </Botao>
+              <div>
+                <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 4 }}>
+                  ESTUDAR AGORA
+                </div>
+                <div style={{ fontSize: 13.5, lineHeight: 1.3 }}>
+                  <strong>{prioridade.materia}</strong>
+                </div>
+              </div>
+              <span style={{ ...mono, fontSize: 12, color: C.caneta, flexShrink: 0 }}>
+                {prioridadeAberta ? "▲" : "▼"}
+              </span>
+            </button>
+
+            {prioridadeAberta && (
+              <div
+                style={{
+                  ...cartao,
+                  borderTop: "none",
+                  borderTopLeftRadius: 0,
+                  borderTopRightRadius: 0,
+                  marginTop: -1,
+                  padding: "12px 14px",
+                  background: C.canetaSoft,
+                  borderColor: C.caneta,
+                }}
+              >
+                <p style={{ fontSize: 12, color: C.sub, lineHeight: 1.45, margin: "0 0 12px" }}>
+                  {prioridade.motivo}
+                </p>
+                <Botao
+                  tipo="tinta"
+                  onClick={() => {
+                    setModoTopico("todos");
+                    setCfg((atual) => ({ ...atual, materia: prioridade.materia, topico: "" }));
+                  }}
+                  style={{ maxWidth: 260 }}
+                >
+                  Usar esta matéria
+                </Botao>
+              </div>
+            )}
           </div>
         )}
 
@@ -495,53 +537,86 @@ export default function GerarView({
             fraqueza — % de acerto —, que é indefinida em tópico nunca
             respondido: sem esta lista, o que você nunca abriu não aparece em
             lugar nenhum do app. Ordem por peso da matéria no edital. */}
-        {lacunas.length > 0 && (
-          <div style={{ ...cartao, padding: "12px 14px", marginBottom: 18 }}>
-            <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-              NUNCA PRATICADOS · {lacunas.length}
-            </div>
-            <p style={{ fontSize: 12, color: C.sub, lineHeight: 1.45, margin: "0 0 10px" }}>
-              Tópicos do edital sem nenhuma questão respondida, do maior peso para o menor.
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-              {lacunas.slice(0, MAX_LACUNAS_VISIVEIS).map((l) => (
-                <button
-                  key={`${l.materia}-${l.codigo}`}
-                  onClick={() => {
-                    setModoTopico("aula");
-                    setCfg((atual) => ({
-                      ...atual,
-                      materia: l.materia,
-                      materiaCustom: "",
-                      topico: rotuloTopico(l),
-                    }));
-                  }}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 8,
-                    width: "100%",
-                    textAlign: "left",
-                    border: `1.5px solid ${C.line}`,
-                    borderRadius: 8,
-                    background: "transparent",
-                    padding: "8px 10px",
-                    cursor: "pointer",
-                    color: C.ink,
-                  }}
-                >
-                  <span style={{ flex: 1, fontSize: 13, lineHeight: 1.35 }}>
-                    {l.nome}
-                    <span style={{ ...mono, display: "block", fontSize: 10.5, color: C.sub }}>
-                      {l.materia}
-                    </span>
-                  </span>
-                  <span style={{ ...mono, fontSize: 10.5, color: C.caneta, flexShrink: 0 }}>
-                    peso {l.peso}
-                  </span>
-                </button>
-              ))}
-            </div>
+        {mostrarRecomendacoes && lacunas.length > 0 && (
+          <div style={{ marginBottom: 18 }}>
+            <button
+              onClick={() => setLacunasAbertas((v) => !v)}
+              aria-expanded={lacunasAbertas}
+              style={{
+                ...cartao,
+                display: "flex",
+                width: "100%",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 10,
+                textAlign: "left",
+                padding: "12px 14px",
+                cursor: "pointer",
+              }}
+            >
+              <span style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8 }}>
+                NUNCA PRATICADOS · {lacunas.length}
+              </span>
+              <span style={{ ...mono, fontSize: 12, color: C.sub, flexShrink: 0 }}>
+                {lacunasAbertas ? "▲" : "▼"}
+              </span>
+            </button>
+
+            {lacunasAbertas && (
+              <div
+                style={{
+                  ...cartao,
+                  borderTop: "none",
+                  borderTopLeftRadius: 0,
+                  borderTopRightRadius: 0,
+                  marginTop: -1,
+                  padding: "12px 14px",
+                }}
+              >
+                <p style={{ fontSize: 12, color: C.sub, lineHeight: 1.45, margin: "0 0 10px" }}>
+                  Tópicos do edital sem nenhuma questão respondida, do maior peso para o menor.
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  {lacunas.slice(0, MAX_LACUNAS_VISIVEIS).map((l) => (
+                    <button
+                      key={`${l.materia}-${l.codigo}`}
+                      onClick={() => {
+                        setModoTopico("aula");
+                        setCfg((atual) => ({
+                          ...atual,
+                          materia: l.materia,
+                          materiaCustom: "",
+                          topico: rotuloTopico(l),
+                        }));
+                      }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 8,
+                        width: "100%",
+                        textAlign: "left",
+                        border: `1.5px solid ${C.line}`,
+                        borderRadius: 8,
+                        background: "transparent",
+                        padding: "8px 10px",
+                        cursor: "pointer",
+                        color: C.ink,
+                      }}
+                    >
+                      <span style={{ flex: 1, fontSize: 13, lineHeight: 1.35 }}>
+                        {l.nome}
+                        <span style={{ ...mono, display: "block", fontSize: 10.5, color: C.sub }}>
+                          {l.materia}
+                        </span>
+                      </span>
+                      <span style={{ ...mono, fontSize: 10.5, color: C.caneta, flexShrink: 0 }}>
+                        peso {l.peso}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
 

@@ -11,7 +11,12 @@ import {
   setProxyUrl,
 } from "../lib/secure";
 import { MODEL } from "../lib/anthropic";
-import { getComExplicacoesIA, setComExplicacoesIA } from "../lib/preferenciasGeracao";
+import {
+  getComExplicacoesIA,
+  getMostrarRecomendacoes,
+  setComExplicacoesIA,
+  setMostrarRecomendacoes,
+} from "../lib/preferenciasGeracao";
 import { exportarBancoJSON, importarBancoJSON } from "../lib/db";
 import { exportarArquivo } from "../lib/exportar";
 import { getTema, setTema, type Tema } from "../lib/tema";
@@ -127,6 +132,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   const [temDados, setTemDados] = useState(false);
 
   const [comExplicacoesIA, setComExplicacoesIALocal] = useState(true);
+  const [mostrarRecomendacoes, setMostrarRecomendacoesLocal] = useState(true);
 
   useEffect(() => {
     Promise.all([getApiKey(), getProxyUrl()])
@@ -144,11 +150,17 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     getMetas().then(setMetasLocal);
     getPesosEdital().then(setPesosLocal);
     getComExplicacoesIA().then(setComExplicacoesIALocal);
+    getMostrarRecomendacoes().then(setMostrarRecomendacoesLocal);
   }, []);
 
   async function alternarComExplicacoesIA(v: boolean) {
     setComExplicacoesIALocal(v);
     await setComExplicacoesIA(v);
+  }
+
+  async function alternarMostrarRecomendacoes(v: boolean) {
+    setMostrarRecomendacoesLocal(v);
+    await setMostrarRecomendacoes(v);
   }
 
   useEffect(() => {
@@ -972,6 +984,47 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
               display: "flex",
               justifyContent: comExplicacoesIA ? "flex-end" : "flex-start",
               background: comExplicacoesIA ? C.caneta : C.line,
+              cursor: "pointer",
+              transition: "background 0.15s",
+            }}
+          >
+            <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+          </button>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 10,
+            marginTop: 14,
+            paddingTop: 12,
+            borderTop: `1px solid ${C.line}`,
+          }}
+        >
+          <div>
+            <div style={{ fontSize: 13.5 }}>Recomendações na tela de gerar</div>
+            <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+              {mostrarRecomendacoes
+                ? 'Mostra "Estudar agora" e "Nunca praticados" antes do formulário.'
+                : "Tela de gerar abre direto no formulário, sem os cartões de recomendação."}
+            </div>
+          </div>
+          <button
+            role="switch"
+            aria-checked={mostrarRecomendacoes}
+            onClick={() => alternarMostrarRecomendacoes(!mostrarRecomendacoes)}
+            style={{
+              width: 44,
+              height: 26,
+              borderRadius: 13,
+              border: "none",
+              padding: 3,
+              flexShrink: 0,
+              display: "flex",
+              justifyContent: mostrarRecomendacoes ? "flex-end" : "flex-start",
+              background: mostrarRecomendacoes ? C.caneta : C.line,
               cursor: "pointer",
               transition: "background 0.15s",
             }}

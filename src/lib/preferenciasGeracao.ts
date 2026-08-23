@@ -16,3 +16,21 @@ export async function getComExplicacoesIA(): Promise<boolean> {
 export async function setComExplicacoesIA(v: boolean): Promise<void> {
   await Preferences.set({ key: K_COM_EXPLICACOES, value: v ? "1" : "0" });
 }
+
+/**
+ * Mostrar os cartões "Estudar agora" (prioridade por peso do edital ×
+ * fraqueza × atraso, ver lib/prioridade.ts) e "Nunca praticados" (ver
+ * lacunasDoEdital em lib/topicos.ts) no topo da tela de configuração de
+ * GerarView. Ligado por padrão; quem já decidiu sozinho o que estudar pode
+ * desligar para a tela abrir direto no formulário.
+ */
+const K_MOSTRAR_RECOMENDACOES = "geracao-mostrar-recomendacoes";
+
+export async function getMostrarRecomendacoes(): Promise<boolean> {
+  const { value } = await Preferences.get({ key: K_MOSTRAR_RECOMENDACOES });
+  return value == null ? true : value === "1";
+}
+
+export async function setMostrarRecomendacoes(v: boolean): Promise<void> {
+  await Preferences.set({ key: K_MOSTRAR_RECOMENDACOES, value: v ? "1" : "0" });
+}
