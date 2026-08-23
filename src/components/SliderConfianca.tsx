@@ -1,31 +1,45 @@
 import { useRef, useState } from "react";
 import { C, disp, mono } from "../theme";
+import { LABEL_CONFIANCA, NIVEIS_CONFIANCA, type Confianca } from "../lib/pontuacaoTopicos";
 
-export type Confianca = "certeza" | "chute";
+export type { Confianca };
 
 /** Abaixo disto o gesto é tratado como desistência: o botão volta ao início
- * e nada é enviado. Sem essa faixa morta, um toque acidental na trilha
- * enviaria a questão. */
-const LIMIAR_ENVIO = 0.15;
+ * e nada é enviado. Bem menor que a largura de uma zona (25%) para que
+ * qualquer arrasto deliberado já entre na primeira faixa. */
+const LIMIAR_ENVIO = 0.06;
 
-/** Fronteira entre as duas zonas de confiança. Acima da metade da trilha o
- * envio conta como "certeza"; abaixo, como "chute" (ver `confianca` em
- * lib/types.ts e o cartão ERRO PERIGOSO na aba Dados, que cruza "certeza"
- * com erro). */
-const LIMIAR_CERTEZA = 0.55;
+/** Cor de cada uma das 4 faixas, na mesma ordem de NIVEIS_CONFIANCA — reaproveita
+ * o degradê do calendário de sequência (heat1..heat4 em theme.ts): mesma
+ * linguagem visual de "intensidade" já usada em Dados, aqui aplicada ao quanto
+ * de confiança foi declarado. */
+const COR_ZONA: Record<Confianca, string> = {
+  chute: C.heat1,
+  "chute-embasado": C.heat2,
+  "quase-certeza": C.heat3,
+  certeza: C.heat4,
+};
 
+/** Zona (0–3) a partir da posição (0–1) — 4 faixas iguais. */
+function indiceZona(p: number): number {
+  return Math.min(NIVEIS_CONFIANCA.length - 1, Math.floor(p * NIVEIS_CONFIANCA.length));
+}
 function zonaDe(p: number): Confianca {
-  return p >= LIMIAR_CERTEZA ? "certeza" : "chute";
+  return NIVEIS_CONFIANCA[indiceZona(p)];
 }
 
 /**
  * Envio da resposta por arrasto, com o quanto você arrastou valendo como
  * declaração de confiança — substitui os dois botões separados ("Chute" e
- * "Enviar") por um gesto só.
+ * "Enviar") por um gesto só, agora com QUATRO faixas em vez de duas: chute
+ * total, chute embasado, quase certeza, certeza absoluta (ver
+ * NIVEIS_CONFIANCA em lib/pontuacaoTopicos.ts). Granularidade extra sem
+ * mudar o gesto: continua sendo arrastar e soltar, só que solto mais perto
+ * do meio já distingue "não fazia ideia" de "eliminei alternativas".
  *
  * O ganho não é de espaço: com dois botões, "Chute" era o caminho mais
  * trabalhoso (botão menor, secundário) justamente para a resposta que o
- * usuário tem menos vontade de admitir, o que enviesa o dado. Aqui as duas
+ * usuário tem menos vontade de admitir, o que enviesa o dado. Aqui as quatro
  * declarações custam o mesmo gesto, e a diferença é só onde ele termina.
  */
 export default function SliderConfianca({
@@ -89,16 +103,17 @@ export default function SliderConfianca({
     mudarP(0);
   }
 
-  /** Teclado (navegador/desktop e leitores de tela): setas movem, Enter/espaço
-   * envia com a confiança da posição atual. */
+  /** Teclado (navegador/desktop e leitores de tela): setas movem de faixa em
+   * faixa, Enter/espaço envia com a confiança da posição atual. */
   function tecla(e: React.KeyboardEvent) {
     if (disabled) return;
+    const passo = 1 / NIVEIS_CONFIANCA.length;
     if (e.key === "ArrowRight" || e.key === "ArrowUp") {
       e.preventDefault();
-      mudarP(Math.min(1, pRef.current + 0.1));
+      mudarP(Math.min(1, pRef.current + passo));
     } else if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
       e.preventDefault();
-      mudarP(Math.max(0, pRef.current - 0.1));
+      mudarP(Math.max(0, pRef.current - passo));
     } else if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       const final = pRef.current;
@@ -111,13 +126,7 @@ export default function SliderConfianca({
 
   const armado = p >= LIMIAR_ENVIO;
   const zona = zonaDe(p);
-  const corAtiva = zona === "certeza" ? C.ok : C.sub;
-
-  const rotulo = !armado
-    ? "Arraste para responder →"
-    : zona === "certeza"
-      ? "Solte: tenho certeza"
-      : "Solte: foi chute";
+  const corAtiva = COR_ZONA[zona];
 
   return (
     <div style={{ marginTop: 14, opacity: disabled ? 0.5 : 1 }}>
@@ -125,11 +134,11 @@ export default function SliderConfianca({
         ref={trilhaRef}
         role="slider"
         tabIndex={disabled ? -1 : 0}
-        aria-label="Arraste para responder: à esquerda foi chute, à direita tenho certeza"
+        aria-label="Arraste para responder: quanto mais à direita, maior a confiança na resposta"
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={Math.round(p * 100)}
-        aria-valuetext={armado ? (zona === "certeza" ? "Certeza" : "Chute") : "Sem resposta enviada"}
+        aria-valuetext={armado ? LABEL_CONFIANCA[zona] : "Sem resposta enviada"}
         aria-disabled={disabled}
         onPointerDown={iniciar}
         onPointerMove={mover}
@@ -141,51 +150,32 @@ export default function SliderConfianca({
           height: 52,
           borderRadius: 26,
           border: `1.5px solid ${armado ? corAtiva : C.line}`,
-          background: C.paper,
           overflow: "hidden",
           touchAction: "none",
           cursor: disabled ? "default" : "grab",
           userSelect: "none",
+          display: "flex",
         }}
       >
-        {/* Marca da fronteira "chute → certeza": sem ela o usuário não teria
-            como saber onde a declaração muda. */}
-        <div
-          style={{
-            position: "absolute",
-            left: `${LIMIAR_CERTEZA * 100}%`,
-            top: 8,
-            bottom: 8,
-            width: 1.5,
-            background: C.line,
-          }}
-        />
-        {/* Rastro preenchido até a posição atual. */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: `${p * 100}%`,
-            background: armado ? (zona === "certeza" ? C.okSoft : C.canetaSoft) : "transparent",
-            transition: arrastando ? "none" : "width .15s",
-          }}
-        />
-        <div
-          style={{
-            ...mono,
-            position: "absolute",
-            inset: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 12.5,
-            color: armado ? corAtiva : C.sub,
-            pointerEvents: "none",
-          }}
-        >
-          {rotulo}
-        </div>
-        {/* Pegador. */}
+        {/* As 4 faixas, sempre visíveis — é a divisão do espaço em si, não um
+            preenchimento de progresso. Cada uma mais clara até armar (o
+            usuário ainda não confirmou nada) e em cor plena a partir do
+            momento em que o arrasto passa da faixa morta inicial. */}
+        {NIVEIS_CONFIANCA.map((n, i) => (
+          <div
+            key={n}
+            style={{
+              flex: 1,
+              background: COR_ZONA[n],
+              opacity: armado ? (i <= indiceZona(p) ? 1 : 0.28) : 0.35,
+              transition: arrastando ? "none" : "opacity .15s",
+              borderRight: i < NIVEIS_CONFIANCA.length - 1 ? "1.5px solid rgba(0,0,0,.18)" : "none",
+            }}
+          />
+        ))}
+
+        {/* Pegador — fundo neutro fixo (não a cor da faixa), para a seta
+            branca continuar legível em cima de qualquer uma das 4 cores. */}
         <div
           style={{
             position: "absolute",
@@ -194,7 +184,8 @@ export default function SliderConfianca({
             width: 44,
             height: 42,
             borderRadius: 21,
-            background: armado ? corAtiva : C.caneta,
+            background: C.ink,
+            border: `2px solid ${C.card}`,
             color: "#fff",
             display: "flex",
             alignItems: "center",
@@ -210,18 +201,39 @@ export default function SliderConfianca({
         </div>
       </div>
 
+      {/* Legenda curta de cada faixa, sob a trilha — orienta antes mesmo do
+          primeiro toque, já que a trilha em si não tem texto (ver acima). */}
       <div
         style={{
           ...mono,
           display: "flex",
-          justifyContent: "space-between",
-          fontSize: 10.5,
+          fontSize: 9.5,
           color: C.sub,
           marginTop: 5,
+          textAlign: "center",
         }}
       >
-        <span>chute</span>
-        <span>certeza</span>
+        <span style={{ flex: 1 }}>chute</span>
+        <span style={{ flex: 1 }}>embasado</span>
+        <span style={{ flex: 1 }}>quase certeza</span>
+        <span style={{ flex: 1 }}>certeza</span>
+      </div>
+
+      {/* Status dinâmico: o prompt antes de armar, o nome completo da faixa
+          depois — texto sobre o fundo neutro do card, nunca sobre a trilha
+          colorida, então a cor de cada faixa pode ser lida sem preocupação
+          com contraste de texto em cima dela. */}
+      <div
+        style={{
+          ...mono,
+          textAlign: "center",
+          fontSize: 12.5,
+          fontWeight: armado ? 700 : 400,
+          color: armado ? corAtiva : C.sub,
+          marginTop: 6,
+        }}
+      >
+        {armado ? `Solte: ${LABEL_CONFIANCA[zona]}` : "Arraste para responder →"}
       </div>
     </div>
   );

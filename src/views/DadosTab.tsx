@@ -26,6 +26,7 @@ import { useDadosAgregados, DIAS_HEATMAP } from "./dados/useDadosAgregados";
 import { PRESETS_PESO_EDITAL } from "../lib/edital";
 import { formatarUSD, situacaoTeto } from "../lib/custo";
 import { labelFormato, labelTipo, NIVEIS } from "../lib/constants";
+import { LABEL_CONFIANCA, NIVEIS_CONFIANCA } from "../lib/pontuacaoTopicos";
 import { agruparPorPrefixo } from "../lib/topicos";
 
 const TODAS = "__todas__";
@@ -154,12 +155,21 @@ export default function DadosTab({
     total: f.total,
   }));
   const dadosConceitos = conceitos.map((f) => ({ nome: f.chave, pct: f.pct, total: f.total }));
-  const LABEL_CONFIANCA: Record<string, string> = { certeza: "Certeza", chute: "Chute" };
-  const dadosConfianca = confiancas.map((f) => ({
-    nome: LABEL_CONFIANCA[f.chave] ?? f.chave,
-    pct: f.pct,
-    total: f.total,
-  }));
+  // `agrupar("confianca", ...)` ordena as chaves alfabeticamente, o que
+  // embaralha as 4 faixas (certeza, chute, chute-embasado, quase-certeza);
+  // aqui reordena pela escala real de confiança (ver NIVEIS_CONFIANCA em
+  // lib/pontuacaoTopicos.ts), do chute total à certeza absoluta.
+  const dadosConfianca = [...confiancas]
+    .sort((a, b) => {
+      const ia = NIVEIS_CONFIANCA.indexOf(a.chave as (typeof NIVEIS_CONFIANCA)[number]);
+      const ib = NIVEIS_CONFIANCA.indexOf(b.chave as (typeof NIVEIS_CONFIANCA)[number]);
+      return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+    })
+    .map((f) => ({
+      nome: LABEL_CONFIANCA[f.chave as (typeof NIVEIS_CONFIANCA)[number]] ?? f.chave,
+      pct: f.pct,
+      total: f.total,
+    }));
 
   return (
     <Shell titulo="Dados">

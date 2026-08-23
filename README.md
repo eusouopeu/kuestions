@@ -102,7 +102,7 @@ Aprovação em **≥ 90% (11/12)**. Os sub-blocos são pré-carregados em cascat
 
 Tipos de cobrança: literalidade em abstrato, norma em caso concreto, dispositivo cabível, cálculo concreto, conceitos e classificações, e **misturado** (sorteia um tipo diferente por questão dentro do sub-bloco).
 
-Responder é um gesto só: **arraste o botão para a direita**, e o quanto você arrastou é a sua declaração de confiança — soltar na metade esquerda registra "chute", na direita, "certeza" (ver [`SliderConfianca.tsx`](src/components/SliderConfianca.tsx)). Substituiu os dois botões separados: "Chute" era o botão menor e secundário justamente para a resposta que dá menos vontade de admitir, o que enviesava o dado.
+Responder é um gesto só: **arraste o botão para a direita**, e onde você solta é a sua declaração de confiança — a trilha tem **quatro faixas** (chute total → chute embasado → quase certeza → certeza absoluta, ver `NIVEIS_CONFIANCA` em [`src/lib/pontuacaoTopicos.ts`](src/lib/pontuacaoTopicos.ts) e [`SliderConfianca.tsx`](src/components/SliderConfianca.tsx)). Substituiu os dois botões separados ("Chute"/"Enviar"): "Chute" era o botão menor e secundário justamente para a resposta que dá menos vontade de admitir, o que enviesava o dado; as quatro faixas custam o mesmo gesto e ainda distinguem "não fazia ideia" de "eliminei alternativas e fiquei em dúvida entre duas". Só o extremo direito ("certeza absoluta") conta para o cartão ERRO PERIGOSO em Dados — "quase certeza" já é dúvida reconhecida.
 
 Ao responder, a questão revela gabarito, comentário e as explicações — mas só das alternativas que ainda estavam em jogo:
 
@@ -116,6 +116,8 @@ Cada questão traz no topo uma tag com a sua origem e o assunto: o nome da prova
 **Do banco** — sorteia questões de provas reais já aplicadas, do arquivo embutido [`src/data/banco_questoes.json`](src/data/banco_questoes.json) (~1.350 questões de SEFAZ estaduais, ISS-RJ, TCE-PI e RFB). Filtra por área, aula/bloco de aulas, banca e ano, com a quantidade ajustável de uma em uma questão, e prioriza as que você ainda não viu. Enunciado, alternativas e gabarito vêm prontos da prova — só o comentário e as explicações são gerados por IA, e o bloco funciona sem chave nenhuma (fica sem eles até você pedir explicação de alguma alternativa).
 
 O banco tem os **dois formatos**: múltipla escolha A–E e Certo/Errado. Toda questão de prova real conta como **nível 5**: já é o que a banca de fato cobrou, no formato final, sem a gradação didática dos níveis 1–4 da geração por IA. Questão anulada (gabarito "X") e registro sem gabarito ficam de fora.
+
+Cada questão do banco traz dois banners no topo do card: um **cinza** com a proveniência (instituição · cargo · ano) e um **roxo** com o assunto — o mesmo banner roxo que as questões geradas por IA usam (ver `BannerProveniencia`/`BannerTopico` em [`src/components/BannerQuestao.tsx`](src/components/BannerQuestao.tsx)), então um ajuste de estilo pedido para um vale para os dois. Quando o assunto tem uma classificação de incidência (`diamante`/`ouro`/`prata`/`bronze` no JSON), um emoji entra na frente do texto do banner roxo (💎🥇🥈🥉, ver `emojiIncidencia` em [`src/lib/banco.ts`](src/lib/banco.ts)). Algumas questões trazem `texto_apoio` — um contexto compartilhado por várias questões da mesma prova (um estudo de caso, uma tabela); quando presente, aparece num bloco próprio, separado do enunciado.
 
 **Importar** — monta um bloco sem chamar a API, de duas formas:
 

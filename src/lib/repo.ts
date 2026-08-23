@@ -163,7 +163,7 @@ export async function gravarResposta(args: {
   tempoMs?: number | null;
   /** Autoavaliação de confiança, registrada antes de revelar o gabarito (ver
    * QuestaoCard) — ausente/null quando o fluxo não pergunta. */
-  confianca?: "certeza" | "chute" | null;
+  confianca?: ConfiancaResposta;
 }): Promise<number> {
   const { questao: q } = args;
   const { lastId } = await run(
@@ -1786,23 +1786,25 @@ export async function custoMedioPorBloco(questoesPorBloco: number): Promise<numb
 /* ---------- Erro perigoso (certeza + errou) ---------- */
 
 /**
- * Questão em que o usuário marcou "certeza" ANTES de revelar o gabarito e
- * mesmo assim errou (ver `confianca` em QuestaoCard). É o erro mais caro numa
- * prova de verdade: sem dúvida percebida, o candidato não revisaria aquele
- * ponto nem no dia anterior. Aqui isso vira prioridade de revisão (ver
- * listarErradas, que ordena esses primeiro) e um indicador próprio na aba
- * Dados.
+ * Questão em que o usuário arrastou o slider até "certeza absoluta" (o
+ * extremo direito, ver NIVEIS_CONFIANCA em lib/pontuacaoTopicos.ts) ANTES de
+ * revelar o gabarito e mesmo assim errou. É o erro mais caro numa prova de
+ * verdade: sem dúvida percebida, o candidato não revisaria aquele ponto nem
+ * no dia anterior. Só o extremo conta aqui de propósito — "quase certeza"
+ * ainda é dúvida reconhecida, não é esse erro. Vira prioridade de revisão
+ * (ver listarErradas, que ordena esses primeiro) e um indicador próprio na
+ * aba Dados.
  */
 const COND_ERRO_PERIGOSO = "acertou = 0 AND confianca = 'certeza'";
 
 export interface ResumoConfianca {
   /** Respostas com autoavaliação registrada (base dos percentuais). */
   comConfianca: number;
-  /** Marcou "certeza" e errou. */
+  /** Marcou "certeza absoluta" e errou. */
   perigosos: number;
-  /** Marcou "certeza" (acertando ou não). */
+  /** Marcou "certeza absoluta" (acertando ou não). */
   certezas: number;
-  /** Marcou "chute" e acertou — o outro lado da má calibração. */
+  /** Marcou "chute total" e acertou — o outro lado da má calibração. */
   sorte: number;
   /** % de excesso de confiança: perigosos / certezas. */
   pctExcessoConfianca: number;

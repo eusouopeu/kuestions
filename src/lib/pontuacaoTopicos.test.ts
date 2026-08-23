@@ -24,6 +24,16 @@ describe("pontosResposta", () => {
   it("0 pontos quando a confiança não foi perguntada", () => {
     expect(pontosResposta(true, null, "mc")).toBe(0);
   });
+
+  it("2 pontos ao acertar em quase certeza — mesma faixa de 'sabia' que certeza absoluta", () => {
+    expect(pontosResposta(true, "quase-certeza", "mc")).toBe(2);
+    expect(pontosResposta(true, "quase-certeza", "ce")).toBe(2);
+  });
+
+  it("1 ponto ao acertar chute embasado em múltipla escolha, 0 em Certo/Errado", () => {
+    expect(pontosResposta(true, "chute-embasado", "mc")).toBe(1);
+    expect(pontosResposta(true, "chute-embasado", "ce")).toBe(0);
+  });
 });
 
 describe("escolherPonderado", () => {

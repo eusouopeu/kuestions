@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { FlagIcon as FlagOutline, SpeakerWaveIcon, StopIcon } from "@heroicons/react/24/outline";
-import { FlagIcon as FlagSolid, SparklesIcon } from "@heroicons/react/24/solid";
+import { FlagIcon as FlagSolid } from "@heroicons/react/24/solid";
 import { C, cartao, disp, mono } from "../theme";
 import Botao from "./Botao";
 import Chip from "./Chip";
@@ -8,12 +8,13 @@ import Opcao, { type Reveal } from "./Opcao";
 import SelecaoNota from "./SelecaoNota";
 import SliderConfianca, { type Confianca } from "./SliderConfianca";
 import Calculadora from "./Calculadora";
+import { BannerProveniencia, BannerTopico } from "./BannerQuestao";
 import type { Questao } from "../lib/types";
 import { labelTipo } from "../lib/constants";
 import { mesclarExplicacoesBanco, mesclarExplicacoesRespondida, reportarQuestao } from "../lib/repo";
 import type { MotivoReport } from "../lib/repo";
 import { gerarExplicacaoParcial, letrasExplicaveis, mensagemDeErro } from "../lib/anthropic";
-import { buscarQuestaoBanco, nomeDaProva } from "../lib/banco";
+import { buscarQuestaoBanco, emojiIncidencia, nomeDaProva } from "../lib/banco";
 import { pareceCalculo } from "../lib/texto";
 import ModalReport from "./ModalReport";
 import { lerEmVoz, pararLeitura, vozDisponivel } from "../lib/acessibilidade";
@@ -75,10 +76,11 @@ export default function QuestaoCard({
   origem?: OrigemQuestao;
   cabecalho?: React.ReactNode;
   labelProxima: string;
-  /** Pergunta "certeza"/"chute" antes de revelar o gabarito (ver
-   * lib/repo.ts → porConfianca) — só faz sentido numa resposta nova, gravada
-   * de verdade; desligado em Refazer erradas (que não grava uma linha nova,
-   * só avança a caixa de Leitner da mesma questão). */
+  /** Pede a autoavaliação de confiança pelo slider (ver SliderConfianca e
+   * lib/repo.ts → porConfianca) antes de revelar o gabarito — só faz sentido
+   * numa resposta nova, gravada de verdade; desligado em Refazer erradas
+   * (que não grava uma linha nova, só avança a caixa de Leitner da mesma
+   * questão). */
   pedirConfianca?: boolean;
   /** `tempoMs` é o tempo entre a questão aparecer e a resposta ser enviada
    * (cronometrado aqui). `confianca` é null quando `pedirConfianca` é false.
@@ -218,8 +220,10 @@ export default function QuestaoCard({
     setTachadas((t) => t.filter((x) => x !== l));
   }
 
-  /** A prerrogativa é ter certeza — `confianca` só vira "chute" quando o
-   * próprio botão "Chute" (ao lado de "Enviar") é o que dispara o envio. */
+  /** Sem slider (pedirConfianca=false — ex.: revisão em Refazer erradas), o
+   * envio é o botão "Enviar" sozinho, sem pedir a autoavaliação; o valor
+   * default aqui nunca é usado nesse caso porque `onResponder` recebe null
+   * (ver mais abaixo). */
   async function enviar(confianca: Confianca = "certeza") {
     if (revelada || selecionada == null || enviando) return;
     setEnviando(true);
@@ -258,10 +262,14 @@ export default function QuestaoCard({
   const acertou = selecionada === questao.gabarito;
 
   /**
-   * Tag de origem: nome da prova real (banca · cargo · ano) ou o ícone de IA,
-   * seguido do assunto de que a questão trata. "Gerada por IA" e "Banco real"
-   * sozinhos diziam de onde veio, mas não sobre o quê — e é o assunto que
-   * situa a questão quando ela aparece fora do bloco em que foi criada.
+   * Os dois banners do topo (ver components/BannerQuestao.tsx):
+   *   - cinza (proveniência): banca · cargo · ano, só em questão de prova
+   *     real, com `qb` resolvido;
+   *   - roxo (tópico): assunto de que a questão trata, com o emoji de
+   *     incidência na frente quando o assunto tiver uma (ver
+   *     emojiIncidencia em lib/banco.ts) — o MESMO banner para questão do
+   *     banco e questão gerada por IA, para que um ajuste de estilo pedido
+   *     numa valha para as duas de uma vez.
    */
   const qb = questao.bancoId ? buscarQuestaoBanco(questao.bancoId) : null;
   // Na revisão a view não informa `origem` (a questão vem do banco de
@@ -269,12 +277,7 @@ export default function QuestaoCard({
   // gravação, e ele já basta para reconhecer uma questão de prova real.
   const origemEfetiva = origem ?? (qb ? "banco" : undefined);
   const assuntoDaQuestao = qb?.assunto || assunto || questao.conceitos[0] || materia;
-  const rotuloOrigem =
-    origemEfetiva === "banco"
-      ? `${qb ? nomeDaProva(qb) : "Prova real"} – ${assuntoDaQuestao}`
-      : origemEfetiva === "ia"
-        ? `– ${assuntoDaQuestao}`
-        : `Importada – ${assuntoDaQuestao}`;
+  const emojiDaQuestao = qb ? emojiIncidencia(qb) : null;
 
   /**
    * Quais alternativas entram na lista de explicações depois de revelar.
@@ -308,21 +311,33 @@ export default function QuestaoCard({
 
       {cabecalho}
 
-      {(origemEfetiva || temNota) && (
+      {origemEfetiva === "banco" && qb && <BannerProveniencia texto={nomeDaProva(qb)} />}
+      {origemEfetiva && <BannerTopico texto={assuntoDaQuestao} emoji={emojiDaQuestao} />}
+      {temNota && (
         <div style={{ marginBottom: 10 }}>
-          {origemEfetiva && (
-            <Chip tom={origemEfetiva === "banco" ? "ok" : "neutro"}>
-              {origemEfetiva === "ia" && (
-                <SparklesIcon
-                  width={12}
-                  height={12}
-                  style={{ verticalAlign: -1.5, marginRight: 4 }}
-                />
-              )}
-              {rotuloOrigem}
-            </Chip>
-          )}
-          {temNota && <Chip tom="ok">📝 Nota salva</Chip>}
+          <Chip tom="ok">📝 Nota salva</Chip>
+        </div>
+      )}
+
+      {/* Texto de apoio: contexto compartilhado por várias questões da
+          mesma prova (um estudo de caso, uma tabela) — algumas questões do
+          banco real dependem dele para fazer sentido (ver texto_apoio em
+          lib/banco.ts). Vem separado do enunciado, em bloco próprio, porque
+          é premissa, não a afirmação que a questão está fazendo. */}
+      {qb?.texto_apoio && (
+        <div
+          style={{
+            fontSize: 13.5,
+            lineHeight: 1.55,
+            color: C.sub,
+            background: C.paper,
+            border: `1.5px solid ${C.line}`,
+            borderRadius: 8,
+            padding: "10px 12px",
+            marginBottom: 12,
+          }}
+        >
+          {qb.texto_apoio}
         </div>
       )}
 

@@ -25,6 +25,31 @@ export interface QuestaoBanco {
   enunciado: string;
   alternativas: Record<string, string>;
   gabarito: string;
+  /** Texto compartilhado por várias questões da mesma prova (um estudo de
+   * caso, uma tabela, um enunciado-guarda-chuva do tipo "com base no texto
+   * acima, julgue os itens X a Y") — sem ele, a questão em si pode ser
+   * incompleta (ver `textoApoio` em `questaoBancoParaQuestao`). Presente só
+   * numa fração das questões. */
+  texto_apoio?: string;
+  /** Classificação de quanto o assunto desta questão incide nas provas
+   * (ver `emojiIncidencia`) — vazia quando o assunto ainda não foi
+   * classificado. */
+  incidencia?: "" | "Diamante" | "Ouro" | "Prata" | "Bronze";
+}
+
+/** Emoji por incidência, mostrado no banner roxo de assunto (ver
+ * BannerTopico em components/BannerQuestao.tsx) — null quando a questão não
+ * tem classificação, que é o caso mais comum na primeira leva do banco. */
+const EMOJI_INCIDENCIA: Record<string, string> = {
+  diamante: "💎",
+  ouro: "🥇",
+  prata: "🥈",
+  bronze: "🥉",
+};
+
+export function emojiIncidencia(q: Pick<QuestaoBanco, "incidencia">): string | null {
+  const chave = (q.incidencia ?? "").trim().toLowerCase();
+  return EMOJI_INCIDENCIA[chave] ?? null;
 }
 
 // Registros sem gabarito utilizável (null na fonte, ou "X" de questão anulada
