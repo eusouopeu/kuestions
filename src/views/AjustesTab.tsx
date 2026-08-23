@@ -33,11 +33,12 @@ import { sincronizarDocumentos } from "../lib/exportarDocumentos";
 import { Capacitor } from "@capacitor/core";
 import { isTauri } from "@tauri-apps/api/core";
 import {
-  getConfigMeta,
-  getMetasPorMateria,
-  setConfigMeta,
-  setMetasPorMateria,
-  type ConfigMeta,
+  getMetas,
+  META_GERAL,
+  META_PADRAO_BLOCOS,
+  rotuloMeta,
+  setMetas,
+  type Metas,
 } from "../lib/metas";
 import {
   getPesosEdital,
@@ -48,7 +49,7 @@ import {
   setPesosEdital,
   type PesosEdital,
 } from "../lib/edital";
-import { MATERIAS } from "../lib/constants";
+import { MATERIAS, MATERIAS_ORDENADAS } from "../lib/constants";
 import { AREAS_BANCO } from "../lib/banco";
 
 /** Matérias/áreas cujo peso no edital pode ser configurado: união das
@@ -116,8 +117,8 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   const [carregandoReportadas, setCarregandoReportadas] = useState(true);
   const [resolvendo, setResolvendo] = useState<number | null>(null);
 
-  const [meta, setMetaLocal] = useState<ConfigMeta>({ ativa: false, blocosPorSemana: 3 });
-  const [metasPorMateria, setMetasPorMateriaLocal] = useState<Record<string, number>>({});
+  // Um mapa só: a meta geral é a chave META_GERAL (ver lib/metas.ts).
+  const [metas, setMetasLocal] = useState<Metas>({});
   const [materiaParaAdicionar, setMateriaParaAdicionar] = useState("");
   const [pesos, setPesosLocal] = useState<PesosEdital>({});
   const [presetPeso, setPresetPeso] = useState("");
@@ -140,8 +141,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     resumoCusto()
       .then((c) => setGastoMes(c.mes))
       .catch(() => setGastoMes(0));
-    getConfigMeta().then(setMetaLocal);
-    getMetasPorMateria().then(setMetasPorMateriaLocal);
+    getMetas().then(setMetasLocal);
     getPesosEdital().then(setPesosLocal);
     getComExplicacoesIA().then(setComExplicacoesIALocal);
   }, []);
@@ -218,34 +218,26 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     setStatus({ tom: "ok", texto: "Credenciais removidas do aparelho." });
   }
 
-  async function mudarMeta(novo: ConfigMeta) {
-    setMetaLocal(novo);
+  async function salvarMetas(novo: Metas) {
+    setMetasLocal(novo);
     try {
-      await setConfigMeta(novo);
+      await setMetas(novo);
     } catch (e) {
-      console.error("salvar meta semanal", e);
+      console.error("salvar metas semanais", e);
     }
   }
 
-  async function salvarMetasPorMateria(novo: Record<string, number>) {
-    setMetasPorMateriaLocal(novo);
-    try {
-      await setMetasPorMateria(novo);
-    } catch (e) {
-      console.error("salvar meta por matéria", e);
-    }
-  }
-
-  function adicionarMetaMateria() {
+  function adicionarMeta() {
     const m = materiaParaAdicionar;
-    if (!m || m in metasPorMateria) return;
+    if (!m || m in metas) return;
     setMateriaParaAdicionar("");
-    salvarMetasPorMateria({ ...metasPorMateria, [m]: 3 });
+    salvarMetas({ ...metas, [m]: META_PADRAO_BLOCOS });
   }
 
-  function removerMetaMateria(m: string) {
-    const { [m]: _removida, ...resto } = metasPorMateria;
-    salvarMetasPorMateria(resto);
+  /** Remover a chave É desativar a meta — não há flag `ativa` separada. */
+  function removerMeta(m: string) {
+    const { [m]: _removida, ...resto } = metas;
+    salvarMetas(resto);
   }
 
   async function mudarPeso(materia: string, peso: number) {
@@ -769,88 +761,50 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
 
       <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
         <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-          META SEMANAL
+          METAS SEMANAIS
         </div>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
-          <span style={{ fontSize: 13.5 }}>Acompanhar meta</span>
-          <button
-            role="switch"
-            aria-checked={meta.ativa}
-            onClick={() => mudarMeta({ ...meta, ativa: !meta.ativa })}
-            style={{
-              width: 44,
-              height: 26,
-              borderRadius: 13,
-              border: "none",
-              padding: 3,
-              display: "flex",
-              justifyContent: meta.ativa ? "flex-end" : "flex-start",
-              background: meta.ativa ? C.caneta : C.line,
-              cursor: "pointer",
-              transition: "background 0.15s",
-            }}
-          >
-            <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
-          </button>
+        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
+          Quantos blocos por semana — no total ou numa matéria específica. Toda meta na lista
+          está ativa; remover a linha desativa.
         </div>
 
-        {meta.ativa && (
-          <div style={{ marginTop: 12 }}>
-            <label style={rotulo}>Blocos por semana</label>
-            <select
-              style={campo}
-              value={meta.blocosPorSemana}
-              onChange={(e) => mudarMeta({ ...meta, blocosPorSemana: Number(e.target.value) })}
-            >
-              {Array.from({ length: 14 }, (_, i) => i + 1).map((n) => (
-                <option key={n} value={n}>
-                  {n} bloco{n === 1 ? "" : "s"}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
-      </div>
-
-      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
-        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-          METAS POR MATÉRIA
-        </div>
-        {Object.keys(metasPorMateria).length > 0 && (
+        {Object.keys(metas).length > 0 && (
           <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
-            {Object.entries(metasPorMateria).map(([m, blocos]) => (
-              <div key={m} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={{ fontSize: 13.5, flex: 1 }}>{m}</span>
-                <select
-                  style={{ ...campo, ...mono, fontSize: 12, width: "auto", padding: "6px 8px" }}
-                  value={blocos}
-                  onChange={(e) =>
-                    salvarMetasPorMateria({ ...metasPorMateria, [m]: Number(e.target.value) })
-                  }
-                >
-                  {Array.from({ length: 14 }, (_, i) => i + 1).map((n) => (
-                    <option key={n} value={n}>
-                      {n} bloco{n === 1 ? "" : "s"}
-                    </option>
-                  ))}
-                </select>
-                <button
-                  onClick={() => removerMetaMateria(m)}
-                  aria-label={`Remover meta de ${m}`}
-                  style={{
-                    ...mono,
-                    fontSize: 13,
-                    background: "none",
-                    border: "none",
-                    color: C.erro,
-                    cursor: "pointer",
-                    padding: "4px 6px",
-                  }}
-                >
-                  ×
-                </button>
-              </div>
-            ))}
+            {Object.entries(metas)
+              .sort(([a], [b]) =>
+                a === META_GERAL ? -1 : b === META_GERAL ? 1 : a.localeCompare(b, "pt-BR"),
+              )
+              .map(([chave, blocos]) => (
+                <div key={chave} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ fontSize: 13.5, flex: 1 }}>{rotuloMeta(chave)}</span>
+                  <select
+                    style={{ ...campo, ...mono, fontSize: 12, width: "auto", padding: "6px 8px" }}
+                    value={blocos}
+                    onChange={(e) => salvarMetas({ ...metas, [chave]: Number(e.target.value) })}
+                  >
+                    {Array.from({ length: 14 }, (_, i) => i + 1).map((n) => (
+                      <option key={n} value={n}>
+                        {n} bloco{n === 1 ? "" : "s"}
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    onClick={() => removerMeta(chave)}
+                    aria-label={`Remover meta de ${rotuloMeta(chave)}`}
+                    style={{
+                      ...mono,
+                      fontSize: 13,
+                      background: "none",
+                      border: "none",
+                      color: C.erro,
+                      cursor: "pointer",
+                      padding: "4px 6px",
+                    }}
+                  >
+                    ×
+                  </button>
+                </div>
+              ))}
           </div>
         )}
 
@@ -860,8 +814,9 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
             value={materiaParaAdicionar}
             onChange={(e) => setMateriaParaAdicionar(e.target.value)}
           >
-            <option value="">Escolher matéria…</option>
-            {MATERIAS.filter((m) => !(m in metasPorMateria)).map((m) => (
+            <option value="">Adicionar meta…</option>
+            {!(META_GERAL in metas) && <option value={META_GERAL}>Todas as matérias</option>}
+            {MATERIAS_ORDENADAS.filter((m) => !(m in metas)).map((m) => (
               <option key={m} value={m}>
                 {m}
               </option>
@@ -869,7 +824,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
           </select>
           <Botao
             tipo="fantasma"
-            onClick={adicionarMetaMateria}
+            onClick={adicionarMeta}
             disabled={!materiaParaAdicionar}
             style={{ maxWidth: 100 }}
           >

@@ -1,34 +1,33 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FlagIcon as FlagOutline, SpeakerWaveIcon, StopIcon } from "@heroicons/react/24/outline";
-import { FlagIcon as FlagSolid } from "@heroicons/react/24/solid";
+import { FlagIcon as FlagSolid, SparklesIcon } from "@heroicons/react/24/solid";
 import { C, cartao, disp, mono } from "../theme";
 import Botao from "./Botao";
 import Chip from "./Chip";
 import Opcao, { type Reveal } from "./Opcao";
 import SelecaoNota from "./SelecaoNota";
+import SliderConfianca, { type Confianca } from "./SliderConfianca";
+import Calculadora from "./Calculadora";
 import type { Questao } from "../lib/types";
 import { labelTipo } from "../lib/constants";
 import { mesclarExplicacoesBanco, mesclarExplicacoesRespondida, reportarQuestao } from "../lib/repo";
 import type { MotivoReport } from "../lib/repo";
-import { gerarExplicacaoParcial, mensagemDeErro } from "../lib/anthropic";
+import { gerarExplicacaoParcial, letrasExplicaveis, mensagemDeErro } from "../lib/anthropic";
+import { buscarQuestaoBanco, nomeDaProva } from "../lib/banco";
+import { pareceCalculo } from "../lib/texto";
 import ModalReport from "./ModalReport";
 import { lerEmVoz, pararLeitura, vozDisponivel } from "../lib/acessibilidade";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
 
-export type Confianca = "certeza" | "chute";
+export type { Confianca };
 
 export type OrigemQuestao = "ia" | "banco" | "importada";
 
-const ROTULO_ORIGEM: Record<OrigemQuestao, string> = {
-  ia: "Gerada por IA",
-  banco: "Banco real · explicação por IA",
-  importada: "Importada",
-};
-
 /**
  * Uma questão: enunciado, alternativas com toque/arrasto, revelação com
- * comentário do gabarito e explicação de CADA alternativa errada.
+ * comentário do gabarito e explicação das alternativas que ainda estavam em
+ * jogo (ver `letrasParaExplicar`).
  *
  * Salvar nota: o usuário seleciona qualquer trecho de texto do card (o
  * enunciado, o comentário, as explicações) e um botão flutuante oferece
@@ -41,6 +40,7 @@ export default function QuestaoCard({
   questao,
   materia,
   tagAssunto,
+  assunto,
   questaoOrigemId,
   reportadaInicial,
   temNotaInicial,
@@ -55,6 +55,11 @@ export default function QuestaoCard({
   materia: string;
   /** Assunto do bloco de origem, já resumido (ver gerarTagAssunto). */
   tagAssunto: string;
+  /** Assunto por extenso, como o usuário o vê (tópico do bloco, aula do
+   * banco) — vai para a tag de origem no topo do card. Só a versão
+   * hifenizada (`tagAssunto`) serve para exportação de flashcard, não para
+   * leitura. */
+  assunto?: string;
   /** id em questoes_respondidas, quando já existe (modo revisão). */
   questaoOrigemId?: number | null;
   /** Já reportada em uma sessão anterior (modo revisão — QuestaoRespondida.reportada). */
@@ -200,11 +205,6 @@ export default function QuestaoCard({
     }
   }
 
-  const letrasValidas =
-    questao.formato === "ce"
-      ? ["C", "E"]
-      : LETRAS.slice(0, questao.alternativas?.length ?? 5);
-
   function selecionar(l: string) {
     if (revelada || tachadas.includes(l)) return;
     setSelecionada(l);
@@ -257,6 +257,41 @@ export default function QuestaoCard({
 
   const acertou = selecionada === questao.gabarito;
 
+  /**
+   * Tag de origem: nome da prova real (banca · cargo · ano) ou o ícone de IA,
+   * seguido do assunto de que a questão trata. "Gerada por IA" e "Banco real"
+   * sozinhos diziam de onde veio, mas não sobre o quê — e é o assunto que
+   * situa a questão quando ela aparece fora do bloco em que foi criada.
+   */
+  const qb = questao.bancoId ? buscarQuestaoBanco(questao.bancoId) : null;
+  // Na revisão a view não informa `origem` (a questão vem do banco de
+  // respostas, não do fluxo que a criou) — mas `bancoId` sobrevive na
+  // gravação, e ele já basta para reconhecer uma questão de prova real.
+  const origemEfetiva = origem ?? (qb ? "banco" : undefined);
+  const assuntoDaQuestao = qb?.assunto || assunto || questao.conceitos[0] || materia;
+  const rotuloOrigem =
+    origemEfetiva === "banco"
+      ? `${qb ? nomeDaProva(qb) : "Prova real"} – ${assuntoDaQuestao}`
+      : origemEfetiva === "ia"
+        ? `– ${assuntoDaQuestao}`
+        : `Importada – ${assuntoDaQuestao}`;
+
+  /**
+   * Quais alternativas entram na lista de explicações depois de revelar.
+   * Em CE é só o gabarito (ver letrasExplicaveis em lib/anthropic.ts: o item
+   * afirma uma coisa só). Em múltipla escolha, o gabarito mais as
+   * alternativas que continuaram em jogo — as que o usuário RISCOU já foram
+   * descartadas conscientemente, e explicá-las gasta leitura (e tokens, se
+   * pedidas sob demanda) com um erro que ele não cometeria.
+   */
+  const letrasParaExplicar = useMemo(() => {
+    const explicaveis = letrasExplicaveis(questao);
+    if (questao.formato === "ce") return explicaveis;
+    return explicaveis.filter((l) => l === questao.gabarito || !tachadas.includes(l));
+  }, [questao, tachadas]);
+
+  const temCalculadora = pareceCalculo(questao);
+
   return (
     // WebkitTouchCallout suprime o menu nativo de seleção (Copiar/Traduzir/
     // Buscar) do Android/iOS ao segurar o toque sobre o texto — ele compete
@@ -273,9 +308,20 @@ export default function QuestaoCard({
 
       {cabecalho}
 
-      {(origem || temNota) && (
+      {(origemEfetiva || temNota) && (
         <div style={{ marginBottom: 10 }}>
-          {origem && <Chip tom={origem === "banco" ? "ok" : "neutro"}>{ROTULO_ORIGEM[origem]}</Chip>}
+          {origemEfetiva && (
+            <Chip tom={origemEfetiva === "banco" ? "ok" : "neutro"}>
+              {origemEfetiva === "ia" && (
+                <SparklesIcon
+                  width={12}
+                  height={12}
+                  style={{ verticalAlign: -1.5, marginRight: 4 }}
+                />
+              )}
+              {rotuloOrigem}
+            </Chip>
+          )}
           {temNota && <Chip tom="ok">📝 Nota salva</Chip>}
         </div>
       )}
@@ -360,23 +406,27 @@ export default function QuestaoCard({
         </div>
       )}
 
+      {/* Questão de conta: calculadora embutida logo abaixo das alternativas,
+          para não trocar de app no meio do raciocínio (ver pareceCalculo em
+          lib/texto.ts). Continua disponível depois de revelar — conferir a
+          conta contra o comentário é parte da correção. */}
+      {temCalculadora && <Calculadora />}
+
       {!revelada && (
         <div>
-          <div style={{ display: "flex", gap: 8, marginTop: 14 }}>
-            {pedirConfianca && (
-              <Botao
-                tipo="cinza"
-                onClick={() => enviar("chute")}
-                disabled={selecionada == null || enviando}
-                style={{ flex: "0 0 32%" }}
-              >
-                Chute
-              </Botao>
-            )}
-            <Botao onClick={() => enviar("certeza")} disabled={selecionada == null} style={{ flex: 1 }}>
+          {pedirConfianca ? (
+            // Um gesto só no lugar dos botões "Chute" e "Enviar": o quanto
+            // você arrasta É a declaração de confiança (ver SliderConfianca).
+            <SliderConfianca disabled={selecionada == null || enviando} onEnviar={enviar} />
+          ) : (
+            <Botao
+              onClick={() => enviar("certeza")}
+              disabled={selecionada == null || enviando}
+              style={{ marginTop: 14 }}
+            >
               Enviar
             </Botao>
-          </div>
+          )}
           <div
             style={{
               ...mono,
@@ -470,9 +520,9 @@ export default function QuestaoCard({
                 marginBottom: 6,
               }}
             >
-              EXPLICAÇÃO POR ALTERNATIVA
+              {questao.formato === "ce" ? "EXPLICAÇÃO DO GABARITO" : "EXPLICAÇÃO POR ALTERNATIVA"}
             </div>
-            {letrasValidas.map((l) => {
+            {letrasParaExplicar.map((l) => {
               const ehGabarito = l === questao.gabarito;
               const texto = ehGabarito ? comentarioAtual : explicacoesAtuais?.[l];
               const rotuloLetra = questao.formato === "ce" ? (l === "C" ? "C" : "E") : l;
@@ -529,7 +579,11 @@ export default function QuestaoCard({
                     {rotuloLetra}
                   </span>
                   <span style={{ fontSize: 12.5, color: C.sub, flex: 1, fontStyle: "italic" }}>
-                    {ehGabarito ? "Por que está certa — toque para pedir explicação" : "Ainda não explicada — toque para pedir explicação"}
+                    {ehGabarito
+                      ? questao.formato === "ce"
+                        ? "Por que este é o gabarito — toque para pedir explicação"
+                        : "Por que está certa — toque para pedir explicação"
+                      : "Ainda não explicada — toque para pedir explicação"}
                   </span>
                 </label>
               );

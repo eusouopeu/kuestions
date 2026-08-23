@@ -117,6 +117,7 @@ export default function DadosTab({
     tempoGeral,
     tempoMaterias,
     confiancaResumo,
+    lentidao,
     custo,
     teto,
   } = useDadosAgregados({
@@ -657,6 +658,58 @@ export default function DadosTab({
                 {confiancaResumo.perigosos === 0
                   ? "Nenhum erro com certeza no histórico — sua percepção de dúvida está calibrada."
                   : `${confiancaResumo.pctExcessoConfianca}% do que você marcou com certeza deu errado. Numa prova, esse é o erro que passa despercebido na revisão.`}
+              </div>
+            </Cartao>
+          )}
+
+          {/* Acerto lento: o tempo por questão já era gravado em toda
+              resposta, mas só o relatório do simulado o usava. Acertar
+              gastando o dobro do tempo é fluência baixa — o único problema
+              que o placar registra como acerto. */}
+          {lentidao && lentidao.acertosCronometrados > 0 && (
+            <Cartao
+              titulo="ACERTO LENTO"
+              legenda="Questões que você acertou gastando mais que o dobro do seu tempo médio — entram na frente dos outros acertos na fila de revisão."
+            >
+              <div style={{ display: "flex", gap: 8, padding: "0 4px 14px" }}>
+                {[
+                  {
+                    rot: "Acertos lentos",
+                    val: String(lentidao.lentas),
+                    cor: lentidao.lentas > 0 ? C.caneta : C.ok,
+                  },
+                  {
+                    rot: "Dos seus acertos",
+                    val: `${lentidao.pct}%`,
+                    cor: corPct(100 - lentidao.pct),
+                  },
+                  {
+                    rot: "Tempo médio",
+                    val: `${Math.round(lentidao.tempoMedioMs / 1000)}s`,
+                    cor: C.ink,
+                  },
+                ].map((k) => (
+                  <div
+                    key={k.rot}
+                    style={{
+                      flex: 1,
+                      border: `1.5px solid ${C.line}`,
+                      borderRadius: 8,
+                      padding: "10px 6px",
+                      textAlign: "center",
+                    }}
+                  >
+                    <div style={{ ...disp, fontSize: 20, fontWeight: 800, color: k.cor }}>{k.val}</div>
+                    <div style={{ ...mono, fontSize: 9, color: C.sub, marginTop: 2, lineHeight: 1.3 }}>
+                      {k.rot.toUpperCase()}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ fontSize: 12, color: C.sub, padding: "0 4px 14px", lineHeight: 1.45 }}>
+                {lentidao.lentas === 0
+                  ? "Nenhum acerto acima do dobro do seu tempo médio — o conteúdo que você domina, você resolve rápido."
+                  : `${lentidao.pct}% dos seus acertos levaram mais que o dobro do seu tempo médio. Numa prova cronometrada, é o que custa as últimas questões.`}
               </div>
             </Cartao>
           )}

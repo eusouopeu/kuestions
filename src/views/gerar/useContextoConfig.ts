@@ -16,9 +16,11 @@ import {
   listarBlocos,
   resumoCusto,
   resumoPorMateria,
+  topicosPraticadosPorMateria,
   ultimaPraticaPorMateria,
 } from "../../lib/repo";
-import { getPesosEdital } from "../../lib/edital";
+import { getPesosEdital, PESO_PADRAO } from "../../lib/edital";
+import { lacunasDoEdital, type LacunaEdital } from "../../lib/topicos";
 import { getTetoMensal } from "../../lib/custo";
 import { priorizar, type Prioridade } from "../../lib/prioridade";
 import { sugerirNivel, type SugestaoNivel } from "../../lib/sugestao";
@@ -44,6 +46,10 @@ export function useContextoConfig({
   // praticar (ver lib/prioridade.ts). Só a primeira colocada interessa — a
   // ideia é substituir a decisão, não oferecer mais um menu.
   const [prioridade, setPrioridade] = useState<Prioridade | null>(null);
+  // Tópicos do edital com zero prática (ver lacunasDoEdital) — o ponto cego
+  // de `prioridade`, que ordena por fraqueza e por isso não enxerga o que
+  // nunca foi respondido.
+  const [lacunas, setLacunas] = useState<LacunaEdital[]>([]);
   const [custoMes, setCustoMes] = useState(0);
   const [tetoMes, setTetoMes] = useState(0);
   const [custoEstimado, setCustoEstimado] = useState<number | null>(null);
@@ -79,6 +85,13 @@ export function useContextoConfig({
       .catch(() => setPrioridade(null));
   }, [ativa]);
 
+  useEffect(() => {
+    if (!ativa) return;
+    Promise.all([topicosPraticadosPorMateria(), getPesosEdital()])
+      .then(([praticados, pesos]) => setLacunas(lacunasDoEdital(praticados, pesos, PESO_PADRAO)))
+      .catch(() => setLacunas([]));
+  }, [ativa]);
+
   // Custo estimado vem da média real das últimas chamadas de sub-bloco (ver
   // custoMedioPorBloco), não de uma conta teórica de tokens — sem histórico
   // suficiente fica null e a tela simplesmente não promete um número.
@@ -111,5 +124,5 @@ export function useContextoConfig({
     };
   }, [ativa, materia]);
 
-  return { hist, temChave, sugestaoNivel, prioridade, custoMes, tetoMes, custoEstimado };
+  return { hist, temChave, sugestaoNivel, prioridade, lacunas, custoMes, tetoMes, custoEstimado };
 }

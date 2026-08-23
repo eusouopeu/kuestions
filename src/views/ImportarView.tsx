@@ -4,7 +4,13 @@ import Botao from "../components/Botao";
 import Segmented from "../components/Segmented";
 import QuestaoCard from "../components/QuestaoCard";
 import { Vazio } from "../components/Shell";
-import { LIMIAR_APROVACAO, MATERIAS, TIPOS, type TipoId } from "../lib/constants";
+import {
+  LIMIAR_APROVACAO,
+  MATERIAS,
+  MATERIAS_ORDENADAS,
+  TIPOS,
+  type TipoId,
+} from "../lib/constants";
 import { normalizarQuestao } from "../lib/anthropic";
 import { criarBloco, fecharBloco, gravarResposta } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
@@ -327,6 +333,7 @@ export default function ImportarView() {
           questao={questaoAtual}
           materia={materiaFinal}
           tagAssunto={gerarTagAssunto(topico || materiaFinal)}
+          assunto={topico || materiaFinal}
           origem="importada"
           labelProxima={ultima ? "Ver resultado" : "Próxima questão"}
           onResponder={responder}
@@ -378,7 +385,7 @@ export default function ImportarView() {
       <div style={{ marginBottom: 16 }}>
         <label style={rotulo}>Matéria</label>
         <select style={campo} value={materia} onChange={(e) => setMateria(e.target.value)}>
-          {MATERIAS.map((m) => (
+          {MATERIAS_ORDENADAS.map((m) => (
             <option key={m} value={m}>
               {m}
             </option>

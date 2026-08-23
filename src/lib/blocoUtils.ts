@@ -7,6 +7,40 @@
  */
 import type { Questao } from "./types";
 
+/**
+ * Divide `quantidade` questões em sub-blocos de no máximo `qPorSub` — uma
+ * chamada à API por sub-bloco (ver dispararSub em GerarView). Antes a
+ * quantidade só podia variar de `qPorSub` em `qPorSub` justamente porque o
+ * tamanho era fixo; aqui o resto é distribuído entre os primeiros
+ * sub-blocos, para nunca sobrar um sub-bloco de 1 questão quando dá para
+ * equilibrar (13 → [3,3,3,2,2], não [3,3,3,3,1]).
+ */
+export function tamanhosSubs(quantidade: number, qPorSub: number): number[] {
+  const total = Math.max(1, Math.floor(quantidade));
+  const nSubs = Math.max(1, Math.ceil(total / qPorSub));
+  const base = Math.floor(total / nSubs);
+  const resto = total % nSubs;
+  return Array.from({ length: nSubs }, (_, i) => base + (i < resto ? 1 : 0));
+}
+
+/**
+ * Posição global (0..total-1) → sub-bloco e índice dentro dele. Substitui a
+ * aritmética `Math.floor(idx / qPorSub)`, que só funcionava com sub-blocos
+ * todos do mesmo tamanho. Devolve null para índice fora do bloco.
+ */
+export function localizarQuestao(
+  tamanhos: number[],
+  idx: number,
+): { sub: number; pos: number } | null {
+  if (idx < 0) return null;
+  let resta = idx;
+  for (let sub = 0; sub < tamanhos.length; sub++) {
+    if (resta < tamanhos[sub]) return { sub, pos: resta };
+    resta -= tamanhos[sub];
+  }
+  return null;
+}
+
 /** Máximo de conceitos citados por lote na instrução anti-repetição — o
  * prompt precisa lembrar o modelo do que já foi usado, não listar tudo. */
 const MAX_CONCEITOS_POR_LOTE = 4;
@@ -50,17 +84,22 @@ export function gabaritosCEDe(subs: (Questao[] | null)[], ate: number): string[]
 export function questoesNaoRespondidas(args: {
   subs: (Questao[] | null)[];
   qIdx: number;
-  totalQuestoes: number;
-  qPorSub: number;
+  /** Tamanho de cada sub-bloco (ver tamanhosSubs) — a soma é o total do bloco. */
+  tamanhos: number[];
   /** A questão em `qIdx` já foi respondida/reportada nesta sessão? */
   respondidaAtual: boolean;
 }): Questao[] {
-  const { subs, qIdx, totalQuestoes, qPorSub, respondidaAtual } = args;
+  const { subs, qIdx, tamanhos, respondidaAtual } = args;
+  const totalQuestoes = tamanhos.reduce((a, b) => a + b, 0);
+  const em = (idx: number) => {
+    const loc = localizarQuestao(tamanhos, idx);
+    return loc ? subs[loc.sub]?.[loc.pos] : undefined;
+  };
   const pendentes: Questao[] = [];
-  const atual = subs[Math.floor(qIdx / qPorSub)]?.[qIdx % qPorSub];
+  const atual = em(qIdx);
   if (atual && !respondidaAtual) pendentes.push(atual);
   for (let idx = qIdx + 1; idx < totalQuestoes; idx++) {
-    const q = subs[Math.floor(idx / qPorSub)]?.[idx % qPorSub];
+    const q = em(idx);
     if (q) pendentes.push(q);
   }
   return pendentes;

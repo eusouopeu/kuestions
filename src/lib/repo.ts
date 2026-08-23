@@ -32,6 +32,23 @@ import type {
 const COND_BLOCO_FEITO =
   "(SELECT COUNT(*) FROM questoes_respondidas qr WHERE qr.bloco_id = blocos.id AND qr.resposta != '') > 2";
 
+/**
+ * Agendamento da PRIMEIRA revisão de uma resposta recém-gravada.
+ *
+ * Errada (ou não respondida): caixa 1, `proxima_revisao = NULL` — vencida
+ * agora, aparece na próxima visita a "pendentes".
+ *
+ * Certa: caixa 2, revisão marcada para daqui a INTERVALOS_LEITNER_DIAS[1]
+ * dias. Antes, acertar uma vez tirava a questão do circuito para sempre —
+ * repetição espaçada é exatamente o contrário disso: o que você acertou
+ * volta, só que mais tarde a cada acerto (ver registrarRevisao).
+ */
+function agendamentoInicial(acertou: boolean): { caixa: number; proxima: string | null } {
+  if (!acertou) return { caixa: 1, proxima: null };
+  const dias = INTERVALOS_LEITNER_DIAS[1];
+  return { caixa: 2, proxima: new Date(Date.now() + dias * 86_400_000).toISOString() };
+}
+
 /* ---------- Blocos ---------- */
 
 export async function criarBloco(
@@ -152,9 +169,9 @@ export async function gravarResposta(args: {
   const { lastId } = await run(
     `INSERT INTO questoes_respondidas
        (bloco_id, materia, topico, sub, carga_conceitual, nivel, formato, tipo_cobranca,
-        enunciado, alternativas, gabarito, resposta, acertou, revisada,
+        enunciado, alternativas, gabarito, resposta, acertou, revisada, caixa_leitner, proxima_revisao,
         comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, tempo_ms, confianca, ts)
-     VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?)`,
+     VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     [
       args.blocoId,
       args.materia,
@@ -167,6 +184,9 @@ export async function gravarResposta(args: {
       q.gabarito,
       args.resposta,
       args.acertou ? 1 : 0,
+      args.acertou ? 1 : 0,
+      agendamentoInicial(args.acertou).caixa,
+      agendamentoInicial(args.acertou).proxima,
       q.comentario ?? "",
       JSON.stringify(q.explicacoes_erradas ?? {}),
       JSON.stringify(q.conceitos ?? []),
@@ -195,9 +215,9 @@ export async function gravarRespostasEmLote(
     return {
       sql: `INSERT INTO questoes_respondidas
          (bloco_id, materia, topico, sub, carga_conceitual, nivel, formato, tipo_cobranca,
-          enunciado, alternativas, gabarito, resposta, acertou, revisada,
+          enunciado, alternativas, gabarito, resposta, acertou, revisada, caixa_leitner, proxima_revisao,
           comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, tempo_ms, confianca, ts)
-       VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?)`,
+       VALUES (?, ?, ?, '', 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       params: [
         args.blocoId,
         args.materia,
@@ -210,6 +230,9 @@ export async function gravarRespostasEmLote(
         q.gabarito,
         args.resposta,
         args.acertou ? 1 : 0,
+        args.acertou ? 1 : 0,
+        agendamentoInicial(args.acertou).caixa,
+        agendamentoInicial(args.acertou).proxima,
         q.comentario ?? "",
         JSON.stringify(q.explicacoes_erradas ?? {}),
         JSON.stringify(q.conceitos ?? []),
@@ -252,6 +275,10 @@ function mapQuestao(r: Record<string, unknown>): QuestaoRespondida {
     conceitos: parseJSON<string[]>(r.conceitos, []),
     dispositivo: (r.dispositivo as string) ?? null,
     confianca: (r.confianca as QuestaoRespondida["confianca"]) ?? null,
+    // Proveniência da questão real: é o que permite ao card mostrar de que
+    // prova ela veio também na revisão, onde não há mais a view de origem
+    // para informar isso (ver QuestaoCard → buscarQuestaoBanco).
+    bancoId: (r.banco_id as string) ?? undefined,
     ts: String(r.ts),
   };
 }
@@ -267,6 +294,59 @@ const COND_PENDENTE = "(revisada = 0 OR (proxima_revisao IS NOT NULL AND proxima
 const agoraISO = () => new Date().toISOString();
 
 /**
+ * O que entra na fila de revisão.
+ *
+ *   - "pendentes": tudo que está vencido HOJE — errado ou certo. Acertar uma
+ *     questão passou a agendá-la (caixa 2, ver `gravarResposta` e a migração
+ *     13); antes, acertar uma vez tirava a questão do circuito para sempre,
+ *     que é o oposto do que repetição espaçada faz.
+ *   - "erradas": só o que foi errado, vencido ou não — a lista de erros do
+ *     histórico, que continua sendo uma pergunta legítima e diferente.
+ *
+ * Questão carregada e nunca respondida (`resposta = ''`, bloco abandonado)
+ * conta como errada: é o que a torna revisável depois.
+ */
+export type EscopoRevisao = "pendentes" | "erradas";
+
+function condEscopo(escopo: EscopoRevisao, prefixo = ""): { sql: string; params: unknown[] } {
+  const p = prefixo ? `${prefixo}.` : "";
+  if (escopo === "erradas") return { sql: `${p}acertou = 0`, params: [] };
+  const cond = COND_PENDENTE.replace(/revisada/g, `${p}revisada`).replace(
+    /proxima_revisao/g,
+    `${p}proxima_revisao`,
+  );
+  return { sql: cond, params: [agoraISO()] };
+}
+
+/**
+ * Acerto LENTO: acertou gastando mais que o dobro do seu tempo médio. É o
+ * mesmo corte do relatório do simulado (ver RelatorioSimulado), aplicado
+ * agora ao treino diário — acertar em dobro do tempo é fluência baixa, um
+ * problema que o placar conta como acerto e que por isso nunca aparecia
+ * sozinho. O `prefixo` qualifica só as colunas da linha em avaliação: a
+ * média interna é sobre a tabela inteira e não pode ser correlacionada com
+ * a linha de fora, senão viraria "tempo > 2 × ele mesmo" (nunca verdadeiro).
+ */
+export function condLenta(prefixo = ""): string {
+  const p = prefixo ? `${prefixo}.` : "";
+  return `(${p}tempo_ms IS NOT NULL AND ${p}tempo_ms > 2 * (SELECT AVG(tempo_ms) FROM questoes_respondidas WHERE tempo_ms IS NOT NULL))`;
+}
+
+/**
+ * Ordem da fila de revisão, da questão que mais precisa de atenção para a
+ * que menos precisa: errada antes de certa; dentro das erradas, o erro
+ * perigoso (marcou "certeza" e errou — ver resumoConfianca) primeiro;
+ * dentro das certas, o acerto lento antes do acerto rápido.
+ */
+function ordemRevisao(prefixo = ""): string {
+  const p = prefixo ? `${prefixo}.` : "";
+  return `${p}acertou ASC,
+     (CASE WHEN ${p}acertou = 0 AND ${p}confianca = 'certeza' THEN 0 ELSE 1 END),
+     (CASE WHEN ${p}acertou = 1 AND ${condLenta(prefixo)} THEN 0 ELSE 1 END),
+     ${p}ts DESC`;
+}
+
+/**
  * Erradas agrupáveis por matéria — base da view "Refazer erradas". Sem
  * `opts.limite`, carrega tudo (compatível com quem já chamava assim); com
  * limite, ativa paginação — RefazerView usa isso para não trazer para a
@@ -274,29 +354,22 @@ const agoraISO = () => new Date().toISOString();
  */
 export async function listarErradas(
   materia: string | null,
-  soPendentes: boolean,
+  escopo: EscopoRevisao,
   opts: { limite?: number; offset?: number } = {},
 ): Promise<QuestaoRespondida[]> {
-  const cond = ["acertou = 0"];
-  const params: unknown[] = [];
+  const e = condEscopo(escopo);
+  const cond = [e.sql];
+  const params: unknown[] = [...e.params];
   if (materia) {
     cond.push("materia = ?");
     params.push(materia);
   }
-  if (soPendentes) {
-    cond.push(COND_PENDENTE);
-    params.push(agoraISO());
-  }
 
   const { limite, offset = 0 } = opts;
-  // Erro perigoso primeiro (marcou "certeza" e errou — ver COND_ERRO_PERIGOSO
-  // e resumoConfianca): é o erro que o candidato não revisaria sozinho, porque
-  // não percebeu dúvida nenhuma na hora. Dentro de cada grupo, a ordem de
-  // sempre (mais recente primeiro).
   const rows = await all(
     `SELECT * FROM questoes_respondidas
      WHERE ${cond.join(" AND ")}
-     ORDER BY (CASE WHEN confianca = 'certeza' THEN 0 ELSE 1 END), ts DESC
+     ORDER BY ${ordemRevisao()}
      ${limite ? "LIMIT ? OFFSET ?" : ""}`,
     limite ? [...params, limite, offset] : params,
   );
@@ -305,22 +378,25 @@ export async function listarErradas(
 
 /** Contagem de erradas por matéria, para os cartões de seleção. */
 export async function contarErradasPorMateria(
-  soPendentes: boolean,
-): Promise<{ materia: string; total: number; pendentes: number }[]> {
+  escopo: EscopoRevisao,
+): Promise<{ materia: string; total: number; pendentes: number; erradas: number }[]> {
+  const e = condEscopo(escopo);
   const rows = await all(
     `SELECT materia,
-            COUNT(*)                                       AS total,
-            SUM(CASE WHEN ${COND_PENDENTE} THEN 1 ELSE 0 END) AS pendentes
+            COUNT(*)                                          AS total,
+            SUM(CASE WHEN ${COND_PENDENTE} THEN 1 ELSE 0 END) AS pendentes,
+            SUM(CASE WHEN acertou = 0 THEN 1 ELSE 0 END)      AS erradas
      FROM questoes_respondidas
-     WHERE acertou = 0 ${soPendentes ? `AND ${COND_PENDENTE}` : ""}
+     WHERE ${e.sql}
      GROUP BY materia
      ORDER BY total DESC`,
-    soPendentes ? [agoraISO(), agoraISO()] : [agoraISO()],
+    [agoraISO(), ...e.params],
   );
   return rows.map((r) => ({
     materia: String(r.materia),
     total: Number(r.total),
     pendentes: Number(r.pendentes),
+    erradas: Number(r.erradas),
   }));
 }
 
@@ -333,12 +409,13 @@ export async function contarErradasPorMateria(
  * o array de `conceitos` de cada questão errada.
  */
 export async function contarErradasPorConceito(
-  soPendentes: boolean,
+  escopo: EscopoRevisao,
   materia: string | null = null,
 ): Promise<{ conceito: string; total: number; pendentes: number }[]> {
   const condPendenteQr = "(qr.revisada = 0 OR (qr.proxima_revisao IS NOT NULL AND qr.proxima_revisao <= ?))";
-  const cond = ["qr.acertou = 0"];
-  const paramsWhere: unknown[] = [];
+  const e = condEscopo(escopo, "qr");
+  const cond = [e.sql];
+  const paramsWhere: unknown[] = [...e.params];
   if (materia) {
     cond.push("qr.materia = ?");
     paramsWhere.push(materia);
@@ -352,7 +429,6 @@ export async function contarErradasPorConceito(
      FROM questoes_respondidas qr, json_each(qr.conceitos) je
      WHERE ${cond.join(" AND ")}
      GROUP BY je.value
-     ${soPendentes ? `HAVING pendentes > 0` : ""}
      ORDER BY pendentes DESC, total DESC`,
     [agoraISO(), ...paramsWhere],
   );
@@ -367,20 +443,17 @@ export async function contarErradasPorConceito(
  * paginação de listarErradas, para não trazer um histórico inteiro de vez. */
 export async function listarErradasPorConceito(
   conceito: string,
-  soPendentes: boolean,
+  escopo: EscopoRevisao,
   opts: { limite?: number; offset?: number } = {},
 ): Promise<QuestaoRespondida[]> {
-  const cond = ["qr.acertou = 0", "EXISTS (SELECT 1 FROM json_each(qr.conceitos) je WHERE je.value = ?)"];
-  const params: unknown[] = [conceito];
-  if (soPendentes) {
-    cond.push(COND_PENDENTE);
-    params.push(agoraISO());
-  }
+  const e = condEscopo(escopo, "qr");
+  const cond = [e.sql, "EXISTS (SELECT 1 FROM json_each(qr.conceitos) je WHERE je.value = ?)"];
+  const params: unknown[] = [...e.params, conceito];
   const { limite, offset = 0 } = opts;
   const rows = await all(
     `SELECT qr.* FROM questoes_respondidas qr
      WHERE ${cond.join(" AND ")}
-     ORDER BY qr.ts DESC
+     ORDER BY ${ordemRevisao("qr")}
      ${limite ? "LIMIT ? OFFSET ?" : ""}`,
     limite ? [...params, limite, offset] : params,
   );
@@ -1153,6 +1226,47 @@ export async function tempoMedioGeral(
 }
 
 /**
+ * Acerto LENTO no treino diário: quantas questões você ACERTOU gastando mais
+ * que o dobro do seu tempo médio (ver condLenta), e que fatia dos seus
+ * acertos cronometrados isso representa.
+ *
+ * O tempo por questão já era gravado em toda resposta (`tempo_ms`), mas só o
+ * relatório do simulado o usava — no dia a dia, acertar em dobro do tempo
+ * conta como acerto e desaparece. É um problema diferente de errar: o
+ * conteúdo está lá, a fluência não, e numa prova cronometrada é o que custa
+ * as últimas questões.
+ */
+export interface ResumoLentidao {
+  /** Acertos acima de 2× o tempo médio. */
+  lentas: number;
+  /** Acertos com tempo medido — denominador de `pct`. */
+  acertosCronometrados: number;
+  /** `lentas` como % de `acertosCronometrados`. */
+  pct: number;
+  tempoMedioMs: number;
+}
+
+export async function resumoLentidao(materia: string | null = null): Promise<ResumoLentidao | null> {
+  const r = await one<{ lentas: number; total: number; media: number | null }>(
+    `SELECT SUM(CASE WHEN ${condLenta()} THEN 1 ELSE 0 END) AS lentas,
+            COUNT(*)                                        AS total,
+            AVG(tempo_ms)                                   AS media
+     FROM questoes_respondidas
+     WHERE acertou = 1 AND tempo_ms IS NOT NULL ${materia ? "AND materia = ?" : ""}`,
+    materia ? [materia] : [],
+  );
+  if (!r || !Number(r.total)) return null;
+  const total = Number(r.total);
+  const lentas = Number(r.lentas ?? 0);
+  return {
+    lentas,
+    acertosCronometrados: total,
+    pct: Math.round((lentas / total) * 100),
+    tempoMedioMs: Math.round(Number(r.media ?? 0)),
+  };
+}
+
+/**
  * Acerto por conceito — a dimensão mais granular que o app grava (cada
  * questão pode listar vários), e a única que nenhum card de Dados usava até
  * aqui. `json_each` desaninha o array JSON de `conceitos`; `HAVING` corta
@@ -1290,6 +1404,20 @@ export async function topicosPraticados(materia: string): Promise<string[]> {
     [materia],
   );
   return rows.map((r) => r.topico);
+}
+
+/**
+ * Tópicos já praticados, agrupados por matéria — versão em uma consulta só
+ * de `topicosPraticados`, para cruzar o edital inteiro com o histórico sem
+ * uma ida ao banco por matéria (ver lacunasDoEdital em lib/topicos.ts).
+ */
+export async function topicosPraticadosPorMateria(): Promise<Record<string, string[]>> {
+  const rows = await all<{ materia: string; topico: string }>(
+    `SELECT DISTINCT materia, topico FROM blocos WHERE topico IS NOT NULL AND topico != ''`,
+  );
+  const mapa: Record<string, string[]> = {};
+  for (const r of rows) (mapa[r.materia] ??= []).push(r.topico);
+  return mapa;
 }
 
 /** Tópico + acerto de cada questão respondida de uma matéria (granularidade

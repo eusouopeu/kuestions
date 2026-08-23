@@ -4,8 +4,9 @@
  * O prompt abaixo é o do artefato Questoes-Kumon.jsx, com três acréscimos:
  *   1. 3 questões por sub-bloco (era 5);
  *   2. tipos de cobrança selecionáveis: 2+ tipos escolhidos = sorteado por questão;
- *   3. `explicacoes_erradas` — explicação do erro de cada alternativa errada,
- *      com o mesmo nível de detalhe em CE e em MC.
+ *   3. `explicacoes_erradas` — explicação do erro de cada alternativa errada
+ *      em múltipla escolha. Em Certo/Errado não há: o item afirma uma coisa
+ *      só, e o comentário do gabarito já é a explicação inteira.
  * As regras de segurança jurídica e de brevidade vêm do artefato sem mudança.
  *
  * Sobre `temperature: 0` (pedido na especificação): o parâmetro foi REMOVIDO
@@ -44,7 +45,7 @@ async function criarCliente(): Promise<Anthropic> {
 
 /* ---------- Montagem do prompt ---------- */
 
-function descricaoTipo(tipos: TipoId[]): string {
+function descricaoTipo(tipos: TipoId[], nQuestoes: number): string {
   if (tipos.length <= 1) {
     const t = TIPOS.find((x) => x.id === tipos[0]) ?? TIPOS[0];
     return `${t.label} — ${t.desc}`;
@@ -57,15 +58,15 @@ function descricaoTipo(tipos: TipoId[]): string {
     .join("\n");
   return `MISTURADO. Sorteie um tipo diferente para cada questão deste sub-bloco, entre:
 ${lista}
-As ${Q_POR_SUB} questões do sub-bloco devem usar tipos de cobrança DIFERENTES entre si.`;
+As ${nQuestoes} questões do sub-bloco devem usar tipos de cobrança DIFERENTES entre si.`;
 }
 
-function descricaoFormato(formato: Config["formato"]): string {
+function descricaoFormato(formato: Config["formato"], nQuestoes: number): string {
   if (formato === "ce")
-    return `Todas as ${Q_POR_SUB} questões em Certo/Errado ("formato":"ce").`;
+    return `Todas as ${nQuestoes} questões em Certo/Errado ("formato":"ce").`;
   if (formato === "mc")
-    return `Todas as ${Q_POR_SUB} questões em múltipla escolha com 5 alternativas A–E ("formato":"mc").`;
-  return `Alternar: questões 1 e 3 em Certo/Errado ("ce"); questão 2 em múltipla escolha A–E ("mc").`;
+    return `Todas as ${nQuestoes} questões em múltipla escolha com 5 alternativas A–E ("formato":"mc").`;
+  return `Alternar entre os dois formatos: questões de ordem ímpar em Certo/Errado ("ce"); as de ordem par em múltipla escolha A–E ("mc").`;
 }
 
 /**
@@ -77,7 +78,7 @@ function descricaoFormato(formato: Config["formato"]): string {
  * mostrar ao modelo o histórico real do bloco e mandar corrigir o
  * desequilíbrio a cada novo sub-bloco.
  */
-function instrucaoEquilibrioGabarito(gabaritosCEAnteriores: string[]): string {
+function instrucaoEquilibrioGabarito(gabaritosCEAnteriores: string[], nQuestoes: number): string {
   const totalC = gabaritosCEAnteriores.filter((g) => g === "C").length;
   const totalE = gabaritosCEAnteriores.filter((g) => g === "E").length;
   const historico = gabaritosCEAnteriores.length
@@ -87,7 +88,7 @@ function instrucaoEquilibrioGabarito(gabaritosCEAnteriores: string[]): string {
   return `EQUILÍBRIO DO GABARITO EM CERTO/ERRADO (obrigatório)
 - Decida o valor-verdade de cada assertiva (Certo ou Errado) pelo conteúdo jurídico, nunca por hábito de gerar mais afirmações verdadeiras do que falsas — esse viés é o erro mais comum ao elaborar questões CE.
 - ${historico}Se houver desequilíbrio acumulado, CORRIJA agora: prefira o gabarito menos usado até aqui neste sub-bloco.
-- Nas ${Q_POR_SUB} questões CE deste sub-bloco, não deixe todas com o mesmo gabarito — varie genuinamente, a menos que o conteúdo torne isso artificial.`;
+- Nas questões CE deste sub-bloco (são ${nQuestoes} questões no total), não deixe todas com o mesmo gabarito — varie genuinamente, a menos que o conteúdo torne isso artificial.`;
 }
 
 /** A partir daqui os distratores devem errar só por detalhe factual pontual
@@ -128,6 +129,7 @@ export function montarPrompt(
   padroesAnteriores: string[],
   gabaritosCEAnteriores: string[] = [],
   comExplicacoes = true,
+  nQuestoes: number = Q_POR_SUB,
 ): PromptPartes {
   const temCE = cfg.formato !== "mc";
   const descNivel = NIVEL_DESCRICOES[cfg.nivel - 1];
@@ -135,10 +137,10 @@ export function montarPrompt(
   // 1) Método: idêntico para qualquer matéria/nível/formato — só varia com
   // `comExplicacoes` (uma preferência que muda raramente). É o prefixo longo
   // que se quer manter em cache entre blocos e sessões.
-  const metodo = `Você é elaborador de questões de concurso da área fiscal (padrão SEFAZ / bancas FCC, FGV, Cebraspe). Gere EXATAMENTE ${Q_POR_SUB} questões inéditas, seguindo as regras abaixo e a CONFIGURAÇÃO informada mais adiante.
+  const metodo = `Você é elaborador de questões de concurso da área fiscal (padrão SEFAZ / bancas FCC, FGV, Cebraspe). Gere questões inéditas na quantidade EXATA indicada na CONFIGURAÇÃO mais adiante, seguindo as regras abaixo.
 
 LÓGICA KUMON
-- As ${Q_POR_SUB} questões devem ser quase-repetitivas entre si: mesma estrutura e mesmo padrão conceitual, variando apenas casos, sujeitos, entes e valores (automatização por repetição).
+- As questões de um mesmo sub-bloco devem ser quase-repetitivas entre si: mesma estrutura e mesmo padrão conceitual, variando apenas casos, sujeitos, entes e valores (automatização por repetição).
 
 QUALIDADE DOS DISTRATORES
 - Toda alternativa errada deve ser PLAUSÍVEL: deve corresponder a um erro real de raciocínio, a uma confusão frequente entre institutos próximos, ou a uma troca de requisito/prazo/sujeito verossímil.
@@ -146,13 +148,10 @@ QUALIDADE DOS DISTRATORES
 ${
   comExplicacoes
     ? `
-EXPLICAÇÃO POR ALTERNATIVA (obrigatório)
-- "comentario": por que o gabarito está correto.
-- "explicacoes_erradas": objeto letra → explicação. Uma entrada para CADA alternativa errada.
-  - Em múltipla escolha: as 4 letras erradas.
-  - Em Certo/Errado: a única letra errada ("C" se o gabarito é "E", ou "E" se o gabarito é "C").
-- Cada explicação deve nomear o ERRO ESPECÍFICO de raciocínio ou de memória que leva a marcar aquela alternativa (qual conceito foi trocado por qual, qual requisito foi ignorado, qual prazo/sujeito foi confundido). Não escreva "está incorreta" nem repita o gabarito.
-- O nível de detalhe deve ser o MESMO em Certo/Errado e em múltipla escolha: a explicação da alternativa errada em CE é tão detalhada quanto a de cada distrator em MC.
+EXPLICAÇÃO (obrigatório)
+- "comentario": por que o gabarito está correto. Em Certo/Errado é a ÚNICA explicação: um item de CE afirma uma coisa só, então explicar "por que Certo" e "por que não Errado" seria a mesma frase escrita duas vezes — diga o que torna a afirmação verdadeira ou falsa, nomeando o conceito, o requisito ou o detalhe (prazo, valor, sujeito) que decide.
+- "explicacoes_erradas": objeto letra → explicação, APENAS em múltipla escolha — uma entrada para cada uma das 4 letras erradas. Em Certo/Errado, devolva um objeto vazio {}.
+- Cada explicação de alternativa errada deve nomear o ERRO ESPECÍFICO de raciocínio ou de memória que leva a marcar aquela alternativa (qual conceito foi trocado por qual, qual requisito foi ignorado, qual prazo/sujeito foi confundido). Não escreva "está incorreta" nem repita o gabarito.
 `
     : ""
 }
@@ -168,11 +167,12 @@ BREVIDADE (obrigatório): enunciado ≤ 45 palavras; cada alternativa ≤ 12 pal
   // regras e o mais perto possível do fim do prompt.
   const config = `
 CONFIGURAÇÃO
+- Quantidade: EXATAMENTE ${nQuestoes} questão${nQuestoes === 1 ? "" : "ões"}
 - Matéria: ${cfg.materia}
 - Tópico: ${cfg.topico ? cfg.topico : "núcleo central da matéria"}
-- Tipo de cobrança: ${descricaoTipo(cfg.tipos)}
+- Tipo de cobrança: ${descricaoTipo(cfg.tipos, nQuestoes)}
 - Dificuldade (1 a 5): ${cfg.nivel} (${NIVEIS[cfg.nivel - 1]}) — ${descNivel}
-- Formato: ${descricaoFormato(cfg.formato)}
+- Formato: ${descricaoFormato(cfg.formato, nQuestoes)}
 ${
   cfg.nivel >= NIVEL_MIN_DETALHE_PONTUAL
     ? `- Neste nível, cada alternativa errada deve repetir quase todo o texto do gabarito e divergir por UM ÚNICO detalhe factual (um prazo, um valor, uma data, um nome, uma competência) — não por erro de conceito. O restante da frase deve ser idêntico ou equivalente ao correto.`
@@ -185,7 +185,7 @@ Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON:
     padroesAnteriores.length
       ? `NÃO reutilize literalmente os padrões já usados neste bloco: ${padroesAnteriores.join("; ")}.`
       : "",
-    temCE ? instrucaoEquilibrioGabarito(gabaritosCEAnteriores) : "",
+    temCE ? instrucaoEquilibrioGabarito(gabaritosCEAnteriores, nQuestoes) : "",
   ]
     .filter(Boolean)
     .join("\n\n");
@@ -314,8 +314,11 @@ export function normalizarQuestao(
   // GerarBancoView), o prompt nem pede comentario/explicacoes_erradas — a
   // questão fica sem explicação até o usuário pedir sob demanda (ver
   // gerarExplicacaoParcial), então aqui não preenchemos placeholder nenhum.
+  // Em Certo/Errado não há explicação por alternativa: o comentário do
+  // gabarito já é a explicação do item inteiro (ver EXPLICAÇÃO em
+  // montarPrompt e letrasExplicaveis abaixo).
   const explicacoes: Record<string, string> = {};
-  if (comExplicacoes) {
+  if (comExplicacoes && formato === "mc") {
     for (const l of erradas) {
       const v = brutas[l];
       explicacoes[l] =
@@ -445,11 +448,15 @@ export async function gerarSubBloco(
   padroesAnteriores: string[],
   gabaritosCEAnteriores: string[] = [],
   comExplicacoes = true,
+  /** Quantas questões este sub-bloco deve ter — os sub-blocos deixaram de
+   * ter tamanho fixo quando a quantidade do bloco passou a variar de 1 em 1
+   * (ver tamanhosSubs em lib/blocoUtils.ts). */
+  nQuestoes: number = Q_POR_SUB,
   tentativa = 0,
 ): Promise<Questao[]> {
   try {
     const texto = await chamar(
-      montarPrompt(cfg, subIdx, padroesAnteriores, gabaritosCEAnteriores, comExplicacoes),
+      montarPrompt(cfg, subIdx, padroesAnteriores, gabaritosCEAnteriores, comExplicacoes, nQuestoes),
       "medium",
       "sub-bloco",
     );
@@ -458,15 +465,23 @@ export async function gerarSubBloco(
       .map((r) => normalizarQuestao(r, cfg.formato, comExplicacoes))
       .filter((q): q is Questao => q !== null);
 
-    if (qs.length < Q_POR_SUB) throw new Error("questões insuficientes");
-    return qs.slice(0, Q_POR_SUB);
+    if (qs.length < nQuestoes) throw new Error("questões insuficientes");
+    return qs.slice(0, nQuestoes);
   } catch (e) {
     if (e instanceof SemCredencialError) throw e;
     if (e instanceof Anthropic.AuthenticationError || e instanceof Anthropic.PermissionDeniedError) {
       throw new Error(mensagemDeErro(e));
     }
     if (tentativa < 1) {
-      return gerarSubBloco(cfg, subIdx, padroesAnteriores, gabaritosCEAnteriores, comExplicacoes, tentativa + 1);
+      return gerarSubBloco(
+        cfg,
+        subIdx,
+        padroesAnteriores,
+        gabaritosCEAnteriores,
+        comExplicacoes,
+        nQuestoes,
+        tentativa + 1,
+      );
     }
     throw new Error(mensagemDeErro(e));
   }
@@ -474,25 +489,85 @@ export async function gerarSubBloco(
 
 /* ---------- Explicações para questões reais (banco de questões) ---------- */
 
-function montarPromptExplicacoes(questoes: Questao[]): string {
-  const lista = questoes
+/** Quantas explicações já geradas do mesmo assunto entram como contexto
+ * cacheado. Alto o bastante para o prefixo passar do mínimo cacheável do
+ * modelo (~1024 tokens) e baixo o bastante para não dominar o prompt. */
+const MAX_EXPLICACOES_CONTEXTO = 8;
+
+/**
+ * Contexto reaproveitável do assunto: as explicações que este app já gerou
+ * para OUTRAS questões do MESMO assunto do banco fixo (ver `explicacoes_banco`
+ * em lib/repo.ts). Vai como bloco cacheado do prompt, e é a razão de existir:
+ * as ~1.350 questões do banco se repetem por assunto, então da segunda vez que
+ * um assunto é praticado esse prefixo é cobrado como leitura de cache (0,1× o
+ * token de entrada) em vez de reprocessado — além de dar ao modelo o padrão de
+ * explicação já usado naquele assunto.
+ *
+ * A ordem é estável (ids ordenados, ver `idsDoAssunto`) porque o cache é
+ * casamento de prefixo byte a byte: embaralhar aqui zeraria o ganho.
+ */
+async function contextoDoAssunto(questoes: Questao[]): Promise<string> {
+  const doBanco = questoes.filter((q) => q.bancoId);
+  if (!doBanco.length) return "";
+  try {
+    const { idsDoAssunto, buscarQuestaoBanco } = await import("./banco");
+    const { buscarExplicacoesBanco } = await import("./repo");
+
+    const assuntos = [...new Set(doBanco.flatMap((q) => q.conceitos))].sort();
+    const noBloco = new Set(doBanco.map((q) => q.bancoId));
+    const candidatos = assuntos.flatMap(idsDoAssunto).filter((id) => !noBloco.has(id));
+    if (!candidatos.length) return "";
+
+    const cache = await buscarExplicacoesBanco(candidatos);
+    const linhas: string[] = [];
+    for (const id of candidatos) {
+      const exp = cache.get(id);
+      const q = buscarQuestaoBanco(id);
+      if (!exp?.comentario || !q) continue;
+      const erradas = Object.entries(exp.explicacoes_erradas)
+        .map(([l, t]) => `  ${l}: ${t}`)
+        .join("\n");
+      linhas.push(
+        `[${q.assunto}] ${q.enunciado}\nGabarito ${q.gabarito} — ${exp.comentario}${erradas ? `\n${erradas}` : ""}`,
+      );
+      if (linhas.length >= MAX_EXPLICACOES_CONTEXTO) break;
+    }
+    if (!linhas.length) return "";
+    return `EXPLICAÇÕES JÁ ESCRITAS PARA ESTE MESMO ASSUNTO (referência de conteúdo e de estilo — não as repita literalmente, não as reescreva, não as mencione na resposta):\n\n${linhas.join("\n\n")}`;
+  } catch (e) {
+    console.error("montar contexto de assunto", e);
+    return "";
+  }
+}
+
+function listaDeQuestoes(questoes: Questao[]): string {
+  return questoes
     .map((q, i) => {
       const alts = q.alternativas ? q.alternativas.join(" | ") : "C) Certo | E) Errado";
       return `${i + 1}. Enunciado: ${q.enunciado}\nAlternativas: ${alts}\nGabarito: ${q.gabarito}`;
     })
     .join("\n\n");
+}
 
-  return `Você é revisor de questões de concurso da área fiscal já prontas — NÃO altere enunciado, alternativas nem gabarito, eles já vêm corretos de uma prova real. Para CADA questão abaixo, na ordem em que aparecem, escreva:
-- "comentario": por que o gabarito está correto.
-- "explicacoes_erradas": objeto letra → explicação, uma entrada para CADA alternativa que não é o gabarito, nomeando o erro específico de raciocínio, de conceito ou de detalhe (data, prazo, valor, sujeito) que leva a marcar aquela alternativa. Não escreva "está incorreta" nem repita o gabarito.
+/**
+ * Regras da geração de explicações — sem a lista de questões e sem a
+ * contagem delas, para que o texto seja IDÊNTICO em toda chamada e possa ser
+ * o primeiro bloco cacheado do prompt (ver `chamar`). O que muda de um bloco
+ * para outro (as questões) vai na parte dinâmica.
+ */
+const REGRAS_EXPLICACOES = `Você é revisor de questões de concurso da área fiscal já prontas — NÃO altere enunciado, alternativas nem gabarito, eles já vêm corretos de uma prova real. Para CADA questão listada mais adiante, na ordem em que aparece, escreva:
+- "comentario": por que o gabarito está correto. Em Certo/Errado (alternativas "C) Certo | E) Errado") é a ÚNICA explicação pedida: diga o que torna a afirmação do enunciado verdadeira ou falsa, nomeando o conceito, o requisito ou o detalhe que decide.
+- "explicacoes_erradas": objeto letra → explicação, APENAS em múltipla escolha — uma entrada para cada alternativa que não é o gabarito, nomeando o erro específico de raciocínio, de conceito ou de detalhe (data, prazo, valor, sujeito) que leva a marcar aquela alternativa. Não escreva "está incorreta" nem repita o gabarito. Em Certo/Errado, devolva {}.
 
 BREVIDADE (obrigatório): comentario ≤ 22 palavras; cada explicação de alternativa errada ≤ 25 palavras.
 
-QUESTÕES:
-${lista}
-
-Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON, com EXATAMENTE ${questoes.length} itens na MESMA ORDEM das questões acima:
+Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON, com EXATAMENTE UM item por questão listada, na MESMA ORDEM em que elas aparecem:
 {"explicacoes":[{"comentario":"...","explicacoes_erradas":{"A":"...","B":"..."}}]}`;
+
+/** Bloco dinâmico: as questões deste bloco, que nunca se repetem entre
+ * chamadas e por isso ficam fora de qualquer corte de cache. */
+function blocoQuestoesExplicar(questoes: Questao[]): string {
+  return `QUESTÕES A EXPLICAR (${questoes.length}, nesta ordem):\n\n${listaDeQuestoes(questoes)}`;
 }
 
 /**
@@ -503,15 +578,27 @@ Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON, com EXAT
  */
 export async function gerarExplicacoes(questoes: Questao[]): Promise<Questao[]> {
   try {
-    const texto = await chamar(montarPromptExplicacoes(questoes), "medium", "explicações do bloco");
+    // Com contexto de assunto disponível, o prompt vai em três partes para
+    // que as duas primeiras sejam cacheadas (ver `chamar` e
+    // `contextoDoAssunto`): regras fixas → contexto do assunto → as questões
+    // deste bloco. Sem contexto, mantém-se o prompt único de antes.
+    const contexto = await contextoDoAssunto(questoes);
+    const prompt = contexto
+      ? { metodo: REGRAS_EXPLICACOES, config: contexto, dinamico: blocoQuestoesExplicar(questoes) }
+      : `${REGRAS_EXPLICACOES}\n\n${blocoQuestoesExplicar(questoes)}`;
+    const texto = await chamar(prompt, "medium", "explicações do bloco");
     const obj = extrairJSON(texto) as { explicacoes?: unknown[] };
     const itens = obj.explicacoes ?? [];
 
     return questoes.map((q, i) => {
       const item = itens[i] as Record<string, unknown> | undefined;
-      const letrasErradas = LETRAS_MC.slice(0, q.alternativas?.length ?? 5).filter(
-        (l) => l !== q.gabarito,
-      );
+      // CE não tem explicação por alternativa (ver REGRAS_EXPLICACOES);
+      // e o corte por `alternativas.length` evita pedir letra D/E numa MC de
+      // 4 alternativas.
+      const letrasErradas =
+        q.formato === "ce"
+          ? []
+          : LETRAS_MC.slice(0, q.alternativas?.length ?? 5).filter((l) => l !== q.gabarito);
       const brutas =
         item?.explicacoes_erradas && typeof item.explicacoes_erradas === "object"
           ? (item.explicacoes_erradas as Record<string, unknown>)
@@ -548,8 +635,11 @@ export async function gerarExplicacoes(questoes: Questao[]): Promise<Questao[]> 
  * ele pode querer saber por que a certa está certa, não só por que as
  * outras estão erradas). */
 export function letrasExplicaveis(questao: Questao): string[] {
+  // Em CE, a única explicação é a do gabarito (ver EXPLICAÇÃO em
+  // montarPrompt): pedir "por que C está errada" quando o gabarito é E é
+  // pedir a mesma frase invertida, e custa outra chamada à API.
   return questao.formato === "ce"
-    ? ["C", "E"]
+    ? [questao.gabarito]
     : LETRAS_MC.slice(0, questao.alternativas?.length ?? 5);
 }
 

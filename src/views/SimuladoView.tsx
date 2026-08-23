@@ -11,11 +11,12 @@ import {
   questaoBancoParaQuestao,
   selecionarQuestoes,
   type QuestaoBanco,
+  NIVEL_BANCO,
 } from "../lib/banco";
 import { gravarRespostasEmLote, idsBancoRespondidos, mesclarExplicacoesBanco } from "../lib/repo";
 import RelatorioSimulado from "./simulado/RelatorioSimulado";
 import { getPesosEdital, pesoDe, PRESETS_PESO_EDITAL, type PesosEdital } from "../lib/edital";
-import { gerarExplicacaoParcial, mensagemDeErro } from "../lib/anthropic";
+import { gerarExplicacaoParcial, letrasExplicaveis, mensagemDeErro } from "../lib/anthropic";
 import type { Questao } from "../lib/types";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
@@ -252,7 +253,9 @@ export default function SimuladoView() {
         blocoId: null,
         materia: area,
         topico: TOPICO_SIMULADO,
-        nivel: null,
+        // Simulado é feito de questões de prova real: nível 5 (ver
+        // NIVEL_BANCO em lib/banco.ts).
+        nivel: NIVEL_BANCO,
         questao,
         resposta,
         acertou,
@@ -582,13 +585,17 @@ export default function SimuladoView() {
           </div>
           <p style={{ fontSize: 16, lineHeight: 1.55, margin: "0 0 16px" }}>{pergunta.questao.enunciado}</p>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            {(pergunta.questao.alternativas ?? []).map((alt, i) => {
-              const l = LETRAS[i];
-              return (
+          {/* O banco real tem os dois formatos (ver questaoBancoParaQuestao
+              em lib/banco.ts): Certo/Errado desenha os dois botões grandes,
+              como no drill; múltipla escolha lista A–E. */}
+          {pergunta.questao.formato === "ce" ? (
+            <div style={{ display: "flex", gap: 10 }}>
+              {([["E", "ERRADO"], ["C", "CERTO"]] as const).map(([l, rot]) => (
                 <Opcao
                   key={l}
-                  texto={alt}
+                  texto={rot}
+                  big
+                  style={{ flex: 1 }}
                   tachada={tachadas.includes(l)}
                   marcada={resposta === l}
                   reveal={null as Reveal}
@@ -596,9 +603,27 @@ export default function SimuladoView() {
                   onTachar={() => tachar(l)}
                   onDestachar={() => destachar(l)}
                 />
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              {(pergunta.questao.alternativas ?? []).map((alt, i) => {
+                const l = LETRAS[i];
+                return (
+                  <Opcao
+                    key={l}
+                    texto={alt}
+                    tachada={tachadas.includes(l)}
+                    marcada={resposta === l}
+                    reveal={null as Reveal}
+                    onSelect={() => marcarResposta(l)}
+                    onTachar={() => tachar(l)}
+                    onDestachar={() => destachar(l)}
+                  />
+                );
+              })}
+            </div>
+          )}
 
           <div
             style={{
@@ -793,8 +818,8 @@ export default function SimuladoView() {
                 {aberta && (
                   <div style={{ marginTop: 10, paddingTop: 10, borderTop: `1px dashed ${C.line}` }}>
                     <div style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: 8 }}>
-                      {(e.questao.alternativas ?? []).map((alt, k) => {
-                        const l = LETRAS[k];
+                      {(e.questao.alternativas ?? ["C) Certo", "E) Errado"]).map((alt, k) => {
+                        const l = e.questao.formato === "ce" ? ["C", "E"][k] : LETRAS[k];
                         const ehGabarito = l === e.questao.gabarito;
                         const ehSua = l === e.resposta;
                         return (
@@ -824,10 +849,7 @@ export default function SimuladoView() {
                         sem explicação; o usuário escolhe o que quer
                         entender. */}
                     <div style={{ marginBottom: 10 }}>
-                      {(e.questao.formato === "ce"
-                        ? ["C", "E"]
-                        : LETRAS.slice(0, e.questao.alternativas?.length ?? 5)
-                      ).map((l) => {
+                      {letrasExplicaveis(e.questao).map((l) => {
                         const ehGabarito = l === e.questao.gabarito;
                         const texto = ehGabarito
                           ? e.questao.comentario

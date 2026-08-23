@@ -4,6 +4,7 @@ import {
   contarItensLista,
   converterListaParaCloze,
   gerarTagAssunto,
+  pareceCalculo,
   segmentarMarcaTexto,
   slugify,
 } from "./texto";
@@ -95,5 +96,31 @@ describe("segmentarMarcaTexto", () => {
     expect(segmentarMarcaTexto("sem marca nenhuma")).toEqual([
       { texto: "sem marca nenhuma", cor: null },
     ]);
+  });
+});
+
+describe("pareceCalculo", () => {
+  it("aceita quando a própria geração declarou o tipo", () => {
+    expect(pareceCalculo({ enunciado: "Sem número nenhum.", tipo_cobranca: "calculo" })).toBe(true);
+  });
+
+  it("aceita texto com dois números e marcador monetário", () => {
+    expect(
+      pareceCalculo({
+        enunciado: "Mercadoria de R$ 2.000,00 com alíquota de 18%. Qual o ICMS devido?",
+      }),
+    ).toBe(true);
+  });
+
+  it("recusa questão de literalidade com citação de dispositivo", () => {
+    expect(
+      pareceCalculo({
+        enunciado: "Nos termos do art. 150, III, b, da CF/88, é vedado cobrar tributos no mesmo exercício.",
+      }),
+    ).toBe(false);
+  });
+
+  it("recusa texto com um número só", () => {
+    expect(pareceCalculo({ enunciado: "A alíquota é de 18%." })).toBe(false);
   });
 });

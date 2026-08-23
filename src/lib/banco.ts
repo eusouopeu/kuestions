@@ -1,10 +1,14 @@
 /**
- * Banco de questões reais de concurso (kuestion_db_1.json, 332 questões
- * SEFAZ-SE/2025 e outras), usado pela 4ª forma de montar blocos na aba
- * Questões: em vez de gerar questões inéditas via API, sorteia questões
- * reais já formuladas por banca. Só enunciado, alternativas e gabarito vêm
- * do banco — comentário e explicações por alternativa são gerados à parte
- * (ver gerarExplicacoes em lib/anthropic.ts), porque a fonte não os traz.
+ * Banco de questões reais de concurso (kuestion_db_1.json, ~1.350 questões de
+ * SEFAZ estaduais, ISS-RJ, TCE-PI e RFB), usado pela 4ª forma de montar
+ * blocos na aba Blocos: em vez de gerar questões inéditas via API, sorteia
+ * questões reais já formuladas por banca. Só enunciado, alternativas e
+ * gabarito vêm do banco — comentário e explicações são gerados à parte (ver
+ * gerarExplicacoes em lib/anthropic.ts), porque a fonte não os traz.
+ *
+ * A fonte tem os dois formatos: múltipla escolha A–E e Certo/Errado (nesta,
+ * `alternativas` é exatamente {C: "Certo", E: "Errado"}) — ver
+ * `questaoBancoParaQuestao`, que traduz um e outro para o `Questao` do app.
  */
 import banco from "../data/banco_questoes.json";
 import { pesoPonderado } from "./pontuacaoTopicos";
@@ -23,15 +27,56 @@ export interface QuestaoBanco {
   gabarito: string;
 }
 
-// A fonte tem pelo menos um registro corrompido (gabarito null, ver
-// SEFAZ-PA-2021-Q085) — descartado aqui, na única leitura do arquivo, em vez
-// de em cada função que consome BANCO. Sem isso, `questaoBancoParaQuestao`
-// quebra ao chamar `.trim()` num gabarito nulo assim que esse registro é
-// sorteado (mais provável em filtros amplos, como "todos os assuntos" de uma
-// área inteira — caso do Simulado).
+// Registros sem gabarito utilizável (null na fonte, ou "X" de questão anulada
+// pela banca) já são descartados na fusão do arquivo, mas o filtro fica aqui
+// também: é a única leitura do JSON, e sem ele `questaoBancoParaQuestao`
+// quebraria ao chamar `.trim()` num gabarito nulo assim que o registro fosse
+// sorteado.
 const BANCO = (banco as QuestaoBanco[]).filter(
-  (q) => typeof q.gabarito === "string" && q.gabarito.trim() !== "",
+  (q) =>
+    typeof q.gabarito === "string" &&
+    q.gabarito.trim() !== "" &&
+    q.gabarito.trim().toUpperCase() !== "X",
 );
+
+/** Índice por id — usado por `buscarQuestaoBanco`, a ponte que o card usa
+ * para saber de que prova veio a questão a partir só do `bancoId` (o único
+ * campo de proveniência que sobrevive em `questoes_respondidas`). */
+const POR_ID = new Map(BANCO.map((q) => [q.id, q]));
+
+/** ids de todas as questões de um assunto, em ordem estável (ordenada) —
+ * base do contexto cacheado de explicações por assunto (ver
+ * `contextoDoAssunto` em lib/anthropic.ts), onde a ORDEM importa: o prompt
+ * caching é casamento de prefixo byte a byte, então o mesmo assunto tem de
+ * produzir sempre a mesma sequência. */
+export function idsDoAssunto(assunto: string): string[] {
+  return BANCO.filter((q) => q.assunto === assunto)
+    .map((q) => q.id)
+    .sort();
+}
+
+/** Questão do banco pelo id, ou null. */
+export function buscarQuestaoBanco(id: string): QuestaoBanco | null {
+  return POR_ID.get(id) ?? null;
+}
+
+/**
+ * Nome da prova de origem, para a tag do card: instituição + cargo + ano.
+ * O cargo entra porque a mesma banca/ano pode ter provas distintas
+ * (ex. SEFAZ-RJ 2025 tem "Fiscal de Rendas" e "Conhecimentos Gerais").
+ */
+export function nomeDaProva(q: QuestaoBanco): string {
+  return [q.instituicao, q.cargo, q.ano].filter(Boolean).join(" · ");
+}
+
+/**
+ * Toda questão de prova real conta como nível 5: são questões efetivamente
+ * cobradas por banca, no formato final, sem a gradação didática dos níveis
+ * 1–4 da geração por IA (ver NIVEL_DESCRICOES em lib/constants.ts). Fixar em
+ * 5 — em vez do `null` de antes — é o que faz o banco real aparecer nos
+ * gráficos por nível e contar como prática de nível máximo.
+ */
+export const NIVEL_BANCO = 5;
 
 /** Áreas do banco, independentes de MATERIAS — a fonte usa rótulos próprios
  * (ex. "Noções de Informática") que nem sempre batem com os da geração por
@@ -246,10 +291,15 @@ export function descricaoFiltroBanco(area: string, filtro: FiltroBanco): string 
  */
 export function questaoBancoParaQuestao(q: QuestaoBanco): Questao {
   const letras = Object.keys(q.alternativas).sort();
-  const alternativas = letras.map((l) => `${l}) ${q.alternativas[l]}`);
+  // Certo/Errado na fonte é exatamente {C: "Certo", E: "Errado"} — vira o
+  // formato "ce" do app (alternativas null; o card desenha CERTO/ERRADO).
+  // Sem isto, uma questão CE apareceria como múltipla escolha de duas
+  // alternativas, e o gabarito "C"/"E" seria lido como a letra C ou E de MC.
+  const ehCE = letras.length === 2 && letras[0] === "C" && letras[1] === "E";
+  const alternativas = ehCE ? null : letras.map((l) => `${l}) ${q.alternativas[l]}`);
   return {
     enunciado: q.enunciado,
-    formato: "mc",
+    formato: ehCE ? "ce" : "mc",
     alternativas,
     gabarito: q.gabarito.trim().toUpperCase(),
     conceitos: [q.assunto],

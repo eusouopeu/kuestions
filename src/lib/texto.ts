@@ -149,3 +149,37 @@ export function slugify(texto: string): string {
     .replace(/^-+|-+$/g, "");
   return s || "arquivo";
 }
+
+/**
+ * A questão exige conta? Decide se a calculadora embutida aparece embaixo do
+ * card (ver Calculadora em components/) — alternar para a calculadora do
+ * celular no meio de uma questão de apuração é sair do app e perder o
+ * enunciado de vista.
+ *
+ * Dois caminhos, porque só o primeiro é confiável e ele nem sempre existe:
+ *   1. `tipo_cobranca === "calculo"` — a própria geração declarou (ver TIPOS
+ *      em lib/constants.ts). Questão de prova real e questão importada não
+ *      têm esse campo;
+ *   2. heurística sobre o texto: dois ou mais números E um marcador de conta
+ *      (R$, %, ou vocabulário de cálculo). Exigir os dois evita ligar a
+ *      calculadora em questão de literalidade que só cita "art. 150, III".
+ */
+const MARCADORES_CALCULO =
+  /\b(al[ií]quota|juros?|montante|base de c[áa]lculo|apura[çc][ãa]o|deprecia[çc][ãa]o|amortiza[çc][ãa]o|desconto|acr[ée]scimo|multa|corre[çc][ãa]o monet[áa]ria|saldo|valor presente|valor futuro|taxa|percentual|propor[çc][ãa]o|m[ée]dia|d[ée]bito|cr[ée]dito)\b/i;
+
+export function pareceCalculo(questao: {
+  enunciado: string;
+  alternativas?: string[] | null;
+  tipo_cobranca?: string;
+}): boolean {
+  if (questao.tipo_cobranca === "calculo") return true;
+
+  const texto = [questao.enunciado, ...(questao.alternativas ?? [])].join(" ");
+  // Números "de conta": exclui os que vêm colados a "art.", "inciso" etc. só
+  // pelo volume — dois ou mais números soltos num texto com marcador de
+  // cálculo é sinal suficiente, e um falso positivo custa uma seção
+  // recolhida, não um erro.
+  const numeros = texto.match(/\d[\d.,]*/g) ?? [];
+  if (numeros.length < 2) return false;
+  return /R\$|%/.test(texto) || MARCADORES_CALCULO.test(texto);
+}

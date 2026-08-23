@@ -18,6 +18,11 @@ const K_RASCUNHO = "bloco-rascunho";
 export interface RascunhoBloco {
   cfg: Config & { materia: string };
   subs: (Questao[] | null)[];
+  /** Tamanho de cada sub-bloco (ver tamanhosSubs em lib/blocoUtils.ts) —
+   * persistido junto porque desde que a quantidade do bloco varia de 1 em 1
+   * ele não é mais dedutível de `subs.length * Q_POR_SUB`. Ausente nos
+   * rascunhos gravados antes disso; GerarView cai no tamanho fixo nesse caso. */
+  tamanhos?: number[];
   statusSub: StatusSub[];
   qIdx: number;
   acertos: number[];

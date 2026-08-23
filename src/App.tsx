@@ -6,7 +6,6 @@ import QuestoesTab from "./views/QuestoesTab";
 import NotasTab from "./views/NotasTab";
 import AjustesTab from "./views/AjustesTab";
 import { getDB } from "./lib/db";
-import { temCredencial } from "./lib/secure";
 import { aplicarTema, getTema } from "./lib/tema";
 import { aplicarEscala, getEscala } from "./lib/acessibilidade";
 import Botao from "./components/Botao";
@@ -43,15 +42,14 @@ export default function App() {
   useEffect(() => {
     getTema().then(aplicarTema);
     getEscala().then(aplicarEscala);
+    // Sem chave de API o app NÃO abre mais em Ajustes: as ~1.350 questões de
+    // prova real do banco (ver lib/banco.ts) estão dentro do próprio app e
+    // não dependem de chave nem de rede — só o comentário gerado por IA
+    // depende. Abrir numa tela de configuração de credencial escondia isso e
+    // exigia decisão administrativa antes da primeira questão; agora a aba
+    // Blocos abre já em "Do banco" quando não há chave (ver BlocosTab).
     getDB()
-      .then(() => temCredencial())
-      .then((tem) => {
-        if (!tem) {
-          setAba("ajustes");
-          setVisitadas((v) => new Set(v).add("ajustes"));
-        }
-        setPronto(true);
-      })
+      .then(() => setPronto(true))
       .catch((e: unknown) => {
         setErroBoot(e instanceof Error ? e.message : "Falha ao abrir o banco de dados.");
       });

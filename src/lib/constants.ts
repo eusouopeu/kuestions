@@ -22,6 +22,17 @@ export const MATERIAS = [
   "Informática",
 ] as const;
 
+/**
+ * MATERIAS em ordem alfabética, para os dropdowns — a ordem de declaração
+ * acima é a herdada do artefato (por importância no edital) e continua
+ * valendo para o padrão (`MATERIAS[0]`), mas numa lista de 14 itens procurar
+ * uma matéria específica é mais rápido em ordem alfabética. É a mesma ordem
+ * já usada em AREAS_BANCO (ver lib/banco.ts).
+ */
+export const MATERIAS_ORDENADAS: string[] = [...MATERIAS].sort((a, b) =>
+  a.localeCompare(b, "pt-BR"),
+);
+
 export type TipoId = "abstrato" | "caso" | "calculo" | "conceito";
 
 export const TIPOS: { id: TipoId; label: string; desc: string }[] = [

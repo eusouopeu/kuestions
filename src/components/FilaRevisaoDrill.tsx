@@ -78,6 +78,7 @@ export default function FilaRevisaoDrill({
         questao={q}
         materia={q.materia}
         tagAssunto={gerarTagAssunto(q.topico || q.materia)}
+        assunto={q.topico || q.materia}
         questaoOrigemId={q.id}
         reportadaInicial={q.reportada}
         temNotaInicial={comNota.has(q.id)}

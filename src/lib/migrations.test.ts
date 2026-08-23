@@ -124,4 +124,31 @@ describe("MIGRATIONS", () => {
     expect(JSON.parse(tags)).toEqual(["imunidade-reciproca"]);
     db.close();
   });
+
+  it("agenda a primeira revisão das acertadas já gravadas (v13)", async () => {
+    const db = await novoBanco();
+    aplicar(db, 0, 12);
+    db.run(
+      `INSERT INTO questoes_respondidas
+         (bloco_id, materia, sub, carga_conceitual, formato, enunciado, gabarito, resposta,
+          acertou, revisada, comentario, explicacoes_erradas, conceitos, ts)
+       VALUES
+         (NULL, 'Direito Tributário', '', 1, 'ce', 'certa',  'C', 'C', 1, 0, '', '{}', '[]', '2026-01-01T10:00:00.000Z'),
+         (NULL, 'Direito Tributário', '', 1, 'ce', 'errada', 'C', 'E', 0, 0, '', '{}', '[]', '2026-01-01T10:00:00.000Z'),
+         (NULL, 'Direito Tributário', '', 1, 'ce', 'vazia',  'C', '',  0, 0, '', '{}', '[]', '2026-01-01T10:00:00.000Z')`,
+    );
+
+    aplicar(db, 12, ULTIMA);
+
+    const linhas = db.exec(
+      "SELECT enunciado, revisada, caixa_leitner, proxima_revisao FROM questoes_respondidas ORDER BY enunciado",
+    )[0].values;
+    // Acertada: caixa 2, com revisão marcada 3 dias depois da resposta e no
+    // MESMO formato de toISOString() (a comparação de datas é lexicográfica).
+    expect(linhas[0]).toEqual(["certa", 1, 2, "2026-01-04T10:00:00.000Z"]);
+    // Errada e não respondida continuam vencidas agora (caixa 1, sem data).
+    expect(linhas[1]).toEqual(["errada", 0, 1, null]);
+    expect(linhas[2]).toEqual(["vazia", 0, 1, null]);
+    db.close();
+  });
 });

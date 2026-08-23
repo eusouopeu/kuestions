@@ -270,3 +270,47 @@ export function descricaoBloco(b: BlocoDeAulas): string {
     .map((a) => a.nome)
     .join("; ")}`;
 }
+
+/** Um tópico do edital que nunca recebeu uma questão. */
+export interface LacunaEdital extends TopicoEspecifico {
+  materia: string;
+  /** Peso da matéria no edital (ver lib/edital.ts) — é o que ordena a lista. */
+  peso: number;
+}
+
+/**
+ * Tópicos do edital com ZERO prática, de todas as matérias com lista fixa,
+ * ordenados por peso da matéria.
+ *
+ * É o ponto cego que `prioridade.ts` não cobre: lá a urgência é peso ×
+ * FRAQUEZA × atraso, e fraqueza é 100 − % de acerto — indefinida num tópico
+ * que nunca foi respondido. Um tópico intocado de matéria pesada some do
+ * ranking justamente por não ter dado nenhum erro ainda.
+ *
+ * Função pura: recebe o que já foi praticado por matéria (ver
+ * topicosPraticadosPorMateria em lib/repo.ts) e os pesos (getPesosEdital).
+ * Matéria com peso 0 ("não cai no meu edital") fica de fora — mesma regra de
+ * `priorizar`.
+ */
+export function lacunasDoEdital(
+  praticadosPorMateria: Record<string, string[]>,
+  pesos: Record<string, number>,
+  pesoPadrao: number,
+): LacunaEdital[] {
+  const lacunas: LacunaEdital[] = [];
+  for (const [materia, lista] of Object.entries(TOPICOS_POR_MATERIA)) {
+    const peso = pesos[materia] ?? pesoPadrao;
+    if (peso <= 0) continue;
+    const praticados = praticadosPorMateria[materia] ?? [];
+    for (const t of lista) {
+      if (praticados.some((s) => s.includes(t.nome))) continue;
+      lacunas.push({ ...t, materia, peso });
+    }
+  }
+  return lacunas.sort(
+    (a, b) =>
+      b.peso - a.peso ||
+      a.materia.localeCompare(b.materia, "pt-BR") ||
+      a.codigo.localeCompare(b.codigo, "pt-BR"),
+  );
+}

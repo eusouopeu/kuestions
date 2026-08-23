@@ -21,6 +21,7 @@ import {
   resumo,
   resumoConfianca,
   resumoCusto,
+  resumoLentidao,
   resumoPorMateria,
   serieBlocos,
   streakDias,
@@ -32,6 +33,7 @@ import {
   type Resumo,
   type ResumoConfianca,
   type ResumoCusto,
+  type ResumoLentidao,
 } from "../../lib/repo";
 import { getPesosEdital, type PesosEdital } from "../../lib/edital";
 import { getTetoMensal } from "../../lib/custo";
@@ -90,6 +92,9 @@ export function useDadosAgregados({
   // hábito de autoavaliação, o outro é dinheiro da conta, não desempenho.
   const [confiancaResumo, setConfiancaResumo] = useState<ResumoConfianca | null>(null);
   const [custo, setCusto] = useState<ResumoCusto | null>(null);
+  // Acerto lento (ver resumoLentidao em repo.ts) — o problema que o placar
+  // conta como acerto.
+  const [lentidao, setLentidao] = useState<ResumoLentidao | null>(null);
   const [teto, setTeto] = useState(0);
 
   useEffect(() => {
@@ -113,12 +118,13 @@ export function useDadosAgregados({
       tempoMedioGeral(m),
       tempoPorMateria(),
       resumoConfianca(m),
+      resumoLentidao(m),
       resumoCusto(),
       getTetoMensal(),
       // Nota estimada só faz sentido na visão agregada.
       m === null ? Promise.all([resumoPorMateria(n), getPesosEdital()]) : Promise.resolve(null),
     ])
-      .then(([r, s, ni, ti, fo, co, cf, st, at, tg, tm, conf, cst, tt, baseNota]) => {
+      .then(([r, s, ni, ti, fo, co, cf, st, at, tg, tm, conf, lent, cst, tt, baseNota]) => {
         setRes(r);
         setSerie(s);
         setNiveis(ni);
@@ -131,6 +137,7 @@ export function useDadosAgregados({
         setTempoGeral(tg);
         setTempoMaterias(tm);
         setConfiancaResumo(conf);
+        setLentidao(lent);
         setCusto(cst);
         setTeto(tt);
         setPorMateriaNota(baseNota ? baseNota[0] : null);
@@ -181,6 +188,7 @@ export function useDadosAgregados({
     tempoGeral,
     tempoMaterias,
     confiancaResumo,
+    lentidao,
     custo,
     teto,
   };

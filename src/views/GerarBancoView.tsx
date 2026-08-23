@@ -20,6 +20,7 @@ import {
   questaoBancoParaQuestao,
   selecionarQuestoes,
   type FiltroBanco,
+  NIVEL_BANCO,
 } from "../lib/banco";
 import { gerarExplicacoes, SemCredencialError } from "../lib/anthropic";
 import { temCredencial } from "../lib/secure";
@@ -228,7 +229,12 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
     try {
       setBlocoId(
         await criarBloco(
-          { materia: area, materiaCustom: "", topico, tipos: [], formato: "mc", nivel: 0 },
+          // "misto": o banco real tem questões de múltipla escolha E de
+          // Certo/Errado (ver questaoBancoParaQuestao em lib/banco.ts), e o
+          // filtro pode trazer as duas no mesmo bloco. `nivel: 0` marca o
+          // bloco como "do banco" na lista de blocos recentes — não é o
+          // nível das questões, que é NIVEL_BANCO.
+          { materia: area, materiaCustom: "", topico, tipos: [], formato: "misto", nivel: 0 },
           selecionadas.length,
         ),
       );
@@ -259,7 +265,12 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
       blocoId,
       materia: area,
       topico: topicoAtual,
-      nivel: null,
+      // Questão de prova real conta como nível 5 (ver NIVEL_BANCO em
+      // lib/banco.ts): já é o formato final cobrado por banca, sem a
+      // gradação didática dos níveis 1–4 da geração por IA. O `nivel` do
+      // BLOCO continua 0 — é o que distingue "bloco do banco" de "bloco
+      // gerado" na lista de blocos recentes (ver GerarView).
+      nivel: NIVEL_BANCO,
       questao,
       resposta: letra,
       acertou,
@@ -303,7 +314,7 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
             blocoId,
             materia: area,
             topico: topicoAtual,
-            nivel: null,
+            nivel: NIVEL_BANCO,
             questao: q,
             resposta: "",
             acertou: false,
@@ -466,8 +477,8 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
             </button>
           </div>
           <div style={{ ...mono, fontSize: 11, color: C.sub, marginTop: 5 }}>
-            {disponiveis} questão{disponiveis === 1 ? "" : "es"} disponíve
-            {disponiveis === 1 ? "l" : "is"} neste filtro
+            {disponiveis} {disponiveis === 1 ? "questão disponível" : "questões disponíveis"} neste
+            filtro
             {disponiveis > 0 && (
               <>
                 {" · "}
@@ -535,6 +546,7 @@ export default function GerarBancoView({ onAjustes }: { onAjustes: () => void })
             questao={questao}
             materia={area}
             tagAssunto={gerarTagAssunto(topicoAtual)}
+            assunto={topicoAtual}
             origem="banco"
             labelProxima={ultimaDoBloco ? "Ver resultado" : "Próxima questão"}
             onResponder={responder}

@@ -11,6 +11,7 @@ import {
   listarErradas,
   listarErradasPorConceito,
   registrarRevisao,
+  type EscopoRevisao,
 } from "../lib/repo";
 import type { QuestaoRespondida } from "../lib/types";
 
@@ -19,27 +20,35 @@ import type { QuestaoRespondida } from "../lib/types";
 const LOTE = 150;
 
 /**
- * Refazer erradas. Não chama a API: relê questões já gravadas em
+ * Refazer. Não chama a API: relê questões já gravadas em
  * `questoes_respondidas` e as reapresenta com as mesmas interações do drill
- * de geração. Dois filtros — "Pendentes de revisão" / "Todas as erradas" —,
- * agrupáveis por matéria ou por conceito. ("Blocos anteriores" é outra aba,
- * ver BlocosAnterioresView — TODAS as questões de um bloco fechado, não só
- * as erradas, é um caso de uso diferente o bastante para não caber neste
- * mesmo seletor.)
+ * de geração. Dois filtros, agrupáveis por matéria ou por conceito:
  *
- * Em qualquer filtro, acertar de novo avança a caixa de Leitner da questão
- * (repetição espaçada); errar reseta e a devolve à fila de pendentes.
+ *   - "Vencidas hoje": a fila de repetição espaçada — o que está vencido
+ *     agora, ERRADO OU CERTO. Acertar não tira mais a questão do circuito:
+ *     ela volta na caixa seguinte de Leitner (ver agendamentoInicial e
+ *     registrarRevisao em lib/repo.ts), cada vez mais espaçada;
+ *   - "Todas as erradas": a lista de erros do histórico, vencidos ou não.
+ *
+ * ("Blocos anteriores" é outra aba, ver BlocosAnterioresView — TODAS as
+ * questões de um bloco fechado, não só as vencidas.)
+ *
+ * A ordem da fila prioriza o que mais precisa de atenção: errada antes de
+ * certa, erro perigoso antes de erro comum, acerto lento antes de acerto
+ * rápido (ver ordemRevisao em lib/repo.ts).
  */
-type Filtro = "pend" | "todas";
+type Filtro = EscopoRevisao;
 type AgrupamentoErradas = "materia" | "conceito";
 
 /** Fonte da fila aberta. */
 type FonteFila = { tipo: "materia"; valor: string | null } | { tipo: "conceito"; valor: string };
 
 export default function RefazerView() {
-  const [filtro, setFiltro] = useState<Filtro>("pend");
+  const [filtro, setFiltro] = useState<Filtro>("pendentes");
   const [agrupErradas, setAgrupErradas] = useState<AgrupamentoErradas>("materia");
-  const [pastas, setPastas] = useState<{ materia: string; total: number; pendentes: number }[]>([]);
+  const [pastas, setPastas] = useState<
+    { materia: string; total: number; pendentes: number; erradas: number }[]
+  >([]);
   const [conceitos, setConceitos] = useState<
     { conceito: string; total: number; pendentes: number }[]
   >([]);
@@ -55,25 +64,25 @@ export default function RefazerView() {
   // no card — buscado em lote (1 consulta por página) em vez de por questão.
   const [comNota, setComNota] = useState<Set<number>>(new Set());
 
-  const soPendentes = filtro === "pend";
+  const soPendentes = filtro === "pendentes";
 
   const recarregar = useCallback(() => {
     setCarregando(true);
     setErro(null);
-    Promise.all([contarErradasPorMateria(soPendentes), contarErradasPorConceito(soPendentes)])
+    Promise.all([contarErradasPorMateria(filtro), contarErradasPorConceito(filtro)])
       .then(([p, c]) => {
         setPastas(p);
         setConceitos(c);
       })
       .catch((e) => setErro(e instanceof Error ? e.message : "Falha ao ler o histórico."))
       .finally(() => setCarregando(false));
-  }, [soPendentes]);
+  }, [filtro]);
 
   useEffect(recarregar, [recarregar]);
 
   function buscarPagina(f: FonteFila, opts: { limite?: number; offset?: number }) {
-    if (f.tipo === "conceito") return listarErradasPorConceito(f.valor, soPendentes, opts);
-    return listarErradas(f.valor, soPendentes, opts);
+    if (f.tipo === "conceito") return listarErradasPorConceito(f.valor, filtro, opts);
+    return listarErradas(f.valor, filtro, opts);
   }
 
   async function abrir(f: FonteFila) {
@@ -185,8 +194,8 @@ export default function RefazerView() {
         <Segmented
           valor={filtro}
           opcoes={[
-            { id: "pend" as Filtro, label: "Pendentes de revisão" },
-            { id: "todas" as Filtro, label: "Todas as erradas" },
+            { id: "pendentes" as Filtro, label: "Vencidas hoje" },
+            { id: "erradas" as Filtro, label: "Todas as erradas" },
           ]}
           onChange={setFiltro}
         />
@@ -225,7 +234,9 @@ export default function RefazerView() {
         <Vazio>Lendo histórico…</Vazio>
       ) : semDados ? (
         <Vazio>
-          Nenhuma questão errada registrada{soPendentes ? " e pendente de revisão" : ""}.
+          {soPendentes
+            ? "Nada vencido para revisar hoje. Volte quando a próxima caixa de Leitner abrir."
+            : "Nenhuma questão errada registrada."}
           <br />
           Gere um bloco na aba Blocos — toda resposta fica gravada aqui.
         </Vazio>
@@ -263,7 +274,13 @@ export default function RefazerView() {
               <span style={{ ...disp, fontSize: 14.5, fontWeight: 600 }}>{p.materia}</span>
               <span style={{ ...mono, fontSize: 12, color: C.erro }}>
                 {p.total}
-                {!soPendentes && p.pendentes !== p.total ? ` · ${p.pendentes} pend.` : ""}
+                {soPendentes
+                  ? p.erradas > 0
+                    ? ` · ${p.erradas} errada${p.erradas === 1 ? "" : "s"}`
+                    : ""
+                  : p.pendentes !== p.total
+                    ? ` · ${p.pendentes} pend.`
+                    : ""}
               </span>
             </button>
           ))}

@@ -17,7 +17,9 @@ O app **não** embute nenhuma chave no bundle. Há duas opções; a primeira é 
 
 A chave é guardada via `@capacitor/preferences` (SharedPreferences no Android, UserDefaults no iOS — ambos privados ao sandbox do app) e sai do aparelho apenas na chamada para `api.anthropic.com`. Sem chave configurada, o app abre direto em Ajustes.
 
-O custo da API é seu: cada bloco de 12 questões são 4 chamadas (uma por sub-bloco).
+O custo da API é seu: cada bloco é dividido em sub-blocos de até 3 questões, uma chamada por sub-bloco.
+
+O app **funciona sem chave nenhuma**: as ~1.350 questões de prova real do banco embutido (ver *Aba Blocos*) não dependem de API nem de rede. Sem chave configurada, o app abre direto em **Blocos → Do banco**; só o comentário e as explicações — que são gerados por IA — ficam indisponíveis.
 
 ### Opção B — backend fino guardando a chave
 
@@ -92,7 +94,7 @@ No Xcode, selecione um simulador e clique em **Run**. Para rodar em iPhone físi
 
 ### Aba Questões
 
-**Gerar novas** — configure matéria, tópico, tipo de cobrança, formato e dificuldade; o app gera um bloco de **12 questões = 4 sub-blocos (A–D) × 3**.
+**Gerar novas** — configure matéria, tópico, tipo de cobrança, formato e dificuldade; o app gera um bloco na quantidade que você pedir, ajustável **de uma em uma questão** (padrão 12). A quantidade é repartida em sub-blocos de até 3 questões — uma chamada de API por sub-bloco —, com o resto distribuído para não sobrar um sub-bloco de 1 questão (13 vira 3+3+3+2+2, ver `tamanhosSubs` em [`src/lib/blocoUtils.ts`](src/lib/blocoUtils.ts)).
 
 A dificuldade do *conteúdo* é constante no bloco (nível 1–5). O que sobe entre sub-blocos é a **carga conceitual**: A exige 1 conceito isolado, D exige 4 ou mais mobilizados em paralelo. É esse eixo que mostra onde o raciocínio quebra — errar em D com A/B perfeitos significa que os conceitos existem mas não se combinam.
 
@@ -100,7 +102,20 @@ Aprovação em **≥ 90% (11/12)**. Os sub-blocos são pré-carregados em cascat
 
 Tipos de cobrança: literalidade em abstrato, norma em caso concreto, dispositivo cabível, cálculo concreto, conceitos e classificações, e **misturado** (sorteia um tipo diferente por questão dentro do sub-bloco).
 
-Ao responder, a questão revela: gabarito, comentário, e **a explicação do erro de cada alternativa errada** — com o mesmo detalhe em Certo/Errado e em múltipla escolha.
+Responder é um gesto só: **arraste o botão para a direita**, e o quanto você arrastou é a sua declaração de confiança — soltar na metade esquerda registra "chute", na direita, "certeza" (ver [`SliderConfianca.tsx`](src/components/SliderConfianca.tsx)). Substituiu os dois botões separados: "Chute" era o botão menor e secundário justamente para a resposta que dá menos vontade de admitir, o que enviesava o dado.
+
+Ao responder, a questão revela gabarito, comentário e as explicações — mas só das alternativas que ainda estavam em jogo:
+
+- em **múltipla escolha**, o gabarito e as alternativas que você NÃO riscou. Explicar o que você já descartou conscientemente gasta leitura (e tokens, quando pedida sob demanda) com um erro que você não cometeria;
+- em **Certo/Errado**, só o gabarito: o item afirma uma coisa só, então "por que Certo" e "por que não Errado" seriam a mesma frase escrita duas vezes.
+
+Em questão de cálculo, uma **calculadora** abre embaixo das alternativas (ver [`Calculadora.tsx`](src/components/Calculadora.tsx) e `pareceCalculo` em [`src/lib/texto.ts`](src/lib/texto.ts)) — com vírgula decimal, `%` como divisão por 100 e potência, para não trocar de app no meio de uma apuração. O avaliador é próprio, não `eval`.
+
+Cada questão traz no topo uma tag com a sua origem e o assunto: o nome da prova (banca · cargo · ano) quando é questão real, ou o ícone de IA quando foi gerada.
+
+**Do banco** — sorteia questões de provas reais já aplicadas, do arquivo embutido [`src/data/banco_questoes.json`](src/data/banco_questoes.json) (~1.350 questões de SEFAZ estaduais, ISS-RJ, TCE-PI e RFB). Filtra por área, aula/bloco de aulas, banca e ano, com a quantidade ajustável de uma em uma questão, e prioriza as que você ainda não viu. Enunciado, alternativas e gabarito vêm prontos da prova — só o comentário e as explicações são gerados por IA, e o bloco funciona sem chave nenhuma (fica sem eles até você pedir explicação de alguma alternativa).
+
+O banco tem os **dois formatos**: múltipla escolha A–E e Certo/Errado. Toda questão de prova real conta como **nível 5**: já é o que a banca de fato cobrou, no formato final, sem a gradação didática dos níveis 1–4 da geração por IA. Questão anulada (gabarito "X") e registro sem gabarito ficam de fora.
 
 **Importar** — monta um bloco sem chamar a API, de duas formas:
 
@@ -109,7 +124,12 @@ Ao responder, a questão revela: gabarito, comentário, e **a explicação do er
 
 Em ambos os casos o drill e a gravação em `questoes_respondidas` são idênticos aos de um bloco gerado — a única diferença é a origem das questões. O bloco importado usa nível 3 e tipo "misturado" fixos (sem sentido pedir dificuldade constante ou tipo único para um conjunto que você mesmo montou).
 
-**Refazer erradas** — relê as questões já erradas do banco e as reapresenta, **sem chamar a API** (custo zero). Agrupadas por matéria, com o tema em revisão no topo. Acertar marca a questão como *revisada*; ela continua no histórico, e o filtro "só pendentes" separa o que falta.
+**Refazer** — relê questões já gravadas e as reapresenta, **sem chamar a API** (custo zero), agrupadas por matéria ou por conceito. Dois filtros:
+
+- **Vencidas hoje** — a fila de repetição espaçada, com o que está vencido agora, **errado ou certo**. Acertar não tira mais a questão do circuito: ela é reagendada na caixa seguinte de Leitner (1 → 3 → 7 → 16 → 35 dias), cada vez mais espaçada. Antes, acertar uma vez arquivava a questão para sempre, que é o oposto do que repetição espaçada faz;
+- **Todas as erradas** — a lista de erros do histórico, vencidos ou não.
+
+A ordem da fila é a de quem mais precisa de atenção: errada antes de certa; entre as erradas, o **erro perigoso** (marcou "certeza" e errou) primeiro; entre as certas, o **acerto lento** antes do rápido (ver `ordemRevisao` em [`src/lib/repo.ts`](src/lib/repo.ts)).
 
 Interações: toque para marcar, deslize ← para riscar uma alternativa, deslize → para desfazer.
 
@@ -132,6 +152,7 @@ Filtro por matéria ("todas" agrega; uma matéria filtra estritamente) e:
 - evolução do % de acerto por bloco no tempo (linha, com o limiar de aprovação);
 - acerto por nível, por tipo de cobrança, por formato (CE vs MC), por confiança e por conceito — todos no mesmo componente de barras, com a mesma largura de eixo, para que a área de plotagem seja comparável entre eles;
 - **erro perigoso** — quantas questões você marcou com "certeza" e mesmo assim errou, e que % das suas certezas isso representa. É o erro que não se revisa sozinho (sem dúvida percebida, não se volta ao ponto); por isso a fila de "Refazer erradas" passa a mostrar essas questões primeiro;
+- **acerto lento** — quantas questões você acertou gastando mais que o dobro do seu tempo médio, e que fatia dos seus acertos isso representa. O tempo por questão já era gravado em toda resposta, mas só o relatório do simulado o usava: no dia a dia, acertar em dobro do tempo conta como acerto e desaparece — é fluência baixa, não domínio, e é o que custa as últimas questões numa prova cronometrada;
 - **custo da API** — gasto do mês, gasto total, número de chamadas e quanto dos tokens de entrada veio do cache. O teto mensal é configurado em Ajustes: com 80% ou mais dele consumido, gerar um bloco novo pede confirmação (nunca bloqueia — o teto é do usuário, não uma política do app);
 - totais: acerto geral, questões respondidas e sequência de dias, os três numa linha.
 
@@ -140,6 +161,10 @@ Toda questão respondida é gravada, certa ou errada. É a mesma base para a rev
 ### Prioridade de estudo e acessibilidade
 
 Na tela de configuração de bloco, um cartão **Estudar agora** aponta a matéria mais urgente, cruzando peso no edital × fraqueza (% de acerto) × dias sem praticar ([`src/lib/prioridade.ts`](src/lib/prioridade.ts)) — multiplicação, não soma, para que peso 0 ("não cai no meu edital") zere a prioridade por mais fraca que a matéria esteja. Um toque aplica a matéria na configuração.
+
+O mesmo cartão traz **Nunca praticados**: tópicos do edital sem nenhuma questão respondida, do maior peso para o menor (`lacunasDoEdital` em [`src/lib/topicos.ts`](src/lib/topicos.ts)). É o ponto cego de "Estudar agora" — lá a urgência depende da fraqueza, isto é, de 100 − % de acerto, que é indefinida num tópico que nunca recebeu uma resposta: sem esta lista, o que você nunca abriu não aparece em lugar nenhum do app. Um toque aplica matéria e tópico na configuração.
+
+**Metas semanais** (Ajustes) são um mapa único matéria → blocos por semana, com uma chave especial para "todas as matérias" — a presença da linha já significa que a meta está ativa, e removê-la desativa. Antes eram dois mecanismos separados (uma meta geral com flag `ativa` e um mapa por matéria), o que era a mesma pergunta respondida em dois lugares.
 
 Em Ajustes há **tamanho da interface** (padrão/grande/maior — aplica `zoom` na raiz, então cresce texto e alvo de toque juntos) e, em cada questão, um botão de **ouvir** que lê enunciado, alternativas e — depois de revelada — gabarito e comentário, pela síntese de voz do próprio aparelho (sem rede, sem custo).
 
@@ -157,7 +182,7 @@ Além do placar, o simulado cronometra cada questão e fecha com um relatório: 
 
 ### Schema SQLite
 
-`@capacitor-community/sqlite`, com o schema versionado por `PRAGMA user_version` e migrado no boot ([`src/lib/db.ts`](src/lib/db.ts), com as migrações em [`src/lib/migrations.ts`](src/lib/migrations.ts)). Abrir uma versão nova de schema aplica só as migrações pendentes — não recria nem apaga dados. Atualmente na versão 12 (a última acrescenta `uso_api`, o registro de tokens e custo por chamada). A v2 adiciona `topico` a `questoes_respondidas` (para calcular a tag da nota também na revisão de erradas, onde não há mais acesso à config do bloco) e migra `conceitos_salvos` do fluxo antigo de "chip de conceito" (`termo`/`definicao`, únicos por matéria) para o de seleção de texto (`titulo`/`corpo`/`tag`, sem unicidade — o usuário decide o título a cada seleção, então duas notas com o mesmo título são um uso legítimo). As colunas `termo`/`definicao` ficam mortas no banco (sem `DROP COLUMN`, para não depender da versão do SQLite de cada aparelho já em campo).
+`@capacitor-community/sqlite`, com o schema versionado por `PRAGMA user_version` e migrado no boot ([`src/lib/db.ts`](src/lib/db.ts), com as migrações em [`src/lib/migrations.ts`](src/lib/migrations.ts)). Abrir uma versão nova de schema aplica só as migrações pendentes — não recria nem apaga dados. Atualmente na versão 13 (a última agenda a primeira revisão das questões ACERTADAS já gravadas — caixa 2, três dias após a resposta —, que é o que passou a colocá-las na fila de repetição espaçada; a v12 acrescentou `uso_api`, o registro de tokens e custo por chamada). A v2 adiciona `topico` a `questoes_respondidas` (para calcular a tag da nota também na revisão de erradas, onde não há mais acesso à config do bloco) e migra `conceitos_salvos` do fluxo antigo de "chip de conceito" (`termo`/`definicao`, únicos por matéria) para o de seleção de texto (`titulo`/`corpo`/`tag`, sem unicidade — o usuário decide o título a cada seleção, então duas notas com o mesmo título são um uso legítimo). As colunas `termo`/`definicao` ficam mortas no banco (sem `DROP COLUMN`, para não depender da versão do SQLite de cada aparelho já em campo).
 
 Tabelas: `blocos`, `questoes_respondidas`, `conceitos_salvos`, `explicacoes_banco` e `uso_api`. As agregações da aba Dados são feitas em SQL (`GROUP BY`), não em memória — é a razão de usar SQLite em vez de Preferences.
 
@@ -169,9 +194,11 @@ Tabelas: `blocos`, `questoes_respondidas`, `conceitos_salvos`, `explicacoes_banc
 
 A especificação original pedia `temperature: 0` para reduzir alucinação. **O parâmetro foi removido nos modelos atuais e uma requisição que o envie recebe erro 400.** O controle equivalente é raciocínio adaptativo com `output_config.effort`, que dá ao modelo espaço para executar a autoverificação factual que o prompt exige (conferir gabarito, dispositivo citado e contas) antes de fechar o JSON. As instruções de segurança jurídica do artefato foram mantidas na íntegra.
 
-O prompt de cada sub-bloco é montado em três partes, do mais estável ao mais volátil — método (regras fixas), configuração (matéria/tópico/nível/formato) e dinâmico (padrões já usados, equilíbrio C/E) — com `cache_control` nas duas primeiras. Como o cache é casamento de prefixo, pôr as regras fixas ANTES da configuração faz o cache sobreviver à troca de matéria e de bloco, não só aos sub-blocos de um mesmo bloco. Toda chamada concluída grava tokens e custo em `uso_api` (ver [`src/lib/custo.ts`](src/lib/custo.ts) e o cartão CUSTO DA API na aba Dados); leitura de cache custa 10% do token de entrada, então o efeito da divisão é visível ali.
+O prompt de cada sub-bloco é montado em três partes, do mais estável ao mais volátil — método (regras fixas), configuração (matéria/tópico/nível/formato) e dinâmico (padrões já usados, equilíbrio C/E) — com `cache_control` nas duas primeiras. Como o cache é casamento de prefixo, pôr as regras fixas ANTES da configuração faz o cache sobreviver à troca de matéria e de bloco, não só aos sub-blocos de um mesmo bloco. A geração de explicações para questões do banco real usa a mesma divisão: as regras fixas vêm primeiro, e depois um bloco com as explicações que o app JÁ escreveu para **outras questões do mesmo assunto** (`contextoDoAssunto`). Como o banco se repete por assunto, da segunda vez que um assunto é praticado esse prefixo é cobrado como leitura de cache em vez de reprocessado — e o modelo ganha o padrão de explicação já usado ali. A ordem desse bloco é estável (ids ordenados) de propósito: embaralhar zeraria o ganho, já que o cache é casamento byte a byte.
 
-Modelo: `claude-sonnet-5`, esforço `medium` — equilíbrio entre a autoverificação factual e o custo por chamada (cada bloco de 12 questões já são 4 chamadas). As chamadas usam streaming, porque com raciocínio ligado o `max_tokens` cobre raciocínio + resposta e um valor alto sem streaming arriscaria timeout de HTTP.
+Toda chamada concluída grava tokens e custo em `uso_api` (ver [`src/lib/custo.ts`](src/lib/custo.ts) e o cartão CUSTO DA API na aba Dados); leitura de cache custa 10% do token de entrada, então o efeito da divisão é visível ali.
+
+Modelo: `claude-sonnet-5`, esforço `medium` — equilíbrio entre a autoverificação factual e o custo por chamada (um bloco de 12 questões já são 4 chamadas). As chamadas usam streaming, porque com raciocínio ligado o `max_tokens` cobre raciocínio + resposta e um valor alto sem streaming arriscaria timeout de HTTP.
 
 ### `sql.js` está pinado em 1.11.0
 

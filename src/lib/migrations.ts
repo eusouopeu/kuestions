@@ -264,4 +264,31 @@ export const MIGRATIONS: Migracao[] = [
       CREATE INDEX IF NOT EXISTS ix_uso_api_ts ON uso_api (ts);
     `,
   },
+  {
+    // Repetição espaçada também para as ACERTADAS. Até aqui a caixa de
+    // Leitner só era usada em "Refazer erradas": acertar uma questão uma vez
+    // a tirava do circuito para sempre — o oposto do que repetição espaçada
+    // faz. As colunas já existiam em toda linha (v6); o que faltava era
+    // agendar a primeira revisão das acertadas.
+    //
+    // Esta migração agenda o histórico já existente: toda acertada de
+    // verdade (`resposta != ''`) entra na caixa 2 com revisão marcada para
+    // 3 dias depois da resposta (INTERVALOS_LEITNER_DIAS[1] em repo.ts).
+    // Como quase todo histórico é antigo, na prática isso as deixa vencidas
+    // — que é o correto: nunca foram revisadas.
+    //
+    // O strftime reproduz o formato de `toISOString()` (com "T" e "Z")
+    // porque a comparação de datas no app é LEXICOGRÁFICA; o `datetime()`
+    // do SQLite devolveria "AAAA-MM-DD HH:MM:SS", que ordena diferente.
+    version: 13,
+    sql: `
+      UPDATE questoes_respondidas
+         SET revisada        = 1,
+             caixa_leitner   = MAX(caixa_leitner, 2),
+             proxima_revisao = strftime('%Y-%m-%dT%H:%M:%fZ', ts, '+3 days')
+       WHERE acertou = 1
+         AND resposta != ''
+         AND proxima_revisao IS NULL;
+    `,
+  },
 ];

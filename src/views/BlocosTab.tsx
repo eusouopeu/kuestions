@@ -7,8 +7,9 @@ import GerarView from "./GerarView";
 import GerarBancoView from "./GerarBancoView";
 import ImportarView from "./ImportarView";
 import { blocosNaSemana, resumo, type Resumo } from "../lib/repo";
-import { getConfigMeta, getMetasPorMateria } from "../lib/metas";
+import { getMetas, META_GERAL, rotuloMeta } from "../lib/metas";
 import { LIMIAR_APROVACAO } from "../lib/constants";
+import { temCredencial } from "../lib/secure";
 
 type View = "gerar" | "banco" | "importar";
 
@@ -16,25 +17,13 @@ type View = "gerar" | "banco" | "importar";
  * aba, sem duplicar os gráficos completos da aba Dados. */
 function ProgressoGeral({ onDados }: { onDados: () => void }) {
   const [res, setRes] = useState<Resumo | null>(null);
-  const [meta, setMeta] = useState<{ ativa: boolean; blocosPorSemana: number } | null>(null);
-  const [naSemana, setNaSemana] = useState(0);
 
   useEffect(() => {
     resumo(null).then(setRes).catch(() => setRes(null));
-    getConfigMeta()
-      .then((m) => {
-        setMeta(m);
-        if (m.ativa) blocosNaSemana().then(setNaSemana).catch(() => setNaSemana(0));
-      })
-      .catch(() => setMeta(null));
   }, []);
 
-  const metaAtiva = meta?.ativa ?? false;
   const semDados = !res || res.totalQuestoes === 0;
-  if (semDados && !metaAtiva) return null;
-
   const pct = res && res.totalQuestoes ? Math.round((res.totalAcertos / res.totalQuestoes) * 100) : 0;
-  const metaBatida = metaAtiva && naSemana >= (meta?.blocosPorSemana ?? 0);
 
   return (
     <div style={{ marginBottom: 18 }}>
@@ -49,7 +38,7 @@ function ProgressoGeral({ onDados }: { onDados: () => void }) {
             justifyContent: "space-between",
             textAlign: "left",
             padding: "12px 14px",
-            marginBottom: metaAtiva ? 8 : 0,
+            marginBottom: 0,
             cursor: "pointer",
           }}
         >
@@ -75,71 +64,42 @@ function ProgressoGeral({ onDados }: { onDados: () => void }) {
         </button>
       )}
 
-      {metaAtiva && meta && (
-        <div style={{ ...cartao, padding: "12px 14px" }}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "baseline",
-              marginBottom: 6,
-            }}
-          >
-            <div style={{ ...mono, fontSize: 10, color: C.sub, letterSpacing: 0.8 }}>
-              META SEMANAL
-            </div>
-            <div style={{ ...mono, fontSize: 11.5, color: metaBatida ? C.ok : C.sub }}>
-              {naSemana}/{meta.blocosPorSemana} bloco{meta.blocosPorSemana === 1 ? "" : "s"}
-              {metaBatida ? " ✓" : ""}
-            </div>
-          </div>
-          <div style={{ height: 6, background: C.line, borderRadius: 3, overflow: "hidden" }}>
-            <div
-              style={{
-                height: "100%",
-                width: `${Math.min(100, Math.round((naSemana / meta.blocosPorSemana) * 100))}%`,
-                background: metaBatida ? C.ok : C.caneta,
-                borderRadius: 3,
-                transition: "width 0.25s ease",
-              }}
-            />
-          </div>
-        </div>
-      )}
-
-      <MetasPorMateria />
+      <MetasSemanais />
     </div>
   );
 }
 
-/** Progresso semanal de cada matéria com meta específica configurada (ver
- * lib/metas.ts) — independente da meta geral acima, e só aparece quando o
- * usuário configurou pelo menos uma em Ajustes. Fica recolhida por padrão
- * (só um botão-resumo): expandida, uma meta por matéria já polui bastante a
- * tela de abertura da aba; o detalhe (barra por matéria) só aparece quando
- * o usuário pede. */
-function MetasPorMateria() {
-  const [metas, setMetas] = useState<{ materia: string; alvo: number; naSemana: number }[] | null>(
+/**
+ * Progresso das metas semanais configuradas em Ajustes (ver lib/metas.ts) —
+ * a meta geral ("Todas as matérias") e as por matéria vêm do MESMO mapa, e
+ * por isso aparecem na mesma lista, com a geral no topo. Some inteira quando
+ * não há nenhuma meta configurada.
+ *
+ * Recolhida por padrão quando há mais de uma: expandida, uma barra por meta
+ * já domina a tela de abertura da aba.
+ */
+function MetasSemanais() {
+  const [metas, setMetas] = useState<{ chave: string; alvo: number; naSemana: number }[] | null>(
     null,
   );
   const [expandido, setExpandido] = useState(false);
 
   useEffect(() => {
-    getMetasPorMateria()
+    getMetas()
       .then(async (mapa) => {
-        const entradas = Object.entries(mapa);
-        if (!entradas.length) {
-          setMetas([]);
-          return;
-        }
-        const linhas = await Promise.all(
-          entradas.map(async ([materia, alvo]) => ({
-            materia,
-            alvo,
-            naSemana: await blocosNaSemana(materia).catch(() => 0),
-          })),
+        const entradas = Object.entries(mapa).sort(([a], [b]) =>
+          // A meta geral primeiro; o resto em ordem alfabética.
+          a === META_GERAL ? -1 : b === META_GERAL ? 1 : a.localeCompare(b, "pt-BR"),
         );
-        setMetas(linhas);
+        setMetas(
+          await Promise.all(
+            entradas.map(async ([chave, alvo]) => ({
+              chave,
+              alvo,
+              naSemana: await blocosNaSemana(chave === META_GERAL ? null : chave).catch(() => 0),
+            })),
+          ),
+        );
       })
       .catch(() => setMetas([]));
   }, []);
@@ -148,79 +108,91 @@ function MetasPorMateria() {
 
   const batidas = metas.filter((m) => m.naSemana >= m.alvo).length;
   const todasBatidas = batidas === metas.length;
+  const aberto = expandido || metas.length === 1;
 
-  return (
-    <div style={{ marginBottom: 18 }}>
-      <button
-        onClick={() => setExpandido((v) => !v)}
-        aria-expanded={expandido}
-        style={{
-          ...cartao,
-          display: "flex",
-          width: "100%",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 10,
-          textAlign: "left",
-          padding: "10px 12px",
-          cursor: "pointer",
-        }}
-      >
-        <span style={{ ...mono, fontSize: 10, color: C.sub, letterSpacing: 0.8 }}>
-          METAS POR MATÉRIA · {metas.length}
-        </span>
-        <span
+  const barra = (m: { chave: string; alvo: number; naSemana: number }) => {
+    const batida = m.naSemana >= m.alvo;
+    return (
+      <div key={m.chave} style={{ ...cartao, padding: "10px 12px" }}>
+        <div
           style={{
-            ...mono,
             display: "flex",
-            alignItems: "center",
-            gap: 6,
-            fontSize: 11,
-            color: todasBatidas ? C.ok : C.sub,
-            flexShrink: 0,
+            justifyContent: "space-between",
+            alignItems: "baseline",
+            marginBottom: 5,
+            gap: 8,
           }}
         >
-          {batidas}/{metas.length} batida{metas.length === 1 ? "" : "s"}
-          {todasBatidas ? " ✓" : ""}
-          <span style={{ fontSize: 9 }}>{expandido ? "▲" : "▼"}</span>
-        </span>
-      </button>
+          <span style={{ fontSize: 13, flex: 1 }}>{rotuloMeta(m.chave)}</span>
+          <span style={{ ...mono, fontSize: 11, color: batida ? C.ok : C.sub, flexShrink: 0 }}>
+            {m.naSemana}/{m.alvo} bloco{m.alvo === 1 ? "" : "s"}
+            {batida ? " ✓" : ""}
+          </span>
+        </div>
+        <div style={{ height: 5, background: C.line, borderRadius: 3, overflow: "hidden" }}>
+          <div
+            style={{
+              height: "100%",
+              width: `${Math.min(100, Math.round((m.naSemana / m.alvo) * 100))}%`,
+              background: batida ? C.ok : C.caneta,
+              borderRadius: 3,
+              transition: "width 0.25s ease",
+            }}
+          />
+        </div>
+      </div>
+    );
+  };
 
-      {expandido && (
-        <div style={{ marginTop: 8, display: "flex", flexDirection: "column", gap: 8 }}>
-          {metas.map((m) => {
-            const batida = m.naSemana >= m.alvo;
-            return (
-              <div key={m.materia} style={{ ...cartao, padding: "10px 12px" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "baseline",
-                    marginBottom: 5,
-                    gap: 8,
-                  }}
-                >
-                  <span style={{ fontSize: 13, flex: 1 }}>{m.materia}</span>
-                  <span style={{ ...mono, fontSize: 11, color: batida ? C.ok : C.sub, flexShrink: 0 }}>
-                    {m.naSemana}/{m.alvo} bloco{m.alvo === 1 ? "" : "s"}
-                    {batida ? " ✓" : ""}
-                  </span>
-                </div>
-                <div style={{ height: 5, background: C.line, borderRadius: 3, overflow: "hidden" }}>
-                  <div
-                    style={{
-                      height: "100%",
-                      width: `${Math.min(100, Math.round((m.naSemana / m.alvo) * 100))}%`,
-                      background: batida ? C.ok : C.caneta,
-                      borderRadius: 3,
-                      transition: "width 0.25s ease",
-                    }}
-                  />
-                </div>
-              </div>
-            );
-          })}
+  return (
+    <div style={{ marginTop: 8, marginBottom: 18 }}>
+      {metas.length > 1 && (
+        <button
+          onClick={() => setExpandido((v) => !v)}
+          aria-expanded={expandido}
+          style={{
+            ...cartao,
+            display: "flex",
+            width: "100%",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 10,
+            textAlign: "left",
+            padding: "10px 12px",
+            cursor: "pointer",
+          }}
+        >
+          <span style={{ ...mono, fontSize: 10, color: C.sub, letterSpacing: 0.8 }}>
+            METAS SEMANAIS · {metas.length}
+          </span>
+          <span
+            style={{
+              ...mono,
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              fontSize: 11,
+              color: todasBatidas ? C.ok : C.sub,
+              flexShrink: 0,
+            }}
+          >
+            {batidas}/{metas.length} batida{metas.length === 1 ? "" : "s"}
+            {todasBatidas ? " ✓" : ""}
+            <span style={{ fontSize: 9 }}>{expandido ? "▲" : "▼"}</span>
+          </span>
+        </button>
+      )}
+
+      {aberto && (
+        <div
+          style={{
+            marginTop: metas.length > 1 ? 8 : 0,
+            display: "flex",
+            flexDirection: "column",
+            gap: 8,
+          }}
+        >
+          {metas.map(barra)}
         </div>
       )}
     </div>
@@ -241,6 +213,17 @@ export default function BlocosTab({
   onAjustes: () => void;
 }) {
   const [view, setView] = useState<View>("gerar");
+
+  // Sem chave de API, "Gerar com IA" é a única das três formas que não
+  // funciona — então a aba abre em "Do banco", que funciona offline e sem
+  // credencial nenhuma (ver lib/banco.ts e o comentário em App.tsx).
+  useEffect(() => {
+    temCredencial()
+      .then((tem) => {
+        if (!tem) setView("banco");
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <Shell titulo="Blocos">
