@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { ArrowLeftIcon, PlusIcon, StarIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { ArrowLeftIcon, DocumentIcon, PlusIcon, StarIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { StarIcon as StarIconSolid } from "@heroicons/react/24/solid";
 import { C, campo, cartao, mono } from "../../../theme";
 import Botao from "../../../components/Botao";
@@ -15,7 +15,11 @@ import {
 import type { PaginaCaderno } from "../../../lib/caderno/tipos";
 import EditorCaderno from "./EditorCaderno";
 
-type Tela = { nome: "lista" } | { nome: "editor"; id: number };
+// pdfjs-dist é pesado — fora do bundle inicial (mesma técnica de DadosTab
+// com recharts em App.tsx). Só quem abrir "PDFs" baixa esse chunk.
+const LeitorPdf = lazy(() => import("./LeitorPdf"));
+
+type Tela = { nome: "lista" } | { nome: "editor"; id: number } | { nome: "pdfs" };
 
 /**
  * Roteador do Caderno dentro da aba Notas: lista de páginas (fixadas +
@@ -94,6 +98,14 @@ export default function CadernoView() {
     carregarLista();
   }
 
+  if (tela.nome === "pdfs") {
+    return (
+      <Suspense fallback={<Vazio>Carregando…</Vazio>}>
+        <LeitorPdf onVoltar={() => setTela({ nome: "lista" })} />
+      </Suspense>
+    );
+  }
+
   if (tela.nome === "editor") {
     if (!paginaAberta) return <Vazio>Carregando…</Vazio>;
     return (
@@ -135,12 +147,20 @@ export default function CadernoView() {
         />
       </div>
 
-      <Botao tipo="tinta" onClick={() => novaPagina()} disabled={criando} style={{ marginBottom: 16 }}>
-        <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-          <PlusIcon width={16} height={16} />
-          Nova página
-        </span>
-      </Botao>
+      <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
+        <Botao tipo="tinta" onClick={() => novaPagina()} disabled={criando}>
+          <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+            <PlusIcon width={16} height={16} />
+            Nova página
+          </span>
+        </Botao>
+        <Botao tipo="fantasma" onClick={() => setTela({ nome: "pdfs" })}>
+          <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+            <DocumentIcon width={16} height={16} />
+            PDFs
+          </span>
+        </Botao>
+      </div>
 
       {listaExibida === null ? (
         <Vazio>Carregando…</Vazio>

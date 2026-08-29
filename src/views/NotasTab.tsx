@@ -109,12 +109,15 @@ export default function NotasTab({
       .finally(() => setCarregando(false));
   }, []);
 
-  // Dispara na montagem inicial e toda vez que o usuário reabre esta aba —
-  // como as abas agora ficam montadas (ver App.tsx), sem isto uma nota salva
-  // em Questões não apareceria aqui até um refresh manual.
+  // Dispara na montagem inicial, toda vez que o usuário reabre esta aba (as
+  // abas ficam montadas, ver App.tsx — sem isto uma nota salva em Questões
+  // não apareceria aqui até um refresh manual) e toda vez que volta ao modo
+  // Conceitos vindo de Caderno/Mapas/Tarefas — uma nota pode ter sido criada
+  // por lá (ex.: "Salvar como nota" no leitor de PDF) enquanto a lista de
+  // pastas já estava carregada com o estado antigo.
   useEffect(() => {
-    if (ativa) carregarPastas();
-  }, [ativa, carregarPastas]);
+    if (ativa && modo === "conceitos") carregarPastas();
+  }, [ativa, modo, carregarPastas]);
 
   const carregarItens = useCallback(() => {
     if (!pasta) return;
