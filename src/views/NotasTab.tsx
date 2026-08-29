@@ -22,9 +22,19 @@ import { exportarArquivo, exportarArquivoBinario } from "../lib/exportar";
 import { gerarArquivosFlashcards } from "../lib/flashcards";
 import RevisaoNotas from "./notas/RevisaoNotas";
 import MapasView from "./notas/mapas/MapasView";
+import CadernoView from "./notas/caderno/CadernoView";
 import { slugify } from "../lib/texto";
 import type { ConceitoSalvo } from "../lib/types";
 import { getModoNotas, setModoNotas, type ModoNotas } from "../lib/notasModo";
+
+/** Opções do Segmented de topo da aba — Tarefas ainda não existe; PDFs fica
+ * dentro do Caderno, não como segmento próprio, para não apertar o
+ * Segmented no celular. */
+const OPCOES_MODO: { id: ModoNotas; label: string }[] = [
+  { id: "conceitos", label: "Conceitos" },
+  { id: "caderno", label: "Caderno" },
+  { id: "mapas", label: "Mapas" },
+];
 
 /** Banco de notas: pastas por matéria → lista, cada nota por inteiro (ver
  * NotaCard) — não há mais uma tela de detalhe separada: visualizar, editar,
@@ -218,20 +228,13 @@ export default function NotasTab({
     }
   }
 
-  if (modo === "mapas") {
+  if (modo === "caderno" || modo === "mapas") {
     return (
       <Shell titulo="Notas">
         <div style={{ marginBottom: 14 }}>
-          <Segmented
-            valor={modo}
-            opcoes={[
-              { id: "conceitos" as const, label: "Conceitos" },
-              { id: "mapas" as const, label: "Mapas" },
-            ]}
-            onChange={trocarModo}
-          />
+          <Segmented valor={modo} opcoes={OPCOES_MODO} onChange={trocarModo} />
         </div>
-        <MapasView />
+        {modo === "caderno" ? <CadernoView /> : <MapasView />}
       </Shell>
     );
   }
@@ -503,14 +506,7 @@ export default function NotasTab({
   return (
     <Shell titulo="Notas">
       <div style={{ marginBottom: 14 }}>
-        <Segmented
-          valor={modo}
-          opcoes={[
-            { id: "conceitos" as const, label: "Conceitos" },
-            { id: "mapas" as const, label: "Mapas" },
-          ]}
-          onChange={trocarModo}
-        />
+        <Segmented valor={modo} opcoes={OPCOES_MODO} onChange={trocarModo} />
       </div>
 
       {totalPendentes > 0 && (
