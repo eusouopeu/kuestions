@@ -8,26 +8,36 @@ import { talvezFazerBackupAutomatico } from "../backupAuto";
 import { sincronizarNotasDocumentos } from "../exportarDocumentos";
 
 export interface DumpMesclagem {
-  versao: 1;
+  versao: 1 | 2;
   blocos: Record<string, unknown>[];
   questoes_respondidas: Record<string, unknown>[];
   conceitos_salvos: Record<string, unknown>[];
   explicacoes_banco: Record<string, unknown>[];
+  /** Só em versao 2 — ausentes em dumps antigos, tratados como []. */
+  caderno_paginas?: Record<string, unknown>[];
+  mapas?: Record<string, unknown>[];
+  tarefas?: Record<string, unknown>[];
 }
 
 export async function exportarParaMesclagem(): Promise<string> {
-  const [blocos, questoes, conceitos, explicacoes] = await Promise.all([
+  const [blocos, questoes, conceitos, explicacoes, paginas, mapas, tarefas] = await Promise.all([
     all(`SELECT * FROM blocos`),
     all(`SELECT * FROM questoes_respondidas`),
     all(`SELECT * FROM conceitos_salvos`),
     all(`SELECT * FROM explicacoes_banco`),
+    all(`SELECT * FROM caderno_paginas`),
+    all(`SELECT * FROM mapas`),
+    all(`SELECT * FROM tarefas`),
   ]);
   const dump: DumpMesclagem = {
-    versao: 1,
+    versao: 2,
     blocos,
     questoes_respondidas: questoes,
     conceitos_salvos: conceitos,
     explicacoes_banco: explicacoes,
+    caderno_paginas: paginas,
+    mapas,
+    tarefas,
   };
   return JSON.stringify(dump);
 }
@@ -37,6 +47,9 @@ export interface ResultadoMesclagem {
   questoesNovas: number;
   notasNovas: number;
   explicacoesNovas: number;
+  paginasNovas: number;
+  mapasNovos: number;
+  tarefasNovas: number;
 }
 
 /**
@@ -57,7 +70,11 @@ export interface ResultadoMesclagem {
  */
 export async function mesclarBackup(json: string): Promise<ResultadoMesclagem> {
   const dump = JSON.parse(json) as DumpMesclagem;
-  if (dump.versao !== 1 || !Array.isArray(dump.blocos) || !Array.isArray(dump.questoes_respondidas)) {
+  if (
+    (dump.versao !== 1 && dump.versao !== 2) ||
+    !Array.isArray(dump.blocos) ||
+    !Array.isArray(dump.questoes_respondidas)
+  ) {
     throw new Error("Arquivo não é um backup de mesclagem reconhecido.");
   }
 
@@ -66,6 +83,9 @@ export async function mesclarBackup(json: string): Promise<ResultadoMesclagem> {
     questoesNovas: 0,
     notasNovas: 0,
     explicacoesNovas: 0,
+    paginasNovas: 0,
+    mapasNovos: 0,
+    tarefasNovas: 0,
   };
 
   const mapaBloco = new Map<number, number>();
@@ -169,6 +189,49 @@ export async function mesclarBackup(json: string): Promise<ResultadoMesclagem> {
       [e.banco_id, e.comentario ?? "", e.explicacoes_erradas ?? "{}", e.ts],
     );
     resultado.explicacoesNovas++;
+  }
+
+  for (const p of dump.caderno_paginas ?? []) {
+    const existente = await one<{ id: number }>(
+      `SELECT id FROM caderno_paginas WHERE titulo = ? AND criada_em = ?`,
+      [p.titulo, p.criada_em],
+    );
+    if (existente) continue;
+    await run(
+      `INSERT INTO caderno_paginas (titulo, icone, pasta, fixada, blocos, criada_em, ts)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [p.titulo, p.icone ?? null, p.pasta ?? null, p.fixada ?? 0, p.blocos ?? "[]", p.criada_em, p.ts],
+    );
+    resultado.paginasNovas++;
+  }
+
+  for (const m of dump.mapas ?? []) {
+    const existente = await one<{ id: number }>(
+      `SELECT id FROM mapas WHERE nome = ? AND ts = ?`,
+      [m.nome, m.ts],
+    );
+    if (existente) continue;
+    await run(
+      `INSERT INTO mapas (nome, materia, nos, caixa_leitner, proxima_revisao, ts)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+      [m.nome, m.materia ?? null, m.nos ?? "[]", m.caixa_leitner ?? 1, m.proxima_revisao ?? null, m.ts],
+    );
+    resultado.mapasNovos++;
+  }
+
+  for (const t of dump.tarefas ?? []) {
+    const existente = await one<{ id: number }>(
+      `SELECT id FROM tarefas WHERE texto = ? AND criada_em = ?`,
+      [t.texto, t.criada_em],
+    );
+    if (existente) continue;
+    await run(`INSERT INTO tarefas (texto, feita, tag, criada_em) VALUES (?, ?, ?, ?)`, [
+      t.texto,
+      t.feita ?? 0,
+      t.tag ?? null,
+      t.criada_em,
+    ]);
+    resultado.tarefasNovas++;
   }
 
   if (resultado.notasNovas > 0) void sincronizarNotasDocumentos();

@@ -671,8 +671,12 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
             Mesclado: {resultadoMesclagem.blocosNovos} bloco{resultadoMesclagem.blocosNovos === 1 ? "" : "s"},{" "}
             {resultadoMesclagem.questoesNovas} questão{resultadoMesclagem.questoesNovas === 1 ? "" : "ões"}{" "}
             respondida{resultadoMesclagem.questoesNovas === 1 ? "" : "s"}, {resultadoMesclagem.notasNovas} nota
-            {resultadoMesclagem.notasNovas === 1 ? "" : "s"} e {resultadoMesclagem.explicacoesNovas} explicação
-            {resultadoMesclagem.explicacoesNovas === 1 ? "" : "ões"} nova{resultadoMesclagem.explicacoesNovas === 1 ? "" : "s"} — nada foi apagado.
+            {resultadoMesclagem.notasNovas === 1 ? "" : "s"}, {resultadoMesclagem.explicacoesNovas} explicação
+            {resultadoMesclagem.explicacoesNovas === 1 ? "" : "ões"} nova{resultadoMesclagem.explicacoesNovas === 1 ? "" : "s"},{" "}
+            {resultadoMesclagem.paginasNovas} página{resultadoMesclagem.paginasNovas === 1 ? "" : "s"} de caderno,{" "}
+            {resultadoMesclagem.mapasNovos} mapa{resultadoMesclagem.mapasNovos === 1 ? "" : "s"} e{" "}
+            {resultadoMesclagem.tarefasNovas} tarefa{resultadoMesclagem.tarefasNovas === 1 ? "" : "s"} nova
+            {resultadoMesclagem.tarefasNovas === 1 ? "" : "s"} — nada foi apagado.
           </div>
         )}
 

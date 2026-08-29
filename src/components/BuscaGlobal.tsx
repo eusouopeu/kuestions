@@ -4,23 +4,38 @@ import { C, campo, cartao, mono } from "../theme";
 import { Vazio } from "./Shell";
 import NotaCard from "./NotaCard";
 import ResumoQuestaoRespondida from "./ResumoQuestaoRespondida";
-import { buscarNotas, buscarQuestoesRespondidas } from "../lib/repo";
+import { buscarMapas, buscarNotas, buscarPaginasCaderno, buscarQuestoesRespondidas } from "../lib/repo";
 import type { ConceitoSalvo, QuestaoRespondida } from "../lib/types";
+import type { PaginaCaderno } from "../lib/caderno/tipos";
+import type { Mapa } from "../lib/mapas/tipos";
 
 /**
- * Busca global em notas e em questões já respondidas (enunciado/comentário)
- * — antes vivia só dentro da aba Notas, na tela de pastas; "onde eu vi isso
- * sobre X" é a pergunta mais frequente do app e não devia exigir lembrar em
- * qual aba a resposta mora. Ícone de lupa no cabeçalho de TODA aba (ver
- * Shell.tsx), abrindo um overlay de tela cheia — não uma tela própria, para
- * não competir com a navegação por abas embaixo.
+ * Busca global em notas, páginas do caderno, mapas mentais e questões já
+ * respondidas — antes vivia só dentro da aba Notas, na tela de pastas;
+ * "onde eu vi isso sobre X" é a pergunta mais frequente do app e não devia
+ * exigir lembrar em qual aba a resposta mora. Ícone de lupa no cabeçalho de
+ * TODA aba (ver Shell.tsx) e no rail lateral do layout largo
+ * (RailLateral.tsx), abrindo um overlay de tela cheia — não uma tela
+ * própria, para não competir com a navegação por abas.
+ *
+ * `aoAbrirPagina`/`aoAbrirMapa` são opcionais: quando ausentes (uso atual),
+ * o resultado só mostra o título/trecho — a navegação para dentro do
+ * caderno/mapa é responsabilidade de quem monta a tela de Notas.
  */
-export default function BuscaGlobal() {
+export default function BuscaGlobal({
+  aoAbrirPagina,
+  aoAbrirMapa,
+}: {
+  aoAbrirPagina?: (id: number) => void;
+  aoAbrirMapa?: (id: number) => void;
+} = {}) {
   const [aberta, setAberta] = useState(false);
   const [termo, setTermo] = useState("");
   const [buscando, setBuscando] = useState(false);
   const [notas, setNotas] = useState<ConceitoSalvo[]>([]);
   const [questoes, setQuestoes] = useState<QuestaoRespondida[]>([]);
+  const [paginas, setPaginas] = useState<PaginaCaderno[]>([]);
+  const [mapas, setMapas] = useState<Mapa[]>([]);
   const [questaoAberta, setQuestaoAberta] = useState<number | null>(null);
 
   useEffect(() => {
@@ -29,20 +44,26 @@ export default function BuscaGlobal() {
     if (!t) {
       setNotas([]);
       setQuestoes([]);
+      setPaginas([]);
+      setMapas([]);
       setBuscando(false);
       return;
     }
     setBuscando(true);
     const timer = setTimeout(() => {
-      Promise.all([buscarNotas(t), buscarQuestoesRespondidas(t)])
-        .then(([n, q]) => {
+      Promise.all([buscarNotas(t), buscarQuestoesRespondidas(t), buscarPaginasCaderno(t), buscarMapas(t)])
+        .then(([n, q, p, m]) => {
           setNotas(n);
           setQuestoes(q);
+          setPaginas(p);
+          setMapas(m);
           setQuestaoAberta(null);
         })
         .catch(() => {
           setNotas([]);
           setQuestoes([]);
+          setPaginas([]);
+          setMapas([]);
         })
         .finally(() => setBuscando(false));
     }, 250);
@@ -54,6 +75,8 @@ export default function BuscaGlobal() {
     setTermo("");
     setNotas([]);
     setQuestoes([]);
+    setPaginas([]);
+    setMapas([]);
     setQuestaoAberta(null);
   }
 
@@ -94,7 +117,7 @@ export default function BuscaGlobal() {
               <input
                 autoFocus
                 style={{ ...campo, flex: 1 }}
-                placeholder="Buscar em notas e em questões já respondidas…"
+                placeholder="Buscar em notas, caderno, mapas e questões já respondidas…"
                 value={termo}
                 onChange={(e) => setTermo(e.target.value)}
               />
@@ -119,13 +142,73 @@ export default function BuscaGlobal() {
             </div>
 
             {!termo.trim() ? (
-              <Vazio>Digite para buscar em notas e em questões já respondidas.</Vazio>
+              <Vazio>Digite para buscar em notas, caderno, mapas e questões já respondidas.</Vazio>
             ) : buscando ? (
               <Vazio>Buscando…</Vazio>
-            ) : notas.length === 0 && questoes.length === 0 ? (
+            ) : notas.length === 0 && questoes.length === 0 && paginas.length === 0 && mapas.length === 0 ? (
               <Vazio>Nada encontrado para "{termo.trim()}".</Vazio>
             ) : (
               <>
+                {paginas.length > 0 && (
+                  <div style={{ marginBottom: 22 }}>
+                    <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
+                      CADERNO · {paginas.length}
+                    </div>
+                    {paginas.map((p) => (
+                      <button
+                        key={p.id}
+                        onClick={() => aoAbrirPagina?.(p.id)}
+                        style={{
+                          ...cartao,
+                          display: "block",
+                          width: "100%",
+                          textAlign: "left",
+                          padding: "12px 14px",
+                          marginBottom: 8,
+                          cursor: aoAbrirPagina ? "pointer" : "default",
+                        }}
+                      >
+                        <div style={{ fontSize: 14, fontWeight: 600 }}>{p.titulo || "Sem título"}</div>
+                        {p.pasta && (
+                          <div style={{ ...mono, fontSize: 10.5, color: C.sub, marginTop: 2 }}>
+                            {p.pasta.toUpperCase()}
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {mapas.length > 0 && (
+                  <div style={{ marginBottom: 22 }}>
+                    <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
+                      MAPAS · {mapas.length}
+                    </div>
+                    {mapas.map((m) => (
+                      <button
+                        key={m.id}
+                        onClick={() => aoAbrirMapa?.(m.id)}
+                        style={{
+                          ...cartao,
+                          display: "block",
+                          width: "100%",
+                          textAlign: "left",
+                          padding: "12px 14px",
+                          marginBottom: 8,
+                          cursor: aoAbrirMapa ? "pointer" : "default",
+                        }}
+                      >
+                        <div style={{ fontSize: 14, fontWeight: 600 }}>{m.nome}</div>
+                        {m.materia && (
+                          <div style={{ ...mono, fontSize: 10.5, color: C.sub, marginTop: 2 }}>
+                            {m.materia.toUpperCase()}
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
                 {notas.length > 0 && (
                   <div style={{ marginBottom: questoes.length > 0 ? 22 : 0 }}>
                     <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>

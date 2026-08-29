@@ -28,3 +28,7 @@ export * from "./repo/estatisticas";
 export * from "./repo/confianca";
 export * from "./repo/backup";
 export * from "./repo/usoApi";
+export * from "./repo/caderno";
+export * from "./repo/mapas";
+export * from "./repo/tarefas";
+export * from "./repo/pdfs";

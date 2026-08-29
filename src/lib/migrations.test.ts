@@ -46,7 +46,17 @@ describe("MIGRATIONS", () => {
       .exec("SELECT name FROM sqlite_master WHERE type = 'table'")[0]
       .values.map((v: unknown[]) => String(v[0]));
     expect(tabelas).toEqual(
-      expect.arrayContaining(["blocos", "questoes_respondidas", "conceitos_salvos", "explicacoes_banco", "uso_api"]),
+      expect.arrayContaining([
+        "blocos",
+        "questoes_respondidas",
+        "conceitos_salvos",
+        "explicacoes_banco",
+        "uso_api",
+        "caderno_paginas",
+        "mapas",
+        "tarefas",
+        "pdfs",
+      ]),
     );
 
     // Colunas que o app lê e que só existem por causa de migrações tardias.

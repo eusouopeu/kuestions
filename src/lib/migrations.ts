@@ -307,4 +307,58 @@ export const MIGRATIONS: Migracao[] = [
       UPDATE conceitos_salvos SET materia = 'Finanças Públicas' WHERE materia = 'AFO';
     `,
   },
+  {
+    // Caderno (páginas de blocos), Mapas mentais, Tarefas e PDFs importados —
+    // ver src/lib/repo/caderno.ts, repo/mapas.ts, repo/tarefas.ts, repo/pdfs.ts.
+    //
+    // Cada linha é uma unidade inteira (página/mapa), não um blob único do
+    // app: permite busca via SQL (LIKE em `blocos`/`nos`), dedup por
+    // conteúdo na mesclagem entre aparelhos (ver repo/backup.ts) e revisão
+    // espaçada por item, no mesmo padrão de `conceitos_salvos`.
+    //
+    // `pdfs.caminho` só guarda o caminho relativo em Documentos/kuestion
+    // (ver lib/exportarDocumentos.ts) — o binário do PDF nunca entra no
+    // SQLite.
+    version: 15,
+    sql: `
+      CREATE TABLE IF NOT EXISTS caderno_paginas (
+        id         INTEGER PRIMARY KEY AUTOINCREMENT,
+        titulo     TEXT    NOT NULL DEFAULT '',
+        icone      TEXT,
+        pasta      TEXT,
+        fixada     INTEGER NOT NULL DEFAULT 0,
+        blocos     TEXT    NOT NULL DEFAULT '[]',
+        criada_em  TEXT    NOT NULL,
+        ts         TEXT    NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS ix_caderno_ts ON caderno_paginas (ts);
+
+      CREATE TABLE IF NOT EXISTS mapas (
+        id              INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome            TEXT    NOT NULL,
+        materia         TEXT,
+        nos             TEXT    NOT NULL DEFAULT '[]',
+        caixa_leitner   INTEGER NOT NULL DEFAULT 1,
+        proxima_revisao TEXT,
+        ts              TEXT    NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS ix_mapas_ts ON mapas (ts);
+
+      CREATE TABLE IF NOT EXISTS tarefas (
+        id        INTEGER PRIMARY KEY AUTOINCREMENT,
+        texto     TEXT    NOT NULL,
+        feita     INTEGER NOT NULL DEFAULT 0,
+        tag       TEXT,
+        criada_em TEXT    NOT NULL
+      );
+
+      CREATE TABLE IF NOT EXISTS pdfs (
+        id      INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome    TEXT    NOT NULL,
+        caminho TEXT    NOT NULL,
+        pagina  INTEGER NOT NULL DEFAULT 1,
+        ts      TEXT    NOT NULL
+      );
+    `,
+  },
 ];
