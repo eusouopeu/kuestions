@@ -21,8 +21,10 @@ import {
 import { exportarArquivo, exportarArquivoBinario } from "../lib/exportar";
 import { gerarArquivosFlashcards } from "../lib/flashcards";
 import RevisaoNotas from "./notas/RevisaoNotas";
+import MapasView from "./notas/mapas/MapasView";
 import { slugify } from "../lib/texto";
 import type { ConceitoSalvo } from "../lib/types";
+import { getModoNotas, setModoNotas, type ModoNotas } from "../lib/notasModo";
 
 /** Banco de notas: pastas por matéria → lista, cada nota por inteiro (ver
  * NotaCard) — não há mais uma tela de detalhe separada: visualizar, editar,
@@ -38,6 +40,20 @@ export default function NotasTab({
   const [pastas, setPastas] = useState<{ materia: string; total: number }[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [pasta, setPasta] = useState<string | null>(null);
+
+  // Modo de visão da aba inteira: Conceitos é o que a aba sempre fez (pastas
+  // por matéria / nuvem de tags, abaixo); Mapas é a área nova (ver
+  // views/notas/mapas/MapasView.tsx). Caderno e Tarefas chegam nas próximas
+  // partes do plano. Persistido para não voltar a Conceitos a cada troca de
+  // aba (ver lib/notasModo.ts).
+  const [modo, setModo] = useState<ModoNotas>("conceitos");
+  useEffect(() => {
+    getModoNotas().then(setModo);
+  }, []);
+  function trocarModo(m: ModoNotas) {
+    setModo(m);
+    void setModoNotas(m);
+  }
 
   // Nuvem de tags: outra forma de navegar as notas, cruzando matérias (a
   // mesma tag pode aparecer em notas de matérias diferentes) — alternativa à
@@ -200,6 +216,24 @@ export default function NotasTab({
     } finally {
       setApagandoSelecionadas(false);
     }
+  }
+
+  if (modo === "mapas") {
+    return (
+      <Shell titulo="Notas">
+        <div style={{ marginBottom: 14 }}>
+          <Segmented
+            valor={modo}
+            opcoes={[
+              { id: "conceitos" as const, label: "Conceitos" },
+              { id: "mapas" as const, label: "Mapas" },
+            ]}
+            onChange={trocarModo}
+          />
+        </div>
+        <MapasView />
+      </Shell>
+    );
   }
 
   /* ---------- Revisão ativa (repetição espaçada) ---------- */
@@ -468,6 +502,17 @@ export default function NotasTab({
 
   return (
     <Shell titulo="Notas">
+      <div style={{ marginBottom: 14 }}>
+        <Segmented
+          valor={modo}
+          opcoes={[
+            { id: "conceitos" as const, label: "Conceitos" },
+            { id: "mapas" as const, label: "Mapas" },
+          ]}
+          onChange={trocarModo}
+        />
+      </div>
+
       {totalPendentes > 0 && (
         <Botao
           tipo="tinta"
