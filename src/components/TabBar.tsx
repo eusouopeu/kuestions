@@ -1,44 +1,10 @@
-import {
-  ChartBarIcon,
-  Cog6ToothIcon,
-  DocumentTextIcon,
-  FolderIcon,
-  RectangleStackIcon,
-} from "@heroicons/react/24/outline";
+import { ABAS, type Aba } from "./abas";
 import { C, mono } from "../theme";
 import { TAB_BAR_H } from "../theme";
 
-export type Aba = "blocos" | "questoes" | "notas" | "dados" | "ajustes";
+export type { Aba } from "./abas";
 
 /** Tab bar nativa própria, sem biblioteca de UI (além dos ícones, do HeroIcons). */
-const ABAS: { id: Aba; label: string; icone: (cor: string) => JSX.Element }[] = [
-  {
-    id: "blocos",
-    label: "Blocos",
-    icone: (cor) => <RectangleStackIcon width={22} height={22} stroke={cor} strokeWidth={1.8} />,
-  },
-  {
-    id: "questoes",
-    label: "Questões",
-    icone: (cor) => <DocumentTextIcon width={22} height={22} stroke={cor} strokeWidth={1.8} />,
-  },
-  {
-    id: "notas",
-    label: "Notas",
-    icone: (cor) => <FolderIcon width={22} height={22} stroke={cor} strokeWidth={1.8} />,
-  },
-  {
-    id: "dados",
-    label: "Dados",
-    icone: (cor) => <ChartBarIcon width={22} height={22} stroke={cor} strokeWidth={1.8} />,
-  },
-  {
-    id: "ajustes",
-    label: "Ajustes",
-    icone: (cor) => <Cog6ToothIcon width={22} height={22} stroke={cor} strokeWidth={1.8} />,
-  },
-];
-
 export default function TabBar({
   aba,
   onChange,

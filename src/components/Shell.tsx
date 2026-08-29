@@ -1,11 +1,14 @@
 import type { ReactNode } from "react";
 import { C, disp, TAB_BAR_H } from "../theme";
 import BuscaGlobal from "./BuscaGlobal";
+import { useLayoutLargo } from "../lib/plataforma";
 
-/** Cabeçalho + coluna centrada de 620px, como no artefato. A lupa de busca
- * global (ver BuscaGlobal.tsx) fica aqui, não numa aba específica — busca em
- * notas e questões já respondidas é útil de qualquer tela do app, e antes só
- * existia dentro da aba Notas. */
+/** Cabeçalho + coluna centrada, 620px no celular / 980px no layout largo
+ * (desktop, ver useLayoutLargo). A lupa de busca global (ver BuscaGlobal.tsx)
+ * fica aqui, não numa aba específica — busca em notas e questões já
+ * respondidas é útil de qualquer tela do app, e antes só existia dentro da
+ * aba Notas. No layout largo a busca já vive no rail lateral (RailLateral),
+ * então não duplica aqui. */
 export default function Shell({
   titulo,
   children,
@@ -13,8 +16,15 @@ export default function Shell({
   titulo: ReactNode;
   children: ReactNode;
 }) {
+  const largo = useLayoutLargo();
   return (
-    <div style={{ maxWidth: 620, margin: "0 auto", padding: `0 16px ${TAB_BAR_H + 28}px` }}>
+    <div
+      style={{
+        maxWidth: largo ? 980 : 620,
+        margin: "0 auto",
+        padding: largo ? `56px 24px ${TAB_BAR_H}px` : `0 16px ${TAB_BAR_H + 28}px`,
+      }}
+    >
       <header
         style={{
           padding: "22px 0 6px",
@@ -37,9 +47,11 @@ export default function Shell({
         >
           {titulo}
         </h1>
-        <div style={{ marginTop: 2, flexShrink: 0 }}>
-          <BuscaGlobal />
-        </div>
+        {!largo && (
+          <div style={{ marginTop: 2, flexShrink: 0 }}>
+            <BuscaGlobal />
+          </div>
+        )}
       </header>
       {children}
     </div>

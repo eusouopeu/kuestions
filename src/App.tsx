@@ -1,6 +1,8 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { C, mono, TAB_BAR_H } from "./theme";
 import TabBar, { type Aba } from "./components/TabBar";
+import NavPill from "./components/NavPill";
+import RailLateral, { RAIL_LARGURA } from "./components/RailLateral";
 import BlocosTab from "./views/BlocosTab";
 import QuestoesTab from "./views/QuestoesTab";
 import NotasTab from "./views/NotasTab";
@@ -8,6 +10,7 @@ import AjustesTab from "./views/AjustesTab";
 import { getDB } from "./lib/db";
 import { aplicarTema, getTema } from "./lib/tema";
 import { aplicarEscala, getEscala } from "./lib/acessibilidade";
+import { useLayoutLargo } from "./lib/plataforma";
 import Botao from "./components/Botao";
 import OfflineBanner from "./components/OfflineBanner";
 
@@ -23,6 +26,7 @@ const TODAS_ABAS: Aba[] = ["blocos", "questoes", "notas", "dados", "ajustes"];
  * abre em Ajustes — é a única coisa acionável nesse estado.
  */
 export default function App() {
+  const largo = useLayoutLargo();
   const [pronto, setPronto] = useState(false);
   const [erroBoot, setErroBoot] = useState<string | null>(null);
   const [aba, setAba] = useState<Aba>("blocos");
@@ -88,8 +92,16 @@ export default function App() {
   }
 
   return (
-    <div style={{ minHeight: "100vh", background: C.paper, paddingBottom: TAB_BAR_H }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        background: C.paper,
+        paddingBottom: largo ? 0 : TAB_BAR_H,
+        paddingLeft: largo ? RAIL_LARGURA : 0,
+      }}
+    >
       <OfflineBanner />
+      {largo && <RailLateral />}
       {TODAS_ABAS.map((a) => {
         if (!visitadas.has(a)) return null;
         // display:none em vez de desmontar: preserva o estado interno de cada
@@ -130,7 +142,7 @@ export default function App() {
           </div>
         );
       })}
-      <TabBar aba={aba} onChange={trocar} />
+      {largo ? <NavPill aba={aba} onChange={trocar} /> : <TabBar aba={aba} onChange={trocar} />}
     </div>
   );
 }
