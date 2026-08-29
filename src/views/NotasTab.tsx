@@ -23,17 +23,18 @@ import { gerarArquivosFlashcards } from "../lib/flashcards";
 import RevisaoNotas from "./notas/RevisaoNotas";
 import MapasView from "./notas/mapas/MapasView";
 import CadernoView from "./notas/caderno/CadernoView";
+import TarefasView from "./notas/TarefasView";
 import { slugify } from "../lib/texto";
 import type { ConceitoSalvo } from "../lib/types";
 import { getModoNotas, setModoNotas, type ModoNotas } from "../lib/notasModo";
 
-/** Opções do Segmented de topo da aba — Tarefas ainda não existe; PDFs fica
- * dentro do Caderno, não como segmento próprio, para não apertar o
- * Segmented no celular. */
+/** Opções do Segmented de topo da aba — PDFs fica dentro do Caderno, não
+ * como segmento próprio, para não apertar o Segmented no celular. */
 const OPCOES_MODO: { id: ModoNotas; label: string }[] = [
   { id: "conceitos", label: "Conceitos" },
   { id: "caderno", label: "Caderno" },
   { id: "mapas", label: "Mapas" },
+  { id: "tarefas", label: "Tarefas" },
 ];
 
 /** Banco de notas: pastas por matéria → lista, cada nota por inteiro (ver
@@ -52,10 +53,10 @@ export default function NotasTab({
   const [pasta, setPasta] = useState<string | null>(null);
 
   // Modo de visão da aba inteira: Conceitos é o que a aba sempre fez (pastas
-  // por matéria / nuvem de tags, abaixo); Mapas é a área nova (ver
-  // views/notas/mapas/MapasView.tsx). Caderno e Tarefas chegam nas próximas
-  // partes do plano. Persistido para não voltar a Conceitos a cada troca de
-  // aba (ver lib/notasModo.ts).
+  // por matéria / nuvem de tags, abaixo); Caderno, Mapas e Tarefas são as
+  // áreas novas (ver notas/caderno/CadernoView.tsx, notas/mapas/MapasView.tsx,
+  // notas/TarefasView.tsx). Persistido para não voltar a Conceitos a cada
+  // troca de aba (ver lib/notasModo.ts).
   const [modo, setModo] = useState<ModoNotas>("conceitos");
   useEffect(() => {
     getModoNotas().then(setModo);
@@ -228,13 +229,13 @@ export default function NotasTab({
     }
   }
 
-  if (modo === "caderno" || modo === "mapas") {
+  if (modo === "caderno" || modo === "mapas" || modo === "tarefas") {
     return (
       <Shell titulo="Notas">
         <div style={{ marginBottom: 14 }}>
           <Segmented valor={modo} opcoes={OPCOES_MODO} onChange={trocarModo} />
         </div>
-        {modo === "caderno" ? <CadernoView /> : <MapasView />}
+        {modo === "caderno" ? <CadernoView /> : modo === "mapas" ? <MapasView /> : <TarefasView />}
       </Shell>
     );
   }
