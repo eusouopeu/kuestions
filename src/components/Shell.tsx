@@ -1,7 +1,11 @@
 import type { ReactNode } from "react";
 import { C, disp, TAB_BAR_H } from "../theme";
+import BuscaGlobal from "./BuscaGlobal";
 
-/** Cabeçalho + coluna centrada de 620px, como no artefato. */
+/** Cabeçalho + coluna centrada de 620px, como no artefato. A lupa de busca
+ * global (ver BuscaGlobal.tsx) fica aqui, não numa aba específica — busca em
+ * notas e questões já respondidas é útil de qualquer tela do app, e antes só
+ * existia dentro da aba Notas. */
 export default function Shell({
   titulo,
   children,
@@ -16,6 +20,10 @@ export default function Shell({
           padding: "22px 0 6px",
           borderBottom: `1.5px solid ${C.ink}`,
           marginBottom: 18,
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          gap: 10,
         }}
       >
         <h1
@@ -29,6 +37,9 @@ export default function Shell({
         >
           {titulo}
         </h1>
+        <div style={{ marginTop: 2, flexShrink: 0 }}>
+          <BuscaGlobal />
+        </div>
       </header>
       {children}
     </div>

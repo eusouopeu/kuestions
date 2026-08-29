@@ -2,11 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import { C, cartao, disp, mono } from "../theme";
 import FilaRevisaoDrill from "../components/FilaRevisaoDrill";
 import { Vazio } from "../components/Shell";
-import { contarTodasPorMateria, idsComNota, listarTodasPorMateria, registrarRevisao } from "../lib/repo";
-import type { QuestaoRespondida } from "../lib/types";
-
-/** Tamanho do lote carregado por vez — mesma razão de RefazerView. */
-const LOTE = 150;
+import { contarTodasPorMateria, listarTodasPorMateria, registrarRevisao } from "../lib/repo";
+import { useFilaRevisao } from "./useFilaRevisao";
 
 /**
  * Blocos anteriores: reabre TODAS as questões (certas e erradas) já
@@ -18,19 +15,16 @@ const LOTE = 150;
  * Só uma matéria por vez, sem agrupamento alternativo por bloco específico
  * nem uma opção "todas as matérias de uma vez" — a lista por matéria já
  * cobre o caso de uso sem precisar de mais uma escolha na tela.
+ *
+ * A paginação/avanço da fila é compartilhada com RefazerView (ver
+ * useFilaRevisao.ts) — aqui a "fonte" é só a matéria (string).
  */
 export default function BlocosAnterioresView() {
   const [materias, setMaterias] = useState<{ materia: string; total: number }[]>([]);
   const [carregando, setCarregando] = useState(true);
-  const [erro, setErro] = useState<string | null>(null);
 
-  const [materiaAberta, setMateriaAberta] = useState<string | null>(null);
-  const [fila, setFila] = useState<QuestaoRespondida[] | null>(null);
-  const [temMaisLotes, setTemMaisLotes] = useState(false);
-  const [carregandoLote, setCarregandoLote] = useState(false);
-  const [idx, setIdx] = useState(0);
-  const [revisadasAgora, setRevisadasAgora] = useState(0);
-  const [comNota, setComNota] = useState<Set<number>>(new Set());
+  const { fonte: materiaAberta, fila, temMaisLotes, carregandoLote, idx, revisadasAgora, comNota, erro, setErro, abrir, sair, proxima, registrarRevisadaAgora } =
+    useFilaRevisao<string>((materia, opts) => listarTodasPorMateria(materia, opts));
 
   const recarregar = useCallback(() => {
     setCarregando(true);
@@ -39,58 +33,12 @@ export default function BlocosAnterioresView() {
       .then(setMaterias)
       .catch((e) => setErro(e instanceof Error ? e.message : "Falha ao ler o histórico."))
       .finally(() => setCarregando(false));
-  }, []);
+  }, [setErro]);
 
   useEffect(recarregar, [recarregar]);
 
-  async function abrir(materia: string) {
-    setErro(null);
-    try {
-      const qs = await listarTodasPorMateria(materia, { limite: LOTE });
-      if (!qs.length) {
-        setErro("Nenhuma questão nesta matéria.");
-        return;
-      }
-      setMateriaAberta(materia);
-      setFila(qs);
-      setTemMaisLotes(qs.length === LOTE);
-      setIdx(0);
-      setRevisadasAgora(0);
-      idsComNota(qs.map((q) => q.id))
-        .then(setComNota)
-        .catch(() => setComNota(new Set()));
-    } catch (e) {
-      setErro(e instanceof Error ? e.message : "Falha ao carregar as questões.");
-    }
-  }
-
-  async function carregarProximoLote(): Promise<QuestaoRespondida[]> {
-    if (!temMaisLotes || carregandoLote || !materiaAberta) return [];
-    setCarregandoLote(true);
-    try {
-      const proximas = await listarTodasPorMateria(materiaAberta, {
-        limite: LOTE,
-        offset: fila?.length ?? 0,
-      });
-      setFila((f) => (f ? [...f, ...proximas] : proximas));
-      setTemMaisLotes(proximas.length === LOTE);
-      idsComNota(proximas.map((q) => q.id))
-        .then((novos) => setComNota((s) => new Set([...s, ...novos])))
-        .catch(() => {});
-      return proximas;
-    } catch (e) {
-      setErro(e instanceof Error ? e.message : "Falha ao carregar mais questões.");
-      return [];
-    } finally {
-      setCarregandoLote(false);
-    }
-  }
-
-  function sair() {
-    setFila(null);
-    setMateriaAberta(null);
-    setTemMaisLotes(false);
-    setComNota(new Set());
+  function sairERecarregar() {
+    sair();
     recarregar();
   }
 
@@ -108,28 +56,14 @@ export default function BlocosAnterioresView() {
           const q = fila[idx];
           try {
             await registrarRevisao(q.id, acertou);
-            if (acertou) setRevisadasAgora((n) => n + 1);
+            if (acertou) registrarRevisadaAgora();
           } catch (e) {
             console.error("registrar revisão", e);
           }
           return q.id;
         }}
-        onProxima={async () => {
-          const ultima = idx === fila.length - 1 && !temMaisLotes;
-          if (ultima) {
-            sair();
-            return;
-          }
-          if (idx === fila.length - 1 && temMaisLotes) {
-            const proximas = await carregarProximoLote();
-            if (!proximas.length) {
-              sair();
-              return;
-            }
-          }
-          setIdx(idx + 1);
-        }}
-        onSair={sair}
+        onProxima={() => proxima(sairERecarregar)}
+        onSair={sairERecarregar}
       />
     );
   }

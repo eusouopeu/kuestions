@@ -5,15 +5,13 @@ import {
   CheckCircleIcon,
   FolderIcon,
 } from "@heroicons/react/24/outline";
-import { C, campo, cartao, disp, mono } from "../theme";
+import { C, cartao, disp, mono } from "../theme";
 import Shell, { Vazio } from "../components/Shell";
 import Segmented from "../components/Segmented";
 import Botao from "../components/Botao";
 import NotaCard from "../components/NotaCard";
 import {
   apagarConceito,
-  buscarNotas,
-  buscarQuestoesRespondidas,
   contarNotasPendentesPorMateria,
   listarConceitos,
   listarNotasPorTag,
@@ -24,8 +22,7 @@ import { exportarArquivo, exportarArquivoBinario } from "../lib/exportar";
 import { gerarArquivosFlashcards } from "../lib/flashcards";
 import RevisaoNotas from "./notas/RevisaoNotas";
 import { slugify } from "../lib/texto";
-import ResumoQuestaoRespondida from "../components/ResumoQuestaoRespondida";
-import type { ConceitoSalvo, QuestaoRespondida } from "../lib/types";
+import type { ConceitoSalvo } from "../lib/types";
 
 /** Banco de notas: pastas por matéria → lista, cada nota por inteiro (ver
  * NotaCard) — não há mais uma tela de detalhe separada: visualizar, editar,
@@ -63,15 +60,6 @@ export default function NotasTab({
   const [csvExportado, setCsvExportado] = useState(false);
   const [exportandoApkg, setExportandoApkg] = useState(false);
   const [apkgExportado, setApkgExportado] = useState(false);
-
-  // Busca global (notas + questões já respondidas — enunciado/comentário):
-  // só ativa na tela de pastas (pasta === null). Mantida separada da
-  // navegação em pastas para que trocar de pasta não perca o texto buscado.
-  const [busca, setBusca] = useState("");
-  const [buscando, setBuscando] = useState(false);
-  const [resultadosBusca, setResultadosBusca] = useState<ConceitoSalvo[]>([]);
-  const [resultadosQuestoes, setResultadosQuestoes] = useState<QuestaoRespondida[]>([]);
-  const [questaoAberta, setQuestaoAberta] = useState<number | null>(null);
 
   // Seleção múltipla dentro de uma pasta, para apagar/exportar um subconjunto
   // sem precisar ir nota por nota.
@@ -134,35 +122,6 @@ export default function NotasTab({
     setSelecionados(new Set());
     setConfirmandoApagarSelecionadas(false);
   }, [pasta]);
-
-  // Debounce simples: evita uma consulta a cada tecla digitada. Busca em
-  // paralelo nas duas fontes (notas e questões respondidas) — ver
-  // buscarNotas/buscarQuestoesRespondidas em repo.ts.
-  useEffect(() => {
-    const termo = busca.trim();
-    if (!termo) {
-      setResultadosBusca([]);
-      setResultadosQuestoes([]);
-      setQuestaoAberta(null);
-      setBuscando(false);
-      return;
-    }
-    setBuscando(true);
-    const t = setTimeout(() => {
-      Promise.all([buscarNotas(termo), buscarQuestoesRespondidas(termo)])
-        .then(([notas, questoes]) => {
-          setResultadosBusca(notas);
-          setResultadosQuestoes(questoes);
-          setQuestaoAberta(null);
-        })
-        .catch(() => {
-          setResultadosBusca([]);
-          setResultadosQuestoes([]);
-        })
-        .finally(() => setBuscando(false));
-    }, 250);
-    return () => clearTimeout(t);
-  }, [busca]);
 
   /**
    * Exporta só o CORPO de cada nota (não o título — ver lib/flashcards.ts): é
@@ -504,13 +463,12 @@ export default function NotasTab({
     );
   }
 
-  /* ---------- Pastas / busca ---------- */
-  const buscaAtiva = busca.trim().length > 0;
+  /* ---------- Pastas ---------- */
   const totalPendentes = pendentesPorMateria.reduce((a, p) => a + p.pendentes, 0);
 
   return (
     <Shell titulo="Notas">
-      {totalPendentes > 0 && !buscaAtiva && (
+      {totalPendentes > 0 && (
         <Botao
           tipo="tinta"
           onClick={() => setRevisando({ materia: null })}
@@ -520,112 +478,7 @@ export default function NotasTab({
         </Botao>
       )}
 
-      {pastas.length > 0 && (
-        <div style={{ marginBottom: 16 }}>
-          <input
-            style={campo}
-            placeholder="Buscar em notas e em questões já respondidas…"
-            value={busca}
-            onChange={(e) => setBusca(e.target.value)}
-          />
-        </div>
-      )}
-
-      {buscaAtiva ? (
-        buscando ? (
-          <Vazio>Buscando…</Vazio>
-        ) : resultadosBusca.length === 0 && resultadosQuestoes.length === 0 ? (
-          <Vazio>Nada encontrado para "{busca.trim()}".</Vazio>
-        ) : (
-          <>
-            {resultadosBusca.length > 0 && (
-              <div style={{ marginBottom: resultadosQuestoes.length > 0 ? 22 : 0 }}>
-                <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
-                  NOTAS · {resultadosBusca.length}
-                </div>
-                {resultadosBusca.map((c) => (
-                  <NotaCard
-                    key={c.id}
-                    conceito={c}
-                    mostrarMateria
-                    selecionando={false}
-                    marcada={false}
-                    onToggleSelecao={() => {}}
-                    onAtualizado={(atualizado) => {
-                      setResultadosBusca((rs) => rs.map((r) => (r.id === atualizado.id ? atualizado : r)));
-                    }}
-                    onApagado={() => {
-                      setResultadosBusca((rs) => rs.filter((r) => r.id !== c.id));
-                      carregarPastas();
-                    }}
-                  />
-                ))}
-              </div>
-            )}
-
-            {resultadosQuestoes.length > 0 && (
-              <div>
-                <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
-                  QUESTÕES RESPONDIDAS · {resultadosQuestoes.length}
-                </div>
-                {resultadosQuestoes.map((q) => {
-                  const aberta = questaoAberta === q.id;
-                  return (
-                    <button
-                      key={q.id}
-                      onClick={() => setQuestaoAberta((atual) => (atual === q.id ? null : q.id))}
-                      style={{
-                        ...cartao,
-                        display: "block",
-                        width: "100%",
-                        textAlign: "left",
-                        padding: "12px 14px",
-                        marginBottom: 8,
-                        cursor: "pointer",
-                      }}
-                    >
-                      {aberta ? (
-                        <ResumoQuestaoRespondida questao={q} comBorda={false} />
-                      ) : (
-                        <>
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              gap: 10,
-                              alignItems: "baseline",
-                              marginBottom: 4,
-                            }}
-                          >
-                            <span style={{ ...mono, fontSize: 10.5, color: C.sub }}>
-                              {q.materia.toUpperCase()}
-                            </span>
-                            <span style={{ ...mono, fontSize: 10.5, color: q.acertou ? C.ok : C.erro, flexShrink: 0 }}>
-                              {q.acertou ? "✓ acertou" : "✗ errou"}
-                            </span>
-                          </div>
-                          <div
-                            style={{
-                              fontSize: 13.5,
-                              lineHeight: 1.45,
-                              display: "-webkit-box",
-                              WebkitLineClamp: 2,
-                              WebkitBoxOrient: "vertical",
-                              overflow: "hidden",
-                            }}
-                          >
-                            {q.enunciado}
-                          </div>
-                        </>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
-          </>
-        )
-      ) : carregando ? (
+      {carregando ? (
         <Vazio>Carregando…</Vazio>
       ) : pastas.length === 0 ? (
         <Vazio>

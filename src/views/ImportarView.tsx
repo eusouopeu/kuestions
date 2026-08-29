@@ -11,12 +11,27 @@ import {
   TIPOS,
   type TipoId,
 } from "../lib/constants";
-import { normalizarQuestao } from "../lib/anthropic";
+import { extrairQuestoesDeArquivos, mensagemDeErro, normalizarQuestao, type ArquivoImportacao } from "../lib/anthropic";
 import { criarBloco, fecharBloco, gravarResposta } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
 import type { Questao } from "../lib/types";
 
-type Modo = "json" | "manual";
+type Modo = "json" | "manual" | "arquivo";
+
+const TIPOS_ARQUIVO_ACEITOS = ["image/jpeg", "image/png", "image/gif", "image/webp", "application/pdf"];
+
+/** Lê um File como base64 puro (sem o prefixo "data:...;base64,"). */
+function arquivoParaBase64(f: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const leitor = new FileReader();
+    leitor.onload = () => {
+      const resultado = String(leitor.result ?? "");
+      resolve(resultado.slice(resultado.indexOf(",") + 1));
+    };
+    leitor.onerror = () => reject(new Error("Falha ao ler o arquivo."));
+    leitor.readAsDataURL(f);
+  });
+}
 type Fase = "montar" | "drill" | "resultado";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
@@ -154,6 +169,13 @@ export default function ImportarView() {
   const [jsonTexto, setJsonTexto] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
 
+  // Foto/PDF: extrai questões de uma prova fotografada ou escaneada numa
+  // chamada à API (ver extrairQuestoesDeArquivos em lib/anthropic.ts) — a
+  // alternativa a montar o JSON manualmente ou digitar questão por questão.
+  const [arquivos, setArquivos] = useState<File[]>([]);
+  const [extraindo, setExtraindo] = useState(false);
+  const fileArquivoRef = useRef<HTMLInputElement>(null);
+
   const [draft, setDraft] = useState<Draft>(draftVazio());
   const [erroDraft, setErroDraft] = useState<string | null>(null);
   const [preview, setPreview] = useState(false);
@@ -211,6 +233,46 @@ export default function ImportarView() {
     leitor.onerror = () => setErroGeral("Falha ao ler o arquivo.");
     leitor.readAsText(f);
     e.target.value = ""; // permite recarregar o mesmo arquivo depois de editado
+  }
+
+  function carregarArquivosParaExtrair(e: React.ChangeEvent<HTMLInputElement>) {
+    const novos = Array.from(e.target.files ?? []).filter((f) => TIPOS_ARQUIVO_ACEITOS.includes(f.type));
+    setArquivos((a) => [...a, ...novos]);
+    e.target.value = "";
+  }
+
+  function removerArquivo(i: number) {
+    setArquivos((a) => a.filter((_, k) => k !== i));
+  }
+
+  /** Converte cada arquivo em base64 e chama a API numa única requisição —
+   * várias páginas da mesma prova entram juntas, o modelo já as trata como
+   * um material só (ver extrairQuestoesDeArquivos). Sucesso ENFILEIRA as
+   * questões extraídas às já existentes, em vez de substituir: dá para
+   * juntar fotos de páginas tiradas em momentos diferentes. */
+  async function extrairDeArquivos() {
+    if (!arquivos.length || extraindo) return;
+    setExtraindo(true);
+    setErroGeral(null);
+    setAvisoValidacao(null);
+    try {
+      const convertidos: ArquivoImportacao[] = await Promise.all(
+        arquivos.map(async (f) => ({
+          mediaType: f.type as ArquivoImportacao["mediaType"],
+          base64: await arquivoParaBase64(f),
+        })),
+      );
+      const extraidas = await extrairQuestoesDeArquivos(convertidos);
+      setFila((fl) => [...fl, ...extraidas]);
+      setArquivos([]);
+      setAvisoValidacao(
+        `${extraidas.length} questão${extraidas.length === 1 ? "" : "ões"} extraída${extraidas.length === 1 ? "" : "s"} — confira o gabarito de cada uma antes de responder valendo, especialmente se o material não trazia uma folha de respostas.`,
+      );
+    } catch (e) {
+      setErroGeral(mensagemDeErro(e));
+    } finally {
+      setExtraindo(false);
+    }
   }
 
   function adicionarDraft() {
@@ -280,6 +342,7 @@ export default function ImportarView() {
     setFila([]);
     setJsonTexto("");
     setDraft(draftVazio());
+    setArquivos([]);
     setErroGeral(null);
     setAvisoValidacao(null);
     setBlocoId(null);
@@ -418,6 +481,7 @@ export default function ImportarView() {
           opcoes={[
             { id: "json" as Modo, label: "JSON" },
             { id: "manual" as Modo, label: "Manual" },
+            { id: "arquivo" as Modo, label: "Foto/PDF" },
           ]}
           onChange={(m) => {
             setModo(m);
@@ -426,7 +490,83 @@ export default function ImportarView() {
         />
       </div>
 
-      {modo === "json" ? (
+      {modo === "arquivo" ? (
+        <div style={{ marginBottom: 18 }}>
+          <label style={rotulo}>Foto(s) ou PDF da prova</label>
+          <input
+            ref={fileArquivoRef}
+            type="file"
+            accept={TIPOS_ARQUIVO_ACEITOS.join(",")}
+            multiple
+            onChange={carregarArquivosParaExtrair}
+            style={{ display: "none" }}
+          />
+          <Botao tipo="fantasma" onClick={() => fileArquivoRef.current?.click()}>
+            Escolher arquivos
+          </Botao>
+
+          {arquivos.length > 0 && (
+            <div style={{ ...cartao, padding: "10px 12px", marginTop: 10 }}>
+              {arquivos.map((f, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 8,
+                    padding: "5px 0",
+                    borderTop: i > 0 ? `1px solid ${C.line}` : "none",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: 12.5,
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {f.name}
+                  </span>
+                  <button
+                    onClick={() => removerArquivo(i)}
+                    aria-label="Remover"
+                    disabled={extraindo}
+                    style={{
+                      ...mono,
+                      fontSize: 12,
+                      color: C.erro,
+                      background: "none",
+                      border: "none",
+                      cursor: extraindo ? "default" : "pointer",
+                      padding: 4,
+                      flexShrink: 0,
+                    }}
+                  >
+                    ×
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <Botao
+            tipo="tinta"
+            onClick={extrairDeArquivos}
+            disabled={!arquivos.length || extraindo}
+            style={{ marginTop: 10 }}
+          >
+            {extraindo ? "Extraindo questões…" : `Extrair questões (${arquivos.length})`}
+          </Botao>
+
+          <div style={{ fontSize: 11.5, color: C.sub, marginTop: 8, lineHeight: 1.4 }}>
+            Uma chamada à API lê a imagem/PDF e transcreve as questões. Se o material não trouxer
+            gabarito, o modelo decide a resposta correta sozinho — confira antes de responder
+            valendo. Enunciado, alternativas e conceitos vêm sempre transcritos, nunca inventados.
+          </div>
+        </div>
+      ) : modo === "json" ? (
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Colar ou carregar um arquivo .json</label>
           <textarea

@@ -20,6 +20,7 @@ import {
   questoesPorTopico,
   resumo,
   resumoConfianca,
+  resumoConfiancaPorMateria,
   resumoCusto,
   resumoLentidao,
   resumoPorMateria,
@@ -28,6 +29,7 @@ import {
   tempoMedioGeral,
   tempoPorMateria,
   topicosPraticados,
+  type CalibracaoMateria,
   type Fatia,
   type FatiaTempo,
   type Resumo,
@@ -91,6 +93,11 @@ export function useDadosAgregados({
   // (ver lib/custo.ts) — nenhum dos dois é filtrado por nível: um é sobre o
   // hábito de autoavaliação, o outro é dinheiro da conta, não desempenho.
   const [confiancaResumo, setConfiancaResumo] = useState<ResumoConfianca | null>(null);
+  // Calibração de confiança por matéria (ver resumoConfiancaPorMateria em
+  // repo.ts) — só faz sentido na visão agregada ("todas"), onde comparar o
+  // excesso de confiança entre matérias é o ponto (mesmo critério de
+  // porMateriaNota, que também só existe com m === null).
+  const [calibracaoPorMateria, setCalibracaoPorMateria] = useState<CalibracaoMateria[]>([]);
   const [custo, setCusto] = useState<ResumoCusto | null>(null);
   // Acerto lento (ver resumoLentidao em repo.ts) — o problema que o placar
   // conta como acerto.
@@ -121,10 +128,11 @@ export function useDadosAgregados({
       resumoLentidao(m),
       resumoCusto(),
       getTetoMensal(),
-      // Nota estimada só faz sentido na visão agregada.
+      // Nota estimada e calibração por matéria só fazem sentido na visão agregada.
       m === null ? Promise.all([resumoPorMateria(n), getPesosEdital()]) : Promise.resolve(null),
+      m === null ? resumoConfiancaPorMateria() : Promise.resolve([]),
     ])
-      .then(([r, s, ni, ti, fo, co, cf, st, at, tg, tm, conf, lent, cst, tt, baseNota]) => {
+      .then(([r, s, ni, ti, fo, co, cf, st, at, tg, tm, conf, lent, cst, tt, baseNota, calibracao]) => {
         setRes(r);
         setSerie(s);
         setNiveis(ni);
@@ -142,6 +150,7 @@ export function useDadosAgregados({
         setTeto(tt);
         setPorMateriaNota(baseNota ? baseNota[0] : null);
         setPesosReais(baseNota ? baseNota[1] : {});
+        setCalibracaoPorMateria(calibracao);
       })
       .catch(() => setRes(null))
       .finally(() => setCarregando(false));
@@ -188,6 +197,7 @@ export function useDadosAgregados({
     tempoGeral,
     tempoMaterias,
     confiancaResumo,
+    calibracaoPorMateria,
     lentidao,
     custo,
     teto,

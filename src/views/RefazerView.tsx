@@ -6,17 +6,12 @@ import { Vazio } from "../components/Shell";
 import {
   contarErradasPorConceito,
   contarErradasPorMateria,
-  idsComNota,
   listarErradas,
   listarErradasPorConceito,
   registrarRevisao,
   type EscopoRevisao,
 } from "../lib/repo";
-import type { QuestaoRespondida } from "../lib/types";
-
-/** Tamanho do lote carregado por vez — evita trazer para a memória de uma
- * só vez um histórico de erradas que só cresce (ver listarErradas). */
-const LOTE = 150;
+import { useFilaRevisao } from "./useFilaRevisao";
 
 /**
  * Refazer. Não chama a API: relê questões já gravadas em
@@ -30,7 +25,8 @@ const LOTE = 150;
  *   - "Todas as erradas": a lista de erros do histórico, vencidos ou não.
  *
  * ("Blocos anteriores" é outra aba, ver BlocosAnterioresView — TODAS as
- * questões de um bloco fechado, não só as vencidas.)
+ * questões de um bloco fechado, não só as vencidas. A paginação/avanço da
+ * fila é compartilhada entre as duas, ver useFilaRevisao.ts.)
  *
  * A ordem da fila prioriza o que mais precisa de atenção: errada antes de
  * certa, erro perigoso antes de erro comum, acerto lento antes de acerto
@@ -52,16 +48,24 @@ export default function RefazerView() {
     { conceito: string; total: number; pendentes: number }[]
   >([]);
   const [carregando, setCarregando] = useState(true);
-  const [fonte, setFonte] = useState<FonteFila | null>(null);
-  const [fila, setFila] = useState<QuestaoRespondida[] | null>(null);
-  const [temMaisLotes, setTemMaisLotes] = useState(false);
-  const [carregandoLote, setCarregandoLote] = useState(false);
-  const [idx, setIdx] = useState(0);
-  const [revisadasAgora, setRevisadasAgora] = useState(0);
-  const [erro, setErro] = useState<string | null>(null);
-  // ids de questoes_respondidas com nota já salva, para o selo "nota salva"
-  // no card — buscado em lote (1 consulta por página) em vez de por questão.
-  const [comNota, setComNota] = useState<Set<number>>(new Set());
+
+  const {
+    fonte,
+    fila,
+    temMaisLotes,
+    carregandoLote,
+    idx,
+    revisadasAgora,
+    comNota,
+    erro,
+    setErro,
+    abrir,
+    sair,
+    proxima,
+    registrarRevisadaAgora,
+  } = useFilaRevisao<FonteFila>((f, opts) =>
+    f.tipo === "conceito" ? listarErradasPorConceito(f.valor, filtro, opts) : listarErradas(f.valor, filtro, opts),
+  );
 
   const soPendentes = filtro === "pendentes";
 
@@ -75,63 +79,12 @@ export default function RefazerView() {
       })
       .catch((e) => setErro(e instanceof Error ? e.message : "Falha ao ler o histórico."))
       .finally(() => setCarregando(false));
-  }, [filtro]);
+  }, [filtro, setErro]);
 
   useEffect(recarregar, [recarregar]);
 
-  function buscarPagina(f: FonteFila, opts: { limite?: number; offset?: number }) {
-    if (f.tipo === "conceito") return listarErradasPorConceito(f.valor, filtro, opts);
-    return listarErradas(f.valor, filtro, opts);
-  }
-
-  async function abrir(f: FonteFila) {
-    setErro(null);
-    try {
-      const qs = await buscarPagina(f, { limite: LOTE });
-      if (!qs.length) {
-        setErro("Nenhuma questão nesse filtro.");
-        return;
-      }
-      setFonte(f);
-      setFila(qs);
-      setTemMaisLotes(qs.length === LOTE);
-      setIdx(0);
-      setRevisadasAgora(0);
-      idsComNota(qs.map((q) => q.id))
-        .then(setComNota)
-        .catch(() => setComNota(new Set()));
-    } catch (e) {
-      setErro(e instanceof Error ? e.message : "Falha ao carregar as questões.");
-    }
-  }
-
-  /** Busca o próximo lote e o anexa à fila em vez de recarregar tudo do zero —
-   * é o que torna a paginação de listarErradas/listarErradasPorConceito
-   * transparente para quem revisa. */
-  async function carregarProximoLote(): Promise<QuestaoRespondida[]> {
-    if (!temMaisLotes || carregandoLote || !fonte) return [];
-    setCarregandoLote(true);
-    try {
-      const proximas = await buscarPagina(fonte, { limite: LOTE, offset: fila?.length ?? 0 });
-      setFila((f) => (f ? [...f, ...proximas] : proximas));
-      setTemMaisLotes(proximas.length === LOTE);
-      idsComNota(proximas.map((q) => q.id))
-        .then((novos) => setComNota((s) => new Set([...s, ...novos])))
-        .catch(() => {});
-      return proximas;
-    } catch (e) {
-      setErro(e instanceof Error ? e.message : "Falha ao carregar mais questões.");
-      return [];
-    } finally {
-      setCarregandoLote(false);
-    }
-  }
-
-  function sair() {
-    setFila(null);
-    setFonte(null);
-    setTemMaisLotes(false);
-    setComNota(new Set());
+  function sairERecarregar() {
+    sair();
     recarregar();
   }
 
@@ -156,29 +109,14 @@ export default function RefazerView() {
           const q = fila[idx];
           try {
             await registrarRevisao(q.id, acertou);
-            if (acertou) setRevisadasAgora((n) => n + 1);
+            if (acertou) registrarRevisadaAgora();
           } catch (e) {
             console.error("registrar revisão", e);
           }
           return q.id;
         }}
-        onProxima={async () => {
-          const ultima = idx === fila.length - 1 && !temMaisLotes;
-          if (ultima) {
-            sair();
-            return;
-          }
-          if (idx === fila.length - 1 && temMaisLotes) {
-            const proximas = await carregarProximoLote();
-            if (!proximas.length) {
-              // Falhou ou não havia mais nada, apesar do sinal anterior.
-              sair();
-              return;
-            }
-          }
-          setIdx(idx + 1);
-        }}
-        onSair={sair}
+        onProxima={() => proxima(sairERecarregar)}
+        onSair={sairERecarregar}
       />
     );
   }

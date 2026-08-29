@@ -8,12 +8,13 @@ import QuestaoCard, { type Confianca } from "../components/QuestaoCard";
 import { Vazio } from "../components/Shell";
 import {
   anosDeArea,
-  AREAS_BANCO,
+  areasBanco,
   assuntosDeArea,
   blocosDeArea,
   contarDisponiveis,
   contarIneditas,
   descricaoFiltroBanco,
+  garantirBanco,
   instituicoesDeArea,
   pesosPorAssunto,
   pontuarAssuntos,
@@ -57,7 +58,12 @@ const LOTE = 4;
  */
 export default function GerarBancoView() {
   const [tela, setTela] = useState<Tela>("config");
-  const [area, setArea] = useState<string>(AREAS_BANCO[0] ?? "");
+  // O JSON do banco (~1,5 MB) é carregado sob demanda (ver garantirBanco em
+  // lib/banco.ts) só quando esta view monta — não faz parte do bundle
+  // inicial do app. `area` começa vazio e é preenchido quando a carga
+  // resolve (ver efeito abaixo).
+  const [bancoPronto, setBancoPronto] = useState(false);
+  const [area, setArea] = useState<string>("");
   const [modo, setModo] = useState<Modo>("todos");
   const [assunto, setAssunto] = useState<string>("");
   const [bloco, setBloco] = useState<string>("");
@@ -95,6 +101,13 @@ export default function GerarBancoView() {
   const selecionadasRef = useRef<Questao[]>([]);
 
   useEffect(() => {
+    garantirBanco().then(() => {
+      setBancoPronto(true);
+      setArea((a) => a || areasBanco()[0] || "");
+    });
+  }, []);
+
+  useEffect(() => {
     setModo("todos");
     setAssunto("");
     setBloco("");
@@ -112,10 +125,11 @@ export default function GerarBancoView() {
     }
   }, [tela]);
 
-  if (!AREAS_BANCO.length) {
-    return <Vazio>Banco de questões vazio ou não encontrado.</Vazio>;
-  }
-
+  // `disponiveis`/`filtro` entram nas deps do efeito abaixo — precisam ser
+  // calculados incondicionalmente, ANTES do `if (!bancoPronto)` mais abaixo,
+  // senão este useEffect deixaria de ser chamado no primeiro render (banco
+  // ainda carregando) e passaria a ser chamado depois que `bancoPronto` virar
+  // true, violando a regra de hooks (mesmo número de hooks em toda renderização).
   const proveniencia = {
     ...(instituicao ? { instituicao } : {}),
     ...(ano ? { ano } : {}),
@@ -133,6 +147,13 @@ export default function GerarBancoView() {
   useEffect(() => {
     if (disponiveis > 0) setQuantidade((q) => Math.min(q, disponiveis));
   }, [disponiveis]);
+
+  if (!bancoPronto) {
+    return <Vazio>Carregando banco de questões…</Vazio>;
+  }
+  if (!areasBanco().length) {
+    return <Vazio>Banco de questões vazio ou não encontrado.</Vazio>;
+  }
 
   /**
    * Antes de chamar a API, consulta o cache local (banco_id → comentário já
@@ -340,7 +361,7 @@ export default function GerarBancoView() {
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Área</label>
           <select style={campo} value={area} onChange={(e) => setArea(e.target.value)}>
-            {AREAS_BANCO.map((a) => (
+            {areasBanco().map((a) => (
               <option key={a} value={a}>
                 {a}
               </option>

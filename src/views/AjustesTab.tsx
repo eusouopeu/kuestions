@@ -55,16 +55,22 @@ import {
   type PesosEdital,
 } from "../lib/edital";
 import { MATERIAS, MATERIAS_ORDENADAS } from "../lib/constants";
-import { AREAS_BANCO } from "../lib/banco";
+import { areasBanco, garantirBanco } from "../lib/banco";
 
 /** Matérias/áreas cujo peso no edital pode ser configurado: união das
  * matérias de geração (MATERIAS) com as áreas do banco de questões reais
- * (AREAS_BANCO) — os rótulos nem sempre batem 1:1 entre os dois (ver
+ * (`areasBanco()`) — os rótulos nem sempre batem 1:1 entre os dois (ver
  * comentário em lib/banco.ts), então a união cobre nota estimada e simulado
- * sem exigir que o usuário configure a mesma matéria duas vezes. */
-const MATERIAS_E_AREAS: string[] = [...new Set([...MATERIAS, ...AREAS_BANCO])].sort((a, b) =>
-  a.localeCompare(b, "pt-BR"),
-);
+ * sem exigir que o usuário configure a mesma matéria duas vezes.
+ *
+ * `areasBanco()` só tem dados depois que `garantirBanco()` resolver (o JSON
+ * do banco de ~1,5 MB é carregado sob demanda, ver lib/banco.ts) — por isso
+ * isto é uma função chamada de dentro do componente, não um `const` de
+ * módulo: um `const` calculado na importação capturaria a lista vazia para
+ * sempre, mesmo depois do banco carregar. */
+function materiasEAreas(): string[] {
+  return [...new Set([...MATERIAS, ...areasBanco()])].sort((a, b) => a.localeCompare(b, "pt-BR"));
+}
 
 function dataCurta(iso: string): string {
   const d = new Date(iso);
@@ -133,6 +139,15 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
 
   const [comExplicacoesIA, setComExplicacoesIALocal] = useState(true);
   const [mostrarRecomendacoes, setMostrarRecomendacoesLocal] = useState(true);
+  // Só para forçar um re-render quando o banco de questões (carregado sob
+  // demanda, ver garantirBanco em lib/banco.ts) terminar de chegar — o mapa
+  // de peso do edital (materiasEAreas) precisa das áreas do banco mesmo que
+  // o usuário nunca tenha aberto "Do banco" nesta sessão.
+  const [, forcarAposCargaBanco] = useState(0);
+
+  useEffect(() => {
+    garantirBanco().then(() => forcarAposCargaBanco((n) => n + 1));
+  }, []);
 
   useEffect(() => {
     Promise.all([getApiKey(), getProxyUrl()])
@@ -270,7 +285,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     setPresetPeso(id);
     const preset = PRESETS_PESO_EDITAL.find((p) => p.id === id);
     if (!preset) return;
-    const novo = Object.fromEntries(MATERIAS_E_AREAS.map((m) => [m, pesoDe(preset.pesos, m)]));
+    const novo = Object.fromEntries(materiasEAreas().map((m) => [m, pesoDe(preset.pesos, m)]));
     setPesosLocal(novo);
     try {
       await setPesosEdital(novo);
@@ -830,7 +845,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         </select>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-          {MATERIAS_E_AREAS.map((m) => (
+          {materiasEAreas().map((m) => (
             <div key={m} style={{ display: "flex", alignItems: "center", gap: 8 }}>
               <span style={{ fontSize: 13, flex: 1 }}>{m}</span>
               <select

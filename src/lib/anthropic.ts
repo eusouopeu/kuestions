@@ -629,6 +629,115 @@ export async function gerarExplicacoes(questoes: Questao[]): Promise<Questao[]> 
   }
 }
 
+/* ---------- Extração de questões de foto/PDF (importação por arquivo) ---------- */
+
+export interface ArquivoImportacao {
+  mediaType: "image/jpeg" | "image/png" | "image/gif" | "image/webp" | "application/pdf";
+  /** Base64 sem o prefixo "data:...;base64,". */
+  base64: string;
+}
+
+/**
+ * Regras da extração — mesmo padrão de REGRAS_EXPLICACOES (texto fixo, sem a
+ * imagem/PDF em si) para poder ir como bloco cacheado se um dia a view
+ * enviar várias fotos da mesma prova em chamadas separadas.
+ *
+ * Diferente de `gerarExplicacoes` (que só explica um gabarito já dado por
+ * uma fonte confiável — o banco de questões), aqui o material pode não trazer
+ * gabarito nenhum (foto de caderno de prova, sem folha de respostas); nesse
+ * caso o modelo tem que decidir a resposta correta sozinho, com o mesmo
+ * rigor e as mesmas salvaguardas contra invenção de dispositivo legal da
+ * geração do zero (ver `metodo` em montarPrompt).
+ */
+const REGRAS_EXTRACAO = `Você transcreve questões de concurso público a partir de uma imagem ou PDF de prova (foto de caderno de questões, PDF escaneado ou nativo). Para CADA questão que aparecer no material, na ordem em que aparece:
+
+- "enunciado": transcreva literalmente, sem corrigir nem resumir. Remova a numeração da questão; se houver um texto de apoio compartilhado (estudo de caso, tabela) do qual a questão depende, incorpore-o ao próprio enunciado — este formato não separa texto de apoio.
+- "formato": "ce" se for Certo/Errado (uma afirmação única, julgar certo ou errado); "mc" se for múltipla escolha.
+- "alternativas": em "mc", as alternativas tal como aparecem, cada uma prefixada "A) ", "B) " etc.; em "ce", null.
+- "gabarito": SE o material trouxer um gabarito oficial (lista de respostas, marcação visível), use-o. Caso contrário, determine você mesmo a resposta correta com o mesmo rigor de elaborar uma questão do zero — releia o enunciado e cada alternativa antes de decidir, e confirme que nenhuma outra alternativa também estaria correta.
+- "comentario": por que o gabarito está correto, ≤ 25 palavras.
+- "explicacoes_erradas": em "mc", uma entrada por alternativa errada nomeando o erro específico, ≤ 25 palavras cada; em "ce", objeto vazio {}.
+- "conceitos": 1 a 3 conceitos jurídicos/técnicos cobrados pela questão.
+- "dispositivo": artigo de lei citado, SOMENTE se você tiver plena certeza de que existe e diz o que a questão afirma; senão null. Nunca invente número de artigo, súmula, alíquota ou prazo.
+
+Ignore qualquer texto que não seja questão (cabeçalho de prova, instruções, rodapé, numeração de página). Se uma questão estiver ilegível ou cortada a ponto de ficar incompreensível, não a inclua — não invente o que falta.
+
+Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON:
+{"questoes":[{"enunciado":"...","formato":"ce" ou "mc","alternativas":["A) ...","B) ..."] ou null,"gabarito":"C"/"E" ou "A"–"E","comentario":"...","explicacoes_erradas":{"A":"..."},"conceitos":["..."],"dispositivo":"art. X ..." ou null}]}`;
+
+/**
+ * Extrai questões de uma ou mais imagens/PDFs de prova numa chamada só —
+ * caminho alternativo a montar o JSON manualmente ou digitar questão por
+ * questão em ImportarView, que na prática exigiam trabalho demais para
+ * valerem a pena. Não usa `chamar` porque o conteúdo aqui inclui blocos de
+ * imagem/documento, que `chamar` não aceita (só texto) — o resto da
+ * plumbing (cliente, streaming, registro de uso) é replicado aqui.
+ */
+export async function extrairQuestoesDeArquivos(arquivos: ArquivoImportacao[]): Promise<Questao[]> {
+  if (!arquivos.length) return [];
+  const client = await criarCliente();
+
+  const content: Anthropic.ContentBlockParam[] = [
+    ...arquivos.map(
+      (a): Anthropic.ContentBlockParam =>
+        a.mediaType === "application/pdf"
+          ? {
+              type: "document",
+              source: { type: "base64", media_type: "application/pdf", data: a.base64 },
+            }
+          : {
+              type: "image",
+              source: { type: "base64", media_type: a.mediaType, data: a.base64 },
+            },
+    ),
+    { type: "text", text: REGRAS_EXTRACAO },
+  ];
+
+  const stream = client.messages.stream({
+    model: MODEL,
+    max_tokens: 24000,
+    output_config: { effort: "medium" },
+    messages: [{ role: "user", content }],
+  });
+  const msg = await stream.finalMessage();
+
+  try {
+    const { registrarUsoApi } = await import("./repo");
+    await registrarUsoApi({
+      modelo: MODEL,
+      origem: "importar de arquivo",
+      uso: {
+        entrada: msg.usage.input_tokens ?? 0,
+        saida: msg.usage.output_tokens ?? 0,
+        cacheEscrita: msg.usage.cache_creation_input_tokens ?? 0,
+        cacheLeitura: msg.usage.cache_read_input_tokens ?? 0,
+      },
+    });
+  } catch (e) {
+    console.error("registrar uso da API", e);
+  }
+
+  if (msg.stop_reason === "refusal") {
+    throw new Error("O modelo recusou processar este arquivo.");
+  }
+  if (msg.stop_reason === "max_tokens") {
+    throw new Error("Resposta truncada pelo limite de tokens — tente com menos páginas de cada vez.");
+  }
+
+  const texto = msg.content
+    .filter((b): b is Anthropic.TextBlock => b.type === "text")
+    .map((b) => b.text)
+    .join("\n");
+  const obj = tentarParse(texto);
+  const questoes = (obj.questoes ?? [])
+    .map((r) => normalizarQuestao(r, "misto"))
+    .filter((q): q is Questao => q !== null);
+  if (!questoes.length) {
+    throw new Error("Nenhuma questão reconhecida neste arquivo. Confira se a imagem/PDF está legível.");
+  }
+  return questoes;
+}
+
 /* ---------- Explicação avulsa, sob demanda ---------- */
 
 /** Letras que o usuário já pode escolher para explicar (gabarito incluso —

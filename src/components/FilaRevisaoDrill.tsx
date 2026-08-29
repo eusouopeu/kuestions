@@ -95,15 +95,24 @@ export default function FilaRevisaoDrill({
               borderBottom: `1px solid ${C.line}`,
             }}
           >
-            {q.nivel != null ? `NÍVEL ${q.nivel} · ` : ""}
-            {q.resposta ? `VOCÊ MARCOU ${q.resposta}` : "NÃO RESPONDIDA"}
-            {q.revisada
-              ? ` · CAIXA ${q.caixa_leitner}/5${
-                  q.proxima_revisao && new Date(q.proxima_revisao) > new Date()
-                    ? ` · PRÓXIMA EM ${dataCurta(q.proxima_revisao)}`
-                    : " · VENCIDA"
-                }`
-              : ""}
+            {/* Propositalmente SEM "você marcou X": mostrar a resposta dada
+                antes de revelar o gabarito permite reconhecer a alternativa
+                pela posição em vez de raciocinar de novo, o que é exatamente
+                o que a revisão deveria evitar. A resposta continua gravada
+                no banco (QuestaoRespondida.resposta) para as estatísticas —
+                só não aparece aqui. */}
+            {[
+              q.nivel != null ? `NÍVEL ${q.nivel}` : null,
+              q.revisada
+                ? `CAIXA ${q.caixa_leitner}/5${
+                    q.proxima_revisao && new Date(q.proxima_revisao) > new Date()
+                      ? ` · PRÓXIMA EM ${dataCurta(q.proxima_revisao)}`
+                      : " · VENCIDA"
+                  }`
+                : null,
+            ]
+              .filter(Boolean)
+              .join(" · ")}
           </div>
         }
         labelProxima={ultima ? "Encerrar revisão" : carregandoLote ? "Carregando…" : "Próxima questão"}

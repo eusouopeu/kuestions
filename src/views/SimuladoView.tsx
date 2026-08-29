@@ -6,8 +6,9 @@ import Opcao, { type Reveal } from "./../components/Opcao";
 import Chip from "../components/Chip";
 import { Vazio } from "../components/Shell";
 import {
-  AREAS_BANCO,
+  areasBanco,
   contarDisponiveis,
+  garantirBanco,
   questaoBancoParaQuestao,
   selecionarQuestoes,
   type QuestaoBanco,
@@ -114,6 +115,13 @@ type Tela = "config" | "drill" | "resultado";
  */
 export default function SimuladoView() {
   const [tela, setTela] = useState<Tela>("config");
+  // O JSON do banco (~1,5 MB) é carregado sob demanda (ver garantirBanco em
+  // lib/banco.ts) só quando esta view monta — não faz parte do bundle
+  // inicial do app.
+  const [bancoPronto, setBancoPronto] = useState(false);
+  useEffect(() => {
+    garantirBanco().then(() => setBancoPronto(true));
+  }, []);
   // Quantidade de questões por área, decidida matéria a matéria (0 = área
   // fora do simulado) — em vez de um total único redistribuído sozinho pelo
   // app. "Aplicar distribuição" ainda preenche isto automaticamente a partir
@@ -180,9 +188,9 @@ export default function SimuladoView() {
   }, [tela]);
 
   const disponivelPorArea = Object.fromEntries(
-    AREAS_BANCO.map((a) => [a, contarDisponiveis(a, { modo: "todos" })]),
+    areasBanco().map((a) => [a, contarDisponiveis(a, { modo: "todos" })]),
   );
-  const areasSelecionadas = AREAS_BANCO.filter((a) => (qtdPorArea[a] ?? 0) > 0);
+  const areasSelecionadas = areasBanco().filter((a) => (qtdPorArea[a] ?? 0) > 0);
   const quantidadeTotal = areasSelecionadas.reduce((s, a) => s + (qtdPorArea[a] ?? 0), 0);
 
   const presetSelecionado =
@@ -205,7 +213,7 @@ export default function SimuladoView() {
    * — ponto de partida rápido que o usuário ainda pode ajustar matéria a
    * matéria antes de iniciar. */
   function aplicarDistribuicao() {
-    const areasComDisponivel = AREAS_BANCO.filter((a) => (disponivelPorArea[a] ?? 0) > 0);
+    const areasComDisponivel = areasBanco().filter((a) => (disponivelPorArea[a] ?? 0) > 0);
     if (!areasComDisponivel.length) return;
     setQtdPorArea(alocarPorPeso(areasComDisponivel, alvoDistribuicao, disponivelPorArea, pesosEfetivos));
   }
@@ -292,6 +300,10 @@ export default function SimuladoView() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [segundosRestantes, tela]);
 
+  if (!bancoPronto) {
+    return <Vazio>Carregando banco de questões…</Vazio>;
+  }
+
   /* ---------- CONFIG ---------- */
   if (tela === "config") {
     return (
@@ -303,7 +315,7 @@ export default function SimuladoView() {
             {quantidadeTotal === 1 ? "questão" : "questões"})
           </label>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            {AREAS_BANCO.map((a) => {
+            {areasBanco().map((a) => {
               const max = disponivelPorArea[a] ?? 0;
               const qtd = qtdPorArea[a] ?? 0;
               const ativa = qtd > 0;

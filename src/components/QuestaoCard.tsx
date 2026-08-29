@@ -14,7 +14,7 @@ import { labelTipo } from "../lib/constants";
 import { mesclarExplicacoesBanco, mesclarExplicacoesRespondida, reportarQuestao } from "../lib/repo";
 import type { MotivoReport } from "../lib/repo";
 import { gerarExplicacaoParcial, letrasExplicaveis, mensagemDeErro } from "../lib/anthropic";
-import { buscarQuestaoBanco, emojiIncidencia, nomeDaProva } from "../lib/banco";
+import { bancoCarregado, buscarQuestaoBanco, emojiIncidencia, garantirBanco, nomeDaProva } from "../lib/banco";
 import { pareceCalculo } from "../lib/texto";
 import ModalReport from "./ModalReport";
 import { lerEmVoz, pararLeitura, vozDisponivel } from "../lib/acessibilidade";
@@ -115,6 +115,12 @@ export default function QuestaoCard({
   // enunciado sem olhar a tela. Só aparece onde a WebView tem síntese de voz.
   const [lendo, setLendo] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  // Só para forçar um re-render quando o banco de questões carrega depois do
+  // card já ter montado — acontece quando uma questão com `bancoId` aparece
+  // numa tela que não passou por GerarBancoView/SimuladoView nesta sessão
+  // (ex.: reabrir "Refazer erradas" direto após o boot). Sem isto, o card
+  // ficaria sem o banner de proveniência até a próxima navegação.
+  const [, forcarAposCargaBanco] = useState(0);
   // Início da cronometragem desta questão — reseta junto com o resto ao
   // trocar de questão (ver o mesmo efeito abaixo).
   const inicioRef = useRef(Date.now());
@@ -144,6 +150,12 @@ export default function QuestaoCard({
 
   // Sair do drill (desmontar o card) também interrompe a leitura.
   useEffect(() => () => pararLeitura(), []);
+
+  useEffect(() => {
+    if (questao.bancoId && !bancoCarregado()) {
+      garantirBanco().then(() => forcarAposCargaBanco((n) => n + 1));
+    }
+  }, [questao.bancoId]);
 
   async function reportar(motivo: MotivoReport) {
     if (reportada || reportando || origemId == null) return;

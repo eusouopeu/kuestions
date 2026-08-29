@@ -9,8 +9,18 @@
  * A fonte tem os dois formatos: múltipla escolha A–E e Certo/Errado (nesta,
  * `alternativas` é exatamente {C: "Certo", E: "Errado"}) — ver
  * `questaoBancoParaQuestao`, que traduz um e outro para o `Questao` do app.
+ *
+ * O arquivo tem ~1,5 MB — carregado com `import()` dinâmico (ver
+ * `garantirBanco`) em vez de `import` estático, para não entrar no chunk
+ * inicial do app: quem só usa Gerar/Notas/Dados nunca baixa nem faz o parse
+ * disso. Todo o resto deste módulo (índices, filtros, sorteio) é síncrono e
+ * opera sobre `BANCO`/`POR_ID`, que ficam vazios até `garantirBanco()`
+ * resolver — cada tela que usa banco de questões (GerarBancoView,
+ * SimuladoView) chama `garantirBanco()` antes de precisar dos dados; o card
+ * de revisão (QuestaoCard) chama de novo, defensivamente, para o caso de uma
+ * questão com `bancoId` aparecer numa tela que não passou por lá primeiro
+ * (Refazer/Blocos anteriores, reabertos direto após o boot).
  */
-import banco from "../data/banco_questoes.json";
 import { pesoPonderado } from "./pontuacaoTopicos";
 import type { Questao } from "./types";
 
@@ -52,22 +62,49 @@ export function emojiIncidencia(q: Pick<QuestaoBanco, "incidencia">): string | n
   return EMOJI_INCIDENCIA[chave] ?? null;
 }
 
-// Registros sem gabarito utilizável (null na fonte, ou "X" de questão anulada
-// pela banca) já são descartados na fusão do arquivo, mas o filtro fica aqui
-// também: é a única leitura do JSON, e sem ele `questaoBancoParaQuestao`
-// quebraria ao chamar `.trim()` num gabarito nulo assim que o registro fosse
-// sorteado.
-const BANCO = (banco as QuestaoBanco[]).filter(
-  (q) =>
-    typeof q.gabarito === "string" &&
-    q.gabarito.trim() !== "" &&
-    q.gabarito.trim().toUpperCase() !== "X",
-);
+// Populados por `garantirBanco()` — vazios até a primeira chamada resolver
+// (ver comentário do módulo). Registros sem gabarito utilizável (null na
+// fonte, ou "X" de questão anulada pela banca) são descartados na carga: sem
+// isto, `questaoBancoParaQuestao` quebraria ao chamar `.trim()` num gabarito
+// nulo assim que o registro fosse sorteado.
+let BANCO: QuestaoBanco[] = [];
+let POR_ID = new Map<string, QuestaoBanco>();
+let AREAS_BANCO: string[] = [];
+let promessaCarga: Promise<void> | null = null;
 
-/** Índice por id — usado por `buscarQuestaoBanco`, a ponte que o card usa
- * para saber de que prova veio a questão a partir só do `bancoId` (o único
- * campo de proveniência que sobrevive em `questoes_respondidas`). */
-const POR_ID = new Map(BANCO.map((q) => [q.id, q]));
+/** Idempotente: chamadas concorrentes compartilham a mesma promessa, e uma
+ * vez carregado, resolve na hora. Todo ponto de entrada que pode desembocar
+ * numa questão do banco (montar bloco "Do banco", Simulado, ou reabrir uma
+ * questão já respondida com `bancoId` em Refazer/Blocos anteriores) chama
+ * isto antes de ler `BANCO`/`POR_ID`/`AREAS_BANCO`. */
+export function garantirBanco(): Promise<void> {
+  if (!promessaCarga) {
+    promessaCarga = import("../data/banco_questoes.json").then((mod) => {
+      const bruto = (mod.default as QuestaoBanco[]).filter(
+        (q) =>
+          typeof q.gabarito === "string" &&
+          q.gabarito.trim() !== "" &&
+          q.gabarito.trim().toUpperCase() !== "X",
+      );
+      BANCO = bruto;
+      POR_ID = new Map(BANCO.map((q) => [q.id, q]));
+      AREAS_BANCO = [...new Set(BANCO.map((q) => q.area))].sort((a, b) => a.localeCompare(b, "pt-BR"));
+    });
+  }
+  return promessaCarga;
+}
+
+export function bancoCarregado(): boolean {
+  return BANCO.length > 0;
+}
+
+/** Áreas do banco — vazio até `garantirBanco()` resolver (ver comentário do
+ * módulo). Era um `const` calculado na leitura estática do JSON; agora é
+ * função para refletir a carga tardia sem exigir um binding mutável
+ * importado (que não dispara re-render sozinho). */
+export function areasBanco(): string[] {
+  return AREAS_BANCO;
+}
 
 /** ids de todas as questões de um assunto, em ordem estável (ordenada) —
  * base do contexto cacheado de explicações por assunto (ver
@@ -102,13 +139,6 @@ export function nomeDaProva(q: QuestaoBanco): string {
  * gráficos por nível e contar como prática de nível máximo.
  */
 export const NIVEL_BANCO = 5;
-
-/** Áreas do banco, independentes de MATERIAS — a fonte usa rótulos próprios
- * (ex. "Noções de Informática") que nem sempre batem com os da geração por
- * IA, então evitamos um mapeamento manual sujeito a divergir. */
-export const AREAS_BANCO: string[] = [...new Set(BANCO.map((q) => q.area))].sort((a, b) =>
-  a.localeCompare(b, "pt-BR"),
-);
 
 function questoesDeArea(area: string): QuestaoBanco[] {
   return BANCO.filter((q) => q.area === area);

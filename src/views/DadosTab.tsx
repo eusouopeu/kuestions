@@ -118,6 +118,7 @@ export default function DadosTab({
     tempoGeral,
     tempoMaterias,
     confiancaResumo,
+    calibracaoPorMateria,
     lentidao,
     custo,
     teto,
@@ -651,6 +652,49 @@ export default function DadosTab({
                     <div style={{ ...mono, fontSize: 9, color: C.sub, marginTop: 2, lineHeight: 1.3 }}>
                       {k.rot.toUpperCase()}
                     </div>
+                  </div>
+                ))}
+              </div>
+            </Cartao>
+          )}
+
+          {/* Calibração por matéria: resumoConfianca (acima) já cruza
+              confiança declarada × acerto real, mas só agregado — comparar
+              matérias entre si é o que faltava para virar uma ação concreta
+              ("em Tributário você é bem calibrado; em Contabilidade
+              superestima 25 pontos"). Só na visão agregada, onde a
+              comparação faz sentido; ordenado do pior calibrado para o
+              melhor — mesma convenção de "onde treinar primeiro". */}
+          {filtro === TODAS && calibracaoPorMateria.length > 0 && (
+            <Cartao
+              titulo="CALIBRAÇÃO POR MATÉRIA"
+              legenda="Das vezes que você marcou certeza absoluta, quanto % errou mesmo assim — só matérias com pelo menos 5 certezas registradas."
+            >
+              <div style={{ padding: "0 4px 14px", display: "flex", flexDirection: "column", gap: 8 }}>
+                {calibracaoPorMateria.map((m) => (
+                  <div
+                    key={m.materia}
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "baseline",
+                      gap: 10,
+                      fontSize: 12.5,
+                    }}
+                  >
+                    <span>{m.materia}</span>
+                    <span
+                      style={{
+                        ...mono,
+                        color: m.pctExcessoConfianca === 0 ? C.ok : corPct(100 - m.pctExcessoConfianca),
+                        flexShrink: 0,
+                        fontWeight: 600,
+                      }}
+                    >
+                      {m.pctExcessoConfianca === 0
+                        ? "bem calibrado"
+                        : `superestima ${m.pctExcessoConfianca}%`}
+                    </span>
                   </div>
                 ))}
               </div>
