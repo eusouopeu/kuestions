@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import { C, disp, TAB_BAR_H } from "../theme";
 import BuscaGlobal from "./BuscaGlobal";
+import BotaoTema from "./BotaoTema";
+import BotaoTamanhoTexto from "./BotaoTamanhoTexto";
 import { useLayoutLargo } from "../lib/plataforma";
 
 /** Cabeçalho + coluna centrada, 620px no celular / 980px no layout largo
@@ -48,8 +50,10 @@ export default function Shell({
           {titulo}
         </h1>
         {!largo && (
-          <div style={{ marginTop: 2, flexShrink: 0 }}>
+          <div style={{ marginTop: 2, flexShrink: 0, display: "flex", gap: 4 }}>
             <BuscaGlobal />
+            <BotaoTema />
+            <BotaoTamanhoTexto />
           </div>
         )}
       </header>
