@@ -49,7 +49,7 @@ export default function App() {
     // não dependem de chave nem de rede — só o comentário gerado por IA
     // depende. Abrir numa tela de configuração de credencial escondia isso e
     // exigia decisão administrativa antes da primeira questão; agora a aba
-    // Blocos abre já em "Do banco" quando não há chave (ver BlocosTab).
+    // Questões abre já em "Do banco" quando não há chave (ver QuestoesTab).
     getDB()
       .then(() => setPronto(true))
       .catch((e: unknown) => {
