@@ -1,5 +1,5 @@
 import { ABAS, type Aba } from "./abas";
-import { C, mono } from "../theme";
+import { C } from "../theme";
 import { TAB_BAR_H } from "../theme";
 
 export type { Aba } from "./abas";
@@ -36,24 +36,20 @@ export default function TabBar({
             key={a.id}
             onClick={() => onChange(a.id)}
             aria-label={a.label}
+            title={a.label}
             aria-current={ativo ? "page" : undefined}
             style={{
               flex: 1,
               display: "flex",
-              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: 2,
               background: "none",
               border: "none",
               cursor: "pointer",
               padding: 0,
             }}
           >
-            {a.icone(cor)}
-            <span style={{ ...mono, fontSize: 10, color: cor, fontWeight: ativo ? 600 : 400 }}>
-              {a.label}
-            </span>
+            {a.icone(cor, 24)}
           </button>
         );
       })}
