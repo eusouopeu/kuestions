@@ -40,16 +40,35 @@ interface ItemTexto {
  * que não tem equivalente aqui. Seleção de texto vira nota (reaproveitando
  * salvarNota) ou bloco de citação numa página do Caderno.
  */
-export default function LeitorPdf({ onVoltar }: { onVoltar: () => void }) {
+export default function LeitorPdf({
+  onVoltar,
+  embutido = false,
+  pasta = null,
+  busca = "",
+}: {
+  onVoltar: () => void;
+  /** Quando true, esconde o link "← Caderno" — usado quando este componente
+   * já está dentro da pílula Páginas/PDFs do CadernoView, que cuida da
+   * navegação. */
+  embutido?: boolean;
+  /** Filtra e marca novos PDFs importados com esta pasta (ver
+   * CadernoView.tsx). */
+  pasta?: string | null;
+  /** Filtro por nome, vindo do campo de busca unificado do CadernoView. */
+  busca?: string;
+}) {
   const [pdfs, setPdfs] = useState<RegistroPdf[] | null>(null);
   const [aberto, setAberto] = useState<RegistroPdf | null>(null);
   const [importando, setImportando] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   function carregar() {
-    listarPdfs().then(setPdfs);
+    listarPdfs(pasta).then(setPdfs);
   }
-  useEffect(carregar, []);
+  useEffect(carregar, [pasta]);
+
+  const termo = busca.trim().toLowerCase();
+  const pdfsExibidos = pdfs?.filter((p) => !termo || p.nome.toLowerCase().includes(termo)) ?? null;
 
   async function importar(e: React.ChangeEvent<HTMLInputElement>) {
     const arquivo = e.target.files?.[0];
@@ -59,7 +78,7 @@ export default function LeitorPdf({ onVoltar }: { onVoltar: () => void }) {
     try {
       const bytes = new Uint8Array(await arquivo.arrayBuffer());
       const caminho = await salvarPdfBinario(arquivo.name, bytes);
-      await registrarPdf(arquivo.name, caminho);
+      await registrarPdf(arquivo.name, caminho, pasta);
       carregar();
     } catch (err) {
       console.error("importar pdf", err);
@@ -80,25 +99,27 @@ export default function LeitorPdf({ onVoltar }: { onVoltar: () => void }) {
 
   return (
     <div>
-      <button
-        onClick={onVoltar}
-        style={{
-          ...mono,
-          display: "flex",
-          alignItems: "center",
-          gap: 6,
-          fontSize: 12,
-          color: C.sub,
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-          padding: 0,
-          marginBottom: 14,
-        }}
-      >
-        <ArrowLeftIcon width={14} height={14} />
-        Caderno
-      </button>
+      {!embutido && (
+        <button
+          onClick={onVoltar}
+          style={{
+            ...mono,
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+            fontSize: 12,
+            color: C.sub,
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
+            marginBottom: 14,
+          }}
+        >
+          <ArrowLeftIcon width={14} height={14} />
+          Caderno
+        </button>
+      )}
 
       <input ref={inputRef} type="file" accept="application/pdf" onChange={importar} style={{ display: "none" }} />
       <Botao tipo="tinta" onClick={() => inputRef.current?.click()} disabled={importando} style={{ marginBottom: 16 }}>
@@ -108,12 +129,12 @@ export default function LeitorPdf({ onVoltar }: { onVoltar: () => void }) {
         </span>
       </Botao>
 
-      {pdfs === null ? (
+      {pdfsExibidos === null ? (
         <Vazio>Carregando…</Vazio>
-      ) : pdfs.length === 0 ? (
-        <Vazio>Nenhum PDF ainda.</Vazio>
+      ) : pdfsExibidos.length === 0 ? (
+        <Vazio>{termo ? `Nada encontrado para "${busca.trim()}".` : "Nenhum PDF ainda."}</Vazio>
       ) : (
-        pdfs.map((p) => (
+        pdfsExibidos.map((p) => (
           <div
             key={p.id}
             style={{ ...cartao, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, marginBottom: 8, cursor: "pointer" }}

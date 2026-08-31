@@ -361,4 +361,10 @@ export const MIGRATIONS: Migracao[] = [
       );
     `,
   },
+  {
+    // Pastas em PDFs, no mesmo padrão de caderno_paginas.pasta — permite
+    // organizar PDFs importados em pastas, igual às páginas do Caderno.
+    version: 16,
+    sql: `ALTER TABLE pdfs ADD COLUMN pasta TEXT;`,
+  },
 ];
