@@ -2,8 +2,12 @@ import { useCallback, useEffect, useState, type ReactNode } from "react";
 import {
   ArrowLeftIcon,
   ArrowPathIcon,
+  BookOpenIcon,
   CheckCircleIcon,
+  ClipboardDocumentListIcon,
   FolderIcon,
+  LightBulbIcon,
+  MapIcon,
 } from "@heroicons/react/24/outline";
 import { C, cartao, disp, mono } from "../theme";
 import Shell, { Vazio } from "../components/Shell";
@@ -30,11 +34,29 @@ import { getModoNotas, setModoNotas, type ModoNotas } from "../lib/notasModo";
 
 /** Opções do Segmented de topo da aba — PDFs fica dentro do Caderno, não
  * como segmento próprio, para não apertar o Segmented no celular. */
-const OPCOES_MODO: { id: ModoNotas; label: string }[] = [
-  { id: "conceitos", label: "Conceitos" },
-  { id: "caderno", label: "Caderno" },
-  { id: "mapas", label: "Mapas" },
-  { id: "tarefas", label: "Tarefas" },
+const OPCOES_MODO: { id: ModoNotas; label: string; icone: (cor: string) => ReactNode }[] = [
+  {
+    id: "conceitos",
+    label: "Conceitos",
+    icone: (cor) => <LightBulbIcon width={16} height={16} stroke={cor} strokeWidth={1.8} />,
+  },
+  {
+    id: "caderno",
+    label: "Caderno",
+    icone: (cor) => <BookOpenIcon width={16} height={16} stroke={cor} strokeWidth={1.8} />,
+  },
+  {
+    id: "mapas",
+    label: "Mapas",
+    icone: (cor) => <MapIcon width={16} height={16} stroke={cor} strokeWidth={1.8} />,
+  },
+  {
+    id: "tarefas",
+    label: "Tarefas",
+    icone: (cor) => (
+      <ClipboardDocumentListIcon width={16} height={16} stroke={cor} strokeWidth={1.8} />
+    ),
+  },
 ];
 
 /** Banco de notas: pastas por matéria → lista, cada nota por inteiro (ver
