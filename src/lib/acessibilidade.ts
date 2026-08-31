@@ -24,6 +24,15 @@ export const ESCALAS: { valor: Escala; label: string }[] = [
   { valor: 125, label: "Maior" },
 ];
 
+/** Ciclo usado pelo botão de tamanho de texto no topo mobile (ver
+ * components/BotaoTamanhoTexto.tsx) — mesmo padrão de PROXIMO_TEMA em
+ * RailLateral.tsx. */
+export const PROXIMA_ESCALA: Record<Escala, Escala> = {
+  100: 110,
+  110: 125,
+  125: 100,
+};
+
 const K_ESCALA = "escala-interface";
 
 function ehEscala(v: unknown): v is Escala {
