@@ -1,9 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { C, mono, TAB_BAR_H } from "./theme";
 import TabBar, { type Aba } from "./components/TabBar";
-import NavPill from "./components/NavPill";
 import RailLateral, { RAIL_LARGURA } from "./components/RailLateral";
-import BlocosTab from "./views/BlocosTab";
 import QuestoesTab from "./views/QuestoesTab";
 import NotasTab from "./views/NotasTab";
 import AjustesTab from "./views/AjustesTab";
@@ -18,7 +16,7 @@ import OfflineBanner from "./components/OfflineBanner";
 // em Questões, e quem nunca abrir Dados nunca baixa o gráfico.
 const DadosTab = lazy(() => import("./views/DadosTab"));
 
-const TODAS_ABAS: Aba[] = ["blocos", "questoes", "notas", "dados", "ajustes"];
+const TODAS_ABAS: Aba[] = ["questoes", "notas", "dados", "ajustes"];
 
 /**
  * A abertura do banco (e a migração do schema) acontece antes de qualquer tela
@@ -29,13 +27,13 @@ export default function App() {
   const largo = useLayoutLargo();
   const [pronto, setPronto] = useState(false);
   const [erroBoot, setErroBoot] = useState<string | null>(null);
-  const [aba, setAba] = useState<Aba>("blocos");
+  const [aba, setAba] = useState<Aba>("questoes");
   // Cada aba, uma vez visitada, permanece MONTADA (só escondida via CSS) — ver
   // trocar(). Isso é o que corrige o bug de perder o drill em andamento ao
   // trocar de aba: antes, a renderização condicional desmontava a aba inteira
   // (junto com o estado do sub-bloco atual, respostas, etc.) toda vez que o
   // usuário saía dela.
-  const [visitadas, setVisitadas] = useState<Set<Aba>>(new Set(["blocos"]));
+  const [visitadas, setVisitadas] = useState<Set<Aba>>(new Set(["questoes"]));
   // Como as 4 abas compartilham o scroll da JANELA (nenhuma tem seu próprio
   // container com overflow), trocar de aba sem isto deixa o scroll "vazado"
   // de uma para a outra — ex.: rolar até o fim de Notas e abrir Questões já
@@ -101,19 +99,17 @@ export default function App() {
       }}
     >
       <OfflineBanner />
-      {largo && <RailLateral />}
       {TODAS_ABAS.map((a) => {
         if (!visitadas.has(a)) return null;
         // display:none em vez de desmontar: preserva o estado interno de cada
         // aba (o drill de Questões, a navegação de pastas em Notas, etc.).
         return (
           <div key={a} style={{ display: aba === a ? "block" : "none" }}>
-            {a === "blocos" && (
-              <BlocosTab onDados={() => trocar("dados")} onAjustes={() => trocar("ajustes")} />
+            {a === "questoes" && (
+              <QuestoesTab onDados={() => trocar("dados")} onAjustes={() => trocar("ajustes")} />
             )}
-            {a === "questoes" && <QuestoesTab />}
             {a === "notas" && (
-              <NotasTab ativa={aba === "notas"} onQuestoes={() => trocar("blocos")} />
+              <NotasTab ativa={aba === "notas"} onQuestoes={() => trocar("questoes")} />
             )}
             {a === "dados" && (
               <Suspense
@@ -133,7 +129,7 @@ export default function App() {
               >
                 <DadosTab
                   ativa={aba === "dados"}
-                  onQuestoes={() => trocar("blocos")}
+                  onQuestoes={() => trocar("questoes")}
                   onAjustes={() => trocar("ajustes")}
                 />
               </Suspense>
@@ -142,7 +138,7 @@ export default function App() {
           </div>
         );
       })}
-      {largo ? <NavPill aba={aba} onChange={trocar} /> : <TabBar aba={aba} onChange={trocar} />}
+      {largo ? <RailLateral aba={aba} onChange={trocar} /> : <TabBar aba={aba} onChange={trocar} />}
     </div>
   );
 }
