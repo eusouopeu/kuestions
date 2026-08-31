@@ -3,11 +3,10 @@ import {
   Cog6ToothIcon,
   DocumentTextIcon,
   FolderIcon,
-  RectangleStackIcon,
 } from "@heroicons/react/24/outline";
 import { createElement, type ReactNode } from "react";
 
-export type Aba = "blocos" | "questoes" | "notas" | "dados" | "ajustes";
+export type Aba = "questoes" | "notas" | "dados" | "ajustes";
 
 export interface DefinicaoAba {
   id: Aba;
@@ -24,12 +23,6 @@ export interface DefinicaoAba {
  * componente nenhum, só dados).
  */
 export const ABAS: DefinicaoAba[] = [
-  {
-    id: "blocos",
-    label: "Blocos",
-    icone: (cor, t = 22) =>
-      createElement(RectangleStackIcon, { width: t, height: t, stroke: cor, strokeWidth: 1.8 }),
-  },
   {
     id: "questoes",
     label: "Questões",
