@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { C, mono, TAB_BAR_H } from "./theme";
 import TabBar, { type Aba } from "./components/TabBar";
 import RailLateral, { RAIL_LARGURA } from "./components/RailLateral";
+import FerramentasFlutuantes from "./components/FerramentasFlutuantes";
 import QuestoesTab from "./views/QuestoesTab";
 import NotasTab from "./views/NotasTab";
 import AjustesTab from "./views/AjustesTab";
@@ -138,7 +139,14 @@ export default function App() {
           </div>
         );
       })}
-      {largo ? <RailLateral aba={aba} onChange={trocar} /> : <TabBar aba={aba} onChange={trocar} />}
+      {largo ? (
+        <>
+          <RailLateral aba={aba} onChange={trocar} />
+          <FerramentasFlutuantes />
+        </>
+      ) : (
+        <TabBar aba={aba} onChange={trocar} />
+      )}
     </div>
   );
 }

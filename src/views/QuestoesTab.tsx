@@ -9,6 +9,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { C, cartao, mono } from "../theme";
 import Shell from "../components/Shell";
+import { BotoesFerramentas } from "../components/FerramentasFlutuantes";
+import { useLayoutLargo } from "../lib/plataforma";
 import Segmented from "../components/Segmented";
 import GerarView from "./GerarView";
 import GerarBancoView from "./GerarBancoView";
@@ -159,6 +161,7 @@ export default function QuestoesTab({
   onAjustes: () => void;
 }) {
   const [view, setView] = useState<ViewQuestoes>("gerar");
+  const largo = useLayoutLargo();
 
   useEffect(() => {
     temCredencial()
@@ -167,7 +170,7 @@ export default function QuestoesTab({
   }, []);
 
   return (
-    <Shell titulo="Questões">
+    <Shell titulo="Questões" extra={!largo && <BotoesFerramentas />}>
       <MetasSemanais />
 
       <div style={{ marginBottom: 18 }}>

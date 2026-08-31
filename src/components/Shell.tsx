@@ -14,9 +14,13 @@ import { useLayoutLargo } from "../lib/plataforma";
 export default function Shell({
   titulo,
   children,
+  extra,
 }: {
   titulo: ReactNode;
   children: ReactNode;
+  /** Botões extras no header mobile, antes de busca/tema/tamanho — usado pela
+   * aba Questões pra fixar calculadora/cronômetro na barra superior. */
+  extra?: ReactNode;
 }) {
   const largo = useLayoutLargo();
   return (
@@ -51,6 +55,7 @@ export default function Shell({
         </h1>
         {!largo && (
           <div style={{ marginTop: 2, flexShrink: 0, display: "flex", gap: 4 }}>
+            {extra}
             <BuscaGlobal />
             <BotaoTema />
             <BotaoTamanhoTexto />
