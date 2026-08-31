@@ -7,9 +7,9 @@
  * 1. Marca-texto (ver `aplicarMarcaTexto`/`segmentarMarcaTexto` em texto.ts):
  *    o corpo já contém `{{c1::…}}` (amarelo) e/ou `{{c2::…}}` (laranja) —
  *    exporta como Cloze do Anki, texto tal como está.
- * 2. Frente/verso: o corpo tem um "=" — tudo antes vira a frente de um
- *    flashcard Básico, tudo depois vira o verso (primeiro "=" encontrado).
- * 3. Lista enumerada: sem marca-texto nem "=", mas o corpo é uma lista (ver
+ * 2. Frente/verso: o corpo tem um "::" — tudo antes vira a frente de um
+ *    flashcard Básico, tudo depois vira o verso (primeiro "::" encontrado).
+ * 3. Lista enumerada: sem marca-texto nem "::", mas o corpo é uma lista (ver
  *    `contarItensLista`) — vira Cloze automático (`converterListaParaCloze`),
  *    com o marcador de cada item visível e o conteúdo em c1.
  *
@@ -46,12 +46,12 @@ export function paraFlashcard(nota: { corpo: string; tags: string[] }): Flashcar
     return { tipo: "cloze", texto: corpo, tag };
   }
 
-  const idxIgual = corpo.indexOf("=");
-  if (idxIgual !== -1) {
+  const idxSeparador = corpo.indexOf("::");
+  if (idxSeparador !== -1) {
     return {
       tipo: "basico",
-      frente: corpo.slice(0, idxIgual).trim(),
-      verso: corpo.slice(idxIgual + 1).trim(),
+      frente: corpo.slice(0, idxSeparador).trim(),
+      verso: corpo.slice(idxSeparador + 2).trim(),
       tag,
     };
   }

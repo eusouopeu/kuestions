@@ -37,7 +37,7 @@ import { getModoNotas, setModoNotas, type ModoNotas } from "../lib/notasModo";
 const OPCOES_MODO: { id: ModoNotas; label: string; icone: (cor: string) => ReactNode }[] = [
   {
     id: "conceitos",
-    label: "Conceitos",
+    label: "Cards",
     icone: (cor) => <LightBulbIcon width={16} height={16} stroke={cor} strokeWidth={1.8} />,
   },
   {
