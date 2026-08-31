@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { CalculatorIcon, ClockIcon, MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+import { CalculatorIcon, ClockIcon } from "@heroicons/react/24/outline";
 import { C } from "../theme";
 import { TecladoCalculadora } from "./Calculadora";
 import Cronometro from "./Cronometro";
 import BuscaGlobal from "./BuscaGlobal";
-import { getTema, setTema, type Tema } from "../lib/tema";
+import BotaoTema from "./BotaoTema";
+import { ABAS, type Aba } from "./abas";
 
 export const RAIL_LARGURA = 52;
 const LARGURA = RAIL_LARGURA;
@@ -83,62 +84,21 @@ function ItemComPopover({
   );
 }
 
-const PROXIMO_TEMA: Record<Tema, Tema> = {
-  sistema: "claro",
-  claro: "escuro",
-  escuro: "sistema",
-};
-
-function BotaoTema() {
-  const [tema, setTemaLocal] = useState<Tema>("sistema");
-
-  useEffect(() => {
-    getTema().then(setTemaLocal);
-  }, []);
-
-  async function alternar() {
-    const proximo = PROXIMO_TEMA[tema];
-    await setTema(proximo);
-    setTemaLocal(proximo);
-  }
-
-  const escuro =
-    tema === "escuro" ||
-    (tema === "sistema" && window.matchMedia?.("(prefers-color-scheme: dark)").matches);
-
-  return (
-    <button
-      onClick={alternar}
-      aria-label={`Tema: ${tema}. Clique para alternar.`}
-      title={`Tema: ${tema}`}
-      style={{
-        width: 38,
-        height: 38,
-        borderRadius: 8,
-        border: "1.5px solid transparent",
-        background: "transparent",
-        cursor: "pointer",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      {escuro ? (
-        <MoonIcon width={19} height={19} stroke={C.sub} strokeWidth={1.8} />
-      ) : (
-        <SunIcon width={19} height={19} stroke={C.sub} strokeWidth={1.8} />
-      )}
-    </button>
-  );
-}
-
 /**
- * Rail vertical de ferramentas do layout largo (ver useLayoutLargo em
- * lib/plataforma.ts) — busca, calculadora e cronômetro flutuam por cima do
- * conteúdo em vez de disputar espaço com ele, ao contrário da navegação
- * entre abas (essa é a NavPill, no topo).
+ * Rail vertical do layout largo (ver useLayoutLargo em lib/plataforma.ts):
+ * busca, abas principais, calculadora e cronômetro flutuam por cima do
+ * conteúdo em vez de disputar espaço com ele. As abas principais
+ * (Questões/Notas/Dados/Ajustes) migraram aqui da antiga NavPill (pílula
+ * flutuante no topo) — ver spec
+ * docs/superpowers/specs/2026-08-30-navegacao-unificada-design.md.
  */
-export default function RailLateral() {
+export default function RailLateral({
+  aba,
+  onChange,
+}: {
+  aba: Aba;
+  onChange: (a: Aba) => void;
+}) {
   return (
     <div
       style={{
@@ -158,6 +118,34 @@ export default function RailLateral() {
       }}
     >
       <BuscaGlobal />
+
+      <div style={{ width: 24, height: 1.5, background: C.line, margin: "4px 0" }} />
+
+      {ABAS.map((a) => {
+        const ativo = a.id === aba;
+        return (
+          <button
+            key={a.id}
+            onClick={() => onChange(a.id)}
+            aria-label={a.label}
+            title={a.label}
+            aria-current={ativo ? "page" : undefined}
+            style={{
+              width: 38,
+              height: 38,
+              borderRadius: 8,
+              border: `1.5px solid ${ativo ? C.caneta : "transparent"}`,
+              background: ativo ? C.canetaSoft : "transparent",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {a.icone(ativo ? C.caneta : C.sub, 19)}
+          </button>
+        );
+      })}
 
       <div style={{ width: 24, height: 1.5, background: C.line, margin: "4px 0" }} />
 
