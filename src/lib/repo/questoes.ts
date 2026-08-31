@@ -3,7 +3,7 @@
 import { all, one, parseJSON, run, runBatch, toBool } from "../db";
 import type { ConfiancaResposta } from "../pontuacaoTopicos";
 import type { Questao, QuestaoRespondida } from "../types";
-import { INTERVALOS_LEITNER_DIAS } from "./leitner";
+import { CAIXA_MAX_ERRO_PERIGOSO, INTERVALOS_LEITNER_DIAS } from "./leitner";
 import { agoraISO } from "./util";
 
 /**
@@ -416,6 +416,12 @@ export async function buscarQuestoesRespondidas(termo: string): Promise<QuestaoR
  * e empurra `proxima_revisao` para a frente (progressivamente mais longe);
  * errar de novo derruba para a caixa 1 com `proxima_revisao = NULL`, ou seja,
  * vencida agora — a questão volta a aparecer na próxima visita a "pendentes".
+ *
+ * ERRO PERIGOSO (a resposta original errou com confiança "certeza", ver
+ * `confianca` na linha — coluna que essa função nunca sobrescreve) tem teto
+ * de caixa mais baixo: mesmo acertando de novo, nunca passa de
+ * `CAIXA_MAX_ERRO_PERIGOSO`, então continua reaparecendo num ciclo curto em
+ * vez de se espaçar como um acerto comum.
  */
 export async function registrarRevisao(id: number, acertou: boolean): Promise<void> {
   if (!acertou) {
@@ -425,11 +431,13 @@ export async function registrarRevisao(id: number, acertou: boolean): Promise<vo
     );
     return;
   }
-  const row = await one<{ caixa: number }>(
-    `SELECT caixa_leitner AS caixa FROM questoes_respondidas WHERE id = ?`,
+  const row = await one<{ caixa: number; perigosa: number }>(
+    `SELECT caixa_leitner AS caixa, (acertou = 0 AND confianca = 'certeza') AS perigosa
+     FROM questoes_respondidas WHERE id = ?`,
     [id],
   );
-  const novaCaixa = Math.min((row?.caixa ?? 1) + 1, INTERVALOS_LEITNER_DIAS.length);
+  const teto = row?.perigosa ? CAIXA_MAX_ERRO_PERIGOSO : INTERVALOS_LEITNER_DIAS.length;
+  const novaCaixa = Math.min((row?.caixa ?? 1) + 1, teto);
   const dias = INTERVALOS_LEITNER_DIAS[novaCaixa - 1];
   const proxima = new Date(Date.now() + dias * 86_400_000).toISOString();
   await run(

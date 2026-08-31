@@ -14,7 +14,14 @@ import {
   type QuestaoBanco,
   NIVEL_BANCO,
 } from "../lib/banco";
-import { gravarRespostasEmLote, idsBancoRespondidos, mesclarExplicacoesBanco } from "../lib/repo";
+import {
+  estimarNotaProvavel,
+  gravarRespostasEmLote,
+  gravarSimulado,
+  idsBancoRespondidos,
+  mesclarExplicacoesBanco,
+  type Fatia,
+} from "../lib/repo";
 import RelatorioSimulado from "./simulado/RelatorioSimulado";
 import { getPesosEdital, pesoDe, PRESETS_PESO_EDITAL, type PesosEdital } from "../lib/edital";
 import { gerarExplicacaoParcial, letrasExplicaveis, mensagemDeErro } from "../lib/anthropic";
@@ -275,6 +282,36 @@ export default function SimuladoView() {
     } catch (e) {
       console.error("gravar respostas simulado", e);
     }
+
+    // Mesmo cálculo de RelatorioSimulado (nota ponderada pelo peso do
+    // edital), persistido aqui para alimentar a evolução em Dados — ver
+    // repo/simulados.ts.
+    const porArea = new Map<string, { total: number; acertos: number }>();
+    for (const it of itens) {
+      const atual = porArea.get(it.materia) ?? { total: 0, acertos: 0 };
+      atual.total++;
+      if (it.acertou) atual.acertos++;
+      porArea.set(it.materia, atual);
+    }
+    const fatias: Fatia[] = [...porArea.entries()].map(([chave, v]) => ({
+      chave,
+      total: v.total,
+      acertos: v.acertos,
+      pct: Math.round((v.acertos / v.total) * 100),
+    }));
+    const nota = estimarNotaProvavel(fatias, pesosEfetivos, 1);
+    try {
+      await gravarSimulado({
+        notaEstimada: nota?.notaEstimada ?? null,
+        totalQuestoes: itens.length,
+        acertos: n,
+        emBranco: itens.filter((it) => !it.resposta).length,
+        tempoTotalMs: temposRef.current.reduce((s, t) => s + t, 0),
+      });
+    } catch (e) {
+      console.error("gravar histórico do simulado", e);
+    }
+
     setAcertos(n);
     setFinalizando(false);
     setTela("resultado");

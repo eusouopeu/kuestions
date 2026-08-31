@@ -166,3 +166,12 @@ code {
 jeep-sqlite {
   display: none;
 }
+
+/* Seções colapsáveis de Ajustes (SecaoColapsavel.tsx): tira o triângulo
+   nativo de <summary>, o ícone próprio (ChevronDown) já indica o estado. */
+summary::-webkit-details-marker {
+  display: none;
+}
+summary {
+  -webkit-tap-highlight-color: transparent;
+}

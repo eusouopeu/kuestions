@@ -32,3 +32,4 @@ export * from "./repo/caderno";
 export * from "./repo/mapas";
 export * from "./repo/tarefas";
 export * from "./repo/pdfs";
+export * from "./repo/simulados";

@@ -120,12 +120,31 @@ export async function listarNotasPendentes(
 }
 
 /**
- * Registra o resultado de uma revisão ativa de nota ("lembrei" / "não
- * lembrei") — mesmo esquema de caixas de Leitner de registrarRevisao, só que
- * sem o conceito de "acertar/errar uma resposta": aqui é autoavaliação.
+ * Autoavaliação de uma revisão ativa de nota, no mesmo padrão de 4 graus do
+ * Anki — substituiu o "lembrei"/"não lembrei" binário, que forçava a mesma
+ * resposta para "não fazia ideia" e para "lembrei, mas travando" (a
+ * distinção que RESPOSTA já faz nas questões via faixa de confiança, ver
+ * NIVEIS_CONFIANCA em lib/pontuacaoTopicos.ts).
+ *
+ *   - "de novo"  → caixa 1, vence agora (mesmo efeito do antigo "não lembrei").
+ *   - "difícil"  → não avança de caixa (permanece na atual), mas ainda
+ *                  agenda uma próxima revisão — reconhece que lembrou, só
+ *                  que com esforço, sem tratá-lo como "não lembrei".
+ *   - "bom"      → avança uma caixa (mesmo efeito do antigo "lembrei").
+ *   - "fácil"    → avança duas caixas — pula a próxima revisão de perto,
+ *                  para não gastar repetição num cartão já consolidado.
  */
-export async function registrarRevisaoNota(id: number, lembrou: boolean): Promise<void> {
-  if (!lembrou) {
+export type GrauRevisao = "de_novo" | "dificil" | "bom" | "facil";
+
+const AVANCO_POR_GRAU: Record<GrauRevisao, number> = {
+  de_novo: 0,
+  dificil: 0,
+  bom: 1,
+  facil: 2,
+};
+
+export async function registrarRevisaoNota(id: number, grau: GrauRevisao): Promise<void> {
+  if (grau === "de_novo") {
     await run(
       `UPDATE conceitos_salvos SET caixa_leitner = 1, proxima_revisao = NULL WHERE id = ?`,
       [id],
@@ -136,7 +155,10 @@ export async function registrarRevisaoNota(id: number, lembrou: boolean): Promis
     `SELECT caixa_leitner AS caixa FROM conceitos_salvos WHERE id = ?`,
     [id],
   );
-  const novaCaixa = Math.min((row?.caixa ?? 1) + 1, INTERVALOS_LEITNER_DIAS.length);
+  const novaCaixa = Math.min(
+    (row?.caixa ?? 1) + AVANCO_POR_GRAU[grau],
+    INTERVALOS_LEITNER_DIAS.length,
+  );
   const dias = INTERVALOS_LEITNER_DIAS[novaCaixa - 1];
   const proxima = new Date(Date.now() + dias * 86_400_000).toISOString();
   await run(

@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState, type ChangeEvent } from "react";
-import { C, campo, cartao, mono, rotulo } from "../theme";
+import { useEffect, useMemo, useRef, useState, type ChangeEvent } from "react";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { C, campo, mono, rotulo } from "../theme";
 import Shell from "../components/Shell";
 import Botao from "../components/Botao";
 import Segmented from "../components/Segmented";
+import SecaoColapsavel from "../components/SecaoColapsavel";
 import {
   getApiKey,
   getProxyUrl,
@@ -17,6 +19,7 @@ import {
   setComExplicacoesIA,
   setMostrarRecomendacoes,
 } from "../lib/preferenciasGeracao";
+import { getHoraLembrete, getLembreteAtivo, setLembreteDiario } from "../lib/lembretes";
 import { exportarBancoJSON, importarBancoJSON } from "../lib/db";
 import { exportarArquivo } from "../lib/exportar";
 import { getTema, setTema, type Tema } from "../lib/tema";
@@ -83,6 +86,31 @@ function labelMotivo(id: string | null): string {
   return MOTIVOS_REPORT.find((m) => m.id === id)?.label ?? "Motivo não informado";
 }
 
+/** Compara ignorando acento e caixa — busca de Ajustes não deve exigir que o
+ * usuário digite "explicações" com o cedilha certo. */
+function normalizar(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+/** Metadados das seções colapsáveis: id (estado de aberto/fechado), título
+ * (mostrado no cabeçalho) e palavras-chave extras que a busca também casa,
+ * para achar uma seção pelo que ela faz e não só pelo nome do cartão (ex.:
+ * digitar "chave" acha "API e custo", que não tem "chave" no título). */
+const SECOES_AJUSTES = [
+  { id: "geracao", titulo: "Geração", chaves: "explicações ia recomendações nunca praticados modelo lembrete notificação diário revisão" },
+  { id: "backup", titulo: "Backup", chaves: "exportar restaurar substituir json" },
+  { id: "mesclar", titulo: "Mesclar entre aparelhos", chaves: "sincronizar sync outro celular" },
+  { id: "documentos", titulo: "Pasta no aparelho", chaves: "sincronizar markdown arquivos" },
+  { id: "metas", titulo: "Metas semanais", chaves: "blocos por semana meta" },
+  { id: "peso", titulo: "Peso do edital", chaves: "concurso preset simulado nota estimada" },
+  { id: "reportadas", titulo: "Questões reportadas", chaves: "erro gabarito enunciado" },
+  { id: "api", titulo: "API e custo", chaves: "chave anthropic backend proxy teto gasto sk-ant" },
+] as const;
+type IdSecao = (typeof SECOES_AJUSTES)[number]["id"];
+
 /**
  * Configuração da credencial. A chave é digitada pelo usuário e guardada
  * localmente (Preferences → SharedPreferences/UserDefaults do app). Nunca vai
@@ -139,6 +167,36 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
 
   const [comExplicacoesIA, setComExplicacoesIALocal] = useState(true);
   const [mostrarRecomendacoes, setMostrarRecomendacoesLocal] = useState(true);
+
+  // Lembrete diário de revisão (rec. 8 — ver lib/lembretes.ts): notificação
+  // local, só existe em nativo (Capacitor.isNativePlatform()).
+  const [lembreteAtivo, setLembreteAtivoLocal] = useState(false);
+  const [horaLembrete, setHoraLembreteLocal] = useState(9);
+  const [salvandoLembrete, setSalvandoLembrete] = useState(false);
+  const [erroLembrete, setErroLembrete] = useState<string | null>(null);
+
+  // Busca da tela (rec. 1): filtra as seções colapsáveis por título/palavra-
+  // chave e força a expansão das que baterem, para achar um ajuste sem rolar
+  // a tela inteira. `abertasManual` guarda o que o usuário abriu/fechou à
+  // mão — a busca não sobrescreve isso, só empresta expansão enquanto ativa.
+  const [busca, setBusca] = useState("");
+  const [abertasManual, setAbertasManual] = useState<Partial<Record<IdSecao, boolean>>>({});
+  const buscaNorm = normalizar(busca.trim());
+  const secoesVisiveis = useMemo(() => {
+    if (!buscaNorm) return new Set(SECOES_AJUSTES.map((s) => s.id));
+    return new Set(
+      SECOES_AJUSTES.filter((s) => normalizar(`${s.titulo} ${s.chaves}`).includes(buscaNorm)).map(
+        (s) => s.id,
+      ),
+    );
+  }, [buscaNorm]);
+  function estaAberta(id: IdSecao): boolean {
+    if (buscaNorm) return secoesVisiveis.has(id);
+    return abertasManual[id] ?? false;
+  }
+  function alternarSecao(id: IdSecao, aberta: boolean) {
+    setAbertasManual((m) => ({ ...m, [id]: aberta }));
+  }
   // Só para forçar um re-render quando o banco de questões (carregado sob
   // demanda, ver garantirBanco em lib/banco.ts) terminar de chegar — o mapa
   // de peso do edital (materiasEAreas) precisa das áreas do banco mesmo que
@@ -166,6 +224,8 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     getPesosEdital().then(setPesosLocal);
     getComExplicacoesIA().then(setComExplicacoesIALocal);
     getMostrarRecomendacoes().then(setMostrarRecomendacoesLocal);
+    getLembreteAtivo().then(setLembreteAtivoLocal);
+    getHoraLembrete().then(setHoraLembreteLocal);
   }, []);
 
   async function alternarComExplicacoesIA(v: boolean) {
@@ -176,6 +236,20 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   async function alternarMostrarRecomendacoes(v: boolean) {
     setMostrarRecomendacoesLocal(v);
     await setMostrarRecomendacoes(v);
+  }
+
+  async function alternarLembrete(v: boolean, hora = horaLembrete) {
+    setSalvandoLembrete(true);
+    setErroLembrete(null);
+    try {
+      await setLembreteDiario(v, hora);
+      setLembreteAtivoLocal(v);
+      setHoraLembreteLocal(hora);
+    } catch (e) {
+      setErroLembrete(e instanceof Error ? e.message : "Falha ao agendar o lembrete.");
+    } finally {
+      setSalvandoLembrete(false);
+    }
   }
 
   useEffect(() => {
@@ -457,282 +531,370 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         />
       </div>
 
-      <div style={{ ...cartao, padding: "12px 14px", marginTop: 14 }}>
-        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-          GERAÇÃO
-        </div>
+      <div style={{ position: "relative", marginTop: 18 }}>
+        <MagnifyingGlassIcon
+          width={15}
+          height={15}
+          color={C.sub}
+          style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)" }}
+        />
+        <input
+          style={{ ...campo, paddingLeft: 34 }}
+          placeholder="Buscar em Ajustes…"
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
+        />
+      </div>
 
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
-          <div>
-            <div style={{ fontSize: 13.5 }}>Explicações de IA na geração</div>
-            <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
-              {comExplicacoesIA
-                ? "Cada questão já sai com comentário e explicação de cada alternativa errada."
-                : "Questões saem sem explicação — depois de responder, escolha só as alternativas que quer entender e peça a explicação na hora, mais aprofundada e mais barata."}
-            </div>
-          </div>
-          <button
-            role="switch"
-            aria-checked={comExplicacoesIA}
-            onClick={() => alternarComExplicacoesIA(!comExplicacoesIA)}
-            style={{
-              width: 44,
-              height: 26,
-              borderRadius: 13,
-              border: "none",
-              padding: 3,
-              flexShrink: 0,
-              display: "flex",
-              justifyContent: comExplicacoesIA ? "flex-end" : "flex-start",
-              background: comExplicacoesIA ? C.caneta : C.line,
-              cursor: "pointer",
-              transition: "background 0.15s",
-            }}
-          >
-            <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
-          </button>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 10,
-            marginTop: 14,
-            paddingTop: 12,
-            borderTop: `1px solid ${C.line}`,
-          }}
+      {secoesVisiveis.has("geracao") && (
+        <SecaoColapsavel
+          titulo="Geração"
+          aberta={estaAberta("geracao")}
+          onToggle={(a) => alternarSecao("geracao", a)}
         >
-          <div>
-            <div style={{ fontSize: 13.5 }}>Recomendações na tela de gerar</div>
-            <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
-              {mostrarRecomendacoes
-                ? 'Mostra "Nunca praticados" antes do formulário.'
-                : "Tela de gerar abre direto no formulário, sem o cartão de recomendação."}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 13.5 }}>Explicações de IA na geração</div>
+              <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+                {comExplicacoesIA
+                  ? "Cada questão já sai com comentário e explicação de cada alternativa errada."
+                  : "Questões saem sem explicação — depois de responder, escolha só as alternativas que quer entender e peça a explicação na hora, mais aprofundada e mais barata."}
+              </div>
             </div>
+            <button
+              role="switch"
+              aria-checked={comExplicacoesIA}
+              onClick={() => alternarComExplicacoesIA(!comExplicacoesIA)}
+              style={{
+                width: 44,
+                height: 26,
+                borderRadius: 13,
+                border: "none",
+                padding: 3,
+                flexShrink: 0,
+                display: "flex",
+                justifyContent: comExplicacoesIA ? "flex-end" : "flex-start",
+                background: comExplicacoesIA ? C.caneta : C.line,
+                cursor: "pointer",
+                transition: "background 0.15s",
+              }}
+            >
+              <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+            </button>
           </div>
-          <button
-            role="switch"
-            aria-checked={mostrarRecomendacoes}
-            onClick={() => alternarMostrarRecomendacoes(!mostrarRecomendacoes)}
+
+          <div
             style={{
-              width: 44,
-              height: 26,
-              borderRadius: 13,
-              border: "none",
-              padding: 3,
-              flexShrink: 0,
               display: "flex",
-              justifyContent: mostrarRecomendacoes ? "flex-end" : "flex-start",
-              background: mostrarRecomendacoes ? C.caneta : C.line,
-              cursor: "pointer",
-              transition: "background 0.15s",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 10,
+              marginTop: 14,
+              paddingTop: 12,
+              borderTop: `1px solid ${C.line}`,
             }}
           >
-            <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
-          </button>
-        </div>
-
-        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginTop: 14, paddingTop: 12, borderTop: `1px solid ${C.line}` }}>
-          Modelo: <code style={{ ...mono, fontSize: 12, color: C.ink }}>{MODEL}</code>
-        </div>
-      </div>
-
-      <div style={{ ...cartao, padding: "14px 16px", marginTop: 22 }}>
-        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-          BACKUP
-        </div>
-        {temDados && (diasBackup === null || diasBackup >= DIAS_PARA_AVISO_BACKUP) && (
-          <div
-            style={{
-              background: C.canetaSoft,
-              border: `1.5px solid ${C.caneta}`,
-              borderRadius: 10,
-              padding: "10px 12px",
-              fontSize: 12.5,
-              lineHeight: 1.5,
-              marginBottom: 12,
-            }}
-          >
-            {diasBackup === null
-              ? "Você ainda não exportou nenhum backup."
-              : `Já fazem ${diasBackup} dias desde o último backup.`}{" "}
-            Considere exportar agora.
-          </div>
-        )}
-
-        {statusBackup && (
-          <div
-            style={{
-              background: statusBackup.tom === "ok" ? C.okSoft : C.erroSoft,
-              border: `1.5px solid ${statusBackup.tom === "ok" ? C.ok : C.erro}`,
-              borderRadius: 10,
-              padding: "10px 12px",
-              fontSize: 13,
-              marginBottom: 12,
-            }}
-          >
-            {statusBackup.texto}
-          </div>
-        )}
-
-        {arquivoRestauro ? (
-          <div
-            style={{
-              background: C.erroSoft,
-              border: `1.5px solid ${C.erro}`,
-              borderRadius: 10,
-              padding: "12px 14px",
-            }}
-          >
-            <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
-              Restaurar <strong>{arquivoRestauro.name}</strong> substitui TODOS os dados atuais
-              (blocos, respostas e notas) pelo conteúdo do arquivo. Não há como desfazer.
+            <div>
+              <div style={{ fontSize: 13.5 }}>Recomendações na tela de gerar</div>
+              <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+                {mostrarRecomendacoes
+                  ? 'Mostra "Nunca praticados" antes do formulário.'
+                  : "Tela de gerar abre direto no formulário, sem o cartão de recomendação."}
+              </div>
             </div>
-            <label style={{ ...rotulo, color: C.erro }}>
-              Digite RESTAURAR para confirmar
-            </label>
-            <input
-              style={{ ...campo, ...mono, fontSize: 13, borderColor: C.erro, marginBottom: 12 }}
-              value={confirmacaoRestauro}
-              onChange={(e) => setConfirmacaoRestauro(e.target.value)}
-              autoCapitalize="characters"
-              autoCorrect="off"
-              spellCheck={false}
-              placeholder="RESTAURAR"
-            />
-            <div style={{ display: "flex", gap: 8 }}>
+            <button
+              role="switch"
+              aria-checked={mostrarRecomendacoes}
+              onClick={() => alternarMostrarRecomendacoes(!mostrarRecomendacoes)}
+              style={{
+                width: 44,
+                height: 26,
+                borderRadius: 13,
+                border: "none",
+                padding: 3,
+                flexShrink: 0,
+                display: "flex",
+                justifyContent: mostrarRecomendacoes ? "flex-end" : "flex-start",
+                background: mostrarRecomendacoes ? C.caneta : C.line,
+                cursor: "pointer",
+                transition: "background 0.15s",
+              }}
+            >
+              <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+            </button>
+          </div>
+
+          {Capacitor.isNativePlatform() && (
+            <div
+              style={{
+                marginTop: 14,
+                paddingTop: 12,
+                borderTop: `1px solid ${C.line}`,
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+                <div>
+                  <div style={{ fontSize: 13.5 }}>Lembrete diário de revisão</div>
+                  <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+                    {lembreteAtivo
+                      ? `Notificação todo dia às ${String(horaLembrete).padStart(2, "0")}h.`
+                      : "Notificação local avisando para abrir o app e ver o que venceu."}
+                  </div>
+                </div>
+                <button
+                  role="switch"
+                  aria-checked={lembreteAtivo}
+                  onClick={() => alternarLembrete(!lembreteAtivo)}
+                  disabled={salvandoLembrete}
+                  style={{
+                    width: 44,
+                    height: 26,
+                    borderRadius: 13,
+                    border: "none",
+                    padding: 3,
+                    flexShrink: 0,
+                    display: "flex",
+                    justifyContent: lembreteAtivo ? "flex-end" : "flex-start",
+                    background: lembreteAtivo ? C.caneta : C.line,
+                    cursor: salvandoLembrete ? "default" : "pointer",
+                    opacity: salvandoLembrete ? 0.6 : 1,
+                    transition: "background 0.15s",
+                  }}
+                >
+                  <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+                </button>
+              </div>
+
+              {lembreteAtivo && (
+                <div style={{ marginTop: 10, display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ fontSize: 12.5, color: C.sub }}>Horário:</span>
+                  <select
+                    style={{ ...campo, ...mono, fontSize: 12, width: "auto", padding: "6px 8px" }}
+                    value={horaLembrete}
+                    disabled={salvandoLembrete}
+                    onChange={(e) => alternarLembrete(true, Number(e.target.value))}
+                  >
+                    {Array.from({ length: 24 }, (_, h) => h).map((h) => (
+                      <option key={h} value={h}>
+                        {String(h).padStart(2, "0")}h
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {erroLembrete && (
+                <div style={{ fontSize: 12, color: C.erro, marginTop: 8 }}>{erroLembrete}</div>
+              )}
+            </div>
+          )}
+
+          <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginTop: 14, paddingTop: 12, borderTop: `1px solid ${C.line}` }}>
+            Modelo: <code style={{ ...mono, fontSize: 12, color: C.ink }}>{MODEL}</code>
+          </div>
+        </SecaoColapsavel>
+      )}
+
+      {secoesVisiveis.has("backup") && (
+        <SecaoColapsavel
+          titulo="Backup"
+          aberta={estaAberta("backup")}
+          onToggle={(a) => alternarSecao("backup", a)}
+        >
+          {temDados && (diasBackup === null || diasBackup >= DIAS_PARA_AVISO_BACKUP) && (
+            <div
+              style={{
+                background: C.canetaSoft,
+                border: `1.5px solid ${C.caneta}`,
+                borderRadius: 10,
+                padding: "10px 12px",
+                fontSize: 12.5,
+                lineHeight: 1.5,
+                marginBottom: 12,
+              }}
+            >
+              {diasBackup === null
+                ? "Você ainda não exportou nenhum backup."
+                : `Já fazem ${diasBackup} dias desde o último backup.`}{" "}
+              Considere exportar agora.
+            </div>
+          )}
+
+          {statusBackup && (
+            <div
+              style={{
+                background: statusBackup.tom === "ok" ? C.okSoft : C.erroSoft,
+                border: `1.5px solid ${statusBackup.tom === "ok" ? C.ok : C.erro}`,
+                borderRadius: 10,
+                padding: "10px 12px",
+                fontSize: 13,
+                marginBottom: 12,
+              }}
+            >
+              {statusBackup.texto}
+            </div>
+          )}
+
+          {arquivoRestauro ? (
+            <div
+              style={{
+                background: C.erroSoft,
+                border: `1.5px solid ${C.erro}`,
+                borderRadius: 10,
+                padding: "12px 14px",
+              }}
+            >
+              <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
+                Restaurar <strong>{arquivoRestauro.name}</strong> substitui TODOS os dados atuais
+                (blocos, respostas e notas) pelo conteúdo do arquivo. Não há como desfazer.
+              </div>
+              <label style={{ ...rotulo, color: C.erro }}>
+                Digite RESTAURAR para confirmar
+              </label>
+              <input
+                style={{ ...campo, ...mono, fontSize: 13, borderColor: C.erro, marginBottom: 12 }}
+                value={confirmacaoRestauro}
+                onChange={(e) => setConfirmacaoRestauro(e.target.value)}
+                autoCapitalize="characters"
+                autoCorrect="off"
+                spellCheck={false}
+                placeholder="RESTAURAR"
+              />
+              <div style={{ display: "flex", gap: 8 }}>
+                <Botao
+                  tipo="fantasma"
+                  onClick={() => {
+                    setArquivoRestauro(null);
+                    setConfirmacaoRestauro("");
+                  }}
+                  disabled={restaurando}
+                  style={{ background: C.card }}
+                >
+                  Cancelar
+                </Botao>
+                <Botao
+                  onClick={confirmarRestauro}
+                  disabled={restaurando || confirmacaoRestauro.trim().toUpperCase() !== "RESTAURAR"}
+                  style={{ background: C.erro, borderColor: C.erro }}
+                >
+                  {restaurando ? "Restaurando…" : "Restaurar e substituir"}
+                </Botao>
+              </div>
+            </div>
+          ) : (
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <Botao
                 tipo="fantasma"
-                onClick={() => {
-                  setArquivoRestauro(null);
-                  setConfirmacaoRestauro("");
-                }}
-                disabled={restaurando}
-                style={{ background: C.card }}
+                onClick={exportarBackup}
+                disabled={exportandoBackup}
+                style={backupExportado ? { borderColor: C.ok, color: C.ok } : undefined}
               >
-                Cancelar
+                {exportandoBackup
+                  ? "Gerando backup…"
+                  : backupExportado
+                    ? "✓ Backup exportado"
+                    : "Exportar backup completo"}
               </Botao>
-              <Botao
-                onClick={confirmarRestauro}
-                disabled={restaurando || confirmacaoRestauro.trim().toUpperCase() !== "RESTAURAR"}
-                style={{ background: C.erro, borderColor: C.erro }}
-              >
-                {restaurando ? "Restaurando…" : "Restaurar e substituir"}
+              <Botao tipo="fantasma" onClick={() => inputArquivoRef.current?.click()}>
+                Restaurar de um arquivo
               </Botao>
+              <input
+                ref={inputArquivoRef}
+                type="file"
+                accept="application/json,.json"
+                onChange={escolherArquivoRestauro}
+                style={{ display: "none" }}
+              />
             </div>
-          </div>
-        ) : (
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            <Botao
-              tipo="fantasma"
-              onClick={exportarBackup}
-              disabled={exportandoBackup}
-              style={backupExportado ? { borderColor: C.ok, color: C.ok } : undefined}
+          )}
+        </SecaoColapsavel>
+      )}
+
+      {secoesVisiveis.has("mesclar") && (
+        <SecaoColapsavel
+          titulo="Mesclar entre aparelhos"
+          aberta={estaAberta("mesclar")}
+          onToggle={(a) => alternarSecao("mesclar", a)}
+        >
+          {resultadoMesclagem && (
+            <div
+              style={{
+                background: C.okSoft,
+                border: `1.5px solid ${C.ok}`,
+                borderRadius: 10,
+                padding: "10px 12px",
+                fontSize: 13,
+                lineHeight: 1.5,
+                marginBottom: 12,
+              }}
             >
-              {exportandoBackup
-                ? "Gerando backup…"
-                : backupExportado
-                  ? "✓ Backup exportado"
-                  : "Exportar backup completo"}
-            </Botao>
-            <Botao tipo="fantasma" onClick={() => inputArquivoRef.current?.click()}>
-              Restaurar de um arquivo
-            </Botao>
-            <input
-              ref={inputArquivoRef}
-              type="file"
-              accept="application/json,.json"
-              onChange={escolherArquivoRestauro}
-              style={{ display: "none" }}
-            />
-          </div>
-        )}
-      </div>
-
-      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
-        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-          MESCLAR ENTRE APARELHOS
-        </div>
-
-        {resultadoMesclagem && (
-          <div
-            style={{
-              background: C.okSoft,
-              border: `1.5px solid ${C.ok}`,
-              borderRadius: 10,
-              padding: "10px 12px",
-              fontSize: 13,
-              lineHeight: 1.5,
-              marginBottom: 12,
-            }}
-          >
-            Mesclado: {resultadoMesclagem.blocosNovos} bloco{resultadoMesclagem.blocosNovos === 1 ? "" : "s"},{" "}
-            {resultadoMesclagem.questoesNovas} questão{resultadoMesclagem.questoesNovas === 1 ? "" : "ões"}{" "}
-            respondida{resultadoMesclagem.questoesNovas === 1 ? "" : "s"}, {resultadoMesclagem.notasNovas} nota
-            {resultadoMesclagem.notasNovas === 1 ? "" : "s"}, {resultadoMesclagem.explicacoesNovas} explicação
-            {resultadoMesclagem.explicacoesNovas === 1 ? "" : "ões"} nova{resultadoMesclagem.explicacoesNovas === 1 ? "" : "s"},{" "}
-            {resultadoMesclagem.paginasNovas} página{resultadoMesclagem.paginasNovas === 1 ? "" : "s"} de caderno,{" "}
-            {resultadoMesclagem.mapasNovos} mapa{resultadoMesclagem.mapasNovos === 1 ? "" : "s"} e{" "}
-            {resultadoMesclagem.tarefasNovas} tarefa{resultadoMesclagem.tarefasNovas === 1 ? "" : "s"} nova
-            {resultadoMesclagem.tarefasNovas === 1 ? "" : "s"} — nada foi apagado.
-          </div>
-        )}
-
-        {arquivoMesclagem ? (
-          <div>
-            <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
-              Mesclar <strong>{arquivoMesclagem.name}</strong> aqui — o que já existir (mesmo
-              conteúdo) é ignorado, o resto é adicionado.
+              Mesclado: {resultadoMesclagem.blocosNovos} bloco{resultadoMesclagem.blocosNovos === 1 ? "" : "s"},{" "}
+              {resultadoMesclagem.questoesNovas} questão{resultadoMesclagem.questoesNovas === 1 ? "" : "ões"}{" "}
+              respondida{resultadoMesclagem.questoesNovas === 1 ? "" : "s"}, {resultadoMesclagem.notasNovas} nota
+              {resultadoMesclagem.notasNovas === 1 ? "" : "s"}, {resultadoMesclagem.explicacoesNovas} explicação
+              {resultadoMesclagem.explicacoesNovas === 1 ? "" : "ões"} nova{resultadoMesclagem.explicacoesNovas === 1 ? "" : "s"},{" "}
+              {resultadoMesclagem.paginasNovas} página{resultadoMesclagem.paginasNovas === 1 ? "" : "s"} de caderno,{" "}
+              {resultadoMesclagem.mapasNovos} mapa{resultadoMesclagem.mapasNovos === 1 ? "" : "s"} e{" "}
+              {resultadoMesclagem.tarefasNovas} tarefa{resultadoMesclagem.tarefasNovas === 1 ? "" : "s"} nova
+              {resultadoMesclagem.tarefasNovas === 1 ? "" : "s"} — nada foi apagado.
             </div>
-            <div style={{ display: "flex", gap: 8 }}>
+          )}
+
+          {arquivoMesclagem ? (
+            <div>
+              <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
+                Mesclar <strong>{arquivoMesclagem.name}</strong> aqui — o que já existir (mesmo
+                conteúdo) é ignorado, o resto é adicionado.
+              </div>
+              <div style={{ display: "flex", gap: 8 }}>
+                <Botao
+                  tipo="fantasma"
+                  onClick={() => setArquivoMesclagem(null)}
+                  disabled={mesclando}
+                  style={{ background: C.card, flex: 1 }}
+                >
+                  Cancelar
+                </Botao>
+                <Botao onClick={confirmarMesclagem} disabled={mesclando} style={{ flex: 1 }}>
+                  {mesclando ? "Mesclando…" : "Mesclar"}
+                </Botao>
+              </div>
+            </div>
+          ) : (
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <Botao
                 tipo="fantasma"
-                onClick={() => setArquivoMesclagem(null)}
-                disabled={mesclando}
-                style={{ background: C.card, flex: 1 }}
+                onClick={exportarMesclagem}
+                disabled={exportandoMesclagem}
+                style={mesclagemExportada ? { borderColor: C.ok, color: C.ok } : undefined}
               >
-                Cancelar
+                {exportandoMesclagem
+                  ? "Gerando…"
+                  : mesclagemExportada
+                    ? "✓ Exportado"
+                    : "Exportar para mesclar em outro aparelho"}
               </Botao>
-              <Botao onClick={confirmarMesclagem} disabled={mesclando} style={{ flex: 1 }}>
-                {mesclando ? "Mesclando…" : "Mesclar"}
+              <Botao tipo="fantasma" onClick={() => inputMesclagemRef.current?.click()}>
+                Mesclar de um arquivo
               </Botao>
+              <input
+                ref={inputMesclagemRef}
+                type="file"
+                accept="application/json,.json"
+                onChange={escolherArquivoMesclagem}
+                style={{ display: "none" }}
+              />
             </div>
-          </div>
-        ) : (
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            <Botao
-              tipo="fantasma"
-              onClick={exportarMesclagem}
-              disabled={exportandoMesclagem}
-              style={mesclagemExportada ? { borderColor: C.ok, color: C.ok } : undefined}
-            >
-              {exportandoMesclagem
-                ? "Gerando…"
-                : mesclagemExportada
-                  ? "✓ Exportado"
-                  : "Exportar para mesclar em outro aparelho"}
-            </Botao>
-            <Botao tipo="fantasma" onClick={() => inputMesclagemRef.current?.click()}>
-              Mesclar de um arquivo
-            </Botao>
-            <input
-              ref={inputMesclagemRef}
-              type="file"
-              accept="application/json,.json"
-              onChange={escolherArquivoMesclagem}
-              style={{ display: "none" }}
-            />
-          </div>
-        )}
-      </div>
+          )}
+        </SecaoColapsavel>
+      )}
 
-      {(Capacitor.isNativePlatform() || isTauri()) && (
-        <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
-          <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-            PASTA NO APARELHO
-          </div>
+      {(Capacitor.isNativePlatform() || isTauri()) && secoesVisiveis.has("documentos") && (
+        <SecaoColapsavel
+          titulo="Pasta no aparelho"
+          aberta={estaAberta("documentos")}
+          onToggle={(a) => alternarSecao("documentos", a)}
+        >
           <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
             Mantém uma cópia legível em Documentos/kuestion: o banco de questões em JSON e cada
             nota em Markdown, separadas por matéria — para abrir fora do app, com qualquer leitor
@@ -750,303 +912,320 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
                 ? "✓ Sincronizado"
                 : "Sincronizar agora"}
           </Botao>
-        </div>
+        </SecaoColapsavel>
       )}
 
-      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
-        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-          METAS SEMANAIS
-        </div>
-        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
-          Quantos blocos por semana — no total ou numa matéria específica. Toda meta na lista
-          está ativa; remover a linha desativa.
-        </div>
-
-        {Object.keys(metas).length > 0 && (
-          <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
-            {Object.entries(metas)
-              .sort(([a], [b]) =>
-                a === META_GERAL ? -1 : b === META_GERAL ? 1 : a.localeCompare(b, "pt-BR"),
-              )
-              .map(([chave, blocos]) => (
-                <div key={chave} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ fontSize: 13.5, flex: 1 }}>{rotuloMeta(chave)}</span>
-                  <select
-                    style={{ ...campo, ...mono, fontSize: 12, width: "auto", padding: "6px 8px" }}
-                    value={blocos}
-                    onChange={(e) => salvarMetas({ ...metas, [chave]: Number(e.target.value) })}
-                  >
-                    {Array.from({ length: 14 }, (_, i) => i + 1).map((n) => (
-                      <option key={n} value={n}>
-                        {n} bloco{n === 1 ? "" : "s"}
-                      </option>
-                    ))}
-                  </select>
-                  <button
-                    onClick={() => removerMeta(chave)}
-                    aria-label={`Remover meta de ${rotuloMeta(chave)}`}
-                    style={{
-                      ...mono,
-                      fontSize: 13,
-                      background: "none",
-                      border: "none",
-                      color: C.erro,
-                      cursor: "pointer",
-                      padding: "4px 6px",
-                    }}
-                  >
-                    ×
-                  </button>
-                </div>
-              ))}
+      {secoesVisiveis.has("metas") && (
+        <SecaoColapsavel
+          titulo="Metas semanais"
+          aberta={estaAberta("metas")}
+          onToggle={(a) => alternarSecao("metas", a)}
+        >
+          <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
+            Quantos blocos por semana — no total ou numa matéria específica. Toda meta na lista
+            está ativa; remover a linha desativa.
           </div>
-        )}
 
-        <div style={{ display: "flex", gap: 8 }}>
+          {Object.keys(metas).length > 0 && (
+            <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
+              {Object.entries(metas)
+                .sort(([a], [b]) =>
+                  a === META_GERAL ? -1 : b === META_GERAL ? 1 : a.localeCompare(b, "pt-BR"),
+                )
+                .map(([chave, blocos]) => (
+                  <div key={chave} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <span style={{ fontSize: 13.5, flex: 1 }}>{rotuloMeta(chave)}</span>
+                    <select
+                      style={{ ...campo, ...mono, fontSize: 12, width: "auto", padding: "6px 8px" }}
+                      value={blocos}
+                      onChange={(e) => salvarMetas({ ...metas, [chave]: Number(e.target.value) })}
+                    >
+                      {Array.from({ length: 14 }, (_, i) => i + 1).map((n) => (
+                        <option key={n} value={n}>
+                          {n} bloco{n === 1 ? "" : "s"}
+                        </option>
+                      ))}
+                    </select>
+                    <button
+                      onClick={() => removerMeta(chave)}
+                      aria-label={`Remover meta de ${rotuloMeta(chave)}`}
+                      style={{
+                        ...mono,
+                        fontSize: 13,
+                        background: "none",
+                        border: "none",
+                        color: C.erro,
+                        cursor: "pointer",
+                        padding: "4px 6px",
+                      }}
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+            </div>
+          )}
+
+          <div style={{ display: "flex", gap: 8 }}>
+            <select
+              style={campo}
+              value={materiaParaAdicionar}
+              onChange={(e) => setMateriaParaAdicionar(e.target.value)}
+            >
+              <option value="">Adicionar meta…</option>
+              {!(META_GERAL in metas) && <option value={META_GERAL}>Todas as matérias</option>}
+              {MATERIAS_ORDENADAS.filter((m) => !(m in metas)).map((m) => (
+                <option key={m} value={m}>
+                  {m}
+                </option>
+              ))}
+            </select>
+            <Botao
+              tipo="fantasma"
+              onClick={adicionarMeta}
+              disabled={!materiaParaAdicionar}
+              style={{ maxWidth: 100 }}
+            >
+              Adicionar
+            </Botao>
+          </div>
+        </SecaoColapsavel>
+      )}
+
+      {secoesVisiveis.has("peso") && (
+        <SecaoColapsavel
+          titulo="Peso do edital"
+          aberta={estaAberta("peso")}
+          onToggle={(a) => alternarSecao("peso", a)}
+        >
+          <label style={{ ...rotulo, marginTop: 4 }}>Preencher a partir de um edital</label>
           <select
-            style={campo}
-            value={materiaParaAdicionar}
-            onChange={(e) => setMateriaParaAdicionar(e.target.value)}
+            style={{ ...campo, marginBottom: 12 }}
+            value={presetPeso}
+            onChange={(e) => aplicarPresetPeso(e.target.value)}
           >
-            <option value="">Adicionar meta…</option>
-            {!(META_GERAL in metas) && <option value={META_GERAL}>Todas as matérias</option>}
-            {MATERIAS_ORDENADAS.filter((m) => !(m in metas)).map((m) => (
-              <option key={m} value={m}>
-                {m}
+            <option value="" disabled>
+              Escolher um concurso…
+            </option>
+            {PRESETS_PESO_EDITAL.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.label}
               </option>
             ))}
           </select>
-          <Botao
-            tipo="fantasma"
-            onClick={adicionarMeta}
-            disabled={!materiaParaAdicionar}
-            style={{ maxWidth: 100 }}
-          >
-            Adicionar
-          </Botao>
-        </div>
-      </div>
 
-      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
-        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-          PESO DO EDITAL
-        </div>
-
-        <label style={{ ...rotulo, marginTop: 4 }}>Preencher a partir de um edital</label>
-        <select
-          style={{ ...campo, marginBottom: 12 }}
-          value={presetPeso}
-          onChange={(e) => aplicarPresetPeso(e.target.value)}
-        >
-          <option value="" disabled>
-            Escolher um concurso…
-          </option>
-          {PRESETS_PESO_EDITAL.map((p) => (
-            <option key={p.id} value={p.id}>
-              {p.label}
-            </option>
-          ))}
-        </select>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-          {materiasEAreas().map((m) => (
-            <div key={m} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ fontSize: 13, flex: 1 }}>{m}</span>
-              <select
-                style={{ ...campo, ...mono, fontSize: 12, width: "auto", padding: "6px 8px" }}
-                value={pesos[m] ?? PESO_PADRAO}
-                onChange={(e) => mudarPeso(m, Number(e.target.value))}
-              >
-                {Array.from({ length: PESO_MAX + 1 }, (_, n) => n).map((n) => (
-                  <option key={n} value={n}>
-                    {n === 0 ? "Não cai" : `Peso ${n}`}
-                  </option>
-                ))}
-              </select>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div style={{ ...cartao, padding: "14px 16px", marginTop: 14 }}>
-        <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 6 }}>
-          QUESTÕES REPORTADAS{reportadas.length > 0 ? ` · ${reportadas.length}` : ""}
-        </div>
-        <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: reportadas.length ? 12 : 0 }}>
-          Questões que você sinalizou como erradas (enunciado ou gabarito), para revisar e depois
-          corrigir na fonte.
-        </div>
-        {carregandoReportadas ? (
-          <div style={{ fontSize: 13, color: C.sub }}>Carregando…</div>
-        ) : reportadas.length === 0 ? null : (
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {reportadas.map((r) => (
-              <div
-                key={r.id}
-                style={{
-                  border: `1.5px solid ${C.line}`,
-                  borderRadius: 10,
-                  padding: "10px 12px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    gap: 8,
-                    marginBottom: 6,
-                  }}
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {materiasEAreas().map((m) => (
+              <div key={m} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 13, flex: 1 }}>{m}</span>
+                <select
+                  style={{ ...campo, ...mono, fontSize: 12, width: "auto", padding: "6px 8px" }}
+                  value={pesos[m] ?? PESO_PADRAO}
+                  onChange={(e) => mudarPeso(m, Number(e.target.value))}
                 >
-                  <span style={{ ...mono, fontSize: 10.5, color: C.erro, letterSpacing: 0.5 }}>
-                    {r.materia.toUpperCase()} · {labelMotivo(r.motivo_report)}
-                  </span>
-                  <span style={{ ...mono, fontSize: 10.5, color: C.sub, flexShrink: 0 }}>
-                    {dataCurta(r.ts)}
-                  </span>
-                </div>
-                <p
-                  style={{
-                    fontSize: 13,
-                    lineHeight: 1.45,
-                    margin: "0 0 8px",
-                    display: "-webkit-box",
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }}
-                >
-                  {r.enunciado}
-                </p>
-                <button
-                  onClick={() => resolver(r.id)}
-                  disabled={resolvendo === r.id}
-                  style={{
-                    ...mono,
-                    fontSize: 11,
-                    background: "none",
-                    border: "none",
-                    color: C.caneta,
-                    cursor: resolvendo === r.id ? "default" : "pointer",
-                    padding: 0,
-                  }}
-                >
-                  {resolvendo === r.id ? "Marcando…" : "Marcar como resolvido"}
-                </button>
+                  {Array.from({ length: PESO_MAX + 1 }, (_, n) => n).map((n) => (
+                    <option key={n} value={n}>
+                      {n === 0 ? "Não cai" : `Peso ${n}`}
+                    </option>
+                  ))}
+                </select>
               </div>
             ))}
           </div>
-        )}
-      </div>
-
-      <div style={{ marginBottom: 18, marginTop: 22 }}>
-        <label style={rotulo}>Chave de API da Anthropic</label>
-        <input
-          style={{ ...campo, ...mono, fontSize: 13 }}
-          type={visivel ? "text" : "password"}
-          placeholder="sk-ant-…"
-          autoCapitalize="none"
-          autoCorrect="off"
-          spellCheck={false}
-          value={chave}
-          onChange={(e) => {
-            setChave(e.target.value);
-            setStatus(null);
-          }}
-        />
-        <button
-          onClick={() => setVisivel((v) => !v)}
-          style={{
-            ...mono,
-            marginTop: 6,
-            fontSize: 11,
-            background: "none",
-            border: "none",
-            color: C.caneta,
-            cursor: "pointer",
-            padding: 0,
-          }}
-        >
-          {visivel ? "Ocultar" : "Mostrar"} chave
-        </button>
-      </div>
-
-      <div style={{ marginBottom: 18 }}>
-        <label style={rotulo}>Backend próprio (opcional)</label>
-        <input
-          style={{ ...campo, ...mono, fontSize: 13 }}
-          placeholder="https://meu-worker.workers.dev"
-          autoCapitalize="none"
-          autoCorrect="off"
-          spellCheck={false}
-          value={proxy}
-          onChange={(e) => {
-            setProxy(e.target.value);
-            setStatus(null);
-          }}
-        />
-        <div style={{ fontSize: 12.5, color: C.sub, marginTop: 8, lineHeight: 1.5 }}>
-          Se preenchido, o app fala com esta URL em vez de api.anthropic.com — o backend precisa
-          expor <code style={{ ...mono, fontSize: 12 }}>/v1/messages</code>. Deixe vazio para usar a
-          chave acima diretamente. Veja <code style={{ ...mono, fontSize: 12 }}>proxy/</code> no
-          repositório.
-        </div>
-      </div>
-
-      {/* Teto de gasto mensal: o custo da API sai da conta pessoal do
-          usuário (4 chamadas por bloco gerado). O teto não bloqueia sozinho —
-          é lido antes de disparar um bloco em GerarView, que avisa e pede
-          confirmação. Ver lib/custo.ts e o cartão CUSTO DA API em Dados. */}
-      <div style={{ marginBottom: 18 }}>
-        <label style={rotulo}>Teto de gasto mensal (US$)</label>
-        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-          <input
-            style={{ ...campo, ...mono, fontSize: 14, flex: 1 }}
-            type="number"
-            inputMode="decimal"
-            min={0}
-            step={1}
-            placeholder="0 = sem teto"
-            value={tetoMensal || ""}
-            onChange={(e) => void trocarTeto(Math.max(0, Number(e.target.value) || 0))}
-          />
-        </div>
-        <div style={{ fontSize: 12.5, color: C.sub, marginTop: 8, lineHeight: 1.5 }}>
-          Gasto deste mês: <strong>{formatarUSD(gastoMes)}</strong>
-          {tetoMensal > 0
-            ? situacaoTeto(gastoMes, tetoMensal) === "estourado"
-              ? " — teto atingido; o app avisa antes de gerar um bloco novo."
-              : situacaoTeto(gastoMes, tetoMensal) === "perto"
-                ? " — perto do teto; o app avisa antes de gerar um bloco novo."
-                : "."
-            : ". Sem teto configurado, o app apenas registra o gasto."}
-        </div>
-      </div>
-
-      {status && (
-        <div
-          style={{
-            background: status.tom === "ok" ? C.okSoft : C.erroSoft,
-            border: `1.5px solid ${status.tom === "ok" ? C.ok : C.erro}`,
-            borderRadius: 10,
-            padding: "10px 12px",
-            fontSize: 13,
-            marginBottom: 14,
-          }}
-        >
-          {status.texto}
-        </div>
+        </SecaoColapsavel>
       )}
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        <Botao tipo="tinta" onClick={salvar} disabled={!carregado}>
-          Salvar
-        </Botao>
-        {(chave || proxy) && (
-          <Botao tipo="fantasma" onClick={limpar} style={{ color: C.erro }}>
-            Remover credenciais
-          </Botao>
+      {secoesVisiveis.has("reportadas") && (
+        <SecaoColapsavel
+          titulo="Questões reportadas"
+          badge={reportadas.length || undefined}
+          aberta={estaAberta("reportadas")}
+          onToggle={(a) => alternarSecao("reportadas", a)}
+        >
+          <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: reportadas.length ? 12 : 0 }}>
+            Questões que você sinalizou como erradas (enunciado ou gabarito), para revisar e depois
+            corrigir na fonte.
+          </div>
+          {carregandoReportadas ? (
+            <div style={{ fontSize: 13, color: C.sub }}>Carregando…</div>
+          ) : reportadas.length === 0 ? null : (
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {reportadas.map((r) => (
+                <div
+                  key={r.id}
+                  style={{
+                    border: `1.5px solid ${C.line}`,
+                    borderRadius: 10,
+                    padding: "10px 12px",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      gap: 8,
+                      marginBottom: 6,
+                    }}
+                  >
+                    <span style={{ ...mono, fontSize: 10.5, color: C.erro, letterSpacing: 0.5 }}>
+                      {r.materia.toUpperCase()} · {labelMotivo(r.motivo_report)}
+                    </span>
+                    <span style={{ ...mono, fontSize: 10.5, color: C.sub, flexShrink: 0 }}>
+                      {dataCurta(r.ts)}
+                    </span>
+                  </div>
+                  <p
+                    style={{
+                      fontSize: 13,
+                      lineHeight: 1.45,
+                      margin: "0 0 8px",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {r.enunciado}
+                  </p>
+                  <button
+                    onClick={() => resolver(r.id)}
+                    disabled={resolvendo === r.id}
+                    style={{
+                      ...mono,
+                      fontSize: 11,
+                      background: "none",
+                      border: "none",
+                      color: C.caneta,
+                      cursor: resolvendo === r.id ? "default" : "pointer",
+                      padding: 0,
+                    }}
+                  >
+                    {resolvendo === r.id ? "Marcando…" : "Marcar como resolvido"}
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+        </SecaoColapsavel>
+      )}
+
+      {secoesVisiveis.has("api") && (
+        <SecaoColapsavel
+          titulo="API e custo"
+          aberta={estaAberta("api")}
+          onToggle={(a) => alternarSecao("api", a)}
+        >
+        <div style={{ marginBottom: 18, marginTop: 4 }}>
+          <label style={rotulo}>Chave de API da Anthropic</label>
+          <input
+            style={{ ...campo, ...mono, fontSize: 13 }}
+            type={visivel ? "text" : "password"}
+            placeholder="sk-ant-…"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
+            value={chave}
+            onChange={(e) => {
+              setChave(e.target.value);
+              setStatus(null);
+            }}
+          />
+          <button
+            onClick={() => setVisivel((v) => !v)}
+            style={{
+              ...mono,
+              marginTop: 6,
+              fontSize: 11,
+              background: "none",
+              border: "none",
+              color: C.caneta,
+              cursor: "pointer",
+              padding: 0,
+            }}
+          >
+            {visivel ? "Ocultar" : "Mostrar"} chave
+          </button>
+        </div>
+
+        <div style={{ marginBottom: 18 }}>
+          <label style={rotulo}>Backend próprio (opcional)</label>
+          <input
+            style={{ ...campo, ...mono, fontSize: 13 }}
+            placeholder="https://meu-worker.workers.dev"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
+            value={proxy}
+            onChange={(e) => {
+              setProxy(e.target.value);
+              setStatus(null);
+            }}
+          />
+          <div style={{ fontSize: 12.5, color: C.sub, marginTop: 8, lineHeight: 1.5 }}>
+            Se preenchido, o app fala com esta URL em vez de api.anthropic.com — o backend precisa
+            expor <code style={{ ...mono, fontSize: 12 }}>/v1/messages</code>. Deixe vazio para usar a
+            chave acima diretamente. Veja <code style={{ ...mono, fontSize: 12 }}>proxy/</code> no
+            repositório.
+          </div>
+        </div>
+
+        {/* Teto de gasto mensal: o custo da API sai da conta pessoal do
+            usuário (4 chamadas por bloco gerado). O teto não bloqueia sozinho —
+            é lido antes de disparar um bloco em GerarView, que avisa e pede
+            confirmação. Ver lib/custo.ts e o cartão CUSTO DA API em Dados. */}
+        <div style={{ marginBottom: 18 }}>
+          <label style={rotulo}>Teto de gasto mensal (US$)</label>
+          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <input
+              style={{ ...campo, ...mono, fontSize: 14, flex: 1 }}
+              type="number"
+              inputMode="decimal"
+              min={0}
+              step={1}
+              placeholder="0 = sem teto"
+              value={tetoMensal || ""}
+              onChange={(e) => void trocarTeto(Math.max(0, Number(e.target.value) || 0))}
+            />
+          </div>
+          <div style={{ fontSize: 12.5, color: C.sub, marginTop: 8, lineHeight: 1.5 }}>
+            Gasto deste mês: <strong>{formatarUSD(gastoMes)}</strong>
+            {tetoMensal > 0
+              ? situacaoTeto(gastoMes, tetoMensal) === "estourado"
+                ? " — teto atingido; o app avisa antes de gerar um bloco novo."
+                : situacaoTeto(gastoMes, tetoMensal) === "perto"
+                  ? " — perto do teto; o app avisa antes de gerar um bloco novo."
+                  : "."
+              : ". Sem teto configurado, o app apenas registra o gasto."}
+          </div>
+        </div>
+
+        {status && (
+          <div
+            style={{
+              background: status.tom === "ok" ? C.okSoft : C.erroSoft,
+              border: `1.5px solid ${status.tom === "ok" ? C.ok : C.erro}`,
+              borderRadius: 10,
+              padding: "10px 12px",
+              fontSize: 13,
+              marginBottom: 14,
+            }}
+          >
+            {status.texto}
+          </div>
         )}
-      </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          <Botao tipo="tinta" onClick={salvar} disabled={!carregado}>
+            Salvar
+          </Botao>
+          {(chave || proxy) && (
+            <Botao tipo="fantasma" onClick={limpar} style={{ color: C.erro }}>
+              Remover credenciais
+            </Botao>
+          )}
+        </div>
+        </SecaoColapsavel>
+      )}
     </Shell>
   );
 }

@@ -3,9 +3,16 @@ import { C, cartao, mono } from "../../theme";
 import Botao from "../../components/Botao";
 import { Vazio } from "../../components/Shell";
 import TextoComMarcaTexto from "../../components/TextoComMarcaTexto";
-import { listarNotasPendentes, registrarRevisaoNota } from "../../lib/repo";
+import { listarNotasPendentes, registrarRevisaoNota, type GrauRevisao } from "../../lib/repo";
 import { paraFlashcard } from "../../lib/flashcards";
 import type { ConceitoSalvo } from "../../lib/types";
+
+const GRAUS: { grau: GrauRevisao; rotulo: string; cor: string }[] = [
+  { grau: "de_novo", rotulo: "De novo", cor: C.erro },
+  { grau: "dificil", rotulo: "Difícil", cor: C.sub },
+  { grau: "bom", rotulo: "Bom", cor: C.caneta },
+  { grau: "facil", rotulo: "Fácil", cor: C.ok },
+];
 
 /**
  * Revisão ativa das notas por repetição espaçada (mesmas caixas de Leitner de
@@ -62,12 +69,12 @@ export default function RevisaoNotas({
   const ultima = idx === fila.length - 1;
   const cartaoFlash = paraFlashcard(nota);
 
-  async function avaliar(lembrou: boolean) {
+  async function avaliar(grau: GrauRevisao) {
     if (avaliando) return;
     setAvaliando(true);
     try {
-      await registrarRevisaoNota(nota.id, lembrou);
-      if (lembrou) setLembradas((n) => n + 1);
+      await registrarRevisaoNota(nota.id, grau);
+      if (grau !== "de_novo") setLembradas((n) => n + 1);
     } catch (e) {
       console.error("registrar revisão de nota", e);
     } finally {
@@ -139,18 +146,18 @@ export default function RevisaoNotas({
           {cartaoFlash.tipo === "cloze" ? "Revelar" : "Mostrar resposta"}
         </Botao>
       ) : (
-        <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
-          <Botao
-            tipo="fantasma"
-            onClick={() => avaliar(false)}
-            disabled={avaliando}
-            style={{ flex: 1, color: C.erro }}
-          >
-            Não lembrei
-          </Botao>
-          <Botao onClick={() => avaliar(true)} disabled={avaliando} style={{ flex: 1 }}>
-            Lembrei
-          </Botao>
+        <div style={{ display: "flex", gap: 6, marginTop: 16 }}>
+          {GRAUS.map((g) => (
+            <Botao
+              key={g.grau}
+              tipo="fantasma"
+              onClick={() => avaliar(g.grau)}
+              disabled={avaliando}
+              style={{ flex: 1, color: g.cor, borderColor: g.cor, padding: "10px 2px", fontSize: 12.5 }}
+            >
+              {g.rotulo}
+            </Botao>
+          ))}
         </div>
       )}
 

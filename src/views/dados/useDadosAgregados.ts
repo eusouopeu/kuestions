@@ -29,9 +29,11 @@ import {
   tempoMedioGeral,
   tempoPorMateria,
   topicosPraticados,
+  listarSimulados,
   type CalibracaoMateria,
   type Fatia,
   type FatiaTempo,
+  type RegistroSimulado,
   type Resumo,
   type ResumoConfianca,
   type ResumoCusto,
@@ -103,9 +105,17 @@ export function useDadosAgregados({
   // conta como acerto.
   const [lentidao, setLentidao] = useState<ResumoLentidao | null>(null);
   const [teto, setTeto] = useState(0);
+  // Histórico de simulados (ver repo/simulados.ts) — não é filtrado por
+  // matéria/nível, cada prova já mistura várias áreas; carrega junto com
+  // `materias`, uma vez por ativação da aba.
+  const [simulados, setSimulados] = useState<RegistroSimulado[]>([]);
 
   useEffect(() => {
     if (ativa) materiasComDados().then(setMaterias).catch(() => setMaterias([]));
+  }, [ativa]);
+
+  useEffect(() => {
+    if (ativa) listarSimulados().then(setSimulados).catch(() => setSimulados([]));
   }, [ativa]);
 
   const carregar = useCallback(() => {
@@ -201,5 +211,6 @@ export function useDadosAgregados({
     lentidao,
     custo,
     teto,
+    simulados,
   };
 }

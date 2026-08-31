@@ -122,6 +122,7 @@ export default function DadosTab({
     lentidao,
     custo,
     teto,
+    simulados,
   } = useDadosAgregados({
     ativa,
     materia: filtro === TODAS ? null : filtro,
@@ -415,6 +416,51 @@ export default function DadosTab({
               </LineChart>
             </ResponsiveContainer>
           </Cartao>
+
+          {/* Histórico de simulados (rec. 5): nota ponderada de cada prova
+              cronometrada fechada, na ordem em que aconteceram — mesma
+              projeção do relatório pós-prova (RelatorioSimulado), só que
+              persistida (ver repo/simulados.ts) para virar série no tempo em
+              vez de sumir ao sair da tela de resultado. */}
+          {simulados.length > 0 && (
+            <Cartao
+              titulo="EVOLUÇÃO — NOTA PONDERADA POR SIMULADO"
+              legenda={
+                simulados.length < 2
+                  ? "Um único simulado registrado: a linha aparece a partir do segundo."
+                  : `Linha tracejada = ${LIMIAR_APROVACAO_PCT}%, o limiar de aprovação.`
+              }
+            >
+              <ResponsiveContainer width="100%" height={180}>
+                <LineChart
+                  data={simulados.map((s, i) => ({ i: i + 1, pct: s.notaEstimada, acertos: s.acertos, total: s.totalQuestoes }))}
+                  margin={{ top: 6, right: 12, bottom: 4, left: -18 }}
+                >
+                  <CartesianGrid stroke={C.line} />
+                  <XAxis dataKey="i" {...eixo} />
+                  <YAxis domain={[0, 100]} unit="%" {...eixo} />
+                  <Tooltip
+                    {...tooltipStyle}
+                    formatter={(v: number, _n, p) => {
+                      const { acertos, total } = p.payload as { acertos: number; total: number };
+                      return [v == null ? "sem nota" : `${v}% (${acertos}/${total})`, "nota ponderada"];
+                    }}
+                    labelFormatter={(l) => `Simulado ${l}`}
+                  />
+                  <ReferenceLine y={LIMIAR_APROVACAO_PCT} stroke={C.ok} strokeDasharray="3 3" />
+                  <Line
+                    type="monotone"
+                    dataKey="pct"
+                    stroke={C.caneta}
+                    strokeWidth={2}
+                    dot={{ r: 3, fill: C.caneta }}
+                    connectNulls
+                    isAnimationActive={false}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </Cartao>
+          )}
 
           {/* Nível de dificuldade */}
           <Cartao

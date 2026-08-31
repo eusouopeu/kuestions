@@ -367,4 +367,24 @@ export const MIGRATIONS: Migracao[] = [
     version: 16,
     sql: `ALTER TABLE pdfs ADD COLUMN pasta TEXT;`,
   },
+  {
+    // Histórico de simulados (rec. 5): até aqui o relatório pós-prova
+    // (RelatorioSimulado) era só de tela — fechar o simulado não deixava
+    // rastro além das questões individuais em questoes_respondidas, que não
+    // reconstroem "nota ponderada desta prova" sem recalcular tudo. Uma
+    // linha por simulado fechado, persistida em `finalizar()` (SimuladoView).
+    version: 17,
+    sql: `
+      CREATE TABLE IF NOT EXISTS simulados (
+        id              INTEGER PRIMARY KEY AUTOINCREMENT,
+        nota_estimada   INTEGER,
+        total_questoes  INTEGER NOT NULL,
+        acertos         INTEGER NOT NULL,
+        em_branco       INTEGER NOT NULL,
+        tempo_total_ms  INTEGER NOT NULL,
+        ts              TEXT    NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS ix_simulados_ts ON simulados (ts);
+    `,
+  },
 ];
