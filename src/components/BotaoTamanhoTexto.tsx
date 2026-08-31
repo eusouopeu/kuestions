@@ -13,7 +13,8 @@ export default function BotaoTamanhoTexto() {
   }, []);
 
   async function alternar() {
-    const proxima = PROXIMA_ESCALA[escala];
+    const atual = await getEscala();
+    const proxima = PROXIMA_ESCALA[atual];
     await setEscala(proxima);
     setEscalaLocal(proxima);
   }

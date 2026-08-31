@@ -16,7 +16,7 @@ export interface DefinicaoAba {
 
 /**
  * Fonte única das abas, compartilhada pela tab bar de celular (TabBar.tsx) e
- * pela pílula flutuante do layout largo (NavPill.tsx) — antes o array vivia
+ * pelo rail lateral do layout largo (RailLateral.tsx) — antes o array vivia
  * dentro de TabBar e a pílula teria que duplicá-lo.
  *
  * `createElement` em vez de JSX porque este arquivo é `.ts` (não tem

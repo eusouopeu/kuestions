@@ -13,7 +13,7 @@ import {
 /**
  * Lista de tarefas simples (ver repo/tarefas.ts), portada de
  * web_notebook/todo.html no SynapsePro. Item manual, marcado à mão — não
- * confundir com as metas semanais automáticas em views/BlocosTab.tsx (ver
+ * confundir com as metas semanais automáticas em views/QuestoesTab.tsx (ver
  * lib/metas.ts): meta é um contador que o app já atualiza sozinho conforme
  * o uso; tarefa é algo que o usuário decidiu fazer e marca ele mesmo.
  */

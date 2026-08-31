@@ -26,7 +26,7 @@ export const ESCALAS: { valor: Escala; label: string }[] = [
 
 /** Ciclo usado pelo botão de tamanho de texto no topo mobile (ver
  * components/BotaoTamanhoTexto.tsx) — mesmo padrão de PROXIMO_TEMA em
- * RailLateral.tsx. */
+ * BotaoTema.tsx. */
 export const PROXIMA_ESCALA: Record<Escala, Escala> = {
   100: 110,
   110: 125,

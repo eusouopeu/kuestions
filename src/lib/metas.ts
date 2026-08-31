@@ -5,7 +5,7 @@
  * Antes eram dois mecanismos independentes: uma "meta semanal" geral (com
  * flag `ativa` e um número) e um mapa de metas por matéria. Mas meta geral é
  * meta por matéria com a matéria em branco — dois estados, duas seções em
- * Ajustes e duas leituras em BlocosTab para a mesma pergunta ("quantos blocos
+ * Ajustes e duas leituras em QuestoesTab para a mesma pergunta ("quantos blocos
  * por semana?"). Aqui a presença da chave no mapa já significa "meta ativa";
  * remover a chave desativa, exatamente como o mapa por matéria sempre fez.
  *

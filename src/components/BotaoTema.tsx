@@ -21,7 +21,8 @@ export default function BotaoTema() {
   }, []);
 
   async function alternar() {
-    const proximo = PROXIMO_TEMA[tema];
+    const atual = await getTema();
+    const proximo = PROXIMO_TEMA[atual];
     await setTema(proximo);
     setTemaLocal(proximo);
   }
