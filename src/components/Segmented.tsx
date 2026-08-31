@@ -4,9 +4,13 @@ import { C, mono } from "../theme";
 /**
  * Seletor de duas ou mais views. Usado no topo da aba Questões (Gerar novas /
  * Refazer erradas) e como filtro de ordenação na aba Notas. `icone` é
- * opcional — só a aba Questões usa, para diferenciar visualmente seus 4
+ * opcional — só a aba Questões usa, para diferenciar visualmente seus
  * modos (que não são abas de verdade, e por isso pedem um reforço além do
  * texto para o usuário situar-se rápido em qual fluxo está).
+ *
+ * `iconeApenas` esconde o texto do label (mantido como `title`/`aria-label`
+ * para acessibilidade) — usado pela aba Questões unificada, que tem 6
+ * opções e precisa caber numa pílula só sem estourar a largura no mobile.
  */
 // `T extends string | number`: além dos ids textuais (abas, ordenação), a
 // escala da interface em Ajustes usa números (100/110/125) como id.
@@ -14,10 +18,12 @@ export default function Segmented<T extends string | number>({
   valor,
   opcoes,
   onChange,
+  iconeApenas = false,
 }: {
   valor: T;
   opcoes: { id: T; label: string; icone?: (cor: string) => ReactNode }[];
   onChange: (id: T) => void;
+  iconeApenas?: boolean;
 }) {
   return (
     <div
@@ -39,6 +45,8 @@ export default function Segmented<T extends string | number>({
             key={o.id}
             role="tab"
             aria-selected={ativo}
+            aria-label={o.label}
+            title={iconeApenas ? o.label : undefined}
             onClick={() => onChange(o.id)}
             style={{
               ...mono,
@@ -59,7 +67,7 @@ export default function Segmented<T extends string | number>({
             }}
           >
             {o.icone?.(cor)}
-            {o.label}
+            {!iconeApenas && o.label}
           </button>
         );
       })}
