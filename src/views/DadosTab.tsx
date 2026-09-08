@@ -27,6 +27,7 @@ import { PRESETS_PESO_EDITAL } from "../lib/edital";
 import { formatarUSD, situacaoTeto } from "../lib/custo";
 import { labelFormato, labelTipo, NIVEIS } from "../lib/constants";
 import { LABEL_CONFIANCA, NIVEIS_CONFIANCA } from "../lib/pontuacaoTopicos";
+import { INTERVALOS_LEITNER_DIAS } from "../lib/repo/leitner";
 import { agruparPorPrefixo } from "../lib/topicos";
 
 const TODAS = "__todas__";
@@ -108,6 +109,7 @@ export default function DadosTab({
     tipos,
     formatos,
     confiancas,
+    caixaLeitner,
     conceitos,
     atividade,
     streak,
@@ -172,6 +174,16 @@ export default function DadosTab({
       pct: f.pct,
       total: f.total,
     }));
+
+  // Distribuição por caixa de Leitner (rec. 7): proxy de retenção — quanto
+  // maior a fatia nas caixas altas, mais questões estão sobrevivendo aos
+  // intervalos longos de repetição espaçada (ver distribuicaoCaixaLeitner em
+  // repo/estatisticas.ts). `pct` aqui é fatia do total revisado, não acerto.
+  const dadosCaixaLeitner = caixaLeitner.map((f) => {
+    const n = Number(f.chave);
+    const dias = INTERVALOS_LEITNER_DIAS[n - 1];
+    return { nome: `Caixa ${n}${dias ? ` (${dias}d)` : ""}`, pct: f.pct, total: f.total };
+  });
 
   return (
     <Shell titulo="Dados">
@@ -655,6 +667,22 @@ export default function DadosTab({
             ) : (
               <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
                 Nenhuma resposta com autoavaliação de confiança ainda.
+              </div>
+            )}
+          </Cartao>
+
+          {/* Retenção (rec. 7): distribuição das já revisadas por caixa de
+              Leitner atual — quanto maior a fatia nas caixas altas (16/35
+              dias), mais está sobrevivendo à repetição espaçada. */}
+          <Cartao
+            titulo="RETENÇÃO — DISTRIBUIÇÃO POR CAIXA DE LEITNER"
+            legenda="Fatia das questões já revisadas em cada caixa, não taxa de acerto. Só existe para o que já passou por ao menos uma revisão em Refazer."
+          >
+            {dadosCaixaLeitner.length ? (
+              <BarrasPct dados={dadosCaixaLeitner} alturaPorItem={40} rotuloTooltip="do total revisado" />
+            ) : (
+              <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
+                Nenhuma questão revisada em Refazer ainda.
               </div>
             )}
           </Cartao>

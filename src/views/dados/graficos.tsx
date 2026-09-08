@@ -71,6 +71,7 @@ export function BarrasPct({
   dados,
   alturaPorItem = 34,
   larguraEixo = 96,
+  rotuloTooltip = "acerto",
 }: {
   dados: { nome: string; pct: number; total: number }[];
   alturaPorItem?: number;
@@ -81,6 +82,10 @@ export function BarrasPct({
    * gráficos de barra da aba, de propósito: é o que dá a todos a mesma área
    * de plotagem. */
   larguraEixo?: number;
+  /** Nome exibido no tooltip ao lado do %/total — "acerto" em todo gráfico
+   * que mede desempenho; um gráfico de distribuição (ver "Caixa de Leitner"
+   * em DadosTab) passa outra coisa, porque `pct` ali não é taxa de acerto. */
+  rotuloTooltip?: string;
 }) {
   // Uniforme entre as linhas (o BarChart do recharts aloca a mesma altura
   // para cada categoria) — usa o rótulo mais longo do conjunto, com uma
@@ -100,7 +105,7 @@ export function BarrasPct({
           {...tooltipStyle}
           formatter={(v: number, _n, p) => [
             `${v}% (${(p.payload as { total: number }).total} questões)`,
-            "acerto",
+            rotuloTooltip,
           ]}
         />
         <ReferenceLine x={LIMIAR_APROVACAO_PCT} stroke={C.ok} strokeDasharray="3 3" />

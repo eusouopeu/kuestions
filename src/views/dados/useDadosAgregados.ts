@@ -11,6 +11,7 @@
 import { useCallback, useEffect, useState } from "react";
 import {
   atividadePorDia,
+  distribuicaoCaixaLeitner,
   materiasComDados,
   porConceito,
   porConfianca,
@@ -71,6 +72,7 @@ export function useDadosAgregados({
   const [tipos, setTipos] = useState<Fatia[]>([]);
   const [formatos, setFormatos] = useState<Fatia[]>([]);
   const [confiancas, setConfiancas] = useState<Fatia[]>([]);
+  const [caixaLeitner, setCaixaLeitner] = useState<Fatia[]>([]);
   const [atividade, setAtividade] = useState<{ data: string; total: number }[]>([]);
   const [conceitos, setConceitos] = useState<Fatia[]>([]);
   const [streak, setStreak] = useState<{ atual: number; recorde: number; hoje: boolean } | null>(
@@ -130,6 +132,7 @@ export function useDadosAgregados({
       porFormato(m, n),
       porConceito(m, n),
       porConfianca(m, n),
+      distribuicaoCaixaLeitner(m),
       streakDias(),
       atividadePorDia(DIAS_HEATMAP),
       tempoMedioGeral(m),
@@ -142,7 +145,7 @@ export function useDadosAgregados({
       m === null ? Promise.all([resumoPorMateria(n), getPesosEdital()]) : Promise.resolve(null),
       m === null ? resumoConfiancaPorMateria() : Promise.resolve([]),
     ])
-      .then(([r, s, ni, ti, fo, co, cf, st, at, tg, tm, conf, lent, cst, tt, baseNota, calibracao]) => {
+      .then(([r, s, ni, ti, fo, co, cf, caixa, st, at, tg, tm, conf, lent, cst, tt, baseNota, calibracao]) => {
         setRes(r);
         setSerie(s);
         setNiveis(ni);
@@ -150,6 +153,7 @@ export function useDadosAgregados({
         setFormatos(fo);
         setConceitos(co);
         setConfiancas(cf);
+        setCaixaLeitner(caixa);
         setStreak(st);
         setAtividade(at);
         setTempoGeral(tg);
@@ -197,6 +201,7 @@ export function useDadosAgregados({
     tipos,
     formatos,
     confiancas,
+    caixaLeitner,
     conceitos,
     atividade,
     streak,

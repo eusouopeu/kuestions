@@ -91,3 +91,46 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
 - `@capacitor/local-notifications` foi adicionado (lembrete diário de revisão, ver
   `src/lib/lembretes.ts`) — rodar `npx cap sync android`/`ios` depois de puxar essa mudança.
 
+## Ícone do app
+
+- Fonte: `resources/icon-foreground.png` (RGBA, com transparência) + fundo sólido branco
+  (`resources/icon-background.png`/`.svg`, `#FFFFFF`). `resources/icon.png` e os PNGs em
+  `android/app/src/main/res/mipmap-*/` (`ic_launcher.png`, `ic_launcher_round.png`,
+  `ic_launcher_background.png`) e `ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png`
+  são gerados compondo o foreground sobre esse fundo branco com PIL (`Image.alpha_composite`), um por
+  densidade — não existe `@capacitor/assets`/`cordova-res` instalado no projeto, a composição é
+  manual. `android/app/src/main/res/drawable/ic_launcher_background.xml` (vetor com grade teal) é
+  vestígio do template padrão do Capacitor e não é referenciado por `ic_launcher.xml`/`_round.xml`
+  (que apontam para `@mipmap/ic_launcher_background`, o PNG) — não precisa mexer nele.
+- Ao trocar o ícone de novo: regenerar todas as densidades acima a partir do novo foreground/fundo,
+  não só um arquivo — um mipmap desatualizado aparece como ícone errado só em certas resoluções de
+  tela.
+
+## Revisão e repetição espaçada (Leitner)
+
+- `INTERVALOS_LEITNER_DIAS`/`CAIXA_MAX_ERRO_PERIGOSO` em `src/lib/repo/leitner.ts` — compartilhado
+  entre questões (`registrarRevisao`, `src/lib/repo/questoes.ts`) e notas (`registrarRevisaoNota`,
+  `src/lib/repo/notas.ts`).
+- `registrarRevisao(id, acertou, tempoMs?)` modula o avanço de caixa por tempo e confiança: lento
+  (tempo > 2× a média geral) não avança; acerto original com confiança "certeza" (e não perigoso)
+  avança 2 caixas; caso comum avança 1. Todo call-site que chama `registrarRevisao` deve repassar o
+  `tempoMs` que vem de `onResponder` (terceiro parâmetro) — sem isso a modulação por lentidão nunca
+  dispara.
+- Fila unificada "vence hoje" (questões pendentes + notas pendentes numa sequência só) vive em
+  `src/views/RevisaoDiariaView.tsx`, entrada pelo painel no topo de `QuestoesTab.tsx`. `Refazer`
+  (questões) e `Notas → Revisão` continuam existindo como entradas separadas — a fila unificada é um
+  atalho, não substitui as duas.
+- Tutor da questão (`perguntarSobreQuestao`, `src/lib/anthropic.ts`) só aparece dentro de
+  `FilaRevisaoDrill.tsx` (Refazer, Blocos anteriores, fila unificada) — nunca ao responder pela
+  primeira vez (Gerar/Do banco/Importar/Simulado usam `QuestaoCard` direto). Teto de
+  `MAX_PERGUNTAS_TUTOR` (3) perguntas por questão, e bloqueado se o teto mensal de custo já
+  estourou (`situacaoTeto`).
+- Selo de pendências no ícone da aba Questões (`src/lib/badgePendencias.ts`, opcional, padrão
+  desligado, toggle em Ajustes → Geração) soma `contarQuestoesPendentes()` +
+  `contarNotasPendentes(null)`. Recalculado em `App.tsx` a cada troca de aba — inclusive a
+  preferência `badgeAtivo` em si, porque é a única forma de captar o toggle feito em Ajustes sem um
+  canal de estado dedicado entre as duas telas.
+- Dedupe na importação (`enunciadosExistentes`/`normalizarEnunciado`, `src/lib/repo/questoes.ts`):
+  checagem por enunciado normalizado (trim + minúsculas + espaços colapsados), só avisa, não
+  bloqueia — usado em `ImportarView.tsx` antes de `iniciarBlocoReal`.
+

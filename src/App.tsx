@@ -12,6 +12,8 @@ import { aplicarEscala, getEscala } from "./lib/acessibilidade";
 import { useLayoutLargo } from "./lib/plataforma";
 import Botao from "./components/Botao";
 import OfflineBanner from "./components/OfflineBanner";
+import { getBadgePendenciasAtivo } from "./lib/badgePendencias";
+import { contarNotasPendentes, contarQuestoesPendentes } from "./lib/repo";
 
 // A aba Dados carrega recharts (~537 kB). Fora do bundle inicial: o app abre
 // em Questões, e quem nunca abrir Dados nunca baixa o gráfico.
@@ -41,6 +43,30 @@ export default function App() {
   // aberto no meio da tela. Guardamos o scrollY de cada aba ao sair dela e
   // restauramos ao voltar.
   const scrollPorAba = useRef<Partial<Record<Aba, number>>>({});
+
+  // Selo de pendências (rec. 8, opcional — ver lib/badgePendencias.ts):
+  // recalcula ao trocar de aba, momento barato de reaproveitar já que a
+  // troca em si já dispara outras leituras (ex.: cada aba busca seus
+  // próprios dados ao montar/reativar).
+  const [badgeAtivo, setBadgeAtivo] = useState(false);
+  const [badgePendencias, setBadgePendencias] = useState(0);
+
+  // Relê a cada troca de aba (não só no boot): é o jeito mais simples de
+  // captar quando o usuário liga/desliga o selo em Ajustes e volta pra
+  // Questões, sem precisar de um canal de estado entre as duas telas.
+  useEffect(() => {
+    getBadgePendenciasAtivo().then(setBadgeAtivo);
+  }, [aba]);
+
+  useEffect(() => {
+    if (!pronto || !badgeAtivo) {
+      setBadgePendencias(0);
+      return;
+    }
+    Promise.all([contarQuestoesPendentes(), contarNotasPendentes(null)])
+      .then(([q, n]) => setBadgePendencias(q + n))
+      .catch(() => setBadgePendencias(0));
+  }, [pronto, badgeAtivo, aba]);
 
   useEffect(() => {
     getTema().then(aplicarTema);
@@ -141,11 +167,11 @@ export default function App() {
       })}
       {largo ? (
         <>
-          <RailLateral aba={aba} onChange={trocar} />
+          <RailLateral aba={aba} onChange={trocar} badgeQuestoes={badgePendencias} />
           <FerramentasFlutuantes />
         </>
       ) : (
-        <TabBar aba={aba} onChange={trocar} />
+        <TabBar aba={aba} onChange={trocar} badgeQuestoes={badgePendencias} />
       )}
     </div>
   );

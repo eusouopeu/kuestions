@@ -175,6 +175,44 @@ export const porFormato = (m: string | null, nivel: number | null = null) => agr
  * distingue. Só conta respostas em que a confiança foi perguntada. */
 export const porConfianca = (m: string | null, nivel: number | null = null) => agrupar("confianca", m, nivel);
 
+/**
+ * Distribuição das questões já revisadas ao menos uma vez, por caixa de
+ * Leitner atual (1–5) — proxy de retenção (rec. 7): quanto mais questões
+ * sobrevivendo nas caixas altas (16/35 dias), melhor a repetição espaçada
+ * está funcionando. O app não grava um log por tentativa de revisão (só o
+ * estado atual em `caixa_leitner`), então não dá para medir "% de acerto na
+ * 2ª/3ª exposição" diretamente — esta distribuição é o que o schema atual
+ * permite sem migração nova. `pct` aqui é a fatia da caixa sobre o total de
+ * revisadas, não uma taxa de acerto (reaproveita o tipo `Fatia` só pela
+ * conveniência do componente de barras já existente).
+ */
+export async function distribuicaoCaixaLeitner(materia: string | null = null): Promise<Fatia[]> {
+  const cond = ["revisada = 1"];
+  const params: unknown[] = [];
+  if (materia) {
+    cond.push("materia = ?");
+    params.push(materia);
+  }
+  const rows = await all(
+    `SELECT caixa_leitner AS chave, COUNT(*) AS total
+     FROM questoes_respondidas
+     WHERE ${cond.join(" AND ")}
+     GROUP BY caixa_leitner
+     ORDER BY caixa_leitner ASC`,
+    params,
+  );
+  const somaTotal = rows.reduce((acc, r) => acc + Number(r.total), 0);
+  return rows.map((r) => {
+    const total = Number(r.total);
+    return {
+      chave: String(r.chave),
+      total,
+      acertos: 0,
+      pct: somaTotal ? Math.round((total / somaTotal) * 100) : 0,
+    };
+  });
+}
+
 /** Acerto por matéria — base da nota provável estimada (ver
  * estimarNotaProvavel), que pondera esta % pelo peso do edital de cada
  * matéria (lib/edital.ts). Só faz sentido sem filtro de matéria (a visão

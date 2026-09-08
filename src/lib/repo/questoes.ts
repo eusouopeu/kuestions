@@ -253,6 +253,17 @@ export async function listarErradas(
   return rows.map(mapQuestao);
 }
 
+/** Total de questões pendentes de revisão (todas as matérias) — usado pelo
+ * selo de pendências no ícone da aba Questões (rec. 8, ver
+ * lib/badgePendencias.ts), somado às notas pendentes de lib/repo/notas.ts. */
+export async function contarQuestoesPendentes(): Promise<number> {
+  const r = await one<{ n: number }>(
+    `SELECT COUNT(*) AS n FROM questoes_respondidas WHERE ${COND_PENDENTE}`,
+    [agoraISO()],
+  );
+  return Number(r?.n ?? 0);
+}
+
 /** Contagem de erradas por matéria, para os cartões de seleção. */
 export async function contarErradasPorMateria(
   escopo: EscopoRevisao,
@@ -410,20 +421,66 @@ export async function buscarQuestoesRespondidas(termo: string): Promise<QuestaoR
   return rows.map(mapQuestao);
 }
 
+/** Normaliza um enunciado para comparação de duplicata (rec. 12): espaços
+ * colapsados e caixa uniforme — impreciso na borda (mesma concessão de
+ * buscarNotas/buscarQuestoesRespondidas), mas suficiente para pegar o caso
+ * comum de reimportar o mesmo PDF/JSON duas vezes. */
+export function normalizarEnunciado(s: string): string {
+  return s.trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+/**
+ * Dos enunciados dados, devolve (normalizados) os que já existem em
+ * `questoes_respondidas` — usado por ImportarView para avisar antes de
+ * gravar duplicatas ("N destas já existem, importar mesmo assim?"), sem
+ * impedir a importação: o usuário pode ter um motivo legítimo (variação de
+ * gabarito entre bancas, por exemplo).
+ */
+export async function enunciadosExistentes(enunciados: string[]): Promise<Set<string>> {
+  const normalizados = [...new Set(enunciados.map(normalizarEnunciado))];
+  if (!normalizados.length) return new Set();
+  const placeholders = normalizados.map(() => "?").join(",");
+  const rows = await all<{ norm: string }>(
+    `SELECT DISTINCT LOWER(TRIM(enunciado)) AS norm FROM questoes_respondidas
+     WHERE LOWER(TRIM(enunciado)) IN (${placeholders})`,
+    normalizados,
+  );
+  return new Set(rows.map((r) => r.norm));
+}
+
 /**
  * Registra o resultado de uma revisão em "Refazer erradas" e reagenda a
- * próxima aparição da questão nessa fila: acertar avança uma caixa de Leitner
- * e empurra `proxima_revisao` para a frente (progressivamente mais longe);
- * errar de novo derruba para a caixa 1 com `proxima_revisao = NULL`, ou seja,
- * vencida agora — a questão volta a aparecer na próxima visita a "pendentes".
+ * próxima aparição da questão nessa fila: acertar avança de 0 a 2 caixas de
+ * Leitner (ver abaixo) e empurra `proxima_revisao` para a frente; errar de
+ * novo derruba para a caixa 1 com `proxima_revisao = NULL`, ou seja, vencida
+ * agora — a questão volta a aparecer na próxima visita a "pendentes".
  *
- * ERRO PERIGOSO (a resposta original errou com confiança "certeza", ver
- * `confianca` na linha — coluna que essa função nunca sobrescreve) tem teto
- * de caixa mais baixo: mesmo acertando de novo, nunca passa de
+ * AVANÇO MODULADO (rec. 6): antes todo acerto avançava exatamente 1 caixa,
+ * ignorando dois sinais que o app já coleta. `tempoMs` é o tempo desta
+ * própria revisão (cronometrado em QuestaoCard, mesmo mecanismo do bloco
+ * original) — comparado à média geral via `condLenta`. `confianca` é a
+ * autoavaliação da resposta ORIGINAL (a revisão em si não pergunta
+ * confiança, ver `pedirConfianca={false}` em FilaRevisaoDrill):
+ *
+ *   - lento (tempo > 2× a média) → avanço 0: mesmo acertando, o cartão não
+ *     saiu de fluência baixa, então repete o mesmo intervalo em vez de
+ *     espaçar mais;
+ *   - original respondida com "certeza" (e não perigosa) → avanço 2: pula
+ *     uma caixa, porque o domínio já vinha demonstrado antes de qualquer
+ *     revisão;
+ *   - caso comum → avanço 1, como antes.
+ *
+ * ERRO PERIGOSO (a resposta original errou com confiança "certeza") continua
+ * com teto de caixa mais baixo: mesmo acertando de novo, nunca passa de
  * `CAIXA_MAX_ERRO_PERIGOSO`, então continua reaparecendo num ciclo curto em
- * vez de se espaçar como um acerto comum.
+ * vez de se espaçar como um acerto comum — e nunca ganha o avanço de 2 acima,
+ * que seria o oposto do propósito desse teto.
  */
-export async function registrarRevisao(id: number, acertou: boolean): Promise<void> {
+export async function registrarRevisao(
+  id: number,
+  acertou: boolean,
+  tempoMs?: number | null,
+): Promise<void> {
   if (!acertou) {
     await run(
       `UPDATE questoes_respondidas SET revisada = 0, caixa_leitner = 1, proxima_revisao = NULL WHERE id = ?`,
@@ -431,13 +488,21 @@ export async function registrarRevisao(id: number, acertou: boolean): Promise<vo
     );
     return;
   }
-  const row = await one<{ caixa: number; perigosa: number }>(
-    `SELECT caixa_leitner AS caixa, (acertou = 0 AND confianca = 'certeza') AS perigosa
+  const row = await one<{
+    caixa: number;
+    perigosa: number;
+    confianca: string | null;
+    tempoMedioMs: number | null;
+  }>(
+    `SELECT caixa_leitner AS caixa, (acertou = 0 AND confianca = 'certeza') AS perigosa, confianca,
+            (SELECT AVG(tempo_ms) FROM questoes_respondidas WHERE tempo_ms IS NOT NULL) AS tempoMedioMs
      FROM questoes_respondidas WHERE id = ?`,
     [id],
   );
   const teto = row?.perigosa ? CAIXA_MAX_ERRO_PERIGOSO : INTERVALOS_LEITNER_DIAS.length;
-  const novaCaixa = Math.min((row?.caixa ?? 1) + 1, teto);
+  const lenta = tempoMs != null && row?.tempoMedioMs != null && tempoMs > 2 * row.tempoMedioMs;
+  const avanco = lenta ? 0 : !row?.perigosa && row?.confianca === "certeza" ? 2 : 1;
+  const novaCaixa = Math.min((row?.caixa ?? 1) + avanco, teto);
   const dias = INTERVALOS_LEITNER_DIAS[novaCaixa - 1];
   const proxima = new Date(Date.now() + dias * 86_400_000).toISOString();
   await run(

@@ -12,7 +12,7 @@ import {
   type TipoId,
 } from "../lib/constants";
 import { extrairQuestoesDeArquivos, mensagemDeErro, normalizarQuestao, type ArquivoImportacao } from "../lib/anthropic";
-import { criarBloco, fecharBloco, gravarResposta } from "../lib/repo";
+import { criarBloco, enunciadosExistentes, fecharBloco, gravarResposta, normalizarEnunciado } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
 import type { Questao } from "../lib/types";
 
@@ -184,6 +184,12 @@ export default function ImportarView() {
   const [erroGeral, setErroGeral] = useState<string | null>(null);
   const [avisoValidacao, setAvisoValidacao] = useState<string | null>(null);
 
+  // Dedupe na importação (rec. 12): checado só ao tentar iniciar o bloco,
+  // não a cada item adicionado — comparar a fila inteira de uma vez é uma
+  // única query em vez de N.
+  const [verificandoDuplicadas, setVerificandoDuplicadas] = useState(false);
+  const [avisoDuplicadas, setAvisoDuplicadas] = useState<number | null>(null);
+
   const [blocoId, setBlocoId] = useState<number | null>(null);
   const [idx, setIdx] = useState(0);
   const [acertos, setAcertos] = useState(0);
@@ -320,9 +326,32 @@ export default function ImportarView() {
     removerDaFila(i);
   }
 
+  /** Checa duplicata contra o histórico antes de gravar (rec. 12); avisa mas
+   * não bloqueia — "Importar mesmo assim" segue direto para
+   * `iniciarBlocoReal`. Falha na checagem não deve impedir a importação. */
   async function iniciar() {
     if (!fila.length) return;
     setErroGeral(null);
+    setVerificandoDuplicadas(true);
+    let duplicadas = 0;
+    try {
+      const existentes = await enunciadosExistentes(fila.map((q) => q.enunciado));
+      duplicadas = fila.filter((q) => existentes.has(normalizarEnunciado(q.enunciado))).length;
+    } catch {
+      duplicadas = 0;
+    } finally {
+      setVerificandoDuplicadas(false);
+    }
+    if (duplicadas > 0) {
+      setAvisoDuplicadas(duplicadas);
+      return;
+    }
+    await iniciarBlocoReal();
+  }
+
+  async function iniciarBlocoReal() {
+    setErroGeral(null);
+    setAvisoDuplicadas(null);
     try {
       const id = await criarBloco(
         { materia: materiaFinal, materiaCustom: "", topico, tipos: [], formato: "misto", nivel: 3 },
@@ -896,8 +925,35 @@ export default function ImportarView() {
         </div>
       )}
 
-      <Botao tipo="tinta" onClick={iniciar} disabled={!fila.length}>
-        Iniciar bloco importado{fila.length ? ` (${fila.length} questões)` : ""}
+      {avisoDuplicadas != null && (
+        <div
+          style={{
+            background: C.erroSoft,
+            border: `1.5px solid ${C.erro}`,
+            borderRadius: 10,
+            padding: "10px 12px",
+            fontSize: 13,
+            marginBottom: 12,
+          }}
+        >
+          {avisoDuplicadas} de {fila.length} questões desta fila já existem no seu histórico
+          (mesmo enunciado). Importar mesmo assim cria duplicatas nas estatísticas e na fila de
+          revisão.
+          <div style={{ display: "flex", gap: 8, marginTop: 10 }}>
+            <Botao tipo="fantasma" onClick={() => setAvisoDuplicadas(null)} style={{ flex: 1 }}>
+              Cancelar
+            </Botao>
+            <Botao tipo="tinta" onClick={iniciarBlocoReal} style={{ flex: 1 }}>
+              Importar mesmo assim
+            </Botao>
+          </div>
+        </div>
+      )}
+
+      <Botao tipo="tinta" onClick={iniciar} disabled={!fila.length || verificandoDuplicadas}>
+        {verificandoDuplicadas
+          ? "Verificando duplicatas…"
+          : `Iniciar bloco importado${fila.length ? ` (${fila.length} questões)` : ""}`}
       </Botao>
     </div>
   );

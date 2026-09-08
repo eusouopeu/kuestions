@@ -779,6 +779,57 @@ Responda APENAS com JSON válido, sem markdown, com uma entrada para CADA letra 
 {"explicacoes":{"<LETRA>":"..."}}`;
 }
 
+/* ---------- Tutor da questão (rec. 11) ---------- */
+
+/** Uma pergunta livre e a resposta do modelo, dentro do tutor de uma questão
+ * — ver `perguntarSobreQuestao`. */
+export interface TurnoTutor {
+  pergunta: string;
+  resposta: string;
+}
+
+/** Teto de perguntas por questão (rec. 11: "2-3 turnos") — mantém o recurso
+ * barato e evita virar um chat genérico dentro do drill de revisão. Também
+ * usado pela UI (FilaRevisaoDrill) para desabilitar o campo ao chegar nele. */
+export const MAX_PERGUNTAS_TUTOR = 3;
+
+function montarPromptTutor(questao: Questao, historico: TurnoTutor[], pergunta: string): string {
+  const alts = questao.alternativas ? questao.alternativas.join(" | ") : "C) Certo | E) Errado";
+  const conversa = historico
+    .map((t, i) => `PERGUNTA ${i + 1}: ${t.pergunta}\nRESPOSTA ${i + 1}: ${t.resposta}`)
+    .join("\n\n");
+
+  return `Você é tutor de uma questão de concurso da área fiscal que o usuário já respondeu e está revisando (repetição espaçada). NÃO altere enunciado, alternativas nem gabarito — só responda à dúvida.
+
+ENUNCIADO: ${questao.enunciado}
+ALTERNATIVAS: ${alts}
+GABARITO: ${questao.gabarito}
+COMENTÁRIO JÁ EXISTENTE: ${questao.comentario || "(nenhum)"}
+${conversa ? `\nCONVERSA ATÉ AQUI:\n${conversa}\n` : ""}
+NOVA PERGUNTA DO USUÁRIO: ${pergunta}
+
+Responda direto à pergunta, sem repetir o enunciado nem se apresentar. Texto puro para tela de celular (sem markdown, sem JSON), no máximo 80 palavras. Se a pergunta não tiver relação nenhuma com esta questão, diga isso em vez de inventar uma resposta.`;
+}
+
+/**
+ * Tutor sob demanda de UMA questão em revisão (rec. 11) — diferente de
+ * `gerarExplicacaoParcial` (que só explica alternativas específicas com
+ * texto fixo), aqui o usuário faz uma pergunta livre sobre a questão aberta.
+ * Sem estado no servidor: cada chamada reenvia o histórico inteiro da
+ * conversa (`historico`) como texto, então o próprio chamador decide até
+ * onde a conversa vai (ver `MAX_PERGUNTAS_TUTOR`). `effort: "low"` — mesma
+ * escolha de gerarExplicacaoParcial, resposta pequena e sem geração de
+ * questão nova.
+ */
+export async function perguntarSobreQuestao(
+  questao: Questao,
+  historico: TurnoTutor[],
+  pergunta: string,
+): Promise<string> {
+  const texto = await chamar(montarPromptTutor(questao, historico, pergunta), "low", "tutor da questão");
+  return texto.trim();
+}
+
 /**
  * Explicação sob demanda de uma ou mais alternativas de UMA questão já
  * respondida — usada quando o bloco/simulado foi montado sem explicações de

@@ -1,4 +1,4 @@
-import { C } from "../theme";
+import { C, mono } from "../theme";
 import BuscaGlobal from "./BuscaGlobal";
 import BotaoTema from "./BotaoTema";
 import { ABAS, type Aba } from "./abas";
@@ -18,9 +18,12 @@ const LARGURA = RAIL_LARGURA;
 export default function RailLateral({
   aba,
   onChange,
+  badgeQuestoes = 0,
 }: {
   aba: Aba;
   onChange: (a: Aba) => void;
+  /** Ver mesmo prop em TabBar.tsx. */
+  badgeQuestoes?: number;
 }) {
   return (
     <div
@@ -63,9 +66,33 @@ export default function RailLateral({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              position: "relative",
             }}
           >
             {a.icone(ativo ? C.caneta : C.sub, 19)}
+            {a.id === "questoes" && badgeQuestoes > 0 && (
+              <span
+                style={{
+                  ...mono,
+                  position: "absolute",
+                  top: 0,
+                  right: 0,
+                  minWidth: 14,
+                  height: 14,
+                  padding: "0 3px",
+                  borderRadius: 7,
+                  background: C.erro,
+                  color: "#fff",
+                  fontSize: 9,
+                  fontWeight: 700,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {badgeQuestoes > 99 ? "99+" : badgeQuestoes}
+              </span>
+            )}
           </button>
         );
       })}

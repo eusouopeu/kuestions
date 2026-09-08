@@ -18,10 +18,54 @@ import ImportarView from "./ImportarView";
 import RefazerView from "./RefazerView";
 import SimuladoView from "./SimuladoView";
 import BlocosAnterioresView from "./BlocosAnterioresView";
-import { blocosNaSemana } from "../lib/repo";
+import RevisaoDiariaView from "./RevisaoDiariaView";
+import { blocosNaSemana, contarNotasPendentes, contarQuestoesPendentes } from "../lib/repo";
 import { getMetas, META_GERAL, rotuloMeta } from "../lib/metas";
 import { temCredencial } from "../lib/secure";
 import { escolherViewInicial, type ViewQuestoes } from "../lib/questoesInicial";
+import Botao from "../components/Botao";
+
+/**
+ * Painel "vence hoje" (rec. 1): entrada única para a fila unificada de
+ * revisão — antes, questões pendentes (Refazer) e notas pendentes (aba
+ * Notas → Revisão) eram duas decisões separadas todo dia, mesmo sendo o
+ * mesmo hábito. Some quando não há nada pendente em nenhuma das duas.
+ */
+function PainelVenceHoje({ onAbrir }: { onAbrir: () => void }) {
+  const [total, setTotal] = useState<number | null>(null);
+
+  useEffect(() => {
+    Promise.all([contarQuestoesPendentes(), contarNotasPendentes(null)])
+      .then(([q, n]) => setTotal(q + n))
+      .catch(() => setTotal(0));
+  }, []);
+
+  if (!total) return null;
+
+  return (
+    <div
+      style={{
+        ...cartao,
+        padding: "12px 14px",
+        marginBottom: 14,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 10,
+      }}
+    >
+      <div>
+        <div style={{ ...mono, fontSize: 10, color: C.sub, letterSpacing: 0.8 }}>VENCE HOJE</div>
+        <div style={{ fontSize: 14.5, fontWeight: 600, marginTop: 2 }}>
+          {total} pendente{total === 1 ? "" : "s"} — questões e notas
+        </div>
+      </div>
+      <Botao onClick={onAbrir} style={{ flexShrink: 0, padding: "9px 16px" }}>
+        Revisar tudo
+      </Botao>
+    </div>
+  );
+}
 
 /**
  * Progresso das metas semanais configuradas em Ajustes (ver lib/metas.ts) —
@@ -161,6 +205,7 @@ export default function QuestoesTab({
   onAjustes: () => void;
 }) {
   const [view, setView] = useState<ViewQuestoes>("gerar");
+  const [venceHojeAberto, setVenceHojeAberto] = useState(false);
   const largo = useLayoutLargo();
 
   useEffect(() => {
@@ -169,9 +214,18 @@ export default function QuestoesTab({
       .catch(() => {});
   }, []);
 
+  if (venceHojeAberto) {
+    return (
+      <Shell titulo="Questões" extra={!largo && <BotoesFerramentas />}>
+        <RevisaoDiariaView onSair={() => setVenceHojeAberto(false)} />
+      </Shell>
+    );
+  }
+
   return (
     <Shell titulo="Questões" extra={!largo && <BotoesFerramentas />}>
       <MetasSemanais />
+      <PainelVenceHoje onAbrir={() => setVenceHojeAberto(true)} />
 
       <div style={{ marginBottom: 18 }}>
         <Segmented

@@ -20,6 +20,7 @@ import {
   setMostrarRecomendacoes,
 } from "../lib/preferenciasGeracao";
 import { getHoraLembrete, getLembreteAtivo, setLembreteDiario } from "../lib/lembretes";
+import { getBadgePendenciasAtivo, setBadgePendenciasAtivo } from "../lib/badgePendencias";
 import { exportarBancoJSON, importarBancoJSON } from "../lib/db";
 import { exportarArquivo } from "../lib/exportar";
 import { getTema, setTema, type Tema } from "../lib/tema";
@@ -100,7 +101,7 @@ function normalizar(s: string): string {
  * para achar uma seção pelo que ela faz e não só pelo nome do cartão (ex.:
  * digitar "chave" acha "API e custo", que não tem "chave" no título). */
 const SECOES_AJUSTES = [
-  { id: "geracao", titulo: "Geração", chaves: "explicações ia recomendações nunca praticados modelo lembrete notificação diário revisão" },
+  { id: "geracao", titulo: "Geração", chaves: "explicações ia recomendações nunca praticados modelo lembrete notificação diário revisão selo pendências badge" },
   { id: "backup", titulo: "Backup", chaves: "exportar restaurar substituir json" },
   { id: "mesclar", titulo: "Mesclar entre aparelhos", chaves: "sincronizar sync outro celular" },
   { id: "documentos", titulo: "Pasta no aparelho", chaves: "sincronizar markdown arquivos" },
@@ -175,6 +176,10 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   const [salvandoLembrete, setSalvandoLembrete] = useState(false);
   const [erroLembrete, setErroLembrete] = useState<string | null>(null);
 
+  // Selo de pendências no ícone da aba Questões (rec. 8 — ver
+  // lib/badgePendencias.ts): opcional, padrão desligado.
+  const [badgePendenciasAtivo, setBadgePendenciasAtivoLocal] = useState(false);
+
   // Busca da tela (rec. 1): filtra as seções colapsáveis por título/palavra-
   // chave e força a expansão das que baterem, para achar um ajuste sem rolar
   // a tela inteira. `abertasManual` guarda o que o usuário abriu/fechou à
@@ -226,6 +231,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     getMostrarRecomendacoes().then(setMostrarRecomendacoesLocal);
     getLembreteAtivo().then(setLembreteAtivoLocal);
     getHoraLembrete().then(setHoraLembreteLocal);
+    getBadgePendenciasAtivo().then(setBadgePendenciasAtivoLocal);
   }, []);
 
   async function alternarComExplicacoesIA(v: boolean) {
@@ -236,6 +242,11 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
   async function alternarMostrarRecomendacoes(v: boolean) {
     setMostrarRecomendacoesLocal(v);
     await setMostrarRecomendacoes(v);
+  }
+
+  async function alternarBadgePendencias(v: boolean) {
+    setBadgePendenciasAtivoLocal(v);
+    await setBadgePendenciasAtivo(v);
   }
 
   async function alternarLembrete(v: boolean, hora = horaLembrete) {
@@ -688,6 +699,45 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
               )}
             </div>
           )}
+
+          <div
+            style={{
+              marginTop: 14,
+              paddingTop: 12,
+              borderTop: `1px solid ${C.line}`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 10,
+            }}
+          >
+            <div>
+              <div style={{ fontSize: 13.5 }}>Selo de pendências</div>
+              <div style={{ fontSize: 11.5, color: C.sub, marginTop: 2, lineHeight: 1.4 }}>
+                Contagem de questões + notas vencidas hoje, sobre o ícone da aba Questões.
+              </div>
+            </div>
+            <button
+              role="switch"
+              aria-checked={badgePendenciasAtivo}
+              onClick={() => alternarBadgePendencias(!badgePendenciasAtivo)}
+              style={{
+                width: 44,
+                height: 26,
+                borderRadius: 13,
+                border: "none",
+                padding: 3,
+                flexShrink: 0,
+                display: "flex",
+                justifyContent: badgePendenciasAtivo ? "flex-end" : "flex-start",
+                background: badgePendenciasAtivo ? C.caneta : C.line,
+                cursor: "pointer",
+                transition: "background 0.15s",
+              }}
+            >
+              <span style={{ width: 20, height: 20, borderRadius: "50%", background: C.card }} />
+            </button>
+          </div>
 
           <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginTop: 14, paddingTop: 12, borderTop: `1px solid ${C.line}` }}>
             Modelo: <code style={{ ...mono, fontSize: 12, color: C.ink }}>{MODEL}</code>

@@ -101,14 +101,15 @@ export default function RefazerView() {
         carregandoLote={carregandoLote}
         comNota={comNota}
         revisadasAgora={revisadasAgora}
-        onResponder={async (_letra, acertou) => {
+        onResponder={async (_letra, acertou, tempoMs) => {
           // Não apaga do histórico: registra o resultado na caixa de
           // Leitner da questão — acertar empurra a próxima aparição para
-          // mais longe (repetição espaçada); errar de novo zera a caixa e a
-          // questão volta a ficar pendente imediatamente.
+          // mais longe (repetição espaçada, modulada por tempo/confiança —
+          // ver registrarRevisao em lib/repo/questoes.ts); errar de novo
+          // zera a caixa e a questão volta a ficar pendente imediatamente.
           const q = fila[idx];
           try {
-            await registrarRevisao(q.id, acertou);
+            await registrarRevisao(q.id, acertou, tempoMs);
             if (acertou) registrarRevisadaAgora();
           } catch (e) {
             console.error("registrar revisão", e);

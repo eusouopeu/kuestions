@@ -1,5 +1,23 @@
 import { describe, expect, it } from "vitest";
-import { estimarNotaProvavel, preverAprovacao, type Fatia } from "./repo";
+import { estimarNotaProvavel, normalizarEnunciado, preverAprovacao, type Fatia } from "./repo";
+
+describe("normalizarEnunciado (dedupe na importação, rec. 12)", () => {
+  it("colapsa espaços e diferenças de caixa do mesmo enunciado", () => {
+    expect(normalizarEnunciado("  Qual  o prazo   PARA recurso?  ")).toBe(
+      normalizarEnunciado("qual o prazo para recurso?"),
+    );
+  });
+
+  it("trata quebras de linha como espaço, não como texto diferente", () => {
+    expect(normalizarEnunciado("Linha um\nLinha dois")).toBe(normalizarEnunciado("Linha um Linha dois"));
+  });
+
+  it("não confunde enunciados genuinamente diferentes", () => {
+    expect(normalizarEnunciado("O prazo é de 10 dias.")).not.toBe(
+      normalizarEnunciado("O prazo é de 15 dias."),
+    );
+  });
+});
 
 describe("preverAprovacao", () => {
   it("devolve null com menos de 4 amostras", () => {

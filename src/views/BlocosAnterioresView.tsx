@@ -52,10 +52,10 @@ export default function BlocosAnterioresView() {
         carregandoLote={carregandoLote}
         comNota={comNota}
         revisadasAgora={revisadasAgora}
-        onResponder={async (_letra, acertou) => {
+        onResponder={async (_letra, acertou, tempoMs) => {
           const q = fila[idx];
           try {
-            await registrarRevisao(q.id, acertou);
+            await registrarRevisao(q.id, acertou, tempoMs);
             if (acertou) registrarRevisadaAgora();
           } catch (e) {
             console.error("registrar revisão", e);
