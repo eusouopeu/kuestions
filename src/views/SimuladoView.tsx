@@ -120,8 +120,13 @@ type Tela = "config" | "drill" | "resultado";
  * imediatamente) nem chama a API (nenhum comentário/explicação é gerado —
  * bastam enunciado, alternativas e gabarito reais).
  */
-export default function SimuladoView() {
+export default function SimuladoView({ onEmDrill }: { onEmDrill?: (v: boolean) => void }) {
   const [tela, setTela] = useState<Tela>("config");
+
+  useEffect(() => {
+    onEmDrill?.(tela === "drill");
+    return () => onEmDrill?.(false);
+  }, [tela, onEmDrill]);
   // O JSON do banco (~1,5 MB) é carregado sob demanda (ver garantirBanco em
   // lib/banco.ts) só quando esta view monta — não faz parte do bundle
   // inicial do app.

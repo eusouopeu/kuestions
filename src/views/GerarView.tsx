@@ -72,11 +72,18 @@ const MAX_LACUNAS_VISIVEIS = 5;
 export default function GerarView({
   onDados,
   onAjustes,
+  onEmDrill,
 }: {
   onDados: () => void;
   onAjustes: () => void;
+  onEmDrill?: (v: boolean) => void;
 }) {
   const [tela, setTela] = useState<Tela>("config");
+
+  useEffect(() => {
+    onEmDrill?.(tela === "drill");
+    return () => onEmDrill?.(false);
+  }, [tela, onEmDrill]);
   const [cfg, setCfg] = useState<Config>({
     materia: MATERIAS[0],
     materiaCustom: "",

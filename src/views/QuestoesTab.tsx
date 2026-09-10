@@ -54,13 +54,13 @@ function PainelVenceHoje({ onAbrir }: { onAbrir: () => void }) {
         gap: 10,
       }}
     >
-      <div>
+      <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ ...mono, fontSize: 10, color: C.sub, letterSpacing: 0.8 }}>VENCE HOJE</div>
         <div style={{ fontSize: 14.5, fontWeight: 600, marginTop: 2 }}>
           {total} pendente{total === 1 ? "" : "s"} — questões e notas
         </div>
       </div>
-      <Botao onClick={onAbrir} style={{ flexShrink: 0, padding: "9px 16px" }}>
+      <Botao onClick={onAbrir} style={{ flexShrink: 0, width: "auto", padding: "9px 16px" }}>
         Revisar tudo
       </Botao>
     </div>
@@ -206,6 +206,7 @@ export default function QuestoesTab({
 }) {
   const [view, setView] = useState<ViewQuestoes>("gerar");
   const [venceHojeAberto, setVenceHojeAberto] = useState(false);
+  const [emDrill, setEmDrill] = useState(false);
   const largo = useLayoutLargo();
 
   useEffect(() => {
@@ -225,7 +226,7 @@ export default function QuestoesTab({
   return (
     <Shell titulo="Questões" extra={!largo && <BotoesFerramentas />}>
       <MetasSemanais />
-      <PainelVenceHoje onAbrir={() => setVenceHojeAberto(true)} />
+      {!emDrill && <PainelVenceHoje onAbrir={() => setVenceHojeAberto(true)} />}
 
       <div style={{ marginBottom: 18 }}>
         <Segmented
@@ -269,16 +270,21 @@ export default function QuestoesTab({
               ),
             },
           ]}
-          onChange={setView}
+          onChange={(v) => {
+            setEmDrill(false);
+            setView(v);
+          }}
         />
       </div>
 
-      {view === "gerar" && <GerarView onDados={onDados} onAjustes={onAjustes} />}
-      {view === "banco" && <GerarBancoView />}
+      {view === "gerar" && (
+        <GerarView onDados={onDados} onAjustes={onAjustes} onEmDrill={setEmDrill} />
+      )}
+      {view === "banco" && <GerarBancoView onEmDrill={setEmDrill} />}
       {view === "importar" && <ImportarView />}
-      {view === "refazer" && <RefazerView />}
-      {view === "simulado" && <SimuladoView />}
-      {view === "blocos-anteriores" && <BlocosAnterioresView />}
+      {view === "refazer" && <RefazerView onEmDrill={setEmDrill} />}
+      {view === "simulado" && <SimuladoView onEmDrill={setEmDrill} />}
+      {view === "blocos-anteriores" && <BlocosAnterioresView onEmDrill={setEmDrill} />}
     </Shell>
   );
 }

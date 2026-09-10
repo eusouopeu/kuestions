@@ -38,7 +38,7 @@ type AgrupamentoErradas = "materia" | "conceito";
 /** Fonte da fila aberta. */
 type FonteFila = { tipo: "materia"; valor: string } | { tipo: "conceito"; valor: string };
 
-export default function RefazerView() {
+export default function RefazerView({ onEmDrill }: { onEmDrill?: (v: boolean) => void }) {
   const [filtro, setFiltro] = useState<Filtro>("pendentes");
   const [agrupErradas, setAgrupErradas] = useState<AgrupamentoErradas>("materia");
   const [pastas, setPastas] = useState<
@@ -66,6 +66,11 @@ export default function RefazerView() {
   } = useFilaRevisao<FonteFila>((f, opts) =>
     f.tipo === "conceito" ? listarErradasPorConceito(f.valor, filtro, opts) : listarErradas(f.valor, filtro, opts),
   );
+
+  useEffect(() => {
+    onEmDrill?.(fila !== null);
+    return () => onEmDrill?.(false);
+  }, [fila, onEmDrill]);
 
   const soPendentes = filtro === "pendentes";
 

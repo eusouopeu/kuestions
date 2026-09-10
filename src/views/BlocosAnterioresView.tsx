@@ -19,12 +19,21 @@ import { useFilaRevisao } from "./useFilaRevisao";
  * A paginação/avanço da fila é compartilhada com RefazerView (ver
  * useFilaRevisao.ts) — aqui a "fonte" é só a matéria (string).
  */
-export default function BlocosAnterioresView() {
+export default function BlocosAnterioresView({
+  onEmDrill,
+}: {
+  onEmDrill?: (v: boolean) => void;
+}) {
   const [materias, setMaterias] = useState<{ materia: string; total: number }[]>([]);
   const [carregando, setCarregando] = useState(true);
 
   const { fonte: materiaAberta, fila, temMaisLotes, carregandoLote, idx, revisadasAgora, comNota, erro, setErro, abrir, sair, proxima, registrarRevisadaAgora } =
     useFilaRevisao<string>((materia, opts) => listarTodasPorMateria(materia, opts));
+
+  useEffect(() => {
+    onEmDrill?.(fila !== null);
+    return () => onEmDrill?.(false);
+  }, [fila, onEmDrill]);
 
   const recarregar = useCallback(() => {
     setCarregando(true);

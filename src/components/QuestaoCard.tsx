@@ -334,23 +334,12 @@ export default function QuestaoCard({
       {/* Texto de apoio: contexto compartilhado por várias questões da
           mesma prova (um estudo de caso, uma tabela) — algumas questões do
           banco real dependem dele para fazer sentido (ver texto_apoio em
-          lib/banco.ts). Vem separado do enunciado, em bloco próprio, porque
-          é premissa, não a afirmação que a questão está fazendo. */}
+          lib/banco.ts). É premissa, não a afirmação que a questão está
+          fazendo, mas visualmente segue o mesmo estilo do enunciado — uma
+          caixa cinza separada dava a impressão de não fazer parte da
+          questão, especialmente em enunciados grandes. */}
       {qb?.texto_apoio && (
-        <div
-          style={{
-            fontSize: 13.5,
-            lineHeight: 1.55,
-            color: C.sub,
-            background: C.paper,
-            border: `1.5px solid ${C.line}`,
-            borderRadius: 8,
-            padding: "10px 12px",
-            marginBottom: 12,
-          }}
-        >
-          {qb.texto_apoio}
-        </div>
+        <p style={{ fontSize: 16, lineHeight: 1.55, margin: "0 0 10px" }}>{qb.texto_apoio}</p>
       )}
 
       <div style={{ display: "flex", alignItems: "flex-start", gap: 8, margin: "0 0 16px" }}>

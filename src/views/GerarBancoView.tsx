@@ -56,8 +56,13 @@ const LOTE = 4;
  * comentário/explicações ficam indisponíveis até serem geradas (na criação
  * ou sob demanda depois de responder, ver QuestaoCard).
  */
-export default function GerarBancoView() {
+export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean) => void }) {
   const [tela, setTela] = useState<Tela>("config");
+
+  useEffect(() => {
+    onEmDrill?.(tela === "drill");
+    return () => onEmDrill?.(false);
+  }, [tela, onEmDrill]);
   // O JSON do banco (~1,5 MB) é carregado sob demanda (ver garantirBanco em
   // lib/banco.ts) só quando esta view monta — não faz parte do bundle
   // inicial do app. `area` começa vazio e é preenchido quando a carga
