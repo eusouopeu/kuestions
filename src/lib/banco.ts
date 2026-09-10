@@ -72,6 +72,21 @@ let POR_ID = new Map<string, QuestaoBanco>();
 let AREAS_BANCO: string[] = [];
 let promessaCarga: Promise<void> | null = null;
 
+/**
+ * Áreas do banco fora do núcleo de auditor fiscal estadual — ocultas do
+ * dropdown "Área" (ver `areasBanco`), mas continuam no JSON/BANCO/POR_ID:
+ * uma questão dessas áreas ainda abre normalmente se reaberta via Refazer/
+ * Blocos anteriores (ela já foi respondida antes desta lista existir, ou por
+ * um bloco antigo), só não é oferecida pra montar bloco novo.
+ */
+const AREAS_OCULTAS = new Set([
+  "Administração Pública",
+  "Administração Geral e Pública",
+  "Direito Civil e Empresarial",
+  "Direito Previdenciário",
+  "Língua Inglesa",
+]);
+
 /** Idempotente: chamadas concorrentes compartilham a mesma promessa, e uma
  * vez carregado, resolve na hora. Todo ponto de entrada que pode desembocar
  * numa questão do banco (montar bloco "Do banco", Simulado, ou reabrir uma
@@ -98,12 +113,12 @@ export function bancoCarregado(): boolean {
   return BANCO.length > 0;
 }
 
-/** Áreas do banco — vazio até `garantirBanco()` resolver (ver comentário do
- * módulo). Era um `const` calculado na leitura estática do JSON; agora é
- * função para refletir a carga tardia sem exigir um binding mutável
- * importado (que não dispara re-render sozinho). */
+/** Áreas do banco, exceto `AREAS_OCULTAS` — vazio até `garantirBanco()`
+ * resolver (ver comentário do módulo). Era um `const` calculado na leitura
+ * estática do JSON; agora é função para refletir a carga tardia sem exigir
+ * um binding mutável importado (que não dispara re-render sozinho). */
 export function areasBanco(): string[] {
-  return AREAS_BANCO;
+  return AREAS_BANCO.filter((a) => !AREAS_OCULTAS.has(a));
 }
 
 /** ids de todas as questões de um assunto, em ordem estável (ordenada) —

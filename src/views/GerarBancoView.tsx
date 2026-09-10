@@ -35,6 +35,7 @@ import {
   salvarExplicacoesBanco,
 } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
+import { escolherMateriaSugerida } from "../lib/materiaSugerida";
 import { LIMIAR_APROVACAO } from "../lib/constants";
 import type { Questao, StatusSub } from "../lib/types";
 
@@ -106,9 +107,12 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   const selecionadasRef = useRef<Questao[]>([]);
 
   useEffect(() => {
-    garantirBanco().then(() => {
+    garantirBanco().then(async () => {
       setBancoPronto(true);
-      setArea((a) => a || areasBanco()[0] || "");
+      // Padrão sutil: abre já numa das 5 áreas com menos questões respondidas
+      // (ver lib/materiaSugerida.ts), em vez de sempre a primeira da lista.
+      const sugerida = await escolherMateriaSugerida(areasBanco());
+      setArea((a) => a || sugerida || areasBanco()[0] || "");
     });
   }, []);
 

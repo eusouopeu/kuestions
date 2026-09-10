@@ -19,6 +19,7 @@ import {
 } from "../lib/constants";
 import { gerarSubBloco, SemCredencialError } from "../lib/anthropic";
 import { getComExplicacoesIA, getMostrarRecomendacoes } from "../lib/preferenciasGeracao";
+import { escolherMateriaSugerida } from "../lib/materiaSugerida";
 import {
   atualizarTotalQuestoesBloco,
   buscarBlocoReaproveitavel,
@@ -143,6 +144,16 @@ export default function GerarView({
   useEffect(() => {
     getComExplicacoesIA().then(setComExplicacoes);
     getMostrarRecomendacoes().then(setMostrarRecomendacoes);
+  }, []);
+
+  // Padrão sutil: abre já numa das 5 matérias com menos questões respondidas,
+  // em vez de sempre MATERIAS[0] — só troca se a matéria ainda for a inicial
+  // (usuário não mexeu, nem um rascunho/lacuna já decidiu por ele).
+  useEffect(() => {
+    escolherMateriaSugerida(MATERIAS).then((sugerida) => {
+      if (!sugerida) return;
+      setCfg((atual) => (atual.materia === MATERIAS[0] ? { ...atual, materia: sugerida } : atual));
+    });
   }, []);
 
   // dispararSub roda fora do render e precisa ler o estado mais recente.

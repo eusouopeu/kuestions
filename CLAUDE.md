@@ -161,3 +161,21 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
   lugares do app. Bloco sem cobertura no banco (ex. Direito Administrativo Bloco 8, legislação
   estadual da Bahia) tem título inventado, comentado como tal no código.
 
+## Matéria sugerida (padrão sutil de dropdown) e áreas ocultas do banco
+
+- `lib/materiaSugerida.ts` (`escolherMateriaSugerida`) sorteia 1 entre as 5 matérias/áreas com
+  menos questões respondidas (`materiasMenosRespondidas`, `lib/repo/questoes.ts`, baseada em
+  `contarTodasPorMateria` — só conta blocos de verdade, `bloco_id IS NOT NULL`, então não conta
+  Simulado). Usado como valor **padrão** de matéria (GerarView) e área (GerarBancoView) ao abrir a
+  tela — sutil: não é um seletor visível, só troca o item pré-selecionado do dropdown; o usuário
+  pode trocar normalmente. Candidata sem nenhuma resposta ainda conta como 0 (fica entre as
+  piores). GerarBancoView aplica o sorteio só sobre `areasBanco()` (já filtrada, ver abaixo).
+- `lib/banco.ts`: `AREAS_OCULTAS` remove do dropdown "Área" de GerarBancoView (via `areasBanco()`)
+  as áreas do banco fora do núcleo de auditor fiscal estadual: "Administração Pública",
+  "Administração Geral e Pública" (duas variantes de rótulo pra área equivalente na fonte),
+  "Direito Civil e Empresarial", "Direito Previdenciário", "Língua Inglesa". Só oculta do
+  dropdown — a questão continua em `BANCO`/`POR_ID` e abre normalmente se reaberta via
+  Refazer/Blocos anteriores/Simulado (não quebra histórico já respondido dessas áreas antes do
+  filtro existir). `MATERIAS` (`lib/constants.ts`, tab Gerar por IA) já não tinha nenhuma dessas
+  matérias — não precisou de filtro equivalente lá.
+

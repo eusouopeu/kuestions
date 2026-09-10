@@ -366,6 +366,24 @@ export async function contarTodasPorMateria(): Promise<{ materia: string; total:
   return rows.map((r) => ({ materia: String(r.materia), total: Number(r.total) }));
 }
 
+/**
+ * As `n` matérias de `candidatas` com menos questões respondidas (base:
+ * `contarTodasPorMateria`) — candidata sem nenhuma resposta ainda conta como
+ * 0, não fica de fora. Alimenta o direcionamento sutil de matéria padrão em
+ * GerarView/GerarBancoView (ver `escolherMateriaSugerida` em
+ * lib/materiaSugerida.ts): sempre puxa o estudo pra quem está mais atrasado.
+ */
+export async function materiasMenosRespondidas(
+  candidatas: readonly string[],
+  n = 5,
+): Promise<string[]> {
+  const totais = await contarTodasPorMateria();
+  const porMateria = new Map(totais.map((t) => [t.materia, t.total]));
+  return [...candidatas]
+    .sort((a, b) => (porMateria.get(a) ?? 0) - (porMateria.get(b) ?? 0))
+    .slice(0, n);
+}
+
 /** Todas as questões (certas e erradas) de blocos de verdade, de uma matéria
  * ou de todas — par de `contarTodasPorMateria`, com a mesma paginação de
  * `listarErradas` para não trazer um histórico grande de uma vez. */
