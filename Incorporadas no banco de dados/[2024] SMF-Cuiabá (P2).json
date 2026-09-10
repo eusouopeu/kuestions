@@ -1,0 +1,1152 @@
+[
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q011",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Auditoria",
+  "assunto": "Auditoria",
+  "numero_original": 11,
+  "enunciado": "Na utilização da amostragem em auditoria, o auditor verificou a existência de distorção ou o desvio que é comprovadamente não representativo de distorção ou desvio em uma população. Nos termos da NBC TA 530 (Res. CFC nº1.222/09), essa hipótese configura a ocorrência de",
+  "alternativas": {
+   "A": "risco de amostragem.",
+   "B": "distorção tolerável.",
+   "C": "anomalia.",
+   "D": "risco de controle.",
+   "E": "taxa de desvio. AUDITOR FISCAL TRIBUTÁRIO – GESTÃO TRIBUTÁRIA – TARDE"
+  },
+  "gabarito": "C",
+  "incidencia": "",
+  "bloco": "Bloco 2 — Procedimentos, Evidências e Amostragem"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q012",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Auditoria",
+  "assunto": "Auditoria",
+  "numero_original": 12,
+  "enunciado": "Ao utilizar a amostragem nas análises a serem realizadas em um processo de auditoria, o auditor deve observar a seguinte regra:",
+  "alternativas": {
+   "A": "adotar os mesmos procedimentos de auditoria para todos os itens selecionados.",
+   "B": "caso o procedimento de auditoria não seja aplicável ao item selecionado na amostra, o auditor não pode aplicar o mesmo procedimento em um item substituto.",
+   "C": "se o auditor não puder aplicar os procedimentos de auditoria definidos ou procedimentos alternativos adequados em um item selecionado, deve tratar esse item como um desvio do controle previsto, no caso de testes de controles ou uma distorção, no caso de testes de detalhes.",
+   "D": "ao definir uma amostra de auditoria, o auditor deve considerar a finalidade do procedimento de auditoria, que independe das características da população da qual será retirada a amostra.",
+   "E": "para os testes de detalhes, não se exige que o auditor projete, para a população, as distorções encontradas na amostra."
+  },
+  "gabarito": "C",
+  "incidencia": "",
+  "bloco": "Bloco 2 — Procedimentos, Evidências e Amostragem"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q013",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Auditoria",
+  "assunto": "Auditoria",
+  "numero_original": 13,
+  "enunciado": "Segundo Marcelo Cavalcanti Almeida (2019), no teste para superavaliação o auditor parte do valor registrado no razão geral para os documentos-suportes das transações. Nesse sentido considere que: o Registro Final representa o último registro contábil antes do razão geral; o Registro Inicial é elaborado com base em documentos e representa o primeiro registro contábil em função da operação e que Registro Intermediário representa qualquer registro contábil elaborado entre os registros inicial e final. Nesse caso, avalie se os procedimentos básicos de auditoria do teste para superavaliação devem:\n\nI. Selecionar débito e conferir seu valor com o valor total do registro final.\nII. Não incluir a seleção de parcela do registro inicial e a conferência de seu valor com a documentação comprobatória.\nIII. Conferir a soma do registro inicial.\n\nEstá correto o que se afirma em",
+  "alternativas": {
+   "A": "I e III somente.",
+   "B": "I, II e III.",
+   "C": "III somente.",
+   "D": "I somente.",
+   "E": "I e II somente."
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 2 — Procedimentos, Evidências e Amostragem"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q014",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Auditoria",
+  "assunto": "Auditoria",
+  "numero_original": 14,
+  "enunciado": "Ao auditar a conta caixa de uma empresa, a equipe de auditoria realizou testes de conciliação bancária. Ao analisar os dados, observaram que em 28.12.X0 foi emitido, contabilizado e entregue ao respectivo beneficiário um cheque no valor de $ 200. No entanto, esse cheque só foi apresentado no extrato bancário de 10.01.X1. Considerando que não existem outros itens pendentes e que o saldo do extrato em 31.12.X0 era de $ 1.105, a reconciliação bancária de 31.12.X0 deve ser demonstrada com a",
+  "alternativas": {
+   "A": "dedução do valor do cheque no extrato.",
+   "B": "inclusão do valor do cheque no razão analítico.",
+   "C": "dedução do valor do cheque no extrato e no razão analítico.",
+   "D": "soma do valor do cheque no extrato e dedução de seu valor no razão analítico.",
+   "E": "soma do valor do cheque no extrato e no razão analítico. SECRETARIA MUNICIPAL DE FAZENDA DE CUIABÁ"
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Procedimentos Específicos e Auditoria no Setor Público"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q015",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Auditoria",
+  "assunto": "Auditoria",
+  "numero_original": 15,
+  "enunciado": "Sobre a identificação de fraudes no registro contábil de receitas e despesas, avalie as afirmações a seguir:\n\nI. É possível auditoria fiscal determinar o valor extado da receita omitida com base tão somente no histórico da conta caixa.\nII. A recomposição do fluxo de caixa do período é uma técnica que pode ser utilizada par determinar o valor mínimo aproximado de omissão de registro contábil de receitas pela empresa.\nIII. Para avaliar e comprovar a ocorrência de fraudes nos registros contábeis de receitas, o auditor pode utilizar-se do livro de saída de mercadoria, dos registros de prestação de serviços e dos pagamentos à vista realizados pela empresa.\n\nEstá correto o que se afirma em",
+  "alternativas": {
+   "A": "I e II somente.",
+   "B": "II somente.",
+   "C": "III somente.",
+   "D": "I e III somente.",
+   "E": "II e III somente."
+  },
+  "gabarito": "E",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Procedimentos Específicos e Auditoria no Setor Público"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q016",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Auditoria",
+  "assunto": "Auditoria",
+  "numero_original": 16,
+  "enunciado": "Em um procedimento de auditoria, o auditor evidenciou que, ao realizar a aquisição de uma mercadoria à vista, a organização auditada realizou o seguinte lançamento contábil: D. Mercadorias C. Fornecedores a pagar Nessa situação, o registro contábil configura",
+  "alternativas": {
+   "A": "passivo fictício, sujeitando o contribuinte às sanções previstas em Lei.",
+   "B": "ativo oculto, sujeito à multa pela autoridade fiscal.",
+   "C": "superavaliação do patrimônio líquido.",
+   "D": "fraude contra credores, sujeitando o contribuinte às sanções penais.",
+   "E": "superavaliação de despesas."
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Procedimentos Específicos e Auditoria no Setor Público"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q017",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Auditoria",
+  "assunto": "Auditoria",
+  "numero_original": 17,
+  "enunciado": "Ao realizar uma auditoria no balanço patrimonial, o auditor deve observar que a provisão para devedores duvidosos deve ser classificada como uma conta",
+  "alternativas": {
+   "A": "do passivo circulante.",
+   "B": "redutora do ativo circulante.",
+   "C": "integrante do passivo de longo prazo.",
+   "D": "de Investimentos a realizar.",
+   "E": "do patrimônio líquido."
+  },
+  "gabarito": "B",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Procedimentos Específicos e Auditoria no Setor Público"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q018",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Auditoria",
+  "assunto": "Auditoria",
+  "numero_original": 18,
+  "enunciado": "Na auditoria de contas do Patrimônio Líquido o auditor deve verificar as transações que ocorreram no período avaliado e sua congruência com as normas aplicáveis. Nesse sentido, o auditor deve observar que o Patrimônio Líquido deve ser debitado com a conta de",
+  "alternativas": {
+   "A": "Capital Social.",
+   "B": "Reserva de Lucro.",
+   "C": "Reserva de Capital.",
+   "D": "Reserva Legal.",
+   "E": "Ações em Tesouraria. AUDITOR FISCAL TRIBUTÁRIO – GESTÃO TRIBUTÁRIA – TARDE"
+  },
+  "gabarito": "E",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Procedimentos Específicos e Auditoria no Setor Público"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q019",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Auditoria",
+  "assunto": "Auditoria",
+  "numero_original": 19,
+  "enunciado": "Avalie se, ao analisar as contas integrantes do patrimônio líquido, o auditor deve considerar que:\n\nI. A reserva legal não poderá exceder a 5% do capital social.\nII. A companhia é obrigada a constituir a reserva legal no exercício respectivo.\nIII. A reserva de lucros não pode superar o valor do capital social da organização.\nIV. Os lucros do exercício devem ser destinados, dentre outros, para a distribuição de dividendos.\n\nEstá correto o que se afirma em",
+  "alternativas": {
+   "A": "I, III e IV somente.",
+   "B": "II e III somente.",
+   "C": "II e IV somente.",
+   "D": "III e IV somente.",
+   "E": "I, II, III e IV."
+  },
+  "gabarito": "D",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Procedimentos Específicos e Auditoria no Setor Público"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q020",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Auditoria",
+  "assunto": "Auditoria",
+  "numero_original": 20,
+  "enunciado": "Ao analisar o ativo de uma sociedade empresarial, o auditor observou que uma máquina foi adquirida pelo valor de $ 1.000, incluindo o valor de $ 300, relativo a um software necessário ao seu funcionamento. O referido software é utilizado para controlar a máquina, sem o qual ela não opera. Nessa situação, o auditor deve verificar se os registros contábeis evidenciaram corretamente o registro no.",
+  "alternativas": {
+   "A": "Imobilizado, com valor de $ 600.",
+   "B": "Imobilizado, no montante de $ 1000.",
+   "C": "Intangível, com o total de $ 300 referente ao software necessário ao funcionamento da máquina.",
+   "D": "Imobilizado, no valor de $ 300 e intangível no valor de $ 700.",
+   "E": "Ativo circulante, no valor de $ 1000. Contabilidade Avançada e Contabilidade de Custos"
+  },
+  "gabarito": "B",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Procedimentos Específicos e Auditoria no Setor Público"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q021",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade Geral e Avançada",
+  "numero_original": 21,
+  "enunciado": "Em dezembro de 2023, em uma viagem de São Paulo a Orlando, dez passageiros solicitaram, antecipadamente, refeições vegetarianas, de acordo com as normas da empresa aérea. No entanto, a companhia aérea não serviu essas refeições na viagem. Oito passageiros entraram na justiça contra a companhia aérea, em processos separados. A companhia aérea estimou que a perda era provável e que teria que pagar R$ 3.000 a cada passageiro na justiça, de modo que provisionou esse montante estimado. As causas foram julgadas em janeiro de 2024. Cinco passageiros ganharam as suas causas, e a companhia aérea foi condenada a pagar R$ 4.000 a cada um deles. Ainda, três passageiros perderam as suas causas e não poderão recorrer. Na Demonstração do Resultado do Exercício da Companhia Aérea, em 31/01/2024, deve-se reconhecer",
+  "alternativas": {
+   "A": "despesa com contingências de R$ 8.000.",
+   "B": "reversão da provisão de R$ 4.000.",
+   "C": "reversão da provisão de R$ 10.000.",
+   "D": "despesa com contingências de R$ 5.000 e reversão da provisão de R$ 9.000.",
+   "E": "despesa com contingências de R$ 5.000 e reversão da provisão de R$ 15.000. SECRETARIA MUNICIPAL DE FAZENDA DE CUIABÁ"
+  },
+  "gabarito": "B",
+  "incidencia": "",
+  "bloco": "Bloco 4 — CPCs — Pronunciamentos Técnicos"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q022",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade Geral e Avançada",
+  "numero_original": 22,
+  "enunciado": "Em 31/12/2022 uma loja de roupas apresentava saldo a receber de clientes de R$ 600.000 e perdas estimadas com crédito de liquidação duvidosa de 4% desse valor. A loja estimava as perdas com crédito de liquidação duvidosa com base, exclusivamente, no histórico de vendas da loja. Em 2023, a loja decidiu considerar o histórico e também as perspectivas econômicas do país para estimar as perdas, de modo que verificou que deveria calcular a perda estimada com base em 6% do saldo a receber de clientes. No ano, as vendas a prazo foram de R$ 700.000. Com base na NBC TG 23 (R2) – Políticas Contábeis, Mudança de Estimativa e Retificação de Erro, assinale a opção que indica o posicionamento a ser adotado pela empresa em virtude da mudança na porcentagem para o cálculo e o saldo de perdas estimadas com crédito de liquidação duvidosa no balanço patrimonial comparativo de 31/12/2022, apresentado em 31/12/2023:",
+  "alternativas": {
+   "A": "Retificação de erro; R$ 36.000",
+   "B": "Mudança de estimativa; R$ 24.000",
+   "C": "Mudança de estimativa; R$ 36.000",
+   "D": "Mudança de política contábil; R$ 24.000",
+   "E": "Mudança de política contábil; R$ 36.000"
+  },
+  "gabarito": "B",
+  "incidencia": "",
+  "bloco": "Bloco 2 — Balanço Patrimonial (BP)"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q023",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade Geral e Avançada",
+  "numero_original": 23,
+  "enunciado": "A Cia Rosa, localizada no Brasil, exerce o controle da Cia Pink, localizada nos Estados Unidos e reconhece a sua participação de acordo com o método de equivalência patrimonial, seguindo o posicionamento da NBC TG 02 (R3) – Efeitos das Mudanças nas Taxas de Câmbio e Conversão de Demonstrações Contábeis. Os efeitos da variação cambial do investimento na Cia Pink serão reconhecidos como receita ou despesa no resultado da Cia Rosa quando",
+  "alternativas": {
+   "A": "o resultado anual for realizado.",
+   "B": "o resultado anual for divulgado.",
+   "C": "os dividendos forem declarados.",
+   "D": "os dividendos forem recebidos.",
+   "E": "o investimento for vendido."
+  },
+  "gabarito": "E",
+  "incidencia": "",
+  "bloco": "Bloco 4 — CPCs — Pronunciamentos Técnicos"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q024",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade Geral e Avançada",
+  "numero_original": 24,
+  "enunciado": "As Cias A, B e C apresentavam os seguintes balanços patrimoniais em 31/12/2023: Em janeiro de 2024, os acionistas das três empresas decidiram realizar a fusão, abrangendo as respectivas empresas. Após a fusão, os ativos e os passivos são reconhecidos no balanço patrimonial.",
+  "alternativas": {
+   "A": "da Cia A, por ter o maior saldo em disponibilidades.",
+   "B": "da Cia A, por ter o maior saldo em patrimônio líquido.",
+   "C": "da Cia B, por ter o maior saldo em ativo imobilizado.",
+   "D": "da Cia C, por ter o maior saldo ativo total.",
+   "E": "da nova empresa criada. AUDITOR FISCAL TRIBUTÁRIO – GESTÃO TRIBUTÁRIA – TARDE"
+  },
+  "gabarito": "E",
+  "incidencia": "",
+  "bloco": "Bloco 4 — CPCs — Pronunciamentos Técnicos"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q026",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade Geral e Avançada",
+  "numero_original": 26,
+  "enunciado": "Em 31/12/2021, uma empresa adquiriu, de terceiros, uma marca por R$ 120.000. A marca será utilizada no lançamento de um novo produto e foi classificada como ativo intangível de vida útil indefinida, uma vez que não havia limite previsível para o período no qual deveria gerar fluxos de caixa líquidos positivos para a empresa. A empresa efetua o teste de recuperabilidade do ativo de forma constante. Na data de aquisição, a empresa tinha expectativa de recuperar o valor investido na marca em cinco anos e continuar utilizando a marca ao longo do tempo. Já em 31/12/2022, a empresa constatou que conseguiria recuperar o investimento em oito anos, a partir daquela data, enquanto o ativo continuaria sendo utilizado nas operações. A empresa reconheceu, então, a despesa com a perda de recuperabilidade do ativo, em sua demonstração do resultado. O posicionamento da empresa está",
+  "alternativas": {
+   "A": "incorreto, uma vez que o ativo é intangível.",
+   "B": "incorreto, uma vez que a vida do ativo é indefinida.",
+   "C": "incorreto, uma vez que não houve motivos para reconhecimento da perda.",
+   "D": "correto, uma vez que houve mudança na estimativa de retorno do ativo.",
+   "E": "correto, uma vez que há dúvidas em relação ao retorno do ativo. SECRETARIA MUNICIPAL DE FAZENDA DE CUIABÁ"
+  },
+  "gabarito": "C",
+  "incidencia": "",
+  "bloco": "Bloco 4 — CPCs — Pronunciamentos Técnicos"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q028",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade Geral e Avançada",
+  "numero_original": 28,
+  "enunciado": "Em janeiro de 2023, uma sociedade empresária que prestava serviços de consultoria tributária adquiriu um terreno ao lado de seu escritório por R$ 200.000. Inicialmente, a sociedade empresária tinha a intenção de manter o terreno pelos vinte anos seguintes, de modo a evitar que outra empresa se instalasse no local e, assim, proteger a sua posição competitiva. Neste período, o ativo era utilizado como estacionamento pago pelo público externo. Na data da compra, o valor justo do terreno era estimado em R$ 180.000. Em 31/12/2023, foi estimado que o terreno poderia ser vendido por R$ 210.000. Além disso, um terreno de iguais dimensões e localização equivalente poderia ser comprado em Brasília por R$ 250.000. Ainda, o valor em uso do ativo era estimado em R$ 170.000. Assinale a opção que indica o valor justo do terreno em 31/12/2023, de acordo com as determinações da NBC TG 46 (R2) – Mensuração do Valor Justo.",
+  "alternativas": {
+   "A": "R$ 170.000.",
+   "B": "R$ 180.000.",
+   "C": "R$ 200.000.",
+   "D": "R$ 210.000.",
+   "E": "R$ 250.000."
+  },
+  "gabarito": "D",
+  "incidencia": "",
+  "bloco": "Bloco 4 — CPCs — Pronunciamentos Técnicos"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q029",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade Geral e Avançada",
+  "numero_original": 29,
+  "enunciado": "A Cia A fabrica equipamentos de grande porte e os arrenda para empresas industriais. Em janeiro de 2024, a Cia A arrendou um equipamento que havia fabricado, para a Cia B, pelo período de dez anos, que irá usá-lo em suas operações. O valor presente dos recebimentos do arrendamento é de R$ 80.000. Na data, foi estimado que um equipamento semelhante poderia ser comprado diretamente de outro fornecedor por R$ 82.000. Além disso, a vida útil do equipamento é estimada em dez anos. Na data de início do arrendamento, a Cia A e a Cia B devem reconhecer o equipamento, respectivamente, como",
+  "alternativas": {
+   "A": "contas a receber e direito de uso",
+   "B": "contas a receber e ativo intangível",
+   "C": "contas a receber e receita antecipada",
+   "D": "despesa antecipada e direito de uso",
+   "E": "despesa antecipada e equipamento AUDITOR FISCAL TRIBUTÁRIO – GESTÃO TRIBUTÁRIA – TARDE"
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 4 — CPCs — Pronunciamentos Técnicos"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q030",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade Geral e Avançada",
+  "numero_original": 30,
+  "enunciado": "Durante o ano de 2023, uma sociedade empresária desenvolveu um projeto internamente que gerou um novo produto, com capacidade de geração de lucro. No processo de criação, R$ 60.000 foram reconhecidos como despesa e R$ 20.000 como ativo intangível, de acordo com as especificações da NBC TG 04 (R4)– Ativo Intangível. Do montante reconhecido como despesa, R$ 15.000 dizem respeito à fase de pesquisa e R$ 45.000, à fase de desenvolvimento. Em 01/01/2024, o produto começou a ser efetivamente utilizado na atividade operacional da empresa e passou a gerar receitas recorrentes. Na data, a sociedade empresária deve",
+  "alternativas": {
+   "A": "baixar o ativo de R$ 20.000 e reconhecê-lo como despesa.",
+   "B": "reverter a despesa de R$ 15.000 e contabilizá-la como ativo.",
+   "C": "reverter a despesa de R$ 45.000 e contabilizá-la como ativo.",
+   "D": "reverter a despesa de R$ 60.000 e contabilizá-la como ativo.",
+   "E": "manter R$ 20.000 como ativo, sem realizar reversões no resultado."
+  },
+  "gabarito": "E",
+  "incidencia": "",
+  "bloco": "Bloco 4 — CPCs — Pronunciamentos Técnicos"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q031",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade Geral e Avançada",
+  "numero_original": 31,
+  "enunciado": "Em 10/12/2024, uma sociedade empresária não apresentava passivos em seu balanço patrimonial. Na data, adquiriu um veículo para realizar o transporte de seus funcionários por R$ 100.000. O pagamento tinha vencimento previsto para 30/12/2027. Se o veículo fosse adquirido à vista, o preço pago seria de R$ 90.000. Ainda, se fosse realizada a compra simultânea de mais de cinco veículos, o preço unitário a pagar seria de R$ 85.000. Devido ao seu alto faturamento, a sociedade empresária julgou que o valor a pagar, reconhecido no passivo, não apresentava efeito relevante. Assinale a opção que indica o saldo do passivo não circulante no balanço patrimonial da sociedade empresária após a compra:",
+  "alternativas": {
+   "A": "Zero.",
+   "B": "R$ 10.000.",
+   "C": "R$ 85.000.",
+   "D": "R$ 90.000.",
+   "E": "R$ 100.000."
+  },
+  "gabarito": "D",
+  "incidencia": "",
+  "bloco": "Bloco 4 — CPCs — Pronunciamentos Técnicos"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q032",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade Geral e Avançada",
+  "numero_original": 32,
+  "enunciado": "Em relação à apresentação da subvenção na Demonstração do Resultado de uma entidade, analise as opções a seguir:\n\nI. Dedução da despesa\nII. Outras receitas\nIII. Receita financeira De acordo com a NBC TG 07 (R2) – Subvenção e Assistência Governamentais, são aceitos para apresentação das subvenções quando apresentada como crédito na demonstração do resultado o que se afirma em:",
+  "alternativas": {
+   "A": "I, somente.",
+   "B": "I e II, somente.",
+   "C": "I e III, somente.",
+   "D": "II e III, somente.",
+   "E": "I, II e III. SECRETARIA MUNICIPAL DE FAZENDA DE CUIABÁ"
+  },
+  "gabarito": "B",
+  "incidencia": "",
+  "bloco": "Bloco 4 — CPCs — Pronunciamentos Técnicos"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q033",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade de Custos",
+  "numero_original": 33,
+  "enunciado": "Leia o fragmento a seguir. Uma empresa de consultoria apresentava ponto de equilíbrio contábil de R$ 100.000. Isso significa que quando _____________________ é ___________ R$ 100.000, a empresa não tem prejuízo. Assinale a alternativa cujos itens completam corretamente as lacunas do fragmento acima.",
+  "alternativas": {
+   "A": "o lucro líquido- igual a",
+   "B": "a receita bruta- igual a",
+   "C": "a receita de vendas- igual a",
+   "D": "a receita bruta- maior que",
+   "E": "a receita de vendas- maior que"
+  },
+  "gabarito": "C",
+  "incidencia": "",
+  "bloco": "Bloco 5 — Contabilidade de Custos e Gerencial"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q034",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade de Custos",
+  "numero_original": 34,
+  "enunciado": "Um prédio de dez andares é utilizado por diferentes empresas do setor de confecção têxtil de pequeno porte para sua produção, sendo uma empresa por andar. Em 2023 e 2024 o número de andares alugados era, respectivamente, de 7 e 9. O prédio é administrado por um condomínio que centraliza os gastos. Assim, mensalmente, a conta de água é recebida pelo prédio e dividida pelo número de andares ocupados. O custo mensal com água é considerado, por cada empresa como:",
+  "alternativas": {
+   "A": "Fixo e indireto",
+   "B": "Fixo e direto",
+   "C": "Variável indireto",
+   "D": "Variável e direto",
+   "E": "Semi variável e direto"
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 5 — Contabilidade de Custos e Gerencial"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q035",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade de Custos",
+  "numero_original": 35,
+  "enunciado": "Em 2023, uma loja de roupas apresentava margem de contribuição de R$120. Já em 2024, a margem de contribuição era de R$200. Assinale a opção que indica uma possível causa para o aumento da margem de contribuição, mantendo-se os outros fatores iguais:",
+  "alternativas": {
+   "A": "diminuição no preço da materia prima utilizada.",
+   "B": "diminuição no preço do produto vendido.",
+   "C": "aumento nos custos fixos.",
+   "D": "aumento no número de unidades vendidas.",
+   "E": "aumento na comissão oferecida aos vendedores. Direito Tributário II"
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 5 — Contabilidade de Custos e Gerencial"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q036",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 36,
+  "enunciado": "Assinale, entre as ideias abaixo relacionadas, aquela que indica uma proposta reitora da nova Reforma Tributária levada a cabo pela Emenda Constitucional nº 132/2023 (EC 132/2023).",
+  "alternativas": {
+   "A": "Busca de atenuação dos efeitos regressivos dos tributos incidentes sobre o consumo.",
+   "B": "Aplicação imediata dos novos tributos que serão criados a partir da EC 132/2023.",
+   "C": "Predominância da cobrança “por dentro” dos novos tributos, que incidirão sobre sua própria base de cálculo.",
+   "D": "Concentração da carga tributária na origem dos bens e serviços.",
+   "E": "A implantação de um sistema de IVA unitário. AUDITOR FISCAL TRIBUTÁRIO – GESTÃO TRIBUTÁRIA – TARDE"
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q037",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 37,
+  "enunciado": "Um dos objetivos da Reforma Tributária da Emenda Constitucional 132/2023 (EC 132/2023) foi criar mecanismos tributários de auxílio à preservação do meio ambiente. Acerca de tais instrumentos presentes na EC nº 132/2023, avalie as afirmativas a seguir:\n\nI. O impacto ambiental passa a ser um dos possíveis critérios para a fixação de alíquotas diferenciadas de IPVA.\nII. A concessão de incentivo regional de diferimento temporário de tributos federais devidos por pessoa jurídica considerará, sempre que possível, critérios de sustentabilidade ambiental e redução das emissões de carbono.\nIII. Do produto da arrecadação do Imposto sobre Bens e Serviços (IBS) distribuída aos Estados, certo percentual será creditado aos Municípios com base em indicadores de preservação ambiental de acordo com o que dispuser lei federal.\nIV. Na aplicação dos recursos do Fundo Nacional de Desenvolvimento Regional, os Estados e o Distrito Federal priorizarão projetos que prevejam ações de sustentabilidade ambiental e redução das emissões de carbono.\n\nEstá correto o que se afirma em:",
+  "alternativas": {
+   "A": "I e II, apenas.",
+   "B": "III e IV, apenas.",
+   "C": "I, II e III, apenas.",
+   "D": "I, II e IV, apenas.",
+   "E": "I, II, III e IV."
+  },
+  "gabarito": "D",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q038",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 38,
+  "enunciado": "O novo cargo criado pela Reforma Tributária de Presidente do Comitê Gestor do novo Imposto sobre Bens e Serviços (IBS) apresentará um relevante papel na arrecadação tributária em nosso país. Em razão disso, a Emenda Constitucional nº 132/2023 (EC 132/2023) inseriu no próprio texto constitucional um regime especial para esse cargo. Assinale a opção que corretamente indica uma característica do regime desse cargo presente no atual texto da Constituição Federal de 1988.",
+  "alternativas": {
+   "A": "Apenas o Senado Federal poderá convocar o Presidente do Comitê Gestor do IBS para prestar, pessoalmente, informações sobre assunto previamente determinado.",
+   "B": "Tanto o Senado Federal como a Câmara de Deputados, excluídas as Comissões de ambas as Casas, poderão convocar o Presidente do Comitê Gestor do IBS para prestar, pessoalmente, informações sobre assunto previamente determinado.",
+   "C": "Comissões da Câmara dos Deputados poderão convocar o Presidente do Comitê Gestor do IBS para prestar, pessoalmente, informações sobre assunto previamente determinado.",
+   "D": "Apenas a Mesa do Senado Federal poderá encaminhar pedidos escritos de informações ao Presidente do Comitê Gestor do IBS.",
+   "E": "Apenas a Mesa do Congresso Nacional poderá encaminhar pedidos escritos de informações ao Presidente do Comitê Gestor do IBS. SECRETARIA MUNICIPAL DE FAZENDA DE CUIABÁ"
+  },
+  "gabarito": "C",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q039",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 39,
+  "enunciado": "O Município Alfa pretende implantar um sistema de câmeras de monitoramento para segurança e preservação de logradouros públicos, mas necessita de recursos para fazê-lo. À luz das mudanças introduzidas pela Emenda Constitucional nº 132/2023 (EC 132/2023), tal Município poderá instituir",
+  "alternativas": {
+   "A": "taxa municipal voltada a custear o monitoramento para segurança e preservação de logradouros públicos, por se tratar de serviço público específico e divisível.",
+   "B": "contribuição municipal voltada a custear o monitoramento para segurança e preservação de logradouros públicos, ainda que tal serviço público não seja específico e divisível.",
+   "C": "empréstimo compulsório voltado a custear o monitoramento para segurança e preservação de logradouros públicos, por se tratar de serviço público específico e divisível.",
+   "D": "imposto municipal de monitoramento para segurança e preservação de logradouros públicos, cujo fato gerador é a prestação de tal serviço público específico e divisível.",
+   "E": "taxa municipal voltada a custear o monitoramento para segurança e preservação de logradouros públicos, ainda que tal serviço público não seja específico e divisível."
+  },
+  "gabarito": "B",
+  "incidencia": "",
+  "bloco": "Bloco 1 — Sistema Tributário Nacional: Conceitos e Princípios"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q040",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 40,
+  "enunciado": "Acerca do regime a ser aplicado tanto ao Imposto sobre Bens e Serviços (IBS) como à Contribuição sobre Bens e Serviços (CBS), a ser implantado com base nas normas da Emenda Constitucional nº 132/2023 (EC 132/2023), avalie as afirmativas a seguir e assinale (V) para a verdadeira e (F) para a falsa. ( ) Devem ser observadas as mesmas regras para o IBS e a CBS em relação às bases de cálculo e alíquotas. ( ) Embora as regras em relação aos fatos geradores do IBS e CBS devam ser as mesmas, tal obrigatoriedade de uniformidade não se coloca para as hipóteses de não incidência. ( ) O IBS e a CBS observarão as mesmas regras em relação a regras de creditamento, mas não em relação a regras de não cumulatividade. As afirmativas são, respectivamente,",
+  "alternativas": {
+   "A": "F – F – F.",
+   "B": "F – V – F.",
+   "C": "V – F – V.",
+   "D": "V – V – V.",
+   "E": "V – F – F."
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q041",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 41,
+  "enunciado": "Acerca do regime constitucional do Novo Imposto Seletivo incidente sobre produção, extração, comercialização ou importação de bens e serviços prejudiciais à saúde ou ao meio ambiente, julgue as afirmativas abaixo:\n\nI. Integrará sua própria base de cálculo.\nII. Terá suas alíquotas fixadas em lei complementar, podendo ser específicas, por unidade de medida adotada, ou ad valorem.\nIII. Não incidirá sobre as operações com energia elétrica e com telecomunicações.\n\nEstá correto o que se afirma em",
+  "alternativas": {
+   "A": "I, apenas.",
+   "B": "II, apenas.",
+   "C": "III, apenas.",
+   "D": "I e II, apenas.",
+   "E": "II e III, apenas. AUDITOR FISCAL TRIBUTÁRIO – GESTÃO TRIBUTÁRIA – TARDE"
+  },
+  "gabarito": "C",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q042",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 42,
+  "enunciado": "Maria faleceu em Cuiabá (MT) em 10/08/2024, mas era domiciliada no Distrito Federal. Como herança, deixou ações cotadas na bolsa de valores brasileira para Júlia, sua única filha e herdeira, maior e capaz, domiciliada em São Paulo (SP). Júlia resolveu realizar o inventário extrajudicial de sua mãe no Rio de Janeiro (RJ), pois ali atuava tabelião de sua confiança. À luz das regras sobre o Imposto de Transmissão Causa Mortis e Doações (ITCMD) trazidas pela Emenda Constitucional nº 132/2023, o ITCMD sobre tais ações deixadas em herança é devido",
+  "alternativas": {
+   "A": "ao Estado do Mato Grosso, local de falecimento de Maria.",
+   "B": "ao Distrito Federal, local de domicílio de Maria.",
+   "C": "ao Estado de São Paulo, local de domicílio de Júlia.",
+   "D": "ao Estado do Rio de Janeiro, local onde se processou o inventário.",
+   "E": "50% ao Estado de São Paulo, local de domicílio de Júlia; e 50% ao Estado do Rio de Janeiro, local onde se processou o inventário."
+  },
+  "gabarito": "B",
+  "incidencia": "",
+  "bloco": "Bloco 3 — Administração Tributária e Tributos em Espécie"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q043",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 43,
+  "enunciado": "A Emenda Constitucional nº 132/2023 estabelece, em seu Art. 159 – A, que “Fica instituído o Fundo Nacional de Desenvolvimento Regional, com o objetivo de reduzir as desigualdades regionais e sociais, nos termos do Art. 3º, III, ...” Avalie se o referido fundo será instituído mediante a entrega de recursos da União aos Estados e ao Distrito Federal para:\n\nI. realização de estudos, projetos e obras de infraestrutura;\nII. fomento a atividades produtivas com elevado potencial de geração de emprego e renda, incluindo a concessão de subvenções econômicas e financeiras;\nIII. promoção de ações com vistas ao desenvolvimento científico e tecnológico e à inovação.\n\nEstá correto o que se apresenta em",
+  "alternativas": {
+   "A": "I, apenas.",
+   "B": "II, apenas.",
+   "C": "I e II, apenas.",
+   "D": "II e III, apenas.",
+   "E": "I, II e III."
+  },
+  "gabarito": "E",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q044",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 44,
+  "enunciado": "Acerca das alíquotas do Imposto sobre Bens e Serviços (IBS) de competência compartilhada entre Estados, Distrito Federal e Municípios, inserido na Constituição Federal de 1988 pela Reforma Tributária advinda da Emenda Constitucional nº 132/2023, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "Cada ente federativo fixará sua alíquota própria de IBS por lei específica.",
+   "B": "O IBS será cobrado pelo somatório das alíquotas do Estado e do Município de origem da operação.",
+   "C": "Incidirá pela alíquota de 1% (um por cento) nas prestações de serviço de comunicação nas modalidades de radiodifusão sonora e de sons e imagens de recepção livre e gratuita.",
+   "D": "A alíquota fixada pelo ente federativo será a mesma para todas as operações com bens materiais ou imateriais, inclusive direitos, ou com serviços, sem possibilidade de qualquer exceção.",
+   "E": "Resolução do Senado Federal fixará alíquota de referência do imposto para cada esfera federativa, nos termos de lei complementar, a qual deverá ser obrigatoriamente seguida por cada ente federativo. SECRETARIA MUNICIPAL DE FAZENDA DE CUIABÁ"
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q045",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 45,
+  "enunciado": "A Emenda Constitucional nº 132/2023 trouxe novas regras sobre o sujeito passivo no Imposto sobre Bens e Serviços (IBS). A respeito desse tema, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "Não incidirá o IBS quando a pessoa física que efetuar importação de bens materiais não se configurar como sujeito passivo habitual desse imposto.",
+   "B": "Não será sujeito passivo do IBS a pessoa física que efetuar importação de serviços, quando não se configurar como sujeito passivo habitual desse imposto.",
+   "C": "O sujeito passivo do IBS, quando imune, fica dispensado do cumprimento das obrigações tributárias acessórias relacionadas a esse imposto.",
+   "D": "Lei complementar poderá definir como sujeito passivo do IBS a pessoa que concorrer para a realização, a execução ou o pagamento da operação, ainda que residente ou domiciliada no exterior.",
+   "E": "Lei ordinária disporá sobre as hipóteses de devolução do imposto a pessoas físicas que sejam sujeito passivo do IBS, inclusive os limites e os beneficiários, com o objetivo de reduzir as desigualdades de renda."
+  },
+  "gabarito": "D",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q046",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 46,
+  "enunciado": "Os Estados, o Distrito Federal e os Municípios exercerão de forma integrada, exclusivamente por meio do Comitê Gestor do Imposto sobre Bens e Serviços (IBS), nos termos e limites estabelecidos na Constituição Federal de 1988 e em lei complementar, uma série de competências administrativas relativas ao IBS. Acerca do exercício dessas competências à luz da Emenda Constitucional nº 132/2023, é de atribuição do Comitê Gestor do IBS",
+  "alternativas": {
+   "A": "efetuar as compensações referentes ao IBS.",
+   "B": "editar regulamentos específicos distintos para cada Estado e Distrito Federal acerca do IBS.",
+   "C": "instruir os processos contenciosos administrativos do IBS, para decisão final do Conselho Nacional de Política Fazendária (CONFAZ).",
+   "D": "propor ao Conselho Administrativo de Recursos Fiscais (CARF) incidente de uniformização da interpretação da legislação do IBS.",
+   "E": "realizar os cálculos para distribuição do produto da arrecadação do IBS entre Estados, Distrito Federal e Municípios, com distribuição realizada pela Secretaria do Tesouro Nacional (STN). AUDITOR FISCAL TRIBUTÁRIO – GESTÃO TRIBUTÁRIA – TARDE"
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q047",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 47,
+  "enunciado": "Dada a grande relevância do novo Comitê Gestor do Imposto sobre Bens e Serviços (IBS) para a arrecadação do novo imposto, vital para a sustentabilidade financeira de Estados, Distrito Federal e Municípios, a própria Constituição Federal de 1988 passa a veicular regras acerca de sua composição e modo de deliberação. A esse respeito, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "O Presidente do Comitê Gestor do IBS deverá ter notórios conhecimentos de economia.",
+   "B": "Na forma da lei complementar, será assegurada a alternância na presidência do Comitê Gestor entre o conjunto dos Estados e o Distrito Federal e o conjunto dos Municípios e o Distrito Federal.",
+   "C": "O Comitê Gestor do IBS, entidade pública sob regime especial, terá independência técnica e administrativa, com dependência orçamentária e financeira do Ministério da Fazenda.",
+   "D": "As deliberações no âmbito do Comitê Gestor do IBS serão consideradas aprovadas se obtiverem, quanto ao conjunto dos Municípios e do Distrito Federal, o voto da maioria simples de seus representantes.",
+   "E": "A participação dos entes federativos na instância máxima de deliberação do Comitê Gestor do IBS observará a composição de 14 (quatorze) membros, representando o conjunto dos Municípios e do Distrito Federal."
+  },
+  "gabarito": "B",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q048",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 48,
+  "enunciado": "A Reforma Tributária trazida pela Emenda Constitucional nº 132/2023 realizou algumas alterações na dinâmica da repartição constitucional de receitas tributárias. A esse respeito, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "Pertence aos Municípios 10% do produto da arrecadação do Imposto sobre Bens e Serviços (IBS) distribuída aos Estados.",
+   "B": "Pertence aos Municípios 25% do produto da arrecadação do imposto do Estado sobre a propriedade de veículos automotores aquáticos e aéreos cujos proprietários sejam domiciliados em seus territórios.",
+   "C": "A União entregará, do produto da arrecadação do Imposto Seletivo sobre produção, extração, comercialização ou importação de bens e serviços prejudiciais à saúde ou ao meio ambiente, 25,5% ao Fundo de Participação dos Municípios.",
+   "D": "A União entregará, do produto da arrecadação do Imposto Seletivo sobre produção, extração, comercialização ou importação de bens e serviços prejudiciais à saúde ou ao meio ambiente, 20,5% ao Fundo de Participação dos Estados e do Distrito Federal.",
+   "E": "A União entregará, do produto da arrecadação do Imposto Seletivo sobre produção, extração, comercialização ou importação de bens e serviços prejudiciais à saúde ou ao meio ambiente, 20% aos Estados e ao Distrito Federal, proporcionalmente ao valor das respectivas exportações de produtos industrializados. SECRETARIA MUNICIPAL DE FAZENDA DE CUIABÁ"
+  },
+  "gabarito": "C",
+  "incidencia": "",
+  "bloco": "Bloco 1 — Sistema Tributário Nacional: Conceitos e Princípios"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q049",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 49,
+  "enunciado": "Acerca da nova Contribuição sobre Bens e Serviços (CBS), inserida na Constituição Federal de 1988 pela Emenda Constitucional nº 132/2023, julgue as afirmativas abaixo:\n\nI. Será de competência compartilhada entre União, Estados, Distrito Federal e Municípios.\nII. Poderá ter sua alíquota fixada em lei ordinária.\nIII. Lei estabelecerá as hipóteses de devolução da CBS a pessoas físicas, inclusive em relação a limites e beneficiários, com o objetivo de reduzir as desigualdades de renda.\n\nEstá correto o que se afirma em",
+  "alternativas": {
+   "A": "I, apenas.",
+   "B": "II, apenas.",
+   "C": "III, apenas.",
+   "D": "I e II, apenas.",
+   "E": "II e III, apenas."
+  },
+  "gabarito": "E",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q050",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 50,
+  "enunciado": "A Reforma Tributária, por meio da Emenda Constitucional nº 132/2023 (EC 132/2023), veiculou diversas alterações no Ato das Disposições Constitucionais Transitórias envolvendo prazos fiscais. A respeito dessas alterações, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "Foi prorrogado o prazo das Desvinculações de Receitas da União, Estados e Municípios para 31.12.2032.",
+   "B": "Fica extinto, a partir de 2034, o imposto municipal sobre serviços de qualquer natureza (ISS).",
+   "C": "Fica extinto, a partir de 2034, o imposto estadual sobre operações relativas à circulação de mercadorias e sobre prestações de serviços de transporte interestadual e intermunicipal e de comunicação (ICMS).",
+   "D": "A partir de 2026, será cobrada a nova Contribuição sobre Bens e Serviços (CBS).",
+   "E": "A partir de 2027, será cobrado o novo Imposto Seletivo sobre produção, extração, comercialização ou importação de bens e serviços prejudiciais à saúde ou ao meio ambiente."
+  },
+  "gabarito": "E",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q051",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 51,
+  "enunciado": "Pedro, empresário do setor industrial, pretende expandir sua fábrica para uma região menos desenvolvida do país, beneficiando-se de isenção de tributos federais incidentes sobre a sua operação, oferecida pelo governo federal, para desenvolver aquela região. Pedro descobre que, para ter acesso aos incentivos fiscais previstos, precisa adotar algumas medidas. Segundo a Constituição Federal, os critérios que podem ser considerados na concessão dos incentivos fiscais que visam o desenvolvimento e à redução das desigualdades regionais são",
+  "alternativas": {
+   "A": "apenas os critérios econômicos da região e o potencial de geração de empregos.",
+   "B": "a adesão da empresa a práticas de sustentabilidade ambiental e redução das emissões de carbono, se possível.",
+   "C": "apenas o porte da empresa e sua capacidade de expansão no mercado externo.",
+   "D": "exclusivamente o montante do investimento planejado pela empresa de Pedro na região.",
+   "E": "a quantidade de incentivos já recebidos anteriormente pela empresa em outras regiões. AUDITOR FISCAL TRIBUTÁRIO – GESTÃO TRIBUTÁRIA – TARDE"
+  },
+  "gabarito": "B",
+  "incidencia": "",
+  "bloco": "Bloco 1 — Sistema Tributário Nacional: Conceitos e Princípios"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q052",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 52,
+  "enunciado": "A Emenda Constitucional nº 132/2023, conhecida como “Reforma Tributária”, instituiu o Imposto sobre Bens e Serviços (IBS), incluindo a atuação integrada do Comitê Gestor do IBS. De acordo com a Reforma Tributária, a competência para dispor sobre os conflitos entre entes federativos, ou entre esses entes e o Comitê Gestor do IBS é da(o):",
+  "alternativas": {
+   "A": "Justiça Federal de primeira instância.",
+   "B": "Tribunal Regional Federal.",
+   "C": "Superior Tribunal de Justiça.",
+   "D": "Supremo Tribunal Federal.",
+   "E": "Conselho Nacional de Justiça."
+  },
+  "gabarito": "C",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q053",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 53,
+  "enunciado": "Com base na Emenda Constitucional nº 132/2023, especificamente em relação ao Imposto sobre Bens e Serviços (IBS), de competência dos Estados e Municípios, e à Contribuição sobre Bens e Serviços (CBS), de competência da União, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "As regras de imunidade serão aplicáveis apenas ao IBS, uma vez que as imunidades se referem exclusivamente a impostos.",
+   "B": "O IBS terá uma alíquota única, sendo vedado aos entes federativos estabelecer alíquotas próprias.",
+   "C": "A forma e o prazo para o ressarcimento de créditos acumulados pelos contribuintes do IBS poderão ser definidos por lei ordinária.",
+   "D": "Apenas o IBS será não cumulativo.",
+   "E": "Ambos os tributos deverão observar as mesmas regras quanto a fatos geradores, bases de cálculo, hipóteses de não incidência e sujeitos passivos."
+  },
+  "gabarito": "E",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q054",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 54,
+  "enunciado": "A reforma tributária introduziu novos princípios no Sistema Tributário Nacional, refletindo uma evolução na relação entre o Estado e os contribuintes e marcando a transição de um sistema centralizado para um modelo mais democrático. Com base nesse contexto, assinale a opção que apresenta alguns dos princípios adicionados à Constituição Federal de 1988 pela reforma tributária.",
+  "alternativas": {
+   "A": "Princípios da simplicidade, da transparência, da justiça tributária, da cooperação e da defesa do meio ambiente.",
+   "B": "Princípios da unidade, da boa-fé, da clareza, da regionalização e do desenvolvimento sustentável.",
+   "C": "Princípios da transparência, do desenvolvimento sustentável, da participação pública e da publicidade.",
+   "D": "Princípios da boa-fé, da justiça tributária, e da publicidade e do equilíbrio tributário.",
+   "E": "Princípios da justiça tributária, da cooperação, do desenvolvimento sustentável e da regionalização. SECRETARIA MUNICIPAL DE FAZENDA DE CUIABÁ"
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 1 — Sistema Tributário Nacional: Conceitos e Princípios"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q055",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 55,
+  "enunciado": "Com base na Constituição Federal, especialmente nas disposições estabelecidas pela Reforma Tributária, podem ser regulamentadas(os) por lei ordinária",
+  "alternativas": {
+   "A": "as regras para a distribuição do produto da arrecadação do Imposto sobre Bens e Serviços (IBS).",
+   "B": "o tratamento para operações em que o IBS não seja recolhido tempestivamente.",
+   "C": "o processo administrativo fiscal relativo ao IBS.",
+   "D": "as alíquotas da Contribuição sobre Bens e Serviços (CBS).",
+   "E": "a definição dos produtos da cesta básica com alíquotas reduzidas a zero para IBS e CBS."
+  },
+  "gabarito": "D",
+  "incidencia": "",
+  "bloco": "Bloco 1 — Sistema Tributário Nacional: Conceitos e Princípios"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q056",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 56,
+  "enunciado": "A sociedade empresarial XYZ, optante do Simples Nacional, soube que a reforma tributária trouxe alterações no regime simplificado de tributação. O sócio da XYZ realiza uma consulta para esclarecer quais mudanças foram ou serão implementadas. Assinale a afirmativa correta acerca destas alterações.",
+  "alternativas": {
+   "A": "O Simples Nacional não abarcará o recolhimento da Contribuição sobre Bens e Serviços (CBS), que deverá ser realizado na forma ordinária.",
+   "B": "O regime simplificado será obrigatório para as microempresas e opcional para as empresas de pequeno porte.",
+   "C": "O optante pelo regime único poderá recolher o Imposto sobre Bens e Serviços (IBS) e a CBS, sem restrições quanto à apropriação de créditos de tributos pagos.",
+   "D": "As cooperativas serão imunes ao IBS e à CBS, independentemente da natureza do ato cooperativo praticado.",
+   "E": "Os adquirentes não optantes pelo regime único podem apropriar créditos do IBS e da CBS sobre bens e serviços adquiridos de optantes pelo regime único, equivalentes ao montante cobrado nesse regime."
+  },
+  "gabarito": "E",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q057",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 57,
+  "enunciado": "A Empresa Pública Correios e Telégrafos (ECT), responsável pelo serviço postal, possui um centro de distribuição de encomendas em um imóvel localizado no Município XYZ. Esse imóvel é utilizado exclusivamente para a execução de atividades postais, que constituem a finalidade essencial da empresa. O Município XYZ, entretanto, cobrou da ECT o IPTU sobre a propriedade desse imóvel. Com base na Constituição Federal, com as alterações da Emenda Constitucional nº 132/2023, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "O Município XYZ pode cobrar o imposto, pois a imunidade tributária se aplica apenas a imóveis de autarquias e fundações.",
+   "B": "O Município XYZ pode cobrar o imposto, desde que destine a arrecadação exclusivamente ao custeio de serviços públicos essenciais.",
+   "C": "A ECT é imune ao imposto, conforme previsão constitucional, pois o imóvel é utilizado exclusivamente para finalidades essenciais do serviço postal.",
+   "D": "A cobrança do imposto é permitida, pois o imóvel da ECT está sujeito à tributação no Município onde está localizado.",
+   "E": "O Município XYZ pode cobrar o imposto, pois a imunidade tributária se aplica apenas aos serviços prestados, e não ao patrimônio da empresa pública. AUDITOR FISCAL TRIBUTÁRIO – GESTÃO TRIBUTÁRIA – TARDE"
+  },
+  "gabarito": "C",
+  "incidencia": "",
+  "bloco": "Bloco 1 — Sistema Tributário Nacional: Conceitos e Princípios"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q058",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 58,
+  "enunciado": "A Emenda Constitucional nº 132/2023, que implementou a reforma tributária, acrescentou o inciso VIII ao artigo 153 da Constituição, criando a possibilidade de ser instituído imposto, de competência da União. Sobre o imposto seletivo, é correto afirmar que",
+  "alternativas": {
+   "A": "poderá incidir sobre as exportações e sobre as operações com energia elétrica.",
+   "B": "poderá ter o mesmo fato gerador e base de cálculo de outros tributos.",
+   "C": "integrará sua própria base de cálculo.",
+   "D": "não integrará a base de cálculo do Imposto sobre Bens e Serviços (IBS) e da Contribuição sobre Bens e Serviços (CBS).",
+   "E": "terá suas alíquotas fixadas em lei complementar, devendo ser específicas, por unidade de medida adotada."
+  },
+  "gabarito": "B",
+  "incidencia": "",
+  "bloco": "Bloco 4 — Reforma Tributária e Regimes Especiais"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q059",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 59,
+  "enunciado": "Carlos, ao falecer, deixou como herança bens móveis e títulos financeiros de valor elevado. Seu filho, Pedro, residente em outro Estado, é o único herdeiro de Carlos. Como o patrimônio inclui quantias significativas, Pedro está preocupado e gostaria de entender melhor a incidência do imposto sobre transmissão causa mortis e doação (ITCMD). De acordo com a Constituição Federal, com as alterações da Emenda Constitucional nº 132/2023 (“Reforma Tributária”), a incidência do ITCMD no caso se dará do seguinte modo:",
+  "alternativas": {
+   "A": "o imposto deverá ser fixo, sem variação de acordo com o valor dos bens herdados.",
+   "B": "o imposto será progressivo em razão do valor do quinhão, do legado ou da doação.",
+   "C": "não haverá incidência de imposto sobre a herança destinada a Pedro, pois o seu pai residia em outro Estado.",
+   "D": "o imposto não é devido, pois sua hipótese de incidência se limita à transmissão causa mortis de bens imóveis.",
+   "E": "o imposto será devido no Estado de domicílio de Pedro."
+  },
+  "gabarito": "B",
+  "incidencia": "",
+  "bloco": "Bloco 3 — Administração Tributária e Tributos em Espécie"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q060",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Direito Tributário",
+  "assunto": "Direito Tributário",
+  "numero_original": 60,
+  "enunciado": "João possui uma frota de veículos que inclui três automóveis, uma lancha registrada para transporte particular e um trator utilizado em suas atividades agrícolas. Considerando as modificações trazidas pela Emenda Constitucional nº 132/2023 (“Reforma Tributária”), em relação ao Imposto sobre a Propriedade de Veículos Automotores (IPVA), o IPVA poderá incidir sobre a propriedade",
+  "alternativas": {
+   "A": "dos automóveis e da lancha, não incidindo sobre a do trator, uma vez que este é utilizado em atividades agrícolas.",
+   "B": "dos automóveis apenas, já que a lancha é de uso pessoal e o trator tem destinação agrícola.",
+   "C": "de todos os veículos (os automóveis, a lancha e o trator).",
+   "D": "da lancha, somente, por ser um veículo aquático de uso pessoal, não estando incluída nas imunidades previstas na Constituição.",
+   "E": "do trator e dos automóveis, não incidindo sobre a da lancha. SECRETARIA MUNICIPAL DE FAZENDA DE CUIABÁ Gestão e Liderança no Setor Público"
+  },
+  "gabarito": "A",
+  "incidencia": "",
+  "bloco": "Bloco 3 — Administração Tributária e Tributos em Espécie"
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q061",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Administração Pública",
+  "assunto": "Gestão e Governança no Setor Público",
+  "numero_original": 61,
+  "enunciado": "O orçamento participativo é caracterizado pela participação ativa e direta das comunidades na elaboração e definição das propostas orçamentárias do governo, permitindo que a população influencie as decisões sobre a alocação de recursos e prioridades públicas. Três vantagens principais do orçamento participativo são:",
+  "alternativas": {
+   "A": "Controle total, aumento de impostos e redução de despesas.",
+   "B": "Centralização das decisões, redução de gastos e maior eficiência.",
+   "C": "Responsabilidade, transparência e melhoria das ações.",
+   "D": "Exclusão de grupos externos, aumento de controle e redução de custos.",
+   "E": "Menor participação, aumento de burocracia e controle financeiro."
+  },
+  "gabarito": "C",
+  "incidencia": ""
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q062",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Administração Pública",
+  "assunto": "Gestão e Governança no Setor Público",
+  "numero_original": 62,
+  "enunciado": "A expansão dos conselhos de gestão contribuiu para a complexificação da participação social, promovendo princípios como legitimidade, justiça, autorização e compartilhamento de poder. Um problema relacionado à participação de populações vulneráveis nos processos de tomada de decisão em conselhos de gestão é a",
+  "alternativas": {
+   "A": "alta centralização do poder e ausência de desigualdade social.",
+   "B": "descentralização do poder e processos deliberativos extensivos.",
+   "C": "desigualdade social e baixa participação de populações vulneráveis nos processos decisórios.",
+   "D": "alta participação social e ausência de problemas no compartilhamento de poder.",
+   "E": "participação equitativa e descentralização completa do poder."
+  },
+  "gabarito": "C",
+  "incidencia": ""
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q063",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Administração Pública",
+  "assunto": "Gestão e Governança no Setor Público",
+  "numero_original": 63,
+  "enunciado": "O governo eletrônico (e-gov) utiliza tecnologia da informação e comunicação (TICs) e mudanças organizacionais para melhorar as operações governamentais, aumentando a qualidade, acessibilidade, eficiência, e reduzindo o tempo e custo dos serviços prestados, em resposta às crescentes e mutáveis demandas dos cidadãos. Uma estratégia que o governo pode utilizar para incentivar os cidadãos a adotarem serviços de e-gov, promovendo confiança e confiabilidade é a de",
+  "alternativas": {
+   "A": "aumentar os impostos para financiar serviços online.",
+   "B": "tornar a provisão de serviços online mais rápida do que os métodos tradicionais.",
+   "C": "reduzir a disponibilidade de serviços presenciais para forçar o uso online.",
+   "D": "fornecer serviços online somente para usuários registrados previamente.",
+   "E": "cobrar taxas adicionais para quem preferir utilizar o serviço online. AUDITOR FISCAL TRIBUTÁRIO – GESTÃO TRIBUTÁRIA – TARDE"
+  },
+  "gabarito": "B",
+  "incidencia": ""
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q064",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Administração Pública",
+  "assunto": "Gestão e Governança no Setor Público",
+  "numero_original": 64,
+  "enunciado": "A accountability está fundamentada na produção, concorrência, transparência e nas relações contratuais, representando um afastamento do modelo tradicional de administração pública, que se baseava predominantemente em processos e procedimentos de controle hierárquico, legalidade, confiança e tradições culturais. Assinale a opção que descreve uma implicação da accountability.",
+  "alternativas": {
+   "A": "Os governantes têm total autonomia para definir o que deve ser respondido à sociedade.",
+   "B": "A definição do que deve ser respondido à sociedade é um processo que envolve apenas os ocupantes dos postos públicos.",
+   "C": "Os critérios de prestação de contas são estabelecidos exclusivamente por partidos políticos.",
+   "D": "O dever de prestação de contas dos governantes e ocupantes de funções públicas é determinado por um processo democrático mais amplo, que inclui a criação de marcos legais e controles mútuos entre os poderes.",
+   "E": "Accountability se refere apenas à transparência financeira das instituições públicas."
+  },
+  "gabarito": "D",
+  "incidencia": ""
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q065",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Administração Pública",
+  "assunto": "Gestão e Governança no Setor Público",
+  "numero_original": 65,
+  "enunciado": "O Guia de Orientações para Cumprimento da Lei de Acesso à Informação (LAI) para estados e municípios, elaborado pela Controladoria-Geral da União (CGU) como parte do Programa LAI para Todos, visa orientar gestores estaduais e municipais na implementação efetiva da LAI, fortalecendo o acesso à informação. Um benefício proporcionado pela LAI para a sociedade e a administração pública, é o de",
+  "alternativas": {
+   "A": "restringir o acesso a contratos governamentais.",
+   "B": "diminuir a participação popular na tomada de decisões.",
+   "C": "limitar a transparência nos processos de licitação.",
+   "D": "reduzir o respeito aos direitos fundamentais dos cidadãos.",
+   "E": "Estimular o controle social e prevenção da corrupção."
+  },
+  "gabarito": "E",
+  "incidencia": ""
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q066",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Administração Pública",
+  "assunto": "Gestão e Governança no Setor Público",
+  "numero_original": 66,
+  "enunciado": "A gestão por resultados na produção de serviços públicos foca em alcançar metas e objetivos específicos, utilizando indicadores de desempenho para melhorar a eficiência, a qualidade e a transparência das ações governamentais. Dentre o(s) requisito(s) necessário(s) para que uma instituição alcance os resultados esperados pode-se citar",
+  "alternativas": {
+   "A": "apenas o uso de tecnologia avançada.",
+   "B": "gestão por resultados foca exclusivamente em números e indicadores financeiros para avaliar o desempenho institucional.",
+   "C": "estrutura adequada, processos de trabalho eficientes, tecnologia compatível e profissionais qualificados com as competências necessárias.",
+   "D": "apenas a dependência do desempenho institucional com as metas estabelecidas para as unidades administrativas, sem a necessidade de envolver os indivíduos.",
+   "E": "que gestão por resultados não requer a adaptação dos processos de trabalho ou a qualificação dos profissionais envolvidos. SECRETARIA MUNICIPAL DE FAZENDA DE CUIABÁ"
+  },
+  "gabarito": "C",
+  "incidencia": ""
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q067",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Administração Pública",
+  "assunto": "Gestão e Governança no Setor Público",
+  "numero_original": 67,
+  "enunciado": "Diversas iniciativas inovadoras em termos de comunicação na gestão pública têm sido experimentadas e aprofundadas, contribuindo para reforçar a democracia e revelando um posicionamento mais aberto ao diálogo por parte de alguns governos. O termo utilizado para se referir ao uso das tecnologias da informação e comunicação com o objetivo de fortalecer a interação entre o Estado e a sociedade, ampliando e aprofundando os mecanismos democráticos, é:",
+  "alternativas": {
+   "A": "Democracia digital.",
+   "B": "Governo autocrático.",
+   "C": "Burocracia digital.",
+   "D": "Autoritarismo virtual.",
+   "E": "Centralização eletrônica."
+  },
+  "gabarito": "A",
+  "incidencia": ""
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q068",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Administração Pública",
+  "assunto": "Gestão e Governança no Setor Público",
+  "numero_original": 68,
+  "enunciado": "Gestão de projetos é o processo de tomar e implementar decisões para escolher, planejar, executar, controlar e encerrar o projeto. Os métodos preditivos de gestão de projetos, são caracterizados por",
+  "alternativas": {
+   "A": "flexibilidade contínua para adaptar o escopo durante a execução do projeto.",
+   "B": "foco exclusivo na interação constante com os stakeholders durante todas as fases do projeto.",
+   "C": "uso predominante em áreas modernas de aplicação, como tecnologia da informação e startups.",
+   "D": "planejamento completo e detalhado de todos os entregáveis antes do início da execução.",
+   "E": "abordagem que permite iniciar a execução do projeto sem um escopo claramente definido."
+  },
+  "gabarito": "D",
+  "incidencia": ""
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q069",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Administração Pública",
+  "assunto": "Gestão e Governança no Setor Público",
+  "numero_original": 69,
+  "enunciado": "Métodos são procedimentos utilizados na gestão de projetos para avaliar ideias e alternativas com base em critérios pré-definidos, garantindo que as decisões sejam alinhadas aos objetivos estratégicos e que os recursos sejam alocados de forma eficiente. O método que envolve avaliações sucessivas, realizadas antes e durante a execução do projeto, onde as ideias que passam por todas os portais são aprovadas e transformadas em projetos do portfólio da organização, é denominado",
+  "alternativas": {
+   "A": "Analytic hierarchy process – AHP.",
+   "B": "Stage-gate.",
+   "C": "Scrum.",
+   "D": "Timeboxing.",
+   "E": "Product backlog."
+  },
+  "gabarito": "B",
+  "incidencia": ""
+ },
+ {
+  "id": "SMF-Cuiabá-2024-P2-Q070",
+  "instituicao": "SMF-Cuiabá",
+  "ano": 2024,
+  "cargo": "Auditor Fiscal Tributário da Receita Municipal — Gestão Tributária",
+  "area": "Administração Pública",
+  "assunto": "Gestão e Governança no Setor Público",
+  "numero_original": 70,
+  "enunciado": "A gestão de processos utiliza técnicas de representação para visualizar, analisar e otimizar as atividades organizacionais, garantindo maior eficiência, controle e alinhamento com os objetivos estratégicos da organização. A técnica usada para representar graficamente o fluxo de uma rotina, detalhando as operações realizadas em cada unidade de trabalho envolvida na análise, os empregados que as executam e como esses as executam, é denominada",
+  "alternativas": {
+   "A": "Lean.",
+   "B": "Fluxograma.",
+   "C": "Hierárquica.",
+   "D": "Organograma.",
+   "E": "Harmonograma. AUDITOR FISCAL TRIBUTÁRIO – GESTÃO TRIBUTÁRIA – TARDE Realiz zação"
+  },
+  "gabarito": "E",
+  "incidencia": ""
+ }
+]
