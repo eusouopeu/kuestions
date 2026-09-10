@@ -1,0 +1,659 @@
+{
+  "instituicao": "SEFAZ-MG",
+  "ano": 2022,
+  "cargo": "Auditor Fiscal da Receita Estadual (Auditoria e Fiscalização)",
+  "tipo_prova": "BRANCA",
+  "gabarito_tipo": 1,
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "De acordo com a NBC TA 530 – Amostragem em Auditoria, o risco de amostragem pode levar a conclusões errôneas como, por exemplo, no caso de teste de controles, em que os controles são considerados menos eficazes do que realmente são ou, no caso de teste de detalhes, em que seja identificada distorção relevante, quando, na verdade, ela não existe.\n\nEsse tipo de conclusão errônea afeta a eficiência da auditoria porque",
+      "alternativas": {
+        "A": "compromete a credibilidade do trabalho realizado.",
+        "B": "influencia o auditor a emitir uma opinião de auditoria não apropriada.",
+        "C": "pode levar a um trabalho adicional para estabelecer que as conclusões iniciais estavam incorretas.",
+        "D": "prejudica a comparabilidade com as demonstrações contábeis de períodos anteriores.",
+        "E": "gera a demanda pela contratação de especialistas para dar suporte a opiniões que deveriam ser tomadas sem a sua presença."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "O auditor pode levar em consideração numerosos fatores para determinar o tamanho da amostra.\n\nAssinale a opção que apresenta um fator que gera efeito negligenciável no tamanho da amostra em teste de controle em populações grandes.",
+      "alternativas": {
+        "A": "Aumento na quantidade de unidades de amostragem na população.",
+        "B": "Aumento na taxa esperada de desvio da população a ser testada.",
+        "C": "Aumento na taxa tolerável de desvio.",
+        "D": "Aumento na extensão na qual a avaliação de risco do auditor leva em consideração os controles relevantes.",
+        "E": "Aumento no nível de segurança desejado do auditor de que a taxa tolerável de desvio não seja excedida pela taxa real de desvio na população."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "O auditor deve definir e executar procedimentos de auditoria que sejam apropriados às circunstâncias com o objetivo de obter evidência de auditoria apropriada e suficiente.\n\nDe acordo com a NBC TA 500 (R1) - Evidência de Auditoria, assinale a opção que indica o procedimento que busca informações junto a pessoas com conhecimento financeiro e não financeiro, dentro ou fora da entidade.",
+      "alternativas": {
+        "A": "Indagação.",
+        "B": "Recálculo.",
+        "C": "Inspeção.",
+        "D": "Observação.",
+        "E": "Confirmação."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "Entre os objetivos do auditor independente está o de obter segurança razoável de que as demonstrações contábeis tomadas em conjunto estão livres de distorção relevante, independentemente de ser causada por fraude ou erro.\n\nEm relação ao risco de não se detectar distorções relevantes resultantes de fraude ou de erro, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "O risco é maior quando resultante de erro, uma vez que pode indicar uma deficiência da entidade em relação a seus concorrentes.",
+        "B": "O risco é maior quando resultante de erro, uma vez que o erro pode indicar que os responsáveis pela elaboração das demonstrações contábeis não estão exercendo o seu trabalho com propriedade.",
+        "C": "O risco é igual quando resultante de fraude e de erro, uma vez que ambos indicam que as demonstrações contábeis não estão refletindo o que se propõe a apresentar.",
+        "D": "O risco é maior quando resultante de fraude, uma vez que os dados podem influenciar de modo incorreto as decisões econômicas de usuários tomadas com base nas demonstrações contábeis.",
+        "E": "O risco é maior quando resultante de fraude, uma vez que a fraude pode envolver conluio, falsificação, omissões intencionais, falsas declarações ou transgressão dos controles internos."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "De acordo com as normas de auditoria do Conselho Federal de Contabilidade, assinale a opção que indica o posicionamento relacionado à apresentação, no relatório do Auditor Independente, da auditoria relacionada à Demonstração do Valor Adicionado (DVA) nas entidades auditadas.",
+      "alternativas": {
+        "A": "Deve ser referenciada em parágrafo na seção \"Opinião\", junto com o resumo das principais políticas contábeis adotadas.",
+        "B": "Deve ser tratada em parágrafo de \"Outros Assuntos\", para simplificar a redação e o entendimento do relatório do auditor independente e manter a uniformidade dos relatórios de auditoria.",
+        "C": "Não deve ser apresentada, uma vez que, segundo a legislação societária brasileira, é obrigatória apenas para as companhias abertas, enquanto não é obrigatória de acordo com as normas internacionais.",
+        "D": "Deve ser tratada em parágrafo de \"Responsabilidade da administração sobre as demonstrações contábeis\", por não ser uma demonstração obrigatória no conjunto de demonstrações contábeis e, sim, uma informação complementar para as companhias abertas, segundo a legislação societária brasileira.",
+        "E": "Deve ser apresentada em parágrafo de \"Outras responsabilidades relativas à emissão do relatório\", uma vez que é obrigatória para as companhias abertas, segundo a legislação societária brasileira, enquanto que de acordo com as IFRS, deve ser considerada uma informação suplementar."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "Uma sociedade empresária apresentava o seguinte balanço patrimonial em 31/12/X1:\n\nAtivo Circulante: 80.000\nCaixa: 50.000\nContas a receber: 30.000\nAtivo não Circulante: 100.000\nAtivo Imobilizado: 100.000\nTerrenos: 100.000\nAtivo Total: 180.000\n\nPatrimônio Líquido: 180.000\nCapital Social: 120.000\nReserva de Lucros: 60.000\nPL Total: 180.000\n\nO montante contabilizado como \"contas a receber\" diz respeito à venda de um ativo imobilizado e tinha previsão de recebimento em fevereiro de X2.\nNo ano de X2, o montante foi recebido, no entanto, a sociedade empresária não baixou este ativo, tendo aumentado a conta Caixa.\nAo auditar as demonstrações contábeis da sociedade empresária, em 31/12/X2, e as demonstrações comparativas relativas a 31/12/X1, os auditores concluíram que",
+      "alternativas": {
+        "A": "a reserva de lucros estava superavaliada no ano de X1, apenas.",
+        "B": "a reserva de lucros estava subavaliada no ano de X2, apenas.",
+        "C": "a reserva de lucros estava superavaliada nos anos de X1 e de X2.",
+        "D": "o ativo circulante estava superavaliado no ano de X2, apenas.",
+        "E": "o ativo circulante estava superavaliado nos anos de X1 e de X2."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "A Cia. Y tem investimentos em outras sociedades empresárias, contabilizando-as como suas controladas em suas demonstrações contábeis.\nNo ano X1, o auditor independente verificou que as demonstrações consolidadas da Cia. Y apresentavam distorções relevantes e generalizadas, devido a não consolidação de empresa controlada. Na auditoria, os efeitos da distorção nas demonstrações contábeis consolidadas não foram determinados por não ser praticável fazê-lo.\nAssinale a opção que indica o relatório emitido pelo auditor independente.",
+      "alternativas": {
+        "A": "Sem ressalva.",
+        "B": "Com ressalva.",
+        "C": "Com opinião adversa.",
+        "D": "Com parágrafo de ênfase.",
+        "E": "Com abstenção de opinião."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "De acordo com a NBC TA 705 - Modificações na Opinião do Auditor Independente, quando o auditor não consegue obter evidência de auditoria apropriada e suficiente para concluir que as demonstrações contábeis, como um todo, não apresentam distorções relevantes, deve modificar a opinião em seu relatório.\nA impossibilidade do auditor na obtenção de evidência de auditoria apropriada e suficiente pode ser decorrente de circunstâncias que estão fora do controle da entidade, circunstâncias relacionadas com a natureza ou a época do trabalho do auditor e decorrentes de limitações impostas pela administração.\nCom base na auditoria do ativo circulante de uma entidade, relacione a impossibilidade do auditor em obter evidência de auditoria apropriada e suficiente a um exemplo desta impossibilidade.\n\nI - circunstâncias que estão fora do controle da entidade.\nII - circunstâncias relacionadas com a natureza ou época do trabalho do auditor.\nIII - limitações no alcance da auditoria impostas pela administração.\n\n( ) a nomeação do auditor é feita na época em que o auditor não consegue acompanhar a contagem física dos estoques.\n( ) a administração não permite que o auditor solicite confirmação externa de saldos contábeis a receber de clientes.\n( ) os registros contábeis do pagamento antecipado de despesas foram destruídos em um incêndio.\n\nAssinale a opção que apresenta a relação correta, segundo a ordem apresentada.",
+      "alternativas": {
+        "A": "I – II – III.",
+        "B": "I – III – II.",
+        "C": "II – I – III.",
+        "D": "II – III – I.",
+        "E": "III – I – II."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Um auditor independente, após aceitar o trabalho, tomou conhecimento que a administração impôs uma limitação ao alcance da auditoria relacionada aos elementos do passivo.\nO auditor julgou que os efeitos das distorções não detectadas sobre as demonstrações contábeis por conta da limitação, poderiam ser relevantes. O auditor solicitou que a administração retirasse a limitação, mas não foi atendido. Ainda, o auditor constatou que todos os responsáveis pela governança estavam envolvidos na administração da entidade e determinou que não seria possível executar procedimentos alternativos para obter evidência apropriada sobre os elementos do passivo.\nO auditor concluiu que os possíveis efeitos de distorções não detectadas sobre as demonstrações contábeis, se houver, poderiam ser relevantes, mas não generalizados.\nNesse caso, o auditor deve",
+      "alternativas": {
+        "A": "renunciar ao trabalho de modo imediato.",
+        "B": "emitir uma opinião com ressalva.",
+        "C": "abster-se de expressar uma opinião.",
+        "D": "obrigar a sociedade empresária a contratar um especialista.",
+        "E": "obrigar a sociedade empresária a contratar outro auditor para que seja emitida uma opinião conjunta."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "Considerando a auditoria do patrimônio líquido, analise as afirmativas a seguir.\n\nI. Verificar a composição da conta Capital entre os diversos acionistas existentes.\nII. Determinar a quantidade de ações ou títulos de propriedade do capital e se estes foram adequadamente autorizados ou emitidos.\nIII. Determinar se todas as normas descritas nos estatutos sociais, as obrigações sociais e legais foram cumpridas.\n\nEm relação aos objetivos da auditoria das contas do patrimônio líquido de uma entidade, está correto o que se afirma em",
+      "alternativas": {
+        "A": "I, apenas.",
+        "B": "I e II, apenas.",
+        "C": "I e III, apenas.",
+        "D": "II e III, apenas.",
+        "E": "I, II e III."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Uma sociedade empresária tinha 80% de participação na Cia. X. Em 30/12/X0, a sociedade empresária apresentava o seguinte balanço patrimonial:\n\nAtivo Circulante: 30.000\nCaixa: 30.000\nAtivo não Circulante: 48.000\nInvestimentos: 48.000 (Cia X)\nAtivo Total: 78.000\n\nPatrimônio Líquido: 78.000\nPL Total: 78.000\n\nNo ano de X0, a Cia. X auferiu lucro de R$ 10.000 e distribuiu dividendos no total de R$ 2.000.\n\nAssinale a opção que indica o saldo da conta \"Investimentos\" no balanço patrimonial da sociedade empresária em 31/12/X0, após a apuração do lucro e o reconhecimento dos dividendos pela Cia X.",
+      "alternativas": {
+        "A": "R$ 54.000.",
+        "B": "R$ 54.400.",
+        "C": "R$ 56.000.",
+        "D": "R$ 57.600.",
+        "E": "R$ 60.000."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Uma entidade apresentava o seguinte balanço patrimonial em 31/12/X0:\n\nAtivo Circulante: 30.000\nCaixa: 30.000\nAtivo não Circulante: 110.000\nPropriedade para Investimento: 40.000\nTerrenos: 40.000\nImobilizado: 100.000\nMáquina: 100.000\nDepreciação Acumulada: -30.000\nAtivo Total: 140.000\n\nPatrimônio Líquido: 140.000\nPL Total: 140.000\n\nNo ano de X1, a entidade passou a reconhecer os terrenos a valor justo, que era de R$ 60.000. Ainda, a entidade passou a depreciar a máquina de acordo com o método dos benefícios gerados.\nDe acordo com a NBC TG 23 (R2) - Políticas Contábeis, Mudança de Estimativa e Retificação de Erro, assinale a opção que indica a classificação das mudanças do reconhecimento do terreno e do método de depreciação, respectivamente.",
+      "alternativas": {
+        "A": "Estimativa / estimativa.",
+        "B": "Erro / política contábil.",
+        "C": "Política contábil / estimativa.",
+        "D": "Estimativa / política contábil.",
+        "E": "Política contábil / política contábil."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "A Cia. ABC é uma Sociedade Empresária brasileira que constituiu uma subsidiária integral para operar nos Estados Unidos. Esta será avaliada de acordo com o método da equivalência patrimonial.\nA moeda funcional da Cia. ABC é o real, enquanto foi definido que a investida norte-americana terá como moeda funcional o dólar.\nPara o início das operações da investida no exterior, a Cia. ABC enviou ativos equivalentes a 5.000 dólares, assim constituídos:\n\n- Estoques, vendidos a prazo, com vencimento em 30 dias: 500 dólares\n- Máquina: 1.000 dólares. Na data, a máquina era depreciada de acordo com o método da linha reta.\n- Empréstimo, cuja intenção efetiva era a transformação em capital social em até 90 dias: 1.000 dólares\n- Integralização de capital social: 3.500 dólares\n\nDe acordo com a característica do tratamento da variação cambial e a NBC TG 02 (R3) - Efeitos das Mudanças nas Taxas de Câmbio e Conversão de Demonstrações Contábeis, assinale a opção que indica a apresentação de cada elemento, respectivamente, nas Demonstrações Contábeis Individuais da Cia. ABC.",
+      "alternativas": {
+        "A": "Ativo circulante / Investimento / Investimento.",
+        "B": "Investimento / Investimento / Investimento.",
+        "C": "Ativo circulante / Ativo circulante / Investimento.",
+        "D": "Ativo circulante / Ativo realizável a longo prazo / Investimento.",
+        "E": "Ativo Circulante / Ativo circulante / ativo realizável a longo prazo."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "A Cia. A tinha participação de 100% na Cia. B. A Cia. B tinha ativos e passivos com terceiros. Em X1, a Cia. A incorpora a Cia. B. Assinale a opção que indica o(s) elemento(s) do balanço patrimonial no(s) qual(ais) não deverá haver alteração após a incorporação.",
+      "alternativas": {
+        "A": "Ativo e passivo, apenas.",
+        "B": "Ativo e patrimônio líquido, apenas.",
+        "C": "Passivo e patrimônio líquido, apenas.",
+        "D": "Ativo, apenas.",
+        "E": "Patrimônio líquido, apenas."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Uma sociedade empresária produz e vende material de limpeza. Em janeiro de X0, foram contabilizados os seguintes custos:\n\n- Matéria prima: R$ 50.000\n- Aluguel da fábrica: R$ 15.000.\n- Salários dos empregados: R$ 60.000\n- Depreciação das máquinas: R$ 12.000\n- Conserto das máquinas: R$ 8.000\n\nConforme contrato de longo prazo, o aluguel da fábrica é reajustado mensalmente em 0,5%.\nJá as máquinas são depreciadas de acordo com o método das quotas decrescentes.\n\nAssinale a opção que indica os custos fixos contabilizados pela sociedade empresária em janeiro de X0.",
+      "alternativas": {
+        "A": "R$ 68.000.",
+        "B": "R$ 75.000.",
+        "C": "R$ 80.000.",
+        "D": "R$ 95.000.",
+        "E": "R$ 145.000."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Uma entidade emitiu debêntures no valor de R$ 100.000. No processo, a entidade incorreu nos seguintes gastos, exclusivamente vinculados ao lançamento destas debêntures:\n\n- Custos de registro: R$ 7.000\n- Custos internos administrativos: R$ 6.000\n- Custos relativos à elaboração de prospectos e relatórios: R$ 5.000\n- Remuneração de serviços profissionais de consultores: R$ 10.000\n\nDe acordo com a NBC TG 08 – Custos de Transação e Prêmios na Emissão de Títulos e Valores Mobiliários, assinale a opção que indica a mensuração e apresentação das debêntures no balanço patrimonial da entidade, na data do registro inicial da captação.",
+      "alternativas": {
+        "A": "R$ 72.000 no passivo.",
+        "B": "R$ 78.000 no passivo.",
+        "C": "R$ 85.000 no passivo.",
+        "D": "R$ 100.000 no passivo e R$ 22.000 no ativo.",
+        "E": "R$ 100.000 no passivo e R$ 28.000 no ativo."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Uma entidade produz e vende bolas de futebol.\nEm 01/01/X0, o valor do estoque inicial de bolas era de R$ 15.000. No ano de X1, foram reconhecidos os seguintes custos na produção das bolas:\n\n- Matéria prima: R$ 127.000\n- Mão de obra direta: R$ 120.000\n- Mão de obra indireta: R$ 80.000\n- Aluguel da fábrica: R$ 36.000\n- Depreciação da máquina: R$ 23.000\n- Energia: R$ 30.000\n\nAssinale a opção que indica os custos de transformação, considerando que em 31/12/X1, o valor do estoque de bolas era de R$ 5.000.",
+      "alternativas": {
+        "A": "R$ 173.000.",
+        "B": "R$ 209.000.",
+        "C": "R$ 253.000.",
+        "D": "R$ 289.000.",
+        "E": "R$ 416.000."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Uma sociedade empresária recebe subvenção governamental por meio de isenção de imposto sobre a renda.\nDe acordo com a NBC TG 07 (R2) – Subvenção e Assistência Governamentais, assinale a opção que indica o tratamento contábil da subvenção nas demonstrações contábeis da sociedade empresária.",
+      "alternativas": {
+        "A": "No balanço patrimonial, como aumento no ativo e aumento no patrimônio líquido.",
+        "B": "No balanço patrimonial, como diminuição no passivo e aumento no patrimônio líquido.",
+        "C": "Na demonstração das mutações do patrimônio líquido, como aumento de reserva de capital.",
+        "D": "Na demonstração do resultado do exercício, como reconhecimento de despesa e reconhecimento de receita.",
+        "E": "Não há reconhecimento contábil."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "B",
+      "enunciado": "Em relação ao tipo de custeio, avalie as entidades listadas abaixo.\n\nI. Sociedade Empresária Indústria de petróleo.\nII. Sociedade Empresária de telefonia.\nIII. Sociedade Empresária de construção civil.\nIV. Sociedade Empresária de saneamento básico.\nV. Sociedade Empresária de Escritório de consultoria.\n\nSão exemplos de custeio por produção contínua apenas as entidades listadas em",
+      "alternativas": {
+        "A": "I, III e IV.",
+        "B": "I, II e IV.",
+        "C": "I, II e V.",
+        "D": "II, III e IV.",
+        "E": "II, III e V."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "D",
+      "enunciado": "Uma sociedade empresária deseja apurar o custo dos produtos fabricados conforme a produção. Para isso utiliza uma taxa de aplicação de custos indiretos de produção. A taxa de aplicação calculada foi de R$ 2,00, enquanto a taxa real dos custos indiretos de produção foi de 2,3. A diferença entre as taxas pode ser justificada pelas variações",
+      "alternativas": {
+        "A": "do preço de venda e do desperdício de material.",
+        "B": "do valor monetário dos custos e do preço de venda.",
+        "C": "do volume de produção e do valor monetário dos custos.",
+        "D": "da ociosidade das máquinas e do desperdício de material.",
+        "E": "do desperdício de material e da produtividade da mão de obra."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "C",
+      "enunciado": "Em determinado período, uma sociedade empresária apresentava grau de alavancagem operacional de 1,27.\nEm relação à sociedade empresária, assinale a opção correta.",
+      "alternativas": {
+        "A": "O lucro operacional é 27% maior do que o lucro antes do imposto sobre a renda.",
+        "B": "Se as despesas financeiras diminuírem em 40%, o seu lucro aumentará em 10%.",
+        "C": "Se o volume de vendas aumentar em 10%, o seu lucro aumentará em 27%.",
+        "D": "Se as despesas financeiras diminuírem em 27%, o seu lucro aumentará em 10%.",
+        "E": "Se o volume de vendas aumentar em 10%, o seu lucro aumentará em 40%."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "A",
+      "enunciado": "Uma indústria produz e vende canecas. No ano de X5, foram vendidas 45.000 canecas. Nesse ano, a Receita Líquida de Vendas foi de R$ 900.000, enquanto os custos e as despesas fixas foram, respectivamente, de R$ 330.000 e R$ 120.000. Ainda, os custos variáveis totais foram de R$ 360.000.\nAssinale a opção que indica a margem de segurança da indústria em X5.",
+      "alternativas": {
+        "A": "16,67%.",
+        "B": "20,00%.",
+        "C": "36,40%.",
+        "D": "38,89%.",
+        "E": "63,64%."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Estatística",
+      "gabarito": "D",
+      "enunciado": "Considere a amostra de idades a seguir:\n\n25, 18, 21, 21, 22, 22, 23, 23, 25, 26, 28, 29, 31, 30, 52, 28, 55, 18, 22, 20, 27.\n\nEm relação a essa amostra, avalie as afirmativas a seguir.\n\nI. A mediana é igual a 25.\nII. A média é maior do que a mediana.\nIII. A moda é menor do que a mediana.\n\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "I, apenas.",
+        "B": "I e II, apenas.",
+        "C": "I e III, apenas.",
+        "D": "II e III, apenas.",
+        "E": "I, II e III."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Estatística",
+      "gabarito": "B",
+      "enunciado": "Considere a seguinte amostra aleatória simples:\n\n2, 5, 5, 6, 6, 7, 7, 10.\n\nA variância amostral que corresponde à estimativa não tendenciosa da variância populacional é aproximadamente igual a",
+      "alternativas": {
+        "A": "4,5.",
+        "B": "5,1.",
+        "C": "5,5.",
+        "D": "5,8.",
+        "E": "6,2."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Estatística",
+      "gabarito": "A",
+      "enunciado": "Numa população, 50% das pessoas têm uma certa característica C. Se oito pessoas desta população foram aleatoriamente sorteadas com reposição, a probabilidade de que mais de cinco tenham a referida característica é aproximadamente igual a",
+      "alternativas": {
+        "A": "14%.",
+        "B": "18%.",
+        "C": "22%.",
+        "D": "25%.",
+        "E": "29%."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Estatística",
+      "gabarito": "A",
+      "enunciado": "A tabela a seguir mostra a função de probabilidade conjunta de duas variáveis aleatórias X e Y:\n\nTabela:\nValores de X | Valores de Y\n-2 | 0 | 2\n-1 | 0,2 | 0,1 | 0,2\n1 | 0,2 | 0,1 | 0,2\n\nAssim, por exemplo, P[X = 1; Y = 0] = 0,1.\n\nO coeficiente de correlação entre X e Y é igual a",
+      "alternativas": {
+        "A": "0.",
+        "B": "0,1.",
+        "C": "0,2.",
+        "D": "0,5.",
+        "E": "1,0."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Estatística",
+      "gabarito": "B",
+      "enunciado": "Para testar\n\nH0: \u03bc \u2264 100 versus H1: \u03bc > 100,\n\nem que \u03bc é a média de uma variável populacional normalmente distribuída com variância 100, uma amostra aleatória simples de tamanho 100 foi observada e apresentou os seguintes dados:\n\n\u03a3i=1 até 100 xi = 10.200; \u03a3i=1 até 100 (xi - x\u0304)² = 1.584\n\nNesse caso, a regra de decisão usual e a respectiva decisão, ao nível de significância de 1% são, respectivamente,\n\n[dado: Se Z ~ N(0, 1), P[ Z < 2,33] = 0,99]",
+      "alternativas": {
+        "A": "rejeitar H0 se X > 104,62 / não rejeitar H0.",
+        "B": "rejeitar H0 se X > 106,54 / não rejeitar H0.",
+        "C": "rejeitar H0 se X > 100,466 / rejeitar H0.",
+        "D": "rejeitar H0 se X < 101,432 / não rejeitar H0.",
+        "E": "rejeitar H0 se X > 108,50 / rejeitar H0."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Estatística",
+      "gabarito": "D",
+      "enunciado": "O menor tamanho da amostra aleatória simples para que possamos garantir, com 99% de confiança, que a proporção de sucessos amostral não diferirá da proporção de sucessos populacional por mais de 1% deve ser aproximadamente igual a [dado: se Z ~ N(0, 1), P[ Z < 2,58] = 0,995]",
+      "alternativas": {
+        "A": "1.032.",
+        "B": "4.236.",
+        "C": "6.488.",
+        "D": "16.642.",
+        "E": "18.544."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "A Lei Complementar 192/2022 trouxe alterações na tributação dos combustíveis. Quanto ao gás liquefeito de petróleo, é correto afirmar que o ICMS,",
+      "alternativas": {
+        "A": "qualquer que seja sua finalidade, incidirá mais de uma vez.",
+        "B": "decorrente de suas operações caberá ao Estado de Origem.",
+        "C": "nas operações destinadas a não contribuinte, o imposto caberá ao Estado onde ocorrer o consumo.",
+        "D": "nas operações interestaduais entre contribuintes, será repartido entre os Estados de origem e de destino, mantendo-se a mesma proporcionalidade que ocorre nas operações com as demais mercadorias.",
+        "E": "nas operações interestaduais entre contribuintes, caberá ao Estado onde ocorrer o consumo."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "O SIMPLES Nacional, instituído pela Lei Complementar 123/2006, visa a ajudar na formalização das micro e pequenas empresas, mas não é uma opção para todas que tenham receitas inferiores aos limites legais. Podem aderir ao SIMPLES",
+      "alternativas": {
+        "A": "As cooperativas de consumo.",
+        "B": "As empresas cujos titulares ou sócios guardem, cumulativamente, com o contratante do serviço, relação de pessoalidade, subordinação e habitualidade.",
+        "C": "As empresas que participem do capital de outra pessoa jurídica.",
+        "D": "As empresas que sejam filiais no país de pessoas jurídicas com sede no exterior.",
+        "E": "As empresas que sejam agências no país de pessoas jurídicas com sede no exterior."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Joana de Sousa adquire em uma licitação da Receita um videogame que havia sido importado do exterior e apreendido pela falta de documento fiscal.\nA base de cálculo do ICMS sobre tal operação, será",
+      "alternativas": {
+        "A": "Valor da mercadoria ou bem constante dos documentos de importação, o imposto sobre operações de câmbio e imposto de importação.",
+        "B": "Valor da mercadoria ou bem constante dos documentos de importação, o imposto sobre operações de câmbio e imposto sobre produtos industrializados.",
+        "C": "Valor da operação.",
+        "D": "Preço corrente no mercado atacadista do estabelecimento remetente.",
+        "E": "Valor da operação acrescido do valor dos impostos de importação e sobre produtos industrializados e de todas as despesas cobradas ou debitadas ao adquirente."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "Acerca da Lei Complementar nº 160/2017 e seu papel na regularização da concessão de certas isenções, incentivos e benefícios fiscais ou financeiro-fiscais de ICMS, analise as afirmativas a seguir e assinale (V) para a verdadeira e (F) para a falsa.\n\n( ) Mediante convênio de ICMS celebrado no âmbito do Conselho Nacional de Política Fazendária, poderá ser autorizada a remissão dos créditos tributários, constituídos ou não, decorrentes das isenções, dos incentivos e dos benefícios fiscais ou financeiro-fiscais instituídos anteriormente sem tal convênio por legislação estadual publicada até a data de início de produção de efeitos da LC 160/2017.\n( ) Os convênios de ICMS celebrados no âmbito da LC 160/2017 poderão ser aprovados e ratificados com o voto favorável de, no mínimo, 2/3 (dois terços) das unidades federadas e 1/3 (um terço) das unidades federadas integrantes de cada uma das 5 (cinco) regiões do país.\n( ) Compete ao Tribunal de Contas de cada Estado ou do Distrito Federal verificar a aplicação, pela União, da sanção de impedimento de receber transferências voluntárias à unidade federada que conceder ou mantiver isenções, incentivos e benefícios fiscais ou financeiro-fiscais de ICMS sem autorização de convênio celebrado no âmbito do Conselho Nacional de Política Fazendária.\n\nAs afirmativas são, na ordem apresentada, respectivamente,",
+      "alternativas": {
+        "A": "V, V e V.",
+        "B": "V, V e F.",
+        "C": "F, V e V.",
+        "D": "F, F e V.",
+        "E": "F, F e F."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "O ICMS, responsável por grande parte da arrecadação dos Estados, incide sobre",
+      "alternativas": {
+        "A": "as operações de qualquer natureza de que decorra a transferência de bens móveis salvados de sinistro para companhias seguradoras.",
+        "B": "as operações de qualquer natureza de que decorra a transferência de propriedade de estabelecimento industrial, comercial ou de outra espécie.",
+        "C": "os serviços de transmissão e distribuição e encargos setoriais vinculados às operações com energia elétrica.",
+        "D": "a entrada de bem importado do exterior, por pessoa física ou jurídica, ainda que não seja contribuinte habitual do imposto, qualquer que seja a sua finalidade.",
+        "E": "as operações com ouro, quando definido em lei como ativo financeiro ou instrumento cambial."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "A característica e a facilidade do Regime Especial Unificado de Arrecadação de Tributos e Contribuições devidos pelas Microempresas e Empresas de Pequeno Porte - Simples Nacional é o recolhimento mensal, mediante documento único de arrecadação de tributos. Sobre os tributos que serão recolhidos neste documento único, assinale a alternativa correta.",
+      "alternativas": {
+        "A": "A contribuição para manutenção da Seguridade Social, relativa ao trabalhador e o Imposto sobre a Renda da Pessoa Jurídica – IRPJ.",
+        "B": "O imposto sobre Produtos Industrializados – IPI, exceto o incidente na importação de bens e serviços e a contribuição Social sobre o Lucro Líquido – CSLL.",
+        "C": "A contribuição para o PIS/Pasep incidente na importação de bens e serviços e Imposto sobre Operações Relativas à Circulação de Mercadorias e Sobre Prestações de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação – ICMS.",
+        "D": "A contribuição previdenciária patronal de prestação de serviços advocatícios e Imposto sobre Serviços de Qualquer Natureza – ISS.",
+        "E": "O imposto sobre a Renda relativo aos ganhos de capital auferidos na alienação de bens do ativo permanente e a Contribuição para o Financiamento da Seguridade Social – COFINS."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "O imposto sobre operações relativas à circulação de mercadorias e sobre prestações de serviços de transporte interestadual e intermunicipal e de comunicação – ICMS, pela diversidade de situações possíveis e principalmente por tratar de circulação por Estados membros distintos, tem regras específicas sobre o momento da ocorrência do fato gerador.\n\nAssinale a opção que indica, corretamente, uma dessas regras.",
+      "alternativas": {
+        "A": "A transmissão de propriedade de mercadoria, quando esta tiver transitado pelo estabelecimento transmitente.",
+        "B": "A entrada no território do Estado de bem ou mercadoria oriundos de outro Estado adquiridos por contribuinte do imposto e destinados ao seu uso ou consumo ou à integração ao seu ativo imobilizado.",
+        "C": "A saída de estabelecimento de contribuinte, de bem ou mercadoria destinados a consumidor final, contribuinte do imposto domiciliado ou estabelecido em outro Estado.",
+        "D": "O fornecimento de mercadoria com prestação de serviços compreendidos na competência tributária dos Municípios.",
+        "E": "O ato final da prestação de serviços de transporte interestadual e intermunicipal, de qualquer natureza."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "A Sociedade Empresária GrowEver aderiu ao Simples Nacional em 2016 e, no mês de agosto de 2022, acabou extrapolando em 15% (quinze por cento) o limite de receita bruta para as Empresas de Pequeno Porte, apenas vendendo para o mercado nacional.\nAssinale a opção que indica o que a Sociedade Empresária deverá comunicar à Secretaria da Receita Federal.",
+      "alternativas": {
+        "A": "Sua exclusão do Simples Nacional em setembro de 2022 por ter extrapolado o limite de receita bruta em mais de 10%.",
+        "B": "O prazo de readequação da receita bruta até agosto de 2023.",
+        "C": "Sua exclusão do Simples Nacional em janeiro de 2023 por ter extrapolado o limite de receita bruta em menos de 20%.",
+        "D": "A extrapolação dos limites e se submeter a novas alíquotas.",
+        "E": "Só ter receitas do mercado nacional, o que impedirá sua exclusão do Simples Nacional."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "O produtor rural Dirceu da Silva faz parte da Cooperativa de Produtores de sua cidade no interior de Minas Gerais.\nAssinale a opção que indica como deve ser recolhido o ICMS devido nas suas remessas de produtos.",
+      "alternativas": {
+        "A": "O ICMS fica suspenso e será recolhido pelo destinatário quando da saída subsequente, esteja sujeita ou não ao pagamento do tributo.",
+        "B": "O ICMS deve ser recolhido pelo produtor na remessa.",
+        "C": "O ICMS fica suspenso e será recolhido pelo destinatário quando da saída subsequente, desde que esteja sujeito ao pagamento do tributo.",
+        "D": "Esta operação está isenta de ICMS.",
+        "E": "O ICMS deverá ser recolhido pela própria Cooperativa ao receber os produtos."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "A Sociedade Empresária TOPHIGH atua na formulação de combustíveis, produzindo gasolina e óleo diesel por meio de mistura mecânica de hidrocarbonetos líquidos. Assinale a opção que indica corretamente a situação da empresa em relação ao ICMS.",
+      "alternativas": {
+        "A": "Não é contribuinte, por apenas fazer a mistura de combustíveis de forma mecânica.",
+        "B": "Não é contribuinte, por não ser importadora de combustíveis.",
+        "C": "É contribuinte solidária em relação às refinarias.",
+        "D": "É contribuinte subsidiária em relação às refinarias.",
+        "E": "É contribuinte do ICMS."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "A Sociedade Empresária Mar&Sea desenvolve atividade de pesca de crustáceos, moluscos e peixes, atuando em alto mar e fazendo entregas em diversos Estados da federação. Para fins da cobrança do ICMS e definição do estabelecimento responsável, considera-se o local da operação ou da prestação",
+      "alternativas": {
+        "A": "o do Estado em que está localizado o adquirente, inclusive consumidor final.",
+        "B": "o de desembarque do produto.",
+        "C": "onde tenha se iniciado a prestação.",
+        "D": "o do estabelecimento do destinatário, quando o destinatário ou o tomador for contribuinte do imposto.",
+        "E": "o do estabelecimento do remetente ou onde tive início a prestação, quando o destinatário ou tomador não for contribuinte do imposto."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "É sabido que o instituto do MEI (Microempreendedor Individual) é uma política pública que tem por objetivo a formalização de pequenos empreendimentos e a inclusão social e previdenciária. Sobre o MEI, assinale a alternativa correta.",
+      "alternativas": {
+        "A": "É vedado impor restrições ao MEI relativamente ao exercício de profissão ou participação em licitações, em função da sua natureza jurídica, exceto quando for contratado para prestar serviços de hidráulica, eletricidade, pintura, alvenaria, carpintaria e de manutenção ou reparo de veículos.",
+        "B": "A formalização de MEI tem caráter eminentemente econômico ou fiscal.",
+        "C": "O MEI é modalidade de microempresa.",
+        "D": "O empreendedor que exerce atividades de industrialização, comercialização e prestação de serviços no âmbito rural e efetuar seu registro como MEI, perderá a condição de segurado especial da Previdência Social.",
+        "E": "Para o transportador autônomo de cargas inscrito como MEI, o limite de receita bruta anual será de R$ 81.000,00 (oitenta e um mil reais)."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "A sociedade empresária Gazeta Sempre Extra detém um jornal com circulação diária. Ela adquiriu peças sobressalentes para suas máquinas, com a finalidade de evitar problemas em caso de defeitos em alguma delas, especialmente os finais de semana.\nA sociedade empresária terá de pagar o ICMS sobre tais peças?",
+      "alternativas": {
+        "A": "Sim, pois a imunidade constitucional só abrange a circulação de jornais.",
+        "B": "Não, pois sobre tal operação não incide ICMS.",
+        "C": "Sim, pois houve circulação de mercadorias.",
+        "D": "Não, pois a Constituição Federal garante imunidade para tais peças.",
+        "E": "Sim, desde que a circulação diária não atinja 5000 (cinco mil) exemplares."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "Marina Góes adquire em uma licitação da Receita Federal um smartphone que havia sido importado do exterior e apreendido pela falta de documento fiscal.\nHaverá incidência de ICMS sobre tal operação?",
+      "alternativas": {
+        "A": "Não incide na hipótese de apreensão, apenas na de retenção.",
+        "B": "Incide, desde que Joana seja contribuinte habitual do ICMS.",
+        "C": "Não incide, por se tratar de bem de valor inferior a U$1.000,00 (mil dólares americanos).",
+        "D": "Incide, mesmo que Joana não seja contribuinte habitual do ICMS.",
+        "E": "Não incide, por se tratar de bem sem dono."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "A sociedade empresária DXD, após fiscalização da Receita Estadual, teve constatada a declaração em documento fiscal de valor notoriamente inferior ao preço corrente das mercadorias adquiridas, durante um período.\nEm razão desta prática ela teve o ICMS arbitrado nas operações pelo parâmetro do preço de custo da mercadoria acrescido das despesas indispensáveis à manutenção do estabelecimento. As retiradas dos sócios foram excluídas destas despesas indispensáveis.\nSobre a atitude do Fisco, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Está correta, pois enquanto não houver quitação dos valores, não há que se falar em retiradas.",
+        "B": "Está correta, pois só salários podem ser considerados despesas indispensáveis.",
+        "C": "Está correta, pois se o sócio não tiver salário mensal, não poderá fazer retiradas.",
+        "D": "Não está correta, pois a empresa é que define as despesas indispensáveis.",
+        "E": "Não está correta, pois as retiradas dos sócios devem ser consideradas despesas indispensáveis."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "Luiz e Bianca se separaram judicialmente. Luiz deixou definitivamente para Bianca o imóvel do casal, que havia sido adquirido com valores de ambos. Em relação à incidência de ITCD, sobre tal operação, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Não haverá incidência do ITCD.",
+        "B": "Haverá incidência do ITCD sobre o valor integral do imóvel e este deve ser recolhido em até 15 dias da sentença de dissolução da sociedade conjugal.",
+        "C": "Haverá incidência do ITCD sobre o valor que exceder a meação e este deve ser recolhido em até 30 dias do trânsito em julgado da sentença de dissolução da sociedade conjugal.",
+        "D": "Haverá incidência do ITCD sobre o valor que exceder a meação e este deve ser recolhido em até 180 dias do trânsito em julgado da sentença de dissolução da sociedade conjugal.",
+        "E": "Haverá incidência do ITCD sobre o valor que exceder a meação e este deve ser recolhido em até 15 dias do trânsito em julgado da sentença de dissolução da sociedade conjugal."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "O Estado de Minas Gerais reconhece expressamente a imunidade recíproca, disposta pela Constituição Federal, e a não incidência do ICMS sobre as operações com livros, jornais e periódicos, inclusive o papel destinado a sua impressão.\n\nNesse contexto, analise as afirmativas a seguir e assinale (V) para a verdadeira e (F) para a falsa.\n\n( ) O reconhecimento da não incidência do ICMS sobre as operações com papel destinado à impressão de livros, jornais e periódicos independe de ser a empresa comercial do ramo.\n( ) A imunidade recíproca alcança as empresas públicas prestadoras de serviço público e as sociedades de economia mista, desde que prestem serviço público e que dele não retirem lucro.\n( ) A União, os Estados, o Distrito Federal e os Municípios gozam da imunidade, mas não suas autarquias e fundações.\n\nAs afirmativas são, na ordem apresentada, respectivamente,",
+      "alternativas": {
+        "A": "V, V e V.",
+        "B": "V, V e F.",
+        "C": "V, F e V.",
+        "D": "F, V e V.",
+        "E": "F, F e F."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "Rafael Gomes teve um veículo histórico e de coleção com 22 anos de fabricação, furtado em abril de 2022, mas ele conseguiu a recuperação e a devolução do carro em julho de 2022.\nEm relação ao caso, assinale a opção que indica corretamente se haverá algum tipo de isenção do IPVA.",
+      "alternativas": {
+        "A": "Não, pois o veículo foi encontrado e devolvido.",
+        "B": "Não, por veículos históricos e de coleção estarem obrigados ao recolhimento do IPVA.",
+        "C": "Sim, terá isenção pelo ano inteiro.",
+        "D": "Sim, por ser veículo histórico e de coleção já está isento, a partir de 20 anos de fabricação.",
+        "E": "Sim, apenas do período entre a data do furto e a devolução ao proprietário."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "Júlia e Marina são filhas maiores de Joaquim, servidor público aposentado de Minas Gerais. Após o falecimento de Joaquim, o inventário é aberto, sendo suas filhas comunicadas e tendo recebidos valores de diferenças de aposentadoria, pagas pela fonte pagadora de seu pai.\nSobre tais valores, incidirá o Imposto sobre Transmissão Causa Mortis e Doação de Quaisquer Bens ou Direitos – ITCD?",
+      "alternativas": {
+        "A": "Incidirá, pois não tem direito à pensão por morte do pai.",
+        "B": "Não incidirá, assim como no saldo de conta individual do Fundo de Garantia do Tempo de Serviço – FGTS.",
+        "C": "Não incidirá, assim como nos valores correspondentes a remuneração oriunda de relação de trabalho.",
+        "D": "Não incidirá, assim como nas restituições de imposto sobre a renda.",
+        "E": "Incidirá por decorrer do óbito do pai."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "Antônio Palmeira comprou um carro usado na Itália no dia 04/04/2022. O desembaraço aduaneiro foi feito em 09/08/2022. Assinale a opção que indica o momento em que ocorreu o fato gerador do IPVA e se o IPVA será devido de forma integral ou proporcional ao número de dias restantes do ano.",
+      "alternativas": {
+        "A": "O fato gerador ocorreu no desembaraço aduaneiro e o IPVA será devido de forma proporcional ao número de dias restantes do ano.",
+        "B": "O fato gerador ocorreu na data da compra e o IPVA será devido de forma proporcional ao número de dias restantes do ano.",
+        "C": "O fato gerador ocorreu na data da compra e o IPVA será devido de forma integral.",
+        "D": "O fato gerador ocorreu em 1/1/2022 e o IPVA será devido de forma integral.",
+        "E": "O fato gerador ocorreu no desembaraço aduaneiro e o IPVA será devido de forma integral."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "Em Minas Gerais, o Contencioso Administrativo Fiscal é instaurado pela impugnação regular contra lançamento de crédito tributário ou contra indeferimento de pedido de restituição de indébito tributário e também pela reclamação contra decisão que negar seguimento à impugnação. Sobre as hipóteses de extinção do Contencioso Administrativo Fiscal, assinale a que não é prevista.",
+      "alternativas": {
+        "A": "O ingresso em juízo, sobre a matéria objeto do Procedimento Tributário Administrativo, depois de tornada irrecorrível a decisão administrativa.",
+        "B": "O não recolhimento integral da taxa de expediente devida.",
+        "C": "A desistência do recurso de revisão.",
+        "D": "A decisão irrecorrível para ambas as partes.",
+        "E": "O pagamento do crédito tributário."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "Marisa Pedroso recebeu como beneficiária do seu falecido marido, Antônio Pedroso, uma previdência privada com seguro de vida realizados no mesmo contrato. Sobre a incidência do ITCD sobre tais valores, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Incidirá o ITCD apenas sobre os valores recebidos a título de seguro de vida.",
+        "B": "Incidirá o ITCD sobre os valores recebidos a título de previdência privada nos aportes financeiros com rendimentos e também nos valores recebidos a título de seguro de vida.",
+        "C": "Não incidirá o ITCD sobre os valores recebidos a título de previdência privada nos aportes financeiros e nos respectivos rendimentos e nem sobre os valores recebidos a título de seguro de vida.",
+        "D": "Incidirá o ITCD apenas sobre os valores recebidos a título de previdência privada nos aportes financeiros sem os respectivos rendimentos, não incidindo nos valores de seguro de vida.",
+        "E": "Incidirá o ITCD apenas sobre os valores recebidos a título de previdência privada nos aportes financeiros e nos respectivos rendimentos, não incidindo nos valores de seguro de vida."
+      }
+    }
+  ]
+}

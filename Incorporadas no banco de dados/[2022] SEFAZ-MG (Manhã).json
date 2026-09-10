@@ -1,0 +1,1048 @@
+{
+  "instituicao": "SEFAZ-MG",
+  "ano": 2022,
+  "cargo": "Auditor Fiscal da Receita Estadual (Auditoria e Fiscalização)",
+  "tipo_prova": "MANHÃ",
+  "gabarito_tipo": 1,
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Língua Portuguesa",
+      "gabarito": "D",
+      "enunciado": "Nossas necessidades são muitas, mas nossos desejos são incontáveis.\n\nNessa frase, o segundo termo sublinhado mostra uma intensificação do primeiro.\n\nAssinale a opção em que essa estratégia se repete.",
+      "alternativas": {
+        "A": "\"Livros trazem a vantagem de podermos estar sós e acompanhados.\"",
+        "B": "\"Documentários são tão verdadeiros ou tão mentirosos quanto a ficção.\"",
+        "C": "\"O escritor não escreve o que ouve, nem o que houve. Escreve o que sente.\"",
+        "D": "\"Quando você possui um livro com mente e espírito, você enriquece. Mas quando você o passa adiante, enriquece triplamente.\"",
+        "E": "\"Livros são os mais silenciosos e constantes amigos. Os conselheiros mais acessíveis e sábios. E os mais pacientes professores.\""
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "As frases a seguir mostram orações reduzidas, que foram (I) nominalizadas ou (II) modificadas para orações desenvolvidas.\n\nAssinale a opção em que isso não foi feito de forma adequada.",
+      "alternativas": {
+        "A": "Não se pode descobrir novas terras sem aceitar perder de vista a costa por um longo tempo. / (I) sem a aceitação; (II) sem que se aceite.",
+        "B": "Não se pode descobrir novas terras sem aceitar perder de vista a costa por um longo tempo. / (I) sem a perca; (II) sem que se perca.",
+        "C": "A viagem da descoberta consiste não em achar novas paisagens, mas em ver com novos olhos. / (I) no achado de; (II) em que se ache.",
+        "D": "A viagem da descoberta consiste não em achar novas paisagens, mas em ver com novos olhos. / (I) na visão; (II) em que se veja.",
+        "E": "Errar é humano, mas é preciso um computador para realmente pisar no tomate. / (I) uma pisada real; (II) que realmente se pise."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "As frases a seguir foram retiradas de um dicionário de citações. Assinale a frase que apresenta um erro gramatical.",
+      "alternativas": {
+        "A": "Sempre que ensinares, ensine também a duvidar do que se ensina.",
+        "B": "As nações mais avançadas são sempre as que mais navegam.",
+        "C": "O progresso é um grande atraso.",
+        "D": "O automóvel resolve os problemas dos homens, mas estes não resolvem os problemas dos automóveis.",
+        "E": "Meu invento pode ser explorado como uma curiosidade científica por algum tempo; não tem, porém, futuro comercial."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Língua Portuguesa",
+      "gabarito": "C",
+      "enunciado": "A frase \"Dada a causa, a natureza produz o efeito no modo mais breve em que pode ser produzido\" mostra uma relação de causa e efeito.\n\nAssinale a opção que apresenta a mesma relação entre seus componentes.",
+      "alternativas": {
+        "A": "O mundo é como um camponês embriagado; basta ajudá-lo a montar sobre a sela de um lado para ele cair do outro logo em seguida.",
+        "B": "É praticamente impossível olhar para um pinguim e sentir raiva.",
+        "C": "Sempre que alguém quer esgotar um assunto, esgota a paciência do leitor.",
+        "D": "Cuidado ao ler livros sobre saúde, pois você pode morrer de um erro de impressão.",
+        "E": "Quando as mulheres erram, os homens vão atrás."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Em todas as opções a seguir há um período composto por dois segmentos separados por um ponto.\n\nAssinale a opção em que o conectivo substitui adequadamente esse ponto.",
+      "alternativas": {
+        "A": "Em época de paz, os filhos enterram os pais. Em épocas de guerra são os pais que enterram os filhos. / quando.",
+        "B": "Tenho medo de borboletas. Elas têm algo de esquisito, assustador. / conquanto.",
+        "C": "Às vezes vejo um vulto lá fora, que é a velhice. Ela vê que estou trabalhando tanto que resolve procurar outra pessoa. / portanto.",
+        "D": "Não é preciso muito para ser um produtor de coelhos. Você coloca um casal numa gaiola e é tudo. / enquanto.",
+        "E": "No universo tudo procede por vias indiretas. Não existem linhas retas. / pois."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Língua Portuguesa",
+      "gabarito": "A",
+      "enunciado": "\"As pessoas de classe deixam à plebe tanto a preocupação de pensar, quanto o temor de pensar erroneamente.\"\n\nNa frase acima, o termo sublinhado traz implícito um adjetivo (alta classe).\n\nAssinale a opção em que a expressão sublinhada não mostra a mesma situação.",
+      "alternativas": {
+        "A": "Meu pai sempre aconselhava que procurássemos uma menina de família para casar.",
+        "B": "Sempre devemos respeitar as pessoas de idade.",
+        "C": "As pessoas do interior são mais francas.",
+        "D": "A empregada trouxe do mercado um pacote de manteiga de qualidade.",
+        "E": "Os dois times mostraram um futebol de categoria."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção em que a preposição de traz uma contribuição semântica para a frase, não sendo uma exigência de um termo anterior (valor gramatical).",
+      "alternativas": {
+        "A": "Amigo é aquele que sabe tudo a seu respeito e, mesmo assim, ainda gosta de você.",
+        "B": "Nunca chegarás a convencer um rato de que um gato traz boa sorte.",
+        "C": "Perdoe seus inimigos, mas não se esqueça de seus nomes.",
+        "D": "Um bebê nasce com a necessidade de ser amado.",
+        "E": "Sempre há um pouco de loucura no amor."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Língua Portuguesa",
+      "gabarito": "A",
+      "enunciado": "Analise a frase a seguir. \"O conceito ‘bom’ tem muitos significados. Por exemplo, se um homem acertasse sua avó a uma boa distância, ele seria um bom atirador, mas não necessariamente um bom homem.\" Assinale a opção que apresenta uma característica da linguagem dessa frase.",
+      "alternativas": {
+        "A": "a polissemia.",
+        "B": "a ambiguidade.",
+        "C": "a redundância.",
+        "D": "o paralelismo.",
+        "E": "a expressividade."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Raciocínio Lógico-Matemático",
+      "gabarito": "B",
+      "enunciado": "Considere a lista de 200 números inteiros a seguir: 1, 2, 3, …, 100, 1², 2², 3², …, 100² . A mediana dessa lista de números é",
+      "alternativas": {
+        "A": "50,5.",
+        "B": "72,5.",
+        "C": "80,5.",
+        "D": "91,5.",
+        "E": "100."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Raciocínio Lógico-Matemático",
+      "gabarito": "D",
+      "enunciado": "A figura abaixo mostra uma faixa decorativa da época dos antigos romanos, na forma de uma linha poligonal com padrão determinado e desenhada no plano cartesiano.\n\n[Imagem de uma linha poligonal]\n\nSobre essa poligonal, a partir do ponto A(0, 0), foram percorridas 2023 unidades chegando-se ao ponto B.\n\nO ponto B é:",
+      "alternativas": {
+        "A": "(672, 0).",
+        "B": "(672, 2).",
+        "C": "(673, 0).",
+        "D": "(673, 1).",
+        "E": "(673, 2)."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Raciocínio Lógico-Matemático",
+      "gabarito": "C",
+      "enunciado": "Sobre 3 conjuntos A, B e C, sabe-se que:\n\n• A tem 16 elementos;\n• B tem 24 elementos;\n• C tem 18 elementos;\n• A ∩ B tem 5 elementos;\n• B ∩ C tem 7 elementos;\n• A ∩ B ∩ C tem 3 elementos;\n• A – (B U C) tem 8 elementos.\n\nO número de elementos do conjunto A U B U C é igual a",
+      "alternativas": {
+        "A": "35.",
+        "B": "43.",
+        "C": "47.",
+        "D": "48.",
+        "E": "58."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Raciocínio Lógico-Matemático",
+      "gabarito": "D",
+      "enunciado": "Fábio fez um empréstimo de R$ 10.000,00 em uma financeira que cobra 3% de juros ao mês. Após 30 dias do recebimento do empréstimo Fábio pagou R$ 3.000,00 para a financeira, diminuindo sua dívida. Após 30 dias desse primeiro pagamento Fábio fez um pagamento de R$ 4.000,00 para a financeira e, 30 dias após esse último pagamento, Fábio liquidou sua dívida fazendo o terceiro pagamento à financeira.\n\nO valor do terceiro pagamento de Fábio foi de",
+      "alternativas": {
+        "A": "R$ 3.700,00.",
+        "B": "R$ 3.927,27.",
+        "C": "R$ 2.790,00.",
+        "D": "R$ 3.181,70.",
+        "E": "R$ 3.624,57."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Raciocínio Lógico-Matemático",
+      "gabarito": "C",
+      "enunciado": "Uma grandeza A é diretamente proporcional à grandeza B que, por sua vez, é inversamente proporcional ao quadrado da grandeza C. Quando A = 12, tem-se B = 4 e C = 6. Quando C = 4, o valor de A é",
+      "alternativas": {
+        "A": "144.",
+        "B": "72.",
+        "C": "27.",
+        "D": "18.",
+        "E": "12."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Raciocínio Lógico-Matemático",
+      "gabarito": "D",
+      "enunciado": "É dada a afirmativa:\n\n\"Se o cliente pagou então não é devedor.\"\n\nPara cada uma das três afirmativas a seguir, assinale “V” se a afirmativa for logicamente equivalente à afirmativa dada e “F” se a afirmativa não for logicamente equivalente à afirmativa dada.\n\nI. Se o cliente não pagou então é devedor.\nII. Se o cliente não é devedor então pagou.\nIII. Se o cliente é devedor então não pagou.\n\nAs afirmativas I, II e III são, respectivamente,",
+      "alternativas": {
+        "A": "V, V e F.",
+        "B": "F, V e F.",
+        "C": "F, F e V.",
+        "D": "F, V e V.",
+        "E": "V, V e V."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Raciocínio Lógico-Matemático",
+      "gabarito": "B",
+      "enunciado": "Três mulheres M1, M2, M3 e seus respectivos maridos H1, H2, H3 sentam-se aleatoriamente em 6 cadeiras dispostas lado a lado. Sabe-se que cada mulher sentou ao lado do respectivo marido.\n\nA probabilidade de que as mulheres M1 e M3 tenham se sentado uma ao lado da outra é igual a",
+      "alternativas": {
+        "A": "1/4",
+        "B": "1/6",
+        "C": "1/8",
+        "D": "1/16",
+        "E": "1/48"
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Raciocínio Lógico-Matemático",
+      "gabarito": "D",
+      "enunciado": "Os carros A, B, C e D ocupam quatro das seis vagas do estacionamento representado abaixo.\n\n1 2 3 4 5 6\n\nSabe-se que os carros A e B estão em vagas vizinhas.\n\nO número de maneiras diferentes em que os carros podem estar dispostos nesse estacionamento é igual a",
+      "alternativas": {
+        "A": "30.",
+        "B": "60.",
+        "C": "80.",
+        "D": "120.",
+        "E": "240."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Direito Administrativo e Legislação Específica",
+      "gabarito": "D",
+      "enunciado": "João, Auditor Fiscal da Receita Estadual, acaba de assumir a chefia de determinado departamento da Secretaria de Estado da Fazenda de Minas Gerais.\n\nJoão vem desenhando um planejamento estratégico visando à maior eficiência de seu setor, com escopo de concentrar seus esforços nas matérias de maior relevância institucional, inclusive com eventual delegação ou avocação de competência administrativa para determinados atos.\n\nNesse contexto, de acordo com a Lei nº 14.184/2002 do Estado de Minas Gerais, que dispõe sobre o processo administrativo no âmbito da Administração Pública Estadual, João deverá observar que",
+      "alternativas": {
+        "A": "será renunciável a competência, quando a autoridade a que lhe foi atribuída decidir delegá-la.",
+        "B": "as decisões adotadas por delegação ou avocação não poderão mencionar explicitamente esta qualidade.",
+        "C": "o ato de delegação ou avocação indicará o prazo para seu exercício e não pode ser revogado antes do término do prazo, salvo caso fortuito ou força maior.",
+        "D": "será permitida, em caráter excepcional e por motivos devidamente justificados, a avocação temporária de competência atribuída a órgão hierarquicamente inferior.",
+        "E": "os atos de avocação e delegação especificarão as matérias e poderes transferidos, mas não poderão conter ressalva quanto ao exercício da atribuição avocada ou delegada."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Direito Constitucional e Direitos Humanos",
+      "gabarito": "B",
+      "enunciado": "O Estado Alfa editou lei dispondo que os deputados estaduais deverão receber 75% do subsídio dos deputados federais. Consoante jurisprudência do Supremo Tribunal Federal, a citada legislação é",
+      "alternativas": {
+        "A": "constitucional, pois a Constituição da República estabelece que o subsídio dos detentores de mandato eletivo e dos demais agentes não poderão exceder o subsídio mensal, em espécie, dos Ministros do Supremo Tribunal Federal.",
+        "B": "inconstitucional, pois a Constituição da República estabelece que é vedada a vinculação ou equiparação de quaisquer espécies remuneratórias para o efeito de remuneração de pessoal do serviço público.",
+        "C": "constitucional, pois a Constituição da República estabelece que os vencimentos dos cargos do Poder Legislativo e do Poder Judiciário estadual não poderão ser superiores aos pagos pelos mesmos poderes em nível federal.",
+        "D": "constitucional, pois a Constituição da República estabelece que o subsídio e os vencimentos dos ocupantes de cargos e empregos públicos são irredutíveis e devem ser fixados por lei específica.",
+        "E": "inconstitucional, pois a Constituição da República estabelece que a remuneração dos servidores públicos somente poderá ser fixada por lei complementar, assegurada revisão geral quinquenal, sempre na mesma data e sem distinção de índices."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Direito Administrativo e Legislação Específica",
+      "gabarito": "C",
+      "enunciado": "A informação em poder dos órgãos e entidades públicas, observado o seu teor e em razão de sua imprescindibilidade à segurança da sociedade ou do Estado, poderá ser classificada como ultrassecreta, secreta ou reservada.\n\nNeste contexto, consoante dispõe a Lei nº 12.527/2011, para a classificação da informação em determinado grau de sigilo, deverá ser observado o interesse público da informação e utilizado o critério",
+      "alternativas": {
+        "A": "mais restritivo possível, em prestígio à supremacia do interesse público, considerado o prazo máximo de restrição de acesso ou o evento que defina seu termo final.",
+        "B": "mais restritivo possível, em prestígio à supremacia do interesse público, considerada a gravidade do risco ou dano à segurança da sociedade e do Estado.",
+        "C": "menos restritivo possível, considerados a gravidade do risco ou dano à segurança da sociedade e do Estado e o prazo máximo de restrição de acesso ou o evento que defina seu termo final.",
+        "D": "mais restritivo possível e, transcorrido o prazo de classificação ou consumado o evento que defina o seu termo final, a informação tornar-se-á de acesso público, desde que expressamente autorizada pelo Chefe do Poder Executivo.",
+        "E": "menos restritivo possível e, transcorrido o prazo de classificação ou consumado o evento que defina o seu termo final, a informação tornar-se-á de acesso público, desde que expressamente autorizada pela autoridade que decretou o sigilo."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Direito Administrativo e Legislação Específica",
+      "gabarito": "A",
+      "enunciado": "Em tema de sujeitos ativos do ato de improbidade administrativa, de acordo com a atual redação da Lei nº 8.429/92, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "As disposições da Lei de Improbidade Administrativa são aplicáveis, no que couber, àquele que, mesmo não sendo agente público, induza ou concorra culposa ou dolosamente para a prática do ato de improbidade.",
+        "B": "Os sócios, os cotistas, os diretores e os colaboradores de pessoa jurídica de direito privado não respondem, em qualquer hipótese, pelo ato de improbidade que venha a ser imputado à pessoa jurídica.",
+        "C": "Os agentes públicos que podem cometer ato de improbidade são o agente político, o servidor público e todo aquele que exerce, necessariamente de forma permanente e com remuneração, mandato, cargo, emprego ou função pública.",
+        "D": "As sanções da Lei de Improbidade Administrativa não se aplicarão à pessoa jurídica, caso o ato de improbidade administrativa seja também sancionado como ato lesivo à Administração Pública de que trata a Lei nº 12.846/2013 – Lei Anticorrupção.",
+        "E": "O particular, pessoa física ou jurídica, que celebra com a Administração Pública convênio, contrato de repasse, contrato de gestão, termo de parceria, termo de cooperação ou ajuste administrativo equivalente, no que se refere a recursos de origem pública, não se sujeita às sanções previstas na Lei de Improbidade Administrativa."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Direito Administrativo e Legislação Específica",
+      "gabarito": "E",
+      "enunciado": "José, Auditor Fiscal da Receita do Estado Beta, aceitou propina para deixar de constituir, mediante lançamento, determinado crédito tributário. Diante de tal fato, José está respondendo a processo administrativo disciplinar e sendo investigado por crime em inquérito policial.\n\nSabe-se que o estatuto dos servidores públicos civis do Estado Beta dispõe que os prazos de prescrição previstos na lei penal se aplicam às infrações disciplinares capituladas também como crime.\n\nSobre o caso em tela, de acordo com a jurisprudência do Superior Tribunal de Justiça, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Não deve ser aplicado, na esfera disciplinar, o prazo prescricional previsto na legislação penal, porque ainda não houve oferecimento de denúncia criminal.",
+        "B": "Deve ser aplicado, na esfera disciplinar, o prazo prescricional previsto na legislação penal, apenas porque já houve instauração de inquérito policial.",
+        "C": "Não deve ser aplicado, na esfera disciplinar, o prazo prescricional previsto na legislação penal, porque ainda não foi proferida sentença criminal em primeiro grau de jurisdição.",
+        "D": "Não deve ser aplicado, na esfera disciplinar, o prazo prescricional previsto na legislação penal, porque ainda não foi proferida sentença criminal transitada em julgado.",
+        "E": "Deve ser aplicado, na esfera disciplinar, o prazo prescricional previsto na legislação penal, independentemente de qualquer outra exigência."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Direito Administrativo e Legislação Específica",
+      "gabarito": "A",
+      "enunciado": "O Decreto nº 9.830/2019, que regulamenta dispositivos do Decreto-Lei nº 4.657/1942 - Lei de Introdução às normas do Direito brasileiro, dispôs, entre outros temas, sobre a possibilidade de modulação dos efeitos de uma decisão administrativa.\n\nDe acordo com o referido diploma normativo, o gestor público decisor, em tese, consideradas as consequências jurídicas e administrativas da decisão para a Administração Pública e para o administrado, na declaração de invalidade de determinado ato administrativo",
+      "alternativas": {
+        "A": "poderá restringir os efeitos da declaração ou decidir que sua eficácia se iniciará em momento posteriormente definido.",
+        "B": "poderá ampliar os efeitos da declaração para atos administrativos similares, mas não poderá decidir que sua eficácia se iniciará em momento posteriormente definido.",
+        "C": "não poderá restringir os efeitos da declaração, mas poderá decidir que sua eficácia se iniciará em momento posteriormente definido.",
+        "D": "não poderá restringir os efeitos da declaração, nem poderá decidir que sua eficácia se iniciará em momento posteriormente definido, pois a modulação de efeito se aplica somente a decisões judiciais no bojo de processos de controle concentrado de constitucionalidade.",
+        "E": "não poderá restringir os efeitos da declaração, nem poderá decidir que sua eficácia se iniciará em momento posteriormente definido, pois a modulação de efeito se aplica somente a decisões judiciais, em quaisquer processos."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Direito Administrativo e Legislação Específica",
+      "gabarito": "B",
+      "enunciado": "Em tema de tratamento de dados pessoais pelo poder público, de acordo com a Lei Geral de Proteção de Dados Pessoais – LGPD, os dados deverão ser mantidos em formato interoperável e estruturado para o uso compartilhado, com vistas a diversas finalidades.\n\nConsoante dispõe o texto do citado diploma legal, assinale a opção que não apresenta uma dessas finalidades.",
+      "alternativas": {
+        "A": "Execução de políticas públicas.",
+        "B": "Alimentação de sistemas gerais de informática.",
+        "C": "Prestação de serviços públicos.",
+        "D": "Descentralização da atividade pública.",
+        "E": "Disseminação e acesso das informações pelo público em geral."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Direito Administrativo e Legislação Específica",
+      "gabarito": "E",
+      "enunciado": "Carla, servidora pública da autarquia Ômega, regularmente, com base na legislação de regência, interpôs recurso administrativo contra decisão proferida pelo presidente da autarquia, devidamente dirigido ao Secretário de Estado com pertinência temática com as atividades desenvolvidas pela autarquia.\n\nNo caso em tela, de acordo com a doutrina de Direito Administrativo, Carla interpôs um recurso",
+      "alternativas": {
+        "A": "de reconsideração, dirigido à autoridade hierarquicamente superior de outra pessoa jurídica.",
+        "B": "hierárquico próprio, em razão do controle vertical interno, decorrente do poder hierárquico.",
+        "C": "hierárquico próprio, em razão da tutela administrativa, não havendo que se falar em exercício de poder hierárquico.",
+        "D": "hierárquico impróprio, em razão do controle vertical externo, decorrente do poder hierárquico.",
+        "E": "hierárquico impróprio, em razão do controle finalístico, não havendo que se falar em exercício de poder hierárquico."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Direito Administrativo e Legislação Específica",
+      "gabarito": "E",
+      "enunciado": "Ronaldo, servidor público civil do Estado de Minas Gerais, no exercício da função, recusou submeter-se à inspeção médica, quando necessária. Instaurado regular processo administrativo disciplinar, de acordo com o Estatuto dos Servidores Públicos do Estado de Minas Gerais (Lei nº 869/1952), Ronaldo está sujeito à sanção disciplinar de",
+      "alternativas": {
+        "A": "repreensão.",
+        "B": "multa.",
+        "C": "suspensão.",
+        "D": "demissão ordinária.",
+        "E": "demissão a bem do serviço público."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Direito Administrativo e Legislação Específica",
+      "gabarito": "B",
+      "enunciado": "Marília, servidora pública civil do Estado de Minas Gerais, em virtude de remoção determinada pela Administração Pública, passou a ter exercício em nova sede, no interior do Estado. Consoante dispõe o Estatuto dos Servidores Públicos do Estado de Minas Gerais (Lei nº 869/1952), a Marília será concedida",
+      "alternativas": {
+        "A": "diária, por período de até quinze dias, em valor não superior a um mês de vencimento.",
+        "B": "ajuda de custo, que não poderá ser inferior à importância correspondente a um mês de vencimento e nem superior a três.",
+        "C": "ajuda de custo, que não poderá ser paga adiantadamente no local do serviço de que foi desligada.",
+        "D": "abono de família, caso comprove que foi obrigada a deslocar seu cônjuge do trabalho.",
+        "E": "abono de família, caso comprove que foi obrigada a deslocar seus filhos menores da escola."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Direito Administrativo e Legislação Específica",
+      "gabarito": "A",
+      "enunciado": "De acordo com o Código de Ética Pública do Estado de Minas Gerais (Decreto nº 46.644/2014), ao agente público é vedada a aceitação de presente, doação ou vantagem de qualquer espécie, de pessoa, empresa ou entidade que tenha ou que possa ter interesse em (i) quaisquer atos de mero expediente de responsabilidade do agente público, (ii) decisão de jurisdição do órgão ou entidade de vínculo funcional do agente público; e (iii) informações institucionais de caráter sigiloso a que o agente público tenha acesso. Essa vedação",
+      "alternativas": {
+        "A": "independe do valor monetário.",
+        "B": "ocorre apenas se o valor for maior que um salário-mínimo.",
+        "C": "depende da autorização da chefia imediata.",
+        "D": "depende da autorização da chefia mediata.",
+        "E": "depende da autorização da Controladoria-Geral do Estado."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Direito Administrativo e Legislação Específica",
+      "gabarito": "E",
+      "enunciado": "Em todos os órgãos e entidades da Administração Pública Direta e Indireta do Poder Executivo Estadual de Minas Gerais haverá uma Comissão de Ética com a finalidade de difundir as normas do Código de Ética e atuar na prevenção e na apuração de falta ética no âmbito da respectiva instituição.\n\nAs opções a seguir, com base no Código de Ética Pública do Estado de Minas Gerais (Decreto nº 46.644/2014), apresentam atividades que competem à citada Comissão de Ética, à exceção de uma. Assinale-a.",
+      "alternativas": {
+        "A": "Orientar e aconselhar o agente público sobre ética profissional no respectivo órgão ou entidade.",
+        "B": "Adotar formas de divulgação das normas éticas e de prevenção de falta ética.",
+        "C": "Alertar agentes públicos quanto à conduta no ambiente de trabalho, especialmente no tratamento com as pessoas e com o patrimônio público.",
+        "D": "Decidir pela instauração e conduzir processo ético, observadas as normas estabelecidas no citado decreto e em deliberações do CONSET.",
+        "E": "Aplicar sanções disciplinares de advertência, censura, suspensão e demissão, mediante prévio processo administrativo disciplinar, assegurados o contraditório e a ampla defesa."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Direito Constitucional e Direitos Humanos",
+      "gabarito": "C",
+      "enunciado": "Antônio e Maria tomaram posse nos cargos de provimento efetivo X e Y, ambos enquadrados na carreira alfa dos servidores públicos do Município Teta.\n\nPoucos anos depois, Antônio passou a ocupar o cargo W, em razão de promoção para a classe imediatamente superior àquela que ocupava, enquanto Maria foi promovida para o cargo Z, que corresponde ao segundo nível da carreira beta, também do Município Teta. Acresça-se que ambas as promoções observaram os requisitos estabelecidos pela legislação municipal.\n\nSobre a hipótese apresentada, compatibilizando a legislação municipal com a Constituição da República, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "As promoções de Antônio e Maria foram regulares.",
+        "B": "As promoções de Antônio e Maria foram irregulares.",
+        "C": "A promoção de Antônio foi regular, enquanto a de Maria foi irregular.",
+        "D": "A promoção de Maria foi regular, enquanto a de Antônio foi irregular.",
+        "E": "As promoções de Antônio e Maria somente serão irregulares se os cargos para os quais foram promovidos não tiverem o mesmo requisito de escolaridade dos cargos de origem."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Direito Constitucional e Direitos Humanos",
+      "gabarito": "A",
+      "enunciado": "A Lei estadual n° XX dispôs que determinados artigos deveriam ser regulamentados pelo Governador do Estado. Por essa razão, o Governador editou o Decreto n° YY, regulamentando-os. O Deputado Estadual João, ao analisar o teor do Decreto n° YY, concluiu que ele era francamente contrário aos balizamentos oferecidos pela Lei estadual n° XX. Por essa razão, consultou seu advogado a respeito da possibilidade de a Assembleia Legislativa adotar alguma providência em relação ao ocorrido. O advogado respondeu que a Assembleia Legislativa pode",
+      "alternativas": {
+        "A": "suspender a eficácia do Decreto n° YY.",
+        "B": "determinar que o Poder Executivo ajuste o Decreto n° YY aos balizamentos da lei.",
+        "C": "apenas deflagrar o controle de legalidade do Decreto n° YY perante o Poder Judiciário.",
+        "D": "apenas instaurar processo por crime de responsabilidade, em face do Governador do Estado, por afronta à separação dos poderes.",
+        "E": "apenas provocar a deflagração do controle concentrado de constitucionalidade do Decreto n° YY perante o Poder Judiciário."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Direito Constitucional e Direitos Humanos",
+      "gabarito": "B",
+      "enunciado": "Ernesto e Antônio travaram intenso debate a respeito da classificação de duas normas constitucionais quanto à eficácia e à aplicabilidade.\n\nA norma estudada por Ernesto determina que a lei infraconstitucional deve delinear os contornos gerais e detalhar a composição de um órgão colegiado responsável pela definição e pela implementação de determinado plano nacional de natureza assistencial. Já a norma analisada por Antônio detalhava certo direito, passível de ser fruído pela generalidade dos brasileiros, mas ressaltava que a lei infraconstitucional poderia excluir do seu alcance determinadas situações fáticas.\n\nÀ luz da narrativa, é correto afirmar que Ernesto estudou uma norma de eficácia",
+      "alternativas": {
+        "A": "imediata e aplicabilidade indireta, enquanto Antônio analisou uma norma de eficácia restringível e de aplicabilidade reduzida.",
+        "B": "limitada e de princípio institutivo, enquanto Antônio analisou uma norma de eficácia contida e de aplicabilidade imediata.",
+        "C": "limitada e de princípio programático, enquanto Antônio analisou uma norma de eficácia plena e de aplicabilidade não integral.",
+        "D": "contida e de aplicabilidade indireta, enquanto Antônio analisou uma norma de eficácia limitada e de aplicabilidade imediata.",
+        "E": "plena e de princípio integrativo, enquanto Antônio analisou uma norma de eficácia limitada e de aplicabilidade restringível."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Direito Constitucional e Direitos Humanos",
+      "gabarito": "A",
+      "enunciado": "O Deputado Estadual João constatou que determinada faixa de terras situada na área territorial do Município Beta e, por via reflexa, no território do Estado Alfa, no qual Beta estava inserido, jamais integrou o patrimônio de um particular e, além disso, jamais teve qualquer destinação atribuída pelo Poder Público.\n\nCom o intuito de saber se essas terras efetivamente pertenciam ao Estado Alfa, de modo que pudessem ser objeto de alguma política pública, João consultou sua assessoria, que respondeu corretamente no sentido de que terras dessa natureza,",
+      "alternativas": {
+        "A": "independentemente de qualquer especificidade, sempre pertencem à União.",
+        "B": "independentemente de qualquer especificidade, sempre pertencem ao Estado.",
+        "C": "independentemente de qualquer especificidade, sempre pertencem ao Município.",
+        "D": "pertencem ao Estado, excluídas apenas aquelas que, por imperativo constitucional e legal, pertencem à União.",
+        "E": "pertencem ao Município, excluídas apenas aquelas que, por imperativo constitucional e legal, pertencem à União ou ao Estado."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Direito Constitucional e Direitos Humanos",
+      "gabarito": "A",
+      "enunciado": "Ana, nascida no território brasileiro, filha de pais franceses que se encontravam no Brasil por trabalharem em uma sociedade empresária privada francesa, foi levada para a Europa logo após o nascimento.\n\nAna, após atingir a maioridade, decidiu livremente, considerando os laços afetivos que criara, se tornar nacional de determinado país da América Central. Ao ser acusada da prática de crime neste último país, decidiu fugir para o Brasil.\n\nÀ luz dessa narrativa, é correto afirmar que, caso seja solicitada a extradição de Ana, ela",
+      "alternativas": {
+        "A": "deve ser negada, considerando que Ana é brasileira nata.",
+        "B": "pode ser admitida, já que Ana jamais teve a nacionalidade brasileira.",
+        "C": "somente pode ser admitida caso Ana não tenha optado pela nacionalidade brasileira após residir no território nacional.",
+        "D": "pode ser admitida, porque tanto o brasileiro nato como o naturalizado pode ser extraditado, desde que o crime que lhe foi atribuído seja o de tráfico ilícito de entorpecentes.",
+        "E": "pode ser admitida, considerando que Ana perdeu a nacionalidade brasileira, o que deve ser declarado pela autoridade competente."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Direito Constitucional e Direitos Humanos",
+      "gabarito": "B",
+      "enunciado": "Inês e Ana pretendiam implementar uma atividade econômica inovadora em determinada área de serviços, que consistia na conjugação de apoio tecnológico e transferência pontual e casuística de know-how, de modo que o próprio cliente seria orientado a realizar as atividades necessárias, o que reduziria consideravelmente os custos do serviço. Apesar disso, tomaram conhecimento de que essa atividade ainda não fora disciplinada no âmbito do Município Alfa, em cuja esfera territorial seria situada a sede da sociedade empresária a ser criada. Considerando que todas as suas iniciativas estavam estritamente vinculadas à juridicidade, decidiram consultar o seu advogado, o qual lhes respondeu corretamente que a falta de regulamentação da atividade econômica pelo Município Alfa:",
+      "alternativas": {
+        "A": "impede a sua exploração, por se tratar de verdadeiro serviço público.",
+        "B": "não impede a sua exploração, o que decorre do princípio da livre iniciativa.",
+        "C": "impede a sua exploração, considerando a impossibilidade de serem protegidos os interesses do consumidor.",
+        "D": "impede a sua exploração, pois a atividade econômica deve ser sempre regida pelo princípio da legalidade estrita.",
+        "E": "não impede a sua exploração, pois o exercício de atividade econômica, por força do princípio da livre concorrência, jamais pode ser restringido pela lei."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Direito Constitucional e Direitos Humanos",
+      "gabarito": "B",
+      "enunciado": "Em uma gincana jurídica, foi exigido dos grupos em disputa que apresentassem os elementos essenciais dos Direitos Humanos.\n\nO grupo Alfa sustentou que são considerados Direitos Humanos apenas aqueles direitos reconhecidos como tais pela ordem jurídica de cada Estado soberano, de modo que a força possa estar a serviço do direito.\n\nO grupo Beta sustentou que os Direitos Humanos, por imperativo de eficiência, devem ser compreendidos a partir de um referencial de divisibilidade, organizando-se de modo hierarquizado suas distintas partes, principiando pela liberdade e estendendo-se às demais.\n\nO grupo Teta, por sua vez, manifestou-se no sentido de que os Direitos Humanos são sempre contextualizados no âmbito de determinado Estado soberano, surgindo e se desenvolvendo sob influência exclusiva da base de valores ali existentes.\n\nÀ luz do conceito e da fundamentação dos Direitos Humanos, está correto afirmar que",
+      "alternativas": {
+        "A": "todos os grupos estão corretos.",
+        "B": "todos os grupos estão errados.",
+        "C": "apenas o grupo Alfa está correto.",
+        "D": "apenas os grupos Alfa e Beta estão corretos.",
+        "E": "apenas os grupos Beta e Teta estão corretos."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Direito Constitucional e Direitos Humanos",
+      "gabarito": "D",
+      "enunciado": "O Presidente da República, representando a República Federativa do Brasil, assinou um tratado internacional de proteção aos Direitos Humanos.\n\nAo tomar conhecimento desse fato, Maria, estudante de Direito, questionou seu professor a respeito da posição do referido tratado em relação à ordem constitucional brasileira.\n\nO professor respondeu corretamente que, nas circunstâncias indicadas,",
+      "alternativas": {
+        "A": "todos os tratados de Direitos Humanos, que venham a ser aprovados em cada casa do Congresso Nacional, terão a natureza jurídica equivalente à de lei ordinária.",
+        "B": "todos os tratados de Direitos Humanos, uma vez assinados pelo Presidente da República, produzem efeitos imediatos no território brasileiro, tendo natureza jurídica equivalente à de lei ordinária.",
+        "C": "todos os tratados de Direitos Humanos, uma vez assinados pelo Presidente da República, produzem efeitos imediatos no território brasileiro, tendo a natureza jurídica equivalente à de emenda constitucional.",
+        "D": "os tratados de Direitos Humanos que venham a ser aprovados em cada casa do Congresso Nacional, em dois turnos de votação, por maioria absoluta dos votos dos respectivos membros, terão natureza jurídica equivalente à de emenda constitucional."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Direito Civil I e Direito Empresarial I",
+      "gabarito": "B",
+      "enunciado": "Marcos celebrou acordo verbal com Jorge, sem testemunhas, para que este realizasse serviço de marcenaria em seu imóvel, conforme as diretrizes ajustadas entre as partes, no prazo de 60 dias. Jorge recebeu um valor adiantado proporcional a 20% sobre o valor do serviço.\n\nPassado o prazo, Jorge não entregou o serviço e anunciou que não o fará, considerando a ausência de contrato válido e assinado entre as partes, solicitando os dados bancários de Marcos para restituir o valor recebido.\n\nDiante do caso narrado, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A alegação de Jorge procede, pois a validade da declaração de vontade depende de forma especial escrita, sem a qual não há contrato.",
+        "B": "A alegação de Jorge não procede, na medida em que a forma do negócio jurídico celebrado entre as partes é livre, de modo que a adoção de forma escrita teria simples função probatória.",
+        "C": "A alegação de Jorge procede, porque o acordo verbal, ainda que possível, não pode ser considerado contrato válido se não for acompanhado de testemunhas.",
+        "D": "A alegação de Jorge não procede, considerando que o recebimento de quantia antecipada para a execução do serviço gera presunção juris et de jure que prova a existência do negócio verbal.",
+        "E": "A alegação de Jorge procede, visto que a escritura pública é essencial à validade dos negócios jurídicos que visem à constituição de direitos e obrigações a serem executados sobre bens imóveis."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Direito Civil I e Direito Empresarial I",
+      "gabarito": "C",
+      "enunciado": "Maria, colega de trabalho de João, é colecionadora de carros antigos. Ela anunciou que pretende vender alguns de seus carros. João, apaixonado pelo acervo ofertado, decidiu garantir negócio com Maria, mesmo sem ter certeza sobre qual veículo irá adquirir, propondo um acordo no qual ambos se comprometem a firmar contrato futuro. Maria aceita e ambos assinam a minuta contratual.\n\nSobre o caso narrado, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A minuta assinada revela a celebração de contrato preliminar, que não exige a mesma forma do contrato projetado, mas deve conter necessariamente todos os requisitos essenciais deste.",
+        "B": "A eventual recusa de Maria em celebrar o contrato futuro resultaria em inadimplemento absoluto, cabendo a João somente pedir a conversão da obrigação de contratar em perdas e danos.",
+        "C": "Caso Maria se recuse a celebrar o contrato prometido, João pode requerer a adjudicação compulsória do veículo por ele escolhido.",
+        "D": "O contrato preliminar celebrado entre as partes comporta execução específica, sendo vedada a inclusão de cláusula de arrependimento.",
+        "E": "O pedido de execução específica do contrato é possível, mas na hipótese vertente não pode o juiz suprir a vontade da parte inadimplente."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Direito Civil I e Direito Empresarial I",
+      "gabarito": "E",
+      "enunciado": "Em janeiro de 2023, a sociedade empresária Oriental Exportações S/A contratou com Fazendas S/A o fornecimento da safra integral de soja a ser colhida entre janeiro e abril de 2026, comprometendo-se a pagar, de forma adiantada, preço calculado pela expectativa de produção, considerados os índices históricos de colheita, assumindo o risco de receber quantia inferior à média esperada, ainda que tenha expectativa de receber quantia superior.\n\nFazendas S/A comprometeu-se a efetivar o plantio de número determinado de sementes em área previamente delimitada, assim como a efetivar a colheita na forma e no tempo devidos, transferindo toda a quantidade disponível da soja colhida.\n\nOcorre que, em janeiro de 2025, sem dolo ou culpa de sua parte, Fazendas S/A encerra suas operações e sequer chega a efetivar o plantio prometido, não havendo o que colher na época contratada.\n\nDiante deste caso, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "O contrato comutativo firmado entre as partes não poderá ser cumprido, podendo a sociedade empresária contratante enjeitar a prestação pelo regime dos vícios redibitórios.",
+        "B": "A sociedade empresária Oriental Exportações S/A pode pedir a execução específica do contrato preliminar celebrado entre as partes, podendo o juiz suprir a vontade de Fazendas S/A, conferindo-lhe caráter definitivo.",
+        "C": "A sociedade empresária Oriental Exportações S/A assumiu o risco de a coisa alienada não existir na data acordada, razão pela qual não terá direito à restituição dos valores pagos.",
+        "D": "o contrato foi celebrado na modalidade com pessoa a declarar, circunstância na qual a insolvência de Fazendas S/A tornará eficaz o contrato somente entre os contratantes originários.",
+        "E": "o contrato aleatório firmado entre as partes não envolveu o risco sobre a própria existência da coisa, mas somente pela sua quantidade, de modo que Fazendas S/A deve restituir o preço recebido."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Direito Civil I e Direito Empresarial I",
+      "gabarito": "D",
+      "enunciado": "Tina, por ocasião da realização de uma grande reforma em sua casa, adquiriu novas portas para os quartos e banheiros, ainda não instaladas, e um completo sistema de refrigeração central que, para sua instalação, exigiu a remoção dos vitrais das janelas da sala, o que foi feito com todo o cuidado, visto que Tina fazia questão de que os vitrais fossem reempregados no local. Considerando que as antigas portas dos quartos estavam em bom estado, Tina colocou-as à venda em um brechó próximo.\n\nConsiderando essas informações e a disciplina dos bens no Código Civil de 2002, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "As portas antigas dos quartos e dos banheiros são classificadas como bens móveis consumíveis.",
+        "B": "As portas novas dos quartos e dos banheiros, em razão da sua destinação econômica, são consideradas imóveis.",
+        "C": "Os vitrais da janela, mesmo após terem sido removidos para instalação do sistema de refrigeração, mantém sua qualidade de imóveis.",
+        "D": "Os vitrais da janela, após terem sido removidos para instalação do sistema de refrigeração, são classificados como móveis, mas mantêm o caráter da infungibilidade.",
+        "E": "As portas antigas e os vitrais, após a remoção, são classificados como bens móveis e fungíveis."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Direito Civil I e Direito Empresarial I",
+      "gabarito": "E",
+      "enunciado": "Carlos, conhecido influencer digital de 15 anos, após ter tido conhecimento de que Felipe, seu antigo desafeto, havia publicado em suas redes sociais privadas uma opinião contrária à sua, ainda que não mencionando seu nome, publicou graves ofensas diretas à Felipe, incluindo imagens manipuladas com o objetivo de ofender. Felipe, por sua vez, ao invés de responder às ofensas, ajuizou ação indenizatória em face de Carlos e de seus genitores, pleiteando a reparação por todos os danos injustamente sofridos. Os pais de Carlos arguiram sua ilegitimidade passiva, ao argumento principal de que, não obstante a menoridade do filho, eles não concordavam com a postura do filho e que haviam feito tudo que podiam para bem educá-lo, não possuindo, portanto, culpa ou responsabilidade pelas ações de Carlos que, além de tudo, é titular de um vasto patrimônio, tendo total condições de responder pelos danos causados. Diante da hipótese narrada, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "O fato de Carlos possuir patrimônio próprio, afasta a responsabilidade de seus pais por eventuais danos que ele venha causar.",
+        "B": "Independentemente de Carlos ter patrimônio próprio, seus pais, necessariamente, respondem pelos danos que ele causar, durante a vigência do poder familiar.",
+        "C": "Os pais de Carlos respondem objetivamente pelos danos causados, mas poderão reaver de Carlos o que foi pago a título de indenização.",
+        "D": "Carlos responderá pelos danos causados, se seus pais comprovarem não possuir meios suficientes para fazê-lo.",
+        "E": "Os pais de Carlos respondem subjetivamente pelos danos causados, mas poderão reaver de Carlos o que foi pago a título de indenização."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Direito Civil I e Direito Empresarial I",
+      "gabarito": "C",
+      "enunciado": "Ana é devedora de Tereza da quantia de R$ 500.000,00, formalizada em título próprio, cuja quitação consiste na devolução do título.\n\nNa data do vencimento da referida obrigação, Ana procura Tereza e oferece o pagamento de R$ 300.000,00. Explica que só poderá efetuar o pagamento da quantia restante em 5 dias e solicita, não obstante o pagamento parcial, a devolução do respectivo título.\n\nTereza, por conhecer Ana há muitos anos, aceita o pagamento parcial, mas não devolve o título. Passados os 5 dias, Tereza procura Ana, solicitando a integralização do pagamento, ao que Ana responde que toda a obrigação foi quitada.\n\nAnte a situação hipotética, analise as afirmativas a seguir.\n\nI. Caso Tereza tenha entregado o título à Ana, terá sido firmada a presunção do pagamento, de forma que caberá a Tereza o ônus de provar a falta de pagamento integral e tornar sem efeito a quitação.\nII. Caso Tereza tenha entregado o título à Ana, terá sido firmada a presunção do pagamento, não cabendo prova em contrário.\nIII. Caso Tereza concorde com a proposta, mas se recuse a devolver o título, Ana poderá reter o pagamento até que o título lhe seja entregue ou que Tereza declare a sua inutilização.\n\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "I, apenas.",
+        "B": "I e II, apenas.",
+        "C": "I e III, apenas.",
+        "D": "II e III, apenas.",
+        "E": "I, II e III."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Direito Civil I e Direito Empresarial I",
+      "gabarito": "E",
+      "enunciado": "Rio Espera Participações S/A tem investimentos em várias companhias, entre elas a Companhia de Cimentos Lamim, na qual é titular de 25% (vinte e cinco por cento) dos votos conferidos pelas ações do seu capital, mas não a controla.\n\nAcerca da ligação societária entre Rio Espera Participações S/A e Companhia de Cimentos Lamim, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "O relatório anual da administração de Rio Espera Participações S/A. deve relacionar seus investimentos em sociedades coligadas e controladas e mencionar as modificações ocorridas durante os três últimos exercícios sociais.",
+        "B": "É vedada a participação recíproca entre Rio Espera Participações S/A e a Companhia de Cimentos Lamim, devendo a primeira alienar, nos 30 (trinta) dias após a verificação da participação recíproca, as ações que excederem o valor dos lucros ou reservas, sempre que esses sofrerem redução.",
+        "C": "Em razão da ligação societária entre as duas companhias, Rio Espera Participações S/A deverá elaborar e divulgar, juntamente com suas demonstrações financeiras, demonstrações consolidadas.",
+        "D": "Rio Espera Participações S/A será obrigada a reparar os danos causados à Companhia de Cimentos Lamim por atos praticados em condições não comutativas, cabendo a ação a acionistas titulares de, pelo menos, 5% (cinco por cento) do capital, desde que prestem caução às custas e honorários de advogado.",
+        "E": "No balanço patrimonial de Rio Espera Participações S/A, os investimentos na Companhia de Cimentos Lamim serão avaliados pelo método da equivalência patrimonial."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Direito Civil I e Direito Empresarial I",
+      "gabarito": "A",
+      "enunciado": "Sobre a sociedade em conta de participação, analise as afirmativas a seguir e assinale (V) para a verdadeira e (F) para a falsa.\n\n( ) A sociedade poderá ter um ou mais sócios participantes, mas deverá ter apenas um sócio ostensivo, pessoa natural ou jurídica, que responderá pessoalmente e ilimitadamente pelas obrigações assumidas no interesse da sociedade.\n( ) A falência do sócio participante acarreta a dissolução da sociedade e a liquidação da respectiva conta, cujo saldo constituirá crédito subordinado.\n( ) A contribuição do sócio participante constitui, com a do sócio ostensivo, patrimônio especial, objeto da conta de participação relativa aos negócios sociais, porém tal especialização patrimonial somente produz efeitos em relação aos sócios.\n\nAs afirmativas são, na ordem apresentada, respectivamente,",
+      "alternativas": {
+        "A": "V - F - V.",
+        "B": "V - V - F.",
+        "C": "V - F - F.",
+        "D": "F - F - V.",
+        "E": "F - V - V."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Direito Civil I e Direito Empresarial I",
+      "gabarito": "B",
+      "enunciado": "Olimpio e Noronha, acionistas minoritários da Companhia Cristais de Cristina, decidem requerer a adoção do voto múltiplo na eleição para os novos membros do Conselho de Administração. Consoante as disposições da Lei de Sociedade por Ações sobre o voto múltiplo, analise as afirmativas a seguir.\n\nI. A faculdade de requerer a adoção do sistema do voto múltiplo na eleição do conselho de administração deverá ser exercida pelos acionistas até 48 (quarenta e oito) horas antes da data fixada para a realização da assembleia geral, cabendo à mesa que dirigir os trabalhos informar previamente aos acionistas, à vista das assinaturas no Livro de Presença, o número de votos necessários para a eleição de cada membro do conselho.\nII. Na eleição para a composição do Conselho de Administração é facultado aos acionistas que representem, no mínimo, 5% (cinco por cento) do total de votos conferidos pelas ações com direito a voto, esteja ou não tal faculdade prevista no estatuto, requerer a adoção do processo de voto múltiplo, por meio do qual o número de votos de cada ação será multiplicado pelo número de cargos a serem preenchidos, reconhecido ao acionista o direito de cumular os votos em um só candidato ou distribuí-los entre vários.\nIII. Ocorrendo a eleição pelo sistema do voto múltiplo e os titulares de ações ordinárias exercerem a prerrogativa de eleger conselheiro, será assegurado aos acionistas vinculados por acordo de votos, que detenham mais do que 50% (cinquenta por cento) das ações com direito de voto, o direito de eleger conselheiros em número igual ao dos eleitos pelos demais acionistas, mais um, independentemente do número de conselheiros que, segundo o estatuto, componha o órgão.\n\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "I, apenas.",
+        "B": "I e II, apenas.",
+        "C": "I e III, apenas.",
+        "D": "II e III, apenas.",
+        "E": "I, II e III."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Direito Civil I e Direito Empresarial I",
+      "gabarito": "D",
+      "enunciado": "A sociedade empresária Santa Luzia Antiguidades Ltda., enquadrada como empresa de pequeno porte, é composta pelos sócios Fabriciano, Lafaiete, Timóteo e Carmelo.\n\nOs sócios Lafaiete e Carmelo são titulares de quotas que representam, em conjunto, 3/5 (três quintos) do capital social, esse no valor de R$ 975.000,00 (novecentos e setenta e cinco mil reais).\n\nO contrato social tem cláusula de regência supletiva pelas normas da sociedade simples; é vedada a negociação das quotas a pessoa que não seja sócio e a administração só pode ser atribuída a sócio, sem delegação de poderes a quem não seja sócio.\n\nOs sócios Lafaiete e Carmelo aprovaram a dissolução da sociedade no dia 1º de agosto de 2022, sem a manifestação dos demais sócios, eis que não foi realizada reunião de sócios.\n\nConsiderados os dados sobre a sociedade e a deliberação tomada, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A deliberação tomada pelos sócios foi irregular, pois deveria ter sido aprovada pela unanimidade dos sócios em razão de a sociedade ser enquadrada como empresa de pequeno porte e da regência supletiva pelas normas da sociedade simples.",
+        "B": "A deliberação tomada pelos sócios foi irregular, pois deveria ter sido aprovada por, no mínimo, 3/4 (três quartos) do capital social, em razão de a sociedade ser enquadrada como empresa de pequeno porte.",
+        "C": "A deliberação tomada pelos sócios foi regular por ter sido aprovada por deliberação acima do primeiro número inteiro superior à metade do capital social, quórum para as sociedades enquadradas como empresa de pequeno porte.",
+        "D": "A deliberação tomada pelos sócios foi regular por ter sido aprovada por 3/5 (três quintos) do capital social, quorum exigido para as deliberações nas sociedades enquadradas como empresa de pequeno porte.",
+        "E": "A deliberação tomada pelos sócios foi irregular pois deveria ter sido aprovada por, no mínimo, 4/5 (quatro quintos) do capital social, em razão da regência supletiva pelas normas da sociedade simples."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Direito Penal",
+      "gabarito": "D",
+      "enunciado": "Acerca do Princípio da Legalidade Penal, analise as afirmativas a seguir.\n\nI. O princípio da anterioridade penal impede a aplicação da lei nova que agrave a pena quando a sua vigência é posterior ao início da execução do delito, nos crimes permanentes, ainda que atinja etapa da permanência.\nII. A lei nova que, de qualquer forma, beneficie o acusado deve ser imediatamente aplicável; se o beneficio for parcial, despreza-se a parte que prejudica o réu, aplicando-se apenas a parte benéfica.\nIII. O princípio da legalidade da lei penal autoriza a ultratividade da lei penal em prejuízo do acusado, quando se tratar de norma legal de natureza temporária ou excepcional.\n\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "I, apenas.",
+        "B": "II, apenas.",
+        "C": "III, apenas.",
+        "D": "II e III, apenas.",
+        "E": "I, II e III."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Direito Penal",
+      "gabarito": "A",
+      "enunciado": "Acerca da classificação dos crimes, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "O crime de falsificação de papéis públicos, se praticado por servidor público prevalecendo-se do cargo, é um crime especial impróprio, ao passo que, se praticado por particular, é um crime comum.",
+        "B": "O crime de mão própria caracteriza-se por seu caráter personalíssimo, somente o agente pode praticá-lo. Por isso, o crime de auto aborto é um exemplo de crime de mão própria, insuscetível de coautoria ou participação.",
+        "C": "Os crimes plurissubjetivos são aqueles em que há, além do agente, uma pessoa física ou jurídica no polo passivo, ocupando a posição de vítima direta do ilícito penal, ao passo que os crimes unissubjetivos se identificam pela inexistência de vítima identificável.",
+        "D": "Os crimes omissivos impróprios são aqueles que, embora previstos como consequência de conduta comissiva, podem, eventualmente, serem praticados por omissão. É o caso do delito de omissão de socorro.",
+        "E": "Os crimes de perigo abstrato são os delitos que causam efetiva exposição do bem jurídico tutelado a perigo, devendo haver indicação do risco, o qual não pode ser presumido."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Direito Penal",
+      "gabarito": "D",
+      "enunciado": "Rebeca trabalha há muitos anos como instrumentadora cirúrgica e tem bastante experiência na sua atuação. Sabe que, via de regra, os centros cirúrgicos exigem tipos especiais de calçados para acesso. Tendo em vista sua larga experiência com a atividade de instrumentação, Rebeca passa a utilizar sapatos de salto alto, por ser muito vaidosa, e por ter certeza de que este fato não irá comprometer sua atividade.\n\nRebeca, certo dia, escorrega durante a atividade de instrumentação e derruba a mesa auxiliar de instrumentação, caindo alguns objetos na área cirúrgica. O acidente ocasionou danos graves no paciente, com sequela cicatricial não esperada ao tipo de procedimento a que se submetia.\n\nNeste caso, é possível dizer que a conduta de Rebeca, que implicou no resultado lesivo ao paciente, foi praticada com",
+      "alternativas": {
+        "A": "dolo eventual.",
+        "B": "culpa inconsciente, na modalidade imperícia.",
+        "C": "culpa inconsciente, na modalidade imprudência.",
+        "D": "culpa consciente, na modalidade imprudência.",
+        "E": "culpa consciente, na modalidade imperícia."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Direito Penal",
+      "gabarito": "A",
+      "enunciado": "Sobre o regramento da prescrição penal, considerando a posição da Jurisprudência do Superior Tribunal de Justiça e do Supremo Tribunal Federal a propósito do tema, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A prescrição da pretensão executória fluirá considerando o saldo que restar da pena, computando-se a detração do período de prisão preventiva cumprido pelo condenado.",
+        "B": "A prescrição da pretensão punitiva é interrompida pelo acórdão que confirma a os termos da sentença condenatória.",
+        "C": "A prescrição penal pode ser suspensa durante o tempo em que o condenado esteja cumprindo pena no estrangeiro.",
+        "D": "Uma vez interrompida a prescrição da pretensão punitiva, o prazo volta a fluir no dia da interrupção, pela metade.",
+        "E": "O reconhecimento da prescrição da pretensão punitiva possui efeitos ex nunc, ou seja, impede a execução da pena, mas não atinge os efeitos secundários da condenação."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Direito Penal",
+      "gabarito": "A",
+      "enunciado": "Paulo, fiscal da Receita Estadual, compareceu na loja de Luiz, empresário, para uma fiscalização de rotina. Lavrado termo de início da fiscalização, foi estabelecido prazo de dez dias a Luiz para a entrega de documentos fiscais.\n\nLuiz então percebeu que não possuía algumas notas fiscais exigidas por Paulo, deixando transcorrer o prazo, sem adimplir a obrigação.\n\nAssim, Paulo passou a exigir de Luiz vantagem patrimonial para deixar de efetuar o lançamento tributário relativo ao descumprimento da obrigação acessória verificada.\n\nAnalisando as condutas de Paulo e Luiz, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Paulo praticou corrupção passiva ao passo que Luiz não praticou fato típico.",
+        "B": "Paulo e Luiz praticaram crimes contra a ordem tributária.",
+        "C": "Paulo praticou crime contra a ordem tributária e Luiz não praticou fato típico.",
+        "D": "Paulo praticou excesso de exação ao passo que Luiz praticou crime contra a ordem tributária.",
+        "E": "Paulo praticou concussão em desfavor de Luiz."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Direito Penal",
+      "gabarito": "E",
+      "enunciado": "Ana é servidora pública e passou por severa crise pessoal, em decorrência do nascimento de sua filha, portadora de grave doença genética.\n\nComo o tratamento da filha era extremamente custoso, Ana passou a levar para casa, com intenção de economizar recursos para custear o tratamento de sua filha, pequenos materiais como papel higiênico, café, canetas, itens subtraídos da repartição pública.\n\nAo descobrir os fatos, Rodolfo, superior imediato de Ana, e conhecedor do drama pessoal de sua subordinada, deixa de instaurar o procedimento administrativo cabível.\n\nNesse caso, é certo que",
+      "alternativas": {
+        "A": "a conduta de Ana é desprovida de tipicidade material, o que ocasiona também a atipicidade da conduta de Rodolfo.",
+        "B": "Ana praticou o delito peculato, ao passo que Rodolfo praticou o delito de prevaricação.",
+        "C": "Ana praticou o delito de peculato culposo, ao passo que Rodolfo praticou o delito de advocacia administrativa.",
+        "D": "Ana e Rodolfo praticaram peculato, sendo Ana autora e Rodolfo participe por omissão.",
+        "E": "Ana praticou o delito de peculato, ao passo que Rodolfo praticou o delito de condescendência criminosa."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Direito Tributário I",
+      "gabarito": "B",
+      "enunciado": "Assinale a opção que indica o percentual a que os Estados e o Distrito Federal terão direito a título de repartição das receitas tributárias oriundas da arrecadação do Imposto sobre Produtos Industrializados.",
+      "alternativas": {
+        "A": "21,5% (vinte e um inteiros e cinco décimos por cento) através do Fundo de Participação dos Estados e do Distrito Federal e 20% (vinte por cento), proporcionalmente ao valor das respectivas exportações de produtos industrializados.",
+        "B": "22,5% (vinte e dois inteiros e cinco décimos por cento) através do Fundo de Participação dos Estados e do Distrito Federal e 20% (vinte por cento), proporcionalmente ao valor das respectivas exportações de produtos industrializados.",
+        "C": "22,5% (vinte e dois inteiros e cinco décimos por cento) através do Fundo de Participação dos Estados e do Distrito Federal e 10% (dez por cento), proporcionalmente ao valor das respectivas exportações de produtos industrializados.",
+        "D": "22,5% (vinte e dois inteiros e cinco décimos por cento) através do Fundo de Participação dos Estados e do Distrito Federal e nenhum percentual das respectivas exportações de produtos industrializados.",
+        "E": "21,5% (vinte e um inteiros e cinco décimos por cento) através do Fundo de Participação dos Estados e do Distrito Federal e 10% (dez por cento), proporcionalmente ao valor das respectivas exportações de produtos industrializados."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Direito Tributário I",
+      "gabarito": "D",
+      "enunciado": "Acerca do imposto estadual sobre operações relativas à circulação de mercadorias e sobre prestações de serviços de transporte interestadual e intermunicipal e de comunicação (ICMS), à luz da Constituição Federal de 1988 e do Código Tributário Nacional, analise as afirmativas a seguir e assinale (V) para a verdadeira e (F) para a falsa.\n\n( ) a isenção do ICMS em uma das etapas de circulação da mercadoria implicará crédito para compensação com o montante devido nas operações seguintes quando tal compensação for autorizada por lei.\n( ) É facultado ao Senado Federal fixar alíquotas máximas de ICMS nas operações internas para resolver conflito específico que envolva interesse de Estados, mediante resolução de iniciativa da maioria absoluta e aprovada por dois terços de seus membros.\n( ) É permitida a fixação de alíquotas sobre as operações com gás natural em patamar superior ao das operações em geral.\n\nAs afirmativas são, na ordem apresentada, respectivamente,",
+      "alternativas": {
+        "A": "V –V – V.",
+        "B": "V – V – F.",
+        "C": "F – V – V.",
+        "D": "F – F – V.",
+        "E": "F – F – F."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Direito Tributário I",
+      "gabarito": "D",
+      "enunciado": "A sociedade empresária ABC, atuante no comércio varejista, recebeu do Fisco do Estado Alfa uma notificação contendo auto de infração pelo descumprimento de obrigação acessória referente ao ICMS prevista em decreto do Governador. A notificação informava que o sujeito passivo dispunha de 45 dias, após ser notificado, para impugnar o lançamento ou pagar a multa tributária prevista no auto de infração.\n\nDiante desse cenário, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A modalidade de lançamento tributário presente no enunciado configura um lançamento por declaração.",
+        "B": "O Estado Alfa não poderia estabelecer prazo de 45 dias após a notificação do sujeito passivo para pagamento de tal multa tributária.",
+        "C": "A fixação do prazo de pagamento de tal multa tributária se submete ao princípio tributário da reserva de lei.",
+        "D": "Tal obrigação acessória deveria ser criada por lei estadual, e não por decreto.",
+        "E": "Caso a sociedade requeira certidão de regularidade fiscal do ICMS no 25º dia após a notificação do auto de infração, deverá ser emitida certidão positiva com efeito de negativa."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Direito Tributário I",
+      "gabarito": "A",
+      "enunciado": "João, proprietário de três imóveis, buscando contrair um empréstimo bancário, hipotecou um dos imóveis em favor do Banco 100% S/A, obtendo assim o empréstimo desejado.\n\nQuanto ao segundo imóvel, realizou sua transferência ao patrimônio de pessoa jurídica de que é sócio, em realização de capital.\n\nQuanto ao terceiro imóvel, em que reside, instituiu direito real de laje, a título gratuito, em favor de seu irmão José, para que este pudesse construir sua residência sobre a laje do imóvel em que João reside.\n\nDiante desse cenário e das hipóteses de incidência do ITBI (Imposto sobre Transmissão de Bens Imóveis por Ato Inter Vivos) e do ITCD (Imposto sobre Transmissão Causa Mortis e Doação) previstas na Constituição Federal de 1988, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Sobre a constituição de hipoteca em favor do Banco 100% S/A não incide ITBI.",
+        "B": "Sobre a instituição do direito de laje em favor de seu irmão José não incide ITCD.",
+        "C": "Sobre a instituição do direito de laje em favor de seu irmão José incide ITBI.",
+        "D": "Sobre a transferência de imóvel para o patrimônio de pessoa jurídica de que João é sócio, em realização de capital, incide ITBI.",
+        "E": "Sobre a transferência de imóvel para o patrimônio de pessoa jurídica de que João é sócio, em realização de capital, incide ITCD."
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Direito Tributário I",
+      "gabarito": "D",
+      "enunciado": "Acerca da disciplina constitucional do Imposto Estadual sobre a Propriedade de Veículos Automotores (IPVA), analise as afirmativas a seguir e assinale (V) para a verdadeira e (F) para a falsa.\n\n( ) O IPVA terá alíquotas máximas fixadas pelo Senado Federal.\n( ) O IPVA não poderá ter alíquotas diferenciadas em função do tipo e da utilização do veículo.\n( ) A fixação da base de cálculo do IPVA não se submete ao princípio da anterioridade nonagesimal.\n\nAs afirmativas são, na ordem apresentada, respectivamente,",
+      "alternativas": {
+        "A": "V – V – V.",
+        "B": "V – V – F.",
+        "C": "F – V – V.",
+        "D": "F – F – V.",
+        "E": "F – F – F."
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Direito Tributário I",
+      "gabarito": "B",
+      "enunciado": "Marilda Ferraz é herdeira de seu pai, João Pedro, e lhe coube, após a partilha, uma casa no litoral da Bahia e o automóvel que estava neste local. O inventário extrajudicial tramitou em Belo Horizonte, onde Marilda é residente e domiciliada. Já seu pai morava em São Paulo, quando faleceu.\n\nAssinale a opção que indica os tributos devidos e em quais Estados.",
+      "alternativas": {
+        "A": "Imposto sobre transmissão causa mortis e doação sobre a casa, a ser recolhido na Bahia, e IPVA sobre o automóvel, a ser recolhido em Minas Gerais.",
+        "B": "Imposto sobre transmissão causa mortis e doação sobre a casa, a ser recolhido na Bahia, e IPVA sobre o automóvel, a ser recolhido em São Paulo.",
+        "C": "Imposto sobre transmissão causa mortis e doação, tanto para a casa como para o automóvel, a ser recolhido na Bahia.",
+        "D": "Imposto sobre transmissão causa mortis e doação, tanto para a casa como para o automóvel, a ser recolhido em São Paulo.",
+        "E": "Imposto sobre transmissão causa mortis e doação, tanto para a casa como para o automóvel, a ser recolhido em Minas Gerais."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Direito Tributário I",
+      "gabarito": "A",
+      "enunciado": "Sobre o Imposto sobre Grandes Fortunas, imposto de competência da União e que jamais foi instituído, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Deve ser criado por lei complementar e suas receitas não serão vinculadas a finalidade específica.",
+        "B": "Pode ser criado por lei ordinária e suas receitas não serão vinculadas a finalidade específica.",
+        "C": "Deve ser criado por lei complementar e 50% (cinquenta por cento) da sua arrecadação caberá aos Estados e Municípios.",
+        "D": "Deve ser criado por lei complementar e sua arrecadação irá compor o Fundo de Combate e Erradicação da Pobreza.",
+        "E": "Pode ser criado por lei ordinária e 50% (cinquenta por cento) da sua arrecadação caberá aos Estados e Municípios."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Direito Tributário I",
+      "gabarito": "E",
+      "enunciado": "O princípio da anterioridade nonagesimal, previsto no Art. 150, inciso III, alínea c, da Constituição Federal de 1988, importante por trazer segurança para os contribuintes e permitir um planejamento tributário, não se aplica a todos os impostos. Quanto aos impostos já instituídos pela União, assinale a opção que apresenta os que devem observar o princípio da anterioridade nonagesimal.",
+      "alternativas": {
+        "A": "Imposto sobre Produtos Industrializados / Imposto sobre Propriedade Territorial Rural.",
+        "B": "Imposto sobre Exportação para o Exterior de produtos nacionais ou nacionalizados / Imposto sobre Propriedade Territorial Rural.",
+        "C": "Imposto sobre Operações de Crédito, Câmbio e Seguro, ou relativas a títulos ou valores mobiliários / Imposto sobre Propriedade Territorial Rural.",
+        "D": "Imposto sobre Importação de Produtos Estrangeiros / Imposto sobre Produtos Industrializados.",
+        "E": "Imposto sobre Importação de Produtos Estrangeiros / Imposto sobre Exportação para o Exterior de produtos nacionais ou nacionalizados."
+      }
+    },
+    {
+      "numero": 61,
+      "materia": "Direito Tributário I",
+      "gabarito": "A",
+      "enunciado": "A Receita Estadual de Minas Gerais, por meio de alteração legal, conseguiu, a partir de julho de 2022, um cruzamento de dados mais eficiente para a apuração do ICMS devido pelas empresas. Com isso, verificou inconformidades tributárias por parte da sociedade empresária DGO, tendo lavrado auto de infração contra ela.\n\nA Receita Estadual de Minas Gerais, por meio de alteração legal, conseguiu, a partir de julho de 2022, um cruzamento de dados mais eficiente para a apuração do ICMS devido pelas empresas. Com isso, verificou inconformidades tributárias por parte da sociedade empresária DGO, tendo lavrado auto de infração contra ela.\n\nA sociedade empresária DGO impugna a autuação e a posterior cobrança sofrida, referente aos anos de 2018 a 2020, alegando que ela só foi possível por meio de melhor fiscalização e que já tinha se adequado aos recolhimentos, tanto que as operações de 2021 não sofreram nenhuma autuação e cobrança. Sobre a hipótese narrada, assinale a opção que indica se assiste razão à sociedade empresária DGO.",
+      "alternativas": {
+        "A": "Não assiste, pois se aplica ao lançamento a legislação que, posteriormente à ocorrência do fato gerador da obrigação, tenha instituído novos critérios de apuração ou processos de fiscalização.",
+        "B": "Assistee, pois se houve tal alteracao legal, so apos a entrada em vigor desta poderia haver cobranca tributaria referente a fatos futuros, e nao quanto a tais fatos preteritos.",
+        "C": "Assistee, pois corrigiu seu procedimento antes dos novos instrumentos de fiscalização.",
+        "D": "Não assiste, mas é necessário que a Fazenda Pública comprove o dolo ou a fraude do contribuinte.",
+        "E": "Assistee, pois estes novos criterios de apuracao ou processo de fiscalizacao geraram aumento do tributo, so podendo ser exigido no ano seguinte a alteracao legal."
+      }
+    },
+    {
+      "numero": 62,
+      "materia": "Direito Tributário I",
+      "gabarito": "C",
+      "enunciado": "A sociedade empresária XYZ. Ltda., em recuperação judicial, pretende requerer sua adesão a parcelamento de dívidas tributárias estaduais perante o Estado Alfa, o qual dispõe de lei específica estadual dispondo sobre as condições de parcelamento dos créditos tributários do devedor em recuperação judicial. Diante desse cenário, à luz do Código Tributário Nacional (CTN), assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A adesão a tal parcelamento tributário implica confissão de dívida, tendo a eficácia de operar a novação da dívida e de interromper o curso da prescrição, constituindo modalidade de exclusão do crédito tributário.",
+        "B": "Não é possível que a lei específica estadual exclua a incidência de juros no parcelamento dos créditos tributários do devedor em recuperação judicial.",
+        "C": "A lei específica estadual dispondo sobre as condições de parcelamento dos créditos tributários do devedor em recuperação judicial pode estabelecer prazos de parcelamento inferiores aos concedidos pela lei federal específica sobre o mesmo tema.",
+        "D": "Não se aplicam ao parcelamento, subsidiariamente, as disposições do CTN relativas à moratória.",
+        "E": "Dado o caráter espontâneo e voluntário da adesão ao parcelamento, o pagamento de parcelas referentes a dívidas tributárias estaduais que já estavam prescritas antes da adesão não permite a repetição do indébito tributário por parte do sujeito passivo."
+      }
+    },
+    {
+      "numero": 63,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "As reservas de capital, contabilizadas no patrimônio líquido, representam valores recebidos que não transitaram e não irão transitar pelo resultado como receita.\n\nAssinale a opção que indica quando as reservas de capital podem ser utilizadas.",
+      "alternativas": {
+        "A": "Na reversão de provisões e no pagamento de dividendos a ações ordinárias e preferenciais.",
+        "B": "Na compensação de perdas extraordinárias e no atendimento a projetos de investimento em expansão.",
+        "C": "Na incorporação ao capital social e no aumento do valor do investimento em coligadas e controladas.",
+        "D": "No resgate, reembolso ou compra de ações e na absorção de prejuízos, quando estes ultrapassarem as reservas de lucros.",
+        "E": "No pagamento de dividendos sobre a parcela de lucros ainda não realizada financeiramente e no resgate de partes beneficiárias."
+      }
+    },
+    {
+      "numero": 64,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "A Cia. X realiza a venda de computadores a consumidores externos por meio eletrônico, atuando como intermediadora. A sociedade empresária não possui estoque. Os computadores vendidos são entregues pela Cia. Y, detentora do estoque e emissora dos documentos da venda.\n\nNo mês de janeiro de 2022, a Cia. X atuou na venda de 10 computadores, com base no valor de R$8.000 cada. Estes foram entregues pela Cia. Y ao consumidor final. O custo do computador era de R$5.000 e a Cia. X recebeu R$2.000 por cada venda realizada.\n\nAssinale a opção que indica a receita de vendas contabilizada, em janeiro de 2022, pela Cia. X e pela Cia. Y, respectivamente.",
+      "alternativas": {
+        "A": "R$20.000 e R$30.000.",
+        "B": "R$20.000 e R$60.000.",
+        "C": "R$20.000 e R$80.000.",
+        "D": "R$80.000 e R$30.000.",
+        "E": "R$80.000 e R$60.000."
+      }
+    },
+    {
+      "numero": 65,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "De acordo com a NBC TG 26 (R5) - Apresentação das Demonstrações Contábeis, as demonstrações contábeis resultam do processamento de grande número de transações ou outros eventos que são agregados em classes, de acordo com a sua natureza ou função.\n\nQuando um item não é individualmente material, ele deve ser",
+      "alternativas": {
+        "A": "baixado em uma conta de resultado.",
+        "B": "contabilizado em conta redutora no balanço patrimonial.",
+        "C": "agregado a outros itens, seja nas demonstrações contábeis, seja nas notas explicativas.",
+        "D": "excluído das demonstrações contábeis e não apresentado nas notas explicativas.",
+        "E": "apresentado exclusivamente na Demonstração dos Fluxos de Caixa."
+      }
+    },
+    {
+      "numero": 66,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Uma instituição de ensino adquiriu, em 01/01/X0, um prédio para alugar a terceiros por R$500.000. A vida útil do prédio foi estimada em 50 anos.\n\nApós o reconhecimento inicial, a instituição de ensino escolheu mensurar o prédio pelo método do valor justo, com acréscimo reconhecido anualmente na Demonstração do Resultado. Na data, este era de R$600.000.\n\nEm 31/12/X1, a instituição decidiu que iria utilizar o prédio em seus negócios, passando a contabiliza-lo como ativo imobilizado. Na data, o valor justo do prédio era de R$700.000.\n\nAssinale a opção que indica o valor contábil do prédio no balanço patrimonial da instituição de ensino, em 31/12/X1.",
+      "alternativas": {
+        "A": "R$480.000.",
+        "B": "R$500.000.",
+        "C": "R$576.000.",
+        "D": "R$600.000.",
+        "E": "R$700.000."
+      }
+    },
+    {
+      "numero": 67,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "Em 31/12/X0, uma sociedade empresária adquiriu móveis para utilizar em seu negócio por R$ 12.000 para pagamento em um ano. Esse prazo era maior do que os prazos normais de crédito para a sociedade empresária. Se os móveis fossem adquiridos à vista, o valor seria de R$ 10.000.\n\nAssinale a opção que indica os lançamentos contábeis realizados pela sociedade empresária na data em que os móveis foram adquiridos.",
+      "alternativas": {
+        "A": "D-móveis e utensílios: R$ 10.000. C- contas a pagar: R$ 12.000.",
+        "B": "D- despesas financeiras: R$ 2.000. C- contas a pagar: R$ 12.000.",
+        "C": "D- móveis e utensílios: R$ 12.000. C- contas a pagar: R$ 12.000.",
+        "D": "C- desconto financeiro: R$ 2.000. C- contas a pagar: R$ 12.000.",
+        "E": "D- despesas financeiras: R$ 2.000. C- caixa: R$ 2.000. C- contas a pagar: R$ 10.000."
+      }
+    },
+    {
+      "numero": 68,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Em 01/01/X0, uma entidade de incorporação imobiliária iniciou a construção de um prédio. Foi estimado que todos os apartamentos estariam prontos em 31/12/X3.\n\nO custo total estimado para cada apartamento era de R$ 500.000, sendo gastos do seguinte modo:\n• em X0: R$ 100.000;\n• em X1: R$ 120.000;\n• em X2: R$ 200.000; e\n• em X3: R$ 80.000.\n\nAinda, a construtora incorre em despesas gerais de R$ 180.000 ao ano.\n\nEm 01/01/X0 foram vendidos três apartamentos por R$ 800.000 cada, à vista.\n\nAssinale a opção que indica o lucro bruto relacionado à venda destes três apartamentos, reconhecido na Demonstração do Resultado do Exercício da construtora em 31/12/X2, considerando que os valores reais foram iguais aos estimados.",
+      "alternativas": {
+        "A": "Zero.",
+        "B": "R$ 180.000.",
+        "C": "R$ 216.000.",
+        "D": "R$ 360.000.",
+        "E": "R$ 756.000."
+      }
+    },
+    {
+      "numero": 69,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "De acordo com a NBC TG 26 (R5) - Apresentação das Demonstrações Contábeis, as notas explicativas devem ser apresentadas, tanto quanto seja praticável, de forma sistemática.\n\nEm relação à ordenação ou ao agrupamento sistemático, analise os exemplos a seguir.\n\nI. Agrupar informações sobre contas mensuradas de forma semelhante, como os ativos mensurados ao valor justo.\nII. Dar destaque para as áreas de atividades que a entidade considera mais relevantes para a compreensão do seu desempenho financeiro e da posição financeira, como o agrupamento de informações sobre determinadas atividades operacionais.\nIII. Seguir a ordem das contas das demonstrações do resultado e de outros resultados abrangentes e do balanço patrimonial, como declaração de conformidade com as normas, interpretações e comunicados e políticas contábeis significativas aplicadas.\n\nOs exemplos de ordenação ou de agrupamento sistemático das notas explicativas incluem o que se afirma em",
+      "alternativas": {
+        "A": "I, somente.",
+        "B": "I e II, somente.",
+        "C": "I e III, somente.",
+        "D": "II e III, somente.",
+        "E": "I, II e III."
+      }
+    },
+    {
+      "numero": 70,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "De acordo com inclusão feita pela Lei nº 11.638/07 na Lei nº 6.404/64, assinale a opção que indica a classificação no ativo intangível.",
+      "alternativas": {
+        "A": "Despesas pré-operacionais e gastos de reestruturação que contribuirão, efetivamente, para o aumento do resultado de mais de um exercício social.",
+        "B": "Direitos que tenham por objeto bens incorpóreos destinados à manutenção da companhia ou exercidos com essa finalidade, inclusive o fundo de comércio adquirido.",
+        "C": "Aplicações de recursos em despesas que contribuirão para a formação do resultado de mais de um exercício social, inclusive os juros pagos ou creditados aos acionistas.",
+        "D": "Direitos que tenham por objeto bens destinados à manutenção das atividades da companhia e da sociedade empresária, ou exercidos com essa finalidade, inclusive os de propriedade industrial ou comercial.",
+        "E": "Participações permanentes em outras sociedades e os direitos de qualquer natureza, não classificáveis no ativo circulante, e que não se destinem à manutenção da atividade da companhia ou da sociedade empresária."
+      }
+    },
+    {
+      "numero": 71,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "De acordo com a Lei nº 6.404/1964, modificada pelas leis 11.638/2007 e 11.941/2009, considera-se, como valor justo dos instrumentos financeiros,",
+      "alternativas": {
+        "A": "o preço pelo qual possam ser repostos, mediante compra no mercado.",
+        "B": "o valor que pode se obter em um mercado ativo, decorrente de transação não compulsória realizada entre partes independentes.",
+        "C": "o preço líquido de realização mediante venda no mercado, deduzidos os impostos e demais despesas necessárias para a venda e a margem de lucro.",
+        "D": "o valor original atualizado pela variação do nível médio de preços da economia.",
+        "E": "o preço inicial corrigido de acordo com o processo de reavaliação de ativos previsto na lei societária."
+      }
+    },
+    {
+      "numero": 72,
+      "materia": "Economia e Matemática Financeira",
+      "gabarito": "C",
+      "enunciado": "Uma loja vendia calculadoras. Em 31/12/X0, não havia calculadoras no estoque.\n\nEm 02/01/X1, a loja adquiriu 100 calculadoras. O preço unitário cobrado pelo fabricante foi de R$ 100,00, mas a loja recebeu um desconto de 10% sobre o preço. Além disso, a loja pagou o frete de R$ 200,00. Ainda, a loja estimou que o custo de estocagem das calculadoras era de R$ 400,00.\n\nNo primeiro trimestre de X1, 30 calculadoras foram vendidas por R$ 110,00 cada. Em 01/04, o preço baixou para R$ 95,00 e foram vendidas 10 calculadoras no segundo trimestre. Já em 01/07, o preço baixou para R$ 85,00. No trimestre foram vendidas 40 calculadoras. Em 01/10 o preço foi ajustado para R$ 100,00. Nesse trimestre, 8 calculadoras foram vendidas.\n\nAssinale a opção que indica o lucro bruto da loja, no ano de X1.",
+      "alternativas": {
+        "A": "R$ 178.00.",
+        "B": "R$ 250.00.",
+        "C": "R$ 354.00.",
+        "D": "R$ 538.00.",
+        "E": "R$ 634.00."
+      }
+    },
+    {
+      "numero": 73,
+      "materia": "Economia e Matemática Financeira",
+      "gabarito": "D",
+      "enunciado": "Os bens públicos são caracterizados, entre outros fatores, por",
+      "alternativas": {
+        "A": "não serem indivisíveis.",
+        "B": "não incluírem bens tangíveis.",
+        "C": "não serem sujeitos ao problema de congestionamento.",
+        "D": "não ser possível impedir o seu usufruto por um cidadão.",
+        "E": "serem providos de forma eficiente pelo mercado."
+      }
+    },
+    {
+      "numero": 74,
+      "materia": "Economia e Matemática Financeira",
+      "gabarito": "C",
+      "enunciado": "Em relação às externalidades, analise as afirmativas a seguir e assinale (V) para verdadeira e (F) para a falsa.\n\n(  ) A intervenção do Estado se faz necessária apenas quando as externalidades são negativas.\n(  ) Uma forma de zerar ou mitigar a geração de externalidades negativas é por meio da imposição de multas aos agentes que causam danos à sociedade.\n( ) No problema da tragédia dos comuns, o custo da super exploração do bem comum que pode levar à sua extinção é um exemplo de externalidade.\n\nAs afirmativas são, na ordem apresentada, respectivamente,",
+      "alternativas": {
+        "A": "V – V – V.",
+        "B": "V – F – F.",
+        "C": "F – V – V.",
+        "D": "F – V – F.",
+        "E": "F – F – F."
+      }
+    },
+    {
+      "numero": 75,
+      "materia": "Economia e Matemática Financeira",
+      "gabarito": "A",
+      "enunciado": "Relacione as características de um sistema tributário ideal, listadas a seguir, à sua respectiva descrição.\n\n1. Equidade\n2. Progressividade\n3. Neutralidade\n4. Simplicidade\n\n(  ) Cada cidadão deve pagar uma contribuição considerada justa.\n(  ) O Imposto sobre a Renda apresenta alíquotas sobre os rendimentos mais elevados.\n(  ) O sistema tributário deve interferir minimamente na alocação de recursos da economia.\n(  ) Os custos de fiscalização pela autoridade tributária devem ser minimizados.\n\nAssinale a opção que indica a relação correta, segundo a ordem apresentada.",
+      "alternativas": {
+        "A": "1 – 2 – 3 – 4.",
+        "B": "1 – 2 – 4 – 3.",
+        "C": "2 – 4 – 3 – 1.",
+        "D": "3 – 2 – 1 – 4.",
+        "E": "4 – 3 – 2 – 1."
+      }
+    },
+    {
+      "numero": 76,
+      "materia": "Economia e Matemática Financeira",
+      "gabarito": "D",
+      "enunciado": "O Segundo Teorema do Bem-Estar Social prediz que",
+      "alternativas": {
+        "A": "um mercado competitivo conduz a uma alocação ótima de Pareto.",
+        "B": "a assimetria informacional não invalida o resultado de alocação eficiente do mercado.",
+        "C": "se n-1 mercados estiverem em equilíbrio, então o n-ésimo também estará.",
+        "D": "a eficiência de Pareto pode ser alcançada com qualquer redistribuição da riqueza inicial.",
+        "E": "não há espaço para intervenções governamentais após o equilíbrio de mercado, pois esse gera o máximo de bem-estar."
+      }
+    },
+    {
+      "numero": 77,
+      "materia": "Economia e Matemática Financeira",
+      "gabarito": "E",
+      "enunciado": "Em relação aos custos da tributação, assinale a afirmativa incorreta.",
+      "alternativas": {
+        "A": "O preço pago pelos consumidores sobe quando o tributo é aplicado sobre esses.",
+        "B": "O preço pago pelos consumidores sobe quando o tributo é aplicado sobre os vendedores.",
+        "C": "Um imposto impõe uma cunha entre o preço pago pelos consumidores e o preço recebido pelos vendedores.",
+        "D": "A quantidade vendida cai abaixo da quantidade de equilíbrio sem imposto.",
+        "E": "O tamanho do mercado para o bem pode aumentar, mesmo com a instituição do imposto."
+      }
+    },
+    {
+      "numero": 78,
+      "materia": "Economia e Matemática Financeira",
+      "gabarito": "C",
+      "enunciado": "Um empréstimo no valor de R$ 92.820,00 deverá ser pago em quatro prestações anuais, iguais e consecutivas, sendo a primeira delas paga um ano após a liberação do crédito. O credor cobra uma taxa de juros compostos de 10% a.a. A primeira das prestações foi paga na data contratada. No momento do pagamento da segunda, o devedor decide não apenas pagá-la, mas também antecipar todos as futuras prestações. Para quitar a dívida nessa data, foi feito um pagamento único de\n\nDados: 1,1² = 1,21 1,1³ = 1,331 1,1⁴ = 1,4641",
+      "alternativas": {
+        "A": "R$ 70.820,00.",
+        "B": "R$ 72.820,00.",
+        "C": "R$ 75.902,00.",
+        "D": "R$ 80.102,00.",
+        "E": "R$ 82.100,00."
+      }
+    },
+    {
+      "numero": 79,
+      "materia": "Economia e Matemática Financeira",
+      "gabarito": "A",
+      "enunciado": "Um financiamento habitacional no valor de R$ 40.000,00 será quitado em 25 prestações mensais e consecutivas, vencendo a primeira delas um mês após a data da contratação, com taxa de juros efetiva de 2,0% ao mês. Se o sistema de amortização utilizado fosse o francês, o valor de cada uma das prestações seria de R$ 2.048,82. Entretanto, o sistema utilizado para a quitação desse empréstimo será o misto (SAM).\n\nO valor da 2ª prestação será de",
+      "alternativas": {
+        "A": "R$ 2.200.41.",
+        "B": "R$ 2.208.41.",
+        "C": "R$ 2.224.41.",
+        "D": "R$ 2.442.41.",
+        "E": "R$ 4.416.82."
+      }
+    },
+    {
+      "numero": 80,
+      "materia": "Economia e Matemática Financeira",
+      "gabarito": "D",
+      "enunciado": "Uma aplicação tem rendimento líquido de 40%. Sobre o ganho obtido nessa operação, incide imposto de 20%.\n\nDado que a inflação acumulada nesse período foi de 10%, o ganho real dessa aplicação foi de",
+      "alternativas": {
+        "A": "24%.",
+        "B": "22%.",
+        "C": "20%.",
+        "D": "12%.",
+        "E": "10%."
+      }
+    }
+  ]
+}

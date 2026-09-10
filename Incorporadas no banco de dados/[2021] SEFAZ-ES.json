@@ -1,0 +1,796 @@
+{
+  "instituicao": "SEFAZ-ES",
+  "ano": 2021,
+  "cargo": "Auditor Fiscal da Receita Estadual",
+  "tipo_prova": "Tipo 1 – BRANCA",
+  "gabarito_tipo": 1,
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Lei ordinária do Estado X prevê a quitação de débitos tributários estaduais por meio de dação em pagamento de bens imóveis, após prévia avaliação e aceitação pela Secretaria Estadual de Fazenda.\nDiante desse cenário, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A lei estadual ordinária poderia instituir esta nova modalidade de pagamento de tributos.",
+        "B": "A dação em pagamento por meio de bens imóveis deveria ser instituída por lei estadual complementar.",
+        "C": "A lei estadual não poderia condicionar o pagamento por dação à prévia avaliação pela Secretaria Estadual de Fazenda.",
+        "D": "A Constituição não admite pagamento de tributo em espécie distinta de moeda (dinheiro).",
+        "E": "O Código Tributário Nacional não admite pagamento de tributo em espécie distinta de moeda (dinheiro)."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "No Estado X, uma lei estadual conferiu poderes à autarquia estadual gestora do regime próprio de previdência dos servidores estaduais para fiscalizar, arrecadar e inclusive cobrar judicialmente a contribuição previdenciária dos servidores.\nDiante desse cenário, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A lei estadual pode delegar a chamada capacidade tributária ativa à autarquia.",
+        "B": "A autarquia estadual, por ser integrante da Administração Indireta, não pode arrecadar tributos.",
+        "C": "A lei estadual viola a competência tributária do Estado X, conforme estabelecida na Constituição.",
+        "D": "A lei estadual viola a competência tributária do Estado X, conforme estabelecida no Código Tributário Nacional.",
+        "E": "A fiscalização e a arrecadação podem ser feitas pela autarquia, mas a cobrança judicial de tributos é ato privativo da Administração Direta do ente federado."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "Em junho de 2021, a Assembleia Legislativa do Estado X iniciou a discussão da nova lei de repartição de receitas tributárias do ICMS com os Municípios, segundo os novos parâmetros exigidos pela Emenda Constitucional nº 108/2020.\nDiante desse cenário, analise as afirmativas a seguir, assinalando (V) para a verdadeira e (F) para a falsa.\n( ) Da parcela de ICMS pertencente aos Municípios, 65%, no máximo, deverão ser repassados na proporção do valor adicionado nas operações relativas à circulação de mercadorias e nas prestações de serviços realizadas em seus territórios municipais.\n( ) Da parcela de ICMS pertencente aos Municípios, 10%, no mínimo, deverão obrigatoriamente ser repassados, com base em indicadores de melhoria, nos resultados de aprendizagem e de aumento da equidade, considerado o nível socioeconômico dos educandos.\n( ) A nova lei estadual poderá vincular 20% do produto da arrecadação do ICMS para repasse aos Municípios, na proporção do valor adicionado nas operações relativas à circulação de mercadorias e nas prestações de serviços realizadas em seus territórios municipais.\nAs afirmativas são, na ordem apresentada, respectivamente,",
+      "alternativas": {
+        "A": "V – V – V.",
+        "B": "V – F – V.",
+        "C": "V – V – F.",
+        "D": "F – V – V.",
+        "E": "F – F – F."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Em junho de 2021, Paulo, domiciliado em Vila Velha (ES), adquiriu, pela Internet, uma bicicleta para seu uso pessoal de uma sociedade empresária, sediada em Osasco (SP).\nAcerca do ICMS devido nesta operação, adotar-se-á a alíquota interestadual e caberá",
+      "alternativas": {
+        "A": "ao Estado de São Paulo o ICMS correspondente à diferença entre a alíquota interna do Estado de São Paulo e a alíquota interestadual.",
+        "B": "ao Estado do Espírito Santo o ICMS correspondente à diferença entre a alíquota interna do Estado do Espírito Santo e a alíquota interestadual.",
+        "C": "ao Estado de São Paulo o ICMS correspondente à diferença entre a alíquota interna do Estado do Espírito Santo e a alíquota interestadual.",
+        "D": "ao Estado do Espírito Santo o ICMS correspondente à diferença entre a alíquota interna do Estado de São Paulo e a alíquota interestadual.",
+        "E": "aos Estados do Espírito Santo e de São Paulo a partilha, em partes iguais, do ICMS correspondente à diferença entre a alíquota interna do Estado de São Paulo e a alíquota interestadual."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Fumaça Pura Ltda. - EPP (empresa de pequeno porte), fábrica artesanal de charutos, requereu sua adesão ao Regime Especial Unificado de Arrecadação de Tributos e Contribuições devidos pelas Microempresas e Empresas de Pequeno Porte - Simples Nacional.\nDiante desse cenário, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Sua adesão a este regime não abrange, no Simples Nacional, o recolhimento de Contribuição para o PIS/Pasep.",
+        "B": "Sua adesão a este regime não abrange, no Simples Nacional, o recolhimento de Contribuição para o Financiamento da Seguridade Social - COFINS.",
+        "C": "Sua adesão a este regime não abrange, no Simples Nacional, o recolhimento de Contribuição Patronal Previdenciária - CPP.",
+        "D": "A empresa não pode aderir integralmente ao Simples Nacional, pois o valor do Simples Nacional a ser por ela recolhido não inclui as contribuições sociais.",
+        "E": "A empresa não pode aderir ao Simples Nacional."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "O Estado X, percebendo que o Estado Y estava atualmente mantendo irregularmente um benefício fiscal de ICMS, sem a devida autorização de convênio do Conselho Nacional de Política Fazendária, protocolou representação contra o Estado Y junto ao Ministério da Economia.\nDiante desse cenário, analise as afirmativas a seguir.\nI. O Estado Y, enquanto perdurar a irregularidade, não poderá contratar operações de crédito destinadas ao pagamento da sua dívida mobiliária.\nII. A representação do Estado X contra o Estado Y deve ser firmada pelo Secretário Estadual de Fazenda do Estado X.\nIII. Compete ao Tribunal de Contas da União verificar a aplicação, pela União, das sanções previstas na LC 160/2017 contra o Estado Y.\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "I, somente.",
+        "B": "II, somente.",
+        "C": "III, somente.",
+        "D": "I e II, somente.",
+        "E": "I, II e III."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "A União resolveu exercer sua competência tributária residual criando um novo Imposto sobre Movimentações Financeiras.\nAcerca de tal imposto, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Poderá ser instituído por lei ordinária.",
+        "B": "Poderá ser cumulativo.",
+        "C": "Seu fato gerador poderá ser coincidente com o de outro imposto já previsto na Constituição.",
+        "D": "Sua base de cálculo poderá ser coincidente com a de outro imposto já previsto na Constituição.",
+        "E": "Do produto de sua arrecadação, 20% pertencerá aos Estados e ao Distrito Federal."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "João, proprietário de um imóvel com acesso à praia, pretende instituir uma servidão de passagem em favor de Jorge, para que este possa acessar a referida praia diretamente. Jorge se compromete a pagar, parceladamente, o valor do referido negócio jurídico, dando, em hipoteca, um terreno de sua propriedade para garantir o adimplemento.\nAcerca da incidência do Imposto de Transmissão de Bens Imóveis (ITBI) e do Imposto de Transmissão Causa Mortis e Doações (ITCMD) nesse cenário, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Tanto sobre a instituição de servidão de passagem quanto sobre a instituição da hipoteca incide ITBI.",
+        "B": "Sobre a instituição de servidão de passagem incide ITBI; sobre a instituição da hipoteca não incide qualquer imposto de transmissão.",
+        "C": "Sobre a instituição de servidão de passagem não incide qualquer imposto de transmissão; sobre a instituição da hipoteca, incide ITBI.",
+        "D": "Sobre a instituição de servidão de passagem incide ITCMD; sobre a instituição da hipoteca, incide ITBI.",
+        "E": "Tanto sobre a instituição de servidão de passagem como sobre a instituição da hipoteca, incide ITCMD."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Uma entidade religiosa, em difícil situação financeira, resolveu alugar apartamentos de sua propriedade, situados em diversos lugares do Município X, para fiéis da própria entidade. O dinheiro dos aluguéis é revertido em favor do pagamento das remunerações eclesiásticas dos ministros de culto, que se encontravam atrasadas.\nDiante desse cenário, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A imunidade tributária em favor das entidades religiosas abarca apenas o templo e os imóveis a ele adjacentes.",
+        "B": "Tais imóveis, em razão de a renda de seus aluguéis ser usada no pagamento de remuneração dos ministros de culto, não fazem jus à imunidade tributária de IPTU.",
+        "C": "Tais imóveis, em razão de serem alugados a terceiros, não fazem jus à imunidade tributária de IPTU.",
+        "D": "Tais imóveis fazem jus à imunidade de IPTU, uma vez que o uso do valor dos aluguéis está relacionado com as finalidades essenciais da entidade.",
+        "E": "O uso de valores da entidade para pagamento de ministros de culto configura distribuição proibida de suas rendas, devendo a condição de imune da entidade ser revogada."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "Lei estadual, buscando ampliar as possibilidades de cobrança do crédito tributário e diminuir o custo de sua cobrança judicial, autorizou o protesto de Certidão de Dívida Ativa (CDA) referente a tributos estaduais.\nDiante desse cenário, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A CDA constitui um título executivo judicial.",
+        "B": "A CDA pode ser levada a protesto perante Tabelião de Protesto de Títulos.",
+        "C": "A dívida ativa estadual deve ser cobrada mediante ação de execução fiscal, e não por meio de protesto.",
+        "D": "A lavratura do protesto da CDA é feita por servidor público estadual vinculado ao órgão que está realizando a cobrança.",
+        "E": "O protesto da CDA, por sua natureza de título público, impede a inscrição do nome do devedor em cadastros de proteção ao crédito."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Lei ordinária do Estado X, visando a uma maior transparência na Administração Tributária, determinou que fossem divulgadas, publicamente, no sítio eletrônico da Secretaria Estadual de Fazenda, as seguintes informações referentes aos contribuintes: I. representações fiscais para fins penais; II. inscrições na Dívida Ativa da Fazenda Pública; III. parcelamento ou moratória.\nDiante desse cenário e à luz do Código Tributário Nacional, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A divulgação de representações fiscais para fins penais viola o sigilo fiscal.",
+        "B": "A divulgação de inscrições na Dívida Ativa da Fazenda Pública viola o sigilo fiscal.",
+        "C": "A divulgação de parcelamento ou moratória viola o sigilo fiscal.",
+        "D": "A divulgação de representações fiscais para fins penais e de parcelamento ou moratória viola o sigilo fiscal.",
+        "E": "As informações divulgadas não violam o sigilo fiscal."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "O Estado X não vem recolhendo a taxa municipal de coleta de lixo domiciliar quanto a um terreno em que pretende construir, no futuro, o novo prédio-sede da Secretaria Estadual de Fazenda.\nEm razão disto, teve o débito inscrito em dívida ativa e contra ele foi promovida a execução para cobrança dos valores não pagos.\nDiante desse cenário, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "O Estado X goza de imunidade recíproca, não podendo ser cobrado por tal dívida.",
+        "B": "A imunidade tributária recíproca não se aplica à hipótese, por se tratar de terreno ainda não vinculado a uma finalidade pública.",
+        "C": "A imunidade tributária recíproca não se aplica a taxas.",
+        "D": "A taxa municipal de coleta de lixo domiciliar é inconstitucional, por tomar como base de cálculo a metragem do imóvel.",
+        "E": "A taxa municipal de coleta de lixo domiciliar é inconstitucional, pelo fato de o serviço prestado ou posto à disposição, não ser específico e divisível."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Um contribuinte recebeu notificação para pagamento de um tributo com prazo de 30 dias. No 20º dia após receber a notificação, ainda não o tendo pagado (por não estar vencido o prazo de pagamento), precisou emitir uma certidão de quitação de débito referente àquele tributo.\nÀ luz do Código Tributário Nacional, a certidão de quitação de débitos a ser emitida deverá ser uma certidão",
+      "alternativas": {
+        "A": "positiva.",
+        "B": "negativa.",
+        "C": "positiva com efeito de negativa.",
+        "D": "negativa com efeito de positiva.",
+        "E": "negativa de dívida ativa."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "O Presidente da República enviou projeto de Resolução ao Senado Federal, majorando as alíquotas de ICMS aplicáveis às operações e prestações interestaduais.\nSobre a hipótese, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "O projeto de Resolução padece de vício de iniciativa.",
+        "B": "Esse projeto de Resolução, caso proposto por um senador, necessitaria da maioria absoluta dos membros do Senado.",
+        "C": "O quórum de aprovação desse projeto de Resolução é de maioria simples dos membros do Senado.",
+        "D": "O quórum de aprovação desse projeto de Resolução é de dois terços dos membros do Senado.",
+        "E": "A Resolução, se aprovada, se submete ao princípio da anterioridade tributária."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "No Estado X, foi decretado pelo Governador o estado de calamidade pública referente às áreas fortemente afetadas por chuvas torrenciais. O Governador, por Medida Provisória (MP) estadual, também concedeu isenção de IPTU referente às áreas afetadas.\nDiante desse cenário, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Tal isenção é heterônoma, sendo vedada pela Constituição.",
+        "B": "Tal isenção não poderia ser concedida por medida provisória.",
+        "C": "Tal isenção poderia ser concedida por decreto dos prefeitos dos municípios afetados, mas não por ato do Governador.",
+        "D": "Para que a isenção concedida por MP estadual tivesse validade seria necessário o prévio reconhecimento da calamidade pública pela Assembleia Legislativa.",
+        "E": "Para que a isenção concedida por MP estadual tivesse validade seria necessário o prévio reconhecimento da calamidade pública pelas Câmaras de Vereadores dos municípios afetados."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "D",
+      "enunciado": "Luís, domiciliado em Vitória (ES), possui uma lancha, que fica ancorada no late Clube do Espírito Santo, registrada em seu nome perante a Capitania dos Portos.\nPor meio de convênio com a União, o Fisco estadual toma ciência de tal propriedade da lancha e notifica Luís para o pagamento do IPVA quanto a este bem.\nÀ luz da legislação do Estado do Espírito Santo e independentemente do entendimento jurisprudencial sobre o IPVA, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A propriedade de veículos automotores aquáticos não é fato gerador de IPVA.",
+        "B": "As embarcações de até 7 metros de comprimento são isentas de IPVA.",
+        "C": "A alíquota do IPVA é de 2% para embarcações.",
+        "D": "O fato gerador do IPVA de embarcações ocorre quando do registro perante a Capitania dos Portos.",
+        "E": "As embarcações utilizadas exclusivamente em atividades pesqueiras, transporte de passageiros e lazer são isentas de IPVA."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "E",
+      "enunciado": "À luz da vigente legislação estadual acerca do Imposto sobre Transmissão Causa Mortis e Doação (ITCMD), analise as hipóteses a seguir, todas ocorridas no ano de 2021.\nI. José, legatário, renuncia ao legado em benefício do monte, sem ressalva ou condição, não tendo praticado qualquer ato que demonstre aceitação do legado.\nII. Maria recebe o valor estipulado em seguro de vida em seu favor em razão da morte de seu pai, Mário.\nIII. Marcos, nu-proprietário de um imóvel, após a morte de sua mãe Rita, usufrutuária deste imóvel, consolida a propriedade plena.\nO ITCMD não incide em",
+      "alternativas": {
+        "A": "I, apenas.",
+        "B": "I e II, apenas.",
+        "C": "I e III apenas",
+        "D": "II e III, apenas.",
+        "E": "I, II e III."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "A",
+      "enunciado": "Gustavo realizou doação de imóvel situado na área urbana de Guarapari (ES) para seu primo João, com cláusula de reserva de usufruto.\nDiante desse cenário, analise as afirmativas a seguir, assinalando (V) para a verdadeira e (F) para a falsa.\n( ) A base de cálculo do ITCMD, no caso, é o valor venal do imóvel.\n( ) O valor mínimo dos bens e direitos para efeito de base de cálculo poderá ser estabelecido pela SEFAZ por meio de pautas de valores.\n( ) Para imóveis urbanos, a SEFAZ poderá estabelecer que, para efeito de base de cálculo, seja utilizado valor não inferior ao fixado para o lançamento do IPTU.\nAs afirmativas são, na ordem apresentada, respectivamente,",
+      "alternativas": {
+        "A": "V - V - V.",
+        "B": "V - F - V.",
+        "C": "V - V - F.",
+        "D": "F - V - V.",
+        "E": "F - F - F."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "E",
+      "enunciado": "A sociedade empresária Brinquedos ABC Ltda. foi autuada pelo Fisco do Estado do Espírito Santo por ausência de recolhimento de ICMS. A empresa impugna administrativamente o lançamento, mas a decisão de 1ª instância lhe é desfavorável.\nContra esta decisão, a sociedade empresária interpõe recurso ao Conselho Estadual de Recursos Fiscais (CERF), que, por uma de suas Câmaras, por maioria, mantém a decisão de 1ª instância. A sociedade empresária constata que há divergência entre as Câmaras do CERF sobre a interpretação jurídica da questão. Contra a decisão da Câmara, é cabível",
+      "alternativas": {
+        "A": "recurso voluntário ao Pleno do CERF, sendo o juízo de admissibilidade realizado pelo Conselheiro Relator.",
+        "B": "recurso de ofício ao Pleno do CERF, sendo o juízo de admissibilidade realizado pelo Conselheiro Relator.",
+        "C": "recurso de revista ao Pleno do CERF, sendo o juízo de admissibilidade realizado pelo Conselheiro Presidente.",
+        "D": "embargos de divergência ao Pleno do CERF, sendo o juízo de admissibilidade realizado pelo Conselheiro Presidente.",
+        "E": "incidente de uniformização ao Pleno do CERF, sendo o juízo de admissibilidade realizado pelo Conselheiro Relator."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "B",
+      "enunciado": "A Federação do Comércio do Estado do Espírito Santo (FECOMÉRCIO-ES) deseja realizar uma consulta tributária referente ao recolhimento de ICMS de um novo tipo de calçado comercializado pelos varejistas de calçados no território estadual.\nDiante desse cenário, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A FECOMÉRCIO-ES não pode formular consultas tributárias, por não ser contribuinte de direito do ICMS nestas operações.",
+        "B": "A FECOMÉRCIO-ES deve necessariamente expor a interpretação que dá aos dispositivos da legislação tributária aplicáveis à matéria consultada.",
+        "C": "A consulta feita pela FECOMÉRCIO-ES suspende o curso do prazo para pagamento do tributo, em relação ao fato sobre que se pede interpretação da legislação aplicável.",
+        "D": "A consulta feita pela FECOMÉRCIO-ES não impede, até o término do prazo fixado na resposta, o início de qualquer procedimento fiscal destinado à apuração de faltas relacionadas com a matéria consultada.",
+        "E": "A orientação dada pela autoridade competente para responder à consulta não pode ser modificada por ato normativo de autoridade superior."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "B",
+      "enunciado": "O frigorífico Carne Boa Ltda., sediado em Linhares (ES), responde a execuções fiscais por dívidas de ICMS cujo valor total é três vezes o montante do seu patrimônio líquido, apurado no seu último balanço patrimonial. Ademais, deixou de recolher o imposto declarado no Documento de Informações Econômico- Fiscais (DIEF) referente a quatro meses alternados.\nDiante desse cenário, analise as afirmativas a seguir, assinalando (V) para a verdadeira e (F) para a falsa.\n( ) O frigorífico poderá ser considerado devedor contumaz pela ausência de recolhimento do ICMS declarado no DIEF referente a quatro meses alternados.\n( ) Caso ocorra a penhora de bens do frigorífico em execução fiscal, ele não poderá ser considerado devedor contumaz.\n( ) Uma medida especial de fiscalização passível de aplicação a frigoríficos é o controle eletrônico em relação às entradas e saídas de animais vivos e abatidos.\nAs afirmativas são, na ordem apresentada, respectivamente,",
+      "alternativas": {
+        "A": "V - V - V.",
+        "B": "V - F - V.",
+        "C": "V - V - F.",
+        "D": "F - V - V.",
+        "E": "F - F - F."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "B",
+      "enunciado": "Certas mercadorias em trânsito, desacompanhadas da devida documentação fiscal, foram apreendidas pela SEFAZ-ES. O proprietário das mercadorias, devidamente notificado, preferiu não participar do processo administrativo fiscal, tendo sido decretada sua revelia e, ao fim do procedimento definitivamente julgado, declarados abandonados os bens.\nDiante desse cenário, analise as afirmativas a seguir, assinalando (V) para a verdadeira e (F) para a falsa.\n( ) Em relação aos bens e mercadorias declarados abandonados, a SEFAZ-ES fica autorizada a proceder a doação a órgãos oficiais ou a instituições de educação ou de assistência social sem fins lucrativos.\n( ) Se a autoridade competente optar por não vender em leilão os bens, o sujeito passivo fica integralmente desobrigado relativamente ao débito fiscal apurado.\n( ) Se o produto da venda em leilão não bastar para o pagamento dos débitos tributários, o remanescente do referido débito será inscrito em dívida ativa.\nAs afirmativas são, na ordem apresentada, respectivamente,",
+      "alternativas": {
+        "A": "V – V – V.",
+        "B": "V – F – V.",
+        "C": "V – V – F.",
+        "D": "F – V – V.",
+        "E": "F – F – F."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "D",
+      "enunciado": "Determinada sociedade empresária, sediada em Vila Velha (ES), deixou de cumprir obrigação tributária acessória, por ter retificado, após o prazo previsto na legislação estadual, arquivos magnéticos relativos à emissão de documentos fiscais de ICMS, por transmissão eletrônica de dados.\nDiante desse cenário e à luz da Lei Estadual nº 7.000/2001, analise as afirmativas a seguir, assinalando (V) para a verdadeira e (F) para a falsa.\nI. O fato gerador do diferencial de alíquota do ICMS perante o Estado do Espírito Santo se dá na saída do produto do estabelecimento no Estado de São Paulo.\nII. A base de cálculo deste ICMS é o valor da operação no Estado de São Paulo.\nIII. O ICMS a pagar será o resultante da aplicação do percentual equivalente à diferença entre a alíquota interna e a interestadual sobre o valor da operação no Estado do Espírito Santo.\nAs afirmativas são, na ordem apresentada, respectivamente,",
+      "alternativas": {
+        "A": "V - V - V.",
+        "B": "V - F - V.",
+        "C": "V - V - F.",
+        "D": "F - V - F.",
+        "E": "F - F - F."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "B",
+      "enunciado": "A PETROBRASIL S.A., concessionária de exploração e produção de petróleo, contratou uma sociedade empresária com sede fora do país, para prestar serviços em atividades de produção de petróleo em campo petrolífero na área do pré-sal no Espírito Santo.\nA sociedade empresária contratada pretende fazer uso de equipamentos importados, os quais, após a utilização, serão remetidos de volta para seus países de origem, valendo-se, para fins de isenção e redução de base de cálculo de ICMS, do regime especial de tributação, conhecido como REPETRO-SPED. Acerca desse regime, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "O REPETRO-SPED somente se aplica à aquisição no mercado interno.",
+        "B": "A sociedade empresária estrangeira não pode se valer diretamente do REPETRO-SPED.",
+        "C": "A escrituração pelo Sistema Público de Escrituração Digital no REPETRO-SPED é facultativa.",
+        "D": "O REPETRO-SPED, quanto ao ICMS, não é aplicável às áreas do pré-sal.",
+        "E": "O REPETRO-SPED, quanto ao ICMS, não é aplicável às áreas do pré-sal."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "B",
+      "enunciado": "O supermercado Bom Preço Ltda., com sede em Colatina (ES), adquiriu da sociedade empresária Computadores 100% Ltda., sediada em São Paulo (SP), computadores para uso próprio em seu setor administrativo.\nDiante desse cenário, no caso concreto.",
+      "alternativas": {
+        "A": "aplica-se multa cumulativamente pelo descumprimento previsto no enunciado e por ausência de retificação de documento obrigatório relativo à informação econômico- fiscal.",
+        "B": "não será aplicada multa se a retificação for feita dentro de 40 dias contados do vencimento da respectiva obrigação.",
+        "C": "em regra, a imposição de multa para uma infração exclui a aplicação de penalidades fixadas para outras infrações verificadas.",
+        "D": "a multa pelo descumprimento é menor que a referente à ausência de retificação em outros tipos de documentos obrigatórios relativos à informação econômico-fiscal.",
+        "E": "a imposição da multa exime o contribuinte da obrigação de sanar a irregularidade, a qual será sanada diretamente pelo Fisco."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "C",
+      "enunciado": "Uma montadora de motocicletas instalada em Cariacica (ES) recolhe o ICMS pelo regime da substituição tributária (ICMS-ST) em relação às concessionárias que adquirem o produto da fábrica. Esta montadora obteve da SEFAZ autorização para cumprimento de certas obrigações fiscais por regime especial.\nDiante desse cenário, à luz da Lei Estadual nº 7.000/2001, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A base de cálculo, para fins de substituição tributária, exclui o valor do frete das motocicletas até as concessionárias.",
+        "B": "O ICMS a ser pago pela montadora corresponderá à diferença entre o valor resultante da aplicação da alíquota prevista para as operações internas sobre a base de cálculo e o valor do imposto devido pela operação própria da montadora.",
+        "C": "O regime especial de cumprimento de obrigações fiscais concedido à montadora pode ser cancelado caso tenha sido apurado débito tributário pelo Fisco estadual, mesmo que ainda não inscrito em dívida ativa estadual.",
+        "D": "A substituição exclui a responsabilidade solidária da concessionária pela satisfação integral ou parcial da obrigação nas hipóteses de erro ou omissão da montadora.",
+        "E": "Caso o fato gerador presumido não ocorra, formulado o pedido de restituição pela concessionária e não havendo deliberação no prazo de 90 dias, a montadora poderá creditar, em sua escrita fiscal, o valor objeto do pedido."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "E",
+      "enunciado": "Uma Turma de Julgamento de 1ª instância em processo administrativo-fiscal do Estado do Espírito Santo decidiu, em 01/06/2021, por unanimidade, julgar parcialmente procedente a impugnação do contribuinte, reduzindo o débito fiscal constante de auto de infração de ICMS de R$ 15.000,00 para R$ 5.000,00. Os autos foram remetidos à 2ª instância por meio de recurso de ofício.\nDiante desse cenário, no caso concreto,",
+      "alternativas": {
+        "A": "compete ao Pleno do Conselho Estadual de Recursos Fiscais o julgamento de tal recurso de ofício.",
+        "B": "o prazo para interposição de tal recurso de ofício é de 30 dias.",
+        "C": "além do recurso de ofício, cabe recurso voluntário, mas este sem efeito suspensivo.",
+        "D": "o recurso de ofício não está dotado de efeito suspensivo.",
+        "E": "o procedimento adotado foi incorreto pois não cabe recurso de ofício."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "A",
+      "enunciado": "A sociedade empresária ABC Streaming Ltda., sediada em Vitória (ES), atua no ramo de disponibilização, sem cessão definitiva, de conteúdo de áudio, vídeo, imagem e texto por meio da Internet (streaming). Ela foi autuada pelo Fisco Estadual por não estar recolhendo ICMS.\nA sociedade empresária impugna administrativamente a cobrança, alegando que já recolhe ISS sobre sua atividade, nos termos da lei de ISS de Vitória, e requer perícia sobre suas atividades para comprovar não ser contribuinte de ICMS.\nSobre a hipótese, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "A pendência da impugnação permite a expedição de Certidão Negativa de Débito para com a Fazenda Estadual sem ressalvas.",
+        "B": "O julgador pode determinar que o impugnante faça prova do teor e vigência do direito municipal de Vitória (ES), ainda que seja a capital do Estado.",
+        "C": "A impugnação deverá ser apresentada no prazo de 45 dias, contados da data em que se considerar feita a intimação da cobrança.",
+        "D": "O julgador não pode indeferir o pedido de perícia, mesmo quando entendê-la prescindível.",
+        "E": "O prazo previsto em lei para apresentação do laudo pericial na impugnação é de 90 dias."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "B",
+      "enunciado": "A SEFAZ-ES recebeu denúncia anônima, acompanhada de fartos indícios de autoria e materialidade, de prática de ilícitos tributários quanto ao ICMS por parte da sociedade empresária Computadores 123 Ltda. Por isso, enviou notificação à sociedade empresária de que seria iniciado procedimento de fiscalização no local. A tentativa de notificação no endereço constante nos registros fiscais retornou sem êxito, informando-se que a empresa não funcionava mais lá.\nPoucos dias depois, a sociedade empresária contribuinte ingressou junto à SEFAZ-ES com pedido de cancelamento de sua inscrição estadual.\nDiante desse cenário e à luz da Lei Complementar Estadual nº 884/2018, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Presume-se entregue a notificação remetida para o endereço indicado pelo contribuinte em seus registros fiscais.",
+        "B": "A baixa da inscrição estadual não poderá ser feita na iminência do início de procedimento fiscalizatório, caso as obrigações tributárias do contribuinte não estejam regulares.",
+        "C": "Os livros apreendidos ou entregues pelo contribuinte serão devolvidos no prazo máximo de 120 dias, contados do início dos procedimentos de fiscalização.",
+        "D": "A ordem de fiscalização não pode ter por base a denúncia anônima.",
+        "E": "A solicitação de baixa não importa responsabilidade solidária dos sócios administradores no período da ocorrência dos respectivos fatos geradores."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Legislação Tributária do Espírito Santo",
+      "gabarito": "C",
+      "enunciado": "José, microempreendedor individual (MEI), animador de festas independente, em 2021, necessita construir em terreno de sua propriedade um pequeno galpão para armazenar os objetos que utiliza em seu trabalho. No mesmo ano, recebeu em doação de seu pai, registrado junto ao seu CNPJ de MEI, uma caminhonete, no valor de R$ 50.000,00, usada exclusivamente para transporte dos materiais e utensílios para animação das festas.\nÀ luz deste cenário e da legislação do Estado do Espírito Santo, o microempreendedor individual José tem direito à isenção",
+      "alternativas": {
+        "A": "da taxa de licenciamento de edificações para construir o galpão.",
+        "B": "do ITCMD sobre a doação.",
+        "C": "do IPVA sobre o veículo.",
+        "D": "do ITCMD sobre a doação e à isenção de IPVA sobre o veículo.",
+        "E": "da taxa de licenciamento de edificações para construir o galpão e à isenção de IPVA sobre o veículo."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "A sociedade empresária Z apresentava o balanço patrimonial a seguir, em 31/12/X0.\n\nAtivo Circulante | Patrimônio Líquido\nCaixa 200.000 | Cap. Social 200.000\nTotal 200.000 | Total 200.000\n\nNo ano de X1, a sociedade empresária Z auferiu receitas de serviços de R$ 400.000 à vista. Os custos com os serviços prestados foram de R$ 500.000, pagos à vista. Ainda, a sociedade empresária reconheceu provisão para contingências de duas causas na justiça, a primeira de R$ 30.000 e a segunda de R$ 10.000. A sociedade empresária Z apresentava fortes perspectivas de lucros nos anos seguintes.\nNo ano de X2, a sociedade empresária Z auferiu receitas de serviços de R$ 600.000 à vista. Os custos dos serviços prestados foram de R$ 300.000, pagos à vista. Além disso, a sociedade empresária ganhou a primeira causa na justiça e perdeu a segunda, tendo que pagar R$ 10.000.\nAssinale a opção que indica, respectivamente, o imposto sobre a renda diferido de Z em 31/12/20X1 e em 31/12/20X2, evidenciado no Balanço Patrimonial, de acordo com o Pronunciamento Técnico CPC 32, Tributos sobre o Lucro, considerando a alíquota de imposto sobre a renda e da contribuição social de 34%.",
+      "alternativas": {
+        "A": "R$ 13.600 e zero.",
+        "B": "R$ 13.600 e R$ 3.400",
+        "C": "R$ 13.600 e R$ 32.980",
+        "D": "R$ 47.600 e R$ 4.420",
+        "E": "R$ 47.600 e R$ 43.180"
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Em 01/01/X1, a sociedade empresária Y adquiriu uma máquina por R$ 400.000. A vida útil estimada da máquina era de 10 anos e a depreciação é realizada pelo método linear, sendo considerado valor residual de zero.\nOs contadores da sociedade empresária Y fazem anualmente o teste de recuperabilidade de seus ativos imobilizados, estimando o valor justo líquido de despesas de venda e o valor em uso. Em relação à máquina, eles constataram que:\n\nAno | Venda | Uso\n31/12/X1 | 350.000 | 380.000\n31/12/X2 | 350.000 | 300.000\n31/12/X3 | 210.000 | 200.000\n31/12/X4 | 180.000 | 180.000\n31/12/X5 | 180.000 | 210.000\n\nAssinale a opção que indica a depreciação acumulada da máquina, em 31/12/X5.",
+      "alternativas": {
+        "A": "R$ 150.000",
+        "B": "R$ 170.000",
+        "C": "R$ 173.333",
+        "D": "R$ 180.000",
+        "E": "R$ 200.000"
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "Em 30/12/X1, a sociedade empresária X definiu que irá descontinuar sua atual fábrica. Na data, esse ativo tinha valor contábil de R$ 100.000. O valor de venda foi estimado em R$ 140.000. Ainda, foi previsto que a construção da nova fábrica iria demorar quatro meses, momento em que a fábrica antiga deixaria de ser usada.\nAssinale a opção que indica a apresentação e a mensuração da fábrica no balanço patrimonial da sociedade empresária X, em 31/12/X1.",
+      "alternativas": {
+        "A": "Ativo não Circulante mantido para a venda: R$ 100.000.",
+        "B": "Ativo Imobilizado: R$ 100.000.",
+        "C": "Ativo não Circulante mantido para a venda: R$ 140.000.",
+        "D": "Ativo Imobilizado: R$ 140.000.",
+        "E": "Propriedade para Investimento: R$ 140.000."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Uma sociedade empresária apresentava, em 31/12/X1, o balanço patrimonial a seguir.\n\nAtivo Circulante\nCaixa 50.000\nAtivo Imobilizado | Patrimônio Líquido\nMáquina 200.000 | Capital Social 170.000\nDepreciação Acumulada - 80.000 |\nAtivo Total 170.000 | PL Total 170.000\n\nA máquina era depreciada pelo método da linha reta e tinha vida útil estimada em 5 anos. Ainda, a sociedade empresária considerava valor residual de zero.\nNa elaboração das demonstrações contábeis de 31/12/X2, os contadores da sociedade empresária julgaram que a informação contábil seria mais relevante e confiável depreciando os ativos imobilizados pelo método dos benefícios gerados.\nAssinale a opção que indica, de acordo com o Pronunciamento Técnico CPC 23 – Políticas Contábeis, Mudança de Estimativa e Retificação de Erro, o procedimento contábil a ser efetuado pela sociedade empresária e o efeito decorrente da aplicação.",
+      "alternativas": {
+        "A": "Retificação de Erro: deve-se refazer os balanços de X0 e de X1, apresentando-se a depreciação acumulada com base no método dos benefícios gerados.",
+        "B": "Mudança de Política Contábil: deve-se refazer o balanço de X1, apresentando a depreciação acumulada com base no método dos benefícios gerados em X1 e em X2.",
+        "C": "Mudança de Política Contábil: deve-se utilizar o método dos benefícios gerados a partir de X2, apenas.",
+        "D": "Mudança de Estimativa: deve-se refazer o balanço de X1, apresentando a depreciação acumulada com base no método dos benefícios gerados em X1 e em X2.",
+        "E": "Mudança de Estimativa: deve-se utilizar o método dos benefícios gerados a partir de X2, apenas."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "A sociedade empresária M produz e vende cadeiras. O preço de venda unitário da cadeira é de R$ 60,00, enquanto seus custos variáveis são de R$ 20,00. Além disso, a sociedade M paga a seus funcionários uma comissão de 10% sobre o preço de venda, quando a cadeira é vendida.\nEm X0, os custos fixos da sociedade empresária foram de R$ 300.000 e, suas despesas fixas, de R$ 200.000. Ainda, os sócios de M exigem um lucro líquido mensal de R$ 10.000.\nAssinale a opção que indica o ponto de equilíbrio econômico da sociedade empresária M em X0, em unidades, considerando a alíquota de imposto sobre a renda e de contribuição social de 34%.",
+      "alternativas": {
+        "A": "14.705 cadeiras.",
+        "B": "15.500 cadeiras.",
+        "C": "17.046 cadeiras.",
+        "D": "18.236 cadeiras.",
+        "E": "20.054 cadeiras."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Uma sociedade empresária apresentava, em 31/12/X0 e em 31/12/X1, as demonstrações contábeis a seguir.\n\nDRE - 31/12/X0\nReceita de Vendas 400.000\nCMV - 200.000\nLucro Bruto 200.000\nDesp. operacionais:\naluguel - 120.000\nsalários - 60.000\ndepreciação - 10.000\nLAIR 10.000\nIRCS - 3.400\nLucro Líquido 6.600\n\nAtivo Circulante 600.000 | Passivo Circulante 83.400\nCaixa 500.000 | Fornecedores 80.000\nEstoques 100.000 | IR a pagar 3.400\nImobilizado 30.000 | Patrimônio Líquido 546.600\nComputadores 50.000 | Capital Social 450.000\nDep. Ac. - 20.000 | Reserva de Lucros 96.600\nAtivo Total 630.000 | Passivo + PL 630.000\n\nDRE - 31/12/X1\nReceita de Vendas 500.000\nCMV - 250.000\nLucro Bruto 250.000\nDesp. operacionais:\naluguel - 144.000\nsalários - 80.000\ndepreciação - 10.000\nOutras receitas operacionais\nVenda de computadores 5.000\nLAIR 21.000\nIRCS - 7.140\nLucro Líquido 13.860\n\nAtivo Circulante 577.600 | Passivo Circulante 17.140\nCaixa 577.600 | Salários a pagar 10.000\n | IR a pagar 7.140\n | Patrimônio Líquido 560.460\n | Capital Social 450.000\n | Reserva de Lucros 110.460\nAtivo Total 577.600 | Passivo + PL 577.600\n\nAssinale a opção que indica o fluxo de caixa gerado pela Atividade Operacional da sociedade empresária, em 31/12/X1.",
+      "alternativas": {
+        "A": "R$ 13.860",
+        "B": "R$ 33.740",
+        "C": "R$ 43.860",
+        "D": "R$ 52.600",
+        "E": "R$ 53.860"
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "As Cias. X e Y apresentavam, em 31/12/X0, os balanços patrimoniais a seguir.\n\nCia X | Cia Y\nAtivo\nCaixa 100.000 | 10.000\nTerreno 22.000\nTotal do Ativo 100.000 | 32.000\nPatrimônio Líquido\nCapital Social 100.000 | 32.000\nTotal do PL 100.000 | 32.000\n\nEm X1, a Cia. X comprou 80% da Cia. Y por R$ 40.000.\nNa data da compra, o valor de mercado do terreno era avaliado em R$ 30.000 e o valor de mercado da marca era avaliado em R$ 5.000.\nAssinale a opção que indica o goodwill total contabilizado no balanço patrimonial consolidado em 31/12/X1, admitindo-se que o valor justo da parcela dos não controladores é igual ao do valor pago pelo novo controlador.",
+      "alternativas": {
+        "A": "R$ 4.000",
+        "B": "R$ 5.000",
+        "C": "R$ 10.000",
+        "D": "R$ 14.400",
+        "E": "R$ 18.000"
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "Uma entidade necessitava comprar uma ambulância para ser utilizada por seus empregados em emergências. O valor da ambulância era de R$ 400.000.\nEm 01/01/X0, o Governo Estadual concedeu à entidade uma subvenção enquadrada no Pronunciamento Técnico CPC 07 (R1) - Subvenção e Assistência Governamentais, no valor de R$ 100.000, para a compra da ambulância. A entidade cumpriu as exigências aplicáveis e adquiriu a ambulância. A vida útil estimada da ambulância era de 5 anos e ela era depreciada pelo método da linha reta, não sendo considerado valor residual.\nEm relação ao tratamento contábil da subvenção nas demonstrações contábeis da entidade, assinale a afirmativa correta.",
+      "alternativas": {
+        "A": "Reconhecimento de Receita de R$ 20.000 durante cinco anos, a partir de X0.",
+        "B": "Reconhecimento de Receita de R$ 100.000, em X0.",
+        "C": "Reconhecimento de ativo realizável a longo prazo de R$ 100.000, amortizados em 5 anos.",
+        "D": "Reconhecimento de ativo intangível de R$ 100.000, amortizados em 5 anos.",
+        "E": "Reconhecimento de ativo imobilizado de R$ 100.000."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "A Cia. A apresentava, em 02/01/X1, o balanço patrimonial a seguir.\n\nCia A\nAtivo\nInvestimentos - Cia B 50.000\nTotal 50.000\nPL\nCapital Social 50.000\nTotal 50.000\n\nA Cia. A tem o controle compartilhado da Cia. B com a Cia. X e utiliza o método da equivalência patrimonial para avaliação do investimento. É definido que a Cia. A não tem responsabilidade pelos passivos de suas empresas investidas e não efetua pagamentos em nome delas.\nEm X1, a Cia. B apurou prejuízo de R$ 100.00.\nAssinale a opção que indica o tratamento contábil da Cia. A em relação ao investimento na Cia. B, em 31/12/X1, de acordo com o Pronunciamento Técnico CPC 18 - Investimento em Coligada, em Controlada e em Empreendimento Controlado em Conjunto.",
+      "alternativas": {
+        "A": "D- Despesa de Equivalência Patrimonial - R$ 50.000; C- Investimentos - R$ 50.000.",
+        "B": "D- Despesa de Equivalência Patrimonial - R$ 50.000; C- Provisão para passivo a descoberto - R$ 50.000.",
+        "C": "D- Despesa de Equivalência Patrimonial - R$ 100.000; C- Provisão para passivo a descoberto - R$ 100.000.",
+        "D": "D- Despesa de Equivalência Patrimonial - R$ 100.000; C- Provisão para contingências - R$ 100.000.",
+        "E": "D- Despesa de Equivalência Patrimonial - R$ 100.000; C- Investimentos - R$ 50.000; C- Provisão para passivo a descoberto - R$ 50.000."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Em relação aos elementos integrantes do balanço patrimonial, analise as afirmativas a seguir.\nI. Componentes do ativo decorrentes de operações de longo prazo.\nII. Componentes do passivo decorrentes de operações de longo prazo.\nIII. Componentes do ativo decorrentes de operações de curto prazo com efeito relevante.\nIV. Componentes do passivo decorrentes de operações de curto prazo com efeito relevante.\nDe acordo com o Pronunciamento Técnico CPC 12 - Ajuste a Valor Presente, assinale a opção que indica as afirmativas que devem ser ajustadas a valor presente.",
+      "alternativas": {
+        "A": "I e II, somente.",
+        "B": "III e IV, somente.",
+        "C": "I, II e III, somente.",
+        "D": "II, III e IV, somente.",
+        "E": "I, II, III e IV."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Noções de Informática",
+      "gabarito": "A",
+      "enunciado": "Utilize as tabelas T, R e S para resolver as próximas 3 questões\nConsidere um banco de dados relacional contendo as tabelas T, R e S, cujas instâncias são exibidas a seguir.\n\nTabela T:\nA | B | C\n10 | LPG | Participações S\n20 | Serviços & Gerenciamento Remoto | N\n50 | Academia Americana | S\n70 | Distribuidora São João de Artigos para Festas | S\n\nTabela R:\nD | E | F\n12040 | 21/06/2021 | 200,00\n12041 | 23/06/2021 | 548,00\n1497 | 15/06/2021 | 147,10\n1498 | 15/06/2021 | 85,00\n214 | 18/06/2021 | 99,00\n215 | 19/06/2021 | 997,45\n\nTabela S:\nG | H | I\n10 | 12040 | 12\n10 | 12041 | 12\n50 | 1497 | 12\n50 | 1498 | 10\n70 | 214 | 20\n70 | 215 | 12\n\nAssinale o script SQL de criação das tabelas T, R e S, que esteja correto sintaticamente e seja compatível com as respectivas instâncias exibidas anteriormente.",
+      "alternativas": {
+        "A": "create table T(A int not null, B varchar(64), primary key (A))\ncreate table R(D int not null, E datetime, F money, primary key (D))\ncreate table S(G int not null, H int, I int, primary key(G,H), foreign key (G) references T(A), foreign key (H) references R(D))",
+        "B": "create table T(A int not null, B varchar(32), primary key (A))\ncreate table R(D int not null, E datetime, F money, primary key (D))\ncreate table S(G int not null, H int, I int, primary key(G), primary key(H), foreign key (G) references T(A), foreign key (H) references R(D))",
+        "C": "create table T(A int not null, B varchar(64), primary key (A))\ncreate table R(D int not null, E datetime, F money, primary key (D))\ncreate table S(G int not null, H int, I int, primary key(G,H), foreign key (G) references T(A), foreign key (H) references R(D))",
+        "D": "create table T(A int not null, B varchar(32), primary key (A))\ncreate table R(D int not null, E datetime, F money, primary key (D))\ncreate table S(G int not null, H int, I int, primary key(G), primary key(H), foreign key (G) references T(A), foreign key (H) references R(D))",
+        "E": "create table T(A int not null, B varchar(32), primary key (A))\ncreate table R(D int not null, E datetime, F money, primary key (D))\ncreate table S(G int not null, H int, I int, primary key(G,H), foreign key (G) references T(A), foreign key (H) references R(D))"
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Noções de Informática",
+      "gabarito": "C",
+      "enunciado": "Considere a tabela T e a execução dos dois comandos SQL a seguir.\nSELECT T.* FROM T LEFT JOIN S ON T.A = S.G ORDER BY 2\nSELECT T.* FROM T RIGHT JOIN S ON T.A = S.G ORDER BY 2\nSem considerar as linhas de títulos, assinale o número de linhas produzidas por cada comando, na ordem.",
+      "alternativas": {
+        "A": "Seis/zero.",
+        "B": "Seis/seis.",
+        "C": "Seis/sete.",
+        "D": "Sete/seis.",
+        "E": "Sete/sete."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Noções de Informática",
+      "gabarito": "B",
+      "enunciado": "No contexto da instância da tabela S, considere a execução do comando SQL a seguir.\nSELECT * FROM S WHERE (NOT G=10 OR I=12) AND NOT (H > 100 and H < 1000)\nAssinale o conjunto de linhas que corresponde ao resultado produzido pelo referido comando.",
+      "alternativas": {
+        "A": "10 12040 12\n10 12041 12",
+        "B": "10 12040 12\n10 12041 12\n50 1497 12",
+        "C": "50 215 12\n70 214 20",
+        "D": "10 12040 12\n10 12041 12\n50 1497 12",
+        "E": "50 1497 12\n50 1498 10"
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Noções de Informática",
+      "gabarito": "B",
+      "enunciado": "Maria está preparando um relatório sobre as empresas de serviços de um município, de modo a identificar e estudar o porte dessas empresas com vistas ao estabelecimento de políticas públicas e previsões de arrecadação.\nMaria pretende criar nove grupos de empresas, de acordo com os valores de faturamento, e recorreu às técnicas usualmente empregadas em procedimentos de data mining para estabelecer as faixas de valores de cada grupo.\nAssinale a opção que apresenta a técnica diretamente aplicável a esse tipo de classificação.",
+      "alternativas": {
+        "A": "Algoritmos de associação.",
+        "B": "Algoritmos de clusterização.",
+        "C": "Árvores de decisão.",
+        "D": "Modelagem de dados.",
+        "E": "Regressão linear."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Noções de Informática",
+      "gabarito": "C",
+      "enunciado": "A Lei Geral de Proteção de Dados Pessoais faz distinção entre dados pessoais e dados pessoais sensíveis.\nAssinale um tipo de dado que não se enquadra na categoria de dados sensíveis.",
+      "alternativas": {
+        "A": "Convicção religiosa.",
+        "B": "Dados biométricos.",
+        "C": "Data de nascimento.",
+        "D": "Filiação a sindicatos.",
+        "E": "Origem étnica."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Noções de Informática",
+      "gabarito": "E",
+      "enunciado": "Segundo o Guia Prático EFD-ICMS/IPI, os arquivos digitais devem ser assinados por meio de certificado digital, tipo A1 ou A3. Na tabela de referência a seguir, considere as comparações sobre esses dois tipos.\n\nComparação | Característica | A1 | A3\nI | Permite a cópia em outros dispositivos | Sim | Não\nII | Validade | 12 meses ou mais | 12 meses\nIII | Senha obrigatória | Não | Sim\nIV | Requer mídias | Não | Sim\n\nDessas comparações, estão corretas",
+      "alternativas": {
+        "A": "I e II, somente.",
+        "B": "I, III e IV, somente.",
+        "C": "II, III e IV, somente.",
+        "D": "III e IV, somente.",
+        "E": "I, II, III e IV."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Noções de Informática",
+      "gabarito": "B",
+      "enunciado": "No contexto do arquivo XML de uma NF-e, o esquema que rege a estrutura do arquivo estabelece, dentre outras coisas, o conjunto de tags válidas. Assinale a tag XML que pode ser repetida até 990 vezes em uma nota fiscal.",
+      "alternativas": {
+        "A": "<compra>",
+        "B": "<det>",
+        "C": "<emit>",
+        "D": "<ide>",
+        "E": "<Signature>"
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Noções de Informática",
+      "gabarito": "E",
+      "enunciado": "Sobre as regras do layout de preenchimento de um arquivo de Escrituração Fiscal Digital – EFD ICMS IPI, analise as afirmativas a seguir.\nI. O caractere \"|\" (pipe) deve ser utilizado como delimitador de campos.\nII. Uma data como 12 de Junho de 2021, por exemplo, deve ser codificada como 12062021.\nIII. Um valor decimal como mil e duzentos reais e cinquenta centavos, por exemplo, deve ser codificado como 1,200.50.\nIV. Valores que expressam percentuais devem ser seguidos pelo caractere “%”.\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "I e II, somente.",
+        "B": "II e III, somente.",
+        "C": "I, II e IV, somente.",
+        "D": "II, III e IV, somente.",
+        "E": "I, II, III e IV."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Noções de Informática",
+      "gabarito": "B",
+      "enunciado": "Com referência ao arquivo digital associado à Escrituração Fiscal Digital – EFD ICMS IPI, assinale a lista que expressa corretamente a estrutura de apresentação dos registros.",
+      "alternativas": {
+        "A": "Registro 0001 - cabeçalho do arquivo\nBlocos A, B, C, D, E, G, H, K - Informações fiscais (dados)\nBloco 0 - Outras Informações (dados)\nBloco 3 - Controle e encerramento do arquivo (dados)\nRegistro 9000 - encerramento do arquivo",
+        "B": "Registro 0000 - abertura do arquivo\nBloco 0 - Identificação e referências (registros de tabelas)\nBlocos 1, 2, 3, 4, 5, 6, 7, 8 - Informações fiscais (dados)\nBloco 9 - Controle e encerramento do arquivo (dados)\nRegistro 9999 - encerramento do arquivo",
+        "C": "Registro 0001 - abertura do arquivo\nBloco A - Identificação e referências (registros de tabelas)\nBlocos B, C, D, E, G, H, K - Informações fiscais (dados)\nBlocos 1, 2, 3, 4, 5, 6, 7, 8, - Outras Informações (dados)\nRegistro 9999 - encerramento do arquivo",
+        "D": "Registro 0000 - abertura do arquivo\nBloco 0 - Identificação e referências (registros de tabelas)\nBlocos B, C, D, E, G, H, K - Informações fiscais (dados)\nBloco 1 - Outras Informações (dados)\nBloco 9 - Controle e encerramento do arquivo (dados)\nRegistro 9999 - encerramento do arquivo",
+        "E": "Registro 0000 - abertura do arquivo\nBloco 0 - Identificação e referências (registros de tabelas)\nBlocos 1, 2, 3, 4, 5, 6, 7 - Informações fiscais (dados)\nBloco 9 - Controle e encerramento do arquivo (dados)\nRegistro 9000 - encerramento do arquivo"
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Noções de Informática",
+      "gabarito": "D",
+      "enunciado": "Com relação às validações efetuadas pelos Web Services na transmissão e submissão de arquivos de NF-e, considere o conjunto de regras de validação verificadas quando do recebimento de uma mensagem.\nAssinale a opção que apresenta o tipo de validação que não faz parte dessas regras.",
+      "alternativas": {
+        "A": "Estrutura XML malformada no arquivo.",
+        "B": "Número sequencial do item no XML fora de ordem incremental.",
+        "C": "Presença de tags inválidas em relação ao Schema XML.",
+        "D": "Presença de um valor na tag cEAN preenchido e repetido em diferentes itens no mesmo documento fiscal.",
+        "E": "Tamanho de mensagem XML que excede limite estabelecido."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "De acordo com a Resolução CFC NBC TSP Estrutura Conceitual – Estrutura Conceitual para Elaboração e Divulgação de Informação Contábil de Propósito Geral pelas Entidades do Setor Público, assinale a opção que indica os usuários primários do relatório contábil de propósito geral das entidades do setor público.",
+      "alternativas": {
+        "A": "As entidades de auditoria pública.",
+        "B": "As agências reguladoras e supervisoras.",
+        "C": "Os órgãos centrais de orçamento e controle.",
+        "D": "As entidades emprestadoras de recursos e de fomento.",
+        "E": "Os cidadãos que recebem os serviços de entidades do setor público."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "Dois tipos de informações financeiras podem ser produzidos por governos: as Estatísticas de Finanças Públicas do Setor Governo Geral (EFP) e as Demonstrações Contábeis de Propósito Geral (DC).\nAssinale a opção que indica uma diferença entre os dois tipos de informações.",
+      "alternativas": {
+        "A": "As EFP são elaboradas anualmente, enquanto as DC mensalmente.",
+        "B": "As EFP seguem o regime de caixa, enquanto as DC o regime de competência.",
+        "C": "As EFP têm foco mais abrangente sobre os fluxos de caixa, enquanto as DC têm como foco a geração de resultados.",
+        "D": "As EFP têm, entre seus objetivos, a definição da política fiscal e a avaliação de seus impactos, enquanto as DC fornecem informações para prestação de contas e tomada de decisão.",
+        "E": "As EFP estão voltadas para as receitas e as despesas governamentais somente, enquanto as DC estão voltadas para os ativos, passivos, receitas e despesas governamentais."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção que indica o fator levado em consideração pelo auditor na determinação do tamanho da amostra em testes de controle e o efeito no tamanho da amostra, mantendo os outros fatores iguais.",
+      "alternativas": {
+        "A": "Aumento na extensão na qual a avaliação de risco do auditor leva em consideração os controles relevantes: redução.",
+        "B": "Aumento no nível de segurança desejado do auditor de que a taxa tolerável de desvio não seja excedida pela taxa real de desvio na população: redução.",
+        "C": "Aumento na taxa tolerável de desvio: aumento.",
+        "D": "Aumento na quantidade de unidades de amostragem na população: aumento.",
+        "E": "Aumento na taxa esperada de desvio da população a ser testada: aumento."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "Em uma auditoria de grupo econômico, foi constatado que as demonstrações contábeis consolidadas apresentavam distorções, devido à não consolidação de uma controlada. A distorção foi considerada relevante e generalizada, de modo que não foi praticável determinar seus efeitos. Ainda, o auditor concluiu que não havia incerteza em relação à capacidade de continuidade operacional da entidade e determinou que não havia outros assuntos de auditoria a serem comunicados no relatório.\nAssinale a opção que indica o relatório emitido pelo auditor independente.",
+      "alternativas": {
+        "A": "Opinião sem ressalva.",
+        "B": "Opinião com ressalva.",
+        "C": "Opinião adversa.",
+        "D": "Abstenção de opinião.",
+        "E": "Opinião não qualificada."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "O auditor independente de uma companhia aberta declarou em seu relatório, na seção “Outros Assuntos”, que submeteu aos procedimentos de auditoria executados, a demonstração",
+      "alternativas": {
+        "A": "dos Fluxos de Caixa.",
+        "B": "do Valor Adicionado.",
+        "C": "do Resultado Abrangente.",
+        "D": "das Despesas Operacionais.",
+        "E": "das Mutações do Patrimônio Líquido."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "No processo de auditoria de uma entidade em que o estoque é relevante, o acompanhamento da contagem física dos estoques é impraticável, devido à sua localização. O auditor considera que os possíveis efeitos de distorções não detectados poderiam ser relevantes, mas não generalizados.\nNo caso, o auditor independente deve",
+      "alternativas": {
+        "A": "emitir um relatório com abstenção de opinião.",
+        "B": "utilizar os dados fornecidos pela empresa para realizar a contagem física dos estoques.",
+        "C": "omitir o fato em seu relatório, porque as distorções localizadas não devem ser consideradas.",
+        "D": "usar procedimentos alternativos, como a inspeção da documentação da venda de itens específicos adquiridos antes da contagem física dos estoques.",
+        "E": "comunicar aos responsáveis as distorções identificadas durante a auditoria, que dariam origem a uma opinião modificada, e renunciar ao trabalho."
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "Ao auditar uma sociedade empresária, o auditor independente constatou que o resultado estava superavaliado.\nAssinale a opção que indica uma possível causa desse efeito no resultado.",
+      "alternativas": {
+        "A": "A sociedade empresária não reconheceu a perda de recuperabilidade de seus ativos intangíveis.",
+        "B": "A sociedade empresária não reconheceu o valor residual de seus ativos imobilizados para cálculo da depreciação.",
+        "C": "A sociedade empresária não reconheceu a reversão da provisão para contingências de uma causa julgada favoravelmente na justiça.",
+        "D": "A sociedade empresária não contabilizou o lucro obtido com a venda de um ativo imobilizado.",
+        "E": "A sociedade empresária não reconheceu os dividendos declarados no período."
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Assinale a opção que indica, respectivamente, um erro que pode ser constatado por meio da auditoria do passivo de uma entidade e o efeito que o erro pode gerar.",
+      "alternativas": {
+        "A": "Reconhecimento de empréstimo fictício / Superavaliação das despesas financeiras.",
+        "B": "Não reconhecimento de um passivo contingente / Melhoria nos indicadores de liquidez.",
+        "C": "Cálculo errado das perdas estimadas com crédito de liquidação duvidosa / Melhoria na aparência da empresa junto aos credores.",
+        "D": "Não contabilização da baixa do estoque / Ausência de produtos para venda.",
+        "E": "Reconhecimento de despesa antecipada por valor maior / Subavaliação do caixa."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "Com relação a um trabalho de auditoria inicial, em que as demonstrações contábeis do período anterior não foram auditadas, analise as situações a seguir.\nI. O auditor concluiu que os saldos iniciais contém distorção que afeta de forma relevante as demonstrações contábeis do período corrente e o efeito da distorção não é devidamente registrado.\nII. O auditor concluiu que políticas contábeis do período corrente não estão aplicadas de maneira uniforme em relação aos saldos iniciais, de acordo com a estrutura de relatório financeiro aplicável.\nIII. O auditor concluiu que uma mudança nas políticas contábeis não está devidamente registrada, de acordo com a estrutura de relatório financeiro aplicável.\nAssinale a opção que indica as situações em que o auditor deve expressar opinião com ressalva ou adversa.",
+      "alternativas": {
+        "A": "I, apenas",
+        "B": "I e II, apenas.",
+        "C": "I e III, apenas.",
+        "D": "II e III, apenas.",
+        "E": "I, II e III."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Alguns indicadores podem sugerir que transações significativas, fora do curso normal dos negócios de uma entidade, podem ter sido contabilizados com a intenção de produzir informações contábeis fraudulentas ou ocultar apropriação indevida de ativos.\nAs opções a seguir apresentam alguns desses indicadores, à exceção de uma. Assinale-a.",
+      "alternativas": {
+        "A": "A forma das transações parece excessivamente complexa.",
+        "B": "A administração realiza apenas operações à vista.",
+        "C": "A administração não discute a natureza e a contabilização das transações com os responsáveis pela governança da entidade, e a documentação é inadequada.",
+        "D": "A administração dá mais ênfase à necessidade de tratamento contábil específico do que à razão econômica subjacente da operação.",
+        "E": "As transações que envolvem partes relacionadas de entidades não consolidadas, não foram adequadamente revisadas ou aprovadas pelos encarregados da governança da entidade."
+      }
+    }
+  ],
+  "questoes_discursivas": [
+    {
+      "numero": 1,
+      "materia": "Direito Tributário",
+      "enunciado": "A sociedade empresária Sapatos e Bolsas Comércio Ltda., com sede em Vitória (ES), atuante no setor de vendas a varejo de calçados e bolsas, declarou a menor, pagando também a menor, o ICMS devido em certo período de apuração. Em razão disso, o Fisco Estadual autuou a sociedade empresária, realizando um lançamento suplementar de ofício com multa quanto à parcela de ICMS que não havia sido nem declarada nem paga.\nA sociedade empresária então adere a um programa estadual de parcelamento em 10 vezes para pagar a dívida objeto da autuação e inicia o pagamento das parcelas. Contudo, após o pagamento da 5ª parcela, é avisada por seu advogado de que, no momento do lançamento, já teria se consumado a decadência dos créditos presentes na autuação.\nDiante desse cenário, responda aos itens a seguir.\nA) Conceitue decadência tributária e indique como se conta o prazo decadencial, na hipótese do enunciado. (Valor: 15 pontos)\nB) Em razão da adesão livre e espontânea ao parcelamento da dívida, avalie os efeitos de confissão de dívida e de não restituição das parcelas já pagas, decorrentes de tal adesão. (Valor: 15 pontos)\nObservação: cada um dos itens deve ser respondido em espaço específico, com no máximo 20 linhas."
+    }
+  ]
+}

@@ -1,0 +1,919 @@
+{
+  "instituicao": "SEFAZ-MA",
+  "ano": 2016,
+  "cargo": "Auditor Fiscal da Receita Estadual - Administração Tributária",
+  "tipo_prova": "Conhecimentos Gerais (P1)",
+  "gabarito_tipo": "S01",
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Língua Portuguesa",
+      "gabarito": "C",
+      "enunciado": "As anedotas caracterizam-se, segundo o autor do texto, pelas seguintes qualificações:",
+      "alternativas": {
+        "A": "autoria polêmica, linguagem indisciplinada e finalidade maliciosa.",
+        "B": "conteúdo repressivo, origem hipotética e estilo formal.",
+        "C": "criador desconhecido, estrutura marcante e transmissão oral.",
+        "D": "estilo literário, narrativa simplória e elementos de pungência.",
+        "E": "procedência nebulosa, forma tradicional e recursos gráficos."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Língua Portuguesa",
+      "gabarito": "A",
+      "enunciado": "A frase Se anedota fosse crime, sua repressão seria dificílima encontra sua imediata razão de ser no seguinte segmento:",
+      "alternativas": {
+        "A": "criação da anedota se compara ao enigma da criação da matéria.",
+        "B": "Aneclota impressa deixa de ser anedota.",
+        "C": "as anedotas que correm o país não são deles.",
+        "D": "Uma anedota geralmente tem o rigor formal de um teorema.",
+        "E": "supremo vexame de, um dia, esquecerem o fim da anedota."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Atente para as seguintes afirmações:\n\nI. A frase Uma anedota geralmente tem o rigor formal de um teorema (2º parágrafo) justifica o prestígio que alcançam as anedotas bem redigidas.\nII. A partir do momento em que as anedotas, distanciando-se de sua origem literária, tornaram-se narrativas orais, passaram a exigir melhores contadores.\nIII. O autor do texto credita à arte dos narradores boa parte do sucesso que as anedotas podem fazer entre os que as ouvem.\n\nEm relação ao texto, está correto o que se afirma APENAS em",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "I e III.",
+        "C": "II e III.",
+        "D": "II.",
+        "E": "III."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "Considerando-se o contexto, traduz-se adequadamente o sentido de um segmento do texto em:",
+      "alternativas": {
+        "A": "enigma da criação da matéria (1º parágrafo) = teoria sobre o mister da vida.",
+        "B": "aparentemente autogeradas (1º parágrafo) = autoproduzidas, ao que parece.",
+        "C": "nem por isso menos competentes (2º parágrafo) = nem assim tão obsoletos.",
+        "D": "continuação da tradição homérica (2º parágrafo) = extensão anacrônica.",
+        "E": "Existem contadores eméritos (2º parágrafo) = Ocorrem narradores iminentes."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Está plenamente clara e correta a redação deste livre comentário sobre o texto:",
+      "alternativas": {
+        "A": "Embora hajam humoristas profissionais, não são os mesmos quem produzem as anedotas.",
+        "B": "Ainda que sejam profissionais, alguns humoristas, não vêm deles a criação das anedotas.",
+        "C": "Atribue-se a autores desconhecidos a criação de anedotas que circulam ao longo do país.",
+        "D": "É pungente onde se vê alguém perder o dom gracioso de contarem piadas com a mesma habilidade.",
+        "E": "Constata-se que há, em parte considerável das anedotas, uma estrutura formal que é própria dos teoremas."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "Quanto à concordância e à correlação entre tempos e modos, as formas verbais estão adequadamente empregadas na frase:",
+      "alternativas": {
+        "A": "As anedotas não surtiriam grande efeito caso não venham a contá-las quem tem esse dom especial.",
+        "B": "Sempre se ouvirão risos na plateia quando quem conte as anedotas dispuser do talento que isso demanda.",
+        "C": "As anedotas passam a perder parte substancial de sua graça sutil caso não a ressaltasse os bons narradores.",
+        "D": "Sente-se logo os efeitos de uma boa anedota quando aquele que a contar enfatize toda a graça que ela tivesse.",
+        "E": "Se se atribuíssem a graça das piadas apenas a elas mesmas, ignorar-se-á o papel fundamental que tem os contadores."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Língua Portuguesa",
+      "gabarito": "C",
+      "enunciado": "Está plenamente correta a transposição de uma construção verbal da voz ativa para a voz passiva em:",
+      "alternativas": {
+        "A": "de onde vêm as anedotas? // de onde terão vindo as anedotas?",
+        "B": "o enigma da criação da anedota se compara ao da criação da matéria // o enigma da criação da anedota é comparável ao da matéria",
+        "C": "humoristas profissionais não criariam as anedotas // as anedotas não seriam criadas por humoristas profissionais",
+        "D": "o sucesso de uma anedota está em quem a conta // quem conta uma anedota é que faz seu sucesso",
+        "E": "um computador pode escrever romances, mas não anedotas // não anedotas, mas romances poderiam ser escritos por um computador"
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Os dois traços perigosos, que o cronista Contardo Calligaris vê como características frequentes da velhice, podem ser assim resumidos:",
+      "alternativas": {
+        "A": "preservação de virtudes efetivas e formulação de novos ideais.",
+        "B": "contestação de antigos valores e apagamento das más lembranças.",
+        "C": "recolhimento melancólico e justificáveis nostalgias.",
+        "D": "consciência da mortalidade e abandono das utopias.",
+        "E": "obsessão conservadora e exaltação de um passado imaginário."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Língua Portuguesa",
+      "gabarito": "A",
+      "enunciado": "Ao afirmar que a crônica citada de Contardo Calligaris é polêmica, o autor do texto considera a possibilidade de uma posição contrária à do cronista. Essa posição contrária manifesta-se quando, ao final do texto, levanta-se a hipótese de que, para os velhos,",
+      "alternativas": {
+        "A": "o exercício da imaginação é motivado e tem peso de realidade em si mesmo.",
+        "B": "a perda dos ideais leva-os a falsear o passado com toda a consciência disso.",
+        "C": "a tarefa de lembrar é influenciada pelas precárias condições de saúde.",
+        "D": "a mesquinharia costuma crescer numa idade em que se perdem as ilusões.",
+        "E": "a invenção inconsequente de lembranças é um ônus trazido pela idade."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "Disseminam-se no texto expressões de sentido antônimo, tais como:",
+      "alternativas": {
+        "A": "lembranças inventadas / imaginação do vivido",
+        "B": "sensação real / algo que efetivamente não conheceram",
+        "C": "traços de nostalgia / avareza e idealização",
+        "D": "crônica recente / crônica polêmica",
+        "E": "metáfora da preservação / avareza mesquinha"
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Língua Portuguesa",
+      "gabarito": "C",
+      "enunciado": "E completou sua crônica acusando o fato de que os idosos costumam se apoiar em lembranças inventadas, em algo que efetivamente não conheceram.\n\nA frase acima permanecerá correta caso os segmentos sublinhados sejam substituídos, respectivamente, por:",
+      "alternativas": {
+        "A": "recorrer de – em algo cujo de fato não conheceram",
+        "B": "recorrer com – por algo que apenas julgam ter conhecido",
+        "C": "valer-se de – de algo que de fato não lograram conhecer",
+        "D": "se valer por meio de – com algo de que desconheceram, de fato",
+        "E": "atribuir-se com – algo de que não conheceram factualmente"
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Língua Portuguesa",
+      "gabarito": "D",
+      "enunciado": "Atente para as seguintes construções:\n\nI. O cronista critica os velhos, em quem reconhece dois traços perigosos.\nII. São condenáveis os velhos, cuja avareza mesquinha se funda numa ilusão.\nIII. Ao falar dos velhos, o cronista rejeita suas memórias fantasiosas.\n\nA exclusão da vírgula alterará o sentido do que está APENAS em",
+      "alternativas": {
+        "A": "I.",
+        "B": "II.",
+        "C": "III.",
+        "D": "I e II.",
+        "E": "II e III."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Atente para as seguintes afirmações:\n\nI. A internet vem ajudando a comprovar o fato de que somos menos intolerantes, no confronto das nossas diferenças, do que imaginávamos ser.\nII. Expressões preconceituosas são reveladoras de uma ampla intolerância, exposta a partir de prevenções de caráter racial, religioso, político etc.\nIII. Os preconceitos generalizados, pelos quais se evidencia a intolerância que só faz crescer entre nós, derivam sobretudo do uso indiscriminado da internet.\n\nEm relação ao texto está correto o que se afirma em",
+      "alternativas": {
+        "A": "I, II e III.",
+        "B": "I e II, apenas.",
+        "C": "I e III, apenas.",
+        "D": "II e III, apenas.",
+        "E": "II, apenas."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "A seguinte frase tem redação correta e interpreta adequadamente o sentido do segundo parágrafo do texto:",
+      "alternativas": {
+        "A": "A onda de intolerâncias criada pela internet acabaram por implementar os preconceitos que já haviam.",
+        "B": "Não se responsabilizem as redes sociais pela onda da intolerância que as pessoas demonstram também em suas relações pessoais.",
+        "C": "Ainda que as redes sociais se amplifiquem, não há porque considerá-las responsáveis pelas intolerâncias que estão nas ruas.",
+        "D": "O por que das intolerâncias não se encontra apenas na internet, conquanto estejam também em outros espaços públicos.",
+        "E": "Quanto às intolerâncias, não lhes devemos considerar como efeitos da internet, até por que elas se registram também nas ruas."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Língua Portuguesa",
+      "gabarito": "A",
+      "enunciado": "A oração sublinhada exerce a função de sujeito no seguinte período:",
+      "alternativas": {
+        "A": "Parece que o mito da tolerância já não se sustenta entre nós.",
+        "B": "A internet derrubou a crença de que somos tolerantes.",
+        "C": "As redes sociais deram vazão à intolerância que já se notava nas ruas.",
+        "D": "Uma vez disseminados, os preconceitos vão revelando nossa intolerância.",
+        "E": "Quando se acessa uma rede social depara-se com uma onda de intolerância."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Inglês",
+      "gabarito": "C",
+      "enunciado": "A ‘tax return’ in the United States corresponds, in Brazil, to",
+      "alternativas": {
+        "A": "Declaração do Imposto de Renda que caiu na malha fina.",
+        "B": "Devolução do Imposto de Renda.",
+        "C": "Declaração de Imposto de Renda.",
+        "D": "Declaração de Imposto de Renda retificadora.",
+        "E": "Declaração Simplificada de Imposto de Renda."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Inglês",
+      "gabarito": "E",
+      "enunciado": "O texto menciona diversos termos usados para designar vários aspectos da execução e administração de leis tributárias. Dentre os termos abaixo, o que NÃO se relaciona a esse assunto é",
+      "alternativas": {
+        "A": "notice.",
+        "B": "audit.",
+        "C": "review.",
+        "D": "examination.",
+        "E": "audition."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Inglês",
+      "gabarito": "B",
+      "enunciado": "A palavra que preenche corretamente a lacuna I é",
+      "alternativas": {
+        "A": "weather",
+        "B": "if",
+        "C": "how",
+        "D": "because",
+        "E": "however"
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Inglês",
+      "gabarito": "A",
+      "enunciado": "O significado de likelihood (6º parágrafo), conforme empregado no texto, é",
+      "alternativas": {
+        "A": "possibilidade",
+        "B": "desejo",
+        "C": "certeza",
+        "D": "gosto",
+        "E": "preferência"
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Inglês",
+      "gabarito": "D",
+      "enunciado": "Segundo o texto, o objetivo do DIF é",
+      "alternativas": {
+        "A": "contrastar declarações iniciais e retificadoras.",
+        "B": "detectar receita não declarada na declaração de imposto de renda.",
+        "C": "selecionar declarações, aleatoriamente, para passarem por exame minucioso.",
+        "D": "detectar discrepâncias na declaração de imposto de renda.",
+        "E": "cruzar dados entre declarações de contribuintes físicos e jurídicos."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Inglês",
+      "gabarito": "E",
+      "enunciado": "De acordo com o texto, nos Estados Unidos a seleção aleatória de declarações a serem examinadas",
+      "alternativas": {
+        "A": "foi suspensa por um breve período no final do ano 2000.",
+        "B": "foi abolida no final do ano 2000.",
+        "C": "está suspensa por tempo indeterminado.",
+        "D": "é procedimento consensual entre os auditores.",
+        "E": "foi reinstituída no outono de 2006."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Inglês",
+      "gabarito": "A",
+      "enunciado": "O significado de willfully no texto é",
+      "alternativas": {
+        "A": "deliberadamente",
+        "B": "distraídamente",
+        "C": "corretamente",
+        "D": "intuitivamente",
+        "E": "automaticamente"
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Inglês",
+      "gabarito": "C",
+      "enunciado": "A synonym for ‘rather than’, as used in the text, is",
+      "alternativas": {
+        "A": "but also",
+        "B": "better than",
+        "C": "instead of",
+        "D": "as usual",
+        "E": "preferably"
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Inglês",
+      "gabarito": "D",
+      "enunciado": "O texto trata",
+      "alternativas": {
+        "A": "dos casos que podem ser abatidos do imposto de renda.",
+        "B": "de como pagar menos impostos de forma legal.",
+        "C": "das possibilidades de reduzir a renda para pagar menos impostos.",
+        "D": "de um caso de sonegação fiscal.",
+        "E": "de como lançar despesas pessoais na conta da empresa."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Inglês",
+      "gabarito": "E",
+      "enunciado": "Segundo o texto, o proprietário em questão",
+      "alternativas": {
+        "A": "acusou seus funcionários de desviarem cheques recebidos de seus clientes.",
+        "B": "recebeu uma multa de US$ 130.000 por não prestar contas ao fisco.",
+        "C": "emitiu cheques falsos em nome da empresa.",
+        "D": "obteve uma restituição do imposto de renda entre os anos 2003 a 2006.",
+        "E": "não depositou, na conta da empresa, os cheques nominais que recebia dos clientes."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "D",
+      "enunciado": "Jair tem 8 primos, dos quais irá convidar 5 para um jantar em sua casa. Ocorre que 2 dos 8 primos só podem ir ao jantar se forem juntos. O total de escolhas diferentes dos 5 convidados que Jair pode fazer para o jantar é igual a",
+      "alternativas": {
+        "A": "40.",
+        "B": "56.",
+        "C": "30.",
+        "D": "26.",
+        "E": "36."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "B",
+      "enunciado": "Roberta tem que ler dois processos diferentes e dar, em cada um, parecer favorável ou desfavorável. A probabilidade de Roberta dar parecer favorável ao primeiro processo é de 50%, a de dar parecer favorável ao segundo é de 40%, e a de dar parecer favorável a ambos os processos é de 30%. Sendo assim, a probabilidade de que Roberta dê pareceres desfavoráveis a ambos os processos é igual a",
+      "alternativas": {
+        "A": "20%.",
+        "B": "40%.",
+        "C": "60%.",
+        "D": "30%.",
+        "E": "50%."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "C",
+      "enunciado": "Cláudio está fazendo um programa de condicionamento físico de caminhadas diárias. A cada dois dias ele deve aumentar em 200 m a distância percorrida na caminhada, sendo que no primeiro dia ele começa caminhando 500 m. Em tal programa, o primeiro dia de caminhada em que Cláudio irá correr exatos 9,7 km será o",
+      "alternativas": {
+        "A": "49.",
+        "B": "97.",
+        "C": "93.",
+        "D": "91.",
+        "E": "47."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "E",
+      "enunciado": "Os registros da temperatura máxima diária dos primeiros 6 dias de uma semana foram: 25 °C; 26 °C, 28,5 °C; 26,8 °C; 25 °C; 25,6 °C. Incluindo também o registro da temperatura máxima diária do 7o dia dessa semana, o conjunto dos sete dados numéricos será unimodal com moda igual a 25 °C, e terá mediana igual a 26 °C. De acordo com os dados, é correto afirmar que, necessariamente, a temperatura máxima diária do 7o dia foi",
+      "alternativas": {
+        "A": "inferior a 25 °C.",
+        "B": "superior a 26,8 °C.",
+        "C": "igual a 26 °C.",
+        "D": "inferior a 25,6 °C.",
+        "E": "superior a 26 °C."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Matemática Financeira",
+      "gabarito": "A",
+      "enunciado": "Um capital de R$ 20.000,00 foi aplicado à taxa de juros compostos de 10% ao ano. Sendo t o número de anos em que esse capital deverá ficar aplicado para que produza juro total de R$ 9.282,00, então t pode ser calculado corretamente por meio da resolução da equação",
+      "alternativas": {
+        "A": "1,1^t = 1,4641",
+        "B": "0,1^t = 0,4641",
+        "C": "1,1^t = 0,4641",
+        "D": "0,1^t = 1,4641",
+        "E": "1,1^t = 1,5470"
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "B",
+      "enunciado": "A planta do terreno retangular plano de uma fazenda está na escala de 1:10000. Nessa planta, o terreno é representado por um retângulo de 1,1 m por 64 cm. Sabendo-se que o perímetro de um retângulo é a soma das medidas de todos os seus lados, então o perímetro do terreno dessa fazenda, em quilômetros, é igual a",
+      "alternativas": {
+        "A": "348.",
+        "B": "34.8.",
+        "C": "3.48.",
+        "D": "2.328.",
+        "E": "23.28."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "C",
+      "enunciado": "Um comerciante de material de construção comprou um lote de areia para revendê-lo. Ele conseguiu vender 2/5 do lote ganhando 24% sobre o preço que havia pago por essa fração do lote. O restante do lote foi vendido pelo comerciante com prejuízo de 10%.\n\nCom relação ao preço pago na aquisição do lote, a venda total do lote implicou para o comerciante em",
+      "alternativas": {
+        "A": "lucro de 2.8%.",
+        "B": "prejuízo de 3.6%.",
+        "C": "lucro de 3.6%.",
+        "D": "prejuízo de 5.6%.",
+        "E": "lucro de 5.6%."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "D",
+      "enunciado": "Em uma reunião realizada em um dia do mês de outubro estavam presentes apenas pessoas que faziam aniversário naquele mês. Das pessoas presentes, apenas três faziam aniversário exatamente no dia da reunião, e todas as demais faziam aniversário em dias diferentes entre si duas a duas. Sabendo-se que o mês de outubro tem 31 dias, é correto concluir que nessa reunião estavam presentes no",
+      "alternativas": {
+        "A": "máximo 32 pessoas.",
+        "B": "mínimo 28 pessoas.",
+        "C": "máximo 31 pessoas.",
+        "D": "máximo 33 pessoas.",
+        "E": "mínimo 18 pessoas."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "E",
+      "enunciado": "Artur, Beatriz e Cristina vão jogar três rodadas de um jogo de cartas. O combinado é que o perdedor da rodada deve dar a cada um dos demais jogadores exatamente a quantia de dinheiro que cada um tem naquela rodada. Sabe-se que Artur perdeu a primeira rodada, Beatriz perdeu a segunda e Cristina perdeu a terceira. Sabendo-se ainda que ao final das três rodadas cada jogador ficou com R$ 40,00, é correto afirmar que Cristina começou a primeira rodada do jogo tendo",
+      "alternativas": {
+        "A": "R$ 35.00.",
+        "B": "R$ 30.00.",
+        "C": "R$ 25.00.",
+        "D": "R$ 40.00.",
+        "E": "R$ 20.00."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "A",
+      "enunciado": "Quatro meninos têm 5, 7, 9 e 11 carrinhos cada um. A respeito da quantidade de carrinhos que cada um tem, eles afirmaram:\n\n– Antônio: Eu tenho 5 carrinhos:\n– Bruno: Eu tenho 11 carrinhos:\n– Cássio: Antônio tem 9 carrinhos:\n– Danilo: Eu tenho 9 carrinhos.\n\nSe apenas um deles mentiu, tendo os outros dito a verdade, então é correto concluir que a soma do número de carrinhos de Antônio, Bruno e Cássio é igual a",
+      "alternativas": {
+        "A": "23.",
+        "B": "25.",
+        "C": "21.",
+        "D": "27.",
+        "E": "22."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Direito Administrativo",
+      "gabarito": "D",
+      "enunciado": "São conceitos de centralização, descentralização e desconcentração da atividade administrativa do Estado, respectivamente:",
+      "alternativas": {
+        "A": "a sua não distribuição interna no âmbito de um mesmo órgão; a sua distribuição interna no âmbito de um mesmo órgão; a sua distribuição a outras entidades administrativas.",
+        "B": "a sua reunião no âmbito do ente político competente; a sua distribuição a outras entidades administrativas; a sua distribuição interna no âmbito de um mesmo órgão.",
+        "C": "a sua reunião no ente político competente; a redistribuição aos demais entes políticos; a sua distribuição interna no âmbito de um mesmo ente político.",
+        "D": "a sua reunião no âmbito do ente político competente; a sua distribuição a outras entidades administrativas, integrantes do mesmo ente político; a sua distribuição interna no âmbito de um mesmo ente político.",
+        "E": "a sua reunião no âmbito do ente político competente; a sua distribuição a outras entidades administrativas; a sua distribuição a outros entes políticos."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Legislação Estadual - MA",
+      "gabarito": "B",
+      "enunciado": "Após o falecimento de servidor público do Estado do Maranhão foi decretada a vacância de seu cargo. Segundo o artigo 39 da Lei n° 6.107 de 1994, outras hipóteses de vacância são:\n\nI. exoneração.\nII. transferência.\nIII. readaptação.\nIV. demissão.\nV. posse em outro cargo inacumulável.\n\nEstá correto o que consta APENAS em",
+      "alternativas": {
+        "A": "I, IV e V.",
+        "B": "I, III e IV.",
+        "C": "II, III e IV.",
+        "D": "III, IV e V.",
+        "E": "I, II e V."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Direito Administrativo",
+      "gabarito": "A",
+      "enunciado": "As autarquias devem ser criadas por",
+      "alternativas": {
+        "A": "lei e com personalidade jurídica de direito público.",
+        "B": "decreto pelo Ministério ou Secretaria ao qual estejam vinculadas e podem ter personalidade jurídica de direito privado ou de direito público.",
+        "C": "decreto quando tiverem personalidade jurídica de direito privado; e lei quando tiverem personalidade jurídica de direito público.",
+        "D": "lei e sua personalidade jurídica pode ser definida via decreto.",
+        "E": "lei e podem atuar no mercado financeiro, uma vez que podem ter personalidade jurídica de direito privado."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Direito Administrativo",
+      "gabarito": "D",
+      "enunciado": "Sobre as concessões e permissões de serviços públicos considere as afirmativas abaixo.\n\nI. Poderes concedentes são: a União, o Estado, o Distrito Federal, o Município e suas autarquias e fundações públicas em cuja competência se encontre o serviço público objeto de concessão ou permissão.\nII. Concessão de serviço público é a delegação de sua prestação, feita pelo poder concedente, mediante licitação, na modalidade de concorrência, à pessoa jurídica ou consórcio de empresas que demonstre capacidade para seu desempenho, por sua conta e risco e por prazo determinado.\nIII. Permissão de serviço público é a delegação, a título precário, independentemente de licitação, da prestação de serviços públicos, feita pelo poder concedente à pessoa física ou jurídica que demonstre capacidade para seu desempenho, por sua conta e risco.\nIV. Concessão de serviço público precedida da execução de obra pública é a construção, total ou parcial, conservação, reforma, ampliação ou melhoramento de quaisquer obras de interesse público, delegada pelo poder concedente, mediante licitação, na modalidade de concorrência, à pessoa jurídica ou consórcio de empresas que demonstre capacidade para a sua realização, por sua conta e risco, de forma que o investimento da concessionária seja remunerado e amortizado mediante a exploração do serviço ou da obra por prazo determinado.\n\nEstá correto o que consta APENAS em",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "II e III.",
+        "C": "III e IV.",
+        "D": "II e IV.",
+        "E": "I e III."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Direito Constitucional",
+      "gabarito": "E",
+      "enunciado": "São finalidades do controle interno da Administração pública, EXCETO:",
+      "alternativas": {
+        "A": "avaliar o cumprimento das metas previstas no plano plurianual, a execução dos programas de governo e dos orçamentos da União.",
+        "B": "exercer o controle das operações de crédito, avais e garantias, bem como dos direitos e haveres da União.",
+        "C": "comprovar a legalidade e avaliar os resultados, quanto à eficácia e eficiência, da gestão orçamentária, financeira e patrimonial nos órgãos e entidades da administração federal, bem como da aplicação de recursos públicos por entidades de direito privado.",
+        "D": "apoiar o controle externo no exercício de sua missão institucional.",
+        "E": "apreciar as contas prestadas anualmente pelo Chefe do Executivo, mediante parecer prévio que deverá ser elaborado em sessenta dias a contar do seu recebimento."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Direito Administrativo",
+      "gabarito": "C",
+      "enunciado": "São fontes do Direito Administrativo:\n\nI. lei.\nII. razoabilidade.\nIII. moralidade.\nIV. jurisprudência.\nV. proporcionalidade.\n\nEstá correto o que consta APENAS em",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "II e IV.",
+        "C": "I e IV.",
+        "D": "III e V.",
+        "E": "IV e V."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Direito Administrativo",
+      "gabarito": "D",
+      "enunciado": "São exemplos de empresa pública e sociedade de economia mista, respectivamente:",
+      "alternativas": {
+        "A": "Banco do Brasil S.A. e Caixa Econômica Federal.",
+        "B": "Agência Nacional de Energia Elétrica e Empresa Brasileira de Correios e Telégrafos.",
+        "C": "Empresa Brasileira de Correios e Telégrafos e Caixa Econômica Federal.",
+        "D": "Companhia Nacional de Abastecimento e Banco do Brasil S.A.",
+        "E": "Banco do Brasil S.A. e Companhia Nacional de Abastecimento."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Direito Administrativo",
+      "gabarito": "D",
+      "enunciado": "O poder de polícia caracteriza-se como atividade da Administração pública que impõe limites ao exercício de direitos e liberdades, tendo em vista finalidades de interesse público. Considere os atos ou contratos administrativos a seguir:\n\nI. concessão de serviços públicos.\nII. autorização para vendas de material de fogos de artifícios.\nIII. permissão de serviços públicos.\nIV. concessão de licença ambiental para construção.\n\nCaracterizam-se como manifestação do poder de polícia APENAS os constantes em",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "II e III.",
+        "C": "III e IV.",
+        "D": "II e IV.",
+        "E": "I e III."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Direito Administrativo",
+      "gabarito": "C",
+      "enunciado": "São exemplos de órgãos da Administração pública direta:\n\nI. Partidos Políticos e Congresso Nacional.\nII. Secretaria Estadual de Finanças e Secretaria Municipal de Planejamento.\nIII. Secretaria Estadual de Finanças e Partidos Políticos.\nIV. Secretaria Municipal de Planejamento e Ministério do Turismo.\nV. União e Instituto Nacional de Seguridade Social.\n\nEstá correto o que consta APENAS em",
+      "alternativas": {
+        "A": "I e III.",
+        "B": "II e III.",
+        "C": "II e IV.",
+        "D": "IV e V.",
+        "E": "I e V."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Direito Administrativo",
+      "gabarito": "A",
+      "enunciado": "O processo disciplinar é derivado dos poderes:",
+      "alternativas": {
+        "A": "hierárquico e disciplinar.",
+        "B": "regulamentar e de polícia.",
+        "C": "disciplinar e de polícia.",
+        "D": "de polícia e hierárquico.",
+        "E": "hierárquico e regulamentar."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Direito Empresarial",
+      "gabarito": "A",
+      "enunciado": "A sociedade limitada tem o seu capital social dividido em quotas",
+      "alternativas": {
+        "A": "iguais ou desiguais, sendo indivisíveis em relação à sociedade, salvo para efeito de transferência.",
+        "B": "necessariamente iguais, sendo indivisíveis em relação à sociedade, salvo para efeito de transferância.",
+        "C": "iguais ou desiguais, sendo indivisíveis em relação à sociedade, mesmo para efeito de transferência.",
+        "D": "necessariamente iguais, sendo indivisíveis em relação à sociedade, mesmo para efeito de transferência",
+        "E": "iguais ou desiguais, sendo divisíveis em relação à sociedade, para quaisquer efeitos."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Direito Empresarial",
+      "gabarito": "B",
+      "enunciado": "A administração da sociedade anônima compete",
+      "alternativas": {
+        "A": "exclusivamente ao conselho de administração.",
+        "B": "à diretoria e ao conselho de administração, ou somente à diretoria, conforme dispuser o estatuto social.",
+        "C": "à diretoria, ao conselho de administração e, se houver, ao conselho fiscal.",
+        "D": "prioritariamente ao conselho fiscal, ao qual se subordinam a diretoria e o conselho de administração.",
+        "E": "exclusivamente à diretoria, caso se trate de companhia aberta."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Direito Empresarial",
+      "gabarito": "A",
+      "enunciado": "De acordo com o Código Civil, o estabelecimento empresarial",
+      "alternativas": {
+        "A": "pode ser objeto unitário de direitos e de negócios jurídicos, translativos ou constitutivos, sendo que, em caso de alienação, seu adquirente responde pelo pagamento dos débitos anteriores à transferência, desde que regularmente contabilizados.",
+        "B": "pode ser objeto unitário de direitos e de negócios jurídicos, translativos ou constitutivos, sendo que, em caso de alienação, seu adquirente responde pelo pagamento dos débitos anteriores à transferência, independentemente de estarem ou não regularmente contabilizados.",
+        "C": "pode ser objeto unitário de direitos e de negócios jurídicos, translativos ou constitutivos, sendo que, em caso de alienação, seu adquirente é isento de responsabilidade pelos débitos anteriores à transferência, mesmo que regularmente contabilizados.",
+        "D": "não pode ser objeto unitário de direitos e de negócios jurídicos, salvo os de natureza translativa, sendo que, em caso de alienação, seu adquirente é isento de responsabilidade pelos débitos anteriores à transferência, mesmo que regularmente contabilizados.",
+        "E": "não pode ser objeto unitário de direitos e de negócios jurídicos, salvo os de natureza translativa, sendo que, em caso de alienação, seu adquirente responde pelo pagamento dos débitos anteriores à transferência, independentemente de estarem ou não regularmente contabilizados."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Direito Empresarial",
+      "gabarito": "D",
+      "enunciado": "À vista das normas do Código Civil, considere as seguintes proposições acerca da escrituração das empresas e sociedades empresárias:\n\nI. Além dos demais livros exigidos por lei, é indispensável o Diário, sendo vedada, em qualquer hipótese, sua substituição pelo livro Balancetes Diários e Balanços.\nII. É permitida a autenticação dos livros obrigatórios, mesmo que o empresário ou sociedade empresária ainda não estejam inscritos no Registro Público de Empresas Mercantis.\nIII. Salvo disposição especial de lei, os livros obrigatórios devem, necessariamente, ser autenticados no Registro Público de Empresas Mercantis antes de postos em uso.\nIV. A adoção de fichas dispensa o uso de livro apropriado para o lançamento do balanço patrimonial e do de resultado econômico.\nV. São lançados no Diário o balanço patrimonial e o de resultado econômico, devendo ambos ser assinados por técnico em Ciências Contábeis legalmente habilitado e pelo empresário ou sociedade empresária.\n\nEstá correto o que se afirma APENAS em",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "I e III.",
+        "C": "II e IV.",
+        "D": "III e V.",
+        "E": "IV e V."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Direito Empresarial",
+      "gabarito": "E",
+      "enunciado": "Conforme a Lei n° 11.101, de 09 de fevereiro de 2005, será decretada a falência do devedor a ela sujeito que, sem relevante razão de direito, não paga, no vencimento, obrigação líquida materializada em títulos executivos protestados, cuja soma ultrapasse o equivalente a 40 salários-mínimos na data do pedido de falência, salvo se o devedor provar, entre outras hipóteses, que",
+      "alternativas": {
+        "A": "sua atividade é relevante para o desenvolvimento social ou econômico do País.",
+        "B": "o valor dos seus bens supera o das suas dívidas.",
+        "C": "o valor dos seus bens é, pelo menos, duas vezes superior ao das suas dívidas.",
+        "D": "não possui bens penhoráveis.",
+        "E": "a cobrança da dívida está prescrita."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Direito Constitucional",
+      "gabarito": "B",
+      "enunciado": "Constituição flexível",
+      "alternativas": {
+        "A": "exclui a forma escrita.",
+        "B": "prescinde de alguma forma de controle de constitucionalidade.",
+        "C": "não se sujeita a usos e costumes institucionais.",
+        "D": "requer elaboração e modificação por uma Assembleia Nacional Constituinte.",
+        "E": "exclui a possibilidade de exibir estabilidade no tempo assemelhada a de uma constituição tecnicamente rígida."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Direito Constitucional",
+      "gabarito": "C",
+      "enunciado": "Independe da demonstração de pertinência temática a ação direta de inconstitucionalidade ajuizada",
+      "alternativas": {
+        "A": "por Governador de Estado.",
+        "B": "pelo Governador do Distrito Federal.",
+        "C": "pelo Conselho Federal da Ordem dos Advogados do Brasil.",
+        "D": "por confederação sindical.",
+        "E": "por entidade de classe de âmbito nacional."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Direito Constitucional",
+      "gabarito": "A",
+      "enunciado": "Erradicar a pobreza e a marginalização é",
+      "alternativas": {
+        "A": "um objetivo fundamental da República Federativa do Brasil.",
+        "B": "um fundamento da República Federativa do Brasil.",
+        "C": "uma norma constitucional de aplicabilidade imediata e eficácia plena.",
+        "D": "uma regra constitucional auto-executável.",
+        "E": "uma competência privativa da União."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Direito Constitucional",
+      "gabarito": "E",
+      "enunciado": "A teor da Constituição brasileira vigente, o exercício da liberdade de reunião em locais abertos ao público",
+      "alternativas": {
+        "A": "pode não ser pacífico.",
+        "B": "pode ser com armas.",
+        "C": "independe de autorização, ainda que frustre outra reunião anteriormente convocada para o mesmo local.",
+        "D": "é um direito social coletivo.",
+        "E": "exige prévio aviso à autoridade competente."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Direito Constitucional",
+      "gabarito": "D",
+      "enunciado": "Segundo a Constituição brasileira vigente",
+      "alternativas": {
+        "A": "as associações poderão ser compulsoriamente dissolvidas por decisão judicial cautelar não transitada em julgado.",
+        "B": "as entidades associativas, independentemente de autorização, têm legitimidade para representar seus filiados judicial ou extrajudicialmente.",
+        "C": "é plena a liberdade de associação para fins lícitos, permitida a de caráter paramilitar.",
+        "D": "a criação de associações independe de autorização, vedada a interferência estatal em seu funcionamento.",
+        "E": "ninguém poderá ser compelido a associar-se ou a permanecer associado, salvo determinação legal expressa."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Direito Constitucional",
+      "gabarito": "A",
+      "enunciado": "A República Federativa do Brasil é composta pela união indissolúvel dos seguintes entes federados",
+      "alternativas": {
+        "A": "União, Estados, Distrito Federal e Municípios.",
+        "B": "União, Estados, Territórios, Distrito Federal e Municípios.",
+        "C": "Estados, Territórios, Distrito Federal e Municípios.",
+        "D": "União, Estados e Distrito Federal.",
+        "E": "União, Estados e Municípios."
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Direito Constitucional",
+      "gabarito": "B",
+      "enunciado": "São Poderes do Distrito Federal, independentes e harmônicos entre si,",
+      "alternativas": {
+        "A": "o Legislativo, o Executivo e o Judiciário.",
+        "B": "o Legislativo e o Executivo.",
+        "C": "o Legislativo, o Executivo, o Judiciário e o Ministério Público.",
+        "D": "o Legislativo, o Executivo, o Judiciário e a Administração Pública distrital.",
+        "E": "o Legislativo, o Executivo, o Judiciário e as Polícias Civil e Militar distritais."
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "O princípio da imunidade recíproca no Direito brasileiro abrange",
+      "alternativas": {
+        "A": "impostos e taxas.",
+        "B": "somente impostos.",
+        "C": "impostos, taxas e contribuições de melhoria.",
+        "D": "impostos, taxas e contribuições em geral.",
+        "E": "taxas e contribuições de melhoria."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "Tratado internacional em matéria tributária",
+      "alternativas": {
+        "A": "dispensa aprovação pelo Congresso Nacional.",
+        "B": "requer aprovação pelas Assembleias Legislativas estaduais.",
+        "C": "pode criar hipótese de isenção de tributos estaduais e municipais.",
+        "D": "tem nível constitucional automático.",
+        "E": "não se submete a normas gerais do Código Tributário Nacional."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Direito Constitucional",
+      "gabarito": "D",
+      "enunciado": "Constitui monopólio da União",
+      "alternativas": {
+        "A": "o transporte marítimo do petróleo de origem nacional ou internacional destinado ao país.",
+        "B": "a refinação do petróleo nacional, mas não do estrangeiro.",
+        "C": "a exportação, mas não a importação, de petróleo.",
+        "D": "a pesquisa e a lavra das jazidas de petróleo.",
+        "E": "a pesquisa, a lavra, o enriquecimento, o reprocessamento, a industrialização e o comércio de todo e qualquer minério ou mineral nuclear e seus derivados."
+      }
+    },
+    {
+      "numero": 61,
+      "materia": "Direito Civil",
+      "gabarito": "B",
+      "enunciado": "O artigo 2º do Código Civil dispõe que a personalidade civil da pessoa começa do nascimento com vida; mas a lei põe a salvo, desde a concepção, os direitos do nascituro. Por sua vez, o artigo 3º do Código Civil dispõe que são absolutamente incapazes de exercer pessoalmente os atos da vida civil os menores de 16 anos. De acordo com o Código Civil,",
+      "alternativas": {
+        "A": "a personalidade civil inicia-se com 16 anos completos, embora a lei resguarde os direitos não-patrimoniais a partir do nascimento com vida.",
+        "B": "a personalidade inicia-se com o nascimento com vida, mas até os 16 anos a pessoa não tem capacidade para praticar os atos da vida civil, devendo ser representada.",
+        "C": "o ordenamento adotou a teoria concepcionista, que atribui personalidade civil ao nascituro, sob condição suspensiva.",
+        "D": "como o ordenamento adotou a teoria natalista, admite-se, como regra, o aborto, pois a personalidade se inicia apenas com o nascimento com vida.",
+        "E": "a capacidade dos menores de 16 anos equipara-se à dos que, por enfermidade ou deficiência mental, não tiverem o necessário discernimento para a prática dos atos da vida civil."
+      }
+    },
+    {
+      "numero": 62,
+      "materia": "Direito Civil",
+      "gabarito": "A",
+      "enunciado": "Jair é sócio e administrador da pessoa jurídica J. Jardinagem Ltda., que não possui conta corrente, utilizando a conta corrente pessoal de Jair para realizar movimentações financeiras. Surpreendido com dificuldades financeiras, decorrentes de suas obrigações pessoais, Jair gastou todos os recursos existentes em sua conta corrente. Com isto, a pessoa jurídica J. Jardinagem Ltda. viu-se impossibilitada de honrar compromissos. À vista do ocorrido, Manoel, credor civil da J. Jardinagem Ltda., requereu a desconsideração da personalidade jurídica da empresa, a fim de ver penhorados os bens particulares e penhoráveis de Jair. De acordo com o Código Civil, tal pedido",
+      "alternativas": {
+        "A": "deve ser acatado, pois a confusão patrimonial caracteriza abuso da personalidade jurídica, autorizando a desconsideração da personalidade jurídica da sociedade, com o atingimento dos bens particulares e penhoráveis de Jair.",
+        "B": "não deve ser acatado, pois apenas o abuso da personalidade jurídica caracteriza a desconsideração da personalidade jurídica, o que não se dá com a confusão patrimonial.",
+        "C": "deve ser acatado, pois a confusão patrimonial caracteriza abuso da personalidade jurídica, autorizando a desconsideração da personalidade jurídica da sociedade, que leva à sua dissolução.",
+        "D": "não deve ser acatado, pois apenas nas relações de consumo se admite a desconsideração da personalidade jurídica.",
+        "E": "deve ser acatado, pois o inadimplemento, por si só, autoriza a desconsideração da personalidade jurídica."
+      }
+    },
+    {
+      "numero": 63,
+      "materia": "Direito Civil",
+      "gabarito": "D",
+      "enunciado": "Sidney foi brutalmente violentado por Sérgio quando possuía oito anos de idade. Aos dezessete, ajuizou ação de indenização contra Sérgio, buscando compensação por danos morais. A pretensão de Sidney",
+      "alternativas": {
+        "A": "está prescrita, pois o prazo, de 3 anos, por que não impedido, já havia se ultimado quando do ajuizamento da ação.",
+        "B": "não está prescrita, pois as ações que versam sobre direitos da personalidade são imprescritíveis.",
+        "C": "não está prescrita, pois o prazo, de 5 anos, não correu enquanto ele era absolutamente incapaz, iniciando a fluir ao se tornar maior de dezesseis anos, quando passou a poder ajuizar ação pessoalmente, embora representado.",
+        "D": "não está prescrita, pois o prazo, de 3 anos, não correu enquanto ele era absolutamente incapaz, iniciando a fluir ao se tornar maior de dezesseis anos, quando passou a poder ajuizar ação pessoalmente, embora assistido.",
+        "E": "está prescrita, pois o prazo, de 5 anos, por que não impedido, já havia se ultimado quando do ajuizamento da ação."
+      }
+    },
+    {
+      "numero": 64,
+      "materia": "Direito Civil",
+      "gabarito": "B",
+      "enunciado": "Marcelo emprestou gratuitamente a Henrique, para que expusesse em sua galeria de arte, obra assinada por renomado artista plástico. Enquanto a obra estava exposta, a galeria de artes foi atingida por um raio que incendiou o local. Durante o incêndio, Henrique houve por bem salvar as obras de sua propriedade, tendo em vista possuírem valor maior, abandonando a de Marcelo, que se danificou. O contrato celebrado entre Marcelo e Henrique é de",
+      "alternativas": {
+        "A": "comodato, que tem como objeto bem infungível, perfaz-se com o acordo de vontades e Henrique responderá pelo dano, não podendo invocar como causa excludente de responsabilidade caso fortuito ou força maior.",
+        "B": "comodato, que tem como objeto bem infungível, perfaz-se com a sua tradição e Henrique responderá pelo dano, não podendo invocar como causa excludente de responsabilidade caso fortuito ou força maior.",
+        "C": "mútuo, que tem como objeto bem fungível, perfaz-se com o acordo de vontades e Henrique não responderá pelo dano, pois o caso fortuito ou a força maior exclui o nexo de causalidade, afastando o dever de indenizar.",
+        "D": "comodato, que tem como objeto bem infungível, perfaz-se com o acordo de vontades e Henrique não responderá pelo dano, pois o caso fortuito ou a força maior exclui o nexo de causalidade, afastando o dever de indenizar.",
+        "E": "mútuo, que tem como objeto bem infungível, perfaz-se com a sua tradição e Henrique responderá pelo dano, não podendo invocar como causa excludente de responsabilidade caso fortuito ou força maior."
+      }
+    },
+    {
+      "numero": 65,
+      "materia": "Direito Civil",
+      "gabarito": "E",
+      "enunciado": "Analise as proposições abaixo, acerca do direito das coisas:\n\nI. Àquele que tem a propriedade, é defeso transferir a posse direta da coisa.\nII. A propriedade do solo abrange a do subsolo, podendo o proprietário opor-se a quaisquer atividades realizadas por terceiros no imóvel, independentemente da profundidade em que se dê.\nIII. Não pode o possuidor direto defender a posse contra o dono da coisa.\nIV. Não autorizam a aquisição da posse os atos de violência, mesmo depois de cessada a violência.\nV. A posse do imóvel faz presumir, até prova contrária, a das coisas móveis que nele estiverem.\n\nEstá correto o que se afirma APENAS em",
+      "alternativas": {
+        "A": "IV.",
+        "B": "I, II e IV.",
+        "C": "III e IV.",
+        "D": "I, II e V.",
+        "E": "V."
+      }
+    },
+    {
+      "numero": 66,
+      "materia": "Direito Penal",
+      "gabarito": "B",
+      "enunciado": "O princípio do direito penal que possui claro sentido de garantia fundamental da pessoa, impedindo que alguém possa ser punido por fato que, ao tempo do seu cometimento, não constituía delito é",
+      "alternativas": {
+        "A": "atipicidade.",
+        "B": "reserva legal.",
+        "C": "punibilidade.",
+        "D": "analogia.",
+        "E": "territorialidade."
+      }
+    },
+    {
+      "numero": 67,
+      "materia": "Direito Penal",
+      "gabarito": "C",
+      "enunciado": "O Código Penal, ao tratar da relação de causalidade do crime, considera causa a",
+      "alternativas": {
+        "A": "emoção ou a paixão.",
+        "B": "delação.",
+        "C": "ação ou omissão sem a qual o resultado não teria ocorrido.",
+        "D": "excludente de ilicitude.",
+        "E": "descriminante putativa."
+      }
+    },
+    {
+      "numero": 68,
+      "materia": "Direito Penal",
+      "gabarito": "A",
+      "enunciado": "Ocorre o crime de peculato culposo:",
+      "alternativas": {
+        "A": "Quando o funcionário público concorre culposamente para o crime de outrem.",
+        "B": "Quando o particular concorre culposamente para o crime de outrem.",
+        "C": "Quando o funcionário público pratica o peculato-apropriação ou o peculato-desvio mediante erro determinado por terceiro.",
+        "D": "Quando o particular pratica o peculato-apropriação ou o peculato-desvio mediante imprudência, imperícia ou negligência.",
+        "E": "Em todas as hipóteses em que o funcionário público não age com dolo específico."
+      }
+    },
+    {
+      "numero": 69,
+      "materia": "Direito Penal",
+      "gabarito": "E",
+      "enunciado": "O funcionário público que extravia qualquer documento de que tenha a guarda em razão da função, acarretando pagamento indevido de tributo, pratica o crime",
+      "alternativas": {
+        "A": "de fraude.",
+        "B": "de extravio de documento.",
+        "C": "de prevaricação.",
+        "D": "de descaminho.",
+        "E": "contra a ordem tributária previsto na Lei n° 8.137/90."
+      }
+    },
+    {
+      "numero": 70,
+      "materia": "Direito Penal",
+      "gabarito": "A",
+      "enunciado": "A vantagem indevida obtida pelo funcionário público só caracteriza o crime de concussão quando for",
+      "alternativas": {
+        "A": "exigida.",
+        "B": "solicitada.",
+        "C": "aceita.",
+        "D": "oferecida.",
+        "E": "recebida."
+      }
+    }
+  ]
+}

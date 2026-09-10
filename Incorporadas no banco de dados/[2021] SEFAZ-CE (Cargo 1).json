@@ -1,0 +1,1128 @@
+{
+  "instituicao": "SEFAZ-CE",
+  "ano": 2021,
+  "cargo": "Auditor Fiscal Jurídico da Receita Estadual",
+  "tipo_prova": "MATRIZ_S08_SEFAZ_003_00",
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Administração Pública / Governo Eletrônico",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A instituição da Rede Nacional de Governo Digital, de natureza colaborativa e adesão voluntária, é uma das estratégias do governo eletrônico para o período de 2020 a 2022."
+    },
+    {
+      "numero": 2,
+      "materia": "Administração Pública / Gestão de Pessoas",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "A adoção da gestão por competências no setor público visa à obtenção de mais eficiência nas ações institucionais e mais transparência na relação trabalhista e interpessoal."
+    },
+    {
+      "numero": 3,
+      "materia": "Direito Administrativo / Licitações",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A obrigação de cumprir os termos que constam em um edital de licitação refere-se ao princípio da probidade administrativa."
+    },
+    {
+      "numero": 4,
+      "materia": "Administração Pública / Planejamento Estratégico",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "O planejamento estratégico na administração pública possibilita a análise das condições presentes, mas inviabiliza prospecções futuras."
+    },
+    {
+      "numero": 5,
+      "materia": "Direito Constitucional / Lei de Acesso à Informação",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "A Lei de Acesso à Informação garante o direito de obter informações produzidas em órgãos públicos, desde que os registros ou documentos ainda não tenham sido arquivados."
+    },
+    {
+      "numero": 6,
+      "materia": "Direito Constitucional / Lei da Transparência",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A Lei da Transparência prevê a liberação aos cidadãos, em tempo real, de informações detalhadas sobre execução financeira."
+    },
+    {
+      "numero": 7,
+      "materia": "Ética / Lei de Acesso à Informação",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Estando a informação solicitada disponível ao público em formato eletrônico, o órgão público poderá apenas informar, por escrito, ao solicitante o lugar e a forma pela qual ela poderá ser consultada."
+    },
+    {
+      "numero": 8,
+      "materia": "Ética",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A ética deve permear todas as atitudes de vida do ser humano, no trabalho, na família, na sociedade e no exercício da cidadania."
+    },
+    {
+      "numero": 9,
+      "materia": "Ética / Servidor Público",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "A conduta ética do servidor público circunscreve-se ao dever de comportar-se somente de acordo com o que é permitido."
+    },
+    {
+      "numero": 10,
+      "materia": "Ética / Servidor Público",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "As autoridades públicas deverão pautar-se pelos padrões da ética, os quais são exigidos na relação entre suas atividades públicas e privadas."
+    },
+    {
+      "numero": 11,
+      "materia": "Direito Constitucional / Lei de Acesso à Informação",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "O acesso público a informação reservada, após consumado o evento que definiu tal classificação, dependerá de decisão [ITEM INCOMPLETO NO ARQUIVO]"
+    },
+    {
+      "numero": 12,
+      "materia": "Sociologia / Filosofia do Direito",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O positivismo científico de Augusto Comte, influenciado pela Revolução Industrial, defendeu a sociologia como a única ciência experimental capaz de explicar com precisão a vida humana em sociedade, o que, apesar de críticas, teve grande mérito na fixação das premissas utilizadas para estabelecer a sociologia enquanto saber científico autônomo procedente da filosofia social e anterior à disciplina mais específica que hoje é conhecida como sociologia do direito, planificada por Émile Durkheim, discípulo do próprio Augusto Comte."
+    },
+    {
+      "numero": 13,
+      "materia": "Sociologia / Filosofia do Direito",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Émile Durkheim, Georges Davy, Léon Duguit e Paul Fauconnet são representantes da Escola Objetiva Francesa."
+    },
+    {
+      "numero": 14,
+      "materia": "Sociologia / Filosofia do Direito",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "De acordo com Karl Marx, o direito é a única ciência capaz de influenciar a economia, em razão do controle social imposto pela estrutura normativa do Estado sobre todos os indivíduos, bem como da capacidade dos homens de se autodeterminarem igualitariamente em um sistema jurídico humanístico e solidário."
+    },
+    {
+      "numero": 15,
+      "materia": "Teoria do Direito / Eficácia e Validade",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Quando há correspondência vertical das normas inferiores em relação às superiores, considera-se cumprido o atributo validade, mas nem toda norma válida é dotada de eficácia normativa."
+    },
+    {
+      "numero": 16,
+      "materia": "Teoria do Direito / Eficácia e Validade",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "A acepção técnico-jurídica da eficácia da norma jurídica diz respeito à sua efetividade no plano social, quando há compatibilidade entre a norma e os fatos sociais."
+    },
+    {
+      "numero": 17,
+      "materia": "Educação Fiscal",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O Programa de Educação Fiscal do Estado do Ceará foi instituído com o objetivo, entre outros, de levar conhecimentos aos cidadãos sobre a origem, a aplicação e o controle dos recursos públicos, de modo a favorecer a implementação de mecanismos e instrumento de transparência, visando à participação social."
+    },
+    {
+      "numero": 18,
+      "materia": "Legislação Tributária Estadual / ICMS",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 19,
+      "materia": "Legislação Tributária Estadual / ICMS",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 20,
+      "materia": "Finanças Públicas / Tributação",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Os objetivos da tributação dividem-se em distributivos, alocativos e estabilizadores. No Estado social, os objetivos estabilizadores visam à redução de desigualdades sociais."
+    },
+    {
+      "numero": 21,
+      "materia": "Legislação Tributária Estadual / ITBI",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 22,
+      "materia": "Educação Fiscal",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A educação fiscal é um trabalho de sensibilização da sociedade para a função socioeconômica do tributo, a qual se refere ao aspecto econômico de otimização da receita pública e ao aspecto social, que diz respeito ao fato de que toda a população deve efetuar o pagamento de seu imposto."
+    },
+    {
+      "numero": 23,
+      "materia": "Educação Fiscal",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "O Programa de Educação Fiscal tem caráter de permanência após sua implantação em cada unidade federativa, o que significa que está vinculado a campanhas e mandatos eletivos de governadores."
+    },
+    {
+      "numero": 24,
+      "materia": "Economia / Finanças Públicas",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A alocação eficiente dos recursos produtivos garante maior equidade social."
+    },
+    {
+      "numero": 25,
+      "materia": "Economia / Teoria do Estado",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Considera-se que, em uma solução de mercado competitivo, a intervenção governamental gera ineficiência."
+    },
+    {
+      "numero": 26,
+      "materia": "Economia / Teoria do Estado",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Na presença de benefícios externos, a alocação de mercado é ineficiente, o que justifica a intervenção do Estado."
+    },
+    {
+      "numero": 27,
+      "materia": "Contabilidade Pública / Despesa Pública",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Uma despesa obrigatória, já empenhada, não pode mais ser cancelada."
+    },
+    {
+      "numero": 28,
+      "materia": "Finanças Públicas / Orçamento Público",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O Banco Central é autorizado a emitir títulos, conforme limite previamente aprovado na Lei Orçamentária Anual (LOA), para a execução da política monetária."
+    },
+    {
+      "numero": 29,
+      "materia": "Finanças Públicas / Lei de Responsabilidade Fiscal",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "A regra de ouro estabelece que as despesas de capital devem ser superiores às despesas oriundas de endividamentos."
+    },
+    {
+      "numero": 30,
+      "materia": "Noções de Informática / Sistemas Operacionais",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O gerenciamento de processos é responsável por executar simultaneamente vários processos nos sistemas operacionais Windows e Linux, por meio do compartilhamento de tempo e processadores."
+    },
+    {
+      "numero": 31,
+      "materia": "Noções de Informática / Cloud Computing",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "PaaS (Platform as a Service) é o tipo de cloud computing que permite a utilização de uma aplicação na Web, como, por exemplo, Google Docs e Office 365."
+    },
+    {
+      "numero": 32,
+      "materia": "Noções de Informática / Segurança da Informação",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Em um firewall corretamente instalado e configurado, toda troca de dados entre a rede interna e a rede externa de uma organização deve passar por ele."
+    },
+    {
+      "numero": 33,
+      "materia": "Noções de Informática / Backup",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "O backup incremental caracteriza-se pela cópia de todos os dados alterados ou criados desde o último backup completo."
+    },
+    {
+      "numero": 34,
+      "materia": "Noções de Informática / Redes de Computadores",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "Redes VPN permitem a troca segura de dados entre dois pontos por meio do tunelamento por criptografia, que cria [ITEM INCOMPLETO NO ARQUIVO]"
+    },
+    {
+      "numero": 35,
+      "materia": "Matemática Financeira / Porcentagem",
+      "gabarito": "E",
+      "texto_motivador": "Determinado contribuinte, em débito com a receita estadual, constatou que deve pagar R$ 2.100 para quitar todos os débitos, após desconto concedido por aquele órgão. Após tal desconto, o pagamento pode ser parcelado em até 10 parcelas mensais, sendo a primeira calculada pela razão entre o valor da dívida pós-desconto e o número escolhido de parcelas, paga no momento do acordo. As demais têm seu valor corrigido em 10% em relação à do mês anterior.",
+      "enunciado": "Se o valor a ser pago tiver sido resultante de um desconto de 30% sobre a dívida, então o valor da dívida inicial era inferior a R$ 2.800."
+    },
+    {
+      "numero": 36,
+      "materia": "Matemática Financeira / Progressões",
+      "gabarito": "C",
+      "texto_motivador": "Determinado contribuinte, em débito com a receita estadual, constatou que deve pagar R$ 2.100 para quitar todos os débitos, após desconto concedido por aquele órgão. Após tal desconto, o pagamento pode ser parcelado em até 10 parcelas mensais, sendo a primeira calculada pela razão entre o valor da dívida pós-desconto e o número escolhido de parcelas, paga no momento do acordo. As demais têm seu valor corrigido em 10% em relação à do mês anterior.",
+      "enunciado": "Se o contribuinte optar por parcelar a dívida em n parcelas, 2 ≤ n ≤ 10, conforme previsto no acordo, então a sequência de pagamentos p1, ..., pn forma uma progressão geométrica, independentemente do valor de n."
+    },
+    {
+      "numero": 37,
+      "materia": "Matemática Financeira / Progressões",
+      "gabarito": "E",
+      "texto_motivador": "Determinado contribuinte, em débito com a receita estadual, constatou que deve pagar R$ 2.100 para quitar todos os débitos, após desconto concedido por aquele órgão. Após tal desconto, o pagamento pode ser parcelado em até 10 parcelas mensais, sendo a primeira calculada pela razão entre o valor da dívida pós-desconto e o número escolhido de parcelas, paga no momento do acordo. As demais têm seu valor corrigido em 10% em relação à do mês anterior.",
+      "enunciado": "Supondo-se que o contribuinte opte por efetuar o pagamento em 3 parcelas, então a soma algébrica dos valores por ele pagos será inferior a R$ 2.350."
+    },
+    {
+      "numero": 38,
+      "materia": "Matemática Financeira / Porcentagem",
+      "gabarito": "C",
+      "texto_motivador": "Determinada cidade estabeleceu que o valor do IPTU corresponderá a 0,2% do valor do imóvel avaliado no mercado imobiliário. [IMAGEM DE PLANTA] O imóvel cuja planta é dada na figura precedente está localizado em um bairro dessa cidade, onde o metro quadrado está avaliado em R$ 1.500.",
+      "enunciado": "O valor do IPTU desse imóvel é superior a R$ 1.000."
+    },
+    {
+      "numero": 39,
+      "materia": "Matemática e Raciocínio Lógico / Lógica Proposicional",
+      "gabarito": "C",
+      "texto_motivador": "Considere que Marisa, Daniel e Jair trabalhem em uma secretaria de fazenda pública, nos setores responsáveis pela arrecadação do IPTU, IPVA e ISS, que suas idades sejam 34, 42 e 45 anos. Considere, ainda, que não se sabe o setor em que cada um deles trabalha nem a idade de cada um.",
+      "enunciado": "Considere as seguintes afirmações.\nI Jair trabalha no setor responsável pelo IPTU.\nII O que trabalha no setor responsável pelo IPVA tem 34 anos de idade.\nIII Marisa tem 45 anos de idade ou trabalha no setor responsável pelo IPVA.\nÉ correto afirmar que, se as afirmações I e II são verdadeiras e III é falsa, então a idade de Jair é 45 anos."
+    },
+    {
+      "numero": 40,
+      "materia": "Matemática e Raciocínio Lógico / Raciocínio Lógico",
+      "gabarito": "C",
+      "texto_motivador": "Considere que Marisa, Daniel e Jair trabalhem em uma secretaria de fazenda pública, nos setores responsáveis pela arrecadação do IPTU, IPVA e ISS, que suas idades sejam 34, 42 e 45 anos. Considere, ainda, que não se sabe o setor em que cada um deles trabalha nem a idade de cada um.",
+      "enunciado": "Suponha que, na secretaria de fazenda, a soma do tempo de serviço dos 3 servidores seja igual a 45 anos e a diferença do tempo de serviço entre quaisquer dois deles seja sempre igual a 5 ou 10 anos. Nessa situação, se Marisa começou a trabalhar após Jair e se Daniel começou a trabalhar antes de Jair, então o tempo de serviço de Daniel é de 15 anos."
+    },
+    {
+      "numero": 41,
+      "materia": "Matemática e Raciocínio Lógico / Lógica Proposicional",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Suponha que a afirmação “Carlos pagará o imposto ou Ana não comprará a casa.” seja falsa. Nesse caso, é correto concluir que Ana comprará a casa."
+    },
+    {
+      "numero": 42,
+      "materia": "Matemática e Raciocínio Lógico / Geometria",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Suponha que 6 servidores participem de uma reunião em uma sala onde algumas cadeiras estejam dispostas em volta de uma mesa circular de modo que a distância entre duas cadeiras consecutivas seja sempre igual a 1 metro. Nesse caso, se os servidores Paulo, Mateus e Rogério se sentaram em cadeiras de modo que a distância de cada um deles aos outros membros do grupo, respeitadas as limitações físicas ao deslocamento, seja sempre maior ou igual a 3 metros, então é correto concluir que a quantidade mínima de cadeiras que formam o círculo é igual a 18."
+    },
+    {
+      "numero": 43,
+      "materia": "Legislação Tributária Estadual / ICMS",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 44,
+      "materia": "Legislação Tributária Estadual / ICMS",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 45,
+      "materia": "Legislação Tributária Estadual / IPVA",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 46,
+      "materia": "Legislação Tributária Estadual / IPVA",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 47,
+      "materia": "Legislação Tributária Estadual / ITCD",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 48,
+      "materia": "Legislação Tributária Estadual / FECOP",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 49,
+      "materia": "Economia / História Econômica do Brasil",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O PAEG teve inspiração heterodoxa e usou como instrumento de combate à inflação o corte de despesas e a contenção dos salários, que passaram a crescer com a produtividade da economia."
+    },
+    {
+      "numero": 50,
+      "materia": "Economia / História Econômica do Brasil",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O PAEG promoveu a abertura da economia ao capital estrangeiro como forma de minimizar os efeitos adversos do balanço de pagamentos."
+    },
+    {
+      "numero": 51,
+      "materia": "Economia / História Econômica do Brasil",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Os metalistas defendiam a manutenção do padrão-ouro como forma de controlar a expansão monetária, destacando-se, entre os grupos que defendiam essa posição, os importadores e parte importante da burocracia do então Ministério da Fazenda."
+    },
+    {
+      "numero": 52,
+      "materia": "Economia / História Econômica do Brasil",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Os papelistas defendiam a contenção do crédito bancário como forma de controlar a inflação."
+    },
+    {
+      "numero": 53,
+      "materia": "Economia / História Econômica do Brasil",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A baixa elasticidade-preço do café associada à expansão da oferta do produto levou à necessidade de criação de medidas de proteção definidas pelo Convênio de Taubaté — como resultado, o governo comprou estoques de café financiados com a criação de um imposto de exportação."
+    },
+    {
+      "numero": 54,
+      "materia": "Economia / História Econômica do Brasil",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "À época, os impostos de exportação ficavam a cargo dos estados, enquanto os de importação eram de domínio do governo federal."
+    },
+    {
+      "numero": 55,
+      "materia": "Economia / Comércio Internacional",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "De acordo com o modelo ricardiano, as vantagens decorrentes do comércio internacional são afastadas na hipótese de um país ser relativamente menos produtivo do que outro em todas as indústrias."
+    },
+    {
+      "numero": 56,
+      "materia": "Economia / Comércio Internacional",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "As barreiras comerciais impostas sobre os produtos agropecuários brasileiros, como mecanismos de proteção a produtores locais de outras economias com menor dotação de terras cultiváveis, são explicadas, no modelo de fatores específicos, pela queda do preço relativo dos produtos rurais nesses países como resultado das trocas com o Brasil."
+    },
+    {
+      "numero": 57,
+      "materia": "Economia / Comércio Internacional",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Na teoria de Heckscher-Ohlin, o comércio internacional leva a um aumento do preço do fator de produção mais abundante relativamente ao preço do fator de produção menos abundante dentro de cada país, como decorrência da convergência entre os preços relativos dos bens intensivos em cada um desses fatores mais e menos abundantes."
+    },
+    {
+      "numero": 58,
+      "materia": "Economia / Macroeconomia",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "A política fiscal expansionista é mais eficaz para aumentar a demanda agregada em um regime de câmbio fixo com livre mobilidade de capitais do que a mesma política em uma economia fechada com demanda por moeda perfeitamente elástica à taxa de juros."
+    },
+    {
+      "numero": 59,
+      "materia": "Economia / Macroeconomia",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A política monetária expansionista atinge sua eficácia máxima em uma economia com câmbio flexível e livre mobilidade de capitais em razão do efeito positivo da depreciação cambial sobre a balança comercial."
+    },
+    {
+      "numero": 60,
+      "materia": "Economia / Finanças Internacionais",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Caso não existam custos de transação e os bens sejam homogêneos, a teoria da paridade do poder de compra, em sua versão relativa, postula que, a longo prazo, o valor da moeda de um país será completamente determinado pela razão entre o preço doméstico e o preço externo."
+    },
+    {
+      "numero": 61,
+      "materia": "Administração Geral / Conceitos de Administração",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "O conceito de eficácia possui ênfase nos métodos e procedimentos, enquanto o de eficiência dá enfoque ao alcance de resultados."
+    },
+    {
+      "numero": 62,
+      "materia": "Administração Geral / Teorias da Administração",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A administração científica foi um movimento marcado pela ênfase no nível de execução, com foco em tarefas e atividades."
+    },
+    {
+      "numero": 63,
+      "materia": "Administração Geral / Processo Administrativo",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "No processo administrativo, a tarefa de motivar colaboradores se insere no escopo da função de organização."
+    },
+    {
+      "numero": 64,
+      "materia": "Administração Geral / Processo Administrativo",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Desenho de cargos e tarefas e supervisão são atividades típicas do nível operacional das funções de organização e planejamento."
+    },
+    {
+      "numero": 65,
+      "materia": "Administração Geral / Planejamento Estratégico",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Na análise SWOT, pontos fortes se referem às questões ambientais favoráveis ao desempenho organizacional."
+    },
+    {
+      "numero": 66,
+      "materia": "Administração Geral / Cultura Organizacional",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Valores organizacionais se inserem no contexto da estratégia, enquanto a definição de objetivos se insere no escopo da cultura da organização."
+    },
+    {
+      "numero": 67,
+      "materia": "Administração Geral / Planejamento",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A partir do planejamento operacional, geram-se planos operacionais, que, por sua vez, se desdobram em programações de tarefas."
+    },
+    {
+      "numero": 68,
+      "materia": "Administração Geral / Gestão da Qualidade",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O controle estatístico de qualidade (CEQ) é uma ferramenta de gestão da qualidade destinada a identificar desvios, erros e discrepâncias no processo produtivo."
+    },
+    {
+      "numero": 69,
+      "materia": "Administração Geral / Processos",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Um conjunto de processos gerenciados de forma coordenada é conhecido como programa."
+    },
+    {
+      "numero": 70,
+      "materia": "Administração Geral / Finanças",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A análise do retorno sobre o investimento busca mensurar o sucesso obtido pela organização, com base no seu investimento de capital e nos ganhos obtidos."
+    },
+    {
+      "numero": 71,
+      "materia": "Contabilidade Pública / Orçamento Público",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "O orçamento de desempenho é primordialmente calcado nos aspectos contábeis e está dirigido mais para os produtos gerados pela administração pública que para os resultados propriamente ditos."
+    },
+    {
+      "numero": 72,
+      "materia": "Contabilidade Pública / Orçamento Público",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O crédito orçamentário inicial ou ordinário é aquele aprovado pela lei orçamentária anual, constante dos orçamentos fiscal, da seguridade social e de investimento das empresas estatais."
+    },
+    {
+      "numero": 73,
+      "materia": "Contabilidade Pública / Controle das Contas Públicas",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Os sistemas de controle das contas públicas desempenham um papel primordial na gestão das contas públicas federais e estaduais: no Ceará, o sistema de informações contábeis utilizado é o Sistema Único e Integrado de Execução Orçamentária, Administração Financeira e Controle (SIAFIC)."
+    },
+    {
+      "numero": 74,
+      "materia": "Direito Financeiro / Lei n.º 4.320/1964",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "O suprimento de fundos tem como finalidade atender a despesas que não possam aguardar o processo normal, ou seja, constitui exceção quanto à realização de procedimento licitatório, sendo utilizado, por exemplo, para o atendimento de despesas de pequeno vulto das escolas públicas cearenses."
+    },
+    {
+      "numero": 75,
+      "materia": "Direito Financeiro / Lei n.º 4.320/1964",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Os créditos da fazenda pública estadual provenientes de obrigação legal relativa ao ITBI exigíveis pelo transcurso do prazo regular para pagamento, devem ser inscritos, na forma da legislação própria, como dívida ativa tributária."
+    },
+    {
+      "numero": 76,
+      "materia": "Contabilidade Pública / Execução Orçamentária",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Após a licitação, no processo de execução orçamentária, a realização, pelo ente público, do pagamento a fornecedores depende apenas da realização da liquidação da despesa referente ao pagamento."
+    },
+    {
+      "numero": 77,
+      "materia": "Contabilidade Pública / Restos a Pagar",
+      "gabarito": "C",
+      "texto_motivador": "Considere que a Secretaria de Saúde do Estado do Ceará tenha adquirido um lote de vacinas e que o processamento dessa despesa tenha ocorrido da seguinte forma: empenhamento em 9/12/2020; recebimento das vacinas em 29/12/2020; pagamento da despesa em 19/1/2021. Considere, ainda, que a contabilização da aquisição das vacinas tenha atendido às normas previstas na Lei n.º 4.320/1964.",
+      "enunciado": "Nessa situação hipotética, essa despesa foi registrada em 31/12/2020 como restos a pagar processados."
+    },
+    {
+      "numero": 78,
+      "materia": "Contabilidade Pública / Restos a Pagar",
+      "gabarito": "E",
+      "texto_motivador": "Considere que a Secretaria de Saúde do Estado do Ceará tenha adquirido um lote de vacinas e que o processamento dessa despesa tenha ocorrido da seguinte forma: empenhamento em 9/12/2020; recebimento das vacinas em 29/12/2020; pagamento da despesa em 19/1/2021. Considere, ainda, que a contabilização da aquisição das vacinas tenha atendido às normas previstas na Lei n.º 4.320/1964.",
+      "enunciado": "Nessa situação hipotética, essa despesa foi registrada em 31/12/2020 como dívida fundada."
+    },
+    {
+      "numero": 79,
+      "materia": "Finanças Públicas / Lei de Responsabilidade Fiscal",
+      "gabarito": "C",
+      "texto_motivador": "Ao final do primeiro bimestre de exercício de 2021, constatou-se que as receitas efetivamente arrecadadas por determinado ente subnacional haviam sido inferiores às projetadas na lei orçamentária anual (LOA) e que não será atingida a meta de resultado primário definida na lei de diretrizes orçamentárias (LDO). Em 2020 e 2021, o estado de calamidade pública foi reconhecido tanto pelo Congresso Nacional como pelas assembleias legislativas estaduais.",
+      "enunciado": "Os Poderes Legislativo, Executivo e Judiciário, bem como o Ministério Público, deverão, cada um em ato próprio, nos trinta dias subsequentes, limitar os empenhos e as movimentações financeiras nos montantes necessários para a obtenção do reequilíbrio orçamentário, conforme estabelecido na LDO e na LRF."
+    },
+    {
+      "numero": 80,
+      "materia": "Finanças Públicas / Lei de Responsabilidade Fiscal",
+      "gabarito": "C",
+      "texto_motivador": "Ao final do primeiro bimestre de exercício de 2021, constatou-se que as receitas efetivamente arrecadadas por determinado ente subnacional haviam sido inferiores às projetadas na lei orçamentária anual (LOA) e que não será atingida a meta de resultado primário definida na lei de diretrizes orçamentárias (LDO). Em 2020 e 2021, o estado de calamidade pública foi reconhecido tanto pelo Congresso Nacional como pelas assembleias legislativas estaduais.",
+      "enunciado": "No caso do não atingimento da meta de resultado primário, a LDO deve definir as despesas orçamentárias que não podem ser contingenciadas, destinadas ao pagamento do serviço da dívida, e as outras despesas ressalvadas pela LDO e pela Constituição Federal."
+    },
+    {
+      "numero": 81,
+      "materia": "Auditoria / Amostragem",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Para estabelecer a amostra de auditoria e determinar o seu tamanho na realização de testes de controles, o auditor, considerando as características de uma população, deve fazer uma avaliação da taxa esperada de desvio com base no entendimento do auditor dos controles relevantes ou no exame de pequena quantidade de itens da população."
+    },
+    {
+      "numero": 82,
+      "materia": "Auditoria / Amostragem",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Quanto mais o auditor confia em procedimentos substantivos, tais como testes de detalhes ou procedimentos analíticos substantivos, para reduzir a um nível aceitável o risco de detecção relacionado com uma população em particular, mais segurança ele precisa da amostragem e, portanto, maior pode ser o tamanho da amostra."
+    },
+    {
+      "numero": 83,
+      "materia": "Auditoria / Amostragem",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Na avaliação do resultado da amostragem de auditoria, no caso de testes de detalhes, a distorção na população mais a distorção projetada, quando houver, é a melhor estimativa de distorção anômala a ser feita pelo auditor."
+    },
+    {
+      "numero": 84,
+      "materia": "Auditoria / Amostragem",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Na avaliação do resultado da amostragem de auditoria, para os testes de controles, uma taxa de desvio da amostra inesperadamente alta pode levar a um aumento no risco identificado de distorção relevante."
+    },
+    {
+      "numero": 85,
+      "materia": "Auditoria / Amostragem",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "A eficiência da auditoria pode ser melhorada se o auditor estratificar a população dividindo-a em subpopulações distintas que tenham característica similares, sendo a população, na execução dos testes de detalhes, estratificada sempre pelo valor monetário, pois isso permite que o trabalho de auditoria possa ser direcionado para os itens de maior valor, uma vez que esses podem conter maior potencial de distorção em termos de superavaliação."
+    },
+    {
+      "numero": 86,
+      "materia": "Auditoria / Auditoria de Estoques",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Em se tratando de testes de superavaliação da conta de estoques do ativo circulante, os testes são geralmente orientados às contas do próprio ativo e de receitas: por exemplo, considerando-se o método das partidas dobradas, é possível que, quando a conta de ativo estoques de mercadorias para revenda esteja superavaliada (teste principal), a receita de mercadorias para revenda esteja também superavaliada (teste secundário)."
+    },
+    {
+      "numero": 87,
+      "materia": "Auditoria / Auditoria de Estoques",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Se a administração, após examinar uma classe de transações, saldos contábeis ou divulgação, corrigiu distorções que foram detectadas pelo auditor nas contas contábeis de estoque, o auditor deve executar procedimentos adicionais de auditoria para determinar se continua havendo distorções."
+    },
+    {
+      "numero": 88,
+      "materia": "Auditoria / Auditoria de Estoques",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Se a administração se recusar a corrigir algumas das distorções reportadas pelo auditor nas contas de estoque de mercadorias, o auditor deve obter o entendimento sobre as razões pelas quais a administração decidiu não efetuar as correções e deve considerar esse entendimento ao avaliar se as demonstrações contábeis como um todo estão livres de distorções relevantes."
+    },
+    {
+      "numero": 89,
+      "materia": "Auditoria / Auditoria de Estoques",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Constituem exemplos de testes substantivos de auditoria de estoques a observação de contagens físicas, a confirmação de estoques em poder de terceiros e o confronto de contagens físicas de estoques com os relatórios de controle de inventário e o saldo das respectivas contas contábeis."
+    },
+    {
+      "numero": 90,
+      "materia": "Auditoria / Auditoria de Estoques",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Quando se realizam testes de subavaliação da conta de receita de vendas, os testes são geralmente orientados às contas de ativo: por exemplo, é possível que, quando a conta de receita esteja subavaliada (teste principal), as contas de ativo circulante – caixa, bancos ou contas a receber – estejam superavaliadas (teste secundário), o que pode ser causado pela não contabilização de uma venda realizada."
+    },
+    {
+      "numero": 91,
+      "materia": "Contabilidade Geral / Atos e Fatos Administrativos",
+      "gabarito": "E",
+      "texto_motivador": "Uma empresa com fins lucrativos prestadora de serviços ao governo do estado do Ceará contratou, no dia 1.º do último mês findo, um novo funcionário de relações públicas, com salário de R$ 10.000, mais encargos legais, a ser pago no 5.º dia útil após o mês de prestação dos serviços.",
+      "enunciado": "A contratação do novo funcionário é um ato administrativo que impacta positivamente o patrimônio líquido da entidade contratante."
+    },
+    {
+      "numero": 92,
+      "materia": "Contabilidade Geral / Regime de Competência",
+      "gabarito": "C",
+      "texto_motivador": "Uma empresa com fins lucrativos prestadora de serviços ao governo do estado do Ceará contratou, no dia 1.º do último mês findo, um novo funcionário de relações públicas, com salário de R$ 10.000, mais encargos legais, a ser pago no 5.º dia útil após o mês de prestação dos serviços.",
+      "enunciado": "Para fins societários, o registro da despesa com o salário e os encargos do novo funcionário deve impactar o balancete do mês em que ele tiver prestado seus serviços."
+    },
+    {
+      "numero": 93,
+      "materia": "Contabilidade Geral / Fatos Contábeis",
+      "gabarito": "E",
+      "texto_motivador": "Uma empresa com fins lucrativos prestadora de serviços ao governo do estado do Ceará contratou, no dia 1.º do último mês findo, um novo funcionário de relações públicas, com salário de R$ 10.000, mais encargos legais, a ser pago no 5.º dia útil após o mês de prestação dos serviços.",
+      "enunciado": "O pagamento do salário e dos encargos do novo funcionário é um fato contábil misto, com saída de recursos do ativo, baixa de passivos e impacto negativo sobre o patrimônio"
+    },
+    {
+      "numero": 94,
+      "materia": "Contabilidade Geral / Demonstrações Contábeis",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Apesar de a apresentação funcional ser a mais utilizada pelas organizações na elaboração da demonstração de resultado do exercício, a apresentação por natureza da despesa é a incentivada pelas normas contábeis."
+    },
+    {
+      "numero": 95,
+      "materia": "Contabilidade Geral / Demonstração do Fluxo de Caixa",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Para fins de elaboração da demonstração de fluxo de caixa pelo método indireto, uma redução na conta fornecedores, em razão de um desconto obtido, deve ser entendida como um fato gerador de caixa."
+    },
+    {
+      "numero": 96,
+      "materia": "Contabilidade Geral / Demonstrações Contábeis",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "Admite-se o reconhecimento, no patrimônio líquido, da variação do valor justo de um derivativo utilizado como instrumento de Hedge de um contrato avaliado a valor justo em outros resultados abrangentes."
+    },
+    {
+      "numero": 97,
+      "materia": "Contabilidade Geral / Avaliação de Estoques",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O método do custo específico é indicado para revendedoras de automóveis sempre que seja possível determinar o valor de aquisição de cada unidade em estoque."
+    },
+    {
+      "numero": 98,
+      "materia": "Contabilidade Geral / Avaliação de Estoques",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Por realizar uma média entre os preços de aquisição mais antigos e os mais novos, o método da média ponderada móvel invariavelmente aponta um custo da mercadoria vendida mais alto do que aquele que seria apurado pelo método PEPS (primeiro a entrar, primeiro a sair)."
+    },
+    {
+      "numero": 99,
+      "materia": "Contabilidade Geral / Avaliação de Estoques",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Independentemente do método de custeio adotado, a regra “custo ou mercado, dos dois o menor” sempre deve ser aplicada quando se verificar que o estoque pode não ser realizado pelo valor que se esperava."
+    },
+    {
+      "numero": 100,
+      "materia": "Contabilidade de Custos / Classificação de Custos",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Uma empresa industrial, responsável pela fabricação de produtos de natureza distinta, remunera os seus operários com base na quantidade de peças produzidas, o que lhe permite identificar a parcela do valor da remuneração de mão de obra que pode ser apropriada a cada um dos produtos fabricados. Nessa situação, a remuneração dos operários da fábrica representa um custo direto e variável para essa empresa industrial."
+    },
+    {
+      "numero": 101,
+      "materia": "Contabilidade de Custos / Classificação de Custos",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Os produtos fabricados por determinada empresa industrial são vendidos no mercado por intermédio de terceiros, que, em troca, recebem da empresa industrial uma comissão por cada unidade vendida. Nessa situação, considerando-se a terminologia aplicada à contabilidade de custos, tal comissão representa, para a empresa industrial, um gasto que se enquadra também no conceito de despesa."
+    },
+    {
+      "numero": 102,
+      "materia": "Contabilidade de Custos / Classificação de Custos",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Em seu processo produtivo, que envolve a fabricação de mais de um produto, determinada empresa industrial utiliza uma série de materiais de valor relativamente insignificante. Nessa situação, tal circunstância não pode ser utilizada como justificativa para a classificação dos referidos materiais, pela empresa, como custos indiretos de fabricação."
+    },
+    {
+      "numero": 103,
+      "materia": "Contabilidade de Custos / Departamentalização",
+      "gabarito": "C",
+      "texto_motivador": "Com o intuito de melhorar a gestão e o controle dos seus custos de produção, determinada empresa industrial decidiu dividir a sua unidade fabril nos seguintes seis setores distintos, nos quais são exercidas atividades bastante específicas: Gerência geral; Manutenção de máquinas e equipamentos; Almoxarifado; Montagem; Pintura; Embalagem.",
+      "enunciado": "A divisão da unidade fabril em departamentos permitirá que alguns custos considerados indiretos em relação aos produtos possam ser alocados diretamente em seus respectivos departamentos."
+    },
+    {
+      "numero": 104,
+      "materia": "Contabilidade de Custos / Departamentalização",
+      "gabarito": "E",
+      "texto_motivador": "Com o intuito de melhorar a gestão e o controle dos seus custos de produção, determinada empresa industrial decidiu dividir a sua unidade fabril nos seguintes seis setores distintos, nos quais são exercidas atividades bastante específicas: Gerência geral; Manutenção de máquinas e equipamentos; Almoxarifado; Montagem; Pintura; Embalagem.",
+      "enunciado": "Os custos incorridos na Gerência geral, na Manutenção de máquinas e equipamentos e no Almoxarifado deverão ser apropriados diretamente aos produtos, tendo por base o tempo que tais departamentos venham a dedicar dos seus serviços a cada um desses produtos."
+    },
+    {
+      "numero": 105,
+      "materia": "Contabilidade de Custos / Departamentalização",
+      "gabarito": "C",
+      "texto_motivador": "Com o intuito de melhorar a gestão e o controle dos seus custos de produção, determinada empresa industrial decidiu dividir a sua unidade fabril nos seguintes seis setores distintos, nos quais são exercidas atividades bastante específicas: Gerência geral; Manutenção de máquinas e equipamentos; Almoxarifado; Montagem; Pintura; Embalagem.",
+      "enunciado": "A transferência tempestiva de custos de um departamento para outro é um processo que demandará o uso de estimativas pela referida empresa, que poderá recorrer à taxa de aplicação dos custos indiretos de produção para predeterminar os custos que serão objeto de transferência."
+    },
+    {
+      "numero": 106,
+      "materia": "Contabilidade de Custos / Custeio por Absorção e Variável",
+      "gabarito": "C",
+      "texto_motivador": "Uma empresa industrial que fabrica e vende um único produto ao preço unitário de venda de R$ 60, apresentou os seguintes custos e despesas em 2020.\nCustos variáveis totais\n• Materiais diretos: R$ 120.000\n• Mão de obra direta: R$ 70.000\n• Custos indiretos variáveis: R$ 10.000\n• Custos fixos totais: R$ 120.000\nDespesas de venda e despesas administrativas totais\n• Variáveis: R$ 50.000\n• Fixas: R$ 90.000\nQuantidade produzida/vendida no ano: 10.000 unidades\nCapacidade de produção (extensível às vendas): 15.000 unidades",
+      "enunciado": "A diferença entre o valor do custo unitário do produto calculado com base no método do custeio por absorção e o valor do custo unitário do produto calculado com base no método do custeio variável é de R$ 21."
+    },
+    {
+      "numero": 107,
+      "materia": "Contabilidade de Custos / Margem de Segurança",
+      "gabarito": "E",
+      "texto_motivador": "Uma empresa industrial que fabrica e vende um único produto ao preço unitário de venda de R$ 60, apresentou os seguintes custos e despesas em 2020.\nCustos variáveis totais\n• Materiais diretos: R$ 120.000\n• Mão de obra direta: R$ 70.000\n• Custos indiretos variáveis: R$ 10.000\n• Custos fixos totais: R$ 120.000\nDespesas de venda e despesas administrativas totais\n• Variáveis: R$ 50.000\n• Fixas: R$ 90.000\nQuantidade produzida/vendida no ano: 10.000 unidades\nCapacidade de produção (extensível às vendas): 15.000 unidades",
+      "enunciado": "Do ponto de vista do resultado contábil, a margem de segurança alcançada pela empresa em 2020 representou menos de 30% da quantidade produzida e vendida pela empresa no mesmo período."
+    },
+    {
+      "numero": 108,
+      "materia": "Contabilidade de Custos / Tomada de Decisão",
+      "gabarito": "C",
+      "texto_motivador": "Uma empresa industrial que fabrica e vende um único produto ao preço unitário de venda de R$ 60, apresentou os seguintes custos e despesas em 2020.\nCustos variáveis totais\n• Materiais diretos: R$ 120.000\n• Mão de obra direta: R$ 70.000\n• Custos indiretos variáveis: R$ 10.000\n• Custos fixos totais: R$ 120.000\nDespesas de venda e despesas administrativas totais\n• Variáveis: R$ 50.000\n• Fixas: R$ 90.000\nQuantidade produzida/vendida no ano: 10.000 unidades\nCapacidade de produção (extensível às vendas): 15.000 unidades",
+      "enunciado": "Em termos de resultado contábil, é correto afirmar que teria valido a pena a empresa ter efetuado um gasto adicional de R$ 40.000 em propaganda no ano de 2020, no pressuposto de que tal gasto pudesse proporcionar um aumento de 10% na quantidade de unidades produzidas e vendidas pela empresa no mesmo ano, sem que fosse necessário fazer qualquer alteração no preço unitário de venda do produto."
+    },
+    {
+      "numero": 109,
+      "materia": "Direito Empresarial / Teoria da Empresa",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O sistema objetivo, que inspirou o Código Comercial brasileiro, não mais subsiste no ordenamento jurídico pátrio: é o sistema subjetivo moderno, com concepção nucleada pela figura do empresário, que serve como parâmetro à legislação empresarial atual."
+    },
+    {
+      "numero": 110,
+      "materia": "Direito Empresarial / Teoria da Empresa",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Pode-se conceituar empresa como o sujeito de direito que desenvolve atividade econômica organizada para a produção ou a circulação de bens ou de serviços."
+    },
+    {
+      "numero": 111,
+      "materia": "Direito Empresarial / Cooperativas",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Não poderá se beneficiar do tratamento jurídico diferenciado e favorecido para as empresas de pequeno de porte e para as pequenas empresas, para nenhum efeito legal, a pessoa jurídica constituída sob a forma de cooperativa de consumo."
+    },
+    {
+      "numero": 112,
+      "materia": "Direito Empresarial / Preposto",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Situação hipotética: Carlos, preposto da sociedade B, foi convocado pelo gerente a dirigir-se ao ponto comercial da sociedade C para celebrar contrato de prestação de serviços. Como havia agendado a realização de tarefa pessoal no mesmo horário em que deveria comparecer ao local de celebração do contrato, visando não prejudicar a sociedade e cumprir a sua tarefa pessoal, Carlos, mesmo sem ter autorização escrita da sociedade para tanto, fez-se substituir no exercício da preposição, por meio de outorga de poderes em procuração ao seu familiar João, para que este subscrevesse o instrumento contratual em nome da sociedade B. Assertiva: No caso de haver desconformidade com o desejado pela sociedade B no que tange às cláusulas contratuais consignadas no instrumento assinado por João, Carlos responderá pessoalmente pelas obrigações por ele contraídas."
+    },
+    {
+      "numero": 113,
+      "materia": "Direito Empresarial / Nome Empresarial",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "O fato de uma pessoa natural ter contribuído para o bom êxito da formação da empresa não poderá servir de justificativa para que o seu nome conste do nome empresarial se este for da espécie denominação."
+    },
+    {
+      "numero": 114,
+      "materia": "Direito Empresarial / Sociedade Limitada",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Consoante orientação do Superior Tribunal de Justiça, a expressa previsão de aplicação supletiva do regramento da Lei de Sociedade por Ações em contrato social de sociedade limitada não tem o condão de afastar o direito potestativo de retirada imotivada do sócio."
+    },
+    {
+      "numero": 115,
+      "materia": "Direito Empresarial / Sociedade Anônima",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Pessoa natural que integre cargo de conselheiro fiscal de uma sociedade anônima não poderá ser eleita como conselheira de órgão de administração de sociedade de capital aberto que possa ser considerada concorrente no mercado, salvo se a sociedade anônima dispensar a inelegibilidade em assembleia geral."
+    },
+    {
+      "numero": 116,
+      "materia": "Direito Empresarial / Transformação, Fusão e Cisão",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Situação hipotética: Determinado grupo econômico que tem como integrantes as sociedades X, Y, W e Z, sendo Z a sua holding, considerou prudente, após análise financeira, efetivar um plano de reestruturação societária. A primeira etapa do plano consistia em tornar a sociedade Z, constituída sob o tipo societário de sociedade limitada, uma sociedade anônima; a segunda etapa, na aglutinação das sociedades X e Y, que deixariam de existir para formar uma terceira sociedade que as sucederia em direitos e obrigações; na terceira etapa, a sociedade W deixaria de existir e transferiria a totalidade do seu patrimônio a duas novas sociedades, constituídas a partir deste patrimônio. Assertiva: Nessa situação, a primeira, a segunda e a terceira etapas são operações societárias denominadas, respectivamente, de transformação, fusão e cisão total pura."
+    },
+    {
+      "numero": 117,
+      "materia": "Direito Tributário / Extrafiscalidade",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O efeito extrafiscal de um tributo pode tanto ser uma decorrência secundária da tributação como ser deliberadamente planejado para dissuadir ou estimular certas condutas econômicas."
+    },
+    {
+      "numero": 118,
+      "materia": "Direito Tributário / Princípios Tributários",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Entende-se por princípio da não afetação a característica dos impostos de terem por fato gerador uma situação que não precisa estar ligada a uma atividade estatal específica e divisível."
+    },
+    {
+      "numero": 119,
+      "materia": "Direito Tributário / Isenções e Imunidades",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Isenções tributárias se distinguem das imunidades tributárias por serem normas negativas de competência tributária, enquanto as imunidades são benefícios fiscais que pressupõem a existência da competência tributária."
+    },
+    {
+      "numero": 120,
+      "materia": "Direito Tributário / Legislação Tributária",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Os decretos podem ser considerados legislação tributária, para os efeitos do CTN."
+    },
+    {
+      "numero": 121,
+      "materia": "Direito Tributário / Obrigação Tributária",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A obrigação tributária principal pode ter por objeto tanto o pagamento de um tributo como o de uma penalidade pecuniária."
+    },
+    {
+      "numero": 122,
+      "materia": "Direito Tributário / Responsabilidade Tributária",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "O sucessor apenas responde pelos tributos devidos pelo de cujus que tenham sido lançados até a data do falecimento."
+    },
+    {
+      "numero": 123,
+      "materia": "Direito Tributário / Competência Tributária",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "São exemplos de tributos de competência estadual o imposto sobre transmissão causa mortis e o imposto sobre a doação."
+    },
+    {
+      "numero": 124,
+      "materia": "Direito Tributário / Simples Nacional",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "As cooperativas de consumo podem aderir ao regime tributário diferenciado do Simples."
+    },
+    {
+      "numero": 125,
+      "materia": "Direito Tributário / ISSQN",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "No caso de operações de crédito realizadas por instituições financeiras, o ISSQN somente incide sobre os juros e respectivos acréscimos moratórios, não sobre o principal."
+    },
+    {
+      "numero": 126,
+      "materia": "Direito / Mediação",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Por ser de índole eminentemente privada, é arbitrária e íntima a decisão do mediador extrajudicial acerca do pedido de gratuidade formulado pela parte."
+    },
+    {
+      "numero": 127,
+      "materia": "Direito / Mediação",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Diferentemente do que ocorre na mediação judicial estabelecida no procedimento comum cível, na mediação extrajudicial há mera faculdade de as partes estarem assistidas por advogados ou defensores públicos; no entanto, se apenas uma das partes comparecer acompanhada de advogado ou defensor público, o mediador deverá suspender o curso do procedimento até que todas as partes estejam devidamente assistidas."
+    },
+    {
+      "numero": 128,
+      "materia": "Direito / Mediação",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Situação hipotética: Determinada sociedade empresária figura como parte em procedimento de mediação movido por determinado estado da Federação. No curso da audiência de mediação, presente o procurador do referido estado, o preposto da sociedade empresária divulgou resultado financeiro relevantemente diferente do que constava de livro contábil inserido em sistema eletrônico da Fazenda Pública estadual. Assertiva: Nessa situação, a regra da confidencialidade não afasta da citada sociedade empresária o dever de prestar informações à administração tributária após o termo final da mediação."
+    },
+    {
+      "numero": 129,
+      "materia": "Direito Administrativo / Mediação e Conflitos",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Em decorrência da aplicação do princípio da indisponibilidade do interesse público, as câmaras de prevenção e resolução administrativas de conflitos não têm competência para decidir as contendas relativas a cláusulas de equilíbrio econômico-financeiro de contratos celebrados pela administração pública com particulares."
+    },
+    {
+      "numero": 130,
+      "materia": "Direito Administrativo / Mediação e Conflitos",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A decisão que admite pedido de resolução consensual do conflito formalizado por autarquia do estado do Ceará proferida por órgão da Câmara de Prevenção e Resolução Administrativa de Conflitos (CPRAC) suspende a prescrição."
+    },
+    {
+      "numero": 131,
+      "materia": "Direito Constitucional / Sigilo Fiscal",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O dever de sigilo fiscal é extensível aos órgãos de persecução penal que legalmente receberem da autoridade fazendária competente informações assim classificadas."
+    },
+    {
+      "numero": 132,
+      "materia": "Direito Constitucional / Sigilo Bancário",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Admite-se exceção ao dever de sigilo bancário quando utilizado para ocultar a prática de crimes."
+    },
+    {
+      "numero": 133,
+      "materia": "Direito Constitucional / Princípio da Publicidade",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "A divulgação de nomes e vencimentos pecuniários de servidores públicos civis em sítio eletrônico da administração pública correspondente viola o princípio da publicidade."
+    },
+    {
+      "numero": 134,
+      "materia": "Direito Constitucional / Livre Iniciativa",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O princípio constitucional da livre iniciativa assegura aos empresários o direito de eleger suas próprias estratégias empresariais, como a terceirização das atividades-fim de sua empresa."
+    },
+    {
+      "numero": 135,
+      "materia": "Direito Constitucional / Benefícios Previdenciários",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O prazo decadencial afasta do titular inerte o direito ao benefício previdenciário."
+    },
+    {
+      "numero": 136,
+      "materia": "Direito Administrativo / Atos Administrativos",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "O silêncio administrativo, quando referente a atos discricionários, não se submete ao controle judicial."
+    },
+    {
+      "numero": 137,
+      "materia": "Direito Constitucional / Comissões Parlamentares de Inquérito",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "A garantia das minorias que fundamenta o modelo federal de criação e instauração das comissões parlamentares de inquérito (CPI) não se aplica às assembleias legislativas estaduais."
+    },
+    {
+      "numero": 138,
+      "materia": "Direito Administrativo / Atos Administrativos",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "O instituto da convalidação dos atos administrativos é consequência natural do princípio da autotutela."
+    },
+    {
+      "numero": 139,
+      "materia": "Direito Administrativo / Poder de Polícia",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Consubstancia-se poder de polícia a retenção temporária de mercadorias em sede de fiscalização fazendária."
+    },
+    {
+      "numero": 140,
+      "materia": "Direito Administrativo / Poder Regulamentar",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Eventual abuso do poder regulamentar pelo Poder Executivo sujeita o transgressor ao controle jurisdicional e ao exercício da competência extraordinária do Poder Legislativo para sustar os atos administrativos dele decorrentes."
+    },
+    {
+      "numero": 141,
+      "materia": "Estatística Aplicada / Distribuição de Poisson",
+      "gabarito": "C",
+      "texto_motivador": "Suponha que o número diário (X) de transações bancárias registradas em determinada conta bancária se distribua conforme uma distribuição de Poisson. Com respeito ao total semanal de transações bancárias registradas nessa conta bancária, denotada como T = X1 + X2 + X3 + X4 + X5, em que {X1, … , X5} representa uma amostra aleatória simples retirada de uma distribuição de Poisson com média igual a 5 transações por dia.",
+      "enunciado": "O desvio padrão da variável aleatória T é igual a 5 transações por semana."
+    },
+    {
+      "numero": 142,
+      "materia": "Estatística Aplicada / Teorema Central do Limite",
+      "gabarito": "E",
+      "texto_motivador": "Suponha que o número diário (X) de transações bancárias registradas em determinada conta bancária se distribua conforme uma distribuição de Poisson. Com respeito ao total semanal de transações bancárias registradas nessa conta bancária, denotada como T = X1 + X2 + X3 + X4 + X5, em que {X1, … , X5} representa uma amostra aleatória simples retirada de uma distribuição de Poisson com média igual a 5 transações por dia.",
+      "enunciado": "Se μ e σ representam, respectivamente, a média e o desvio padrão da variável aleatória T, então o Teorema Central do Limite estabelece que a quantidade Z = (T - μ) / (σ/√5) segue a distribuição normal padrão."
+    },
+    {
+      "numero": 143,
+      "materia": "Estatística Aplicada / Distribuição de Poisson",
+      "gabarito": "E",
+      "texto_motivador": "Suponha que o número diário (X) de transações bancárias registradas em determinada conta bancária se distribua conforme uma distribuição de Poisson. Com respeito ao total semanal de transações bancárias registradas nessa conta bancária, denotada como T = X1 + X2 + X3 + X4 + X5, em que {X1, … , X5} representa uma amostra aleatória simples retirada de uma distribuição de Poisson com média igual a 5 transações por dia.",
+      "enunciado": "P(T = 0) = P(X1 = 0) + P(X2 = 0) + P(X3 = 0) + P(X4 = 0) + P(X5 = 0) = 5 × P(X = 0)."
+    },
+    {
+      "numero": 144,
+      "materia": "Estatística Aplicada / Estimação de Parâmetros",
+      "gabarito": "C",
+      "texto_motivador": "Uma amostra aleatória simples de tamanho igual a 4 foi retirada de uma população exponencial cuja função de densidade de probabilidade é dada por f(x) = λ e^(-λx), para x ≥ 0, em que λ > 0 é o parâmetro desconhecido. [Quadro com valores: 0,5; 1,0; 0,8; 9,7]",
+      "enunciado": "A estimativa da média populacional obtida pelo critério de mínimos quadrados ordinários é igual a 3."
+    },
+    {
+      "numero": 145,
+      "materia": "Estatística Aplicada / Estimação de Parâmetros",
+      "gabarito": "E",
+      "texto_motivador": "Uma amostra aleatória simples de tamanho igual a 4 foi retirada de uma população exponencial cuja função de densidade de probabilidade é dada por f(x) = λ e^(-λx), para x ≥ 0, em que λ > 0 é o parâmetro desconhecido. [Quadro com valores: 0,5; 1,0; 0,8; 9,7]",
+      "enunciado": "A estimativa de máxima verossimilhança para o desvio padrão populacional é igual a 3."
+    },
+    {
+      "numero": 146,
+      "materia": "Estatística Aplicada / Estimação de Parâmetros",
+      "gabarito": "C",
+      "texto_motivador": "Uma amostra aleatória simples de tamanho igual a 4 foi retirada de uma população exponencial cuja função de densidade de probabilidade é dada por f(x) = λ e^(-λx), para x ≥ 0, em que λ > 0 é o parâmetro desconhecido. [Quadro com valores: 0,5; 1,0; 0,8; 9,7]",
+      "enunciado": "Pelo critério da máxima verossimilhança, a estimativa do parâmetro λ é igual a 3."
+    },
+    {
+      "numero": 147,
+      "materia": "Legislação Tributária Estadual / ICMS",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 148,
+      "materia": "Legislação Tributária Estadual / IPVA",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 149,
+      "materia": "Legislação Tributária Estadual / Programa Sua Nota Tem Valor",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 150,
+      "materia": "Legislação Tributária Estadual / ITCD",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 151,
+      "materia": "Legislação Tributária Estadual / CONAT",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 152,
+      "materia": "Legislação Tributária Estadual / CONAT",
+      "gabarito": null,
+      "texto_motivador": null,
+      "enunciado": "[ITEM DE LEGISLAÇÃO TRIBUTÁRIA ESTADUAL - EXCLUÍDO]"
+    },
+    {
+      "numero": 153,
+      "materia": "Contabilidade Pública / Orçamento Público",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "De acordo com o princípio da unidade, os programas e projetos devem ser estabelecidos em um único sistema ou método orçamentário, ainda que não haja unidade documental."
+    },
+    {
+      "numero": 154,
+      "materia": "Contabilidade Pública / Orçamento Público",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "O processo orçamentário brasileiro está baseado em instrumentos de curto prazo (PPA, LOA e LDO). Todos perfeitamente integrados entre si."
+    },
+    {
+      "numero": 155,
+      "materia": "Contabilidade Pública / Orçamento Público",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "O ciclo orçamentário constitui uma sequência de duas fases ou etapas que deve ser cumprida como parte do processo orçamentário: elaboração e aprovação."
+    },
+    {
+      "numero": 156,
+      "materia": "Contabilidade Pública / Orçamento Público",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "A LDO deverá conter anexo no qual se indica o valor e onde gastar o dinheiro público cearense no período de um ano."
+    },
+    {
+      "numero": 157,
+      "materia": "Contabilidade Pública / Orçamento Público",
+      "gabarito": "E",
+      "texto_motivador": null,
+      "enunciado": "Os valores que possam vir a desequilibrar as contas públicas, a exemplo dos passivos contingentes, assim como as ações e programas necessários para saná-los, devem constar no PPA."
+    },
+    {
+      "numero": 158,
+      "materia": "Contabilidade Pública / Orçamento Público",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "Apresentação, montante e forma de utilização da reserva de contingência constituem um conteúdo atribuído à LOA e LDO."
+    },
+    {
+      "numero": 159,
+      "materia": "Contabilidade Pública / Despesa Pública",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "De acordo com a atual estrutura programática, baseada no modelo de gerenciamento de programas adotado no último PPA, é possível definir os programas finalísticos como sendo aqueles que estão relacionados a bens e serviços ofertados à sociedade."
+    },
+    {
+      "numero": 160,
+      "materia": "Contabilidade Pública / Despesa Pública",
+      "gabarito": "C",
+      "texto_motivador": null,
+      "enunciado": "A despesa é classificada em duas categorias econômicas: despesa corrente e despesa de capital."
+    }
+  ]
+}

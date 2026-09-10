@@ -1,0 +1,724 @@
+{
+  "instituicao": "SEFAZ-BA",
+  "ano": 2019,
+  "cargo": "Auditor Fiscal - Administração Tributária",
+  "tipo_prova": "C03",
+  "gabarito_tipo": 1,
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Noções de Informática",
+      "gabarito": "D",
+      "enunciado": "Um Auditor Fiscal estava trabalhando no processo Estimar Custos em um projeto, com base nas melhores práticas do PMBOK 5ª edição. Era necessário fazer a estimativa de um grande pacote de trabalho que envolvia créditos tributários. Para isso, o Auditor utilizou um método que estima os custos das atividades individuais no cronograma e, então, os adiciona em conjunto para apresentar uma estimativa total para o pacote de trabalho. O método, que inicialmente estima o custo com o maior nível de detalhes especificados e, em seguida, os resume, ou seja, recolhe os detalhes de forma que restem os níveis mais altos para serem utilizados em subsequentes relatórios e rastreamento, denomina-se",
+      "alternativas": {
+        "A": "estimativa análoga.",
+        "B": "estimativas de três pontos por distribuição triangular.",
+        "C": "estimativa parametrica.",
+        "D": "estimativa bottom-up.",
+        "E": "estimativas de três pontos por distribuição beta."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Noções de Informática",
+      "gabarito": "B",
+      "enunciado": "O diagrama do tipo",
+      "alternativas": {
+        "A": "I focaliza a forma como os participantes trocam mensagens, demonstrando a comunicação entre eles. É a representação dos eventos e suas interações, representando o contrato de negócio de interação entre os participantes.",
+        "B": "I apresenta cada participante como um pool por ser um diagrama de orquestração; no diagrama II, os participantes que fazem parte da atividade de coreografia correspondem aos pools de diagramas do tipo I.",
+        "C": "II, diagrama de orquestração, é o mais conhecido e utilizado pela maioria das ferramentas de modelagem. Define o fluxo das atividades do processo de uma organização. Em contraste, I define como os processos interagem uns com os outros.",
+        "D": "II modela o contrato de negócio, e o fluxo de mensagens mostra a comunicação entre os 3 participantes: recursos disponíveis, conta única do tesouro do estado e opções do mercado financeiro.",
+        "E": "II evidencia a orquestração do trabalho realizado entre os eventos e a sequência das atividades do processo de ne- gócio."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Noções de Informática",
+      "gabarito": "A",
+      "enunciado": "A análise SWOT torna-se uma ferramenta estratégica quando realiza-se o cruzamento que verifica a influência que as forças e fraquezas possuem sobre as oportunidades e as ameaças, e, a partir disso, são definidos os planos de ação. Podem ser realizadas quatro estratégias, dentre as quais se encontram:\n\nI. Pontos Fracos × Oportunidades (WO): analisa como o ponto fraco da organização pode impedir, ou diminuir, a chance da oportunidade acontecer. O principal objetivo dessa estratégia é diminuir as fraquezas a fim de que não atrapalhem o ambiente externo da organização.\n\nII. Pontos Fortes × Oportunidades (SO): é utilizada no cenário mais otimista da organização e ocorre quando utiliza-se uma força para aumentar as chances de uma oportunidade acontecer, potencializando-a. Essa estratégia visa ao crescimento e desenvolvimento dos pontos positivos da organização.\n\nI e II referem-se, correta e respectivamente, à estratégia",
+      "alternativas": {
+        "A": "de reforço e ofensiva.",
+        "B": "de defesa e de reforço.",
+        "C": "ofensiva e de confronto.",
+        "D": "de confronto e de defesa.",
+        "E": "de defesa e ofensiva."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Noções de Informática",
+      "gabarito": "C",
+      "enunciado": "Suponha que um Auditor Fiscal tenha participado da elaboração do mapa estratégico da SEFAZ-BA, de acordo com o BSC. Como resultado do trabalho, foram listados os objetivos a seguir:\n\nI. Garantir a melhor realização da receita pública; incrementar a realização de créditos tributários; estimular o cumprimento voluntário da obrigação tributária, e promover a sustentabilidade econômico-financeira do gasto público.\n\nII. Elevar a eficácia na gestão de riscos; fornecer soluções de alta qualidade que atendam às necessidades dos cida- dãos/usuários, e desenvolver serviços e produtos inovadores com alto valor agregado.\n\nOs objetivos agrupados em",
+      "alternativas": {
+        "A": "I e em II se referem à perspectiva dos Processos Internos e podem utilizar indicadores como Percentual de ocorrência de riscos não mitigados, Percentual de evolução na pontuação no Relatório de Avaliação da Gestão Pública e Índice de prontidão de habilidades estratégicas e de liderança.",
+        "B": "I e em II envolvem três das quatro perspectivas do BSC, não contemplando a perspectiva Financeira, uma vez que se trata de uma organização pública e sem fins lucrativos.",
+        "C": "II correspondem à perspectiva dos Processos Internos e podem utilizar indicadores como Percentual de ocorrência de riscos não mitigados e Índice de cumprimento dos requisitos de qualidade.",
+        "D": "I correspondem à perspectiva do Aprendizado e Crescimento e podem utilizar indicadores como Índice de investimentos, Índice de liquidez do tesouro, Índice de evolução da base tributária e Índice de endividamento.",
+        "E": "I correspondem à perspectiva dos Clientes e em II correspondem à perspectiva do Aprendizado e Crescimento. Os indicadores Índice de cumprimento dos requisitos de qualidade e Índice de liquidez do tesouro podem ser utilizados em ambas as dimensões."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Noções de Informática",
+      "gabarito": "E",
+      "enunciado": "Além dos indicadores reativos que, uma vez implantados, automaticamente detectam as ocorrências com base nos indicadores mapeados, existem também os controles proativos, que requerem que os gestores os promovam periodicamente. Uma das técnicas que os gestores podem usar requer que sejam selecionadas, exploradas e modeladas grandes quantidades de dados para revelar padrões, tendências e relações que podem ajudar a identificar casos de fraude e corrupção. Relações ocultas entre pessoas, entidades e eventos são identificadas e as relações suspeitas podem ser encaminhadas para apuração específica. As anomalias apontadas por esse tipo de técnica não necessariamente indicam a ocorrência de fraude e corrupção, mas eventos singulares que merecem avaliação individualizada para a exclusão da possibilidade de fraude e corrupção e, no caso da não exclusão, uma investigação.\n\n(Adaptado de: TCU – Tribunal de Contas da União)\n\nO texto se refere à técnica de",
+      "alternativas": {
+        "A": "data mart.",
+        "B": "data warehousing.",
+        "C": "big data.",
+        "D": "OLAP.",
+        "E": "data mining."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Noções de Informática",
+      "gabarito": "A",
+      "enunciado": "Na programação de um software, deseja-se calcular a média aritmética entre os dois valores maiores em um universo de três números armazenados nas variáveis que suportam números reais a, b e c. A média será armazenada na variável r, que também suporta números reais. Para isso, se propôs o seguinte trecho de algoritmo.\n\nse (a<b E a<c)  então r = (b+c)/2  senão se (b<c)  então r = (a+c)/2  senão r = (a+b)/2  fim-se  fim_se\n\nO trecho mostrado está",
+      "alternativas": {
+        "A": "correto para o problema proposto.",
+        "B": "incorreto, pois no lugar de senão se (b<c) deve ser colocado senão se (b<a E b<c).",
+        "C": "incorreto, pois deve ser usado se (a<b OU a<c) no lugar de se (a<b E a<c).",
+        "D": "incorreto, pois está faltando uma comparação para verificar se c é menor do que b e a.",
+        "E": "incorreto, pois não pode haver uma comparação se dentro da outra."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Noções de Informática",
+      "gabarito": "B",
+      "enunciado": "Em uma tabela chamada Contribuinte de um banco de dados padrão SQL aberto e em condições ideais há o campo idContribuinte do tipo inteiro e chave primária. Há também o campo nomeContribuinte que é do tipo varchar. Nessa tabela, um Auditor Fiscal deseja alterar o nome do contribuinte de id 1 para 'Marcos Silva'. Para isso, terá que utilizar o comando",
+      "alternativas": {
+        "A": "ALTER TABLE Contribuinte SET nomeContribuinte='Marcos Silva' WHERE idContribuinte=1;",
+        "B": "UPDATE Contribuinte SET nomeContribuinte='Marcos Silva' WHERE idContribuinte=1;",
+        "C": "UPDATE nomeContribuinte TO 'Marcos Silva' FROM Contribuinte WHERE idContribuinte=1;",
+        "D": "ALTER TABLE Contribuinte FIELD nomeContribuinte='Marcos Silva' WHERE idContribuinte=1;",
+        "E": "UPDATE TABLE Contribuinte FIELD nomeContribuinte='Marcos Silva' WHERE idContribuinte=1;"
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Noções de Informática",
+      "gabarito": "C",
+      "enunciado": "Uma vulnerabilidade existente no computador de um funcionário fez com que ele recebesse automaticamente, por meio da rede, um malware que passou a consumir grande quantidade de recursos, deixando o computador lento. Esse malware passou a enviar cópia de si mesmo para outras pessoas e a participar de um ataque de negação de serviço com objetivo de tirar o site do ar. As características descritas permitem concluir que o malware recebido pelo funcionário pode ser um",
+      "alternativas": {
+        "A": "ransomware ou um vírus.",
+        "B": "trojan ou um backdoor.",
+        "C": "worm ou um dot.",
+        "D": "vírus ou um rootkit.",
+        "E": "spyware ou um cavalo de troia."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Noções de Informática",
+      "gabarito": "A",
+      "enunciado": "Para enviar pacotes da Internet para a rede interna de uma instituição e vice-versa utilizam-se roteadores, que são dispositivos encarregados de encaminhar pacotes de uma rede para outra utilizando protocolos de roteamento como",
+      "alternativas": {
+        "A": "RIP e OSPF.",
+        "B": "DHCP e LDAP.",
+        "C": "SNMP e SMTP.",
+        "D": "DCCP e SCTP.",
+        "E": "POP e IMAP."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Noções de Informática",
+      "gabarito": "D",
+      "enunciado": "Um profissional está usando um recurso de descoberta de requisitos para o desenvolvimento de um novo software, que consiste em mostrar através de um diagrama a interação dos atores com o sistema de software. Os atores podem ser pessoas ou outros sistemas e são representados por bonecos palito. Já as classes de interação são representadas por uma elipse. Linhas fazem a ligação entre os atores e as elipses. Baseado nessa descrição conclui-se que o profissional está utilizando o recurso de",
+      "alternativas": {
+        "A": "etnografia.",
+        "B": "prototipação.",
+        "C": "brainstorm.",
+        "D": "casos de uso.",
+        "E": "encenação."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "Os denominados papéis de trabalho constituem elemento de grande importância na realização de uma auditoria. De acordo com a NBC TI 01, a abrangência e o grau de detalhamento desses papéis de trabalho devem ser",
+      "alternativas": {
+        "A": "mínimos ou, preferencialmente, nulos, tratando-se de fundações instituídas e mantidas pelo poder público, beneficiárias de imunidade tributária, sempre que puderem evidenciar, direta ou indiretamente, a existência de irregularidade de natureza criminal não comprovada.",
+        "B": "moderados, e, desde que amparados por autorização judicial, tratando-se de sociedades anônimas com ações em Bolsa de Valores, sempre que puderem tornar públicas, direta ou indiretamente, a existência de irregularidade de natureza criminal não comprovada.",
+        "C": "suficientes para propiciar a compreensão do planejamento, da natureza, da oportunidade e da extensão dos procedimentos de Auditoria Interna aplicados, bem como do julgamento exercido e do suporte das conclusões alcançadas.",
+        "D": "suficientes para demonstrar a falha cometida pela entidade auditada, a fim de que ela não incorra em reincidência.",
+        "E": "mínimos ou nulos, tratando-se de empresas públicas, sempre que puderem evidenciar, direta ou indiretamente, a existência de irregularidade de natureza contábil, com reflexos na área criminal, sem prévia existência de sentença civil ou penal condenatória."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "A NBC TA 530 estabelece, em seu item 5, que risco de amostragem é o risco de que a conclusão do auditor, com base em amostra\" pudesse \"ser diferente se toda a população fosse sujeita ao mesmo procedimento de auditoria. O risco de amostragem pode levar a conclusões errôneas. De acordo com a referida NBC, o nível de risco de amostragem que o auditor está disposto a aceitar",
+      "alternativas": {
+        "A": "afeta o tamanho da amostra exigido, sendo que, quanto menor o risco que o auditor está disposto a aceitar, maior deve ser o tamanho da amostra.",
+        "B": "não afeta o tamanho da amostra exigido, já que a escolha do tamanho da amostra é feita no momento do planejamento do trabalho de auditoria.",
+        "C": "afeta o tamanho da amostra exigido, sendo que, quanto maior o risco que o auditor está disposto a aceitar, maior deve ser o tamanho da amostra.",
+        "D": "não afeta o tamanho da amostra exigido, na medida em que pode ser compensado com o aprofundamento do exame de cada unidade de amostragem e com arbitramentos e critérios de compensações.",
+        "E": "é determinado, em reunião do auditor com os representantes da área contábil da entidade auditada, após a apuração dos resultados de análise por amostragem feita anteriormente, de acordo com o valor cobrado no contrato de auditoria para esse subtrabalho específico."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "A NBC TA 530 arrola as conclusões errôneas a que pode levar o denominado risco de amostragem. De acordo com essa NBC, o risco de amostragem poderá acarretar conclusões equivocadas, tais como:\n\nI. no caso de teste de controles, esses controles serem considerados mais eficazes do que realmente são.\n\nII. no caso de teste de detalhes, não ser identificada distorção relevante, quando, na verdade, ela existe.\n\nIII. no caso de teste de controles, esses controles serem considerados menos eficazes do que realmente são.\n\nIV. no caso de teste de detalhes, ser identificada distorção relevante, quando, na verdade, ela não existe.\n\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "III e IV, apenas.",
+        "B": "I e II, apenas.",
+        "C": "II e III, apenas.",
+        "D": "I e IV, apenas.",
+        "E": "I, II, III e IV."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "A NBC TA 620 contempla regras a respeito da responsabilidade do auditor e da responsabilidade do especialista do auditor. De acordo com essa NBC.",
+      "alternativas": {
+        "A": "o auditor é responsável por expressar opinião de auditoria, sendo que essa responsabilidade é transferida, total ou parcialmente, ao especialista contratado pelo auditor, sempre que houver utilização do trabalho dele.",
+        "B": "se o auditor fizer referência ao trabalho de especialista do auditor, em seu relatório, em razão de esse trabalho ter-se assentado, em sua maior parte, em documentos e textos originalmente produzidos em língua estrangeira, o auditor deve mencionar no relatório que essa referência reduz sua responsabilidade pela opinião ali expressa.",
+        "C": "o auditor sempre deve fazer referência ao trabalho do especialista do auditor em seu relatório, em especial quanto aos pontos em que sua opinião não diverge da do especialista, documentando e enfatizando a responsabilidade do especialista.",
+        "D": "se o auditor fizer referência ao trabalho de especialista do auditor em seu relatório, em razão de essa referência ser relevante para o entendimento de ressalva ou outra modificação na sua opinião, o auditor deve indicar, no relatório, que essa referência não reduz a sua responsabilidade por essa opinião.",
+        "E": "o auditor deixará de ser responsável por expressar opinião de auditoria quando essa opinião se fundar, em sua maior parte, em trabalho realizado pelo especialista contratado pelo auditor, sendo essa responsabilidade automaticamente assumida pelo especialista."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Relativamente aos Relatórios de Auditoria Interna, a NBC TI 01 preconiza que a Auditoria Interna deve avaliar a necessidade de emissão de relatório parcial. Conforme a referida NBC, esse relatório parcial poderá ser emitido",
+      "alternativas": {
+        "A": "caso haja alteração na composição do quadro societário da entidade que esteja sendo auditada, e desde que os novos integrantes não possam, por razões contratuais, aguardar o desenvolvimento normal dos trabalhos em andamento.",
+        "B": "na hipótese de constatarem impropriedades, irregularidades ou ilegalidades que necessitem providências imediatas da administração da entidade, e que não possam aguardar o final dos exames.",
+        "C": "caso haja alteração na composição do quadro societário da entidade que esteja sendo auditada.",
+        "D": "para fins de faturamento e pagamento pelos trabalhos até então realizados, periodicamente, conforme tiver sido pactuado em contrato, sempre que, durante a auditoria, houver alteração da equipe encarregada dos trabalhos.",
+        "E": "sempre que houver alteração superior a 20% na quantidade de auditores que compõem a equipe encarregada dos trabalhos de auditoria."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "D",
+      "enunciado": "Após licitação, notebooks foram adquiridos por secretaria municipal, no valor unitário de 12 mil reais. Suponha que o preço do equipamento (y) seja uma função y = mx + n, sendo x o número de anos de utilização do equipamento, com m e n parâmetros reais. Considerando que na época inicial (x = 0) tem-se que y = 12 mil reais e que para x = 7 o valor de y é igual a 800 reais, o valor do equipamento para x = 4 é igual a, em reais,",
+      "alternativas": {
+        "A": "4200.",
+        "B": "4600.",
+        "C": "5200.",
+        "D": "5600.",
+        "E": "7200."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "C",
+      "enunciado": "Alguns estados da Federação definiram alíquotas diferentes para porcentagem de imposto sobre o preço de venda de determinado produto. Se x% for a porcentagem dessa alíquota, a inequação (4x – 77) (83 – 4x) ≥ 0 descreve as possíveis variações da cobrança entre os estados. Se o preço do produto em determinado estado é de 428 reais, o imposto devido tem que estar, respectivamente, entre os limites máximo e mínimo de, em reais,",
+      "alternativas": {
+        "A": "80.39 e 84.81.",
+        "B": "82.39 e 86.53.",
+        "C": "82.39 e 88.81.",
+        "D": "84.53 e 88.81.",
+        "E": "86.39 e 92.81."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "A",
+      "enunciado": "Durante a campanha para eleições presidenciais em determinado país foram compartilhadas 30 milhões de vezes fakenews a favor do candidato A. Já fakenews a favor do candidato B foram compartilhadas 6 milhões de vezes. De acordo com esses dados, pode-se estimar que a razão entre a diferença entre o número de compartilhamentos de fakenews pró-A e pró-B em relação ao número de compartilhamentos de fakenews pró-B é igual a",
+      "alternativas": {
+        "A": "4.",
+        "B": "3.",
+        "C": "2.",
+        "D": "5.",
+        "E": "6."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "D",
+      "enunciado": "Certa empresa de auditoria foi criada a partir do aporte de capital investido por três sócios. O sócio B participou com o dobro do capital investido pelo sócio A, enquanto o sócio C participou com uma vez e meia o capital investido pelo sócio B. Se fosse partilhado um lucro de um milhão e meio de reais proporcionalmente ao que cada um investiu, o sócio A receberia um valor, em mil reais, igual a",
+      "alternativas": {
+        "A": "100.",
+        "B": "200.",
+        "C": "150.",
+        "D": "250.",
+        "E": "125."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "E",
+      "enunciado": "A função receita diária, em reais, de determinada empresa de consultoria financeira é dada por r(x) = 750x, em que x é o número de consultorias realizadas por dia. Seja a função custo diário c(x), em reais, dessa mesma empresa dada por c(x) = 250x + 10000. O número de consultorias que precisariam ser realizadas, por dia, para que fosse obtido um lucro diário L(x), definido como L(x) = r(x) – c(x), de 5 mil reais é igual a",
+      "alternativas": {
+        "A": "10.",
+        "B": "15.",
+        "C": "20.",
+        "D": "25.",
+        "E": "30."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "C",
+      "enunciado": "A oferta para determinado produto foi modelada pela função y = 90 – 1,2x, em que y representa o preço unitário para uma oferta de x unidades do produto. A demanda para o mesmo produto foi modelada pela função y = 1,4x + 12, em que x representa o número de unidades procuradas quando o preço do produto é y. Nessas condições, as coordenadas para o ponto de equilíbrio de mercado, isto é, o ponto em que a oferta é igual à demanda, são:",
+      "alternativas": {
+        "A": "(50.30).",
+        "B": "(40.42).",
+        "C": "(30.54).",
+        "D": "(20.66).",
+        "E": "(10.78)."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "A",
+      "enunciado": "O Presidente da República de determinado país chamou para conversas individuais cinco ministros das seguintes pastas: Economia, Educação, Meio-Ambiente, Justiça e Saúde. Foram, assim, chamados os Ministros Alberto, Camargo, Eliseu, Delcídio e Josenildo, em certa ordem. Depois de Camargo, que não é Ministro da Educação, foi chamado o Ministro da Saúde. Josenildo foi o primeiro a ser chamado. O Ministro da Economia, Alberto, foi chamado logo após o Ministro da Educação. O Ministro da Justiça não é Delcídio e nem Eliseu. Eliseu foi o último chamado, logo após o Ministro da Saúde.\n\nConclui-se, com base nessas afirmações, que",
+      "alternativas": {
+        "A": "Eliseu é o Ministro do Meio-Ambiente.",
+        "B": "Camargo foi o segundo a ser chamado.",
+        "C": "Alberto é o Ministro da Educação.",
+        "D": "Delcídio é o Ministro da Educação.",
+        "E": "O segundo a ser chamado foi o Ministro da Saúde."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "B",
+      "enunciado": "Os ministérios A, B e C do Governo Federal de determinado país foram fundidos em um só. Para o novo ministério, foram alocados 300 assessores especiais, alguns deles com passagens em mais de um desses três ministérios. Os que haviam trabalhado em exatamente dois dentre os três ministérios antigos eram 171. Os que haviam trabalhado nos três ministérios antigos eram 17. Os que haviam trabalhado apenas no Ministério A eram 52. Os que haviam trabalhado no ministério B e no C eram 84, enquanto os que haviam trabalhado no ministério A e no C eram 64. O número total dos assessores que haviam trabalhado apenas no ministério B ou apenas no C é igual a",
+      "alternativas": {
+        "A": "23.",
+        "B": "60.",
+        "C": "100.",
+        "D": "112.",
+        "E": "141."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "D",
+      "enunciado": "Suponha que a negação da proposição “Você é a favor da ideologia X” seja “Você é contra a ideologia X”. A proposição condicional “Se você é contra a ideologia A, então você é a favor da ideologia C” é equivalente a",
+      "alternativas": {
+        "A": "Você é a favor da ideologia A e você é a favor da ideologia C.",
+        "B": "Ou você é a favor da ideologia A ou você é a favor da ideologia C, mas não de ambas.",
+        "C": "Você é a favor da ideologia A ou você é contra a ideologia C.",
+        "D": "Você é a favor da ideologia A ou você é a favor da ideologia C.",
+        "E": "Você é contra a ideologia A e você é contra a ideologia C."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "D",
+      "enunciado": "Um grupo de trabalho formado por 20 funcionários foi incumbido de realizar uma tarefa no prazo de 30 dias, trabalhando 6 horas por dia. Como no final do 18º dia apenas 3/7 da tarefa haviam sido concluídos, decidiu-se aumentar o número de funcionários do grupo a partir do 19º dia, trabalhando 8 horas por dia. Sabe-se que todos os funcionários trabalharam com desempenho igual, e que as demais condições mantiveram-se constantes. Considerando que toda a tarefa foi concluída no final do prazo estabelecido, tem-se que o número de funcionários que foram incorporados ao grupo a partir do 19º dia foi",
+      "alternativas": {
+        "A": "6.",
+        "B": "12.",
+        "C": "4.",
+        "D": "10.",
+        "E": "8."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Estatística Aplicada",
+      "gabarito": "D",
+      "enunciado": "Considere a distribuição dos salários, em R$ 1.000,00, dos funcionários lotados em uma repartição pública, representada abaixo pela tabela de frequências relativas acumuladas, sendo k a frequência relativa acumulada do 4º intervalo de classe.\n\nClasses de salários | Frequência relativa acumulada (%)\n1 - 3 | 3\n3 - 5 | 15\n5 - 7 | 40\n7 - 9 | k\n9 - 11 | 100\n\nSabe-se que a média aritmética (Me) foi calculada considerando que todos os valores incluídos num certo intervalo de classe são coincidentes com o ponto médio desse intervalo, que a mediana (Md) foi calculada pelo método da interpolação linear e que a moda (Mo) foi obtida pela relação de Pearson, ou seja, Mo = 3Md – 2Me. Dado que Me = R$ 7.200,00, então Mo é igual a",
+      "alternativas": {
+        "A": "R$ 7.350,00.",
+        "B": "R$ 8.500,00.",
+        "C": "R$ 7.700,00.",
+        "D": "R$ 8.100,00.",
+        "E": "R$ 7.400,00."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Estatística Aplicada",
+      "gabarito": "E",
+      "enunciado": "Uma sala contém 20 homens e 30 mulheres em que todos são funcionários de uma empresa. Verifica-se que metade desses homens e metade dessas mulheres possuem nível superior. Escolhendo aleatoriamente uma pessoa dessa sala para realizar uma tarefa, a probabilidade de ela ser mulher ou possuir nível superior é igual a",
+      "alternativas": {
+        "A": "2/3.",
+        "B": "3/10.",
+        "C": "5/6.",
+        "D": "3/4.",
+        "E": "4/5."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Estatística Aplicada",
+      "gabarito": "B",
+      "enunciado": "Uma variável aleatória X representa o número de contribuintes que chega a cada hora para ser atendido em um órgão público.\n\nSupõe-se que X tem distribuição de Poisson, com parâmetro λ, ou seja, P(x) = λ^x * e^(-λ) / x!, sendo e a base do logaritmo (ln) tal que ln(e) = 1. Se P(x = 2) = P(x = 3), então a probabilidade de que menos de 3 contribuintes cheguem em 1 hora é\n\nDados:\ne^(-1) = 0,37,\ne^(-2) = 0,14 e\ne^(-3) = 0,05",
+      "alternativas": {
+        "A": "30,0%.",
+        "B": "42,5%.",
+        "C": "22,5%.",
+        "D": "57,5%.",
+        "E": "37,5%."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Estatística Aplicada",
+      "gabarito": "A",
+      "enunciado": "Um curso de treinamento é ministrado para os profissionais de determinado ramo de atividade. A população das notas de avaliação no curso, que é considerada de tamanho infinito e normalmente distribuída, apresenta uma média μ igual a 7 e variância σ² igual a 4. Acredita-se que mediante um processo de aperfeiçoamento no curso, essa média tenha sido aumentada. Para analisar a eficácia desse processo foi extraída uma amostra aleatória de tamanho 64 da população após o processo de aperfeiçoamento e foram formuladas as hipóteses H₀: μ = 7 (hipótese nula) e H₁: μ > 7 (hipótese alternativa). O valor encontrado para a média amostral (X) foi o maior valor tal que, ao nível de significância de 5%, H₀ não foi rejeitada. Tem-se que X é igual a\n\nDados: Valores das probabilidades P(Z ≤ z) da curva normal padrão Z.\n\nz | 1,00 | 1,28 | 1,64 | 1,96\nP(Z ≤ z) | 0,840 | 0,900 | 0,950 | 0,975",
+      "alternativas": {
+        "A": "7,41.",
+        "B": "7,21.",
+        "C": "7,32.",
+        "D": "7,24.",
+        "E": "6,59."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Estatística Aplicada",
+      "gabarito": "C",
+      "enunciado": "Em uma determinada indústria, foi efetuada uma pesquisa a respeito da possível relação entre o número de horas trabalhadas (X), com X ≥ 2, e as quantidades produzidas de um produto (Y). Com base em 10 pares de observações (Xᵢ, Yᵢ) e considerando o gráfico de dispersão correspondente, optou-se por utilizar o modelo linear Yᵢ = α + βXᵢ + εᵢ, com i representando a i-ésima observação, ou seja, i = 1, 2, 3, ... 10. Os parâmetros α e β são desconhecidos e as suas estimativas (a e b, respectivamente) foram obtidas pelo método dos mínimos quadrados. Observação: εᵢ é o erro aleatório com as respectivas hipóteses do modelo de regressão linear simples. Considere o gráfico, abaixo, construído utilizando os valores encontrados para as estimativas de α e β.\n\nA previsão da quantidade produzida será igual ao dobro da média verificada das 10 observações Yᵢ quando o número de horas trabalhadas for igual a",
+      "alternativas": {
+        "A": "20.",
+        "B": "24.",
+        "C": "22.",
+        "D": "18.",
+        "E": "12."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "A Lei estadual n° 3.956, de 11 de dezembro de 1981, que institui o Código Tributário do Estado da Bahia, estabelece que a fiscalização e arrecadação dos tributos estaduais compete à Secretaria da Fazenda e que a função fiscalizadora será exercida pelos Auditores Fiscais e pelos Agentes de Tributos Estaduais. De acordo com este Código, compete aos Auditores Fiscais a constituição de créditos tributários, salvo em relação",
+      "alternativas": {
+        "A": "às taxas estaduais, às contribuições de melhoria de competência estadual e a todas as demais contribuições devidas ao Estado, enquanto que aos Agentes de Tributos Estaduais compete a constituição de créditos tributários relativos às ta- xas estaduais, às contribuições de melhoria de competência estadual e a todas as demais contribuições devidas ao Estado.",
+        "B": "à fiscalização de mercadorias em trânsito e em estabelecimentos de microempresas e de empresas de pequeno porte que sejam optantes pelo Simples Nacional, enquanto que aos Agentes de Tributos Estaduais compete a constituição de créditos tributários decorrentes da fiscalização de mercadorias em trânsito e nos estabelecimentos de microempresas e empresas de pequeno porte que sejam optantes pelo Simples Nacional, bem como, de modo concorrente, as decorrentes da fiscalização de mercadorias importadas do exterior e das sujeitas ao regime de pagamento antecipado por substituição tributária.",
+        "C": "àqueles decorrentes de penalidades pecuniárias aplicadas por infração à legislação tributária, enquanto que aos Agentes de Tributos Estaduais compete a constituição de créditos tributários especificamente decorrentes de penalidades pecuniárias aplicadas por infração à legislação tributária.",
+        "D": "à fiscalização de mercadorias em trânsito e em estabelecimentos de microempresas e de empresas de pequeno porte que sejam optantes pelo Simples Nacional, enquanto que aos Agentes de Tributos Estaduais compete a constituição de créditos tributários decorrentes da fiscalização de mercadorias em trânsito e nos estabelecimentos de microempresas e empresas de pequeno porte que sejam optantes pelo Simples Nacional.",
+        "E": "àqueles cujo lançamento decorra do descumprimento de obrigação principal, enquanto que aos Agentes de Tributos Estaduais compete a constituição de créditos tributários cujo lançamento decorra do descumprimento de obrigação acessória, bem como, de modo concorrente, daqueles decorrentes da fiscalização de mercadorias importadas do exterior e das sujeitas ao regime de pagamento antecipado por substituição tributária."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "O Regulamento do Processo Administrativo Fiscal – RPAF, aprovado pelo Decreto estadual n° 7.629, de 09 de julho de 1999, estabelece que o processo administrativo fiscal para solução de litígios entre o fisco e os sujeitos passivos tributários instaura-se quando da apresentação",
+      "alternativas": {
+        "A": "da defesa, verbal ou por escrito, ainda que intempestiva, impugnando o lançamento de crédito tributário efetuado mediante Auto de Infração.",
+        "B": "de petição escrita, pelo contribuinte ou responsável, impugnando qualquer medida ou exigência fiscal imposta, exceto se intempestiva.",
+        "C": "de petição escrita, ainda que intempestiva, pelo contribuinte ou responsável, impugnando qualquer medida ou exigência fiscal imposta.",
+        "D": "da defesa, verbal ou por escrito, apresentada dentro do prazo, após extinção do crédito tributário pelo pagamento, impugnando o lançamento de crédito tributário efetuado mediante Auto de Infração.",
+        "E": "de petição escrita, apresentada pelo contribuinte ou responsável, dentro do prazo, ainda que após extinção do crédito tributário pelo pagamento, impugnando qualquer medida ou exigência fiscal imposta."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "A Lei estadual n° 4.826, de 27 de janeiro de 1989, institui o Imposto sobre Transmissão Causa Mortis e Doação de quaisquer bens ou direitos (ITD) no Estado da Bahia. De acordo com essa Lei,",
+      "alternativas": {
+        "A": "as transmissões causa mortis de bens ou direitos, cujo valor total do espólio seja de até R$ 100.000,00, ficam isentas do imposto.",
+        "B": "considera-se local da transmissão por doação, tratando-se de bens móveis, aquele em que tiver domicílio o donatário, sempre que o doador não tiver domicílio no Estado da Bahia.",
+        "C": "é contribuinte do Imposto, nas doações a qualquer título, o doador, sempre que o donatário não tiver domicílio no Estado da Bahia.",
+        "D": "as transmissões, por doação, de bens ou direitos, cujo valor seja de até R$ 100.000,00, ficam isentas do imposto.",
+        "E": "a alíquota do imposto é de 4% para as transmissões por doação ou causa mortis de bens ou direitos cujo valor total seja de até R$ 200.000,00."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Em 1º de março de 2019, Silvana, domiciliada e residente em Salvador, adquiriu, de concessionária baiana, veículo de passeio novo, zero Km, movido a gasolina, tendo pagado o valor total de R$ 120.000,00, conforme constou da Nota Fiscal de aquisição. O referido valor decompõe-se nas seguintes rubricas: R$ 105.000,00 referentes ao valor venal do referido veículo novo, R$ 12.000,00 referentes a equipamentos opcionais e acessórios que ela mandou instalar no veículo e R$ 3.000,00 referentes a frete e seguro. Considerando-se que o fato gerador do IPVA, nesse caso, ocorreu em 1º de março de 2019, e considerando o disposto na Lei estadual nº 6.348, de 17 de dezembro de 1991, o valor do imposto a ser pago, em razão dessa aquisição, é",
+      "alternativas": {
+        "A": "R$ 2.187,50.",
+        "B": "R$ 3.000,00.",
+        "C": "R$ 2.625,00.",
+        "D": "R$ 2.437,50.",
+        "E": "R$ 2.500,00."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "A Lei estadual nº 11.631, de 30 de dezembro de 2009, dispõe sobre as taxas estaduais no âmbito do Poder Executivo do Estado da Bahia. De acordo com essa Lei,",
+      "alternativas": {
+        "A": "a taxa anual pela utilização potencial do serviço de licenciamento anual de veículos automotores também incidirá sobre aqueles registrados em órgão competente de outra unidade da Federação, utilizados ou locados, de forma eventual ou não, no território desse Estado.",
+        "B": "as taxas estaduais não incidem nos casos de exercício do poder de polícia e prestação de serviços públicos, quan- do destinados a órgãos da Administração Pública direta, indireta e fundacional do Estado, da União e dos Munici- pios.",
+        "C": "a taxa pelo exercício do poder de polícia, referente ao serviço de extinção de incêndios, será exigida relativamente a imóveis localizados em Municípios do Estado que possuam Unidade do Corpo de Bombeiros que preste serviço de prevenção e extinção de incêndio, estendendo-se aos seus Distritos e aos Municípios vizinhos, desde que distem até 50 km da sede do Município em que esteja localizada a referida Unidade.",
+        "D": "a taxa pelo exercício do poder de polícia referente ao licenciamento anual de veículos automotores também incidirá sobre aqueles registrados em órgão competente de outra unidade da Federação ou de outro país, utilizados ou locados, de forma eventual ou não, no território desse Estado.",
+        "E": "a taxa pelo exercício do poder de polícia, referente ao serviço de extinção de incêndios, será exigida relativamente a imóveis localizados em Municípios do Estado que possuam Unidade do Corpo de Bombeiros que preste serviço de prevenção e extinção de incêndio, não se estendendo aos seus Distritos e aos Municípios vizinhos."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "O Regulamento do Processo Administrativo Fiscal (RPAF), aprovado pelo Decreto estadual nº 7.629, de 09 de julho de 1999, estabelece as regras relativas à produção de informação fiscal. De acordo com esse Regulamento,",
+      "alternativas": {
+        "A": "se o autuante, no momento de produzir a informação, não mais estiver em exercício na Inspetoria Fazendária do preparo do processo, a autoridade preparadora encaminhará os autos para a repartição em que ele estiver exercendo sua fun- ção.",
+        "B": "havendo apresentação de defesa relativa a Auto de Infração, a autoridade preparadora dará vista dela ao autuante, no primeiro dia útil seguinte ao do recebimento dessa defesa, para que o autuante produza a informação fiscal acerca das razões do impugnante, vedada a adução de fatos novos e a anexação aos autos de novos demonstrativos ou levan- tamentos.",
+        "C": "para o fim de prestação de informações fiscais nos autos do processo, o autuante poderá ser cientificado pela repartição acerca da apresentação de defesa por via postal, telefax, correio eletrônico ou telegrama fonado, devendo ser-lhe fornecida cópia da defesa e dos elementos essenciais que a integrem.",
+        "D": "a inobservância do prazo para prestação de informação ou para cumprimento de diligência ou perícia fixado pela legis- lação ou estabelecido pelo órgão ou autoridade competente implicará a perda da gratificação de produção correspondente à tarefa e constitui falta disciplinar, sendo causa, ainda, de julgamento de improcedência do crédito tributário constituído por meio do Auto de Infração.",
+        "E": "quando a petição de defesa for protocolizada em repartição diversa da do domicílio fiscal do sujeito passivo, o prazo de 20 dias para o autuante apresentar suas informações será contado a partir da data do recebimento do expediente pela repartição encarregada do preparo do processo."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Joelmir, viúvo, faleceu em 2018, sem ter feito testamento. O único bem que ele deixou foi o prédio residencial em que ele vivia com seus três filhos e com sua enteada, que nunca foi adotada por ele. Com base na Lei estadual n° 4.826, de 27 de janeiro de 1989, que instituiu o ITD no Estado da Bahia, a transmissão desse imóvel, estará isenta do imposto desde que",
+      "alternativas": {
+        "A": "constitua o único bem imóvel do espólio, seu valor seja igual ou inferior a R$ 120.000,00, à sucessão concorram apenas o cônjuge e os filhos do de cujus, bem como os herdeiros a esses equiparados, e que fique comprovado que os herdeiros não são proprietários de outro imóvel.",
+        "B": "constitua o único bem do espólio localizado no Estado da Bahia, seu valor seja igual ou inferior a R$ 210.000,00, à sucessão concorram apenas os filhos do de cujus e que fique comprovado que os herdeiros não são proprietários de outro imóvel no Estado da Bahia.",
+        "C": "seu valor seja igual ou inferior a R$ 120.000,00, à sucessão concorram apenas os filhos do de cujus e que fique com- provado que os herdeiros não são proprietários de outro imóvel no Estado da Bahia.",
+        "D": "seu valor seja igual ou inferior a R$ 150.000,00 e à sucessão concorram apenas o cônjuge ou filhos do de cujus.",
+        "E": "constitua o único bem do espólio, seu valor seja igual ou inferior a R$ 170.000,00, à sucessão concorram apenas o cônjuge ou filhos do de cujus e que fique comprovado que os herdeiros não são proprietários de outro imóvel."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "A Lei estadual n° 6.348, de 17 de dezembro de 1991, dispõe sobre o IPVA. De acordo com essa Lei,",
+      "alternativas": {
+        "A": "em se tratando de veículo de procedência estrangeira, novo ou usado, importado do exterior, considera-se ocorrido o fato gerador na data do desembaraço aduaneiro.",
+        "B": "são isentas do pagamento do imposto as máquinas agrícolas e de terraplanagem, desde que circulem em vias públicas.",
+        "C": "contribuinte do imposto é o proprietário, o usufrutuário ou o possuidor do veículo a qualquer título.",
+        "D": "são isentos do pagamento do imposto os veículos utilizados como ambulância e no combate a incêndio, desde que não haja cobrança pelo serviço.",
+        "E": "o imposto é vinculado à pessoa do proprietário, sendo exigível novo pagamento do imposto a esse Estado, nos casos de transferência."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "Rodrigo, domiciliado em Feira de Santana/BA, recebeu, em doação, de sua irmã Adriana, domiciliada em São Paulo, joias no valor de R$ 1.000.000,00. Com a finalidade de pagar menos imposto de transmissão do que o efetivamente devido, esses ir- mãos declararam ao fisco, de maneira intencional e fraudulenta, que os referidos bens valiam apenas R$ 200.000,00. De acordo com a Lei estadual n° 4.826, de 27 de janeiro de 1989, que instituiu o ITD no Estado da Bahia, o Fisco baiano",
+      "alternativas": {
+        "A": "deverá aplicar ao sujeito passivo infrator multa de 5% do imposto devido ao Estado da Bahia.",
+        "B": "deverá aplicar ao sujeito passivo infrator multa de 60% do imposto devido ao Estado da Bahia.",
+        "C": "não deverá aplicar multa alguma ao sujeito passivo.",
+        "D": "deverá aplicar ao sujeito passivo infrator multa de 100% do imposto devido ao Estado da Bahia.",
+        "E": "deverá aplicar ao sujeito passivo infrator multa de 30% do imposto devido ao Estado da Bahia, já considerado o desconto de 70%, no caso de pagamento no prazo de 30 dias contados da intimação do lançamento de ofício."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "O Regulamento do Processo Administrativo Fiscal (RPAF), aprovado pelo Decreto estadual n° 7.629, de 09 de julho de 1999, contempla regras relativas às provas e à sua produção. De acordo com esse Regulamento,",
+      "alternativas": {
+        "A": "o fato alegado por uma das partes, quando a outra não o contestar, será admitido como verídico, independentemente do que resulte da análise do conjunto das provas.",
+        "B": "a simples negativa do cometimento da infração desonera o sujeito passivo de elidir a presunção de legitimidade da autuação fiscal, pois o ônus da prova é de quem faz a alegação.",
+        "C": "a recusa de qualquer parte em comprovar fato controverso, com elemento probatório de que necessariamente disponha, não importa presunção de veracidade da afirmação da parte contrária.",
+        "D": "a entrega ou exibição do documento ou coisa poderá ser negada, caso ela venha a constituir prova contrária ao autor da respectiva entrega ou da exibição.",
+        "E": "poderá ser pedida a entrega ou exibição de documento ou de coisa que se encontre em poder da parte contrária."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "De acordo com a Lei estadual n° 4.826, de 27 de janeiro de 1989, o ITD, em 2018, incidiu a favor do Estado da Bahia, e pôde ser lançado e cobrado por esse Estado, quando",
+      "alternativas": {
+        "A": "Silvério, domiciliado em São Paulo/SP, recebeu, a título de herança, a nua-propriedade de um sítio localizado no Município de Bom Jesus da Lapa/BA, sendo que o processo judicial de inventário correu na Comarca de Porto Alegre/RS, cidade em que o autor da herança se encontrava domiciliado.",
+        "B": "Eduardo, domiciliado em Vitória da Conquista/BA, doou a José, domiciliado em Itabuna/BA, a propriedade de imóvel loca- lizado em Petrolina/PE.",
+        "C": "Mathilde, domiciliada no Rio de Janeiro/RJ, doou a Adelaide, domiciliada em Porto Seguro/BA, a importância de R$ 500.000,00, depositada em agência bancária de Salvador/BA.",
+        "D": "a “Biblioteca do Saber” (fictícia), fundação instituída e mantida pelo Município de Jequié/BA, onde ela se localiza, dedicada a cultura e a educação, recebeu, a título de legado, 100 livros raros que lhe foram deixados pelo Mestre Lucimar, emérito professor de literatura da Bahia, que faleceu em Itabuna/BA, onde esteve domiciliado durante os últimos anos de sua vida e onde correu o processo de arrolamento dos bens deixados por ele.",
+        "E": "Antonio Carlos, domiciliado Camaçari/BA, instituiu, a título oneroso, usufruto vitalício de imóvel de sua propriedade, localizado em Ilhéus/BA, a favor de Josué, seu primo, domiciliado há mais de 5 anos em Uruçuca/BA."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "De acordo com a Lei estadual n° 6.348, de 17 de dezembro de 1991, que dispõe sobre o IPVA, são responsáveis, solidaria- mente, pelo pagamento do Imposto\n\nI. o proprietário de veículo automotor que o alienar e não fornecer os dados necessários à alteração no Cadastro de Con- tribuintes do IPVA no prazo de trinta dias, em relação aos fatos geradores ocorridos entre o momento da alienação e o do conhecimento desta pela autoridade responsável.\n\nII. o leiloeiro, em relação ao veículo adquirido ou arrematado em leilão e entregue sem comprovação do pagamento do IPVA e acréscimos legais pendentes sobre o mesmo, correspondente ao exercício ou exercícios anteriores.\n\nIII. o titular do domínio e/ou o possuidor a qualquer título.\n\nIV. o funcionário que autorizar ou efetuar o registro e licenciamento, inscrição ou matrícula de veículo de qualquer espécie, sem a prova de pagamento ou do reconhecimento de isenção, não incidência ou imunidade do imposto, desde que tenha agido com dolo, fraude ou simulação.\n\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "I, apenas.",
+        "B": "III, apenas.",
+        "C": "I, II e IV, apenas.",
+        "D": "I, II, III e IV.",
+        "E": "II, III e IV, apenas."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "A Lei estadual n° 3.956, de 11 de dezembro de 1981, que institui o Código Tributário do Estado da Bahia, estabelece que a fis- calização e arrecadação dos tributos estaduais compete à Secretaria da Fazenda. De acordo com as regras do referido Có- digo.",
+      "alternativas": {
+        "A": "no caso de recusa à exibição de livros e documentos, assim como de obstáculo ao exame de mercadorias no estabelecimento, o funcionário fiscal poderá lacrar móveis e imóveis, desde que haja prova inequívoca de que neles estejam guardados os documentos, livros e mercadorias e desde que tenha sido expedida ordem judicial específica para esse fim.",
+        "B": "os condutores de mercadorias, desde que interpelados pela autoridade fiscal, qualquer que seja o meio de transporte, exibirão, obrigatoriamente, nos Postos de Fiscalização por onde passarem, a documentação fiscal respectiva, para efeito de conferência.",
+        "C": "independentemente da aplicação das penalidades cabíveis, em caso de embaraço à fiscalização ou de desacato ao agente do Fisco estadual, poderá o funcionário embaraçado ou desacatado requisitar o concurso da Polícia Civil ou Mi- litar.",
+        "D": "as mercadorias em situação irregular serão apreendidas pela Fiscalização, com o fim precípuo de garantir a liquidação, total ou parcial, do crédito tributário.",
+        "E": "a autoridade fiscal, desde que judicialmente autorizada, poderá submeter o contribuinte ou responsável a regime especial de controle e fiscalização, exceto no que tange à forma e ao prazo de recolhimento do imposto."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "O Regulamento do Processo Administrativo Fiscal (RPAF), aprovado pelo Decreto estadual n° 7.629, de 09 de julho de 1999, ao tratar de matéria atinente à competência, estabelece que não se incluem na competência dos órgãos julgadores",
+      "alternativas": {
+        "A": "a declaração de inconstitucionalidade, questão sob a apreciação do Poder Judiciário ou por este já decidida, e o reconhecimento da ocorrência de decadência e prescrição.",
+        "B": "o reconhecimento da ocorrência de decadência, questão sob a apreciação do Poder Judiciário ou por este já decidida, e a negativa de aplicação de ato normativo emanado de autoridade superior.",
+        "C": "a declaração de inconstitucionalidade, o reconhecimento de extinção do crédito tributário, em razão de homologação tácita do lançamento por decurso de prazo, e a negativa de aplicação de ato normativo emanado de autoridade superior.",
+        "D": "a declaração de inconstitucionalidade, questão sob a apreciação do Poder Judiciário ou por este já decidida, e a negativa de aplicação de ato normativo emanado de autoridade superior.",
+        "E": "o reconhecimento da ocorrência de decadência ou de prescrição e o reconhecimento de extinção do crédito tributário, em razão de homologação tácita do lançamento, por decurso de prazo."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "A Lei estadual n° 3.956, de 11 de dezembro de 1981, que institui o Código Tributário do Estado da Bahia, contempla algumas re- gras a respeito da contribuição de melhoria. De acordo com a referida Lei,",
+      "alternativas": {
+        "A": "considera-se obra pública estadual a realizada pelo Estado ou por entidade da Administração Descentralizada do Estado, com recursos próprios ou oriundos de transferência da União.",
+        "B": "os bens indivisos serão considerados como pertencentes a todos os proprietários, em partes iguais, ainda que os respectivos quinhões ou partes ideais sejam de dimensões diferentes ou tenham valores diferentes.",
+        "C": "a contribuição de melhoria será cobrada dos proprietários de imóveis beneficiados por obra pública federal, estadual ou municipal, que terá como limite total a despesa realizada.",
+        "D": "é contribuinte desse tributo o proprietário do imóvel na data da publicação da lei que institui a contribuição de melhoria em relação a determinada obra pública federal, estadual ou municipal.",
+        "E": "as pessoas de direito público estão sujeitas ao pagamento de contribuição de melhoria, na medida em que a imunidade recíproca só alcança impostos."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "Conforme a Lei Complementar n° 87, de 1996, nas operações interestaduais com mercadorias, a base de cálculo, para fins de substituição tributária será, em relação às operações",
+      "alternativas": {
+        "A": "subsequentes, o somatório do valor da operação própria realizada pelo substituto tributário, do seguro, do frete e de outros encargos cobrados ou transferíveis ao adquirente, e da margem de valor agregado, excluído o lucro, relativa às operações subsequentes, sem que seja necessário pagar qualquer suplemento ou complemento.",
+        "B": "concomitantes, o valor da operação praticada pelo contribuinte substituído, acrescido da margem de valor agregado fixada em convênio.",
+        "C": "subsequentes, a soma do valor da operação própria do substituto tributário, do valor do frete, do seguro, e de outros encargos cobrados ou transferíveis ao adquirente, e da margem de valor agregado estabelecida com base em preços usualmente praticados no mercado considerado, obtidos por levantamento no qual se adote a média ponderada dos preços coletados, conforme critérios previstos em lei para sua fixação.",
+        "D": "antecedentes, o preço fixado, tratando-se de mercadoria cujo preço final a consumidor mínimo ou médio seja fixado por órgão público competente.",
+        "E": "subsequentes, o preço a consumidor final usualmente praticado no mercado municipal da capital do Estado de localização do contribuinte substituído, em condições de livre concorrência, com pagamento à vista, em espécie, acrescido do valor adicionado fiscal fixado em convênio."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "Conforme a Lei Complementar n° 87, de 1996, nas operações com mercadoria, o local da operação, para os efeitos da cobrança do imposto e definição do estabelecimento responsável, é",
+      "alternativas": {
+        "A": "onde se encontre o titular do estabelecimento, antes da ocorrência do fato gerador, seja ele público ou privado.",
+        "B": "onde a mercadoria se encontre, quando em situação irregular pela falta de documentação fiscal.",
+        "C": "o endereço do estabelecimento indicado nos documentos de importação como sendo o adquirente da respectiva merca- doria, na hipótese de importação do exterior.",
+        "D": "o de desembarque do produto, na hipótese de petróleo, gás natural, peixes e moluscos capturados no mar territorial ou em rios e lagoas.",
+        "E": "o do Estado de onde o ouro, a prata, o ferro ou o alumínio tenha sido extraído, quando não considerado como ativo finan- ceiro ou instrumento cambial."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "Relativamente ao período de apuração do imposto, a Lei Complementar n° 87, de 1996, estabelece que",
+      "alternativas": {
+        "A": "as obrigações consideram-se vencidas no dia 15 do mês seguinte àquele em que se realizaram as operações, e poderão ser liquidadas por compensação, com valores pagos no mesmo Estado ou em outro Estado, nas operações anteriores, ou mediante pagamento em dinheiro ou transferência bancária, conforme previsto em convênio.",
+        "B": "as obrigações consideram-se vencidas na data em que termina o período de apuração, decendial, quinzenal ou mensal, e são liquidadas por compensação com créditos do próprio contribuinte ou de terceiro, fornecedor ou cliente, ou mediante pagamento em dinheiro, cheque ou cessão de precatório de natureza alimentar ou tributária.",
+        "C": "a lei tributária de cada Estado disporá sobre o período de apuração do imposto, que poderá ser decendial, quinzenal ou mensal, sendo que, ao final do período, se o montante dos débitos superar o dos créditos, a diferença será transportada para o período seguinte.",
+        "D": "as obrigações consideram-se vencidas na data em que termina o período de apuração e são liquidadas por compensação, até o montante dos créditos escriturados no mesmo período, mais o saldo credor de período ou períodos anteriores, se for o caso, ou mediante pagamento em dinheiro.",
+        "E": "os débitos e créditos devem ser apurados em cada estabelecimento, compensando-se os saldos credores e devedores entre os estabelecimentos do mesmo sujeito passivo localizados no território nacional, pois o valor do imposto pago no mesmo Estado, ou em outro Estado, pode ser compensado com o valor devido."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "João, antes do período de férias escolares, levou seus três filhos, Manuel, Joaquim e António, a uma clínica pediátrica para consultas. Pelas três consultas, pagou R$ 450,00; pela aquisição de dois frascos de vitaminas injetáveis, pagou R$ 300,00, e, pela aplicação de injeção com as duas vitaminas compradas, mais a aplicação de uma terceira, com vitamina que ele já tinha, pagou R$ 150,00. Todos esses valores foram pagos à mesma clínica pediátrica. Conforme as Leis Complementares n° 87, de 1996, e n° 116, de 2003, e considerando que a alíquota do ICMS é de 18% e que a do ISS é de 5%, e, ainda, que inexistem benefícios tributários ou regimes específicos de tributação, o valor da soma do imposto devido, relativamente ao ICMS e ao ISS, em decorrência dos fatos descritos, é de",
+      "alternativas": {
+        "A": "R$ 84,00, pois incide ISS sobre o valor das consultas e das aplicações, e incide ICMS sobre o valor das vitaminas.",
+        "B": "R$ 45,00, pois incide ISS sobre todo o valor pago, inclusive sobre o valor das vitaminas compradas.",
+        "C": "R$ 103,50, pois incide ICMS sobre o valor das vitaminas e sobre a aplicação das vitaminas, e incide ISS sobre o valor das consultas.",
+        "D": "R$ 76,50, pois incide ISS sobre o valor das consultas, ICMS sobre o valor das vitaminas, mas sobre a aplicação não incide nem ICMS, nem ISS.",
+        "E": "R$ 162,00, pois incide ICMS sobre todo o valor, inclusive sobre o valor das consultas."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "A base de cálculo do ICMS, na hipótese de desembaraço aduaneiro de mercadorias importadas do exterior, conforme o previsto na Lei Complementar n° 87, de 1996, é",
+      "alternativas": {
+        "A": "a soma do valor da mercadoria constante do documento de importação, do imposto de importação, do imposto sobre produtos industrializados e do imposto sobre operações de cambio, sendo que o preço da mercadoria será convertido, de dólares ameri- ricanos para moeda nacional, pela taxa de câmbio divulgada pelo Banco Central do Brasil, referente ao dia anterior (Ptax).",
+        "B": "o valor CIF porto da mercadoria importada, incluindo todas as despesas pagas ou incorridas, sendo que os valores em moe- da estrangeira serão convertidos em reais pela taxa de câmbio do dia anterior, divulgada pelo Banco Central do Brasil (Ptax).",
+        "C": "o valor da mercadoria e o montante do próprio imposto, que integra sua base de cálculo, constituindo o respectivo destaque mera indicação para fins de controle, excluído o montante do Imposto sobre Produtos Industrializados, que não a integra.",
+        "D": "o valor da mercadoria posta no porto ou aeroporto (CIF) e a soma dos valores de frete e seguro, apenas nos casos em que o transporte tiver sido efetuado pelo próprio remetente ou por sua conta e ordem e seja cobrado em separado.",
+        "E": "a soma do valor da mercadoria constante do documento de importação, do imposto de importação, do imposto sobre pro- dutos industrializados, do imposto sobre operações de câmbio, de quaisquer outros impostos, taxas, contribuições e despesas aduaneiras."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "A Lei Complementar n° 24, de 1975, em sua redação atual, estabelece que as isenções, as reduções de base de cálculo e os créditos presumidos",
+      "alternativas": {
+        "A": "referentes aos tributos estaduais somente poderão ser concedidos mediante lei específica, e desde que anteriormente tenha sido aprovado convênio entre os Estados e a União, permitindo tal gasto tributário.",
+        "B": "e quaisquer outros incentivos ou favores fiscais ou financeiro-fiscais, concedidos com base no ICMS, dos quais resulte redução ou eliminação, direta ou indireta, do respectivo ônus, serão concedidos ou revogados nos termos de convênios celebrados e ratificados pelos Estados e pelo Distrito Federal, cuja aprovação dependerá de ratificação expressa ou tácita de todos os Estados e do Distrito Federal.",
+        "C": "relativos ao ICMS, ao IPVA e ao ITCMD somente poderão ser concedidos mediante lei específica e posterior aprovação no CONFAZ, mediante aprovação unânime de todas as Unidades da Federação.",
+        "D": "poderão ser concedidos, desde setembro de 2017, sem a necessidade de prévio convênio entre os Estados, e sem a necessidade de seguir os controles previstos sobre renúncias de receitas, desde que não tenham como objetivo estimular ou incrementar a Guerra Fiscal entre os Estados e os Municípios.",
+        "E": "e quaisquer outros incentivos ou favores tributários, concedidos com base nos impostos estaduais, dos quais resulte re- dução ou eliminação, direta ou indireta, do respectivo ônus, serão concedidos ou revogados nos termos de convênios cele- brados e ratificados pelos Estados, Distrito Federal e União, cuja aprovação dependerá de ratificação expressa ou tácita de três quintos dos representantes presentes na reunião."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "É hipótese de NÃO incidência do ICMS, prevista expressamente na Lei estadual n° 7.014, de 1996, que trata do ICMS no Estado da Bahia, a",
+      "alternativas": {
+        "A": "operação interna ou interestadual, de qualquer natureza, decorrente da transferência da propriedade de estabelecimento industrial, comercial ou de outra espécie, havendo continuidade ou não da atividade pelo novo titular.",
+        "B": "circulação física de mercadoria em virtude de mudança de endereço do estabelecimento, na mesma cidade ou entre cidades diferentes, localizadas no território nacional.",
+        "C": "entrada de mercadoria ou bem importados do exterior, por pessoa física ou jurídica, que não seja contribuinte habitual do imposto.",
+        "D": "operação interestadual relativa a energia elétrica, petróleo, e a lubrificantes e combustíveis líquidos ou gasosos derivados de petróleo, quando destinados a consumo ou industrialização, no estabelecimento destinatário.",
+        "E": "aquisição de mercadoria decorrente de arrematação em leilão fiscal promovido pela Secretaria da Fazenda."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "Conforme a Lei estadual n° 7.014, de 1996, que trata do ICMS no Estado da Bahia, dar-se-á o diferimento quando o lançamento e o pagamento do imposto incidente sobre determinada operação ou prestação forem adiados para uma etapa posterior. Na hipótese de operação sujeita ao diferimento, salvo disposição em contrário, o imposto devido pelas referidas operações será pago pelo responsável, quando",
+      "alternativas": {
+        "A": "do recebimento da mercadoria, mas apenas se essa estiver danificada, com prazo de validade vencido, ou prestes a vencer.",
+        "B": "tiver transcorrido prazo igual ou superior a 180 dias, contado da primeira operação com a mesma mercadoria sob o regime do diferimento.",
+        "C": "da saída subsequente por ele promovida, exceto se isenta ou não tributada.",
+        "D": "ocorrer qualquer saída ou evento que impossibilite a ocorrência do fato determinante do pagamento do imposto.",
+        "E": "o contribuinte remetente ou destinatário da mercadoria estiver incluído no cadastro de devedores do Estado, ou clas- sificado como devedor contumaz."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "Conforme a Lei estadual n° 7.014, de 1996, que trata do ICMS no Estado da Bahia, dar-se-á o encerramento da fase de tribu- tação sobre as mercadorias constantes no Anexo I da referida lei, quando tiver ocorrido a antecipação tributária. Tal encer- ramento implica que, salvo disposição em contrário, com a realização efetiva do fato gerador presumido,",
+      "alternativas": {
+        "A": "não caberá a exigência de complementação do imposto, ainda que o valor da operação tenha sido superior ao valor ado- tado como base de cálculo para fins de antecipação, ressalvadas as hipóteses de erro ou a necessidade de correção.",
+        "B": "terá ocorrido a homologação tácita do lançamento de ofício realizado pelo sujeito passivo, e, exceto em caso de dolo, nada mais poderá ser cobrado.",
+        "C": "o sujeito passivo presumido poderá se creditar do imposto pago no Estado da Bahia, ou em outro Estado, mediante lançamento contábil no livro caixa, na hipótese de o fato gerador ter ocorrido com valor inferior ao que serviu de base de cálculo para o pagamento antecipado.",
+        "D": "o sujeito passivo por substituição não poderá mais realizar denúncia espontânea, na hipótese de ter pagado imposto a menor, em razão de erro material.",
+        "E": "não caberá mais pedido de restituição ou de complementação do valor do imposto, em decorrência de erro no pagamento do imposto por antecipação."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "Para efeito de pagamento do imposto, quando for difícil a apuração do valor real da operação, a Lei estadual n° 7.014, de 1996, que trata do ICMS no Estado da Bahia, prevê expressamente que a base de cálculo do ICMS poderá ser fixada mediante pauta fiscal, de acordo com a média de preços praticados no Estado, relativamente às operações com",
+      "alternativas": {
+        "A": "frutas, verduras, legumes, azeite, ovos, medicamentos e suplementos alimentares à base de ferro.",
+        "B": "sucatas, fragmentos e retalhos de papel, e papel branco ou impresso, em folhas ou em rolos, destinado ou resultante da impressão a laser ou a tinta.",
+        "C": "blocos, tijolos, telhas, manilhas, ladrilhos, canos, torneiras, caixas d’água, areia, cimento e outros materiais destinados à construção de casas residenciais.",
+        "D": "mercadoria importada da República Popular da China ou proveniente de países asiáticos, sujeita a adicional de imposto de importação, para proteção da indústria nacional.",
+        "E": "produtos extrativos ou de uso em construção civil, em cuja fabricação barro cozido seja utilizado como matéria-prima."
+      }
+    }
+  ]
+}

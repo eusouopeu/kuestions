@@ -1,0 +1,1310 @@
+{
+  "instituicao": "SEFAZ-RS",
+  "ano": 2018,
+  "cargo": "AUDITOR-FISCAL DA RECEITA ESTADUAL, CLASSE A",
+  "tipo_prova": "BLOCO I",
+  "gabarito_tipo": null,
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Texto 1A1-I\n\nOs três aspectos que representam desafios para o direito tributário brasileiro, na ordem em que aparecem no texto 1A1-I, são\n\n1 O direito tributário brasileiro depara-se com grandes desafios, principalmente em tempos de globalização e interdependência dos sistemas econômicos. Entre esses 4 pontos de atenção, destacam-se três. O primeiro é a guerra fiscal ocasionada pelo ICMS. O principal tributo em vigor, atualmente, é estadual, o que faz contribuintes e advogados 7 se debruçarem sobre vinte e sete diferentes legislações no país para entendê-lo. Isso se tornou um atentado contra o princípio de simplificação, contribuindo para o incremento 10 de uma guerra fiscal entre os estados, que buscam alterar regras para conceder benefícios e isenções, a fim de atrair e facilitar a instalação de novas empresas. É, portanto, um dos 13 instrumentos mais utilizados na disputa por investimentos, gerando, com isso, consequências negativas do ponto de vista tanto econômico quanto fiscal.\n\n16 A competitividade gerada pela interdependência estadual é outro ponto. Na década de 60, a adoção do imposto sobre valor agregado (IVA) trouxe um avanço importante 19 para a tributação indireta, permitindo a internacionalização das trocas de mercadorias com a facilitação da equivalência dos impostos sobre consumo e tributação, e diminuindo as 22 diferenças entre países. O ICMS, adotado no país, é o único caso no mundo de imposto que, embora se pareça com o IVA, não é administrado pelo governo federal — o que 25 dá aos estados total autonomia para administrar, cobrar e gastar os recursos dele originados. A competência estadual do ICMS gera ainda dificuldades na relação entre as vinte 27 e sete unidades da Federação, dada a coexistência dos princípios de origem e destino nas transações comerciais interestaduais, que gera a já comentada guerra fiscal.\n\n31 A harmonização com os outros sistemas tributários é outro desafio que deve ser enfrentado. É preciso integrar-se aos países do MERCOSUL, além de promover a aproximação 34 aos padrões tributários de um mundo globalizado e desenvolvido, principalmente quando se trata de Europa. Só assim o país recuperará o poder da economia e poderá 37 utilizar essa recuperação como condição para intensificar a integração com outros países e para participar mais ativamente da globalização.",
+      "alternativas": {
+        "A": "a alteração de regras para benefícios e isenções, a competitividade propiciada pela interdependência dos estados e a recuperação do poder econômico do país.",
+        "B": "o conflito fiscal proporcionado pelo ICMS, a competitividade produzida pela interdependência dos estados e a recuperação do poder econômico do país.",
+        "C": "a alteração de regras para benefícios e isenções, a competitividade gerada pela interdependência dos estados e a recuperação do poder econômico do país.",
+        "D": "o afinamento com outros sistemas tributários, a adoção do IVA e o conflito fiscal favorecido pelo ICMS.",
+        "E": "o conflito fiscal propiciado pelo ICMS, a competitividade gerada pela interdependência dos estados e o afinamento com outros sistemas tributários."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "O texto 1A1-I",
+      "alternativas": {
+        "A": "carece de uma introdução para o assunto que aborda.",
+        "B": "é composto de três parágrafos vinculados a uma temática principal.",
+        "C": "é organizado de forma progressiva, partindo do problema menos relevante ao mais relevante.",
+        "D": "concentra no parágrafo final a conclusão geral dos argumentos apresentados.",
+        "E": "é pautado integralmente na temática da tributação excessiva."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Língua Portuguesa",
+      "gabarito": "D",
+      "enunciado": "No texto 1A1-I, o pronome que inicia o trecho “Isso se tornou um atentado contra o princípio de simplificação” (I. 8 e 9) remete",
+      "alternativas": {
+        "A": "à oração “guerra fiscal ocasionada pelo ICMS” (I. 4 e 5).",
+        "B": "à ideia de que o ICMS é “O principal tributo em vigor” (I.5).",
+        "C": "ao argumento de que “O direito tributário brasileiro depara-se com grandes desafios” (I. 1 e 2).",
+        "D": "ao fato de “contribuintes e advogados se debruçarem sobre vinte e sete diferentes legislações no país” (I. 6 a 8) para entender o ICMS.",
+        "E": "à crítica do autor à recorrência das mesmas regras tributárias em “vinte e sete diferentes legislações no país” (I. 7 e 8)."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Língua Portuguesa",
+      "gabarito": "C",
+      "enunciado": "A correção gramatical e os sentidos originais do texto 1A1-I seriam preservados se, no trecho “A competência estadual do ICMS gera ainda dificuldades na relação entre as vinte e sete unidades da Federação” (I. 26 a 28), o vocábulo “ainda” fosse substituído pela seguinte expressão, isolada por vírgulas.",
+      "alternativas": {
+        "A": "até então",
+        "B": "ao menos",
+        "C": "além disso",
+        "D": "até aquele tempo",
+        "E": "até o presente momento"
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Língua Portuguesa",
+      "gabarito": "D",
+      "enunciado": "Infe-re-sa-dia-dei-a-do-texto 1A1-I-que-o-autor-e-contrário",
+      "alternativas": {
+        "A": "ao modelo tributário europeu.",
+        "B": "à aplicação do IVA em nível federal.",
+        "C": "ao sistema tributário do MERCOSUL.",
+        "D": "à competência estadual para o ICMS.",
+        "E": "aos padrões tributários do mundo globalizado."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Língua Portuguesa",
+      "gabarito": "C",
+      "enunciado": "Em cada uma das opções a seguir, é apresentada uma proposta de reescrita do seguinte período do texto 1A1-I: “A harmonização com os outros sistemas tributários é outro desafio que deve ser enfrentado.” (I. 31 e 32). Assinale a opção cuja proposta de reescrita, além de estar gramaticalmente correta, preserva os sentidos originais do texto.",
+      "alternativas": {
+        "A": "A harmonização com outros sistemas tributários deve enfrentar também o desafio.",
+        "B": "O desequilíbrio com outros sistemas tributários é outro desafio a ser resgatado.",
+        "C": "A harmonização com os demais sistemas tributários consiste em outro desafio a ser enfrentado.",
+        "D": "A harmonização de outros sistemas tributários é mais um desafio que deve ser enfrentado.",
+        "E": "A hierarquização com outros sistemas tributários é também um desafio ao qual deve-se combater."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Língua Portuguesa",
+      "gabarito": "D",
+      "enunciado": "No texto 1A1-I, o emprego de vírgulas para isolar as expressões “adotado no país” (I.22) e “embora se pareça com o IVA” (I. 23 e 24) é",
+      "alternativas": {
+        "A": "facultativo em ambas as expressões.",
+        "B": "obrigatório apenas na primeira expressão.",
+        "C": "apenas uma escolha estilística do autor.",
+        "D": "justificado por regras distintas de pontuação.",
+        "E": "necessário devido ao deslocamento dessas expressões dentro do período."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Língua Portuguesa",
+      "gabarito": "A",
+      "enunciado": "Em cada uma das opções a seguir, é apresentada uma proposta de reescrita do seguinte trecho do texto 1A1-I: “É preciso integrar-se aos países do MERCOSUL” (I. 32 e 33). Assinale a opção cuja proposta de reescrita, além de estar gramaticalmente correta, preserva os sentidos originais do texto.",
+      "alternativas": {
+        "A": "É preciso que o Brasil se integre aos países do MERCOSUL",
+        "B": "É preciso ao Brasil a integração dos países do MERCOSUL",
+        "C": "É preciso que o Brasil seja integrado pelos países do MERCOSUL",
+        "D": "É preciso que os países do MERCOSUL integrem-se ao Brasil",
+        "E": "É preciso ao Brasil integrar o MERCOSUL"
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Mantendo-se a correção gramatical e o sentido original do trecho “O direito tributário brasileiro depara-se com grandes desafios” (I. 1 e 2), do texto 1A1-I, o segmento “depara-se com” poderia ser substituído por",
+      "alternativas": {
+        "A": "depara-se a.",
+        "B": "confronta com.",
+        "C": "depara-se diante de.",
+        "D": "confronta-se a.",
+        "E": "depara com."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Língua Portuguesa",
+      "gabarito": "D",
+      "enunciado": "Texto 1A11-I\n\n1 Píxis foi um músico mediocre, mas teve o seu dia de glória no distante ano de 1837.\n\nEm um concerto em Paris, Franz Liszt tocou uma peça do (hoje) desconhecido compositor, junto com outra, do admirável, maravilhoso e extraordinário Beethoven\n(os adjetivos aqui podem ser verdadeiros, mas — como se\n\n7 verá — relativos). A plateia, formada por um público refinado, culto e um pouco bovino, como são, sempre, os homens em ajuntamentos, esperava com impaciência.\n\n10 Liszt tocou Beethoven e foi calorosamente aplaudido.\n\nDepois, quando chegou a vez do obscuro e inferior Pixis, manifestou-se o desprezo coletivo. Alguns, com ouvidos mais sensíveis, depois de lerem o programa que anunciava as peças do músico menor, retiraram-se do teatro, incapazes de suportar música de má qualidade.\n\n16 Como sabemos, os melómanos são impacientes com as obras de epígonos, tão céleres em reproduzir, em clave rebaixada, as novas técnicas inventadas pelos grandes artistas.\n\n19 Liszt, no entanto, registraria que um erro tipográfico invertera, no programa do concerto, os nomes de Pixis e Beethoven...\n\n22 A música de Pixis, ouvida como sendo de Beethoven, foi recebida com entusiasmo e paixão, e a de Beethoven, ouvida como sendo de Pixis, foi enxovalhada.\n\n25 Esse episódio, cômico se não fosse doloroso, deveria nos tornar mais atentos e menos arrogantes a respeito do que julgamos ser arte.\n\n28 Desconsiderar, no fenômeno estético, os mecanismos de recepção é correr o risco de aplaudir Pixis como se fosse Beethoven.\n\nCharles Kiefer. O paradoxo de Pixis In. Para ser escritor. São Paulo: Leya, 2010 (com adaptações).\n\nInfe-se do texto 1A11-I que, na ocasião do concerto em Paris, em 1837,",
+      "alternativas": {
+        "A": "Píxis tocou uma composição de Beethoven como se fosse de sua autoria.",
+        "B": "Liszt equivocou-se na leitura do roteiro de composições que deveria executar.",
+        "C": "a plateia revoltou-se contra Liszt, por ele ter confundido uma composição de Pixis com uma de Beethoven.",
+        "D": "o público julgou as composições apenas com base nas designações equivocadas no programa do concerto.",
+        "E": "as peças de Pixis e Beethoven foram executadas de modo tão semelhante que o público não foi capaz de distingui-las."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Língua Portuguesa",
+      "gabarito": "A",
+      "enunciado": "No texto 1A11-I, com o emprego da expressão “(hoje)” (I.4) entre parênteses, o autor",
+      "alternativas": {
+        "A": "destaca que Pixis é desconhecido na atualidade, mas que não o era em 1837.",
+        "B": "indica que, a partir da data do concerto, Pixis deixou de ser desconhecido.",
+        "C": "enfatiza o “dia de glória” (I. 1 e 2) de Pixis.",
+        "D": "ressalta que se trata do dia do concerto de Franz Liszt.",
+        "E": "revela desprezo pela popularidade de Pixis em 1837."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Língua Portuguesa",
+      "gabarito": "D",
+      "enunciado": "No texto 1A11-I, a palavra “mediocre” (Î.1) foi empregada com o mesmo sentido de",
+      "alternativas": {
+        "A": "carente.",
+        "B": "tímido.",
+        "C": "humilde.",
+        "D": "inexpressivo.",
+        "E": "despretensioso."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Língua Portuguesa",
+      "gabarito": "C",
+      "enunciado": "A correção e os sentidos do texto 1A11-I seriam preservados se a palavra “enxovalhada” (Î.24) fosse substituída por",
+      "alternativas": {
+        "A": "desassistida.",
+        "B": "desagravada.",
+        "C": "afamada.",
+        "D": "aplaudida.",
+        "E": "desdenhada."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "No segundo parágrafo do texto 1A11-I, o termo “adjetivos” remete às palavras",
+      "alternativas": {
+        "A": "“verdadeiros” e “relativos”.",
+        "B": "“refinado”, “culto” e “bovino”.",
+        "C": "“admirável”, “maravilhoso” e “extraordinário”.",
+        "D": "“desconhecido” e “compositor”.",
+        "E": "“hoje” e “sempre”."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "O autor do texto 1A11-I apresenta a narrativa do concerto de Liszt com o propósito de",
+      "alternativas": {
+        "A": "reconhecer que Pixis era tão genial quanto Beethoven.",
+        "B": "criticar o modo como algumas pessoas consomem arte.",
+        "C": "dar notoriedade à carreira de Pixis.",
+        "D": "alertar o público de que não se deve confiar em tudo que se lê.",
+        "E": "incentivar o público a ampliar seu repertório musical."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Língua Portuguesa",
+      "gabarito": "D",
+      "enunciado": "No trecho “aplaudir Pixis como se fosse Beethoven” (Î. 29 e 30), do texto 1A11-I, observa-se a figura de linguagem",
+      "alternativas": {
+        "A": "catacrese.",
+        "B": "metonímia.",
+        "C": "eufemismo.",
+        "D": "pleonasmo.",
+        "E": "personificação."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Os sentidos originais e a correção gramatical do texto 1A11-I seriam preservados se a forma verbal “invertera” (Î.20) fosse substituída por",
+      "alternativas": {
+        "A": "inverteria.",
+        "B": "teria invertido.",
+        "C": "invertesse.",
+        "D": "havia invertido.",
+        "E": "houve de inverter."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Cada uma das opções a seguir apresenta trecho do texto 1A11-I seguido de uma proposta de reescrita. Assinale a opção cuja proposta preserva os sentidos do texto e suas relações coesivas.",
+      "alternativas": {
+        "A": "“distante ano” (Î.2): ano distante",
+        "B": "“desconhecido compositor” (Î.4): compositor desconhecido",
+        "C": "“público refinado” (Î.7): refinado público",
+        "D": "“músico menor” (Î.14): menor músico",
+        "E": "“desprezo coletivo” (Î.12): coletivo desprezo"
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "Texto 1A3-I\n\n1 A política tributária não se restringe ao objetivo de abastecer os cofres públicos, mas tem também objetivos econômicos e sociais. Se fosse aumentada a tributação sobre um produto considerado nocivo para o consumidor ou para a sociedade, o seu consumo poderia ser desestimulado. Caso a intenção fosse promover uma melhor distribuição de renda, o Estado poderia reduzir tributos incidentes sobre os produtos mais consumidos pela população de renda mais baixa e elevar os tributos sobre a renda da classe mais alta.\n\n10 Por outro lado, se o Estado reduzisse a tributação de determinado setor da economia, os custos desse setor diminuiriam, o que possibilitaria a queda dos preços de seus 13 produtos e poderia gerar um crescimento das vendas. Outro efeito viável dessa política seria o aumento do lucro das empresas, favorecendo-se, assim, a elevação dos seus 16 investimentos — e, consequentemente, da produção — e o surgimento de novas empresas, o que provavelmente resultaria no crescimento da produção, bem como no 19 acirramento da concorrência, com possíveis reflexos sobre os preços. Em qualquer um desses cenários, o setor seria estimulado.\n\nInternet: <https://politicaspublicas.almg.gov.br> (com adaptações)\n\nO texto 1A3-I organiza-se de forma a apresentar",
+      "alternativas": {
+        "A": "argumentos em favor dos objetivos do Estado com relação à política tributária, para convencer o leitor.",
+        "B": "possíveis consequências sociais e econômicas da política tributária.",
+        "C": "procedimentos da atividade de tributação, destacando sua natureza fiscal.",
+        "D": "defesa de ações governamentais mais efetivas no que se refere à política tributária.",
+        "E": "razões para a diminuição de impostos ser considerada mais benéfica que o aumento destes."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Língua Portuguesa",
+      "gabarito": "A",
+      "enunciado": "Infe-re-se do texto 1A3-I que a ação do Estado, com relação à política tributária, visa",
+      "alternativas": {
+        "A": "ao provimento de receitas e também a finalidades econômicas e sociais.",
+        "B": "à redução de tributos sobre empresas comprometidas com o desenvolvimento social.",
+        "C": "ao aumento do lucro de empresas, com impacto sobre o crescimento do país.",
+        "D": "ao estímulo do setor empresarial pela concessão de isenção do pagamento de impostos.",
+        "E": "ao crescimento da livre concorrência, com aumento dos impostos aplicados a empresas."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "A correção gramatical e os sentidos do texto 1A3-I seriam preservados caso o fragmento “favorecendo-se, assim, a elevação dos seus investimentos” (R. 15 e 16) fosse reescrito da seguinte forma.",
+      "alternativas": {
+        "A": "que favorecerá, assim, a elevação dos seus investimentos",
+        "B": "em que favorece, assim, a elevação dos seus investimentos",
+        "C": "à qual favoreça, assim, a elevação dos seus investimentos",
+        "D": "cuja elevação dos investimentos seria, assim, favorecida",
+        "E": "o que favoreceria a elevação dos seus investimentos"
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "No texto 1A3-I, a oração “se o Estado reduzisse a tributação de determinado setor da economia” (R. 10 e 11) apresenta, no período em que se insere, noção de",
+      "alternativas": {
+        "A": "concessão, uma vez que representa uma exceção às regras de tributação do país.",
+        "B": "explicação, uma vez que esclarece uma ação que diminuiria os custos do referido setor.",
+        "C": "proporcionalidade, uma vez que os custos do referido setor diminuiriam à medida que se diminuísse a tributação.",
+        "D": "tempo, uma vez que a diminuição dos custos do referido setor ocorreria somente após a redução da tributação sobre ele.",
+        "E": "condição, uma vez que a diminuição dos custos do referido setor dependeria da redução da tributação sobre ele."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Língua Portuguesa",
+      "gabarito": "C",
+      "enunciado": "Texto 1A3-II\n\nEntre os maiores poderes concedidos pela sociedade\n1\nao Estado, está o poder de tributar. A tributação está inserida\nno núcleo do contrato social estabelecido pelos cidadãos\nentre si para que se alcance o bem comum. Desse modo,\n4\no poder de tributar está na origem do Estado ou do ente\npolítico, a partir da qual foi possível que as pessoas deixassem\nde viver no que Hobbes definiu como o estado natural\n7\n(ou a vida pré-política da humanidade) e passassem a\nconstituir uma sociedade de fato, a geri-la mediante um\n9\ngoverno, e a financiá-la, estabelecendo, assim, uma relação\n10\nclara entre governante e governados.\nA\ntributação,\nportanto,\nsomente\npode\nser\ncompreendida a partir da necessidade dos indivíduos\n13\nde estabelecer convívio social organizado e de gerir a coisa\npública mediante a concessão de poder a um soberano.\nEm decorrência disso, a condição necessária (mas não\n16\nsuficiente) para que o poder de tributar seja legítimo é que\nele emane do Estado, pois qualquer imposição tributária\n18\nprivada seria comparável a usurpação ou roubo.\n19\nInternet: <www.receita.fazenda.gov.br> (com adaptações).\n\nA correção gramatical e os sentidos do texto 1A3-II seriam preservados se o termo “Em decorrência disso” (R.16) fosse substituído pela seguinte expressão.",
+      "alternativas": {
+        "A": "Devido isso",
+        "B": "Em suma",
+        "C": "Por conseguinte",
+        "D": "Consoante isso",
+        "E": "Para tanto"
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Língua Portuguesa",
+      "gabarito": "A",
+      "enunciado": "Com relação às propriedades linguísticas do texto 1A3-II, julgue os itens a seguir.\n\nI O referente da forma verbal “passassem” (R.8) é o termo “as pessoas” (R.6).\n\nII As formas pronominais presentes em “geri-la” (R.9) e “financiá-la” (R.10) possuem referentes distintos no texto.\n\nIII O referente da forma pronominal “ele” (R.18) é a expressão “o poder de tributar” (R.17).\n\nIV A inserção do sinal indicativo de crase em “a usurpação” (R.19) não prejudicaria a correção gramatical do texto.\n\nEstão certos apenas os itens",
+      "alternativas": {
+        "A": "I e III.",
+        "B": "I e IV.",
+        "C": "II e IV.",
+        "D": "I, II e III.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "Considerando os sentidos e os aspectos linguísticos do texto 1A3-II, julgue os itens seguintes.\n\nI No trecho “o poder de tributar está na origem do Estado ou do ente político” (R. 5 e 6), a substituição de “ou” por e prejudicaria a correção gramatical do texto.\n\nII A supressão dos parênteses empregados no trecho “(ou a vida pré-política da humanidade)” (R.8) alteraria os sentidos originais do texto.\n\nIII No trecho “seria comparável a usurpação ou roubo” (R.19), a forma verbal “seria” expressa dúvida quanto à possibilidade de concretização da referida comparação.\n\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas o item I está certo.",
+        "B": "Apenas o item II está certo.",
+        "C": "Apenas os itens I e III estão certos.",
+        "D": "Apenas os itens II e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Língua Portuguesa",
+      "gabarito": "A",
+      "enunciado": "De acordo com o texto 1A3-II, o poder de tributar é uma",
+      "alternativas": {
+        "A": "competência conferida pelos cidadãos ao Estado, com vistas ao bem comum da sociedade.",
+        "B": "condição para a construção de uma relação hierárquica entre governantes e governados.",
+        "C": "obrigação criada pelo Estado para a sua manutenção, mas que, gradativamente, passou a gerar benefícios à sociedade.",
+        "D": "forma de submissão dos cidadãos ao Estado assemelhada a usurpação ou roubo.",
+        "E": "relação anterior à constituição do Estado e da própria sociedade."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "C",
+      "enunciado": "Entre as pessoas físicas que estejam em pleno gozo da capacidade civil e às quais a legislação não impeça de exercer a atividade de empresário estão incluídos os",
+      "alternativas": {
+        "A": "magistrados e membros do Ministério Público.",
+        "B": "parlamentares federais, no caso de sociedade que goze de favor do poder público.",
+        "C": "emancipados.",
+        "D": "estrangeiros naturalizados há mais de cinco anos para sociedades que desenvolvam atividade de radiodifusão sonora e de sons e imagens.",
+        "E": "falidos não reabilitados."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "B",
+      "enunciado": "Para estabelecer e registrar uma sociedade não personificada em que investidores participem diretamente da divisão de seus frutos e na qual seja assegurado o sigilo em relação às pessoas dos sócios, o interessado deverá constituir uma sociedade",
+      "alternativas": {
+        "A": "em nome coletivo.",
+        "B": "em conta de participação.",
+        "C": "em comandita simples.",
+        "D": "em comandita por ações.",
+        "E": "anônima."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "A",
+      "enunciado": "Tendo em vista que o patrimônio de um estabelecimento comercial pode incluir bens corpóreos e incorpóreos, assinale a opção cujos elementos podem figurar como bens corpóreos do referido tipo de estabelecimento.",
+      "alternativas": {
+        "A": "programa de computador adquirido para emissão de notas fiscais e mobiliário",
+        "B": "patente de invenção de um bem industrial e mercadorias do estoque",
+        "C": "veículos e registro de um desenho industrial",
+        "D": "ponto comercial e marca registrada",
+        "E": "maquinaria e nome empresarial"
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "E",
+      "enunciado": "A respeito de escrituração e do acesso aos livros e papéis utilizados nessa atividade, assinale a opção correta.",
+      "alternativas": {
+        "A": "A possibilidade de autorização judicial para exibição integral dos livros e papéis de escrituração é vedada em casos de sucessão.",
+        "B": "O cumprimento da ordem cronológica da escrituração, com subdivisões de dia, mês e ano, é dispensável; basta que sejam lançados todos os registros obrigatórios para o ano em apuração.",
+        "C": "No caso de obrigatoriedade do livro diário, a escrita indireta é possível, mas a reprodução é vedada. Assim, pode ser efetuado um único lançamento por espécie de operação referente ao mesmo grupo de contas; e, nesse caso, deverá constar o número do primeiro dos documentos agrupados.",
+        "D": "A posição diária de cada uma das contas ou dos títulos contábeis deverá ser escriturada no livro diário, de acordo com o respectivo saldo, em forma de balancetes diários.",
+        "E": "Para efeito de inventário, os bens destinados à exploração da atividade têm de ser avaliados pelo custo de aquisição, sendo cabível, no caso de eventual depreciação, a criação de fundo de amortização para assegurar a substituição ou conservação dos bens depreciados."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "C",
+      "enunciado": "O contrato social de determinada empresa é silente quanto aos atos de gestão que seus administradores poderão praticar. Nesse contexto, no desempenho de suas funções de administradores dessa empresa, Carlos, com o auxílio de André, agiu com excesso, sem o conhecimento de um terceiro, Orlando, que foi prejudicado pela prática.\n\nNessa situação hipotética, na condição de administradores,",
+      "alternativas": {
+        "A": "Carlos e André responderão solidariamente perante a sociedade e o terceiro pelos prejuízos causados, desde que comprovado o dolo de ambos no desempenho de suas funções.",
+        "B": "André, por ter apenas auxiliado Carlos, responderá subsidiariamente perante a sociedade e o terceiro pelos prejuízos causados, bastando para tal que seja comprovada a culpa de ambos no desempenho de suas funções.",
+        "C": "Carlos e André responderão solidariamente perante a sociedade e o terceiro pelos prejuízos causados, ainda que tenham agido simplesmente com culpa.",
+        "D": "André, por ter apenas auxiliado Carlos, responderá subsidiariamente perante a sociedade e o terceiro pelos prejuízos causados, mas, para tal, deverá ser comprovado o dolo de ambos.",
+        "E": "André, por ter apenas auxiliado Carlos no desempenho de suas funções, não responderá perante a sociedade e o terceiro pelos prejuízos causados."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "B",
+      "enunciado": "Antônio é coobrigado que pagou uma duplicata protestada e deseja promover a competente ação para cobrar parte do valor por ele despendido de terceiro constante na cadeia de coobrigados.\n\nNessa situação hipotética, o prazo prescricional para a ação de regresso dos coobrigados entre si será de",
+      "alternativas": {
+        "A": "seis meses, a contar da efetuação do pagamento por Antônio.",
+        "B": "um ano, a contar da efetuação do pagamento por Antônio.",
+        "C": "três anos, a contar do vencimento do título.",
+        "D": "seis meses, a contar do protesto do título.",
+        "E": "um ano, a contar do protesto do título."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "C",
+      "enunciado": "Nos termos da Lei de Falências, os créditos extraconcursais incluem o(a)",
+      "alternativas": {
+        "A": "crédito trabalhista no valor de até cem salários mínimos.",
+        "B": "crédito com privilégio especial, com direito de retenção atribuído por lei sobre a coisa dada em garantia.",
+        "C": "quantia fornecida à massa por um credor.",
+        "D": "multa contratual e a pena pecuniária.",
+        "E": "crédito subordinado dos sócios e dos administradores sem vínculo empregatício."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "E",
+      "enunciado": "Júlia e Mateus, noivos e sem experiência acerca de imóveis, decidiram comprar um apartamento. André, corretor de imóveis que os atendeu, percebendo a inexperiência do casal, alterou o valor do contrato de venda e compra do imóvel para três vezes acima do preço de mercado. O contrato foi celebrado e, no ano seguinte, após terem pago a maior parte das parcelas, em uma conversa com um amigo corretor de imóveis, Júlia e Mateus descobriram o caráter abusivo do valor entabulado e decidiram ajuizar uma ação com o objetivo de permanecerem no imóvel e serem ressarcidos somente do valor excedente já pago.\n\nConsiderando o que dispõe o Código Civil sobre contrato de compra e venda mercantil, assinale a opção correta.",
+      "alternativas": {
+        "A": "A compra e venda mercantil pura será considerada obrigatória e perfeita somente após a tradição da coisa vendida.",
+        "B": "Em contratos dessa natureza, existindo defeito oculto em uma das coisas vendidas conjuntamente, o comprador poderá rejeitar todas as demais.",
+        "C": "Os leiloeiros poderão nomear prepostos para comprar, em hasta pública, bens de cuja venda estejam encarregados, desde que, posteriormente, comprovem não ter sido preço vil o valor pago para arrematar.",
+        "D": "Não havendo estipulação no contrato, o local da tradição da coisa vendida será o domicílio do comprador ao tempo da venda.",
+        "E": "Não existindo cláusula contratual que estipule em contrário, as despesas de escritura e registro ficarão a cargo do comprador, e as despesas de tradição, a cargo do vendedor."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "C",
+      "enunciado": "Considerando a situação hipotética, em conformidade com o disposto no Código Civil, deve ser alegado em juízo que o negócio jurídico celebrado tem como defeito",
+      "alternativas": {
+        "A": "a coação, não sendo possível a revisão judicial, mas apenas a anulação do negócio jurídico.",
+        "B": "o erro ou a ignorância, sendo possíveis a revisão judicial e a anulação do negócio jurídico.",
+        "C": "a lesão, sendo possíveis a revisão judicial bem como a anulação do negócio jurídico.",
+        "D": "o dolo, não sendo possível a revisão judicial, mas apenas a anulação do negócio jurídico.",
+        "E": "o estado de perigo, não sendo possível a revisão judicial, mas apenas a anulação do negócio jurídico."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "C",
+      "enunciado": "Na constituição de um grupo de sociedades, a controladora — ou a sociedade de comando do grupo — deve ser brasileira, e exercer, direta ou indiretamente, e de modo permanente, o controle das sociedades filiadas. Nesse sentido, para efeito de declaração da nacionalidade do controle do grupo, a legislação pertinente considera que estará sob controle brasileiro, dentre outras, a sociedade de comando controlada por\n\nI pessoa jurídica de direito público interno.\n\nII pessoa jurídica de direito privado estrangeira com sócio brasileiro residente no exterior.\n\nIII sociedade brasileira que, direta ou indiretamente, esteja sob o controle de pessoas jurídicas de direito público interno.\n\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas o item I está certo.",
+        "B": "Apenas o item II está certo.",
+        "C": "Apenas os itens I e III estão certos.",
+        "D": "Apenas os itens II e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "B",
+      "enunciado": "A interrupção.\nB prescrição.\nC nulidade.\nD decadência.\nE suspensão.\n\nDe acordo com o Código Civil, terreno destinado ao estabelecimento de uma autarquia em determinado estado federado é um bem público",
+      "alternativas": {
+        "A": "de uso especial, que é inalienável enquanto conservar sua qualificação.",
+        "B": "singular, que é alienável desde que observada a forma como a lei determinar que ocorra esse ato.",
+        "C": "dominica, que é alienável desde que observada a forma como a lei determinar que ocorra esse ato.",
+        "D": "de uso comum, que é inalienável enquanto conservar sua qualificação.",
+        "E": "de uso restrito, que é inalienável enquanto conservar sua qualificação."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "A",
+      "enunciado": "Pedro tem uma dívida líquida, certa e vencida com Carlos, que reside em lugar incerto. Maria, amiga de Pedro e terceira não interessada na relação jurídica de Pedro e Carlos, resolveu efetuar o pagamento da dívida. Como Maria não localizou Carlos, ela efetuou depósito judicial em nome e à conta de Pedro, que não se opôs e, assim, a dívida foi extinta.\n\nConsiderando o disposto no Código Civil, Maria procedeu a um(a)",
+      "alternativas": {
+        "A": "pagamento com sub-rogação.",
+        "B": "dação em pagamento.",
+        "C": "novação.",
+        "D": "imputação do pagamento.",
+        "E": "pagamento em consignação."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "E",
+      "enunciado": "Décio, plenamente capaz, faleceu e deixou um testamento cerrado, escrito a rogo por sua amiga Leila e assinado por ele — testamento válido, pois aprovado, antes de seu falecimento, por tabelião, na presença de duas testemunhas. Décio era casado e tinha três filhos com sua esposa, com quem vivia, além de uma filha adulterina com sua concubina.\n\nConsiderando essa situação hipotética e as disposições do Código Civil, Décio pode nomear como herdeiro testamentário",
+      "alternativas": {
+        "A": "uma das testemunhas do seu testamento.",
+        "B": "sua esposa e sua concubina.",
+        "C": "sua filha adulterina.",
+        "D": "o cônjuge de Leila.",
+        "E": "o tabelião que aprovou o testamento."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "A",
+      "enunciado": "As cooperativas são",
+      "alternativas": {
+        "A": "sociedades simples, com natureza jurídica própria, sujeitas à inscrição nas juntas comerciais.",
+        "B": "sociedades empresárias, não personificadas, sujeitas à inscrição nas juntas comerciais.",
+        "C": "sociedades simples, não personificadas, sujeitas à inscrição nas juntas comerciais.",
+        "D": "sociedades empresárias, com natureza jurídica própria, não sujeitas à inscrição nas juntas comerciais.",
+        "E": "sociedades simples, com natureza jurídica própria, não sujeitas à inscrição nas juntas comerciais."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "X",
+      "enunciado": "Antônio outorgou, por procuração, um mandato para realizar negócios jurídicos de interesse do outorgante, Luciano. Um desses negócios jurídicos deveria ser realizado com a maior brevidade para evitar demora que pudesse gerar perigo. No entanto, pendente de conclusão do negócio jurídico a ele cometido, Luciano faleceu.\n\nNesse caso, de acordo com os dispositivos do Código Civil, os herdeiros de Luciano deverão",
+      "alternativas": {
+        "A": "renunciar ao mandato imediatamente, informando Antônio sobre esse ato.",
+        "B": "revogar o mandato imediatamente, informando Antônio sobre esse ato.",
+        "C": "substabelecer o mandato imediatamente.",
+        "D": "praticar somente medidas conservatórias ou continuar o negócio jurídico pendente por sua urgência.",
+        "E": "substituí-lo até que se executem todas as obrigações advindas da procuração."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "B",
+      "enunciado": "As associações públicas são pessoas jurídicas de direito",
+      "alternativas": {
+        "A": "privado.",
+        "B": "público interno.",
+        "C": "público externo.",
+        "D": "privado ou público.",
+        "E": "privado e de capital público."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "C",
+      "enunciado": "De acordo com o Estatuto Estadual da Igualdade Racial — Lei n.º 13.694/2011 —, os remanescentes das comunidades de quilombos que estejam ocupando terras quilombolas no Rio Grande do Sul",
+      "alternativas": {
+        "A": "serão remanejados para residências oferecidas pelo estado.",
+        "B": "terão o reconhecimento temporário da propriedade até que o estado os remaneje.",
+        "C": "terão direito à posse da terra estatal.",
+        "D": "terão o reconhecimento de seu território como patrimônio cultural.",
+        "E": "terão o reconhecimento definitivo da propriedade de suas terras."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "E",
+      "enunciado": "Uma mulher sofreu diversas formas de violência doméstica provocadas pelo marido. Muito abalada, ela conseguiu ir a uma delegacia especializada e foi recebida por uma autoridade policial que, após ouvir suas queixas, adotou imediatamente as providências cabíveis. O expediente foi recebido pelo juiz com pedido de medidas protetivas de urgência.\n\nDe acordo com a Lei n.º 11.340/2006 — Lei Maria da Penha —, o juiz poderá conceder medida protetiva",
+      "alternativas": {
+        "A": "somente após a audiência das partes.",
+        "B": "isoladamente, sendo vedada a cumulação.",
+        "C": "apenas se houver pedido expresso da ofendida nesse sentido.",
+        "D": "de imediato, ainda que sem a oitiva das partes e sem a manifestação do Ministério Público.",
+        "E": "somente após a manifestação do Ministério Público."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "D",
+      "enunciado": "De acordo com o Código Penal, o agente que altera selo destinado a controle tributário comete crime",
+      "alternativas": {
+        "A": "de reprodução ou adulteração de selo ou peça filatélica.",
+        "B": "de falsificação de selo ou sinal público.",
+        "C": "de falsidade ideológica.",
+        "D": "de falsificação de papéis públicos.",
+        "E": "contra a ordem tributária."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "D",
+      "enunciado": "Determinado auditor fiscal da SEFAZ exigiu do contribuinte o pagamento de tributo que sabia ser indevido, afirmando que iria recolher o valor aos cofres públicos.\n\nNessa situação hipotética, o auditor fiscal deverá responder pelo cometimento do crime de",
+      "alternativas": {
+        "A": "peculato.",
+        "B": "excesso de exação.",
+        "C": "corrupção passiva.",
+        "D": "peculato mediante erro de outrem.",
+        "E": "crime funcional contra a ordem tributária."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "B",
+      "enunciado": "De acordo com o Código Penal no que diz respeito às finanças públicas, caracteriza crime",
+      "alternativas": {
+        "A": "autorizar a assunção de obrigação no último ano do mandato ou da legislatura.",
+        "B": "prestar garantia em operação de crédito, ainda que tenha sido constituída contragarantia em valor igual ao prestado.",
+        "C": "executar ato que acarrete aumento de despesa total com pessoal nos dois últimos quadrimestres anteriores ao final do mandato.",
+        "D": "realizar operação de crédito com inobservância de limite estabelecido em lei ou em resolução do Senado Federal.",
+        "E": "ordenar a inscrição de despesa previamente empenhada em restos a pagar para o próximo exercício financeiro."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "C",
+      "enunciado": "O proprietário de estabelecimento comercial que impeça o acesso de auditor fiscal da SEFAZ, regularmente identificado e com atribuição para dar início à ação fiscal, pratica",
+      "alternativas": {
+        "A": "desacato.",
+        "B": "resistência.",
+        "C": "desobediência.",
+        "D": "crime contra a ordem tributária.",
+        "E": "conduta penalmente atípica, considerada mera infração administrativa."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "A",
+      "enunciado": "No que tange à aplicação da lei penal, a lei penal nova que",
+      "alternativas": {
+        "A": "diminui a pena de crime contra a ordem tributária não retroage.",
+        "B": "tipifica penalmente a conduta de deixar de cumprir alguma obrigação fiscal acessória retroage.",
+        "C": "torna atípica determinada conduta aplica-se aos fatos anteriores, desde que ainda não decididos por sentença condenatória transitada em julgado.",
+        "D": "estabelece nova hipótese de extinção de punibilidade não se aplica aos fatos anteriores.",
+        "E": "torna atípica determinada conduta cessa os efeitos penais da sentença condenatória decorrente dessa prática, ainda que já tenha transitado em julgado."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "E",
+      "enunciado": "De acordo com a Lei n.º 8.429/1992, constitui ato de improbidade administrativa que atenta especificamente contra os princípios da administração pública qualquer ação ou omissão que violar os deveres de honestidade, imparcialidade, legalidade e lealdade às instituições, e notadamente",
+      "alternativas": {
+        "A": "negar publicidade aos atos oficiais.",
+        "B": "facilitar para que terceiro se enriqueça ilicitamente.",
+        "C": "conceder indevidamente benefício administrativo ou fiscal.",
+        "D": "representar negligência na arrecadação de tributo e na conservação do patrimônio público.",
+        "E": "consistir em uso, em proveito próprio, de bens ou valores integrantes do acervo patrimonial da administração pública."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "D",
+      "enunciado": "É punido na modalidade culposa o crime de",
+      "alternativas": {
+        "A": "peculato.",
+        "B": "falsidade ideológica.",
+        "C": "condescendência criminosa.",
+        "D": "violação de sigilo funcional.",
+        "E": "supressão de tributos mediante omissão de informação."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "E",
+      "enunciado": "O agente que patrocina, direta ou indiretamente, interesse privado perante a administração fazendária, valendo-se da qualidade de funcionário público, pratica",
+      "alternativas": {
+        "A": "prevaricação.",
+        "B": "advocacia administrativa.",
+        "C": "conduta penalmente atípica.",
+        "D": "corrupção passiva privilegiada.",
+        "E": "crime funcional contra a ordem tributária."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Direito Empresarial, Direito Civil e Direito Penal",
+      "gabarito": "A",
+      "enunciado": "A conduta típica será inteiramente desculpável e será excluída a culpabilidade quando o erro inevitável recair sobre",
+      "alternativas": {
+        "A": "lei.",
+        "B": "a pessoa.",
+        "C": "a ilicitude do fato.",
+        "D": "a eficácia do meio empregado.",
+        "E": "as condições pessoais da vítima."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Em determinado órgão, foi identificada a necessidade de solucionar os seguintes problemas:\n(a) ausência de gerenciamento dos softwares desenvolvidos internamente, quanto a versão, recursos e arquiteturas;\n(b) falhas na entrega de informações que deveriam ser precisas, na perspectiva de serem corretas, para a pessoa certa, no momento certo.\n\nDe acordo com a ITIL v3, esses problemas podem ser resolvidos com a implantação",
+      "alternativas": {
+        "A": "da função gerenciamento de aplicativo, para (a), e do processo gerenciamento de conhecimento, para (b).",
+        "B": "do processo gerenciamento de problemas, para ambos.",
+        "C": "do processo gerenciamento de configuração, para (a), e da função central de serviço, para (b).",
+        "D": "do processo gerenciamento da liberação, para ambos.",
+        "E": "do processo gerenciamento de nível de serviço, para ambos."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Em auditoria externa para analisar um serviço implementado em determinado órgão, o auditor observou que esse serviço seguia inicialmente as boas práticas da ITIL, mas passou a ficar inoperante ou com baixa performance em alguns momentos, durante picos de acesso de uso. O auditor constatou, ainda, que não havia tido avaliação prévia sobre picos de demanda.\n\nDe acordo com a ITIL v3, esses problemas podem ser resolvidos com a implantação",
+      "alternativas": {
+        "A": "de incidentes, que, no caso descrito, ficaria limitado ao atendimento da inoperância e aos casos de baixa performance com a função central de serviços.",
+        "B": "da demanda do estágio estratégia, que visa gerenciar os ciclos de produção dos serviços e os ciclos de consumo dos serviços.",
+        "C": "de disponibilidade, especialmente no que se refere à métrica MTTR, que mede a performance dos serviços.",
+        "D": "de capacidade do estágio transição, especialmente no que se refere à quantidade de recursos necessários para o sistema funcionar sem interrupções.",
+        "E": "de mudança no estágio desenho, especialmente no que se refere à mensuração da capacidade prévia necessária para uso do serviço."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "No desenvolvimento de um produto, verificou-se que não havia identificação de precedência entre algumas atividades antes do início das execuções.\n\nDe acordo com o PMBOK, a representação das relações lógicas entre as atividades do projeto é obtida com",
+      "alternativas": {
+        "A": "a técnica Delphi.",
+        "B": "a estrutura analítica do projeto (EAP).",
+        "C": "o diagrama de rede do cronograma do projeto.",
+        "D": "a matriz de rastreabilidade de requisitos.",
+        "E": "a linha de base do escopo."
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Assinale a opção que indica o documento que, no projeto de um novo serviço, é descrito na área de conhecimento integração no PMBOK e, apesar de não ser considerado um contrato, informa as necessidades do negócio, as premissas e os requisitos de alto nível do cliente.",
+      "alternativas": {
+        "A": "estrutura analítica do projeto (EAP)",
+        "B": "plano de gerenciamento da qualidade",
+        "C": "termo de abertura de projeto",
+        "D": "plano de gerenciamento do projeto",
+        "E": "registro das mudanças"
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "É dispensável que o gerenciamento de finanças como custos e orçamentos conste em guias e(ou) modelos de governança de TI, apesar de esse tipo de gerenciamento caracterizar ação associada à governança. Aliado ao gerenciamento de finanças, o orçamento",
+      "alternativas": {
+        "A": "é abordado na ITIL, no estágio estratégia, e no PMBOK, no gerenciamento de custos do projeto.",
+        "B": "é abordado no PMBOK, no gerenciamento financeiro do projeto, mas não na ITIL.",
+        "C": "é abordado na ITIL, no estágio desenho, e no PMBOK, na área de conhecimento gerenciamento do escopo do projeto.",
+        "D": "não é abordado na ITIL nem no PMBOK.",
+        "E": "é abordado na ITIL, no gerenciamento financeiro, mas não no PMBOK."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Ao rever a aplicação da ITIL em determinado órgão, um auditor verificou que os processos gerenciamento da mudança e gerenciamento da configuração e de ativos de serviço atuavam em outros estágios além daquele em que se encontram organizados na ITIL v3.\n\nÀ luz da ITIL v3, infere-se desse achado da auditoria",
+      "alternativas": {
+        "A": "irregularidade, pois todos os processos da ITIL atuam somente nos estágios aos quais eles pertençam.",
+        "B": "irregularidade, pois somente o processo gerenciamento da mudança pode atuar fora do seu estágio.",
+        "C": "irregularidade, pois somente o processo gerenciamento da configuração e de ativos de serviço pode atuar fora do seu estágio.",
+        "D": "ausência de irregularidade, pois todos os processos do estágio transição podem operar tanto nos respectivos estágios quanto no estágio operação.",
+        "E": "ausência de irregularidade, pois ambos os processos atuam em todo o ciclo de vida, apesar de descritos no estágio transição de serviços."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Ao final da implementação de uma aplicação de TI, um auditor verificou que houve falha no momento de priorizar e equilibrar programas e serviços com base nas demandas e nas restrições de financiamento.\n\nÀ luz do COBIT 5, é correto inferir que a falha decorreu de erro na aplicação do processo",
+      "alternativas": {
+        "A": "gerenciar portfólio, do domínio alinhar, planejar e organizar.",
+        "B": "gerenciar a estratégia, do domínio avaliar, dirigir e monitorar.",
+        "C": "garantir a otimização de recursos, do domínio alinhar, planejar e organizar.",
+        "D": "gerenciar riscos, do domínio construir, adquirir e implementar.",
+        "E": "garantir a otimização do risco, do domínio monitorar, avaliar e analisar."
+      }
+    },
+    {
+      "numero": 61,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "O diretor de TI de determinado órgão implantou, de acordo com a ITIL v3, os processos voltados para gerenciar mudanças, gerenciar problemas e gerenciar a continuidade de serviço.\n\nNessa situação, a implantação do COBIT 5 para as mesmas finalidades mencionadas seria",
+      "alternativas": {
+        "A": "inviável, pois no COBIT há somente os processos gerenciar continuidade e gerenciar problemas.",
+        "B": "apropriada, pois o COBIT lida apenas com a governança de TI, o que não interfere nesses processos.",
+        "C": "inviável, pois no COBIT há somente o processo gerenciar continuidade.",
+        "D": "inviável, pois no COBIT há somente os processos gerenciar mudanças e gerenciar problemas.",
+        "E": "apropriada, pois esses processos também se encontram no COBIT."
+      }
+    },
+    {
+      "numero": 62,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "No tocante à implantação de processos de governança, assinale a opção correta, acerca da gestão de recursos humanos e de pessoas, conforme as boas práticas descritas no COBIT 5, na ITIL v3 e no PMBOK.",
+      "alternativas": {
+        "A": "Somente o guia PMBOK inclui gestão de pessoas; a ITIL, por gerenciar serviços, não aborda os recursos humanos necessários.",
+        "B": "No COBIT, não há referência a gestão de pessoas; no PMBOK consta o processo gerenciamento de recursos humanos na área de conhecimento escopo do projeto.",
+        "C": "Na ITIL, as pessoas são consideradas habilidades e constituem um dos 4 Ps do desenho de serviço; no PMBOK, a área de conhecimento gerenciamento das partes interessadas do projeto lida com a gestão de pessoas.",
+        "D": "A ITIL lida com pessoas estritamente no estágio estratégia; o PMBOK lida com pessoas estritamente nos processos afetos à área de conhecimento integração.",
+        "E": "Nem a ITIL, nem o COBIT, nem o PMBOK mencionam a gestão de pessoas: todos eles constituem guias de boas práticas para governança de TI, exclusivamente."
+      }
+    },
+    {
+      "numero": 63,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "O diretor de TI de uma empresa pública de pequeno porte deseja melhorar a governança e a gestão de TI dessa empresa.\n\nNesse caso, a aplicação do COBIT 5",
+      "alternativas": {
+        "A": "é admissível apenas em relação à governança, mas não em relação à gestão.",
+        "B": "não é viável, pois o COBIT 5 não pode ser utilizado em empresa pública.",
+        "C": "não compete ao diretor de TI, mas somente à presidência da empresa, porque alterará a governança da empresa.",
+        "D": "é admissível, pois esse guia pode ser utilizado em empresa de qualquer natureza e porte.",
+        "E": "não é viável, por ser incompatível com empresa de pequeno porte."
+      }
+    },
+    {
+      "numero": 64,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "A respeito do modelo precedente, assinale a opção correta, de acordo com a BPM (business process modeling).",
+      "alternativas": {
+        "A": "#2 indica a ramificação em que se acionam todos os fluxos de saída em paralelo.",
+        "B": "#3 está modelado de forma errada, pois a ligação entre duas raias (divisões de responsabilidade) deve ser feita, obrigatoriamente, por meio do símbolo .",
+        "C": "#4 não surtirá efeito, pois a ligação entre divisões é restrita a tarefas simbolizadas por",
+        "D": "#5 ou #6 estão errados, pois dois fluxos não podem sair, ao mesmo tempo, de uma mesma tarefa. Nesse caso, o correto seria representar as saídas por meio do símbolo",
+        "E": "#1 indica um desvio exclusivo baseado em eventos, de modo que cada ocorrência de um dos eventos subsequentes inicia uma nova instância do processo."
+      }
+    },
+    {
+      "numero": 65,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "X",
+      "enunciado": "Assinale a opção que, de acordo com a Notação e Modelo de Processo de Negócio (BPMN), apresenta o símbolo utilizado para modelar, em um fluxo de processo, um subprocesso, ou seja, uma atividade que possa ser decomposta em subtarefas.",
+      "alternativas": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": "",
+        "E": ""
+      }
+    },
+    {
+      "numero": 66,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "De acordo com a BPMN, o símbolo precedente descreve",
+      "alternativas": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": "",
+        "E": ""
+      }
+    },
+    {
+      "numero": 67,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "A respeito do BI (business intelligence), assinale a opção correta.",
+      "alternativas": {
+        "A": "O BI consiste na transformação metódica e consciente das informações exclusivamente prestadas pelos tomadores de decisão em novas formas de conhecimento, para evolução dos negócios e dos resultados organizacionais.",
+        "B": "ETL é o processo de análise de dados previsto pela arquitetura de BI.",
+        "C": "As técnicas do BI objetivam definir regras para a formatação adequada dos dados, com vista a sua transformação em depósitos estruturados de informações, sem considerar a sua origem.",
+        "D": "O repositório de dados analíticos de BI é representado pelas diversas bases de dados relacionais e por repositórios de dados que utilizem modelagens relacionais.",
+        "E": "A camada de apresentação de uma arquitetura de BI é aquela em que as informações são organizadas e centralizadas."
+      }
+    },
+    {
+      "numero": 68,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Para o estabelecimento de padrões de segurança, um dos princípios críticos é a necessidade de se verificar a legitimidade de uma comunicação, de uma transação ou de um acesso a algum serviço. Esse princípio refere-se à",
+      "alternativas": {
+        "A": "confidencialidade.",
+        "B": "autenticidade.",
+        "C": "integridade.",
+        "D": "conformidade.",
+        "E": "disponibilidade."
+      }
+    },
+    {
+      "numero": 69,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Julgue os itens a seguir, acerca de segurança da informação.\n\nI São exemplos de ameaças as contas sem senhas ou configurações erradas em serviços DNS, FTP e SMTP.\n\nII Não repúdio indica que o remetente de uma mensagem não deve ser capaz de negar que enviou a mensagem.\n\nIII Vulnerabilidade é a fragilidade de um ativo ou de um grupo de ativos que pode ser explorada.\n\nIV Pessoas não são consideradas ativos de segurança da informação.\n\nEstão certos apenas os itens",
+      "alternativas": {
+        "A": "I e III.",
+        "B": "I e IV.",
+        "C": "II e III.",
+        "D": "I, II e IV.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 70,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "Acerca do plano de continuidade de negócios (PCN), assinale a opção correta.",
+      "alternativas": {
+        "A": "Para operacionalizar o PCN de uma empresa que já foi elaborado, é altamente recomendável o desenvolvimento de um sistema de gestão de continuidade de negócios (SGCN).",
+        "B": "PCN e plano de contingência são sinônimos, uma vez que contemplam os mesmos itens.",
+        "C": "Os prazos decorrentes de ações realizadas por agentes externos à organização não necessitam ser considerados para elaboração do PCN dessa organização.",
+        "D": "Na perspectiva do PCN, o funcionamento de uma empresa deve-se, fundamentalmente, às variáveis recursos e pessoas.",
+        "E": "O PCN estabelece controles de segurança da informação como resultado de uma ampla análise de riscos."
+      }
+    },
+    {
+      "numero": 71,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "A respeito dos métodos de criptografia, assinale a opção correta.",
+      "alternativas": {
+        "A": "Esses métodos classificam-se em cifragem e decifragem de chaves.",
+        "B": "Na criptografia simétrica, as chaves utilizadas para criptografar uma mensagem possuem o mesmo tamanho, todavia são diferentes na origem e no destino.",
+        "C": "Na utilização de chaves públicas, a chave é dividida em duas partes complementares, uma das quais é secreta, eliminando-se, dessa forma, o processo de geração e distribuição de chaves de cifragem.",
+        "D": "A cifragem é suficiente para garantir a integridade dos dados que são transmitidos, por isso é dispensável o uso de chaves de autenticação e de assinaturas digitais.",
+        "E": "Independentemente da técnica de criptografia empregada, a transmissão das chaves de cifragem do emissor para o receptor é desnecessária."
+      }
+    },
+    {
+      "numero": 72,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Acerca de certificação digital, assinale a opção correta.",
+      "alternativas": {
+        "A": "Normalmente, cada certificado inclui a chave pública referente à chave privada de posse da entidade especificada no certificado.",
+        "B": "Certificado digital comprado não pode ser revogado.",
+        "C": "É função da autoridade certificadora identificar e cadastrar usuários presencialmente e, depois, encaminhar as solicitações de certificados, mantendo registros das operações.",
+        "D": "No Brasil, adota-se o modelo de certificação hierárquica com várias raízes; SERPRO, SERASA e CERTISIGN são exemplos de autoridades certificadoras raiz que credenciam os participantes e auditam os processos.",
+        "E": "A utilização do certificado digital em documentos ainda não dispensa a apresentação física destes documentos no formato impresso em órgãos públicos."
+      }
+    },
+    {
+      "numero": 73,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "A a documentação interna e a externa.\nB o gênero, a espécie, a tipologia e a natureza do assunto.\nC as auditorias internas e as externas.\nD a auditoria, a análise crítica do programa e a equipe de auditoria.\nE a documentação ostensiva e a sigilosa.",
+      "alternativas": {
+        "A": "documentação interna e a externa.",
+        "B": "gênero, a espécie, a tipologia e a natureza do assunto.",
+        "C": "auditorias internas e as externas.",
+        "D": "auditoria, a análise crítica do programa e a equipe de auditoria.",
+        "E": "documentação ostensiva e a sigilosa."
+      }
+    },
+    {
+      "numero": 74,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "A respeito do controle de versões de software, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 75,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Acerca de controle de versões, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 76,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 77,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 78,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "A respeito do controle de versões de software, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 79,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Acerca de controle de versões, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 80,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 81,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 82,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "A respeito do controle de versões de software, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 83,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Acerca de controle de versões, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 84,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 85,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 86,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "A respeito do controle de versões de software, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 87,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "X",
+      "enunciado": "Acerca de controle de versões, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 88,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 89,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 90,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "A respeito do controle de versões de software, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 91,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Acerca de controle de versões, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 92,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 93,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 94,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "A respeito do controle de versões de software, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 95,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Acerca de controle de versões, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 96,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 97,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Assinale a opção que apresenta um sistema de controle de versões.",
+      "alternativas": {
+        "A": "Git.",
+        "B": "SVN.",
+        "C": "CVS.",
+        "D": "Mercurial.",
+        "E": "Bazaar."
+      }
+    },
+    {
+      "numero": 98,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "A respeito do controle de versões de software, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 99,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "Acerca de controle de versões, assinale a opção correta.",
+      "alternativas": {
+        "A": "O controle de versões é um processo que visa garantir a integridade e a disponibilidade dos dados.",
+        "B": "O controle de versões é um processo que visa garantir a integridade e a rastreabilidade dos dados.",
+        "C": "O controle de versões é um processo que visa garantir a confidencialidade e a integridade dos dados.",
+        "D": "O controle de versões é um processo que visa garantir a confidencialidade e a disponibilidade dos dados.",
+        "E": "O controle de versões é um processo que visa garantir a integridade e a autenticidade dos dados."
+      }
+    },
+    {
+      "numero": 100,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Uma repartição com 6 auditores fiscais responsabilizou-se por fiscalizar 18 empresas. Cada empresa foi fiscalizada por exatamente 4 auditores, e cada auditor fiscalizou exatamente a mesma quantidade de empresas.\n\nNessa situação, cada auditor fiscalizou",
+      "alternativas": {
+        "A": "8 empresas.",
+        "B": "10 empresas.",
+        "C": "12 empresas.",
+        "D": "14 empresas.",
+        "E": "16 empresas."
+      }
+    }
+  ],
+  "questoes_discursivas": []
+}

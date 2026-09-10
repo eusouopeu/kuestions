@@ -1,0 +1,1049 @@
+{
+  "instituicao": "SEFAZ-PA",
+  "ano": 2021,
+  "cargo": "Auditor Fiscal de Receitas Estaduais",
+  "tipo_prova": "TARDE",
+  "gabarito_tipo": 1,
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Sobre prescrição e decadência em matéria tributária o Supremo Tribunal Federal",
+      "alternativas": {
+        "A": "definiu que lei ordinária tem competência para prever prazos prescricionais, mas não decadenciais em matéria tributária.",
+        "B": "definiu que lei ordinária tem competência para prever prazos decadenciais, mas não prescricionais em matéria tributária.",
+        "C": "até hoje não se manifestou sobre o tipo de lei que pode prever prazos prescricionais e decadenciais em matéria tributária.",
+        "D": "declarou a inconstitucionalidade de artigos de lei ordinária que tratavam de prescrição e decadência em matéria tributária.",
+        "E": "declarou a inconstitucionalidade de artigos de lei complementar que tratavam de prescrição e decadência em matéria tributária."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "Sobre a taxa prevista na Constituição Federal é correto afirmar que",
+      "alternativas": {
+        "A": "é inconstitucional a taxa cobrada exclusivamente em razão dos serviços públicos de coleta, remoção e tratamento ou destinação de lixo ou resíduos provenientes de imóveis, porque a Súmula Vinculante 18 assim declarou.",
+        "B": "é constitucional a taxa cobrada exclusivamente em razão dos serviços públicos de coleta, remoção e tratamento ou destinação de lixo ou resíduos provenientes de imóveis, porque a Súmula Vinculante 19 assim declarou.",
+        "C": "é inconstitucional a taxa cobrada exclusivamente em razão dos serviços públicos de coleta, remoção, mas a taxa referente a tratamento ou destinação de lixo ou resíduos provenientes de imóveis é constitucional, porque a Súmula Vinculante 19 assim declarou.",
+        "D": "é constitucional a taxa cobrada exclusivamente em razão dos serviços públicos de coleta e remoção, mas inconstitucional se referente a tratamento ou destinação de lixo ou resíduos provenientes de imóveis, porque a Súmula Vinculante 18 assim declarou.",
+        "E": "é inconstitucional a taxa cobrada exclusivamente em razão dos serviços públicos de coleta e remoção, mas constitucional se referente a tratamento ou destinação de lixo ou resíduos provenientes de imóveis, porque a Súmula Vinculante 18 assim declarou."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "A Secretaria de Fazenda do Estado Westville, ao rever sua lei de processo administrativo fiscal, cria um projeto de lei que insere um artigo exigindo o depósito administrativo de 20% do valor do crédito tributário que o contribuinte deseje discutir em grau recursal, e você, como auditor fiscal, é indicado para emitir parecer sobre o novo dispositivo legal. Ao ler o dispositivo, você imediatamente identifica que o novo artigo é",
+      "alternativas": {
+        "A": "constitucional porque está de acordo com os julgamentos mais recentes do Supremo Tribunal Federal, geradores da Súmula Vinculante 21.",
+        "B": "constitucional porque o Estado é quem tem competência para legislar sobre o processo administrativo fiscal no âmbito de sua atuação.",
+        "C": "inconstitucional porque a Súmula Vinculante 21 prevê não ser possível esse tipo de exigência.",
+        "D": "inconstitucional porque apenas Lei Federal pode versar sobre processo administrativo fiscal.",
+        "E": "inconstitucional porque o Decreto 70.235/1972, recepcionado pela Constituição Federal como norma definidora do Processo Administrativo Fiscal, é quem regula a matéria."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Sobre os salvados de sinistros das seguradoras é correto afirmar que",
+      "alternativas": {
+        "A": "não incide o ICMS – Imposto sobre Circulação de Mercadorias e Serviços – porque constituem recuperação de receitas e não atividade mercantil, conforme inteligência da Súmula Vinculante 32.",
+        "B": "são imunes a quaisquer impostos, conforme previsão do art. 150, VI, “a” da Constituição Federal.",
+        "C": "são imunes ao ICMS – Imposto sobre Circulação de Mercadorias e Serviços –, conforme previsão do art. 152 da Constituição Federal, que veda a distinção entre bens e serviços em razão da procedência e do destino dos bens.",
+        "D": "incide o ICMS – Imposto sobre Circulação de Mercadorias e Serviços – porque as leis estaduais que prevejam a incidência estarão de acordo com os arts. 22, VII e 153, V da Constituição Federal.",
+        "E": "incide o ICMS – Imposto sobre Circulação de Mercadorias e Serviços – porque as leis estaduais que prevejam a incidência estarão de acordo com o art. 153, IV da Constituição Federal."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "De acordo com o Supremo Tribunal Federal, no §2º do art. 145 da Constituição Federal, que afirma que “as taxas não poderão ter base de cálculo própria de impostos”, deve-se entender que",
+      "alternativas": {
+        "A": "não existe possibilidade jurídica de haver similitude entre o fato gerador de taxas e impostos.",
+        "B": "é juridicamente possível haver similitude entre o fato gerador de taxas e impostos, desde que, no cálculo do valor da taxa, não seja adotado qualquer elemento da base de cálculo própria de determinado imposto.",
+        "C": "é constitucional a adoção, no cálculo do valor de taxa, de um ou mais elementos da base de cálculo própria de determinado imposto, desde que não haja integral identidade entre uma base e outra.",
+        "D": "é inconstitucional a adoção, no cálculo do valor da taxa, de um ou mais elementos da base de cálculo própria de imposto, por expressa vedação da Constituição Federal.",
+        "E": "é inconstitucional a adoção, no cálculo do valor de taxa, de um ou mais elementos da base de cálculo própria de determinado imposto, conforme previsão do §2º do art. 145 da Constituição Federal."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "Segundo o Supremo Tribunal Federal, o tributo que pode incidir sobre o serviço de iluminação pública precisa considerar que",
+      "alternativas": {
+        "A": "pode ser remunerado mediante taxa o serviço “inespecífico, não mensurável, indivisível e insuscetível de ser referido a determinado contribuinte”.",
+        "B": "não pode ser remunerado mediante taxa o serviço “inespecífico, não mensurável, indivisível e insuscetível de ser referido a determinado contribuinte”.",
+        "C": "não pode ser remunerado mediante contribuição o serviço “inespecífico, não mensurável, indivisível e insuscetível de ser referido a determinado contribuinte”.",
+        "D": "pode ser remunerado mediante contribuição de melhoria o serviço “inespecífico, não mensurável, indivisível e insuscetível de ser referido a determinado contribuinte”.",
+        "E": "pode ser remunerado mediante empréstimo compulsório o serviço “inespecífico, não mensurável, indivisível e insuscetível de ser referido a determinado contribuinte”."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Sobre a incidência ou não do ICMS – Imposto sobre Circulação de Mercadorias e Serviços – na entrada de mercadoria importada do exterior é correto afirmar o seguinte:",
+      "alternativas": {
+        "A": "é imune a entrada de mercadoria importada do exterior em razão da previsão do art. 153, I, que rege o imposto de importação.",
+        "B": "é isenta a entrada de mercadoria importada do exterior em homenagem ao Princípio da Vedação da Bitributação, ante a previsão constitucional do imposto de importação.",
+        "C": "na entrada de mercadoria importada do exterior, é inconstitucional a cobrança por ocasião do desembaraço aduaneiro ante a incidência do imposto de importação.",
+        "D": "em se cuidando de mercadoria importada, o fato gerador do ICMS não ocorre com a entrada no estabelecimento do importador, mas, sim, quando do recebimento da mercadoria, ao ensejo do respectivo desembaraço aduaneiro.",
+        "E": "em se cuidando de mercadoria importada, o fato gerador do ICMS ocorre com a entrada no estabelecimento do importador, e não quando do recebimento da mercadoria no respectivo desembaraço aduaneiro."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "De acordo com o Supremo Tribunal Federal, em se tratando de Princípios Constitucionais Tributários e prazo de alteração de norma tributária, é correto afirmar o seguinte:",
+      "alternativas": {
+        "A": "projeto de lei estadual que visa a alterar os prazos de recolhimento do IPVA fixando calendário anual para 2022 diferente do calendário de 2021 e postergando em um mês cada período previamente estabelecido, se aprovado e publicado em 2022, fere o Princípio da Anterioridade.",
+        "B": "projeto de lei estadual que visa a alterar os prazos de recolhimento do IPVA fixando calendário anual para 2022 diferente do calendário de 2021 e postergando em um mês cada período previamente estabelecido, se aprovado, sancionado e publicado em 2022, é inconstitucional, não atendendo ao Princípio da Anterioridade.",
+        "C": "projeto de lei estadual que visa a alterar os prazos de recolhimento do IPVA fixando calendário anual para 2022 diferente do calendário de 2021 postergando em um mês cada período previamente estabelecido, se aprovado, sancionado e publicado em 2022, fere os Princípios da Unidade e Anualidade.",
+        "D": "projeto de lei estadual que visa a alterar os prazos de recolhimento do IPVA fixando calendário anual para 2022 diferente do calendário de 2021 e postergando em um mês cada período previamente estabelecido, se aprovado, sancionado e publicado em 2022, fere a Súmula Vinculante 50.",
+        "E": "projeto de lei estadual que visa a alterar os prazos de recolhimento do IPVA fixando calendário anual para 2022 diferente do calendário de 2021 e postergando em um mês cada período previamente estabelecido, se aprovado, sancionado e publicado em 2022, não fere o Princípio da Anterioridade."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Sobre a imunidade tributária dos livros é correto afirmar o seguinte:",
+      "alternativas": {
+        "A": "a imunidade tributária constante do art. 150, VI, d, da CF/88 aplica-se à importação e comercialização, no mercado interno, do livro eletrônico (e-book) e dos suportes exclusivamente utilizados para fixá-los, como leitores de livros eletrônicos (e-readers), ainda que possuam funcionalidades acessórias.",
+        "B": "a imunidade tributária constante do art. 150, VI, d, da CF/88 não se aplica à importação do livro eletrônico (e-book) e dos suportes exclusivamente utilizados para fixá-los, como leitores de livros eletrônicos (e-readers), ainda que possuam funcionalidades acessórias.",
+        "C": "a imunidade tributária constante do art. 150, VI, d, da CF/88 não se aplica à comercialização, no mercado interno, do livro eletrônico (e-book) e dos suportes exclusivamente utilizados para fixá-los, como leitores de livros eletrônicos (e-readers).",
+        "D": "a imunidade tributária constante do art. 150, VI, d, da CF/88 aplica-se à importação e comercialização, no mercado interno, do livro eletrônico (e-book), mas não dos suportes exclusivamente utilizados para fixá-los, como leitores de livros eletrônicos (e-readers), ainda que possuam funcionalidades acessórias.",
+        "E": "a imunidade tributária constante do art. 150, VI, d, da CF/88 aplica-se à importação e comercialização, no mercado interno, dos suportes exclusivamente utilizados para fixá-los, como leitores de livros eletrônicos (e-readers), ainda que possuam funcionalidades acessórias, mas não do livro eletrônico (e-book)."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Analise a tabela abaixo, elaborada a partir da previsão do art. 113 do Anexo I do Regulamento do ICMS – Imposto sobre Circulação de Mercadorias e Serviços – do Estado do Pará, na redação do Decreto 2.449/2010.\n\nProduto: Arroz, Inciso do art. 113: II, Integrante da Cesta Básica: X\nProduto: Feijão, Inciso do art. 113: XX, Integrante da Cesta Básica: X\nProduto: Leite em pó, Inciso do art. 113: XIX, Integrante da Cesta Básica: X\n\nÉ correto afirmar que a identificação dos produtos constantes da tabela acima como integrantes da cesta básica para fins de ICMS é necessária para observância da",
+      "alternativas": {
+        "A": "transparência do imposto, prevista no art. 155, §2º, III da Constituição Federal.",
+        "B": "progressividade do imposto, prevista no art. 156, §1º, I da Constituição Federal.",
+        "C": "seletividade do imposto, prevista no art. 156, §1º, II da Constituição Federal.",
+        "D": "não-cumulatividade do imposto, prevista no art. 155, §2º, I da Constituição Federal.",
+        "E": "seletividade do imposto, prevista no art. 155, §2º, III da Constituição Federal."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Uma auditora da Secretaria de Fazenda do Estado do Pará, ao elaborar a sua declaração de imposto de renda (pessoa física) referente ao exercício 2014, verificou no comprovante de rendimentos pagos e de retenção de imposto de renda na fonte, expedido pelo seu órgão pagador, que foram retidos na fonte, no exercício, valores a maior do que o devido e que os valores excedentes não foram deduzidos da sua base de cálculo, gerando um valor a pagar ainda a título de imposto de renda. Dirigindo-se à sede da Receita Federal do Brasil, em Belém, a técnica que a atendeu informou que não havia, naquele momento, como resolver a questão administrativamente e que a melhor forma de fazê-lo seria ajuizar uma ação judicial. Considerando essa situação, que envolve pedido de repetição do indébito, a melhor alternativa para identificar e justificar quem deve ser responsável pela devolução dos valores ao contribuinte é",
+      "alternativas": {
+        "A": "a União Federal, porque pertence a ela o produto da arrecadação do imposto de renda pessoa física, incidente na fonte, sobre rendimentos pagos por ela, a qualquer título.",
+        "B": "a União Federal e o Estado do Pará, em regime de responsabilidade tributária ativa integral, porque pertence à União o produto da arrecadação do imposto de renda pessoa física, incidente na fonte, sobre rendimentos pagos pelo Estado, a qualquer título.",
+        "C": "a União Federal, o Estado do Pará e o Município de Belém, onde está sediada a Secretaria da Receita Federal do Brasil em que a auditora agendou atendimento, por se tratar de responsabilidade tributária ativa.",
+        "D": "o Estado do Pará, porque pertence aos estados e ao Distrito Federal o produto da arrecadação do imposto da União, sobre renda e proventos de qualquer natureza, incidente na fonte, sobre rendimentos pagos a qualquer título por eles.",
+        "E": "a União Federal e o Município de Belém, porque a receita discutida pertence a ela e ao Município onde está sediada a agência em que a auditora agendou atendimento, na forma do art. 153, III da Constituição Federal."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "Uma contribuinte foi à Secretaria de Fazenda do Estado do Pará para protocolar o inventário de sua falecida mãe para fins de cálculo do Imposto de Transmissão Causa Mortis e Doação – (ITCMD). Após alguns dias, recebeu a guia para recolhimento do imposto a partir de laudo que listava, dentre os bens imóveis inventariados, uma casa gravada com enfiteuse ao Município de Belém. Sem saber do que se tratava, voltou ao cartório de notas para ultimar o inventário extrajudicial, quando o escrevente lhe informou que ela precisaria ir à CODEM (Companhia de Desenvolvimento da Área Metropolitana de Belém) para proceder ao resgate da enfiteuse, e recolher mais imposto após esse ato. O imposto a que o escrevente se refere na questão do “resgate da enfiteuse” é",
+      "alternativas": {
+        "A": "uma complementação do ITCMD, na forma do art. 155, I da Constituição Federal.",
+        "B": "o IPTU (Imposto sobre a Propriedade Territorial Urbana), porque a enfiteuse é fato gerador desse tributo, na forma do art. 156, I da Constituição Federal.",
+        "C": "o ITBI (Imposto de Transmissão Inter Vivos), porque engloba a cessão de direitos e sua aquisição, na forma do art. 156, II da Constituição Federal.",
+        "D": "o ISS (Imposto sobre Serviços), de qualquer natureza, porque a “baixa do gravame” é um serviço público prestado pelo Município, na forma do art. 156, III da Constituição Federal.",
+        "E": "o ITR (Imposto Territorial Rural), porque a enfiteuse é fato gerador desse tributo, na forma do art. 153, VI da Constituição Federal."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Uma das características norteadoras comuns a tributos como imposto de importação, imposto de exportação, impostos sobre produtos industrializados e imposto sobre operações de crédito, câmbio e seguro ou relativas a títulos ou valores mobiliários, é",
+      "alternativas": {
+        "A": "a não-cumulatividade, compensando-se o que for devido em cada operação com o montante cobrado nas anteriores.",
+        "B": "a seletividade, que versa sobre a incidência desses impostos apenas quando o bem for considerado não-essencial.",
+        "C": "a progressividade, instituindo-se alíquotas proporcionais ao maior valor dos bens sobre os quais irão incidir.",
+        "D": "a proporcionalidade, instituindo-se alíquotas progressivas de acordo com o maior valor dos bens sobre os quais irão incidir",
+        "E": "a extrafiscalidade, gerando o manejo pelo Poder Executivo desses tributos para incentivar ou desestimular condutas de contribuintes, daí a previsão do §1º do art. 153 da Constituição Federal."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Sobre o Princípio da Legalidade, previsto na alínea “g” do inciso XII, § 2º do art. 155 da Constituição Federal, em matéria de concessão de benefícios fiscais de ICMS - Imposto sobre Circulação de Mercadorias e Serviços –, é correto afirmar que",
+      "alternativas": {
+        "A": "a alínea “g” do inciso XII, do §2º do art. 155 da Constituição Federal, que atribui à Lei Complementar a regulação “da forma como, mediante deliberação dos Estados e do Distrito Federal, isenções, incentivos e benefícios fiscais serão concedidos e revogados”, enquanto não editada a referida lei, por força do §8º do art. 34 do ADCT, impõe a esses entes subnacionais para a concessão desses benefícios a observância da Lei Complementar 24/1975, recepcionada pela Constituição Federal, conforme reiterada jurisprudência do Supremo Tribunal Federal.",
+        "B": "a alínea “g” do inciso XII, do §2º do art. 155 da Constituição Federal, que atribui à Lei Complementar a regulação “da forma como, mediante deliberação dos Estados e do Distrito Federal, isenções, incentivos e benefícios fiscais serão concedidos e revogados”, enquanto não editada a referida lei, impõe a esses entes subnacionais para a concessão desses benefícios a edição de lei estadual regulando a matéria, mesmo que não haja a oitiva e anuência do Conselho Nacional de Política Fazendária (CONFAZ).",
+        "C": "a alínea “g” do inciso XII, do §2º do art. 155 da Constituição Federal, que atribui à Lei Complementar a regulação “da forma como, mediante deliberação dos Estados e do Distrito Federal, isenções, incentivos e benefícios fiscais serão concedidos e revogados”, enquanto não editada a referida lei, impõe a esses entes subnacionais para a concessão desses benefícios a edição de Decreto Estadual/Distrital regulamentando o citado dispositivo constitucional ou a anuência do Conselho Nacional de Política Fazendária (CONFAZ).",
+        "D": "a alínea “g” do inciso XII, do §2º do art. 155 da Constituição Federal, que atribui à Lei Complementar a regulação “da forma como, mediante deliberação dos Estados e do Distrito Federal, isenções, incentivos e benefícios fiscais serão concedidos e revogados”, enquanto não editada a referida lei, impõe a esses entes subnacionais para a concessão desses benefícios a edição de Decreto Estadual/Distrital regulamentando o citado dispositivo constitucional, ainda que sem a anuência do Conselho Nacional de Política Fazendária (CONFAZ).",
+        "E": "a alínea “g” do inciso XII, do §2º do art. 155 da Constituição Federal, que atribui à Lei Complementar a regulação “da forma como, mediante deliberação dos Estados e do Distrito Federal, isenções, incentivos e benefícios fiscais serão concedidos e revogados”, enquanto não editada a referida lei, impõe a esses entes subnacionais para a concessão desses benefícios a edição de Decreto Estadual/Distrital regulamentando o citado dispositivo constitucional, ainda que sem lei estadual específica regulamentadora."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "A Procuradoria da República ajuizou ADI contra diversos dispositivos do Anexo I do Decreto 4.676/2001 (Regulamento do ICMS do Estado do Pará) que asseguravam incentivo fiscal de ICMS às indústrias paraenses de produtos industrializados derivados de farinha de trigo (massas, biscoitos, bolachas, pães). O STF, julgar a ADI, em 2021, declarou a inconstitucionalidade das normas impugnadas por ofensa aos Princípios da Isonomia Tributária e da Não Discriminação em razão da procedência ou destino. Sobre esses dois princípios constitucionais é correto afirmar que",
+      "alternativas": {
+        "A": "o art. 150, II e o art. 152 da Constituição Federal, que vedam, respectivamente, a instituição de tratamento desigual entre contribuintes em situação equivalente, e aos entes subnacionais a criação de diferença tributária entre bens e serviços de qualquer natureza, em razão de sua procedência ou destino, são normas consideradas limitadores do poder de tributar.",
+        "B": "o art. 150, II e o art. 152 da Constituição Federal, que vedam, respectivamente, aos entes subnacionais a criação de diferença tributária entre bens e serviços de qualquer natureza, em razão de sua procedência ou destino, e a instituição de tratamento desigual entre contribuintes em situação equivalente, são normas consideradas cláusulas pétreas.",
+        "C": "o art. 150, II veda a criação de diferença tributária entre bens e serviços de qualquer natureza, em razão de sua procedência ou destino, enquanto o art. 152 da Constituição Federal não permite a instituição de tratamento desigual entre contribuintes em situação equivalentes, sendo ambas normas consideradas passíveis de alteração por Emenda Constitucional.",
+        "D": "a criação de norma que preveja diferença tributária entre bens e serviços de qualquer natureza, em razão de sua procedência ou destino, prevista no art. 150, II da Constituição Federal, e a vedação da instituição de tratamento desigual entre contribuintes em situação equivalente, prevista no art. 152 da Constituição Federal, são normas direcionadas aos Municípios, podendo os demais entes da federação não observá-las ante o Federalismo nacional.",
+        "E": "ambos os princípios vedam a possibilidade de criação de concessão de incentivos fiscais pela União Federal destinados a promover o equilíbrio do desenvolvimento sócio-econômico entre as diferentes regiões do País, daí a inconstitucionalidade declarada pelo Supremo Tribunal Federal."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Um dos mais recentes Projetos de Lei que envolve alguma reforma tributária no Brasil é o PL 4452, de 2021 que visa a alterar a Lei 11.482 de 31/05/2007, que rege o imposto sobre a renda e proventos de qualquer natureza. Uma das normas da proposta prevê que, a partir do mês de janeiro do ano- calendário de 2022, a tabela do IRPF fique assim:\n\nBase de cálculo (R$): Até 3.300,00, Alíquota (%): -, Parcela a deduzir do IR (R$): -\nBase de cálculo (R$): De 3.300.01 até 4.250,00, Alíquota (%): 15%, Parcela a deduzir do IR (R$): 495,00\nBase de cálculo (R$): De 4.250,01 até 5.300,00, Alíquota (%): 22,5%, Parcela a deduzir do IR (R$): 813,75\nBase de cálculo (R$): Acima de 5.300,00, Alíquota (%): 27,5%, Parcela a deduzir do IR (R$): 1.078,75\n\nComo se percebe, nessa proposta deixa de existir a atual primeira faixa de tributação, que impõe uma alíquota de 7,5%, passando para uma base de cálculo maior, a iniciar a tributação em alíquota de 15%, e nas suas justificativas afirma o Senador proponente: “O efeito perverso da inflação nas pessoas de menor renda não decorre apenas do aumento do nível geral de preços, mas de efetiva perda de renda em razão de uma maior alíquota efetiva na tributação da renda das pessoas físicas.”\n\nSobre essa justificativa apresentada pelo Senador proponente é correto afirmar que o Projeto de Lei tem como principal justificativa para mudança das faixas de tributação da tabela de imposto de renda o fato de que a atual tabela",
+      "alternativas": {
+        "A": "é menos progressiva e proporcional, observando o princípio da capacidade contributiva.",
+        "B": "é mais proporcional e menos regressiva, não observando o princípio da capacidade contributiva.",
+        "C": "é mais seletiva e menos proporcional, não observando o princípio da capacidade contributiva.",
+        "D": "é menos regressiva, não observando o princípio da capacidade contributiva.",
+        "E": "mesmo com alíquotas progressivas segue regressiva, não observando o princípio da capacidade contributiva."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Em 10 de dezembro de 2021, a presidente do Tribunal Administrativo de Recursos Fiscais – TARF – da SEFA/PA tornou pública a Resolução Interpretativa 01, aprovada em sessão plenária ordinária realizada no mesmo dia, que assim dispõe: “O prazo decadencial das obrigações tributárias acessórias conta-se a partir da data preceituada no art. 173, I do Código Tributário Nacional”. Sobre essa deliberação é correto afirmar que uma das necessidades desse enunciado é o fato",
+      "alternativas": {
+        "A": "de o prazo decadencial previsto no art. 173 do CTN ser taxativo ao tratar da “constituição do crédito tributário”, que, segundo o art. 139 do mesmo diploma legal, decorre da obrigação principal, deixando de lado as obrigações acessórias.",
+        "B": "de que, embora o prazo decadencial previsto no art. 173 do CTN seja taxativo ao tratar da “constituição do crédito tributário”, que, segundo o art. 139 do mesmo diploma legal, decorre da obrigação principal, as obrigações acessórias sempre se extinguem com a extinção das principais, conforme art. 184 do Código Civil.",
+        "C": "de que, embora o prazo decadencial previsto no art. 173 do CTN seja taxativo ao tratar da “constituição do crédito tributário”, que, segundo o art. 139 do mesmo diploma legal, decorre da obrigação principal, a ausência de norma decadencial expressa sobre obrigações acessórias inviabiliza a aplicação de prazos decadenciais a estas.",
+        "D": "de o prazo decadencial previsto no art. 173 do CTN ser taxativo ao tratar da “constituição do crédito tributário”, que, segundo o art. 139 do mesmo diploma legal, decorre da obrigação principal, gerando a aplicação automática, para as obrigações acessórias, do prazo do §4º do art. 150 do CTN.",
+        "E": "de que, embora o prazo decadencial previsto no art. 173 do CTN seja taxativo ao tratar da “constituição do crédito tributário”, que, segundo o art. 139 do mesmo diploma legal, decorre da obrigação principal, a ausência de norma decadencial expressa sobre obrigações acessórias importa na imprescritibilidade destas."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Em 16 de dezembro de 2021, o Governador do Estado do Pará sancionou Projeto de Lei aprovado pela Assembleia Legislativa do Estado do Pará instituindo o PROREFIS – Programa de Regularização Fiscal para débitos com ICMS, IPVA, ITCD e Taxa de Fiscalização de Recursos Minerais. A Lei foi precedida de autorização do Convênio CONFAZ ICMS 155, de 1º de outubro de 2021, que, em suas primeira e segunda cláusulas, assim prevê: Cláusula primeira Fica o Estado do Pará autorizado a instituir programa destinado a reduzir multas e juros relacionados com o Imposto sobre Operações relativas à Circulação de Mercadorias – ICM e o Imposto sobre Operações relativas à Circulação de Mercadorias e sobre Prestações de Serviço de Transporte Interestadual e Intermunicipal e de Comunicação – ICMS – cujos fatos geradores tenham ocorrido até 30 de junho de 2021, constituídos ou não, inclusive os espontaneamente denunciados pelo contribuinte, inscritos ou não em dívida ativa, ainda que ajuizados, observadas as condições e limites estabelecidos neste convênio. Cláusula segunda O débito poderá ser pago, nas seguintes condições: I - em parcela única, com redução de até 95% (noventa e cinco por cento) das multas e juros, se recolhidos, em espécie, integralmente até 31 de janeiro de 2022; II - em até 20 (vinte) parcelas mensais e sucessivas, com redução de até 85% (oitenta e cinco por cento) das multas e juros; III - em até 40 (quarenta) parcelas mensais e sucessivas, com redução de até 75% (setenta e cinco por cento) das multas e juros; IV - em até 60 (sessenta) parcelas mensais e sucessivas, com redução de até 65% (sessenta e cinco por cento) das multas e juros. Dentre os institutos jurídicos previstos no CTN, este programa institui",
+      "alternativas": {
+        "A": "anistia com parcelamento, sendo possível a expedição ao contribuinte que a ele aderir de certidão positiva com efeitos de negativa enquanto não extinto integralmente o crédito tributário pelo pagamento.",
+        "B": "emissão mediante parcelamento, sendo possível a expedição ao contribuinte de certidão negativa tão logo o crédito tributário seja extinto pelo pagamento da última parcela.",
+        "C": "moratória, diferindo o prazo para pagamento do tributo para período futuro e gerando a possibilidade de expedição ao contribuinte de certidão positiva com efeitos de negativa imediatamente após a adesão por força do art. 151,I do CTN.",
+        "D": "nova modalidade de pagamento, gerando a possibilidade de expedição ao contribuinte de certidão negativa imediatamente após a adesão por força do art. 151,VI do CTN.",
+        "E": "isenção mediante parcelamento, gerando a possibilidade de expedição ao contribuinte de certidão negativa imediatamente após a adesão por força do art. 151,VI c/c art. 175, I do CTN."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "De acordo com o Princípio da Anterioridade e Noventena, o ICMS-Combustíveis",
+      "alternativas": {
+        "A": "não pode ter suas alíquotas reduzidas e restabelecidas a qualquer tempo pelos Estados e Distrito Federal, pois não está inserido nas exceções à anterioridade e noventena do §1º do art. 150 da Constituição Federal, não possuindo natureza extrafiscal.",
+        "B": "não pode ter suas alíquotas reduzidas e restabelecidas a qualquer tempo pelos Estados e Distrito Federal, pois não está inserido nas exceções à anterioridade e noventena do §1º do art. 150 da Constituição Federal, embora tenha natureza extrafiscal.",
+        "C": "pode ter suas alíquotas reduzidas e restabelecidas a qualquer tempo pelos Estados e Distrito Federal, pois, por se tratar de tributo com clara natureza extrafiscal, a Constituição Federal afasta dele as regras de anterioridade e noventena, conforme previsão da alínea “c” do inciso IV do §4º do art. 155.",
+        "D": "pode ter suas alíquotas reduzidas e restabelecidas a qualquer tempo pelos Estados e Distrito Federal, pois, por se tratar de tributo com clara natureza extrafiscal, a Constituição Federal afasta dele as regras de noventena, mas obriga a observância da anterioridade, conforme previsão da alínea “c” do inciso IV do §4º do art. 155.",
+        "E": "pode ter suas alíquotas reduzidas e restabelecidas a qualquer tempo pelos Estados e Distrito Federal, desde que observada a noventena do art. 150, III, “c”, da Constituição Federal, pois esta afasta dele a regra de anterioridade, conforme previsão da alínea “c” do inciso IV do §4º do art. 155."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Direito Tributário",
+      "gabarito": null,
+      "enunciado": "A circulação de ouro como ativo financeiro constitui fato gerador do(s) seguinte(s) imposto(s):",
+      "alternativas": {
+        "A": "ICMS – Imposto sobre Circulação de Mercadorias e Serviços –, na forma do art. 155, II da Constituição Federal.",
+        "B": "IOF – Imposto sobre Operações Financeiras –, na forma do art. 153 da Constituição Federal, não havendo transferência de arrecadação para os demais entes subnacionais.",
+        "C": "IOF – Imposto sobre Operações Financeiras –, na forma do §5º do art. 153 da Constituição Federal, que assegura a transferência de 30% (trinta por cento) do produto arrecadado para o Estado, o Distrito Federal ou o Território de origem e 60% (sessenta por cento) para o Município de origem.",
+        "D": "ICMS – Imposto sobre Circulação de Mercadorias e Serviços – e IOF – Imposto sobre Operações Financeiras –, respectivamente, por previsão dos arts. 155, II e 153, V da Constituição Federal.",
+        "E": "IOF – imposto sobre operações financeiras, na forma do  §5º do art. 153 da Constituição Federal que assegura a transferência de 60% (sessenta por cento) do produto arrecadado para o Estado, o Distrito Federal ou Território de origem e 30% (trinta por cento) para o Município de origem."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "E",
+      "enunciado": "Dourado Mineração S/A desenvolve atividade minerária para extração de minério de ferro no Município de Parauapebas/PA, devidamente autorizada, sendo considerada empresa de grande porte, com volume de extração mensal de 20.000.000 (vinte milhões) de toneladas de minério, e que comercializa seu produto da lavra tanto no mercado interno quanto para o exterior. Pela realização de seu empreendimento, a empresa Dourado Mineração S/A é submetida a fiscalização pelo Estado do Pará (artigo 23, XI, CF/1988), que, no exercício desse poder de polícia, efetua a cobrança da Taxa de Controle, Acompanhamento e Fiscalização das Atividades de Pesquisa, Lavra, Exploração e Aproveitamento de Recursos Minerais (TFRM). Considerando a Lei Estadual n.º 7.591/2011 e o Decreto Estadual n.º 386/2012, sobre a TFRM, analise as assertivas seguintes.\n\nI. Por ser empresa de grande porte e ter autorização para funcionamento no Estado do Pará, a Dourado Mineração S/A é contribuinte da TFRM, mas apenas no caso dos minérios por elas extraídos que sejam dedicados ao mercado interno, pois é isenta do pagamento da taxa no caso de exportações.\nII. Como realiza extração de minério de ferro em larga escala, o valor da TFRM devido pela Dourado Mineração é de 1 (uma) Unidade Padrão Fiscal do Estado do Pará (UPF-PA) por tonelada de minério extraído.\nIII. Para apuração do quantitativo extraído, a Dourado Mineração S/A deverá considerar somente a parcela livre de rejeitos, isto é, que foi submetida a todas as etapas de beneficiamento até o último estágio antes da incidência do Imposto sobre Produtos Industrializados (IPI).\nIV. A Dourado Mineração S/A deverá apurar a TFRM mensalmente e recolher o tributo até o último dia útil do mês subsequente à extração do recurso minerário, sendo que, caso efetue o pagamento fora do prazo, quando não exigido em Auto de Infração, a empresa deverá acrescer multa moratória de 0,10% (dez centésimos por cento) do valor da taxa devida por dia de atraso, até o limite legal e regulamentar.\n\nEstão corretas apenas as assertivas",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "I e III.",
+        "C": "II e IV.",
+        "D": "II e III.",
+        "E": "III e IV."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "A",
+      "enunciado": "A Lei Estadual n. 8.455/2016 dispõe sobre as taxas estaduais, abrangendo tanto aquelas devidas pelo exercício regular do poder de polícia quanto aquelas que tenham por fato gerador a prestação, efetiva ou potencial, de serviços públicos específicos e divisíveis, ressalvadas as que tiverem previsão em legislação específica e regime jurídico próprio. Nos termos da citada Lei Estadual n. 8.455/2016, sobre as taxas estaduais, é correto afirmar que",
+      "alternativas": {
+        "A": "pode ser responsabilizado pelo pagamento da taxa o servidor público que prestar o serviço, realizar a atividade ou formalizar o ato pressuposto do fato gerador, sem o pagamento do tributo ou com pagamento insuficiente.",
+        "B": "são isentos da taxa, desde que declarado o fim único e exclusivo, os atos referentes à vida escolar, a fins militares e aos relacionados às atividades desportivas.",
+        "C": "a taxa será paga logo após a ocorrência do fato gerador, sob a exclusiva responsabilidade do contribuinte.",
+        "D": "no âmbito do procedimento administrativo tributário relacionado às taxas estaduais, quando a atividade exercida estiver sujeita à expedição de alvará ou vistoria, sem a sua obtenção, o não pagamento da taxa não permite a cessação da atividade, sem prejuízo, contudo, da aplicação das penalidades pecuniárias pertinentes.",
+        "E": "caso haja descumprimento de obrigação principal ou acessória, apurado mediante procedimento fiscal cabível, será aplicada ao contribuinte multa de 200% (duzentos por cento) do valor da taxa, se tiver fraudado a guia de recolhimento."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "C",
+      "enunciado": "Publicada em 13 de setembro de 1996, a Lei Complementar 87/1996 (popularmente conhecida como “Lei Kandir”) dispõe genericamente sobre o ICMS no âmbito dos Estados e do Distrito Federal, mas uma de suas maiores repercussões, em especial para o Estado do Pará em razão de sua base econômica mineral, diz respeito às previsões que impliquem isenções ao pagamento do referido imposto em determinadas condições.\n\nConsiderando a Lei Kandir e as hipóteses de não incidência tributária por ela instituídas, é correto afirmar o seguinte:",
+      "alternativas": {
+        "A": "não haverá incidência de ICMS nas operações decorrentes de alienação fiduciária em garantia, salvo a operação efetuada pelo credor em decorrência do inadimplemento do devedor, sobre a qual o imposto será regularmente devido.",
+        "B": "o ICMS não incidirá sobre operações de arrendamento mercantil, incluindo a alienação do bem arrendado ao arrendatário.",
+        "C": "não incide ICMS nas operações interestaduais relativas a energia elétrica e petróleo, inclusive lubrificantes e combustíveis líquidos e gasosos dele derivados, quando destinados à industrialização ou à comercialização.",
+        "D": "no caso da isenção de pagamento de ICMS nas operações de exportação de produtos primários, serão equiparadas as saídas de mercadoria com o fim de exportação que forem destinadas a um armazém alfandegado ou entreposto aduaneiro ou a uma empresa comercial exportadora, salvo se esta se caracterizar como trading, hipótese em que haverá incidência tributária,",
+        "E": "haverá incidência de ICMS na transferência de propriedade de estabelecimento comercial, desde que a operação se configure como interestadual."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "A",
+      "enunciado": "Após a regular lavratura de Auto de Infração pela Secretaria de Estado de Fazenda do Pará (SEFA/PA), a sociedade empresária ABC Comercial Ltda. apresentou impugnação à autuação, formalizada por escrito e instruída com os documentos que pretensamente comprovariam as suas alegações, dentro do prazo legal de 30 (trinta) dias contados de sua notificação, momento em que seria iniciada a fase litigiosa do procedimento administrativo tributário com o julgamento em primeira instância.\n\nNos termos da Lei n. 6.182/1998, considerando o caso apresentado, acerca da impugnação administrativa e da etapa de julgamento em primeira instância da fase litigiosa do procedimento administrativo tributário, analise as assertivas seguintes.\n\nI. Na impugnação, era obrigação da ABC Comercial Ltda. ter mencionado a autoridade julgadora a quem foi dirigida, a sua qualificação, assinatura e data, o valor impugnado e as razões fáticas e jurídicas de contestação e o requerimento de diligências, se fosse o caso.\nII. Se houvesse tributo declarado, escriturado ou informado pela ABC Comercial Ltda., bem como seus respectivos acréscimos legais, estes não seriam objeto de impugnação.\nIII. Era cabível que a ABC Comercial Ltda., após a apresentação da impugnação, efetuasse o pagamento do crédito cobrado na autuação, caso que implicaria desistência da impugnação e, consequentemente, extinção do crédito tributário.\nIV. A autoridade julgadora fundamentaria a decisão, mas não ficaria limitada às alegações constantes do expediente e, na apreciação da prova, formaria livremente o seu convencimento, atendendo aos fatos e circunstâncias extraídos do expediente, ainda que não alegados pelas partes.\n\nEstão corretas apenas as assertivas:",
+      "alternativas": {
+        "A": "I, II, III e IV.",
+        "B": "II, III e IV, apenas.",
+        "C": "I e II, apenas.",
+        "D": "I, II e III, apenas.",
+        "E": "III e IV, apenas."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "A",
+      "enunciado": "Nos termos da Lei n. 6.182/1998, efetuado o julgamento de primeira instância na fase litigiosa do procedimento administrativo tributário, a depender do resultado da análise realizado pela autoridade julgadora, é correto afirmar o seguinte:",
+      "alternativas": {
+        "A": "das decisões de primeira instância contrárias ao sujeito passivo, no todo ou em parte, cabe recurso voluntário, com efeito suspensivo, ao Tribunal Administrativo de Recursos Fazendários, salvo se interposto fora do prazo, caso em que será recebido, mas sem efeito suspensivo.",
+        "B": "é cabível a apresentação de qualquer prova documental junto ao recurso voluntário, independentemente de ser demonstrada a impossibilidade de fazê-lo em momento anterior e de ser referente a questões ocorridas de modo superveniente no processo.",
+        "C": "a interposição de recurso voluntário devolve para conhecimento do Tribunal Administrativo de Recursos Fazendários toda a matéria discutida no processo, mesmo aquela que não tiver sido expressamente recorrida.",
+        "D": "cabe recurso de ofício da decisão que decreta a nulidade do procedimento fiscal.",
+        "E": "o recurso de ofício será interposto mediante declaração na própria decisão e quando alcançar a totalidade do valor impugnado, encaminhado ao Tribunal Administrativo de Recursos Fazendários no prazo de dois dias contados da decisão, mas apenas após a intimação ao sujeito passivo."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "B",
+      "enunciado": "Brasileiríssimo Atacado e Varejo de Vestuário Ltda., empresa paulista que intenciona iniciar operação no Estado do Pará, com razoável dúvida e legítimo interesse em esclarecer aspectos sobre a legislação tributária estadual, decidiu apresentar consulta tributária à Secretaria de Estado da Fazenda do Pará, com o objetivo de garantir segurança ao seu novo empreendimento, dado que, em seu entender, há incerteza quanto a uma possível hipótese de incidência tributária relacionada às futuras atividades de sua empresa. Considerando o caso acima e a regulamentação do procedimento especial de consulta, que tem previsão na Lei Estadual n. 6.182/1998, é correto afirmar que",
+      "alternativas": {
+        "A": "a empresa consulente deve apresentar o pedido por escrito com a exposição da matéria de fato e de direito sobre a qual tem dúvida, bastando, para essa finalidade, a descrição de sua atividade e do dispositivo legal a ser esclarecido, cabendo ao órgão de tributação autoridade competente para solucionar a consulta, analisar o pedido e indicar a dúvida sobre a legislação que deverá ser sanada.",
+        "B": "a consulta formulada pela Brasileiríssimo Atacado e Varejo de Vestuário Ltda. deverá se referir a uma só matéria, cabendo a acumulação apenas quando se tratar de questões conexas.",
+        "C": "a consulta, no que se refere à matéria consultada, exclui a punibilidade do consulente no que se refere a infrações formais e materiais.",
+        "D": "é cabível formular consulta mesmo que a matéria já tenha sido objeto de decisão proferida em processo administrativo já encerrado, desde que tenha sido em processo de interesse da empresa consulente.",
+        "E": "poderá ser instaurado procedimento fiscal contra o contribuinte que agir em estrita consonância com solução à consulta de que tenha sido intimado, mesmo enquanto não tiver sido reformada, sendo ato de liberalidade do ente fiscal."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "D",
+      "enunciado": "Conforme o Regulamento do Tribunal Administrativo de Recursos Fazendários (TARF), aprovado pelo Decreto Estadual n. 949/2008 e alterações, é correto afirmar o seguinte:",
+      "alternativas": {
+        "A": "o Presidente do TARF e seus dois Vice-Presidentes serão indicados e nomeados pelo Secretário de Estado da Fazenda.",
+        "B": "o Presidente do TARF precisa ser necessariamente um Auditor Fiscal de Receitas Estaduais, mas os Vice-Presidentes podem ser definidos entre representantes dos contribuintes, desde que devidamente indicados pelas entidades legitimadas.",
+        "C": "os Conselheiros terão mandato de 2 (dois) anos, sendo permitida a recondução. Findo o prazo do mandato sem renovação, os cargos permanecerão vagos até a posse de seus substitutos.",
+        "D": "quando as entidades representativas dos contribuintes não atenderem ao prazo para indicação de seus representantes, após solicitação do Secretário de Estado da Fazenda, o Governador do Estado nomeará esses representantes livremente, dentre sujeitos vinculados às mesmas entidades representativas dos contribuintes.",
+        "E": "os representantes dos contribuintes serão escolhidos por indicação das Federações de Indústria e da Agricultura, da Associação Comercial do Estado do Pará e da Ordem dos Advogados do Brasil Seção Pará."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "B",
+      "enunciado": "João Neves é Procurador do Estado designado pelo Governador do Estado do Pará para atuar em uma das Câmaras de Julgamento do Tribunal Administrativo de Recursos Fazendários (TARF), sendo certo que, nessa qualidade, é uma de suas competências funcionais",
+      "alternativas": {
+        "A": "participar das sessões de sua Câmara de Julgamento, mas sem direito de participação nos debates, salvo se para prestar esclarecimentos solicitados pelos Conselheiros.",
+        "B": "comunicar à primeira instância qualquer irregularidade verificada na instrução dos expedientes sob sua defesa, em detrimento da Fazenda ou do contribuinte.",
+        "C": "emitir parecer, por escrito, na qualidade de fiscal de lei sem parcialidade, nos expedientes a serem submetidos a julgamento pelas Câmaras.",
+        "D": "contaminitar os recursos interpostos contra a Fazenda Pública, não lhe cabendo, contudo, interpor recursos ao Pleno.",
+        "E": "ratificar pedido de diligência dos autos sob sua análise, desde que esse pleito tenha sido previamente formulado por um Conselheiro."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "D",
+      "enunciado": "Isenções, incentivos e benefícios fiscais e financeiros de ICMS serão concedidos ou revogados nos termos de convênios a serem celebrados pelos Estados e pelo Distrito Federal, o que é realizado no âmbito do Conselho Nacional de Política Fazendária (CONFAZ), cujo colegiado é formado pelos Secretários da Fazenda, Finanças ou Tributação dos Estados e do Distrito Federal, sob a Presidência do Ministro de Estado da Economia. A regulamentação da sistemática de concessão por convênio dessas isenções, incentivos e benefícios fiscais e financeiros de ICMS é realizada pela Lei Complementar n. 24/1975, segundo a qual",
+      "alternativas": {
+        "A": "a concessão de benefícios dependerá sempre de decisão unânime dos Estados representados; a sua revogação total ou parcial dependerá de aprovação de três quartos, pelo menos, dos representantes presentes.",
+        "B": "as cláusulas dos convênios devem ter sua aplicação imposta para todos os Estados e para o Distrito Federal.",
+        "C": "em seu âmbito de competência, os Municípios podem conceder benefícios fiscais no que se refere à sua parcela na receita do ICMS.",
+        "D": "os convênios ratificados obrigam todas as Unidades da Federação, inclusive as que, regularmente convocadas, não se tenham feito representar na reunião.",
+        "E": "ficaram mantidos os benefícios fiscais decorrentes de convênios regionais e nacionais vigentes à data de publicação da Lei Complementar n. 24/1975, desde que tenham sido convalidados na primeira reunião realizada na forma da lei em comento."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "E",
+      "enunciado": "Sobre os direitos do contribuinte previstos na Lei Complementar Estadual n. 58/2006, analise as afirmativas seguintes.\n\nI. É assegurado o direito à informação sobre os prazos de pagamento e reduções de multa, quando autuado.\nII. O contribuinte pode exigir a apresentação de mandado judicial como condição prévia para permitir busca em local que contenha mercadoria ou documento seus que sejam de interesse da fiscalização.\nIII. É garantido ao contribuinte o direito de exigir a apresentação de ordem de serviço nas ações fiscais, a qual é dispensada nos casos de controle do trânsito de mercadorias, flagrantes e irregularidades constatadas pelo fisco, inclusive nas correspondentes ações fiscais continuadas nas empresas.\nIV. O contribuinte tem direito a, caso queira, comunicar-se com seu advogado ou entidade de classe quando sofrer ação fiscal, que deverá ser suspensa por 48 (quarenta e oito) horas ou até que esse contato seja estabelecido, o que ocorrer primeiro.\nV. O contribuinte tem direito de gerir seu próprio negócio, sob o regime da livre iniciativa, sendo vedada a divulgação, por parte da Fazenda Pública ou de seus funcionários, de informação obtida em razão do ofício sobre a situação econômica ou financeira dos sujeitos passivos ou de terceiros e sobre a natureza e o estado dos seus negócios e atividades.\n\nReferem-se a direitos assegurados aos contribuintes pela Lei Complementar Estadual n. 58/2006 as afirmativas",
+      "alternativas": {
+        "A": "I, II e IV.",
+        "B": "II, IV e V.",
+        "C": "I, II e III.",
+        "D": "III, IV e V.",
+        "E": "I, III e V."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "D",
+      "enunciado": "Considerando a Lei Complementar Estadual n. 58/2006, sobre as normas e práticas abusivas, bem como sobre as condutas vedadas às autoridades administrativas, tributárias e fiscais, é correto afirmar que",
+      "alternativas": {
+        "A": "é considerada uma prática abusiva a exigência que interfira nas decisões gerenciais dos negócios dos contribuintes, que façam parte do âmbito tributário de seus empreendimentos.",
+        "B": "a autoridade não pode condicionar a prestação de serviço ao cumprimento de exigências burocráticas, ainda que haja previsão legal nesse sentido.",
+        "C": "é admitido negar ao contribuinte a autorização para impressão de documentos fiscais, caso o sujeito passivo tenha descumprido obrigação principal ou acessória a eles relacionada.",
+        "D": "é proibido impor ao contribuinte a cobrança ou induzir a autodenúncia de débito cujo fato gerador não tenha sido devidamente apurado e demonstrado.",
+        "E": "é vedado que a autoridade se faça acompanhar de força policial nas ações fiscais em estabelecimentos comerciais e industriais, sem que tenha sofrido embaraço ou desacato, a menos que seja para garantir efeito coativo no cumprimento das exigências."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": null,
+      "enunciado": "Em janeiro de 2019, Lauro firmou com a empresa Benevides Aluguel de Veículos Ltda. contrato para locação de veículo automotor, para uso pessoal, sem finalidade comercial, por um prazo de 3 (três) anos. O veículo locado foi fabricado e adquirido no ano de 2018, com registro e licenciamento no Estado do Pará, sendo o vencimento do pagamento do Imposto sobre a Propriedade de Veículos Automotores (IPVA) a ele referente no mês de outubro. Em fevereiro de 2020, Lauro foi vítima de sequestro relâmpago, tendo os criminosos roubado o automóvel por ele locado da empresa Benevides Aluguel de Veículos Ltda. para utilização na fuga após a liberação do sequestrado. O automóvel permaneceu desaparecido até agosto de 2020, em data exatamente 6 (seis) meses após o roubo, quando foi localizado por autoridades policiais abandonado em cidade no sul do Pará, momento em que foi recuperado por Lauro. Logo após o roubo, Lauro e a empresa Benevides Aluguel de Veículos Ltda. registraram boletim de ocorrência e promoveram a inclusão da situação de “Roubo/Furto” para o carro no sistema do Registro Nacional de Veículos Automotores (RENAVAM), informação que constou no sistema por todos os seis meses de indisponibilidade do veículo até sua recuperação, quando então a situação de “Roubo/Furto” foi removida do RENAVAM. Contudo, nenhum deles informou em qualquer momento o roubo, tampouco fez qualquer requerimento relacionado ao pagamento de IPVA, à Secretaria de Estado da Fazenda do Pará (SEFA), que, em outubro de 2020, efetuou a cobrança do imposto anual referente ao veículo automotor em questão.\n\nConsiderando o caso acima e com base na Lei Estadual n. 6.017/1996 e no Decreto Estadual n. 2.703/2006, que regulamentam o regime jurídico do IPVA no Estado do Pará, sobre a cobrança do referido imposto para o exercício 2020, ano do roubo do carro, pode-se afirmar o seguinte:",
+      "alternativas": {
+        "A": "como o roubo não foi comunicado e a dispensa de pagamento não foi requerida à SEFA, o IPVA de 2020 deverá ser pago integralmente, mas poderá ser cobrado apenas da empresa Benevides Aluguel de Veículos Ltda., proprietária do veículo automotor.",
+        "B": "como o roubo não foi comunicado e a dispensa de pagamento não foi requerida à SEFA, o IPVA de 2020 deverá ser pago integralmente, podendo ser cobrado da empresa Benevides Aluguel de Veículos Ltda., proprietária do veículo automotor, e de Lauro, seu locatário.",
+        "C": "por ter sido incluída no RENAVAM do veículo a situação de “Roubo/Furto”, será dispensado o pagamento de IPVA pelo período em que o automóvel ficou desaparecido e, portanto, sem posse do locador e do locatário, mas o imposto referente ao período restante poderá ser cobrado apenas da empresa Benevides Aluguel de Veículos Ltda., proprietária do veículo automotor.",
+        "D": "por ter sido incluída no RENAVAM do veículo a situação de “Roubo/Furto”, será dispensado o pagamento de IPVA pelo período em que o automóvel ficou desaparecido e, portanto, sem posse do locador e do locatário, podendo o imposto referente ao período restante ser cobrado da empresa Benevides Aluguel de Veículos Ltda., proprietária do veículo automotor, e de Lauro, seu locatário.",
+        "E": "em razão do roubo, a SEFA deverá dispensar o pagamento do IPVA para todo o exercício de 2020."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": null,
+      "enunciado": "Considerando a Lei Estadual n. 6.017/1996 e o Decreto Estadual n. 2.703/2006, sobre o Imposto sobre a Propriedade de Veículos Automotores (IPVA) no Estado do Pará, analise as assertivas seguintes:\n\nI. A Secretaria de Estado da Fazenda poderá firmar convênios com órgãos municipais, estaduais e federais, para efeito de controle e cadastro de veículos e de operacionalização da cobrança do imposto.\nII. O sujeito passivo devedor de crédito tributário oriundo de IPVA, em relação a veículo automotor, é impedido de realizar a alienação do automóvel, mas não há impedimento que o órgão de trânsito registrador promova o registro da venda em sistema se não for informado de que há dívida pelo sujeito passivo.\nIII. São isentos do pagamento de IPVA os veículos de uso rodoviário com mais de dez anos de fabricação.\nIV. A alíquota do IPVA para motocicletas não destinadas à atividade comercial é de dois e meio por cento.\n\nEstão corretas apenas as assertivas",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "I e III.",
+        "C": "II e III.",
+        "D": "I e IV.",
+        "E": "III e IV."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "B",
+      "enunciado": "Paulo é filho e o único herdeiro de Joel, falecido em agosto de 2021. Como herança, Joel deixou para Paulo, que não possui qualquer bem em seu nome, um único imóvel, que já era destinado para sua morada e assim continuará sendo, com valor venal de 50.000 UPF-PA (cinquenta mil Unidades de Padrão Fiscal do Estado do Pará), um veículo automotor com valor venal de 10.000 (dez mil UPF-PA Unidades de Padrão Fiscal do Estado do Pará), que possui dívida no importe equivalente a 3.000 (três mil UPF-PA Unidades de Padrão Fiscal do Estado do Pará), não liquidada com o falecimento de Joel, e aplicações financeiras no importe 110.000 UPF-PA (cento e dez mil Unidades de Padrão Fiscal do Estado do Pará), sendo esses seus únicos bens, todos registrados e localizados no Estado do Pará, onde Paulo promoveu o inventário dos bens de seu pai. Após cálculo promovido pela SEFA a partir de declaração apresentada por Paulo, foi aplicada uma alíquota de 5% sobre o valor de todos os bens, pois somam 170.000 UPF-PA (cento e setenta mil Unidades de Padrão Fiscal do Estado do Pará) e, portanto, se situa na faixa de base de cálculo que enseja a aplicação da alíquota mencionada (valores acima de 150.000 UPF-PA até 350.000 UPF-PA, conforme artigo 8º, I, d, da lei Estadual 5.529/1989). Homologado o cálculo com notificação de Paulo, que não contestou a avaliação, este efetuou o pagamento do imposto correspondente 15 (quinze) dias depois, sem, contudo, pagar qualquer valor a título de honorários ao avaliador da Fazenda Estadual responsável pelo cálculo do tributo.\n\nCom base no caso acima e considerando a Lei Estadual n. 5.529/1989, que regulamenta o Imposto sobre a Transmissão Causa Mortis e Doação (ITCMD) no âmbito do Estado do Pará, pode- se afirmar que",
+      "alternativas": {
+        "A": "Paulo recolheu o ITCMD devido fora do prazo, pois deveria tê-lo feito no prazo máximo de 10 (dez) dias depois da homologação do cálculo.",
+        "B": "a alíquota para a cobrança do ITCMD devido por Paulo deveria ter sido de 4%, aplicável quando a base de cálculo do imposto for acima de 50.000 UPF-PA até o limite de 150.000 UPF-PA, pois a aquisição por transmissão “causa mortis” do imóvel herdado de seu pai é isenta do pagamento do imposto e, portanto, não deveria ter sido incluída na base de cálculo do tributo.",
+        "C": "a SEFA deveria ter excluído da base de cálculo o valor da dívida constante sobre o veículo automotor transmitido de Joel para Paulo.",
+        "D": "Paulo não poderá pedir a restituição de eventuais quantias a maior, indevidamente recolhidas aos cofres do Estado do Pará, pois, para isso, deveria ter requerido a realização de avaliação contraditória, consubstanciada em laudo expedido por perito juridicamente capaz e habilitado para tal fim.",
+        "E": "Paulo deveria ter efetuado o pagamento de honorários ao avaliador da Fazenda Estadual no importe de 100 UPF-PA (cem Unidades de Padrão Fiscal do Estado do Pará)."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "E",
+      "enunciado": "Com base na Lei Estadual n. 5.529/1989, acerca do Imposto sobre a Transmissão Causa Mortis e Doação (ITCMD) no âmbito do Estado do Pará, é correto afirmar o seguinte:",
+      "alternativas": {
+        "A": "é isenta do imposto a aquisição, por transmissão 'causa mortis', de imóvel rural com área não superior a cinquenta hectares, de cuja exploração do solo dependa o sustento da família dos herdeiros ou do cônjuge supérstite e que tenha cabido por partilha, desde que outro não possua.",
+        "B": "o ITCMD deve ser pago, na transmissão por doações, logo após a lavratura do instrumento público ou particular, no prazo de quinze dias, contados do lançamento administrativo.",
+        "C": "a alienação de bem, título ou crédito no curso do processo de inventário, mediante autorização judicial, renova o prazo para pagamento do imposto devido pela transmissão decorrente de sucessão legítima ou testamentária.",
+        "D": "a base de cálculo do imposto somente poderá ser revista ou atualizada se houver retificação do valor venal pelo ente federativo ou pela entidade responsável pela sua atribuição oficial.",
+        "E": "na transmissão “causa mortis”, para obtenção da base de cálculo do imposto antes da partilha, presume-se como valor do quinhão, do herdeiro legítimo, o que lhe cabe no monte partilhável e do herdeiro testamentário, o valor do legado ou da herança atribuída, em ambos os casos segundo a legislação civil."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "A",
+      "enunciado": "Geladíssimo Indústria e Comércio de Bebidas Ltda. é sociedade empresária localizada em Ananindeua/PA, especializada na industrialização e comercialização de refrigerantes com sabores regionais amazônicos, com atuação exclusiva no Estado do Pará.\n\nConsiderando a atividade da empresa Geladíssimo Indústria e Comércio de Bebidas Ltda. e a regulação do Imposto sobre Operações Relativas à Circulação de Mercadorias e sobre Prestações de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação (ICMS) no Estado do Pará, analise as assertivas seguintes:\n\nI. Quando comercializar seus refrigerantes, a alíquota aplicável para a operação será de 17% (dezessete por cento).\nII. A Geladíssimo Indústria e Comércio de Bebidas Ltda. poderá creditar a entrada de toda a energia elétrica consumida em seu estabelecimento, independente de esse consumo ter sido realizado no processo de industrialização.\nIII. A empresa poderá, para composição da base de cálculo da substituição, aplicar a margem de agregação prevista para o distribuidor sobre o montante formado pelo preço praticado por este, em substituição à sua base formada sobre o preço praticado pelo próprio industrial.\nIV. Nas saídas internas de seus refrigerantes destinadas a contribuintes deste Estado, a Geladíssimo Indústria e Comércio de Bebidas Ltda., por sua condição de fabricante, é responsável pela retenção e pelo recolhimento do ICMS, na condição de substituta tributária, pelo imposto correspondente nas operações subsequentes.\n\nEstão corretas apenas as assertivas",
+      "alternativas": {
+        "A": "I, II, III.",
+        "B": "I e III.",
+        "C": "I e IV.",
+        "D": "II, e IV.",
+        "E": "III e IV."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "A",
+      "enunciado": "Nos termos da Lei Estadual n. 5.530/1989, sobre a inscrição no Cadastro de Contribuintes do Imposto sobre Operações Relativas à Circulação de Mercadorias e sobre Prestações de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação (ICMS) no Estado do Pará, pode-se afirmar que",
+      "alternativas": {
+        "A": "todo aquele que produzir em propriedade alheia e promover saída de mercadoria em seu próprio nome fica também obrigado à inscrição.",
+        "B": "a imunidade, não incidência ou isenção desobriga os contribuintes de se inscreverem no Cadastro de Contribuintes do ICMS.",
+        "C": "a inscrição será requerida pelos contribuintes após o início das atividades do estabelecimento.",
+        "D": "quando o estabelecimento for imóvel rural situado em território de mais de um município, considera- se o contribuinte como jurisdicionado no município em que a propriedade ocupar maior área.",
+        "E": "o contribuinte, sempre que encontrar inexatidão nos seus dados cadastrais, à qual não deu causa, poderá pedir sua imediata correção, com o pagamento da taxa correspondente à SEFA."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "B",
+      "enunciado": "Verdade Comunicação S/A é empresa prestadora de serviços de telecomunicação com transmissão onerosa e produção própria de conteúdo, sediada e com atuação exclusiva no Estado do Pará, que, portanto, desde que atendidos os requisitos legais e regulamentares, poderá fruir de regime especial de tributação do Imposto sobre Operações Relativas à Circulação de Mercadorias e sobre Prestações de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação (ICMS) no Estado.\n\nConsiderando a atividade desenvolvida pela Verdade Comunicação S/A e com base na Lei Estadual n. 5.530/1989 e no Decreto Estadual n. 4.676/2001 (Regulamento do ICMS), é correto afirmar o seguinte:",
+      "alternativas": {
+        "A": "caso preencha os requisitos para usufruir do regime especial para cumprimento das obrigações tributárias relativas ao ICMS, a empresa Verdade Comunicação S/A estará dispensada da adoção e escrituração dos livros fiscais previstos na regulamentação do tributo.",
+        "B": "a empresa Verdade Comunicação S/A, relativamente à sua área de atuação no território paraense, deverá manter apenas um de seus estabelecimentos inscrito no Cadastro de Contribuintes do ICMS, sendo dispensados dessa exigência os demais locais onde exercer sua atividade.",
+        "C": "como prestadora de serviços de comunicação, a Verdade Comunicação S/A está submetida ao pagamento do ICMS calculado na menor alíquota dentre todas as faixas previstas na legislação paraense.",
+        "D": "para efeitos de cobrança do ICMS e definição do estabelecimento responsável, considera-se como local da prestação dos serviços pela Verdade Comunicação S/A o dos municípios que recebem o sinal transmitido pela empresa.",
+        "E": "o imposto devido pelos estabelecimentos da Verdade Comunicação S/A será apurado individualmente em cada estabelecimento e recolhido por meio de um documento de arrecadação emitido para cada um deles."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "D",
+      "enunciado": "Como regra geral, no que se refere ao Imposto sobre Operações Relativas à Circulação de Mercadorias e sobre Prestações de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação (ICMS) no Estado do Pará, é assegurado ao contribuinte o direito de se creditar do imposto anteriormente cobrado e destacado em documento fiscal hábil, relativamente à mercadoria entrada, real ou simbólica, em seu estabelecimento, inclusive a destinada ao seu uso ou consumo ou ao ativo permanente, ou o recebimento de serviços de transporte interestadual e intermunicipal ou de comunicação, em razão de prestações tributadas. Nesse contexto, nos termos da Lei Estadual n. 5.530/1989 e do Decreto Estadual n. 4.676/2006, pode-se afirmar que somente dará direito a crédito",
+      "alternativas": {
+        "A": "a mercadoria destinada ao uso ou consumo do estabelecimento que nele tiver entrado a partir de 1º de janeiro de 1993.",
+        "B": "a energia elétrica quando seu consumo resultar em operação de saída ou prestação para o exterior, considerando a totalidade do consumo do empreendimento, ainda que resulte em operação de saída para o mercado interno.",
+        "C": "as mercadorias destinadas ao ativo permanente do estabelecimento, nele entradas a partir de 1º de janeiro de 2033.",
+        "D": "o recebimento de serviços de comunicação utilizados pelo estabelecimento ao qual tenham sido prestados na execução de serviços da mesma natureza.",
+        "E": "as entradas de mercadorias ou a utilização de serviços resultantes de operações ou prestações isentas ou não-tributadas, ou que se refiram a mercadorias ou serviços alheios à atividade do estabelecimento."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Legislação Tributária do Estado do Pará",
+      "gabarito": "C",
+      "enunciado": "Nos termos da Lei Complementar n. 87/1996 e da Lei Complementar n. 116/2003, a respeito das chamadas “operações mistas” de ISS e ICMS, analise as assertivas seguintes:\n\nI. Uma empresa prestadora de serviços de reparação de pontes, que fabrique em local diverso da prestação do serviço as peças de madeira utilizadas para o conserto, pagará ISS pelo serviço de reparação e ICMS pela peça de madeira fornecida que naquele for utilizada.\nII. Um prestador de serviços de fotografia pagará ISS pelo serviço e ICMS pelo material nele empregado.\nIII. Uma empresa que realize a organização de festas e recepções, bem como bufês, pagará ISS pelo serviço de organização, mas deverá pagar ICMS pelo fornecimento de alimentação e bebidas.\nIV. Prestadora de serviços de jardinagem, inclusive poda de árvores, deve pagar ISS pelo serviço, mas está submetida ao pagamento de ICMS pelo material nele empregado.\n\nEstão corretas apenas as assertivas",
+      "alternativas": {
+        "A": "I, II, III.",
+        "B": "II e IV.",
+        "C": "I e III.",
+        "D": "III e IV.",
+        "E": "I e IV."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "C",
+      "enunciado": "A companhia Rainha do Norte S/A apresentou os seguintes fatos ocorridos no mês de novembro de 2020.\n\n• Recebimento dos serviços prestados em outubro de 2020, no valor de R$ 62.000,00.\n• Pagamento dos consumos de energia elétrica e internet referentes ao mês de outubro, nos valores de R$ 600,00 e R$ 200,00, respectivamente.\n• Registro da folha de pagamento referente ao mês de novembro de 2020, no valor de R$ 22.000,00.\n• Registo e pagamento do consumo de combustível durante o mês de novembro de 2020, no valor de R$ 8.000,00.\n• Serviços prestados em novembro de 2020, no valor de R$ 40.000,00, sendo 50% recebidos em novembro e o restante em dezembro de 2020.\n\nLevando-se em consideração o regime de caixa e competência, pode-se dizer que,",
+      "alternativas": {
+        "A": "pelo regime de competência, auferiu um lucro bruto de R$ 71.200,00.",
+        "B": "pelo regime de caixa, auferiu um lucro bruto de R$ 93.200,00.",
+        "C": "pelo regime de caixa, auferiu um lucro bruto de R$ 73.200,00.",
+        "D": "pelo regime de competência, auferiu um lucro bruto de R$ 9.200,00.",
+        "E": "pelo regime de caixa, auferiu um lucro bruto de R$ 10.000,00."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "E",
+      "enunciado": "Determinada empresa, em 31/12/2020, apresentou em seu balancete de verificação os seguintes saldos para fins de apuração de seu resultado econômico:\n\nCONTAS: Aluguéis passivos, SALDOS EM REAIS: 24.000,00\nCONTAS: Estoque inicial de mercadorias, SALDOS EM REAIS: 30.000,00\nCONTAS: Juros ativos, SALDOS EM REAIS: 10.500,00\nCONTAS: Receitas de vendas de mercadorias, SALDOS EM REAIS: 240.000,00\nCONTAS: Descontos incondicionais, SALDOS EM REAIS: 12.000,00\nCONTAS: Fretes sobre vendas, SALDOS EM REAIS: 4.000,00\nCONTAS: Compra de mercadorias, SALDOS EM REAIS: 20.000,00\nCONTAS: Abatimentos concedidos, SALDOS EM REAIS: 3.000,00\nCONTAS: Descontos condicionais, SALDOS EM REAIS: 5.400,00\nCONTAS: Estoque final de mercadorias, SALDOS EM REAIS: 10.000,00\nCONTAS: ICMS sobre vendas, SALDOS EM REAIS: 28.800,00\nCONTAS: ICMS incluso nas compras de mercadorias, SALDOS EM REAIS: 1.200,00\n\nLevando em consideração que a referida empresa utiliza o sistema de inventário periódico, pode-se dizer que a empresa obteve",
+      "alternativas": {
+        "A": "despesas operacionais de R$ 43.900,00.",
+        "B": "receita líquida de R$ 206.700,00.",
+        "C": "lucro bruto de R$ 156.200,00.",
+        "D": "custo das mercadorias vendidas de R$ 40.000,00.",
+        "E": "lucro líquido de R$ 134.500,00."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "C",
+      "enunciado": "A companhia Rainha do Norte S/A iniciou um novo projeto interno para o desenvolvimento de um serviço a ser prestado a clientes estrangeiros. A fase de pesquisa desse projeto gerou um gasto para a companhia no valor de R$ 490.000,00, que foi reconhecido e lançado na contabilidade da companhia",
+      "alternativas": {
+        "A": "no ativo intangível.",
+        "B": "no ativo investimentos.",
+        "C": "na apuração de resultado.",
+        "D": "no patrimônio líquido.",
+        "E": "no resultado de exercícios futuros."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "D",
+      "enunciado": "A companhia Rainha do Norte S/A apresentou um elenco de contas referente ao exercício de 2019.\n\nCONTAS: Caixa, SALDOS EM REAIS: 76.000,00\nCONTAS: Bens de renda, SALDOS EM REAIS: 125.000,00\nCONTAS: Dividendos a distribuir, SALDOS EM REAIS: 240.000,00\nCONTAS: Reserva legal, SALDOS EM REAIS: 80.000,00\nCONTAS: Bens de uso, SALDOS EM REAIS: 300.000,00\nCONTAS: Seguros a vencer, SALDOS EM REAIS: 5.000,00\nCONTAS: Estoque de mercadorias, SALDOS EM REAIS: 83.000,00\nCONTAS: Juros ativos a vencer, SALDOS EM REAIS: 12.000,00\nCONTAS: Capital social, SALDOS EM REAIS: 600.000,00\nCONTAS: Antecipação a fornecedores, SALDOS EM REAIS: 82.000,00\nCONTAS: Obras de arte, SALDOS EM REAIS: 120.000,00\nCONTAS: Depreciação acumulada, SALDOS EM REAIS: 20.000,00\nCONTAS: Juros passivos a vencer, SALDOS EM REAIS: 17.000,00\nCONTAS: Reserva estatutária, SALDOS EM REAIS: 70.000,00\nCONTAS: Impostos a recolher, SALDOS EM REAIS: 16.000,00\nCONTAS: Capital a integralizar, SALDOS EM REAIS: 130.000,00\nCONTAS: Empréstimos a diretores, SALDOS EM REAIS: 100.000,00\n\nA partir desse elenco de contas e respectivos saldos, é possível afirmar que a companhia Rainha do Norte S/A apresentou em seu balanço patrimonial um",
+      "alternativas": {
+        "A": "patrimônio líquido de R$ 880.000,00.",
+        "B": "passivo circulante de R$ 273.000,00.",
+        "C": "ativo circulante de R$ 258.000,00.",
+        "D": "passivo total de R$ 888.000,00.",
+        "E": "ativo não circulante de R$ 665.000,00."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "B",
+      "enunciado": "Para os investidores e outros usuários, a Demonstração do Valor Adicionado (DVA) proporciona o conhecimento de informações de natureza econômica e social e oferece a possibilidade de melhor avaliação das atividades da entidade dentro da sociedade na qual está inserida. Nesse sentido, na estrutura da DVA, pode-se dizer que são consideradas distribuição da riqueza",
+      "alternativas": {
+        "A": "remuneração de capitais de terceiros; remuneração de capitais próprios; perda e recuperação de valores ativos.",
+        "B": "juros sobre o capital próprio; dividendos; lucros retidos e prejuízos do exercício.",
+        "C": "impostos taxas e contribuições; remuneração de capitais de terceiros; resultado de equivalência patrimonial.",
+        "D": "perda e recuperação de valores ativos; provisão para créditos de liquidação duvidosa; remuneração direta.",
+        "E": "remuneração de capitais de terceiros; depreciação, amortização e exaustão; remuneração direta."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "E",
+      "enunciado": "As informações sobre o fluxo de caixa de uma entidade são úteis para proporcionar aos usuários das demonstrações contábeis uma base para avaliar a capacidade de a entidade gerar caixa e equivalentes de caixa, bem como as necessidades da entidade de utilização desses fluxos de caixa. Tais fluxos são classificados por atividades operacionais, de investimentos e financiamentos.\n\nNesse contexto, pode-se dizer que a venda de item do imobilizado, pagamentos em caixa para a produção ou a aquisição de ativos mantidos para aluguel a terceiros que, em sequência, são vendidos e os recebimentos de aluguéis e das vendas subsequentes de tais ativos mencionados são, respectivamente, atividades",
+      "alternativas": {
+        "A": "operacionais, de investimento e de financiamento.",
+        "B": "de investimento, operacionais e de financiamento.",
+        "C": "de financiamento, de investimento e operacionais.",
+        "D": "operacionais, de investimento e de investimento.",
+        "E": "de investimento, operacionais e operacionais."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "B",
+      "enunciado": "A companhia Rainha do Norte S/A, ao analisar um determinado ativo, identificou que o seu valor líquido de venda é de R$ 8.010,00, seu valor em uso é de R$ 8.110,00 e seu valor contábil bruto é de R$ 11.220,00, com depreciações acumuladas em R$ 2.325,00 e perdas estimadas no valor de R$ 480,00. O valor recuperável, o valor líquido contábil e a perda por redução ao valor recuperável, são, respectivamente,",
+      "alternativas": {
+        "A": "R$ 8.010,00; R$ 7.530,00; R$ 480,00.",
+        "B": "R$ 8.110,00; R$ 8.415,00; R$ 305,00.",
+        "C": "R$ 8.415,00; R$ 8.010,00; R$ 405,00.",
+        "D": "R$ 7.530,00; R$ 7.630,00; R$ 100,00.",
+        "E": "R$ 7.630,00; R$ 8.110,00; R$ 480,00."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "D",
+      "enunciado": "Em dezembro de 2021, o Governo do Estado do Pará publicou uma lei para prevenir a epidemia do Covid-19 nos clubes paraenses de futebol. Esta determina que os clubes precisarão, até 31 de maio de 2022, fazer testes de COVID-19 em todos os seus jogadores antes dos treinos e dos jogos oficiais e emitir certificados liberando os jogadores aptos, isto é, com resultados negativos nos testes. O Estado possui 12 times que disputam a Série A do Campeonato Paraense, e cada time tem cerca de 40 jogadores em seu plantel. A diretoria do Clube Real Maniçoba de Futebol informou que os testes e as certificações estavam previstos para os meses de janeiro a março de 2022 e representariam custo de R$ 1.200,00 por atleta.\n\nPara o cumprimento da legislação, o Governo do Estado tem feito campanhas educativas com todos os clubes e advertido que os inadimplentes com essa determinação serão penalizados com multa de R$ 12.000,00 por atleta, devendo ser pagas até o quinto dia útil do mês subsequente a sua emissão, correndo o risco ainda de ser excluído do campeonato.\n\nQuanto à obrigatoriedade de constituição das provisões e de acordo com a legislação vigente, o contador do Clube Real Maniçoba de Futebol deverá constituir, em 31/12/2021, uma provisão de",
+      "alternativas": {
+        "A": "R$ 48.000,00.",
+        "B": "R$ 24.000,00.",
+        "C": "R$ 480.000,00.",
+        "D": "R$ 0,00.",
+        "E": "R$ 240.000,00."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "D",
+      "enunciado": "A companhia Rainha do Norte S/A forneceu a seu novo advogado uma tabela com seis processos a que a companhia está respondendo.\n\nProcessos: Trabalhista, R$: 250.147,00, Probabilidade de Perda: 55%\nProcessos: Trabalhista, R$: 500.631,00, Probabilidade de Perda: 48%\nProcessos: Cível, R$: 421.852,00, Probabilidade de Perda: 39%\nProcessos: Cível, R$: 153.225,00, Probabilidade de Perda: 25%\nProcessos: Tributário, R$: 800.542,00, Probabilidade de Perda: 62%\nProcessos: Tributário, R$: 575.264,00, Probabilidade de Perda: 22%\n\nDe posse dessas informações, o novo advogado acionou o setor de contabilidade da companhia para que providenciasse a constituição das provisões de acordo com as interpretações das normas contábeis vigentes. Desta forma, e de acordo com os dados da tabela acima, a companhia Rainha do Norte S/A deverá provisionar",
+      "alternativas": {
+        "A": "R$ 922.483,00.",
+        "B": "R$ 1.050.689,00.",
+        "C": "R$ 1.551.320,00.",
+        "D": "R$ 800.542,00.",
+        "E": "R$ 750.778,00."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "C",
+      "enunciado": "O profissional de contabilidade da companhia Rainha do Norte S/A iniciou o processo de organização do imobilizado da companhia a fim de conhecer o valor contábil dos bens. Para isso, precisou fazer o cálculo da depreciação de todos os bens do imobilizado, iniciando com a máquina 01, a qual apresentava os seguintes dados:\n\n• Comprada em 01/06/2019 pelo valor de R$ 90.000,00.\n• Sendo colocada para uso em 31/07/2019.\n• Com vida útil estimada em 12 anos.\n• Valor residual estimado em R$ 7.200,00.\n\nDe posse dessas informações, o valor contábil da máquina 01 em 31/12/2019, encontrado pelo profissional de contabilidade, foi de",
+      "alternativas": {
+        "A": "R$ 2.875,00.",
+        "B": "R$ 3.450,00.",
+        "C": "R$ 87.125,00.",
+        "D": "R$ 86.550,00.",
+        "E": "R$ 86.875,00."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "A",
+      "enunciado": "Ao fazer uma análise dos efeitos da depreciação no resultado da companhia Rainha do Norte S/A, o profissional de contabilidade levantou os seguintes dados em 31/12/2020:\n\n• Lucro bruto apurado R$ 1.250.000,00\n• Despesas operacionais menos a depreciação R$ 437.500,00\n• Despesas de depreciação R$ 50.000,00\n\nDesconsiderando os efeitos tributários e levando-se em consideração que a companhia recebeu em dinheiro todos os valores referentes a suas receitas e pagou com dinheiro todas as suas despesas, pode-se dizer que o resultado financeiro apurado, em Reais, foi de",
+      "alternativas": {
+        "A": "812.500.00.",
+        "B": "762.500.00.",
+        "C": "862.500.00.",
+        "D": "962.500.00.",
+        "E": "1.200.000,00."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "C",
+      "enunciado": "Os diretores da companhia Rainha do Norte S/A, em reunião com o departamento de contabilidade, solicitaram deste que informasse quanto a companhia precisaria vender para aumentar sua margem de lucro bruto para 25% sobre as vendas, mantendo o mesmo custo das mercadorias vendidas que, no momento, estava fixado em R$ 300.000,00. Considere-se que sobre suas operações de venda incide uma alíquota especial de ICMS de 15%. Após os respectivos cálculos, o setor de contabilidade informou aos diretores que, nessas condições, a companhia precisaria ter uma receita bruta de vendas, em Reais, no valor de",
+      "alternativas": {
+        "A": "550.000,00.",
+        "B": "525.000.00.",
+        "C": "500.000,00.",
+        "D": "450.000,00.",
+        "E": "425.000,00."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "C",
+      "enunciado": "A Cia. Cravo S/A detém 80% do capital votante da sua controlada, a Cia. Rosa S/A, correspondendo a 40% do capital total da investida. As companhias apresentaram os seguintes balanços patrimoniais, encerrado em 31 de dezembro de 2020.\n\nATIVO: Caixa, Cia. Cravo: 40.000,00, Cia Rosa: 28.000,00\nATIVO: Banco, Cia. Cravo: 80.000,00, Cia Rosa: 52.000,00\nATIVO: Títulos a receber, Cia. Cravo: 75.000,00, Cia Rosa: 24.000,00\nATIVO: Ações da Cia. Rosa, Cia. Cravo: 20.000,00, Cia Rosa: -\nATIVO: Imobilizado, Cia. Cravo: 90.000,00, Cia Rosa: 31.000,00\nATIVO: Total, Cia. Cravo: 305.000,00, Cia Rosa: 135.000,00\nPASSIVO: Duplicatas a pagar, Cia. Cravo: 78.000,00, Cia Rosa: 48.000,00\nPASSIVO: Dívidas trabalhistas, Cia. Cravo: 32.000,00, Cia Rosa: 19.000,00\nPASSIVO: Empréstimo, Cia. Cravo: 28.000,00, Cia Rosa: 18.000,00\nPASSIVO: Capital, Cia. Cravo: 95.000,00, Cia Rosa: 40.000,00\nPASSIVO: Reservas, Cia. Cravo: 72.000,00, Cia Rosa: 10.000,00\nPASSIVO: Total, Cia. Cravo: 305.000,00, Cia Rosa: 135.000,00\n\nApós a consolidação do balanço patrimonial das duas companhias, pode-se afirmar que o valor da conta participação, de acionistas não controladores, em reais, é de",
+      "alternativas": {
+        "A": "10.000,00.",
+        "B": "20.000,00.",
+        "C": "30.000,00.",
+        "D": "40.000,00.",
+        "E": "50.000,00."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "C",
+      "enunciado": "Na relação entre investidor e investida, o investidor está exposto a, ou tem direitos sobre, retornos variáveis como resultado de seu envolvimento com a investida quando os retornos do investidor decorrentes de seu envolvimento têm o potencial de variar conforme o resultado do desempenho da investida. Nesse sentido, os retornos do investidor podem ser",
+      "alternativas": {
+        "A": "somente positivos e nulos, mas nunca negativos, até porque não interessa ao investidor o retorno negativo.",
+        "B": "somente positivos, mas nunca nulo ou negativos, até porque não interessa ao investidor o retorno nulo ou negativo.",
+        "C": "somente positivos, somente negativos ou ambos, positivos e negativos.",
+        "D": "somente positivos, somente negativos ou nulos, isto é, sem retornos positivos e/ou negativos.",
+        "E": "somente positivos, até porque para preservar os investidores a legislação não permite outro tipo de retorno."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "E",
+      "enunciado": "Os custos de transação são, por natureza, gastos incrementais, já que não existiriam ou teriam sido evitados se essas transações não ocorressem. A contabilização desses custos de transação, incorridos na alienação de ações em tesouraria, devem ser",
+      "alternativas": {
+        "A": "contabilizados de forma destacada, em conta redutora de patrimônio líquido, deduzidos os eventuais efeitos fiscais, e os prêmios recebidos devem ser reconhecidos em conta de reserva de capital.",
+        "B": "contabilizados como redução do valor justo inicialmente reconhecido do instrumento financeiro emitido, para evidenciação do valor líquido recebido.",
+        "C": "atribuídos aos componentes do patrimônio líquido e passivo do instrumento em proporção à alocação dos rendimentos referentes à emissão dessas ações.",
+        "D": "atribuídos a essas transações utilizando uma base para alocação coerente e consistente com transações similares.",
+        "E": "tratados como redução do lucro ou acréscimo do prejuízo dessa transação, resultados esses contabilizados diretamente no patrimônio líquido, na conta que houver sido utilizada como suporte à aquisição de tais ações, não afetando o resultado da entidade."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "D",
+      "enunciado": "O Ajuste a Valor Presente (AVP) previsto na Resolução CFC Nº 1.151/09 que aprovou a NBC TG 12, estabelece que o AVP deve ser calculado no momento inicial da operação, considerando os fluxos de caixa da correspondente operação (valor, data e todos os termos e as condições contratados), bem como a taxa de desconto aplicável à transação, na data de sua ocorrência. No que se refere aos reflexos contábeis que a adoção do AVP provoca em uma transação, é correto afirmar que o mecanismo do APV",
+      "alternativas": {
+        "A": "pode mudar o valor contratado entre as partes, dependendo do que rege esse contrato (taxa, tempo e valor).",
+        "B": "pode mudar o valor contratado entre as partes, desde que as partes aceitem as respectivas alterações.",
+        "C": "não pode mudar o valor contratado entre as partes, salvo em caso de solicitação das partes, para que não ocorra problemas com a auditoria.",
+        "D": "não pode mudar o valor contratado entre as partes, isto é, se o título ou contrato prevê um valor para determinada data, ele precisa estar contabilizado por esse montante nessa data.",
+        "E": "pode mudar o valor contratado entre as partes, desde que, no contrato, esteja prevista a taxa efetiva de juros a ser adotada no registro inicial e no registro final da operação."
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "A",
+      "enunciado": "A empresa Boto S/A apresentou os seguintes gastos num determinado período:\n\nMatéria Prima Consumida: 800.000,00\nSalários – Setor Fabril: 400.000,00\nHonorários da Diretoria: 120.000,00\nManutenção da Fábrica: 60.000,00\nDepreciação – Setor Fabril: 70.000,00\nComissão dos Vendedores: 90.500,00\nSeguros – Setor Fabril: 40.000,00\nDespesas com Marketing: 28.000,00\nTelefone e Internet da Administração: 11.300,00\nFretes sobre Vendas: 54.400,00\nMaterial de Expediente – Escritório: 20.600,00\nMateriais Diversos – Fábrica: 20.000,00\nDespesas Financeiras: 32.200,00\nEnergia Elétrica – Setor Fabril: 90.000,00\nDepreciação – Setor Administrativo: 42.000,00\nTOTAL DE GASTOS: 1.880.000,00\n\nA empresa em questão fornece três produtos diferentes (A, B e C) e faz uso do custeio por absorção para a apropriação dos custos aos produtos. Considere-se que, além da matéria-prima, representem também custos diretos parte da mão-de-obra e parte da energia elétrica. Segundo controles internos, a empresa apresentou os seguintes dados de produção:\n\n• Consumo de matéria-prima: A= 25%; B= 15% e C= 60%.\n• Mão-de-obra direta 75% do total, sendo A= 30%; B= 25% e C= 45%.\n• Mão-de-obra indireta= 25% do total.\n• Energia elétrica direta 70% do total, sendo A= 30%; B= 20% e C= 50%.\n• Energia elétrica indireta 30% do total.\n\nDe posse desses dados e utilizando como base de rateio para os custos indiretos, o total de matéria- prima consumida por cada produto (A, B e C), pode-se dizer que o total de custos absorvido por cada produto, em reais, foi de",
+      "alternativas": {
+        "A": "A: 393.097,16; B: 264,185,73 C: 822.717,11.",
+        "B": "A: 388.150,00; B: 255.150,00 C: 836,700,00.",
+        "C": "A: 404.000,00; B: 286.850,00 C: 789.150,00.",
+        "D": "A: 334.950,00; B: 287.350,00 C: 857,700,00.",
+        "E": "A: 277.900,00; B: 289.650,00 C: 912.450,00."
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": "B",
+      "enunciado": "A margem de contribuição representa a informação sobre a real contribuição de um determinado produto para o resultado da empresa. A partir desse entendimento, a empresa Vitória Régia S/A apresentou os seguintes dados referentes à produção e venda de 30 unidades de seu principal produto:\n\n• custos indiretos de fabricação: R$ 450.000,00\n• impostos e contribuições sobre vendas: R$ 90.000,00\n• custos das matérias primas: R$ 36.000,00\n• receita bruta de vendas: R$ 450.000,00\n• custo da mão-de-obra direta: R$ 22.500,00\n\nA partir desses dados, e levando-se em consideração que os custos indiretos de fabricação são considerados como custos fixos de produção, pode-se dizer que a margem de contribuição unitária desse produto, em reais, é",
+      "alternativas": {
+        "A": "7.800,00.",
+        "B": "13.050,00.",
+        "C": "10.050,00.",
+        "D": "301.500,00.",
+        "E": "234.000,00."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": null,
+      "enunciado": "Os diretores da companhia Carimbó S/A, demandaram do setor de contabilidade a informação de quantas unidades do produto curimbó precisariam produzir e vender durante o mês de junho de 2021, para cobrir seus custos fixos num total de R$ 85.000,00 (menos a depreciação do mês inclusa no valor de R$ 15.000,00), pagar uma parcela de um financiamento no valor de R$ 20.000,00 e obter um lucro de R$ 150.000,00. O preço unitário de venda do produto curimbó é R$ 4.000,00 e o custo variável unitário é de R$1.100,00. Levando-se em consideração a união dos procedimentos dos pontos de equilíbrio contábil, econômico e financeiros, o setor de contabilidade informou aos diretores da companhia Carimbó S/A que precisarão produzir e vender",
+      "alternativas": {
+        "A": "50 unidades.",
+        "B": "53 unidades.",
+        "C": "15 unidades.",
+        "D": "22 unidades.",
+        "E": "18 unidades."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Contabilidade Geral Avançada e de Custos",
+      "gabarito": null,
+      "enunciado": "O setor de contabilidade de custos da companhia Boi Bumbá S/A apresentou os seguintes dados referentes a sua produção durante o mês de junho de 2021:\n\n• Produção: 2.400 unidades totalmente concluídas;\n• Despesas variáveis: R$ 48.000,00;\n• Custos variáveis: R$ 72.000,00;\n• Despesas fixas: R$ 22.000,00;\n• Custos fixos: R$ 30.000,00;\n• Vendas líquidas: 2.000 unidades;\n• Preço unitário de venda: R$ 220,00.\n\nLevando-se em consideração que não houve estoques iniciais e finais de produtos em elaboração e que não houve estoques iniciais de produtos concluídos, ao adotar o custeio variável pode-se dizer o lucro líquido auferido foi de",
+      "alternativas": {
+        "A": "R$ 302.000.00.",
+        "B": "R$ 294.000.00.",
+        "C": "R$ 272.000.00.",
+        "D": "R$ 256.000.00.",
+        "E": "R$ 231.000.00."
+      }
+    },
+    {
+      "numero": 61,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "Em 30 de novembro de 2021, uma empresa auditada realizou venda a prazo, em 14 parcelas mensais e consecutivas, de R$ 1.040,00 com juros implícitos de 2% a.m. Em 31 de dezembro de 2021, a empresa apresentou o seguinte registro contábil para esta transação:\n\nContas a Receber – Circulante\nContas a receber de clientes: R$ 13.520,00\n(-) Ajuste a valor presente: (R$ 1.717,70)\nTotal contas a receber de clientes: R$ 11.802,30\n\nApós verificação desta transação, o auditor decidiu",
+      "alternativas": {
+        "A": "recomendar a segregação entre curto e longo prazo dos saldos apresentados, resultando em saldo “contas a receber de clientes – circulante” de R$ 12.480,00 “ajuste a valor presente - circulante” de R$ 1.585,56, “total contas a receber de clientes – circulante” de R$ 10.894,44; e saldo “contas a receber de clientes – realizável a longo prazo” de R$ 1.040,00 “ajuste a valor presente – realizável a longo prazo” de R$ 132,13, “total contas a receber de clientes – realizável a longo prazo” de R$ 907,87 em 31 de dezembro de 2021.",
+        "B": "recomendar o estorno do registro “Ajuste a valor presente”, pois trata-se de juros implícitos em que não há necessidade da contabilização desta conta retificadora.",
+        "C": "recomendar o acréscimo de R$ 1.350,90 ao saldo da conta “Ajuste a valor presente”, perfazendo um total de R$ 3.068,60 em 31 de dezembro de 2021.",
+        "D": "recomendar a segregação entre curto e longo prazo dos saldos apresentados, resultando em saldo “contas a receber de clientes – circulante” de R$ 12.480,00 “ajuste a valor presente - circulante” de R$ 1.481,65, “total contas a receber de clientes – circulante” de R$ 10.998,35; e saldo “contas a receber de clientes – realizável a longo prazo” de R$ 1.040,00 “ajuste a valor presente – realizável a longo prazo” de R$ 236,05, “total contas a receber de clientes – realizável a longo prazo” de R$ 803,95 em 31 de dezembro de 2021.",
+        "E": "recomendar o acréscimo de R$ 1.350,90 ao saldo da conta “Ajuste a valor presente”, perfazendo um total de R$ 3.068,60 em 31 de dezembro de 2021, e a segregação entre curto e longo prazo dos saldos apresentados, resultando em saldo “contas a receber de clientes – circulante” de R$ 12.480,00 “ajuste a valor presente - circulante” de R$ 2.832,55, “total contas a receber de clientes – circulante” de R$ 9.647,45; e saldo “contas a receber de clientes – realizável a longo prazo” de R$ 1.040,00 “ajuste a valor presente – realizável a longo prazo” de R$ 236,05, “total contas a receber de clientes – realizável a longo prazo” de R$ 803,95 em 31 de dezembro de 2021."
+      }
+    },
+    {
+      "numero": 62,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "O seguinte fator influencia o tamanho da amostra para os testes substantivos e respectivo efeito no tamanho da amostra:",
+      "alternativas": {
+        "A": "quando as evidências de auditoria são de má qualidade, maior deve ser o tamanho da amostra.",
+        "B": "quanto menor for a distorção tolerável, menor deve ser o tamanho da amostra.",
+        "C": "quanto maior o risco de amostragem o auditor está disposto a aceitar, menor deve ser o tamanho da amostra.",
+        "D": "independentemente do tamanho do risco de amostragem que o auditor está disposto a aceitar, o tamanho da amostra deve ser definido por abordagem estatística.",
+        "E": "quando o auditor precisa de um maior nível de segurança de que que os resultados da amostra sejam de fato indicativos do valor real de distorção na população, menor deve ser o tamanho da amostra."
+      }
+    },
+    {
+      "numero": 63,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "Considere a tabela a seguir.\n\n2021: Jan/Fev, Quantidade veículos: 6, Preço médio do litro da gasolina: R$ 4,56, Evolução do preço: 100%, Despesa com combustível (gasolina): R$6.840,00, Evolução da despesa: 100%\n2021: Mar/Abr, Quantidade veículos: 6, Preço médio do litro da gasolina: R$ 5,44, Evolução do preço: 119%, Despesa com combustível (gasolina): R$8.460,00, Evolução da despesa: 124%\n2021: Mai/Jun, Quantidade veículos: 6, Preço médio do litro da gasolina: R$ 5,83, Evolução do preço: 107%, Despesa com combustível (gasolina): R$8.945,00, Evolução da despesa: 106%\n2021: Jul/Ago, Quantidade veículos: 7, Preço médio do litro da gasolina: R$ 6,06, Evolução do preço: 104%, Despesa com combustível (gasolina): R$10.405,00, Evolução da despesa: 116%\n2021: Set/Out, Quantidade veículos: 7, Preço médio do litro da gasolina: R$ 6,36, Evolução do preço: 105%, Despesa com combustível (gasolina): R$11.130,00, Evolução da despesa: 107%\n2021: Nov/Dez, Quantidade veículos: 7, Preço médio do litro da gasolina: R$ 6,63, Evolução do preço: 104%, Despesa com combustível (gasolina): R$11.800,00, Evolução da despesa: 106%\n\nÉ correto afirmar que o procedimento de auditoria correto para examinar a despesa com combustível (gasolina) é o(a)",
+      "alternativas": {
+        "A": "recálculo.",
+        "B": "reexecução.",
+        "C": "confirmação externa.",
+        "D": "procedimento analítico.",
+        "E": "observação."
+      }
+    },
+    {
+      "numero": 64,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Ao realizar a verificação da conta corrente bancária da empresa auditada, o auditor identificou que o extrato emitido pela instituição financeira apresenta um saldo de R$ 12.830,00. Porém, o relatório contábil (razão contábil) na mesma data-base apresenta um saldo de R$ 16.080,00. A partir da análise realizada pelo auditor, foram encontrados os seguintes fatos:\n\n1. A instituição financeira realizou um lançamento a débito referente a despesas de consumo (água, gás e energia elétrica) no extrato no valor de R$ 1.200,00, ainda não registrado no razão contábil pela empresa.\n2. Um cheque no valor de R$ 1.700,00 foi emitido pela empresa e registrado no razão contábil pela empresa, mas ainda não foi sacado pelo favorecido.\n3. A instituição financeira realizou um lançamento a débito referente a taxa de emissão de boletos no extrato no valor de R$ 420,00, ainda não registrado no razão contábil pela empresa.\n4. Um depósito foi feito na conta corrente por meio de cheque no valor de R$ 550,00, ainda não creditado pela instituição financeira, porém registrado no razão contábil pela empresa.\n5. A instituição financeira realizou um lançamento a crédito referente a uma transferência eletrônica disponível (TED) recebida no valor de R$ 1.940,00, ainda não registrado no razão contábil pela empresa.\n\nComo resultado do trabalho, o auditor deve recomendar ajuste no saldo contábil a débito no valor de",
+      "alternativas": {
+        "A": "R$ 3.640 e a crédito no valor de R$ 2.170.",
+        "B": "R$ 1.940 e a crédito no valor de R$ 1.620.",
+        "C": "R$ 2.170 e a crédito no valor de R$ 1.620.",
+        "D": "R$ 1.620 e a crédito no valor de R$ 1.940.",
+        "E": "R$ 1.940 e a crédito no valor de R$ 3.640."
+      }
+    },
+    {
+      "numero": 65,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "Indicam erro detectado pelo trabalho do auditor e seu respectivo efeito, respectivamente,",
+      "alternativas": {
+        "A": "cálculo errado da depreciação de itens do ativo imobilizado e superavaliação do ativo imobilizado.",
+        "B": "não contabilização da provisão para garantia da venda dos bens cobertos pelo custo da reparação de qualquer defeito de fabricação que se tornar evidente dentro dos primeiros seis meses após a compra e superavaliação das contas a receber.",
+        "C": "cálculo errado de um passivo contingente trabalhista e melhoria nos indicadores de endividamento.",
+        "D": "não contabilização do IOF sobre o mútuo com partes relacionadas e subavaliação dos impostos a recolher.",
+        "E": "falta da avaliação dos estoques pelo menor valor entre o custo e o valor líquido de realização e melhoria nos indicadores de liquidez."
+      }
+    },
+    {
+      "numero": 66,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "A companhia XPTO S.A. apresentou saldo na conta “Provisões para riscos tributários, cíveis e trabalhistas” no valor de R$ 224.460,00 em 31 dezembro de 2021.\n\nDescrição das Contingências: Processo discutindo a ilegalidade de alterações na base de cálculo ICMS em algumas unidades federativas., Valor: R$ 127.800,00, Probabilidade de perda: Possível\nDescrição das Contingências: Auto de Infração em que determinada Secretaria da Fazenda exige a cobrança de ICMS-ST., Valor: R$ 163.500,00, Probabilidade de perda: Provável\nDescrição das Contingências: Processo discutindo a inclusão de IPI na base de cálculo de Imposto de Renda., Valor: R$ 30.200,00, Probabilidade de perda: Possível\nDescrição das Contingências: Processo de pedido de indenização sobre insatisfação de um cliente em relação ao um produto., Valor: R$ 13.300,00, Probabilidade de perda: Remota\nDescrição das Contingências: Auto de infração em que o órgão responsável pela administração dos tributos da União exige débitos tributários de IPI por discordar da classificação fiscal adotada para alguns produtos., Valor: R$ 52.900,00, Probabilidade de perda: Provável\nDescrição das Contingências: Reclamações trabalhistas referentes a verbas rescisórias e horas extras., Valor: R$ 66.500,00, Probabilidade de perda: 70% Provável e 30% Possível\nDescrição das Contingências: Reclamações trabalhistas de prestadores de serviços em razão de responsabilidade subsidiária e discussão acerca do reconhecimento de eventual vínculo empregatício., Valor: R$ 40.100,00, Probabilidade de perda: 80% Remota e 20% Possível\n\nApós análise da conta “Provisões para riscos tributários, cíveis e trabalhistas”, o auditor concluiu que",
+      "alternativas": {
+        "A": "há necessidade de ajuste por um lançamento a crédito no valor de r$ 38.490,00.",
+        "B": "não há necessidade de ajuste, pois o saldo apresentado está livre de erros materiais.",
+        "C": "há necessidade de ajuste por um lançamento a débito no valor de r$ 58.440,00.",
+        "D": "há necessidade de ajuste por um lançamento a crédito no valor de r$ 40.140,00",
+        "E": "há necessidade de ajuste por um lançamento a débito no valor de r$ 38.490,00."
+      }
+    },
+    {
+      "numero": 67,
+      "materia": "Auditoria",
+      "gabarito": null,
+      "enunciado": "Quanto à adoção da postura de ceticismo profissional, a NBC TA 200",
+      "alternativas": {
+        "A": "sugere que o auditor adote uma postura de ceticismo profissional ao longo de todo o planejamento e na execução da auditoria.",
+        "B": "determina que a adoção de uma postura independente não contribui com a postura de ceticismo profissional.",
+        "C": "sugere que o auditor desconsidere a experiência passada de honestidade e integridade da administração e mantenha o ceticismo profissional para obtenção de evidências apropriadas e suficientes.",
+        "D": "determina que, na adoção de uma postura de ceticismo profissional, o auditor pode se eximir de estar alerta a condições que indiquem possível fraude, pois detectar fraude não é o objetivo de uma auditoria das demonstrações contábeis.",
+        "E": "sugere que o auditor coloque em dúvida a confiabilidade dos documentos e respostas a indagações a serem usadas como evidências de auditoria e mantenha o ceticismo profissional para obtenção de evidências apropriadas e suficientes."
+      }
+    },
+    {
+      "numero": 68,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "Quanto ao atendimento às disposições da NBC TA 240 – Responsabilidade do Auditor em Relação a Fraude no Contexto da Auditoria de Demonstrações Contábeis –, é correto afirmar o seguinte:",
+      "alternativas": {
+        "A": "o auditor deve implementar controles internos com objetivo de minimizar as oportunidades de ocorrência dos efeitos de fraudes da empresa auditada.",
+        "B": "o auditor deve receber treinamento para ser especialista na verificação de autenticidade de documentos.",
+        "C": "na execução dos procedimentos de auditoria, o risco de o auditor não detectar uma distorção relevante decorrente de fraude da administração é maior do que no caso de fraude cometida por empregados.",
+        "D": "o auditor detecta uma fraude por meio de suas habilidades em pensar como um perpetrador, na frequência e a extensão da manipulação, e a dimensão relativa dos valores individuais manipulados.",
+        "E": "os procedimentos de auditoria são tão eficazes na detecção de erros quanto na detecção de fraude."
+      }
+    },
+    {
+      "numero": 69,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "Na amostragem em auditoria, a noção de que “é a distorção ou o desvio que é comprovadamente não representativo de distorção ou desvio em uma população” refere-se ao conceito de",
+      "alternativas": {
+        "A": "distorção tolerável.",
+        "B": "taxa tolerável de desvio.",
+        "C": "anomalia.",
+        "D": "risco não resultante da amostragem.",
+        "E": "risco de amostragem."
+      }
+    },
+    {
+      "numero": 70,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "Sobre a revisão de controle de qualidade do trabalho de auditoria é correto afirmar que",
+      "alternativas": {
+        "A": "O processo de revisão de controle de qualidade do trabalho pode ser conduzido por uma pessoa externa adequadamente qualificada, com experiência e autoridade suficientes e apropriadas para avaliar objetivamente os julgamentos relevantes feitos pela equipe de trabalho e as conclusões alcançadas na elaboração do relatório de auditoria.",
+        "B": "O processo de revisão de controle de qualidade do trabalho é somente para auditoria de demonstrações contábeis de entidades listadas, com exceção das instituições financeiras reguladas por normativo específico do Banco Central.",
+        "C": "O processo de revisão de controle de qualidade do trabalho é uma avaliação superficial e subjetiva dos julgamentos relevantes feitos pela equipe de trabalho e das conclusões atingidas ao elaborar o relatório.",
+        "D": "O processo de revisão de controle de qualidade do trabalho deve assegurar que os procedimentos de auditoria realizados fornecem segurança absoluta de que não há distorções relevantes não identificadas nas demonstrações contábeis.",
+        "E": "O processo de revisão de controle de qualidade do trabalho deve ser concluído na mesma data da entrega das demonstrações contábeis ao órgão fiscalizador de valores mobiliários."
+      }
+    },
+    {
+      "numero": 71,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Tratando-se da Continuidade Operacional, conforme previsto na NBC TA 570, pode-se afirmar que:",
+      "alternativas": {
+        "A": "O auditor deve obter evidência de auditoria sobre o adequado uso, pela administração, da matriz de risco contábil de incerteza de continuidade operacional na elaboração das demonstrações contábeis.",
+        "B": "O auditor deve estar atento à evidência de condições que possam levantar dúvida significativa quanto à capacidade de continuidade operacional da entidade, tais como: utilização excessiva de empréstimos de curto prazo para financiar ativos de longo prazo, suspensão de dividendos, principais índices financeiros adversos, dentre outras.",
+        "C": "O auditor deve assegurar quanto a elaboração das demonstrações contábeis para propósitos especiais com base contábil de continuidade operacional.",
+        "D": "O auditor que concluir pela ausência de incerteza significativa quanto à capacidade de continuidade operacional nas demonstrações contábeis da entidade, pode dá garantia quanto à capacidade de continuidade operacional da entidade.",
+        "E": "O auditor não precisa incluir em seu escopo de trabalho a avaliação elaborada pela administração sobre a capacidade de continuidade operacional da entidade, a menos que, a entidade apresente prejuízos recorrentes e esteja propensa a solicitar recuperação judicial."
+      }
+    },
+    {
+      "numero": 72,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Julgue as afirmativas a seguir, sobre a execução do trabalho do auditor ao examinar as transações com partes relacionadas.\n\nI. O auditor deve indagar a administração se há transações com partes relacionadas conduzidas sem o pagamento de contraprestação.\nII. O auditor deve realizar auditoria nas demonstrações contábeis das partes relacionadas para avaliar o risco de distorção relevante da conta.\nIII. O auditor deve assegurar a existência de controle por meio de autorização e aprovação da administração para as transações significativas com partes relacionadas fora do curso normal de negócios da entidade, eliminando assim o risco de distorção relevante de fraude por conluio.\nIV. O auditor deve examinar minutas de reuniões dos acionistas/quotistas e dos responsáveis pela governança em busca de indicações da existência de relacionamentos ou transações com partes relacionadas que a administração não tenha anteriormente identificado ou divulgado para o auditor.\n\nEstão certos os itens",
+      "alternativas": {
+        "A": "I e II, apenas.",
+        "B": "I e IV, apenas.",
+        "C": "I, II e III, apenas.",
+        "D": "II, III e IV, apenas.",
+        "E": "I, II, III e IV."
+      }
+    },
+    {
+      "numero": 73,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "Julgue as afirmativas a seguir, quanto à confiabilidade das informações a serem utilizadas como evidência de auditoria.\n\nI. O auditor confia tanto em uma ata de reunião elaborada tempestivamente quanto em uma representação verbal subsequente dos assuntos discutidos.\nII. O auditor confia mais em uma confirmação externa do que em minuta de reunião da entidade.\nIII. O auditor confia mais ao obter evidência de auditoria diretamente pela observação da aplicação de um controle, por exemplo, do que quando obtida indiretamente, por exemplo, na indagação a respeito da aplicação de controle.\n\nPode-se afirmar que",
+      "alternativas": {
+        "A": "apenas os itens I e II estão corretos.",
+        "B": "apenas os itens I e III estão corretos.",
+        "C": "apenas os itens II e III estão corretos.",
+        "D": "os itens I, II e III estão corretos.",
+        "E": "apenas o item I está correto."
+      }
+    },
+    {
+      "numero": 74,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Ao executar os procedimentos de auditoria na conta de estoques de mercadorias para revenda, o auditor elaborou o seguinte papel de trabalho:\n\nMercadoria: A, Quantidade no estoque: 32 unidades, Custo de aquisição (Total): R$4.480,00, Valor Realizável Líquido (unitário): R$125,00\nMercadoria: B, Quantidade no estoque: 44 unidades, Custo de aquisição (Total): R$4.840,00, Valor Realizável Líquido (unitário): R$120,00\nMercadoria: C, Quantidade no estoque: 54 unidades, Custo de aquisição (Total): R$4.860,00, Valor Realizável Líquido (unitário): R$ 90,00\n\nComo resultado do trabalho, considerando que a empresa não registrou ajuste algum na conta de estoques de mercadorias para revenda até o momento, o auditor deve:",
+      "alternativas": {
+        "A": "Recomendar um ajuste à crédito no valor de R$ 40,00, referente ao saldo global da conta de estoques de mercadorias para revenda.",
+        "B": "Recomendar um ajuste à crédito no valor de R$ 90,00, referente ao saldo do estoque da Mercadoria C.",
+        "C": "Recomendar um ajuste à crédito no valor de R$ 440,00, referente ao saldo do estoque da Mercadoria B.",
+        "D": "Recomendar um ajuste à débito no valor de R$ 40,00, referente ao saldo global da conta de estoques de mercadorias para revenda.",
+        "E": "Recomendar um ajuste à crédito no valor de R$ 480,00, referente ao saldo do estoque da Mercadoria A."
+      }
+    },
+    {
+      "numero": 75,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Conforme a NBC PA 01, a firma de auditoria deve estabelecer os seguintes objetivos de qualidade que tratam da execução dos trabalhos de qualidade:",
+      "alternativas": {
+        "A": "diferenças de opinião dentro da equipe de trabalho, entre a equipe de trabalho e o revisor da qualidade do trabalho são levadas à administração e aos responsáveis pela governança de entidade auditada.",
+        "B": "a equipe de trabalho pode identificar assuntos que requerem consulta. na ocorrência de assuntos complexos ou controversos, é realizada consulta sobre estes e as conclusões acordadas são implementadas.",
+        "C": "as equipes de trabalho definem os procedimentos de auditoria com base, quando aplicável, em julgamento profissional apropriado e ceticismo profissional.",
+        "D": "o trabalho executado por membros da equipe menos experientes é direcionado, supervisionado e revisado por outros membros com mesmo nível de experiência.",
+        "E": "o membro ou a equipe de revisão da qualidade do trabalho não considera os recursos designados ou disponibilizados para as equipes que executaram o trabalho de auditoria."
+      }
+    },
+    {
+      "numero": 76,
+      "materia": "Economia",
+      "gabarito": null,
+      "enunciado": "O público médio dos jogos de um clube de futebol, quando se cobrava R$ 5 pelo ingresso, era de 30 mil pessoas, mas, quando se passou a cobrar R$ 15 pelo ingresso, passou a ser de apenas 5 mil pagantes. A elasticidade-preço da demanda dos jogos de futebol",
+      "alternativas": {
+        "A": "é aproximadamente 0,42, portanto, elástica.",
+        "B": "em módulo é igual a 2,5, portanto, elástica.",
+        "C": "é igual a 1, portanto unitária.",
+        "D": "em módulo é igual à 0,42, portanto inelástica.",
+        "E": "é igual a 2,5, portanto, inelástica."
+      }
+    },
+    {
+      "numero": 77,
+      "materia": "Economia",
+      "gabarito": "C",
+      "enunciado": "Considerando a teoria do consumidor, a condição necessária para a maximização da utilidade se dá quando",
+      "alternativas": {
+        "A": "a curva de utilidade é convexa.",
+        "B": "a curva de utilidade intercepta a reta da restrição orçamentária em dois pontos.",
+        "C": "a taxa marginal de substituição é igual à inclinação da reta orçamentária.",
+        "D": "a cesta do bem x é igual à restrição orçamentária.",
+        "E": "a taxa marginal de substituição técnica é igual à quantidade do bem y."
+      }
+    },
+    {
+      "numero": 78,
+      "materia": "Economia",
+      "gabarito": "E",
+      "enunciado": "Considere um modelo Keynesiano simples com economia fechada e sem governo. Supondo que o investimento aumente de 20 para 30 e que a função consumo seja dada por C=10+0,6Y, o valor da variação da renda é.",
+      "alternativas": {
+        "A": "50.",
+        "B": "100.",
+        "C": "15.",
+        "D": "75.",
+        "E": "25."
+      }
+    },
+    {
+      "numero": 79,
+      "materia": "Economia",
+      "gabarito": "A",
+      "enunciado": "Considerando as curvas IS (Investment-Saving) e LM (Liquidy money), o(s) fator(es) que determina(m) se essas curvas são elásticas ou inelásticas são",
+      "alternativas": {
+        "A": "a inclinação da curva investimento e da curva demanda por moeda em relação à taxa de juros.",
+        "B": "o aumento do gasto do governo e da oferta de moeda.",
+        "C": "o volume da poupança e da armadilha da liquidez.",
+        "D": "o efeito deslocamento e a inflação.",
+        "E": "a variação da taxa de câmbio e o crescimento do produto."
+      }
+    },
+    {
+      "numero": 80,
+      "materia": "Economia",
+      "gabarito": "A",
+      "enunciado": "No modelo IS-LM-BP com mobilidade imperfeita de capital, regime de câmbio flutuante e com a curva LM mais inclinada que a BP, o efeito de uma política monetária expansionista é o seguinte:",
+      "alternativas": {
+        "A": "o aumento da oferta de moeda irá deslocar a LM para a direita. Esse deslocamento irá provocar um aumento da renda e uma redução da taxa de juros, o que aumenta o déficit na balança de pagamentos, causando uma desvalorização da taxa de câmbio, deslocando a IS e BP para direita.",
+        "B": "considerando o aumento da oferta dos gastos do governo, teremos uma redução da taxa de juros, o que causa um superavit na balança de pagamentos, deslocando a BP para cima.",
+        "C": "considerando a política fiscal expansionista, a taxa de juros não terá influência sobre a Balança de pagamentos.",
+        "D": "considerando o aumento dos gastos do governo, a IS irá se deslocar para a esquerda, o que irá provocar uma redução da renda e da taxa de juros. Com isso, teremos um déficit na balança de pagamentos, causando, assim, uma desvalorização da taxa de câmbio, o que irá deslocar a BP para baixo.",
+        "E": "Haverá perda do controle da oferta de moeda pelo Banco Central."
+      }
+    }
+  ]
+}

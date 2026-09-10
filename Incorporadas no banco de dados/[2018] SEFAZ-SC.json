@@ -1,0 +1,1049 @@
+{
+  "instituicao": "SEFAZ-SC",
+  "ano": 2018,
+  "cargo": "Auditor-Fiscal da Receita Estadual – Nível I",
+  "tipo_prova": "A01",
+  "gabarito_tipo": 1,
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "A Auditora Fiscal Maria realizou, na empresa Comercial ABC Ltda., a auditoria tributária dos livros fiscais e contábeis, referente ao mês de dezembro de 2017, confrontando o Extrato Bancário com o Razão Contábil da conta Bancos (ambos fornecidos pela empresa fiscalizada).\n\nA Auditora formalizou uma notificação à empresa Comercial ABC Ltda. solicitando justificativa para a diferença existente entre a contabilização de receita de vendas ao cliente XYZ Prestador de Serviços Ltda. (nos livros contábeis ECD – valor de R$ 20.000,00 no dia 22 de dezembro) e livros fiscais (valor de R$ 20.000,00 no dia 22 de dezembro – Livro de Registro de Saídas) versus os valores do Extrato Bancário (recebimentos de R$ 30.000,00 e de R$ 20.000,00 por meio de dois TED’s da XYZ Prestador de Serviços Ltda. no dia 22 de dezembro). A empresa não respondeu à notificação e então a Auditora Fiscal procurou a empresa XYZ Prestador de Serviços Ltda. (adquirente das mercadorias e contribuinte apenas do ISS municipal) e obteve desta uma declaração por escrito de que a empresa destinatária teria pago realmente o valor R$ 50.000,00 em duas transferências bancárias por todas as mercadorias adquiridas no dia 22 de dezembro, mas recebido apenas uma Nota Fiscal com o valor de R$ 20.000,00.\n\nNesse caso, em relação à empresa Comercial ABC Ltda., a Auditora",
+      "alternativas": {
+        "A": "não deve lavrar nenhuma autuação fiscal, uma vez que o valor contábil apresentado na escrita contábil ECD (R$ 20.000,00) corresponde ao mesmo valor registrado nos livros fiscais de ICMS (de R$ 20.000,00 no Livro de Registro de Saídas).",
+        "B": "deve lavrar uma autuação fiscal por presunção de operação tributável não registrada, pois de acordo com o inciso III do art. 49 da Lei n2 10.297/1996, foi constatada efetivação de despesas pagas, em limite superior ao lucro bruto auferido pelo contribuinte.",
+        "C": "deve lavrar uma autuação fiscal por presunção de operação tributável não registrada, pois de acordo com o inciso I do art. 49 da Lei n2 10.297/1996, foi constatado suprimento de caixa sem comprovação da origem do numerário, o qual não foi escriturado.",
+        "D": "não deve lavrar nenhuma autuação fiscal contra a empresa Comercial ABC Ltda., mas sim contra a empresa XYZ Prestador de Serviços Ltda., haja vista que esta não procedeu com o estorno de crédito de ICMS de acordo com o art. 30 da Lei n2 10.297/1996.",
+        "E": "deve lavrar uma autuação fiscal por presunção de operação tributável não registrada, pois, de acordo com o inciso VI do art. 49 da Lei n2 10.297/1996, foi constatada diferença apurada mediante controle quantitativo de mercadorias (confronto en- tre a quantidade de unidades estocadas e as quantidades de entradas e de saídas)."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "A Auditora Fiscal Maria continuou a auditoria tributária na empresa Comercial ABC Ltda., referente ao mês de dezembro de 2017 e, fazendo o confronto do Extrato Bancário com o Razão Contábil da conta Bancos, identificou uma nova situação. Verificou no Razão Contábil (conta empréstimos) que havia um empréstimo realizado pelo sócio (Sr. Luís) à empresa no valor de R$ 1 milhão, em 29 de dezembro de 2017; no entanto, não encontrou no Extrato Bancário informação sobre o recebimento deste valor. A Auditora formalizou então uma notificação à empresa solicitando uma justificativa para o fato.\n\nO contador da empresa informou ser apenas uma pendência de conciliação bancária e que fez a retificação do lançamento contábil, pois, na verdade, o valor do empréstimo do Sr. Luís (sócio) foi recebido na Conta Caixa e não na Conta Bancos– ou seja, foi recebido em dinheiro. Entregou à Auditora um contrato de mútuo (não registrado em cartório) entre a pessoa física do sócio e a empresa com data de 29 de dezembro de 2017.\n\nA Auditoria analisou também a Declaração de Imposto de Renda do sócio obtida junto à Receita Federal (data base 2017), na qual constava, no quadro de bens do declarante, um total de bens de R$ 400 mil, sendo apenas R$ 50 mil em aplicações financeiras, e não encontrou nenhum direito de recebimento relativo ao suposto empréstimo de R$ 1 milhão.\n\nNesse caso, em relação à empresa Comercial ABC Ltda., a Auditora",
+      "alternativas": {
+        "A": "não deve lavrar nenhuma autuação fiscal, uma vez que se trata de uma mera irregularidade contábil (matéria estranha à competência estadual de fiscalização tributária), sem nenhuma repercussão na esfera tributária do ICMS.",
+        "B": "deve lavrar uma autuação fiscal por presunção de operação tributável não registrada, pois, de acordo com o inciso IV do art. 49 da Lei n2 10.297/1996, foi constatado registro de saídas em montante inferior ao obtido pela aplicação de índices de ro- tação de estoques (em estabelecimentos do mesmo ramo).",
+        "C": "não deve lavrar nenhuma autuação fiscal contra a empresa Comercial ABC Ltda., pois se trata de infração fiscal que afeta apenas o Imposto de Renda da Pessoa Jurídica e não afeta o ICMS.",
+        "D": "deve lavrar uma autuação fiscal por presunção de operação tributável não registrada, pois, de acordo com o inciso I do art. 49 da Lei n2 10.297/1996, houve suprimento de caixa constatado pela existência de empréstimos de sócios, sem com- provação quanto à origem e quanto à efetiva entrega dos recursos.",
+        "E": "deve lavrar uma autuação fiscal por presunção de operação tributável não registrada, pois, de acordo com o inciso VI do art. 49 da Lei n2 10.297/1996, foi constatada a existência de um passivo oculto, uma vez que o empréstimo não está contabilizado."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Suponha que José é Auditor Fiscal de Santa Catarina e irá realizar uma auditoria contábil-tributária em uma indústria de Joinville. Verificou na conta contábil Estoque de matérias-primas que a indústria fez uma aquisição de insumos industriais no dia 26 de setembro de 2018, cujo custo contábil foi registrado pelo valor de R$ 830,00. Por sua vez, verificou no bloco do SPED ICMS-IPI as informações referentes ao Livro de Registro de Entradas do ICMS e IPI, e detectou na aquisição de insumos industriais do dia 26 de setembro de 2018 a seguinte informação: custo de aquisição de R$ 1.200,00; valor da base de cálculo de ICMS de R$ 1.000,00; valor de ICMS a crédito na escrita fiscal de R$ 170,00; valor de IPI a crédito na escrita fiscal de R$ 200,00. Para finalizar a auditoria José acessou a Nota Fiscal Eletrônica desta compra de insumos e obteve as seguintes informações: - IPI destacado na nota fiscal: R$ 200,00 - Valor total da nota fiscal: R$ 1.200,00 - ICMS destacado na nota fiscal: R$ 170,00 A empresa é contribuinte do IPI e do ICMS, e está sujeita ao regime de PIS-COFINS cumulativo (sem direito a crédito). Nesse caso, José, como Auditor Fiscal do ICMS, deve concluir que o recolhimento do ICMS nessa compra",
+      "alternativas": {
+        "A": "está correto, uma vez que o valor contábil registrado na contabilidade na conta de estoque é de R$ 1.000,00 e a base de cálculo do ICMS é de R$ 1.000,00.",
+        "B": "está correto, tendo em vista que o valor contábil do SPED-ICMS-IPI foi R$ 1.200,00 (Valor total da nota fiscal: R$ 1.200,00), sendo que para fins de registro contábil dos estoques: a conta contábil de IPI a recuperar pela indústria é R$ 200,00; a conta contábil de ICMS a recuperar é R$ 170,00 e a conta contábil de estoques no ativo é R$ 830,00.",
+        "C": "foi a menor, já que a base de cálculo do ICMS deveria ser R$ 1.200,00, uma vez que o valor contábil registrado na contabilidade é R$ 830,00 e o valor total da Nota Fiscal é R$ 1.200,00.",
+        "D": "está correto, tendo em vista que o valor contábil do SPED-ICMS-IPI foi R$ 1.200,00 (Valor total da nota fiscal: R$ 1.200,00), sendo que para fins de registro contábil dos estoques: a conta contábil de ICMS a recuperar é R$ 170,00 e a conta contábil estoques no ativo é R$ 1.030,00.",
+        "E": "foi a maior sobre uma base de cálculo de R$ 1.000,00, uma vez que o valor contábil registrado na contabilidade é apenas R$ 830,00 e a base de cálculo do ICMS deveria ser de R$ 830,00."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "Considerando os procedimentos de auditoria contábil a serem aplicados por um Auditor Fiscal de ICMS, podem-se mencionar alguns exemplos de testes e situações de fraudes fiscais encontradas em que se evidenciam a Superavaliação ou Subavaliação de contas do Ativo Disponível do Balanço Patrimonial:\n\nI. Detecção de créditos nas contas do Ativo Disponível que diminuem também as Contas de Passivo (por exemplo: Créditos em Bancos/Caixa contra Empréstimos – no caso de pagamento/quitação de empréstimos devidamente comprovados documentalmente).\n\nII. Detecção de créditos a menor nas contas do Ativo Disponível que deixam seu saldo maior e que diminuem indevidamente as Contas de Despesas (por exemplo: Débitos a menor em Despesas contra Bancos/Caixa – no caso de Despesas serem contabilizadas por um valor menor do que o valor efetivo da transação).\n\nIII. Detecção de débitos irregulares nas contas do Ativo Disponível que aumentam também indevidamente as Contas de Passivo (por exemplo: Débitos em Bancos/Caixa contra Empréstimos – no caso de Empréstimos simulados que não existiram à época ou que não existem).\n\nIV. Detecção de créditos irregulares nas contas do Ativo Disponível que diminuem também indevidamente as Contas de Receitas (por exemplo: Créditos em Bancos/Caixa contra Receitas – no caso de simulação de cancelamento ou de devolução de vendas, de mercadorias que foram efetivamente entregues e recebidas).\n\nEvidenciam superavaliação ou subavaliação do ativo disponível os exemplos citados APENAS em",
+      "alternativas": {
+        "A": "I e IV.",
+        "B": "II e III.",
+        "C": "I e III.",
+        "D": "I, II e IV.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "I. Trata-se de procedimentos de auditoria que têm por finalidade obter evidências quanto à suficiência, exatidão e validade dos dados gerados pelo sistema de contabilidade da entidade. Têm como um dos principais objetivos a conclusão sobre a adequada mensuração, apresentação e divulgação das transações econômico-financeiras, em consonância com os Princípios Fundamentais de Contabilidade.\n\nII. Além da sua importância para fins de auditoria contábil, também podem ser empregados em auditorias tributárias, tendo também como objetivo certificar-se da correção: da existência do item contábil (se o componente patrimonial existe em certa data), da existência de direitos e obrigações (se efetivamente existem em certa data), da ocorrência (se uma determinada transação realmente ocorreu).\n\nOs textos acima referem-se",
+      "alternativas": {
+        "A": "aos Testes substantivos.",
+        "B": "aos Testes de observância.",
+        "C": "às Técnicas de Auditoria de exame e contagem física.",
+        "D": "às Técnicas de Circularização de bens e direitos.",
+        "E": "aos Riscos de amostragem."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "Na execução de uma auditoria tributária, e de acordo com as normas de amostragem em auditoria (NBC TA 530, aprovada pela Resolução CFC 1222/09), o Auditor pode lançar mão de diversos métodos de seleção da amostra, dentre os quais se destacam:\n\n– Método A: aplicado por meio de geradores de números aleatórios como, por exemplo, tabelas de números aleatórios.\n\n– Método B: em que a quantidade de unidades de amostragem na população é dividida pelo tamanho da amostra para dar um intervalo de amostragem como, por exemplo, 50, e após determinar um ponto de início dentro das primeiras 50, toda 50ª uni- dade de amostragem seguinte é selecionada.\n\n– Método C: no qual o auditor seleciona a amostra sem seguir uma técnica estruturada. Embora nenhuma técnica estruturada seja usada, o auditor, ainda assim, evitaria qualquer tendenciosidade ou previsibilidade consciente (por exemplo, evitar itens difíceis de localizar ou escolher ou evitar sempre os primeiros ou os últimos lançamentos de uma página) e, desse modo, procuraria se assegurar de que todos os itens da população têm uma mesma chance de seleção.\n\n– Método D: é um tipo de seleção com base em valores, na qual o tamanho, a seleção e a avaliação da amostra resultam em uma conclusão em valores monetários. Ao considerar as características da população da qual a amostra será retirada, o au- ditor pode determinar que a estratificação ou a seleção com base em valores é mais apropriada.\n\nOs métodos A, B, C e D referem-se, respectivamente, à Seleção",
+      "alternativas": {
+        "A": "aleatória, Seleção sistemática, Seleção com base em valor (amostragem de unidade monetária) e Seleção ao acaso.",
+        "B": "ao acaso, Seleção sistemática, Seleção aleatória e Seleção com base em valor (amostragem de unidade monetária).",
+        "C": "com base em valor (amostragem de unidade monetária), Seleção aleatória, Seleção sistemática e Seleção ao acaso.",
+        "D": "aleatória, Seleção ao acaso, Seleção com base em valor (amostragem de unidade monetária) e Seleção sistemática.",
+        "E": "aleatória, Seleção sistemática, Seleção ao acaso e Seleção com base em valor (amostragem de unidade monetária)."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "O Auditor Fiscal Rodrigo recebeu um trabalho de auditoria tributária da empresa Manezinho Comercial Ltda., em Florianópolis. Ao conferir o Livro de Registro de Saídas do ICMS, no SPED da empresa, verificou que foi registrada uma venda a prazo no valor de R$ 80 mil (base de cálculo do ICMS destacado na respectiva Nota Fiscal).\n\nTodavia, ao cruzar a informação com os dados da contabilidade, verificou o registro de R$ 100 mil para aquela Nota Fiscal no Razão Contábil (débito na conta Clientes e crédito na conta Receita de Vendas). Após notificar o comprador (adquirente dos produtos vendidos referentes àquela Nota Fiscal), veio a informação de que o valor efetivo da transação foi de R$ 100 mil (mediante cópia de Nota Promissória que serviu de garantia para a compra e venda).\n\nConsidere a alíquota interna de ICMS de 17% em Santa Catarina.\n\nCom base nestas informações, em relação à empresa Manezinho Comercial Ltda., o Auditor deverá",
+      "alternativas": {
+        "A": "considerar a boa-fé do contribuinte e não lavrar nenhum tipo autuação fiscal, já que a prova do registro contábil de R$ 100 mil para aquela Nota Fiscal no Razão Contábil (débito na conta Clientes e crédito na conta Receita de Vendas) não pode afastar o valor de R$ 80 mil consignado na Nota Fiscal.",
+        "B": "lavrar o Auto de Infração exigindo o valor de R$ 3,4 mil de ICMS pela existência de Ativo Fictício, em virtude de manter no Ativo direitos inexistentes.",
+        "C": "lavrar o Auto de Infração exigindo o valor de R$ 3,4 mil de ICMS por constatação de que a operação consignada em documento fiscal indica valor inferior ao efetivamente praticado na operação (conforme demonstrado pela prova do registro contábil e cópia de Nota Promissória), devendo ser exigida adicionalmente multa de 150% do valor do imposto – multa no valor de R$ 5,1 mil (art. 52 da Lei n2 10.297/1996).",
+        "D": "lavrar o Auto de Infração exigindo o valor de R$ 3,4 mil de ICMS por constatação de que houve um mero equívoco na emissão da Nota Fiscal, conforme demonstrado pela prova do registro contábil e cópia de Nota Promissória, sem haver necessidade de aplicação de qualquer multa.",
+        "E": "considerar verdadeiro o Livro de Registro de Saídas do ICMS no SPED do contribuinte e não lavrar nenhum tipo autuação fiscal, tendo em vista a presunção de validade de documento fiscal devidamente registrado no Livro de Registro de Saídas no SPED-ICMS."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "O Auditor Fiscal Rodrigo, continuando seu trabalho de auditoria tributária na empresa Manezinho Comercial Ltda., em Floria- nópolis, ao conferir no encerramento do exercício social o Balanço Patrimonial da empresa, identificou que a rubrica contábil “Caixa-numerário físico” disponível na empresa apresentava saldo credor.\n\nA única opção que poderia explicar essa situação é:",
+      "alternativas": {
+        "A": "pagamentos a fornecedores não contabilizados.",
+        "B": "adiantamentos recebidos de clientes regularmente contabilizados.",
+        "C": "pagamentos de despesas não contabilizados.",
+        "D": "recebimentos de numerários não contabilizados por meio da falta de emissão de documentos fiscais.",
+        "E": "realização de vendas regularmente contabilizadas e com a respectiva emissão de documentos fiscais pelos valores cor- retos da efetiva transação."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "No processo de acompanhamento do inventário físico de estoques de matéria-prima (que são comprados a prazo) de uma de terminada indústria, o Auditor Fiscal constatou a existência de quantidades relevantes de itens que não constavam dos registros físico-financeiros e contábeis, após uma detalhada análise do registro de inventário de ICMS no SPED, do saldo contábil da con- ta Estoques de matéria-prima e de realizar uma contagem física destes itens in loco (que apontou quantidades físicas maiores que as registradas na contabilidade e nos livros fiscais).\n\nNesse caso, o Auditor Fiscal identificou ativos",
+      "alternativas": {
+        "A": "fictícios e passivos ocultos, não sendo necessário nenhum procedimento fiscal em relação à empresa.",
+        "B": "e passivos fictícios, devendo proceder com a autuação fiscal de ICMS em relação à quantidade de mercadorias adquiridas que existem fisicamente, mas não foram contabilizadas.",
+        "C": "e passivos ocultos, devendo proceder com a autuação fiscal de ICMS em relação à quantidade de mercadorias adquiridas que existem fisicamente, mas não foram contabilizadas.",
+        "D": "fictícios e passivos ocultos, devendo proceder com a autuação fiscal de ICMS em relação à quantidade de mercadorias adquiridas que existem fisicamente, mas não foram contabilizadas.",
+        "E": "e passivos ocultos, não sendo necessário nenhum procedimento fiscal em relação à empresa."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "O Auditor Fiscal está realizando uma auditoria em uma empresa do setor industrial, na área de ativo imobilizado. Verificou que a empresa adquiriu um maquinário industrial em janeiro de 2018 (utilizado na produção industrial de produtos totalmente tributados pelo ICMS). O ICMS destacado na Nota Fiscal de aquisição deste ativo imobilizado foi de R$ 960.000,00.\n\nO contador informou que em virtude da utilização desta máquina em 1 turno de produção, conforme parecer do gerente indus- trial, está depreciando esta máquina em 8 anos (96 meses).\n\nConsiderando que todas as saídas de produtos da empresa industrial são totalmente tributadas pelo ICMS, em relação ao ICMS do ativo imobilizado, conforme estabelecido no § 1º do artigo 22 da Lei nº 10.297/1996, é correto afirmar:",
+      "alternativas": {
+        "A": "A apropriação do crédito será feita à razão de um quarenta e oito avos por mês, podendo neste mês ser apropriado como crédito de ICMS sobre o ativo imobilizado o valor de R$ 20.000,00, conforme previsto na legislação tributária.",
+        "B": "A apropriação do crédito será feita à razão da depreciação contábil de um noventa e seis avos por mês, podendo neste mês ser apropriado como crédito de ICMS sobre o ativo imobilizado o valor de R$ 10.000,00.",
+        "C": "Não é permitida a apropriação do crédito de ICMS sobre o ativo imobilizado, por se tratar de bem destinado ao uso e consumo. O ICMS pago faz parte do custo do ativo imobilizado.",
+        "D": "Não é permitida a apropriação do crédito de ICMS sobre o ativo imobilizado nesse mês, devendo o crédito de ICMS sobre o ativo imobilizado no valor de R$ 960.000,00 ser apropriado no último mês em que terminar a depreciação deste ativo, após decorrido os noventa e seis meses da vida útil econômica do bem.",
+        "E": "Não é permitida a apropriação do crédito de ICMS sobre o ativo imobilizado nesse mês, devendo o crédito de ICMS sobre o ativo imobilizado no valor de R$ 960.000,00 ser apropriado no último mês em que terminar o prazo de quarenta e oito meses, previsto na legislação tributária."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Os benefícios fiscais de ICMS fruídos por uma empresa, na situação em que o valor da subvenção governamental não é distri- buído ou de qualquer forma repassado aos sócios ou acionistas (fazendo-se a retenção), após o trânsito pela demonstração do re- sultado, devem ser contabilizados na conta contábil de Reserva de Incentivos Fiscais, conforme disciplinado pelo Pronuncia- mento técnico CPC 07 – Subvenção e Assistências Governamentais emitido pelo Comité de Pronunciamentos Contábeis.\n\nDesejando realizar uma auditoria na conta contábil de Reserva de Incentivos Fiscais, o Auditor Fiscal deverá se debruçar na seguinte área do Balanço Patrimonial:",
+      "alternativas": {
+        "A": "Despesas Antecipadas.",
+        "B": "Ativo Fiscal Diferido.",
+        "C": "Contas a Pagar.",
+        "D": "Investimentos em Participações Societárias.",
+        "E": "Patrimônio Líquido."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Dentre as técnicas mais usuais de auditoria contábil e fiscal, pode-se mencionar o Exame e Contagem Física. É um proce- dimento de auditoria utilizado para as contas do",
+      "alternativas": {
+        "A": "Passivo (por exemplo: fornecedores e empréstimos), que consiste em identificar fisicamente (in loco) o bem declarado no Balanço Patrimonial.",
+        "B": "Ativo (por exemplo: dinheiro, estoques, ativo imobilizado), que consiste em identificar fisicamente (in loco) o bem declarado no Balanço Patrimonial.",
+        "C": "Passivo (por exemplo: fornecedores e empréstimos), que consiste em realizar a confirmação de contas a pagar e proceder a exames de pagamentos subsequentes.",
+        "D": "Ativo (especificamente da Conta de Investimentos), que consiste em auditar o cálculo do resultado da equivalência patrimonial.",
+        "E": "Ativo relativos a bens intangíveis (por exemplo: marcas e patentes), que consiste em identificar apenas documentalmente os bens declarados no Balanço Patrimonial."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "A auditoria contábil oferece um conjunto de técnicas de extrema relevância e com aplicação prática para as fiscalizações tribu- tárias promovidas pelos Fiscos, não só no âmbito do Imposto de Renda, mas também na esfera da tributação estadual, nota- damente na fiscalização do ICMS. Nesse sentido, considere as seguintes contas:\nI. Estoques.\nII. Caixa.\nIII. Ativo Imobilizado.\nIV. Devolução de vendas.\nV. Devolução de compras.\nVI. Fornecedores.\nPara a auditoria fiscal de ICMS, deveriam ser analisadas as contas",
+      "alternativas": {
+        "A": "I, IV e V, apenas.",
+        "B": "II, V e VI, apenas.",
+        "C": "II e III, apenas.",
+        "D": "I, III, IV, V e VI, apenas.",
+        "E": "I, II, III, IV, V e VI."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "O Auditor Fiscal José, em um trabalho de auditoria tributária, questionou a Indústria XYZ Ltda. a respeito de uma alienação, feita pela empresa, do seu Ativo Imobilizado, após analisar o Razão Contábil (do Ativo Imobilizado e da conta Bancos) e o Livro de Saídas do ICMS.\n\nVerificou documentalmente a alienação de uma máquina do ativo imobilizado no final de dezembro de 2017, conferindo o número de série do equipamento constante nos documentos fiscais. No entanto, ao fazer uma vistoria na fábrica em setembro de 2018, constatou que a referida máquina continuava fisicamente no chão da fábrica e em uso por parte dos funcionários da produção.\n\nO Auditor formalizou então uma notificação à Indústria XYZ Ltda. que respondeu que a venda da máquina teria sido efetuada com a isenção do ICMS na alienação do ativo imobilizado (art. 35 do anexo 2 de benefícios fiscais do RICMS-SC), onde constou no documento fiscal que a máquina tinha sido entregue em endereço de outro município de SC.\n\nA empresa não justificou a que título jurídico a máquina do ativo imobilizado retornou ao estabelecimento (nem registrou na con- tabilidade este retorno) e não esclareceu por qual motivo após o recebimento integral do valor de R$ 600.000,00 e emissão de Nota Fiscal de saída pela empresa em dezembro de 2017, a máquina ainda permanecia em uso no estabelecimento industrial em setembro de 2018.\n\nNesse caso, em relação à empresa Indústria XYZ Ltda., o Auditor",
+      "alternativas": {
+        "A": "não deve lavrar nenhuma autuação fiscal, uma vez que é mera liberalidade do adquirente da máquina doá-la ou deixá-la para uso da antiga proprietária, sem necessidade de exigência de registros contábeis e fiscais do retorno da máquina ao estabelecimento.",
+        "B": "deve lavrar uma autuação fiscal, pois trata-se de ativo oculto (possuir um bem fisicamente sem o registro contábil), tendo em vista a presunção de operação tributável não registrada, pois de acordo com o inciso X do art. 49 da Lei n2 10.297/1996, foi constatada a posse de bens do ativo imobilizado não contabilizados.",
+        "C": "deve lavrar uma autuação fiscal por presunção de operação tributável não registrada, pois de acordo com o inciso XI do art. 49 da Lei n2 10.297/1996, foi constatado pagamento de aquisições de bens em valor superior às disponibilidades do período.",
+        "D": "não deve lavrar nenhuma autuação fiscal contra a empresa, pois tratar-se-ia de mera irregularidade contábil de ativo oculto (possuir um bem fisicamente sem o registro contábil).",
+        "E": "deve lavrar uma autuação fiscal por presunção de operação tributável não registrada, pois a venda do ativo imobilizado deveria ter sido tributada pelo ICMS."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "Considerando os procedimentos a serem utilizados por um Auditor Fiscal de ICMS do Estado de Santa Catarina, visando à auditoria do grupo de contas de Fornecedores no Passivo, pode-se mencionar:\n\nI. Obter a relação de fornecedores.\n\nII. Obter a confirmação de saldos da conta contábil de fornecedores junto a estes (especialmente, se forem os fornecedores localizados em Santa Catarina).\n\nIII. Contagem física do caixa em um determinado dia.\n\nIV. Obter a relação de clientes.\n\nEstá correto o que se afirma APENAS em",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "II e III.",
+        "C": "I e IV.",
+        "D": "I, III e IV.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Em 31/12/2016, a Cia. Rosa adquiriu 90% das ações da Cia. Colorida pelo Valor de R$ 15.000.000,00 à vista. Na data da aquisição, o patrimônio líquido contabilizado da Cia. Colorida era R$ 9.000.000,00 e o valor justo líquido dos seus ativos e passivos identificáveis era R$ 13.000.000,00, sendo a diferença decorrente de um ativo imobilizado adquirido anteriormente e avaliado pelo custo.\n\nO valor que a Cia. Rosa reconheceu no Balanço Patrimonial individual, na conta Investimentos em Controladas, na data da aquisição, foi, em reais,",
+      "alternativas": {
+        "A": "8.100.000.00.",
+        "B": "11.700.000.00.",
+        "C": "15.000.000.00.",
+        "D": "13.500.000.00.",
+        "E": "13.000.000.00."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Em 31/12/2016, a Cia. Rosa adquiriu 90% das ações da Cia. Colorida pelo Valor de R$ 15.000.000,00 à vista. Na data da aquisição, o patrimônio líquido contabilizado da Cia. Colorida era R$ 9.000.000,00 e o valor justo líquido dos seus ativos e passivos identificáveis era R$ 13.000.000,00, sendo a diferença decorrente de um ativo imobilizado adquirido anteriormente e avaliado pelo custo.\n\nO valor do ágio pago pela Cia. Rosa na aquisição do investimento na Cia. Colorida foi, em reais,",
+      "alternativas": {
+        "A": "2.000.000.00.",
+        "B": "3.300.000.00.",
+        "C": "6.000.000.00.",
+        "D": "6.900.000.00.",
+        "E": "4.000.000.00."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Em 31/12/2016, a Cia. Rosa adquiriu 90% das ações da Cia. Colorida pelo Valor de R$ 15.000.000,00 à vista. Na data da aquisição, o patrimônio líquido contabilizado da Cia. Colorida era R$ 9.000.000,00 e o valor justo líquido dos seus ativos e passivos identificáveis era R$ 13.000.000,00, sendo a diferença decorrente de um ativo imobilizado adquirido anteriormente e avaliado pelo custo.\n\nNo período de 01/01/2017 a 31/12/2017, a Cia. Colorida reconheceu as seguintes mutações em seu patrimônio líquido:\n\n– Lucro líquido: R$ 500.000.00.\n\n– Distribuição de dividendos: R$ 100.000.00.\n\n– Ajustes acumulados de conversão de investida no exterior: R$ 50.000,00 (saldo devedor).\n\nSabendo que a vida útil remanescente do ativo imobilizado que originou a diferença entre o patrimônio líquido contábil e o patrimônio líquido avaliado pelo valor justo dos ativos e passivos identificáveis da Cia. Colorida era 20 anos, o impacto total reconhecido na Demonstração do Resultado individual de 2017 da Cia. Rosa, decorrente do investimento na Cia. Colorida, foi, em reais,",
+      "alternativas": {
+        "A": "450.000.00.",
+        "B": "270.000.00.",
+        "C": "360.000.00.",
+        "D": "315.000.00.",
+        "E": "250.000.00."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "A Demonstração do Resultado do ano de 2017 da empresa Só-Negar S.A. é apresentada a seguir:\n\n<table>Demonstração do Resultado de 2017Valores em R$Receitas de Vendas12.000(-) Custo das Mercadorias Vendidas(6.300)(=) Resultado Bruto com Vendas5.700(-) Despesas gerais(4.000)(=) Resultado Líquido1.700</table>\n\nAs seguintes informações são conhecidas:\n\nI. A empresa Controlar S.A. detém 100% do capital da empresa Só-Negar S.A.\n\nII. A empresa Só-Negar realizou uma venda no valor de R$ 5.000,00 para a empresa Controlar S.A., sendo que o Custo dos Produtos Vendidos foi R$ 3.000,00. Desta forma, a margem bruta nessa venda foi 40%.\n\nIII. A empresa Controlar S.A. ainda mantém em seu estoque o valor de R$ 1.500,00 das compras que fez da empresa Só- Negar S.A.\n\nCom base nessas informações, em 2017, o resultado",
+      "alternativas": {
+        "A": "de equivalência patrimonial reconhecido pela empresa Controlar S.A. foi R$ 1.700,00.",
+        "B": "não realizado considerado pela empresa Só-Negar S.A. foi R$ 2.000,00.",
+        "C": "de equivalência patrimonial reconhecido pela empresa Controlar S.A. foi R$ 1.100,00.",
+        "D": "de equivalência patrimonial reconhecido pela empresa Controlar S.A. foi R$ 300,00, negativo.",
+        "E": "líquido da empresa Só-Negar S.A. foi reduzido em R$ 900,00."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "A empresa Brasil Investe S.A., cuja moeda funcional é o Real, é controladora da empresa Ronald Corporation, que atua nos Estados Unidos da América e tem como moeda funcional o dólar americano. O Balanço Patrimonial da empresa Ronald Corporation, em 31/12/2017, apresentava os seguintes saldos, expressos em dólar americano:\n\nRonald Corporation - Balanço Patrimonial em 31/12/2017\n\n<table>AtivoUS$Passivo e Patrimônio LíquidoUS$Ativo circulante9.300Passivo circulante9.000Caixa e Equivalentes2.000Fornecedores4.600Clientes4.000Impostos a pagar2.400Estoques3.300Contas a pagar2.000Ativo não circulante16.500Passivo não circulante4.000Realizável no longo prazo500Empréstimos4.000Imobilizado11.000Patrimônio Líquido12.800Intangíveis5.000Capital10.000Reservas de Lucros2.800Total do Ativo25.800Total do Passivo e Patrimônio Líquido25.800</table>\n\nO resultado líquido obtido em 2017 pela empresa Ronald Corporation, após a conversão para a moeda funcional da empresa brasileira, foi R$ 5.940,00, e a conta Reservas de Lucros da empresa, em 31/12/2016, convertida para reais, apresentava o saldo de R$ 3.360,00.\n\nAs seguintes informações adicionais são conhecidas:\n\n– Os Estoques foram adquiridos em 31/10/2017.\n\n– O Capital foi integralizado em 31/12/2014.\n\nAs cotações do dólar para diversas datas são as seguintes:\n\n<table>DataCotação do dólar (em R$)31/12/20143,0031/12/20163,2031/10/20173,5031/12/20174,00Média de 20173,30</table>\n\nApós a conversão do Balanço Patrimonial da empresa Ronald Corporation para reais, o",
+      "alternativas": {
+        "A": "total do Ativo é R$ 85.140,00.",
+        "B": "Capital Social é R$ 40.000,00.",
+        "C": "total dos Ajustes Acumulados de Conversão é R$ 10.250,00.",
+        "D": "Patrimônio Líquido é R$ 39.300,00.",
+        "E": "total dos Ajustes Acumulados de Conversão é R$ 11.900,00."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Em 30/11/2017, a Cia. Segura adquiriu um caminhão por meio de um contrato de arrendamento mercantil. O contrato estabelecia o pagamento de 36 prestações mensais, iguais e consecutivas no valor de R$ 8.000,00 cada, vencendo a primeira prestação em 31/12/2017. O valor presente das prestações, na data de início do contrato, era R$ 245.000,00 (igual ao valor justo do caminhão nessa data) e a taxa de juros implícita na operação era 0,9% ao mês. A vida útil estimada do caminhão na data de aquisição foi 6 anos e o valor residual estimado pela empresa foi R$ 29.000,00. A empresa adota o método das quotas constantes para a despesa de depreciação e pretende ficar com o caminhão no final do prazo do arrendamento.\n\nA Cia. Segura reconheceu, em 30/11/2017, um ativo no valor de",
+      "alternativas": {
+        "A": "R$ 288.000,00 e despesa de depreciação no valor de R$ 3.597,22, no mês de dezembro de 2017.",
+        "B": "R$ 259.000,00 e despesa de depreciação no valor de R$ 3.597,22, no mês de dezembro de 2017.",
+        "C": "R$ 245.000,00 e despesa financeira no valor de R$ 43.000,00, no mês de dezembro de 2017.",
+        "D": "R$ 245.000,00 e despesa de depreciação no valor de R$ 3.000,00, no mês de dezembro de 2017.",
+        "E": "R$ 216.000,00 e despesa de depreciação no valor de R$ 3.000,00, no mês de dezembro de 2017."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Em 30/11/2017, a Cia. Segura adquiriu um caminhão por meio de um contrato de arrendamento mercantil. O contrato estabelecia o pagamento de 36 prestações mensais, iguais e consecutivas no valor de R$ 8.000,00 cada, vencendo a primeira prestação em 31/12/2017. O valor presente das prestações, na data de início do contrato, era R$ 245.000,00 (igual ao valor justo do caminhão nessa data) e a taxa de juros implícita na operação era 0,9% ao mês. A vida útil estimada do caminhão na data de aquisição foi 6 anos e o valor residual estimado pela empresa foi R$ 29.000,00. A empresa adota o método das quotas constantes para a despesa de depreciação e pretende ficar com o caminhão no final do prazo do arrendamento.\n\nA Cia. Segura reconheceu, em 30/11/2017, um passivo no valor líquido de",
+      "alternativas": {
+        "A": "R$ 288.000,00 e não houve nenhuma despesa no ano.",
+        "B": "R$ 288.000,00 e despesa financeira no valor de R$ 2.592,00, no mês de dezembro de 2017.",
+        "C": "R$ 245.000,00 e despesa financeira no valor de R$ 43.000,00, no mês de dezembro de 2017.",
+        "D": "R$ 245.000,00 e despesa financeira no valor de R$ 1.194,44, no mês de dezembro de 2017.",
+        "E": "R$ 245.000,00 e despesa financeira no valor de R$ 2.205,00, no mês de dezembro de 2017."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "A Cia. Produtos Naturais apresentou no Balanço Patrimonial publicado em 31/12/2016 o saldo total de R$ 470.000,00 na conta de Provisões, cuja composição era a seguinte:\n\n<table>Tipo de processoProvisão reconhecida em 31/12/2016Trabalhista 1R$ 190.000,00Ambiental 1R$ 280.000,00</table>\n\nNo final de 2017, a empresa reavaliou a situação dos processos a que estava respondendo em 2016 e identificou quatro novos processos judiciais surgidos em 2017. As informações sobre os diversos processos, em 31/12/2017, são apresentadas na tabela a seguir:\n\n<table>Tipo de processoAvaliação da probabilidade de perda em 31/12/2017Valor estimado de perda em 31/12/2017Trabalhista 1ProvávelR$ 210.000,00Trabalhista 2PossívelR$ 150.000,00Tributário 1PossívelR$ 340.000,00Tributário 2ProvávelR$ 170.000,00Cível 1ProvávelR$ 140.000,00Ambiental 1PossívelR$ 250.000,00</table>\n\nCom base nas informações fornecidas, o impacto total causado no Resultado de 2017 da Cia. Produtos Naturais, relacionado às Provisões, foi, em reais,",
+      "alternativas": {
+        "A": "50.000,00, negativo.",
+        "B": "520.000,00, negativo.",
+        "C": "310.000,00, negativo.",
+        "D": "60.000,00, negativo.",
+        "E": "80.000,00, negativo."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "A Cia. Produtos Naturais apresentou no Balanço Patrimonial publicado em 31/12/2016 o saldo total de R$ 470.000,00 na conta de Provisões, cuja composição era a seguinte:\n\n<table>Tipo de processoProvisão reconhecida em 31/12/2016Trabalhista 1R$ 190.000,00Ambiental 1R$ 280.000,00</table>\n\nNo final de 2017, a empresa reavaliou a situação dos processos a que estava respondendo em 2016 e identificou quatro novos processos judiciais surgidos em 2017. As informações sobre os diversos processos, em 31/12/2017, são apresentadas na tabela a seguir:\n\n<table>Tipo de processoAvaliação da probabilidade de perda em 31/12/2017Valor estimado de perda em 31/12/2017Trabalhista 1ProvávelR$ 210.000,00Trabalhista 2PossívelR$ 150.000,00Tributário 1PossívelR$ 340.000,00Tributário 2ProvávelR$ 170.000,00Cível 1ProvávelR$ 140.000,00Ambiental 1PossívelR$ 250.000,00</table>\n\nCom base nas informações fornecidas, o saldo apresentado como Provisões, no Balanço Patrimonial da Cia. Produtos Naturais de 31/12/2017, foi, em reais,",
+      "alternativas": {
+        "A": "780.000,00.",
+        "B": "530.000,00.",
+        "C": "520.000,00.",
+        "D": "550.000,00.",
+        "E": "500.000,00."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Uma empresa adquiriu uma marca que poderá ser explorada pelo prazo de 10 anos, não podendo ser revendida no final deste prazo. O preço pago foi R$ 5.000.000,00 e a aquisição ocorreu em 31/12/2016. Em 31/12/2017, antes do fechamento das Demonstrações Contábeis, a empresa realizou o teste de redução ao valor recuperável (teste de “impairment”) e obteve as seguintes informações sobre a marca adquirida:\n\n– Valor em uso da marca: R$ 4.200.000,00.\n\n– Valor justo líquido das despesas de venda: R$ 4.000.000,00.\n\nCom base nessas informações, no resultado de 2017 a empresa deveria ter reconhecido uma",
+      "alternativas": {
+        "A": "perda por desvalorização no valor de R$ 800.000,00, apenas.",
+        "B": "despesa de amortização no valor de R$ 500.000,00, apenas.",
+        "C": "perda por desvalorização no valor de R$ 1.000.000,00, apenas.",
+        "D": "despesa de amortização no valor de R$ 500.000,00 e uma perda por desvalorização no valor de R$ 500.000,00.",
+        "E": "despesa de amortização no valor de R$ 500.000,00 e uma perda por desvalorização no valor de R$ 300.000,00."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "A Cia. das Tintas apresentava, em seu balanço patrimonial de 31/12/2017, um ágio derivado de expectativa de rentabilidade futura, cujo valor contábil era R$ 880.000,00 e composto por:\nCusto: R$ 990.000.00.\nPerda por desvalorização reconhecida (em 2016): R$ 110.000,00.\nEm 31/12/2017, a Cia. realizou o teste de recuperabilidade do ágio (teste de “impairment”) e obteve as seguintes informações:\n– Valor em uso: R$ 1.050.000,00.\n– Valor justo líquido de despesas de venda: R$ 830.000,00.\nCom base nessas informações, o valor que a Cia. das Tintas apresentou em seu Balanço Patrimonial de 31/12/2017 para este ativo (ágio) foi, em reais,",
+      "alternativas": {
+        "A": "880.000.00.",
+        "B": "1.050.000.00.",
+        "C": "830.000.00.",
+        "D": "990.000.00.",
+        "E": "770.000.00."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Para obter recursos com o objetivo de financiar sua expansão, a Cia. Enrolada emitiu um lote de debêntures no valor total de R$ 12.000.000,00 com as seguintes características:\n\n– Data da emissão: 30/11/2017.\n\n– Prazo total: 10 anos.\n\n– Taxa de juros compostos: 1,1% ao mês.\n\n– Pagamentos: parcelas anuais de R$ 2.303.132.61.\n\nA Cia. incorreu em gastos no valor total de R$ 180.000,00 para a emissão e colocação das debêntures no mercado. Como havia uma expectativa de que as taxas de juros sofreriam uma queda nos próximos anos, houve uma grande demanda pelas debêntures emitidas e a empresa conseguiu vendê-las por R$ 12.840.000,00 (valor superior ao desejado), o que fez com que a taxa de custo efetivo da emissão fosse 1% ao mês.\n\nO saldo líquido que a Cia. Enrolada apresentou no balanço patrimonial, em 30/11/2017, para as debêntures emitidas foi, em reais,",
+      "alternativas": {
+        "A": "12.000.000.00.",
+        "B": "11.820.000.00.",
+        "C": "12.660.000.00.",
+        "D": "12.840.000.00.",
+        "E": "12.180.000.00."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Para obter recursos com o objetivo de financiar sua expansão, a Cia. Enrolada emitiu um lote de debêntures no valor total de R$ 12.000.000,00 com as seguintes características:\n\n– Data da emissão: 30/11/2017.\n\n– Prazo total: 10 anos.\n\n– Taxa de juros compostos: 1,1% ao mês.\n\n– Pagamentos: parcelas anuais de R$ 2.303.132.61.\n\nA Cia. incorreu em gastos no valor total de R$ 180.000,00 para a emissão e colocação das debêntures no mercado. Como havia uma expectativa de que as taxas de juros sofreriam uma queda nos próximos anos, houve uma grande demanda pelas debêntures emitidas e a empresa conseguiu vendê-las por R$ 12.840.000,00 (valor superior ao desejado), o que fez com que a taxa de custo efetivo da emissão fosse 1% ao mês.\n\nO valor dos encargos financeiros apropriado no resultado de 2017 da Cia. Enrolada, referente às debêntures emitidas foi, em reais,",
+      "alternativas": {
+        "A": "132.000.00.",
+        "B": "312.000.00.",
+        "C": "118.200.00.",
+        "D": "128.400.00.",
+        "E": "126.600.00."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "No dia 30/11/2017, a Cia. das Aves realizou as seguintes vendas de mercadorias:\n\n– Vendas à vista no valor de R$ 1.500.000,00.\n\n– Vendas a prazo no valor nominal de R$ 2.300.000,00 que será recebido integralmente em 30/04/2019.\n\nNa data da venda a empresa praticava a taxa de juros de 0,83% ao mês, que corresponde a 15% para o período das vendas a prazo.\n\nEm relação às vendas efetuadas em 30/11/2017, a Cia. das Aves deveria reconhecer Receita de Vendas no valor de",
+      "alternativas": {
+        "A": "R$ 3.800.000,00 no resultado de 2017, apenas.",
+        "B": "R$ 3.500.000,00 no resultado de 2017, apenas.",
+        "C": "R$ 3.500.000,00 e Receita Financeira no valor de R$ 300.000,00, ambos no resultado de 2017.",
+        "D": "R$ 3.500.000,00 e Receita Financeira no valor de R$ 16.600,00, ambos no resultado de 2017.",
+        "E": "R$ 3.455.000,00 e Receita Financeira no valor de R$ 16.226,50, ambos no resultado de 2017."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Em 15/12/2017, uma empresa realizou uma venda a prazo no valor total de US$ 300.000,00. Sabendo que a taxa de câmbio em 15/12/2017 era R$ 3,00/US$, em 31/12/2017 era R$ 3,50/US$ e a taxa de câmbio média do mês de dezembro de 2017 foi R$ 3,20/US$, a empresa reconheceu, no mês de dezembro de 2017, uma Receita de Vendas de",
+      "alternativas": {
+        "A": "R$ 900.000,00 e Receita Financeira de R$ 60.000,00.",
+        "B": "R$ 1.050.000.00, apenas.",
+        "C": "R$ 960.000.00, apenas.",
+        "D": "R$ 960.000.00 e Receita Financeira de R$ 90.000.00.",
+        "E": "R$ 900.000.00 e Receita Financeira de R$ 150.000.00."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Em junho de 2017, ao analisar detalhadamente o seu ativo imobilizado, a Cia. das Dúvidas identificou dois itens:\n\nI. O valor da despesa de depreciação dos edifícios, referente ao ano de 2016, foi calculada considerando o valor residual incorreto. A diferença entre os valores calculados e o que deveria ter sido calculado é material.\n\nII. Ao analisar a vida útil econômica estimada dos veículos, a Cia. identificou que a vida útil remanescente aumentou. Assim, a vida útil remanescente que era de 2 anos, passou a ser de 4 anos.\n\nNesse caso, a Cia. das Dúvidas",
+      "alternativas": {
+        "A": "não precisa fazer nenhum ajuste nas demonstrações contábeis de forma retrospectiva.",
+        "B": "corrige suas demonstrações contábeis de forma retrospectiva referente ao item I e divulga o erro em 2017.",
+        "C": "corrige suas demonstrações contábeis de forma prospectiva referente ao item I e divulga o erro em 2017.",
+        "D": "corrige suas demonstrações contábeis de forma retrospectiva referente aos itens I e II e divulga os erros em 2017.",
+        "E": "ajusta suas demonstrações contábeis de 2016 para fins de comparação com as de 2017, para os dois itens."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Considere as seguintes assertivas:\n\nI. Uma subvenção governamental recebida deve ser reconhecida diretamente no patrimônio líquido, desde que não haja obrigações a serem cumpridas pela entidade.\n\nII. Subvenção relacionada a ativo depreciável deve ser reconhecida como receita ao longo do período da vida útil do bem e na mesma proporção de sua depreciação.\n\nIII. Caso uma subvenção governamental não possa ser distribuída aos acionistas, ela deve ser reconhecida diretamente na conta Reserva de Incentivos Fiscais, no Patrimônio Líquido.\n\nIV. A subvenção governamental relacionada a ativos não monetários e com obrigações a serem cumpridas deve ser apresentada no balanço patrimonial em conta de passivo, como receita diferida, ou deduzindo o valor contábil do ativo relacionado.\n\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "II e III. apenas.",
+        "B": "I e IV. apenas.",
+        "C": "II e IV. apenas.",
+        "D": "I, II e III, apenas.",
+        "E": "I, II, III e IV."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Considere as seguintes assertivas:\n\nI. As propriedades para investimento devem ser inicialmente mensuradas pelo seu custo. Os custos de transação devem ser incluídos na mensuração inicial.\n\nII. Para propriedades para investimento mensuradas ao valor justo, as alterações no seu valor justo devem ser reconhecidas no resultado do período se for perda e no patrimônio líquido se for ganho.\n\nIII. As entidades devem mensurar o valor justo das propriedades para investimento, mesmo escolhendo o método de custo para fins de mensuração, uma vez que precisa divulgar esta informação para estas propriedades.\n\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "I, apenas.",
+        "B": "I e II, apenas.",
+        "C": "III, apenas.",
+        "D": "I e III, apenas.",
+        "E": "I, II e III."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "A empresa comercial Só Negócios S.A. apresentou as seguintes informações referentes ao primeiro semestre de 2018:\n\n<table><td colspan=\"2\">Demonstração do Resultado01/01/2018 a 30/06/2018 (em reais)Receita Bruta de Vendas480.000(-) Impostos sobre vendas(110.000)(=) Receita Líquida370.000(-) Custo das Mercadorias Vendidas(150.000)(=) Lucro Bruto220.000(-) Despesas operacionaisDespesas de depreciação(35.000)Despesas com salários(20.000)INSS sobre salários (empresa)(4.000)FGTS sobre salários(1.600)(=) Lucro antes do IR e CSLL159.400(-) IR e CSLL(35.400)(=) Lucro Líquido124.000</table>\n\nCom base nessas informações e sabendo que o valor dos tributos recuperáveis referentes aos produtos comercializados no primeiro semestre de 2018 foi R$ 27.000,00, o Valor Adicionado distribuído na forma de Impostos, Taxas e Contribuições pela empresa Só Negócios S.A. foi, em reais,",
+      "alternativas": {
+        "A": "122.400,00.",
+        "B": "145.400,00.",
+        "C": "176.400,00.",
+        "D": "118.400,00.",
+        "E": "124.000,00."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "O Patrimônio Líquido da Cia. Giro Certo possuía a seguinte composição em 31/12/2016:\n\n– Capital Social: R$ 600.000,00.\n\n– Reserva Legal: R$ 80.000,00.\n\n– Reserva para Expansão: R$ 200.000,00.\n\n– Ações em Tesouraria: R$ 40.000,00.\n\n– Ajustes de Avaliação Patrimonial: R$ 20.000,00 (saldo credor).\n\nDurante o ano de 2017, a Cia. Giro Certo reconheceu as seguintes transações:\n\n– Aplicação financeira mensurada ao valor justo por meio de outros resultados abrangentes: juros calculados pela taxa contratual no valor de R$ 8.000,00, sendo o valor justo da aplicação financeira R$ 5.000,00 inferior ao valor atualizado pela taxa contratual.\n\n– Lucro Líquido: R$ 800.000,00. Os impactos da aplicação financeira já estão considerados no lucro líquido.\n\n– Constituição da Reserva Legal: R$ 40.000,00.\n\n– Dividendos obrigatórios distribuídos: R$ 240.000,00.\n\n– Aumento de Capital Social: emissão de 40.000 novas ações com valor nominal de R$ 2,00 por ação, tendo conseguido negociá-las por R$ 3,00 cada.\n\n– Venda das Ações em Tesouraria por R$ 60.000,00.\n\nConsiderando o registro dessas transações, o Patrimônio Líquido da Cia. Giro Certo, no balanço patrimonial de 31/12/2017, era, em reais,",
+      "alternativas": {
+        "A": "1.595.000,00.",
+        "B": "1.555.000,00.",
+        "C": "1.603.000,00.",
+        "D": "1.563.000,00.",
+        "E": "1.635.000,00."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "B",
+      "enunciado": "A Cia. das Indústrias, ao analisar o processo de produção e venda de seu único produto no mês de agosto de 2018, obteve as seguintes informações:\n\nCustos fixos: R$ 270.000,00 no mês.\n\nCustos variáveis:\n\nMatéria-prima: R$ 20,00 por unidade.\n\nMão de obra direta: R$ 40,00 por unidade.\n\nDespesas fixas: R$ 54.000,00 no mês.\n\nDespesas variáveis: R$ 10,00 por unidade.\n\nPreço bruto de venda: R$ 400,00 por unidade.\n\nComissões de venda: 5% do preço bruto de venda.\n\nImpostos sobre venda: 10% da receita bruta de vendas.\n\nSabendo que não havia estoques no início de agosto de 2018, que a Cia. das Indústrias produziu integralmente 3.000 unidades nesse mês e utiliza o método de custeio por absorção, o custo unitário da produção de agosto de 2018 foi, em reais,",
+      "alternativas": {
+        "A": "60.00.",
+        "B": "150.00.",
+        "C": "160.00.",
+        "D": "168.00.",
+        "E": "178.00."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "E",
+      "enunciado": "A Cia. das Indústrias, ao analisar o processo de produção e venda de seu único produto no mês de agosto de 2018, obteve as seguintes informações:\n\nCustos fixos: R$ 270.000,00 no mês.\n\nCustos variáveis:\n\nMatéria-prima: R$ 20,00 por unidade.\n\nMão de obra direta: R$ 40,00 por unidade.\n\nDespesas fixas: R$ 54.000,00 no mês.\n\nDespesas variáveis: R$ 10,00 por unidade.\n\nPreço bruto de venda: R$ 400,00 por unidade.\n\nComissões de venda: 5% do preço bruto de venda.\n\nImpostos sobre venda: 10% da receita bruta de vendas.\n\nSabendo que a Cia. das Indústrias deseja obter um lucro de R$ 405.000,00 apurado de acordo com o método de custeio variável, o ponto de equilíbrio econômico da Cia. das Indústrias, em quantidade, é de",
+      "alternativas": {
+        "A": "1.000.",
+        "B": "1.200.",
+        "C": "1.500.",
+        "D": "2.500.",
+        "E": "2.700."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "D",
+      "enunciado": "A Cia. Abre e Fecha produz três tipos de fechaduras: Azul, Branca e Dourada. As informações referentes a cada fechadura são apresentadas a seguir:\n\n(valores em R$)\n\n<table>ProdutosAzulBrancaDouradaPreço líquido de venda (por unidade)9080100Custos variáveis (por unidade)201530Custos fixos (por unidade)201216Despesas variáveis (por unidade)426Despesas fixas (por unidade)639</table>\n\nOs custos e despesas fixos são comuns aos três tipos de fechaduras, sendo que os custos fixos são alocados aos produtos com base nos volumes produzidos e as despesas fixas em função das despesas variáveis unitárias. A empresa só produz o que é vendido em cada mês, ou seja, não há formação de estoques de produtos acabados ou em elaboração e, no caso de descontinuidade da produção de qualquer um dos produtos, não há eliminação de custos fixos e despesas fixas.\n\nSe a Cia. Abre e Fecha deseja descontinuar a produção de um produto de cada vez até a sua completa paralisação, a ordem de paralisação da produção dos tipos de fechaduras, considerando a maximização do lucro operacional enquanto estiver em operação, é",
+      "alternativas": {
+        "A": "Azul, Dourada e Branca.",
+        "B": "Azul, Branca e Dourada.",
+        "C": "Branca, Azul e Dourada.",
+        "D": "Branca, Dourada e Azul.",
+        "E": "Dourada, Azul e Branca."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "C",
+      "enunciado": "A Cia. Produtos Especiais é uma empresa industrial e produz um único produto. Durante o mês de setembro de 2018, incorreu em gastos relativos aos seguintes itens:\n\n– mão de obra direta: R$ 100.000,00\n\n– compra de matéria-prima: R$ 350.000,00\n\n– energia elétrica (consumida pela fábrica em setembro de 2018): R$ 35.000,00\n\n– remuneração do supervisor da fábrica: R$ 18.000,00\n\n– comissões dos vendedores: R$ 20.000,00\n\n– aluguel da área administrativa: R$ 10.000,00\n\nConsidere ainda as seguintes informações:\n\n– depreciação dos equipamentos industriais: R$ 60.000,00\n\n– estoque inicial de matéria-prima em 31/08/2018: R$ 50.000,00\n\n– estoque final de matéria-prima em 30/09/2018: R$ 40.000,00\n\n– estoque inicial de produtos em processo em 31/08/2018: R$ 80.000,00\n\n– estoque final de produtos em processo em 30/09/2018: R$ 25.000,00\n\nCom base nessas informações, o custo da produção acabada no período utilizando o custeio por absorção foi, em reais,",
+      "alternativas": {
+        "A": "573.000.00",
+        "B": "608.000.00",
+        "C": "628.000.00",
+        "D": "658.000.00",
+        "E": "610.000.00"
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "D",
+      "enunciado": "A Cia. Só Novelos produz os produtos X, Y e Z em um único departamento. Ao analisar o processo produtivo de determinado mês, a Cia. obteve as seguintes informações:\n\n<table>ProdutoMatéria-primaMão de obra diretaQuantidade total produzidaPreço de vendaHoras de mão de obra diretaX$100/unidade$60/unidade2.000$400/unidade1h/unidadeY$150/unidade$80/unidade1.000$300/unidade2h/unidadeZ$120/unidade$20/unidade500$500/unidade2h/unidade</table>\n\nSabe-se que a Cia. Só Novelos utiliza o custeio por absorção e os custos fixos indiretos totais incorridos nesse mês foram R$ 175.000,00, os quais são alocados aos produtos em função da quantidade de horas de mão de obra direta total utilizada. Com base nessas informações e sabendo que não havia estoques iniciais e finais de produtos em processo, o custo unitário de produção do produto",
+      "alternativas": {
+        "A": "X foi R$ 210.00.",
+        "B": "Y foi R$ 265.00.",
+        "C": "Z foi R$ 175.00.",
+        "D": "X foi R$ 195.00.",
+        "E": "Y foi R$ 230.00."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "Atenção: Para responder às questões de números 41 a 43, considere as informações abaixo e a Lei estadual n2 3.938/1966, que dispõe sobre normas de legislação tributária estadual.\n\nA “Indústria Alimentícia Delícia Ltda.” (empresa fictícia), localizada em Criciúma/SC, formulou, separada e respectivamente, nos meses de janeiro, fevereiro, março e abril de 2018, quatro consultas tributárias, atinentes à legislação do ICMS de Santa Catarina. Estas consultas versaram sobre:\n\nI. alíquotas de determinados produtos de sua produção (matéria que está sendo objeto de medida de fiscalização já iniciada, mas que não é objeto de lavratura de notificação fiscal em nome do consulente), em janeiro de 2018;\n\nII. direito ao crédito do imposto, referente à aquisição de produtos para uso e consumo do estabelecimento (matéria objeto da lavratura de notificação fiscal contra o consulente, e que ainda está pendente de julgamento), em fevereiro de 2018;\n\nIII. base de cálculo de determinados produtos de sua produção (matéria tratada em consulta anteriormente formulada pelo próprio consulente, mas cuja legislação sofreu recente e profundas alterações), em março de 2018;\n\nIV. substituição tributária de produtos de sua produção (matéria que já tinha sido objeto de decisão proferida em processo contencioso administrativo, no qual esta indústria tinha atuado como parte), em abril de 2018.\n\nRelativamente às consultas acima mencionadas, é VEDADO o recebimento daquelas que versem sobre",
+      "alternativas": {
+        "A": "substituição tributária, direito ao crédito e alíquotas.",
+        "B": "direito ao crédito, base de cálculo e alíquotas.",
+        "C": "substituição tributária, base de cálculo e alíquotas.",
+        "D": "substituição tributária, direito ao crédito e base de cálculo.",
+        "E": "substituição tributária e alíquotas, apenas."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "Atenção: Para responder às questões de números 41 a 43, considere as informações abaixo e a Lei estadual n2 3.938/1966, que dispõe sobre normas de legislação tributária estadual.\n\nA “Indústria Alimentícia Delícia Ltda.” (empresa fictícia), localizada em Criciúma/SC, formulou, separada e respectivamente, nos meses de janeiro, fevereiro, março e abril de 2018, quatro consultas tributárias, atinentes à legislação do ICMS de Santa Catarina. Estas consultas versaram sobre:\n\nI. alíquotas de determinados produtos de sua produção (matéria que está sendo objeto de medida de fiscalização já iniciada, mas que não é objeto de lavratura de notificação fiscal em nome do consulente), em janeiro de 2018;\n\nII. direito ao crédito do imposto, referente à aquisição de produtos para uso e consumo do estabelecimento (matéria objeto da lavratura de notificação fiscal contra o consulente, e que ainda está pendente de julgamento), em fevereiro de 2018;\n\nIII. base de cálculo de determinados produtos de sua produção (matéria tratada em consulta anteriormente formulada pelo próprio consulente, mas cuja legislação sofreu recente e profundas alterações), em março de 2018;\n\nIV. substituição tributária de produtos de sua produção (matéria que já tinha sido objeto de decisão proferida em processo contencioso administrativo, no qual esta indústria tinha atuado como parte), em abril de 2018.\n\nQuando a referida indústria protocolizou a primeira das quatro consultas formuladas, relativamente às alíquotas do ICMS,",
+      "alternativas": {
+        "A": "suspenderam-se, pelo prazo de 30 dias contados da data do referido protocolo, os prazos para pagamento do tributo.",
+        "B": "impediu-se o início de qualquer medida de fiscalização, com relação ao consulente, destinada à apuração de todas as infrações cometidas pelo consulente naquele exercício.",
+        "C": "suspenderam-se, desde o dia da protocolização da primeira consulta, até 45 dias após a ciência da resposta à última consulta protocolizada, os prazos para pagamento do tributo.",
+        "D": "a protocolização não impediu, com relação ao consulente, o início de medida de fiscalização, destinada à apuração de infrações relacionadas à substituição tributária.",
+        "E": "suspenderam-se, desde o dia seguinte ao da protocolização da primeira consulta, até 45 dias após a ciência da resposta da última consulta protocolizada, os prazos para pagamento do tributo."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "Atenção: Para responder às questões de números 41 a 43, considere as informações abaixo e a Lei estadual n2 3.938/1966, que dispõe sobre normas de legislação tributária estadual.\n\nA “Indústria Alimentícia Delícia Ltda.” (empresa fictícia), localizada em Criciúma/SC, formulou, separada e respectivamente, nos meses de janeiro, fevereiro, março e abril de 2018, quatro consultas tributárias, atinentes à legislação do ICMS de Santa Catarina. Estas consultas versaram sobre:\n\nI. alíquotas de determinados produtos de sua produção (matéria que está sendo objeto de medida de fiscalização já iniciada, mas que não é objeto de lavratura de notificação fiscal em nome do consulente), em janeiro de 2018;\n\nII. direito ao crédito do imposto, referente à aquisição de produtos para uso e consumo do estabelecimento (matéria objeto da lavratura de notificação fiscal contra o consulente, e que ainda está pendente de julgamento), em fevereiro de 2018;\n\nIII. base de cálculo de determinados produtos de sua produção (matéria tratada em consulta anteriormente formulada pelo próprio consulente, mas cuja legislação sofreu recente e profundas alterações), em março de 2018;\n\nIV. substituição tributária de produtos de sua produção (matéria que já tinha sido objeto de decisão proferida em processo contencioso administrativo, no qual esta indústria tinha atuado como parte), em abril de 2018.\n\nA “Indústria Sabor Catarinense” (empresa fictícia), de Chapecó/SC, também tem interesse em beneficiar-se dos efeitos das respostas dadas às consultas formuladas pela “Indústria Alimentícia Delícia Ltda.”, pois ambas atuam no mesmo ramo de atividade e ambas estão sujeitas à mesma legislação tributária estadual. Nesse caso, a “Indústria Sabor Catarinense”",
+      "alternativas": {
+        "A": "deverá protocolizar consulta em seu próprio nome, pois as respostas dadas às consultas aproveitam apenas a quem as formulou.",
+        "B": "não precisará protocolizar consulta em nome próprio, pois a resposta dada à consulta formulada pela “Indústria Alimentícia Delícia Ltda.” se aplica a ela automaticamente.",
+        "C": "não precisará protocolizar consulta em nome próprio, desde que apresente, nos termos da legislação e no prazo legal, o Pedido de Extensão de Efeitos de Consulta, para si, em caráter individual.",
+        "D": "está impedida de protocolizar consulta em seu próprio nome, relativa à mesma matéria, podendo, no entanto, solicitar à entidade representativa de sua categoria econômica, que apresente à Secretaria da Fazenda o Pedido de Extensão de Efeitos de Consulta, solicitando o reconhecimento do efeito vinculante da resposta dada à consulta formulada pela “Indústria Alimentícia Delícia Ltda.”, independentemente de qualquer publicação.",
+        "E": "está impedida de protocolizar consulta em seu próprio nome, mas poderá solicitar à entidade representativa de sua categoria econômica que a protocolize em seu nome, apenas, por tratar-se de matéria de interesse comum a todos os que estão na mesma situação da “Indústria Alimentícia Delícia Ltda.”."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "Instado a responder indagação formulada por aluno seu, a respeito da concessão de benefícios fiscais em favor dos contribuintes, Prof. Jorge respondeu, corretamente, com base no Regulamento de Normas Gerais de Direito Tributário do Estado de Santa Catarina, aprovado pelo Decreto Estadual no 22.586/1984, que",
+      "alternativas": {
+        "A": "a legislação tributária estadual pode estabelecer normas referentes à exclusão do crédito tributário, desde que o faça por meio de Lei ou de Decreto.",
+        "B": "somente lei complementar estadual pode estabelecer normas referentes à exclusão do crédito tributário.",
+        "C": "somente a lei pode estabelecer normas referentes à exclusão, suspensão e extinção do crédito tributário, sendo que os benefícios fiscais relativos ao ICMS serão concedidos ou revogados, nos termos da Lei Complementar no 24/1975.",
+        "D": "a legislação tributária estadual nada estabelece a respeito desta matéria.",
+        "E": "não há necessidade de edição de lei para a exclusão, suspensão e extinção do crédito tributário relativamente às taxas estaduais."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "Suponha que a empresa \"Novo Milênio S.A.\", localizada em Joinville/SC, tenha recebido notificação fiscal reclamando pagamento de ICMS relativamente a determinadas operações tributadas por ela realizadas. Os funcionários do seu departamento de contabilidade, porém, embora soubessem que o imposto relativo àquelas operações havia sido pago, não localizaram o comprovante de pagamento para apresentar à autoridade lançadora, antes que ela formalizasse a referida notificação fiscal. Meses depois dessa formalização, os referidos recibos foram encontrados, comprovando que o crédito tributário objeto da notificação estava pago antes mesmo da sua formalização. De acordo com a Lei Complementar n° 465/2009, o surgimento do comprovante de que o crédito tributário tinha sido extinto, por meio de pagamento, antes da formalização da notificação fiscal, autoriza a interposição de Pedido de",
+      "alternativas": {
+        "A": "Cancelamento de notificação fiscal pelo Diretor de Administração Tributária, ouvida a autoridade lançadora, em razão de a notificação fiscal representar exigência fiscal manifestamente indevida.",
+        "B": "Cancelamento de notificação fiscal, que poderá ser interposto até o final do segundo ano subsequente ao do trânsito em julgado da respectiva ação judicial de cobrança do crédito tributário.",
+        "C": "Extinção de Débito Fiscal, a ser formalizado pelo contribuinte, no prazo máximo de 6 meses, contados da data em que tiver sido formalizada a notificação fiscal.",
+        "D": "Cancelamento de notificação fiscal, a ser interposto pela empresa, no prazo máximo de 2 anos, contados da data em que tiver sido formalizada a notificação fiscal.",
+        "E": "Extinção de Débito Fiscal, a ser formalizado pelo contribuinte, que só poderá interpô-lo até o final do segundo ano subsequente ao do trânsito em julgado da respectiva ação judicial de cobrança do crédito tributário."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "Uma das discussões travadas em determinado processo administrativo tributário dizia respeito à natureza química do metal que tinha sido comercializado pela empresa reclamante “Prata & Estanho S.A.”, de São José/SC. A Fiscalização estadual insistia que se tratava de operações de circulação da mercadoria de objetos feitos de prata, enquanto o contribuinte insistia que se tratava de mercadorias feitas de estanho. Depois de muita discussão nos autos do processo, as partes concluíram que somente uma análise química do material utilizado na fabricação daqueles objetos poderia atestar, de maneira definitiva, o tipo do metal utilizado. Com base nos dispositivos da Lei Complementar n° 465/2009,",
+      "alternativas": {
+        "A": "não seria possível a realização de perícia para dirimir essa dúvida, pois a referida Lei, embora contemple a realização de diligência no processo administrativo tributário, não contempla a realização de perícias nele.",
+        "B": "a realização da perícia solicitada será indeferida se o julgador considerar os elementos nos autos suficientes para a formação da sua convicção, bem como se a verificação for prescindível ou impraticável.",
+        "C": "caso seja requerida a realização de perícia, o Procurador do Estado ou a empresa “Prata & Estanho S.A.”, ao requerê-la, deve indicar os motivos que a justifiquem, e os quesitos referentes aos exames desejados, sendo vedado à referida empresa indicar o profissional que deseja como perito.",
+        "D": "embora a autoridade julgadora não possa determinar, de ofício, a realização de perícias para esse fim, ela pode determiná-la a requerimento do Procurador do Estado ou da empresa “Prata & Estanho S.A.”.",
+        "E": "independentemente de quem tenha requerido a realização da perícia, se ela for realizada, o seu custo correrá por conta de dotação orçamentária própria da Fazenda Pública estadual, em razão da gratuidade do processo administrativo tributário."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "Um Julgador de Processos Fiscais, em uma mesma data do ano de 2017, proferiu decisões em três processos relacionados à empresa “Cerâmica do Sul Ltda.”, decidindo os processos “A” e “B” favoravelmente à Fazenda Pública, e o processo “C” favoravelmente ao contribuinte, o que implicou, relativamente ao processo “C”, cancelamento total do lançamento, no valor de R$ 3.000,00. Os assuntos objetos dos três processos são conexos. Com base nos dispositivos da Lei Complementar n° 465/2009,",
+      "alternativas": {
+        "A": "a empresa “Cerâmica do Sul Ltda.” poderá apresentar ao Tribunal Administrativo Tributário recurso das decisões do Julgador de Processos Fiscais, devendo reunir, em uma só petição, recursos referentes a ambas as decisões de primeira instância.",
+        "B": "embora o Julgador de Processos Fiscais entenda que a matéria tratada no processo “C” seja de relevante interesse para a Fazenda Pública, é vedada a interposição do recurso de ofício, porque foi de apenas R$ 3.000,00 o valor da exigência fiscal cancelada.",
+        "C": "a empresa “Cerâmica do Sul Ltda.” poderá apresentar, na petição que contiver as razões recursais do processo “A”, razões complementares à matéria já aduzida em sua reclamação.",
+        "D": "a empresa “Cerâmica do Sul Ltda.” não poderá apresentar, juntamente com a petição que contiver as razões recursais do processo “B”, provas que se refiram a matéria de fato ou de direito superveniente.",
+        "E": "o recurso de ofício deverá ser apresentado pelo Procurador do Estado que atua no processo, por meio de petição autônoma, no prazo de 30 dias contados da data em que tiver sido publicada a decisão do Julgador de Processos Fiscais, sempre que cancelar ato fiscal em valor inferior a R$ 10.000,00."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "Sempre que as declarações ou documentos expedidos pelo sujeito passivo forem omissos ou não merecerem fé,",
+      "alternativas": {
+        "A": "a autoridade fiscal deve apreender as mercadorias e o contribuinte, para receber o valor do imposto devido.",
+        "B": "o sujeito passivo poderá refazer a escrituração fiscal dos últimos 5 anos e recolher o imposto devido.",
+        "C": "a autoridade fiscal deve arbitrar a base de cálculo do imposto e lavrar o Termo de Arbitramento.",
+        "D": "o contribuinte ou responsável poderá fazer denúncia espontânea e arbitrar o valor do imposto devido.",
+        "E": "a autoridade fiscal deverá arbitrar o imposto devido com base em informações colhidas junto a contribuintes que promovam operações semelhantes, desde que estes paguem os tributos em dia."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "Quando um estabelecimento localizado em Lajes/SC remete mercadoria de cerâmica fina fabricada em Xangai/China, com similar nacional e não produzida em conformidade com processos produtivos básicos, para outro estabelecimento do mesmo titular localizado em Belo Horizonte/MG, o estabelecimento remetente deve",
+      "alternativas": {
+        "A": "utilizar como base de cálculo o valor de custo, assim entendido a soma do custo da matéria-prima, material secundário, mão de obra e acondicionamento, e aplicar a alíquota de 12%.",
+        "B": "determinar a base de cálculo por meio de pesquisa de preço no mercado atacadista e aplicar a alíquota de 7%.",
+        "C": "determinar a base de cálculo por meio de sistema de custo contábil e aplicar a alíquota de 4%.",
+        "D": "utilizar como base de cálculo o valor correspondente à entrada mais recente da mercadoria e aplicar a alíquota de 4%.",
+        "E": "utilizar o valor fixado em pauta fiscal como base de cálculo e aplicar a alíquota de 4%."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "Atenção: Para responder às questões de números 50 e 51, considere as informações abaixo e o RICMS/SC.\n\nConsidere os seguintes eventos realizados por um estabelecimento comercial, não optante pelo Simples Nacional, localizado em Brusque/SC:\n\n1. recebe, para revenda, 5 caixas de bebida, fabricadas na França, com 12 garrafas em cada caixa, de fornecedor capixaba, no valor de R$ 80,00 cada garrafa e 3 caixas de doces, fabricados em Minas Gerais, com matéria-prima oriunda de Goiás, de fornecedor paranaense, no valor de R$ 60,00 cada;\n\n2. recebe 7 vassouras limpeza leve, com pelos macios, para uso no departamento de pessoal, para limpar as fichas e arquivos, no valor de R$ 15,00 cada, fabricadas na China, de fornecedor gaúcho;\n\n3. recebe 120 unidades de embalagem de isopor, para embalar as garrafas de bebida vendidas, com a marca do estabelecimento, no valor de R$ 4,00 cada, nacionais, de fornecedor local;\n\n4. promove a saída, a título de venda, de 3 caixas de bebida, com 12 garrafas em cada caixa, para consumidor local, que pediu entrega domiciliar, e de 1 caixa de bebida, de igual quantidade de garrafas, para consumidor estrangeiro, que retirou no balcão, ao valor de R$ 170,00 e R$ 230,00 respectivamente, cada garrafa;\n\n5. promove a saída de 2 caixas de doces para um bufê infantil local e de 1 caixa de doce para um cliente não identificado, que retirou no local e pagou em dinheiro, a R$ 90,00 cada;\n\n6. utilizou 5 vassouras no departamento de pessoal, mas perdeu outras duas durante uma operação de lavagem rápida no estabelecimento;\n\n7. utilizou 48 embalagens de isopor, nas vendas realizadas, mas 12 se estragaram com o calor, restando as demais 60 em perfeito estado.\n\nConsidere que os produtos são sujeitos à alíquota interna de 17% em todos os Estados e tributados normalmente, sem substituição tributária, antecipação de pagamento, isenção, redução de base de cálculo ou crédito outorgado. Os produtos importados têm similares nacionais e não são produzidos em conformidade com processos produtivos básicos.\n\nO valor da base de cálculo das saídas e o valor total do ICMS a pagar em relação às saídas são, respectivamente,",
+      "alternativas": {
+        "A": "R$ 9.255,00 e R$ 1.569,15.",
+        "B": "R$ 9.150,00 e R$ 1.555,50.",
+        "C": "R$ 9.342,00 e R$ 1.588,14.",
+        "D": "R$ 9.198,00 e R$ 1.563,66.",
+        "E": "R$ 9.303,00 e R$ 1.577,31."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "Atenção: Para responder às questões de números 50 e 51, considere as informações abaixo e o RICMS/SC.\n\nConsidere os seguintes eventos realizados por um estabelecimento comercial, não optante pelo Simples Nacional, localizado em Brusque/SC:\n\n1. recebe, para revenda, 5 caixas de bebida, fabricadas na França, com 12 garrafas em cada caixa, de fornecedor capixaba, no valor de R$ 80,00 cada garrafa e 3 caixas de doces, fabricados em Minas Gerais, com matéria-prima oriunda de Goiás, de fornecedor paranaense, no valor de R$ 60,00 cada;\n\n2. recebe 7 vassouras limpeza leve, com pelos macios, para uso no departamento de pessoal, para limpar as fichas e arquivos, no valor de R$ 15,00 cada, fabricadas na China, de fornecedor gaúcho;\n\n3. recebe 120 unidades de embalagem de isopor, para embalar as garrafas de bebida vendidas, com a marca do estabelecimento, no valor de R$ 4,00 cada, nacionais, de fornecedor local;\n\n4. promove a saída, a título de venda, de 3 caixas de bebida, com 12 garrafas em cada caixa, para consumidor local, que pediu entrega domiciliar, e de 1 caixa de bebida, de igual quantidade de garrafas, para consumidor estrangeiro, que retirou no balcão, ao valor de R$ 170,00 e R$ 230,00 respectivamente, cada garrafa;\n\n5. promove a saída de 2 caixas de doces para um bufê infantil local e de 1 caixa de doce para um cliente não identificado, que retirou no local e pagou em dinheiro, a R$ 90,00 cada;\n\n6. utilizou 5 vassouras no departamento de pessoal, mas perdeu outras duas durante uma operação de lavagem rápida no estabelecimento;\n\n7. utilizou 48 embalagens de isopor, nas vendas realizadas, mas 12 se estragaram com o calor, restando as demais 60 em perfeito estado.\n\nConsidere que os produtos são sujeitos à alíquota interna de 17% em todos os Estados e tributados normalmente, sem substituição tributária, antecipação de pagamento, isenção, redução de base de cálculo ou crédito outorgado. Os produtos importados têm similares nacionais e não são produzidos em conformidade com processos produtivos básicos.\n\nO valor do crédito de ICMS passível de escrituração e o valor do ICMS a recolher ao Estado de Santa Catarina, no período, pelo estabelecimento, são, respectivamente,",
+      "alternativas": {
+        "A": "R$ 295,20 e R$ 1.282,11.",
+        "B": "R$ 679,20 e R$ 898,11.",
+        "C": "R$ 213,60 e R$ 1.363,71.",
+        "D": "R$ 295,20 e R$ 812,91.",
+        "E": "R$ 213,60 e R$ 1.396,35."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "No que se refere a créditos acumulados, o RICMS/SC estabelece que",
+      "alternativas": {
+        "A": "tais créditos serão utilizados prioritariamente para ser alienados a outros contribuintes deste Estado, de acordo com a disponibilidade financeira do alienante.",
+        "B": "o saldo credor acumulado, na hipótese da saída isenta, poderá também ser compensado com o imposto devido na entrada de mercadorias, máquinas e equipamentos importados diretamente do exterior do país, destinados ao importador.",
+        "C": "o controle do crédito acumulado transferível será efetuado pelo estabelecimento matriz da empresa, englobando todas as origens, mediante a planilha Demonstrativo de Crédito Acumulado Transferível (DCAT).",
+        "D": "o valor do crédito acumulado transferível será limitado ao saldo credor existente em conta gráfica, deduzido dos créditos que foram objeto de notificação fiscal ou lançamento de ofício, desde que definitivamente julgados.",
+        "E": "tais créditos poderão ser transferidos, a qualquer estabelecimento do mesmo titular ou para estabelecimento de empresa interdependente, neste Estado, se o estabelecimento que os acumular realizar operações e prestações destinadas ao exterior, isentas ou não tributadas."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "O crédito tributário decorrente de ICMS vencido e não pago poderá ser parcelado",
+      "alternativas": {
+        "A": "em até 84 prestações, quando devido por empresa em recuperação judicial.",
+        "B": "em até 120 prestações, quando exigido por Notificação Fiscal.",
+        "C": "em até 72 prestações, quando denunciado espontaneamente.",
+        "D": "quando se tratar de confissão irretratável de débito inscrito na Dívida Ativa, hipótese em que o pedido de parcelamento será deferido de plano, ex lege.",
+        "E": "mediante solicitação via Internet, que somente será apreciada pela autoridade competente se houver o comprovante de pagamento da taxa de solicitação e a remessa, via postal, do balanço patrimonial dos três últimos anos."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "Nas operações abrangidas por diferimento, o contribuinte substituto deverá recolher o imposto diferido, conforme o Capítulo I do Anexo 3 do RICMS/SC.",
+      "alternativas": {
+        "A": "até o dia 21 do mês subsequente ao da operação, exceto na hipótese de substituto tributário enquadrado no Simples Nacional, hipótese em que o valor devido subsumir-se-á nas vendas realizadas nos 6 meses subsequentes, promovidas pelo substituto.",
+        "B": "salvo se ocorrer qualquer evento que impossibilite a ocorrência do fato gerador do imposto na saída seguinte.",
+        "C": "quando não promover nova operação tributada ou a promover sob regime de isenção ou não incidência, salvo quanto às operações que destinem mercadorias diretamente para o exterior do país.",
+        "D": "até o dia 10 do mês subsequente ao da entrada da mercadoria ou bem, salvo na hipótese de exportação da mesma mercadoria no próprio mês, ou no mês seguinte ao da entrada.",
+        "E": "e sua base de cálculo será o valor da operação praticada pelo substituído, acrescido de MVA prevista no Anexo 1-A para a mercadoria ou bem."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "No que se refere às regras para realização de pesquisa de preços e fixação da MVA e do PMPF, o Anexo 3 do RICMS/SC estabelece que",
+      "alternativas": {
+        "A": "o levantamento da MVA será promovido por entidade de classe representativa do setor que poderá admitir, a seu critério, pesquisa realizada pela Administração Tributária, desde que observados os princípios contábeis geralmente aceitos e as melhores práticas estatísticas.",
+        "B": "será dado conhecimento do resultado da pesquisa relativa à apuração da MVA e do PMPF ao público em geral, ao TCE, à Assembleia Legislativa e à OAB, estabelecendo-se prazo de 90 dias para impugnação da pesquisa, antes da adoção dos novos MVA ou PMPF.",
+        "C": "a pesquisa para obtenção da MVA ou do PMPF deverá considerar os preços de promoção, bem como os das mercadorias expostas em vitrines e ponta de gôndolas, sendo vedado conter os dados cadastrais dos estabelecimentos pesquisados, para proteger o sigilo fiscal e a livre concorrência.",
+        "D": "o Secretário de Estado da Fazenda designará comissão para definição da MVA, devendo ser observados os seguintes critérios: (I) pesquisa de preços realizada, por amostragem, no mínimo, nos dez municípios de maior participação na receita do Estado; (II) média ponderada dos preços coletados; (III) outros elementos fornecidos pelas entidades representativas do setor.",
+        "E": "a pesquisa, a critério da entidade representativa do setor, poderá ser realizada por instituto, órgão ou entidade de reputação idônea, desvinculado da Administração Tributária."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "Para fins de não aplicação do regime de substituição tributária com retenção antecipada, nos termos do Anexo 3 do RICMS/SC, são considerados fabricados em escala industrial não relevante os bens e mercadorias quando",
+      "alternativas": {
+        "A": "o remetente, cumulativamente, for optante pelo Simples Nacional, auferir receita bruta inferior a R$ 360.000,00 nos 12 meses anteriores à fabricação, possuir um único estabelecimento e utilizar insumos nacionais.",
+        "B": "produzidos por optante do Regime do Simples Nacional, estiverem relacionados na Seção XXVII do Anexo 1-A e possuírem conteúdo de importação não superior a 40% (quarenta por cento), nos termos da Resolução do Senado Federal nº 13, de 25 de abril de 2012, entre outros requisitos.",
+        "C": "estiverem relacionados na Seção XXVII do Anexo 1-A, o fabricante não for optante pelo Simples Nacional e auferir receita bruta inferior a R$ 240.000,00 nos últimos 12 meses, e, pelo menos, 90% dos insumos forem nacionais ou do Mercosul, entre outros requisitos.",
+        "D": "remetidos por estabelecimento comercial com receita bruta inferior a R$ 360.000,00 nos últimos 12 meses, que não seja optante do Simples Nacional e que estiver listado na Seção III do Anexo 1-A.",
+        "E": "produzidos por estabelecimento rural, mediante práticas sustentáveis e orgânicas, e que não utilize trabalho escravo nem energia elétrica proveniente de combustível fóssil."
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "A empresa Vende Mais Ltda. com estabelecimento em Concórdia/SC promoveu diversas operações de saída de mercadoria no primeiro semestre de 2018. Estão sujeitas à isenção de ICMS, conforme o RICMS/SC,",
+      "alternativas": {
+        "A": "as saídas internas e interestaduais de veículo automotor, máquina e equipamento, para utilização exclusiva pelos Corpos de Bombeiros Voluntários, devidamente constituídos e reconhecidos como de utilidade pública por lei municipal, estadual ou federal.",
+        "B": "as saídas internas de pilhas e baterias usadas em veículos e aparelhos elétricos, após seu esgotamento energético, para recarga ou reciclagem, que contenham em sua composição chumbo, cádmio, mercúrio, lítico e seus compostos, dispensado o estorno de crédito.",
+        "C": "as saídas internas e interestaduais de embarcação construída no país, bem como partes e peças destinadas a reparo ou reforma destas embarcações, e dispensado o estorno de crédito relativo aos insumos, desde que a embarcação tenha peso total bruto superior a uma tonelada.",
+        "D": "todas as saídas de pneus usados, desde que destinadas à remoldagem, recapeamento, recauchutagem ou processo similar.",
+        "E": "as saídas internas de leite fresco, pasteurizado ou não, e de leite reconstituído, destinadas a consumidor final, caso em que fica mantido o crédito fiscal relativo à entrada, ocorrida no período de 1º de março a 30 de setembro de cada ano, de leite em pó utilizado na reconstituição."
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "A empresa João Alves EIRELI (Empresa Individual de Responsabilidade Limitada), localizada em Criciúma/SC, se dedica ao comércio e realiza diversas operações sujeitas ao ICMS. Dentre estas, aplica-se o benefício fiscal de redução de base de cálculo, previsto no Anexo 2 do RICMS/SC,",
+      "alternativas": {
+        "A": "nas operações internas com cimento, tijolo, telha, tubo e manilha, ferro, aço, alumínio e cobre.",
+        "B": "de 57,7% na saída interna de peças, partes e acessórios destinadas a embarcações, quando adquiridos por indústria naval ou náutica.",
+        "C": "nas operações internas com produtos da cesta básica, dentre os quais estão, entre outros, carnes de ave, suíno, ovino, caprino e coelho, mel, peixe, água mineral com gás natural, arroz parboilizado, leite pasteurizado, queijo, sal e açúcar.",
+        "D": "de 29,411% sobre o valor das saídas, internas ou interestaduais, de gás natural destinado a estabelecimento industrial, desde que o sujeito passivo emita o documento fiscal na forma prevista na legislação.",
+        "E": "de 65% na saída interna e interestadual de motores elétricos para veículos automotores, dispensado o estorno do crédito relativo às entradas."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "O estabelecimento que receber mercadoria devolvida por pessoa física ou jurídica, não obrigada à emissão de documentos fiscais.",
+      "alternativas": {
+        "A": "deve condicionar o recebimento da mercadoria à apresentação, pela pessoa física ou jurídica, de termo de devolução, elaborado de próprio punho, esclarecendo os motivos de fato e de direito que ensejaram a respectiva devolução, sob pena de pagamento do imposto relativo à saída com acréscimo de multa de 50%.",
+        "B": "em virtude de garantia legal ou contratual, dentro do prazo de garantia previsto na legislação federal pertinente ou estabelecido em garantia contratual, pode creditar-se do imposto pago por ocasião da saída, se cumprir as obrigações acessórias previstas na legislação.",
+        "C": "em decorrência de defeito oculto ou aparente, deverá, no prazo de 7 dias contados do recebimento, emitir nota fiscal de entrada, sem destaque do imposto, indicando a forma como o valor pago pelo cliente foi restituído, sob pena de multa por recebimento de mercadoria desacompanhada de documento fiscal hábil.",
+        "D": "em decorrência de desfazimento da venda, pode creditar-se do imposto pago por ocasião da saída, no prazo de 45 dias contados da entrega da mercadoria, se emitir a nota fiscal eletrônica de retorno, em até 15 dias contados da data da devolução.",
+        "E": "em razão de garantia extra contratual, ou de insatisfação do cliente, deverá comunicar o fato à Administração Tributária, mediante denúncia espontânea, sob pena de incorrer em receptação de mercadoria sem nota."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "Relativamente ao documento fiscal denominado Nota Fiscal Eletrónica (NF-e), o Anexo 11 do RICMS/SC estabelece que",
+      "alternativas": {
+        "A": "será considerado documento fiscal idôneo a NF-e que tiver sido regularmente emitida, ainda que em momento posterior se constate fraude, dolo ou coação, por parte do emitente.",
+        "B": "o arquivo digital da NF-e deverá ser elaborado no padrão TXT, XML, PDF ou DOC.",
+        "C": "a NF-e deverá ser emitida com base em leiaute estabelecido no Manual de Orientação do Contribuinte publicado em Ato Cotepe, por meio de programa aplicativo desenvolvido ou adquirido pelo contribuinte.",
+        "D": "a NF-e deverá ser assinada pelo emitente, com assinatura digital certificada por entidade credenciada pela Secretaria de Fazenda ou Receita Federal do Brasil que contenha o CNPJ do estabelecimento do emitente.",
+        "E": "o arquivo digital da NF-e poderá ser utilizado como documento fiscal após ser transmitido eletronicamente à Secretaria de Estado da Fazenda e à Receita Federal do Brasil."
+      }
+    },
+    {
+      "numero": 61,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Atenção: Para responder às questões de números 61 a 68, considere as informações abaixo.\n\nSuponha que um Auditor foi encarregado de modelar e criar um banco de dados para um pequeno sistema de pedidos de produtos de informática. Para realizar essa tarefa, desenvolveu o modelo mostrado na figura abaixo.\n\n[Figura omitida]\n\nApós criar o modelo, implementou o banco de dados em um Sistema de Gerenciamento de Banco de Dados, criou as tabelas e cadastrou as seguintes informações:\n\nTabela Produto:\n\n<table>idPronomeProPreUniPro1GPU NVIDIA 1080Ti34562MEMORIA KINGSTON 16GB 1866MHz1078.453HD SEAGATE 1TB SATA III437.494PROCESSADOR INTEL CORE I7 1151 3.7GHZ21855TECLADO MECÂNICO COOLER MASTER L RGB CRYSTAL776.206PEN DRIVE SANDISK CRUZER32GB USB 2.0557PENDRIVE MULTILASER 4GB238GPU RADEON RX 570 4GB1390.309MONITOR GAMER AOC AGON 24,5POL304110MONITOR GAMER ASUS 24POL105511PLACA MAE MSI Z370 PC PRO LGA 115185512PLACA DE REDE MYMAX 10/100/1000MBPS32.9013MODEM 3G+ D-LINK USB 2.0102.1614MODEM ROTEADOR TP-LINK WIRELESS N122.61</table>\n\nTabela Cliente:\nidCli nomeCli\n1 Maria Teixeira\n2 Paulo Ricardo dos Santos\n3 Marta dos Anjos Peixoto\n4 André Maria Martim\n5 João Paulo de Souza\n6 Tadeu Martins Rocha\n\nTabela Pedido:\nidPed dataPed idCli\n1 2018-05-21 1\n2 2018-02-15 1\n3 2017-12-21 1\n4 2017-09-08 2\n5 2018-01-02 2\n6 2018-02-10 3\n7 2018-07-19 3\n8 2018-03-05 4\n9 2017-12-10 5\n10 2017-06-09 6\n11 2018-10-20 6\n12 2017-02-10 6\n\nTabela ItemPedido:\nidltePed qtdltePed idPed idPro\n1 3 1 1\n1 5 2 4\n1 4 3 6\n1 1 4 7\n1 5 5 9\n1 6 6 10\n1 7 7 11\n1 8 8 14\n1 9 9 10\n1 10 10 2\n1 11 11 1\n1 12 12 7\n1 2 1 2\n2 4 2 3\n2 2 2 4\n2 8 2 7\n2 7 7 12\n2 6 10 5\n3 2 1 2\n3 2 3 7\n3 13\n\nConsidere que o Auditor digitou um comando para inserir os valores abaixo na tabela ItemPedido.\n\nA mensagem correta que traduzirá o resultado da operação é",
+      "alternativas": {
+        "A": "register successfully - 1 row(s) affected.",
+        "B": "you have an error in your SQL syntax.",
+        "C": "out of range value for column 'qtdltePed'.",
+        "D": "cannot add a child row: a foreign key constraint fails.",
+        "E": "duplicate entry '2-7' for key 'PRIMARY'."
+      }
+    },
+    {
+      "numero": 62,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Atenção: Para responder às questões de números 61 a 68, considere as informações abaixo.\n\nSuponha que um Auditor foi encarregado de modelar e criar um banco de dados para um pequeno sistema de pedidos de produtos de informática. Para realizar essa tarefa, desenvolveu o modelo mostrado na figura abaixo.\n\n[Figura omitida]\n\nApós criar o modelo, implementou o banco de dados em um Sistema de Gerenciamento de Banco de Dados, criou as tabelas e cadastrou as seguintes informações:\n\nTabela Produto:\n\n<table>idPronomeProPreUniPro1GPU NVIDIA 1080Ti34562MEMORIA KINGSTON 16GB 1866MHz1078.453HD SEAGATE 1TB SATA III437.494PROCESSADOR INTEL CORE I7 1151 3.7GHZ21855TECLADO MECÂNICO COOLER MASTER L RGB CRYSTAL776.206PEN DRIVE SANDISK CRUZER32GB USB 2.0557PENDRIVE MULTILASER 4GB238GPU RADEON RX 570 4GB1390.309MONITOR GAMER AOC AGON 24,5POL304110MONITOR GAMER ASUS 24POL105511PLACA MAE MSI Z370 PC PRO LGA 115185512PLACA DE REDE MYMAX 10/100/1000MBPS32.9013MODEM 3G+ D-LINK USB 2.0102.1614MODEM ROTEADOR TP-LINK WIRELESS N122.61</table>\n\nTabela Cliente:\nidCli nomeCli\n1 Maria Teixeira\n2 Paulo Ricardo dos Santos\n3 Marta dos Anjos Peixoto\n4 André Maria Martim\n5 João Paulo de Souza\n6 Tadeu Martins Rocha\n\nTabela Pedido:\nidPed dataPed idCli\n1 2018-05-21 1\n2 2018-02-15 1\n3 2017-12-21 1\n4 2017-09-08 2\n5 2018-01-02 2\n6 2018-02-10 3\n7 2018-07-19 3\n8 2018-03-05 4\n9 2017-12-10 5\n10 2017-06-09 6\n11 2018-10-20 6\n12 2017-02-10 6\n\nTabela ItemPedido:\nidltePed qtdltePed idPed idPro\n1 3 1 1\n1 5 2 4\n1 4 3 6\n1 1 4 7\n1 5 5 9\n1 6 6 10\n1 7 7 11\n1 8 8 14\n1 9 9 10\n1 10 10 2\n1 11 11 1\n1 12 12 7\n1 2 1 2\n2 4 2 3\n2 2 2 4\n2 8 2 7\n2 7 7 12\n2 6 10 5\n3 2 1 2\n3 2 3 7\n3 13\n\nSe na entidade ItemPedido fosse adicionado o atributo valorTotalItem e nesse atributo fosse armazenado o resultado da multiplicação do valor contido no atributo qtdItePed da entidade ItemPedido pelo valor contido no atributo PreUniPro da entidade Produto, a entidade ItemPedido violaria",
+      "alternativas": {
+        "A": "a terceira forma normal (3FN).",
+        "B": "a segunda forma normal (2FN).",
+        "C": "a primeira forma normal (1FN).",
+        "D": "todas as formas normais.",
+        "E": "as regras de integridade referencial."
+      }
+    },
+    {
+      "numero": 63,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Atenção: Para responder às questões de números 61 a 68, considere as informações abaixo.\n\nSuponha que um Auditor foi encarregado de modelar e criar um banco de dados para um pequeno sistema de pedidos de produtos de informática. Para realizar essa tarefa, desenvolveu o modelo mostrado na figura abaixo.\n\n[Figura omitida]\n\nApós criar o modelo, implementou o banco de dados em um Sistema de Gerenciamento de Banco de Dados, criou as tabelas e cadastrou as seguintes informações:\n\nTabela Produto:\n\n<table>idPronomeProPreUniPro1GPU NVIDIA 1080Ti34562MEMORIA KINGSTON 16GB 1866MHz1078.453HD SEAGATE 1TB SATA III437.494PROCESSADOR INTEL CORE I7 1151 3.7GHZ21855TECLADO MECÂNICO COOLER MASTER L RGB CRYSTAL776.206PEN DRIVE SANDISK CRUZER32GB USB 2.0557PENDRIVE MULTILASER 4GB238GPU RADEON RX 570 4GB1390.309MONITOR GAMER AOC AGON 24,5POL304110MONITOR GAMER ASUS 24POL105511PLACA MAE MSI Z370 PC PRO LGA 115185512PLACA DE REDE MYMAX 10/100/1000MBPS32.9013MODEM 3G+ D-LINK USB 2.0102.1614MODEM ROTEADOR TP-LINK WIRELESS N122.61</table>\n\nTabela Cliente:\nidCli nomeCli\n1 Maria Teixeira\n2 Paulo Ricardo dos Santos\n3 Marta dos Anjos Peixoto\n4 André Maria Martim\n5 João Paulo de Souza\n6 Tadeu Martins Rocha\n\nTabela Pedido:\nidPed dataPed idCli\n1 2018-05-21 1\n2 2018-02-15 1\n3 2017-12-21 1\n4 2017-09-08 2\n5 2018-01-02 2\n6 2018-02-10 3\n7 2018-07-19 3\n8 2018-03-05 4\n9 2017-12-10 5\n10 2017-06-09 6\n11 2018-10-20 6\n12 2017-02-10 6\n\nTabela ItemPedido:\nidltePed qtdltePed idPed idPro\n1 3 1 1\n1 5 2 4\n1 4 3 6\n1 1 4 7\n1 5 5 9\n1 6 6 10\n1 7 7 11\n1 8 8 14\n1 9 9 10\n1 10 10 2\n1 11 11 1\n1 12 12 7\n1 2 1 2\n2 4 2 3\n2 2 2 4\n2 8 2 7\n2 7 7 12\n2 6 10 5\n3 2 1 2\n3 2 3 7\n3 13\n\nConsidere e avalie as asserções a seguir e a relação proposta entre elas.\n\nI. O relacionamento entre as entidades Pedido e ItemPedido é um relacionamento identificado PORQUE\n\nII. idPed, que é chave estrangeira na entidade ItemPedido, faz parte da chave primária desta entidade.\n\nÉ correto afirmar que",
+      "alternativas": {
+        "A": "as duas asserções são proposições verdadeiras, mas a segunda não é justificativa correta da primeira.",
+        "B": "a primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.",
+        "C": "as duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.",
+        "D": "a primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.",
+        "E": "tanto a primeira quanto a segunda são proposições falsas."
+      }
+    },
+    {
+      "numero": 64,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Atenção: Para responder às questões de números 61 a 68, considere as informações abaixo.\n\nSuponha que um Auditor foi encarregado de modelar e criar um banco de dados para um pequeno sistema de pedidos de produtos de informática. Para realizar essa tarefa, desenvolveu o modelo mostrado na figura abaixo.\n\n[Figura omitida]\n\nApós criar o modelo, implementou o banco de dados em um Sistema de Gerenciamento de Banco de Dados, criou as tabelas e cadastrou as seguintes informações:\n\nTabela Produto:\n\n<table>idPronomeProPreUniPro1GPU NVIDIA 1080Ti34562MEMORIA KINGSTON 16GB 1866MHz1078.453HD SEAGATE 1TB SATA III437.494PROCESSADOR INTEL CORE I7 1151 3.7GHZ21855TECLADO MECÂNICO COOLER MASTER L RGB CRYSTAL776.206PEN DRIVE SANDISK CRUZER32GB USB 2.0557PENDRIVE MULTILASER 4GB238GPU RADEON RX 570 4GB1390.309MONITOR GAMER AOC AGON 24,5POL304110MONITOR GAMER ASUS 24POL105511PLACA MAE MSI Z370 PC PRO LGA 115185512PLACA DE REDE MYMAX 10/100/1000MBPS32.9013MODEM 3G+ D-LINK USB 2.0102.1614MODEM ROTEADOR TP-LINK WIRELESS N122.61</table>\n\nTabela Cliente:\nidCli nomeCli\n1 Maria Teixeira\n2 Paulo Ricardo dos Santos\n3 Marta dos Anjos Peixoto\n4 André Maria Martim\n5 João Paulo de Souza\n6 Tadeu Martins Rocha\n\nTabela Pedido:\nidPed dataPed idCli\n1 2018-05-21 1\n2 2018-02-15 1\n3 2017-12-21 1\n4 2017-09-08 2\n5 2018-01-02 2\n6 2018-02-10 3\n7 2018-07-19 3\n8 2018-03-05 4\n9 2017-12-10 5\n10 2017-06-09 6\n11 2018-10-20 6\n12 2017-02-10 6\n\nTabela ItemPedido:\nidltePed qtdltePed idPed idPro\n1 3 1 1\n1 5 2 4\n1 4 3 6\n1 1 4 7\n1 5 5 9\n1 6 6 10\n1 7 7 11\n1 8 8 14\n1 9 9 10\n1 10 10 2\n1 11 11 1\n1 12 12 7\n1 2 1 2\n2 4 2 3\n2 2 2 4\n2 8 2 7\n2 7 7 12\n2 6 10 5\n3 2 1 2\n3 2 3 7\n3 13\n\nNo modelo apresentado a entidade ItemPedido",
+      "alternativas": {
+        "A": "deveria conter o campo PreUniPro, pois o preço unitário do produto deve ser incluído em cada item do pedido.",
+        "B": "está relacionada com as entidades Pedido e Produto usando a notação Integrated DEFinition for Information Modelling – IDEF1X.",
+        "C": "possui relação com cardinalidade n:n com a entidade Produto e 1:n com a entidade Pedido.",
+        "D": "possui chave primária composta, mas não possui chave estrangeira, logo, não garante integridade referencial.",
+        "E": "possui uma chave primária composta pelos atributos idItePed e idPed, sendo que os atributos qtdItePed e idPro possuem dependência funcional completa com relação à chave primária."
+      }
+    },
+    {
+      "numero": 65,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Atenção: Para responder às questões de números 61 a 68, considere as informações abaixo.\n\nSuponha que um Auditor foi encarregado de modelar e criar um banco de dados para um pequeno sistema de pedidos de produtos de informática. Para realizar essa tarefa, desenvolveu o modelo mostrado na figura abaixo.\n\n[Figura omitida]\n\nApós criar o modelo, implementou o banco de dados em um Sistema de Gerenciamento de Banco de Dados, criou as tabelas e cadastrou as seguintes informações:\n\nTabela Produto:\n\n<table>idPronomeProPreUniPro1GPU NVIDIA 1080Ti34562MEMORIA KINGSTON 16GB 1866MHz1078.453HD SEAGATE 1TB SATA III437.494PROCESSADOR INTEL CORE I7 1151 3.7GHZ21855TECLADO MECÂNICO COOLER MASTER L RGB CRYSTAL776.206PEN DRIVE SANDISK CRUZER32GB USB 2.0557PENDRIVE MULTILASER 4GB238GPU RADEON RX 570 4GB1390.309MONITOR GAMER AOC AGON 24,5POL304110MONITOR GAMER ASUS 24POL105511PLACA MAE MSI Z370 PC PRO LGA 115185512PLACA DE REDE MYMAX 10/100/1000MBPS32.9013MODEM 3G+ D-LINK USB 2.0102.1614MODEM ROTEADOR TP-LINK WIRELESS N122.61</table>\n\nTabela Cliente:\nidCli nomeCli\n1 Maria Teixeira\n2 Paulo Ricardo dos Santos\n3 Marta dos Anjos Peixoto\n4 André Maria Martim\n5 João Paulo de Souza\n6 Tadeu Martins Rocha\n\nTabela Pedido:\nidPed dataPed idCli\n1 2018-05-21 1\n2 2018-02-15 1\n3 2017-12-21 1\n4 2017-09-08 2\n5 2018-01-02 2\n6 2018-02-10 3\n7 2018-07-19 3\n8 2018-03-05 4\n9 2017-12-10 5\n10 2017-06-09 6\n11 2018-10-20 6\n12 2017-02-10 6\n\nTabela ItemPedido:\nidltePed qtdltePed idPed idPro\n1 3 1 1\n1 5 2 4\n1 4 3 6\n1 1 4 7\n1 5 5 9\n1 6 6 10\n1 7 7 11\n1 8 8 14\n1 9 9 10\n1 10 10 2\n1 11 11 1\n1 12 12 7\n1 2 1 2\n2 4 2 3\n2 2 2 4\n2 8 2 7\n2 7 7 12\n2 6 10 5\n3 2 1 2\n3 2 3 7\n3 13\n\nO Auditor tentou incluir os dados abaixo na tabela Pedido.\n\nidPed dataPed idCli\n13 2018-07-22 12\n\nAo executar a operação de inclusão, ocorreu um erro porque",
+      "alternativas": {
+        "A": "não há um cliente com id 12 cadastrado na tabela Cliente.",
+        "B": "já existe um pedido cadastrado com id 13.",
+        "C": "a data cadastrada não existe, já que o formato correto é dd/mm/yyyy.",
+        "D": "já existe um pedido criado para o cliente 12.",
+        "E": "não existe um pedido cadastrado com id 13."
+      }
+    },
+    {
+      "numero": 66,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Atenção: Para responder às questões de números 61 a 68, considere as informações abaixo.\n\nSuponha que um Auditor foi encarregado de modelar e criar um banco de dados para um pequeno sistema de pedidos de produtos de informática. Para realizar essa tarefa, desenvolveu o modelo mostrado na figura abaixo.\n\n[Figura omitida]\n\nApós criar o modelo, implementou o banco de dados em um Sistema de Gerenciamento de Banco de Dados, criou as tabelas e cadastrou as seguintes informações:\n\nTabela Produto:\n\n<table>idPronomeProPreUniPro1GPU NVIDIA 1080Ti34562MEMORIA KINGSTON 16GB 1866MHz1078.453HD SEAGATE 1TB SATA III437.494PROCESSADOR INTEL CORE I7 1151 3.7GHZ21855TECLADO MECÂNICO COOLER MASTER L RGB CRYSTAL776.206PEN DRIVE SANDISK CRUZER32GB USB 2.0557PENDRIVE MULTILASER 4GB238GPU RADEON RX 570 4GB1390.309MONITOR GAMER AOC AGON 24,5POL304110MONITOR GAMER ASUS 24POL105511PLACA MAE MSI Z370 PC PRO LGA 115185512PLACA DE REDE MYMAX 10/100/1000MBPS32.9013MODEM 3G+ D-LINK USB 2.0102.1614MODEM ROTEADOR TP-LINK WIRELESS N122.61</table>\n\nTabela Cliente:\nidCli nomeCli\n1 Maria Teixeira\n2 Paulo Ricardo dos Santos\n3 Marta dos Anjos Peixoto\n4 André Maria Martim\n5 João Paulo de Souza\n6 Tadeu Martins Rocha\n\nTabela Pedido:\nidPed dataPed idCli\n1 2018-05-21 1\n2 2018-02-15 1\n3 2017-12-21 1\n4 2017-09-08 2\n5 2018-01-02 2\n6 2018-02-10 3\n7 2018-07-19 3\n8 2018-03-05 4\n9 2017-12-10 5\n10 2017-06-09 6\n11 2018-10-20 6\n12 2017-02-10 6\n\nTabela ItemPedido:\nidltePed qtdltePed idPed idPro\n1 3 1 1\n1 5 2 4\n1 4 3 6\n1 1 4 7\n1 5 5 9\n1 6 6 10\n1 7 7 11\n1 8 8 14\n1 9 9 10\n1 10 10 2\n1 11 11 1\n1 12 12 7\n1 2 1 2\n2 4 2 3\n2 2 2 4\n2 8 2 7\n2 7 7 12\n2 6 10 5\n3 2 1 2\n3 2 3 7\n3 13\n\nO Auditor digitou um comando que exibiu os dados abaixo.\n\n<table>idPedidtePedidPronomeProqtditePedPreUnitProTotal111GPU NVIDIA 1080Ti33456.0010368.00122MEMORIA KINGSTON 16GB 1866MHZ11078.451078.45132MEMORIA KINGSTON 16GB 1866MHZ21078.452156.90214PROCESSADOR INTEL CORE I7 1151 3.7GHZ52185.0010925.00223HD SEAGATE 1TB SATA III4437.491749.96316PEN DRIVE SANDISK CRUZER32GB USB 2.0455.00220.00</table>\n\nO comando digitado foi",
+      "alternativas": {
+        "A": "SELECT ip.idPed, ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro, (ip.qtdITePed * pro.PreUnitPro) as Total FROM Produto pro, ItemPedido ip WHERE ip.idPro = pro.idPro OR ip.idPed <=3 ORDER BY ip.idPed;",
+        "B": "SELECT ip.idPed, ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro, (ip.qtdITePed * pro.PreUnitPro) as Total FROM Produto pro, ItemPedido ip WHERE ip.idPro = pro.idPro AND ip.idPed <=3 ORDER BY ip.idPed;",
+        "C": "SELECT ip.idPed, ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro, (ip.qtdITePed * pro.PreUnitPro) as Total FROM Produto pro, ItemPedido ip WHERE ip.idPro = pro.idPro & ip.idPed <3 ORDER BY ip.idPed;",
+        "D": "SELECT idPed, idITePed, idPro, nomePro, qtdITePed, PreUnitPro, (ip.qtdITePed * pro.PreUnitPro) as \"Total\" FROM Produto, ItemPedido WHERE ip.idPro = pro.idPro AND ip.idPed <=3 ORDER BY ip.idPed;",
+        "E": "SELECT ip.idPed, ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro, SVG(ip.qtdITePed * pro.PreUnitPro) as \"Total\" FROM Produto pro, ItemPedido ip WHERE ip.idPro = pro.idPro AND ip.idPed <=3 ORDER BY ip.idPed;"
+      }
+    },
+    {
+      "numero": 67,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Atenção: Para responder às questões de números 61 a 68, considere as informações abaixo.\n\nSuponha que um Auditor foi encarregado de modelar e criar um banco de dados para um pequeno sistema de pedidos de produtos de informática. Para realizar essa tarefa, desenvolveu o modelo mostrado na figura abaixo.\n\n[Figura omitida]\n\nApós criar o modelo, implementou o banco de dados em um Sistema de Gerenciamento de Banco de Dados, criou as tabelas e cadastrou as seguintes informações:\n\nTabela Produto:\n\n<table>idPronomeProPreUniPro1GPU NVIDIA 1080Ti34562MEMORIA KINGSTON 16GB 1866MHz1078.453HD SEAGATE 1TB SATA III437.494PROCESSADOR INTEL CORE I7 1151 3.7GHZ21855TECLADO MECÂNICO COOLER MASTER L RGB CRYSTAL776.206PEN DRIVE SANDISK CRUZER32GB USB 2.0557PENDRIVE MULTILASER 4GB238GPU RADEON RX 570 4GB1390.309MONITOR GAMER AOC AGON 24,5POL304110MONITOR GAMER ASUS 24POL105511PLACA MAE MSI Z370 PC PRO LGA 115185512PLACA DE REDE MYMAX 10/100/1000MBPS32.9013MODEM 3G+ D-LINK USB 2.0102.1614MODEM ROTEADOR TP-LINK WIRELESS N122.61</table>\n\nTabela Cliente:\nidCli nomeCli\n1 Maria Teixeira\n2 Paulo Ricardo dos Santos\n3 Marta dos Anjos Peixoto\n4 André Maria Martim\n5 João Paulo de Souza\n6 Tadeu Martins Rocha\n\nTabela Pedido:\nidPed dataPed idCli\n1 2018-05-21 1\n2 2018-02-15 1\n3 2017-12-21 1\n4 2017-09-08 2\n5 2018-01-02 2\n6 2018-02-10 3\n7 2018-07-19 3\n8 2018-03-05 4\n9 2017-12-10 5\n10 2017-06-09 6\n11 2018-10-20 6\n12 2017-02-10 6\n\nTabela ItemPedido:\nidltePed qtdltePed idPed idPro\n1 3 1 1\n1 5 2 4\n1 4 3 6\n1 1 4 7\n1 5 5 9\n1 6 6 10\n1 7 7 11\n1 8 8 14\n1 9 9 10\n1 10 10 2\n1 11 11 1\n1 12 12 7\n1 2 1 2\n2 4 2 3\n2 2 2 4\n2 8 2 7\n2 7 7 12\n2 6 10 5\n3 2 1 2\n3 2 3 7\n3 13\n\nO Auditor digitou um comando que exibiu os dados abaixo.\n\n<table>idPedidtePedidPronomeProqtditePedPreUnitProTotal111GPU NVIDIA 1080Ti33456.0010368.00122MEMORIA KINGSTON 16GB 1866MHZ11078.451078.45132MEMORIA KINGSTON 16GB 1866MHZ21078.452156.90214PROCESSADOR INTEL CORE I7 1151 3.7GHZ52185.0010925.00223HD SEAGATE 1TB SATA III4437.491749.96316PEN DRIVE SANDISK CRUZER32GB USB 2.0455.00220.00</table>\n\nSe o Auditor usasse join, o comando correto para exibir os dados seria",
+      "alternativas": {
+        "A": "SELECT JOIN ip.idPed, ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro, (ip.qtdITePed * pro.PreUnitPro) as Total FROM Produto pro, ItemPedido ip WHERE ip.idPro = pro.idPro AND ip.idPed <=3 ORDER BY ip.idPed;",
+        "B": "JOIN ip.idPed, ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro, (ip.qtdITePed * pro.PreUnitPro) as Total ON Produto pro, ItemPedido ip WHERE ip.idPro = pro.idPro AND ip.idPed <=3 ORDER BY ip.idPed;",
+        "C": "SELECT idPed, idITePed, dPro, nomePro, qtdITePed, reUnitPro, (qtdITePed * PreUnitPro) as Total FROM Produto pro JOIN ItemPedido ip WHERE ItemProduto.idPro = Produto.idPro AND ItemProduto.idPed <=3 ORDER BY idPed;",
+        "D": "JOIN ip.idPed, ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro, (ip.qtdITePed * pro.PreUnitPro) as Total FROM Produto pro, ItemPedido ip WHERE ip.idPro = pro.idPro AND ip.idPed <=3 ORDER BY ip.idPed;",
+        "E": "SELECT ip.idPed, ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro, (ip.qtdITePed * pro.PreUnitPro) as Total FROM Produto pro JOIN ItemPedido ip ON ip.idPro = pro.idPro AND ip.idPed <=3 ORDER BY ip.idPed;"
+      }
+    },
+    {
+      "numero": 68,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Atenção: Para responder às questões de números 61 a 68, considere as informações abaixo.\n\nSuponha que um Auditor foi encarregado de modelar e criar um banco de dados para um pequeno sistema de pedidos de produtos de informática. Para realizar essa tarefa, desenvolveu o modelo mostrado na figura abaixo.\n\n[Figura omitida]\n\nApós criar o modelo, implementou o banco de dados em um Sistema de Gerenciamento de Banco de Dados, criou as tabelas e cadastrou as seguintes informações:\n\nTabela Produto:\n\n<table>idPronomeProPreUniPro1GPU NVIDIA 1080Ti34562MEMORIA KINGSTON 16GB 1866MHz1078.453HD SEAGATE 1TB SATA III437.494PROCESSADOR INTEL CORE I7 1151 3.7GHZ21855TECLADO MECÂNICO COOLER MASTER L RGB CRYSTAL776.206PEN DRIVE SANDISK CRUZER32GB USB 2.0557PENDRIVE MULTILASER 4GB238GPU RADEON RX 570 4GB1390.309MONITOR GAMER AOC AGON 24,5POL304110MONITOR GAMER ASUS 24POL105511PLACA MAE MSI Z370 PC PRO LGA 115185512PLACA DE REDE MYMAX 10/100/1000MBPS32.9013MODEM 3G+ D-LINK USB 2.0102.1614MODEM ROTEADOR TP-LINK WIRELESS N122.61</table>\n\nTabela Cliente:\nidCli nomeCli\n1 Maria Teixeira\n2 Paulo Ricardo dos Santos\n3 Marta dos Anjos Peixoto\n4 André Maria Martim\n5 João Paulo de Souza\n6 Tadeu Martins Rocha\n\nTabela Pedido:\nidPed dataPed idCli\n1 2018-05-21 1\n2 2018-02-15 1\n3 2017-12-21 1\n4 2017-09-08 2\n5 2018-01-02 2\n6 2018-02-10 3\n7 2018-07-19 3\n8 2018-03-05 4\n9 2017-12-10 5\n10 2017-06-09 6\n11 2018-10-20 6\n12 2017-02-10 6\n\nTabela ItemPedido:\nidltePed qtdltePed idPed idPro\n1 3 1 1\n1 5 2 4\n1 4 3 6\n1 1 4 7\n1 5 5 9\n1 6 6 10\n1 7 7 11\n1 8 8 14\n1 9 9 10\n1 10 10 2\n1 11 11 1\n1 12 12 7\n1 2 1 2\n2 4 2 3\n2 2 2 4\n2 8 2 7\n2 7 7 12\n2 6 10 5\n3 2 1 2\n3 2 3 7\n3 13\n\nO Auditor precisa criar uma view chamada PEDIDO1 com os dados do pedido 1 (id do item do pedido, id do produto, nome do produto, quantidade do produto no item e o preço unitário do produto). Se digitado o comando SELECT * FROM PEDIDO1; deverão ser exibidos os seguintes dados:\n\n<table>idPedidPronomeProqtditePedPreUnitPro11GPU NVIDIA 1080Ti33456.0022MEMORIA KINGSTON 16GB 1866MHZ11078.4532MEMORIA KINGSTON 16GB 1866MHZ21078.45</table>\n\nPara criar a View, o Auditor utilizou corretamente o comando",
+      "alternativas": {
+        "A": "CREATE VIEW PEDIDO1 ON SELECT idITePed, idPro, nomePro, qtdITePed, PreUnitPro FROM Produto, ItemPedido WHERE ip.idPed = 1;",
+        "B": "CREATE VIEW PEDIDO1 AS SELECT ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro FROM Produto pro, ItemPedido ip WHERE ip.idPro = pro.idPro AND ip.idPed = 1;",
+        "C": "CREATE VIEW PEDIDO1 WITH SELECT ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro FROM Produto pro, ItemPedido ip WHERE ip.idPed = 1;",
+        "D": "CREATE VIEW PEDIDO1 AS SELECT ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro FROM Produto pro, ItemPedido ip WHERE ip.idPed = 1;",
+        "E": "CREATE VIEW PEDIDO1 ON SELECT ip.idITePed, ip.idPro, pro.nomePro, ip.qtdITePed, pro.PreUnitPro FROM Produto pro, ItemPedido ip WHERE ip.idPro = pro.idPro AND ip.idPed = 1;"
+      }
+    },
+    {
+      "numero": 69,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Para calcular o número de produtos com nomes que terminam com a letra B, o Auditor testou os comandos abaixo.\n\nI. SELECT COUNT(nomePro) FROM Produto WHERE nomePro BEGIN 'B';\n\nII. SELECT COUNT(*) FROM PRODUTO WHERE SUBSTR(nomePro, -1)='B';\n\nIII. SELECT COUNT(*) FROM Produto WHERE nomePro LIKE 'B';\n\nIV. SELECT COUNT(nomePro) FROM Produto WHERE SUBSTR(nomePro, 0)='B';\n\nMostrará o resultado desejado o que consta APENAS em",
+      "alternativas": {
+        "A": "III.",
+        "B": "I e IV.",
+        "C": "III e IV.",
+        "D": "I e II.",
+        "E": "II e III."
+      }
+    },
+    {
+      "numero": 70,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "Atenção: Para responder às questões de números 70 a 72, considere o seguinte caso hipotético:\n\nUm Auditor da Receita Estadual pretende descobrir, após denúncia, elementos que possam caracterizar e fundamentar a possível existência de fraudes, tipificadas como sonegação tributária, que vêm ocorrendo sistematicamente na arrecadação do ICMS. A denúncia é que, frequentemente, caminhões das empresas Org1, Org2 e Org3 não são adequadamente fiscalizados nos postos de fronteiras. Inobservâncias de procedimentos podem ser avaliadas pelo curto período de permanência dos caminhões dessas empresas na operação de pesagem, em relação ao período médio registrado para demais caminhões.\n\nPara caracterizar e fundamentar a existência de possíveis fraudes, o Auditor deverá coletar os registros diários dos postos por, pelo menos, 1 ano e elaborar demonstrativos para análises mensais, trimestrais e anuais.\n\nPara permitir uma análise coerente, após a denúncia, a concepção de um modelo de dados multidimensional do tipo esquema estrela (star schema), em um Data Warehouse, deve registrar os elementos de dados: identificação do posto, empresa, data da pesagem e tempo de permanência.\n\nConsiderando os conceitos fatos e dimensões, os elementos de dados classificados como dimensões são, apenas,",
+      "alternativas": {
+        "A": "identificação do posto, data da pesagem e tempo de permanência.",
+        "B": "empresa, data da pesagem e tempo de permanência.",
+        "C": "identificação do posto e empresa.",
+        "D": "identificação do posto, empresa e data da pesagem.",
+        "E": "empresa e data da pesagem."
+      }
+    },
+    {
+      "numero": 71,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Atenção: Para responder às questões de números 70 a 72, considere o seguinte caso hipotético:\n\nUm Auditor da Receita Estadual pretende descobrir, após denúncia, elementos que possam caracterizar e fundamentar a possível existência de fraudes, tipificadas como sonegação tributária, que vêm ocorrendo sistematicamente na arrecadação do ICMS. A denúncia é que, frequentemente, caminhões das empresas Org1, Org2 e Org3 não são adequadamente fiscalizados nos postos de fronteiras. Inobservâncias de procedimentos podem ser avaliadas pelo curto período de permanência dos caminhões dessas empresas na operação de pesagem, em relação ao período médio registrado para demais caminhões.\n\nPara caracterizar e fundamentar a existência de possíveis fraudes, o Auditor deverá coletar os registros diários dos postos por, pelo menos, 1 ano e elaborar demonstrativos para análises mensais, trimestrais e anuais.\n\nPara permitir uma análise coerente, após a denúncia, a concepção de um modelo de dados multidimensional do tipo esquema estrela (star schema), em um Data Warehouse, deve registrar os elementos de dados: identificação do posto, empresa, data da pesagem e tempo de permanência.\n\nO Auditor poderá fazer análises de pesagens diversas a partir de operações feitas sobre o cubo de dados multidimensional do Data Warehouse, por exemplo, trocar a ordem, ou aumentar ou diminuir a granularidade dos dados em análise, entre outras, co- mo é o caso do uso da operação OLAP",
+      "alternativas": {
+        "A": "drill down, que permite ao Auditor aumentar o nível de detalhe de análise das informações de pesagens.",
+        "B": "drill off, que permite ao Auditor mudar o foco dimensional de análise das informações de pesagens.",
+        "C": "pivot, que permite ao Auditor pular um intervalo dimensional de análise das informações de pesagens.",
+        "D": "drill across, que permite ao Auditor mudar o escopo de análise das informações de pesagens, filtrando e rearranjando determinadas partes do cubo de dados.",
+        "E": "roll out, que permite ao Auditor diminuir o nível de detalhe de análise das informações de pesagens."
+      }
+    },
+    {
+      "numero": 72,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "Atenção: Para responder às questões de números 70 a 72, considere o seguinte caso hipotético:\n\nUm Auditor da Receita Estadual pretende descobrir, após denúncia, elementos que possam caracterizar e fundamentar a possível existência de fraudes, tipificadas como sonegação tributária, que vêm ocorrendo sistematicamente na arrecadação do ICMS. A denúncia é que, frequentemente, caminhões das empresas Org1, Org2 e Org3 não são adequadamente fiscalizados nos postos de fronteiras. Inobservâncias de procedimentos podem ser avaliadas pelo curto período de permanência dos caminhões dessas empresas na operação de pesagem, em relação ao período médio registrado para demais caminhões.\n\nPara caracterizar e fundamentar a existência de possíveis fraudes, o Auditor deverá coletar os registros diários dos postos por, pelo menos, 1 ano e elaborar demonstrativos para análises mensais, trimestrais e anuais.\n\nA aplicação de técnicas de mineração de dados (data mining) pode ser de grande valia para o Auditor. No caso das pesagens, por exemplo, uma ação típica de mining, que é passível de ser tomada com o auxílio de instrumentos preditivos, é",
+      "alternativas": {
+        "A": "quantificar as ocorrências de possíveis pesagens fraudulentas ocorridas durante todo o trimestre que antecede a data da análise, em alguns postos selecionados, mediante parâmetros comparativos preestabelecidos.",
+        "B": "analisar o percentual de ocorrências das menores permanências de caminhões nos postos, no último ano, em relação ao movimento total.",
+        "C": "relacionar os postos onde ocorreram, nos últimos seis meses, as menores permanências das empresas suspeitas e informar o escalão superior para a tomada de decisão.",
+        "D": "realizar uma abordagem surpresa em determinado posto, com probabilidade significativa de constatar ocorrência fraudulenta.",
+        "E": "reportar ao escalão superior as características gerais das pesagens e permanências de todos os caminhões, nos cinco maiores postos do Estado, no mês que antecede a data de análise."
+      }
+    },
+    {
+      "numero": 73,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "Considerando as informações I a IV relativas à\nI. entrada e saída de mercadorias e aos serviços prestados e tomados, incluindo as descrições dos respectivos itens.\nII. quantidade, descrição e valores de mercadorias, matérias-primas, produtos intermediários, materiais de embalagem, produtos manufaturados e produtos em fabricação, em posse ou pertencentes ao contribuinte.\nIII. produção de produtos em processo e produtos acabados, e respectivos consumos de insumos e ao estoque escriturado.\nIV. qualquer situação de exceção na tributação, tais como isenção, imunidade, não-incidência, diferimento ou suspensão do recolhimento.\nO arquivo digital da EFD-ICMS/IPI, referente a um período mensal declarado pelo contribuinte, ao ser transmitido deverá informar o que consta de",
+      "alternativas": {
+        "A": "I e III apenas.",
+        "B": "I, II e IV apenas.",
+        "C": "II e III, apenas.",
+        "D": "II e IV, apenas.",
+        "E": "I, II, III e IV."
+      }
+    },
+    {
+      "numero": 74,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "Os itens apresentados constituem uma lista em ordem alfabética de tarefas referentes ao arquivo digital da EFD-ICMS/IPI:\n\nI. Assinar o arquivo por meio de certificado digital, tipo A1 ou A3, emitido por autoridade certificadora credenciada pela Infraestrutura de Chaves Públicas Brasileira (ICP-Brasil).\n\nII. Gerar o arquivo de acordo com as especificações do leiaute definido em Ato COTEPE.\n\nIII. Gerar o recibo de entrega, com o mesmo nome do arquivo, com a extensão “rec”, gravando-o no mesmo diretório.\n\nIV. Guardar o arquivo acompanhado do recibo da transmissão, pelo prazo previsto na legislação.\n\nV. Submeter o arquivo ao programa validador, fornecido pelo Sistema Público de Escrituração Digital (SPED).\n\nVI. Transmitir o arquivo, com a extensão “txt”, pela internet.\n\nVII. Verificar a consistência das informações prestadas no arquivo.\n\nOs procedimentos EFD-ICMS/IPI devem progredir em um fluxo de execução. Considerando que o item II refere-se à tarefa inicial e o item IV à tarefa final, a sequência intermediária correta do fluxo de execução é:",
+      "alternativas": {
+        "A": "I - V - VII - VI e III.",
+        "B": "V - I - VII - III e VI.",
+        "C": "V - VII - I - VI e III.",
+        "D": "VII - I - V - III e VI.",
+        "E": "VII - V - I - VI e III."
+      }
+    },
+    {
+      "numero": 75,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "Existe uma correlação entre os modelos de documentos fiscais e os correspondentes registros da EFD-ICMS/IPI. Um registro “pai” C100 e seus respectivos “filhos”, que são gerados para escriturar apenas saída de produtos, deverão estar relacionados com o seguinte documento fiscal:",
+      "alternativas": {
+        "A": "Nota fiscal eletrônica para consumidor final, código 65.",
+        "B": "Nota fiscal de venda a consumidor, código 02.",
+        "C": "Nota fiscal avulsa, código 1B.",
+        "D": "Cupom fiscal, código 2D.",
+        "E": "Cupom fiscal eletrônico, código 60."
+      }
+    },
+    {
+      "numero": 76,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "O arquivo digital EFD ICMS/IPI é constituído de blocos, cada qual com um registro de abertura, com registros de dados e com um registro de encerramento, referindo-se cada um deles a um agrupamento de documentos e de outras informações econômico-fiscais. O Bloco H tem por objetivo a reunião de informações relativas a",
+      "alternativas": {
+        "A": "abertura do arquivo, identificação das entidades, contabilistas e participantes e outras referências.",
+        "B": "divulgação do inventário físico do estabelecimento, nos casos e prazos previstos na legislação pertinente.",
+        "C": "emissão ou recebimento de documentos fiscais que acobertam as prestações de serviços de comunicação, transporte intermunicipal e interestadual.",
+        "D": "apuração do Imposto sobre Operações Relativas à Circulação de Mercadorias e sobre Prestações de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação (ICMS) e do Imposto sobre Produtos Industrializados (IPI).",
+        "E": "emissão ou recebimento de documentos fiscais referentes às entradas e saídas de mercadorias."
+      }
+    },
+    {
+      "numero": 77,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "NfeAutorizacao é um web service para disponibilizar o servico destinado à recepcao de mensagens de lote de NF-e. No caso do processamento assincrono, as mensagens armazenadas na fila de entrada passam por validação de forma e das regras de negócios, e os resultados do processamento são armazenados na fila de saída. A validação da NF-e, não apresentando qualquer problema, resultará em \"autorização de uso\", sendo a operação regular e a NF-e válida será armazenada no banco de dados. Caso ocorra algum problema de validação, o resultado poderá ser",
+      "alternativas": {
+        "A": "“denegação de uso”, sendo a operação irregular e a NF-e válida não gravada no banco de dados.",
+        "B": "“denegação de uso”, sendo a operação irregular e a NF-e válida gravada no banco de dados.",
+        "C": "“rejeição”, sendo a operação irrelevante e a NF-e inválida gravada no banco de dados para ser corrigida.",
+        "D": "“rejeição”, sendo a operação regular e a NF-e válida gravada no banco de dados para ser corrigida.",
+        "E": "“rejeição”, sendo a operação irregular e a NF-e válida não gravada no banco de dados."
+      }
+    },
+    {
+      "numero": 78,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Sobre o processamento assíncrono das mensagens de solicitação de serviços realizado pela aplicação da NF-e a partir da fila de entrada de solicitações, considere:\n\nI. o XML de cabeçalho é a Área de controle.\n\nII. o XML de dados é a Área de mensagem.\n\nIII. o XML de cabeçalho contém o CNPJ do transmissor, o Número do recibo de entrega e a Data e hora de recebimento da mensagem.\n\nIV. a Área de controle contém o CNPJ do transmissor, o Número do recibo de entrega e a Data e hora de recebimento da mensagem.\n\nV. a Área de mensagem contém o XML de cabeçalho e o XML de dados.\n\nCada item da referida fila é formado por uma estrutura de armazenamento composta pelas informações que constam APENAS de",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "II e V.",
+        "C": "II e IV.",
+        "D": "IV e V.",
+        "E": "I, II, III e IV."
+      }
+    },
+    {
+      "numero": 79,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Com base no Schema XML: nfe_v99.99.xsd, a estrutura dos grupos de informações da NF-e apresenta o grupo “M - Tributos Incidentes no Produto ou Serviço” posicionado no mesmo nível de informações que o grupo",
+      "alternativas": {
+        "A": "“C – Identificação do Emitente da Nota Fiscal Eletrônica”.",
+        "B": "“H – Detalhamento de Produtos e Serviços da Nota Fiscal Eletrônica”.",
+        "C": "“I – Produtos e Serviços da Nota Fiscal Eletrônica”.",
+        "D": "“N – ICMS Normal e Substituição Tributária”.",
+        "E": "“W – Total da Nota Fiscal Eletrônica”."
+      }
+    },
+    {
+      "numero": 80,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "Análises a partir de cruzamentos eletrônicos de informações permitem identificar divergências entre os arquivos XML da NF-e e os documentos escriturados da EFD-ICMS/IPI. Por exemplo, registros do grupo de informações “N – ICMS Normal e Substituição Tributária” podem ser extraídos do sistema de NF-e para serem comparados com registros de escrituração EFD-ICMS/IPI que estão gravados no bloco",
+      "alternativas": {
+        "A": "C.",
+        "B": "H.",
+        "C": "K.",
+        "D": "D.",
+        "E": "E."
+      }
+    }
+  ]
+}

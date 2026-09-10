@@ -1,0 +1,919 @@
+{
+  "instituicao": "SEFAZ-MA",
+  "ano": 2016,
+  "cargo": "Auditor Fiscal da Receita Estadual - Administração Tributária",
+  "tipo_prova": "S01",
+  "gabarito_tipo": "001",
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "De acordo com a Constituição Federal, as limitações ao poder de tributar, descritas nos princípios da anterioridade, da irretroati- vidade, da anterioridade nonagesimal (noventena) e da legalidade aplicam-se à instituição de empréstimos compulsórios com a finalidade de",
+      "alternativas": {
+        "A": "atender a despesas extraordinárias, decorrentes de calamidade pública iminente.",
+        "B": "realizar parceria público privada de caráter urgente e de relevante interesse regional.",
+        "C": "atender a despesas extraordinárias, decorrentes de iminência de guerra externa.",
+        "D": "realizar investimento público de caráter urgente e de relevante interesse nacional.",
+        "E": "atender a despesas extraordinárias, decorrentes de guerra externa."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "A Constituição Federal, em seu art. 150, trata das limitações do poder de tributar, consagrando, nesse artigo, vários princípios relacionados com essas limitações. De acordo com o texto constitucional, estão EXCLUÍDOS do princípio da",
+      "alternativas": {
+        "A": "anterioridade nonagesimal (noventena), o II, o IE, o IR e o IOF.",
+        "B": "legalidade, o aumento da base de cálculo do IR, o aumento da alíquota do IPVA e do IPTU.",
+        "C": "irretroatividade, o IR, o IOF, o IPVA e o IPTU.",
+        "D": "anterioridade, o IR, o ITR, o ITCMD e o ITBI.",
+        "E": "legalidade, o IPI, o IOF e o aumento da base de cálculo do ICMS e do ISS."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "De acordo com as regras constitucionais atinentes às limitações do poder de tributar, é VEDADO",
+      "alternativas": {
+        "A": "aos Municípios, instituir e cobrar a “taxa de lixo” das repartições públicas estaduais, pertencentes à Administração direta estadual.",
+        "B": "instituir e cobrar contribuição de melhoria decorrente da valorização de um terreno baldio de propriedade de instituição religiosa.",
+        "C": "aos Estados, instituir e cobrar o IPVA sobre veículos de propriedade de órgão da Administração direta da União.",
+        "D": "aos Estados, instituir e cobrar a “Taxa de Fiscalização de Prestação de Serviços de Interesse à Saúde”, relativamente a estabelecimento pré-escolar (maternal), entidade sem fins lucrativos e que exerce suas atividades essenciais.",
+        "E": "aos Municípios, instituir e cobrar o ISS sobre a prestação de serviço de saúde por hospitais de propriedade de entidade de economia mista, que cobra pelos serviços que presta, e cuja maior parte do capital pertence ao Estado."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "De acordo com a Constituição Federal e com a Lei Complementar n2 87/1996, a isenção ou não-incidência do ICMS",
+      "alternativas": {
+        "A": "implicará, salvo disposição da legislação em contrário, vedação ao crédito para compensação com o montante devido nas operações ou prestações seguintes, exceto quando se tratar de operações que destinem álcool carburante e seus deri- vados a outros Estados.",
+        "B": "acarretará a anulação do crédito relativo às operações anteriores, exceto quando houver determinação em contrário da legislação.",
+        "C": "implicará, necessariamente, vedação ao crédito para compensação com o montante devido nas operações ou prestações seguintes.",
+        "D": "acarretará, necessariamente, a anulação do crédito relativo às operações anteriores, inclusive quando se tratar de operações que destinem mercadorias para o exterior.",
+        "E": "acarretará a anulação do crédito relativo às operações anteriores, inclusive quando se tratar de operações com o papel destinado à impressão de livros, jornais e periódicos."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Relativamente aos tributos de competência dos entes federados, a Constituição Federal",
+      "alternativas": {
+        "A": "não autoriza a União a instituir impostos que sejam da competência dos Municípios, exceto no caso de guerra interna ou golpe de Estado.",
+        "B": "autoriza a União a instituir impostos extraordinários, que também sejam da competência dos Estados, devendo entregar- lhes 50% da receita auferida, a título de repartição de receita.",
+        "C": "permite apenas aos Municípios instituir e cobrar a contribuição de melhoria.",
+        "D": "autoriza a União a instituir impostos novos, não previstos no texto constitucional, desde que sejam não-cumulativos e não tenham fato gerador ou base de cálculo próprios dos discriminados nesta Constituição, cabendo aos Estados e ao Distrito Federal 20% dessa arrecadação, a título de repartição de receita.",
+        "E": "autoriza a União, os Estados, o Distrito Federal e os Municípios a instituir impostos, taxas, contribuições sociais e de melhoria, cabendo somente à União instituir empréstimos compulsórios."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "Um determinado fato gerador do ICMS, tributo lançado por homologação, ocorreu no dia 24 de março de 2016, última quinta-fei- ra que antecedeu a Páscoa deste ano, e véspera de feriado nacional. Tendo em conta que o contribuinte desse imposto não agiu com dolo, fraude ou simulação e considerando, ainda, que as repartições públicas desse Estado não funcionam nos fins de semana, de acordo com as normas do CTN, o primeiro dia de fluência do prazo",
+      "alternativas": {
+        "A": "de homologação tácita do lançamento, por decurso de prazo, terá sido 26 de março de 2016.",
+        "B": "decadencial terá sido 1a de janeiro de 2016.",
+        "C": "de homologação tácita do lançamento, por decurso de prazo, terá sido 28 de março de 2016.",
+        "D": "de homologação tácita do lançamento, por decurso de prazo, terá sido 24 de março de 2016.",
+        "E": "de homologação tácita do lançamento, por decurso de prazo, terá sido 25 de março de 2016."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Relativamente à comprovação da quitação de tributos, o CTN determina que",
+      "alternativas": {
+        "A": "ela seja feita mediante a expedição de declaração interna, emitida por repartição fiscal, mediante requerimento da auto- ridade administrativa, com anuência do interessado.",
+        "B": "somente poderá ser feita por meio de certidão negativa.",
+        "C": "essa prova poderá deixar de ser feita por meio de certidão negativa, mas não poderá deixar de ser feita por outros meios, a critério da Administração Tributária.",
+        "D": "essa comprovação, por meio de certidão negativa, deverá se restringir aos impostos e às contribuições em geral, pois, em relação às taxas, a comprovação será feita no momento da utilização do serviço público oferecido.",
+        "E": "a certidão que aponte apenas a existência de créditos tributários por vencer, possa ser aceita como prova de quitação de tributos."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Todas as pessoas jurídicas de direito público podem editar normas relacionadas com os tributos de sua competência. Não obstante isso, o CTN contém regras a respeito de fiscalização de tributos. De acordo com o CTN.",
+      "alternativas": {
+        "A": "a competência e os poderes das autoridades administrativas, em matéria de fiscalização, será regulada, necessariamente, por lei, ordinária ou complementar, ou por medida provisória, conforme o caso.",
+        "B": "os livros fiscais e os documentos que comprovem os lançamentos efetuados neles devem ser conservados até que ocorra a decadência dos créditos tributários decorrentes das operações a que eles se referem.",
+        "C": "a legislação tributária que disciplina a atividade de fiscalização, de maneira geral ou específica, aplica-se às pessoas naturais ou jurídicas, desde que revistam a condição de contribuintes, com exclusão daquelas que gozem de imunidade tributária ou de isenção de caráter pessoal.",
+        "D": "as disposições que excluem ou limitam o direito de a Fazenda Pública examinar mercadorias, livros fiscais e documentos não têm aplicação, mesmo que previstas em lei.",
+        "E": "a legislação tributária que disciplina a atividade de fiscalização, de maneira geral ou específica, aplica-se às pessoas natu- rais ou jurídicas, inclusive as que gozem de isenção de caráter pessoal, desde que revistam a condição de contribuintes, mas excluídas as que gozem de imunidade tributária."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Um contribuinte do ICMS emitiu o documento fiscal n° 1001, consignando, deliberadamente, como destinatária do documento, pes- soa diversa daquela a quem a mercadoria seria efetivamente entregue. Não houve, todavia, prejuízo no pagamento do imposto, por tratar-se de mercadoria não sujeita à incidência do ICMS. Dias depois, esse mesmo contribuinte combinou com cliente seu, que emitiria, como de fato emitiu, o documento fiscal de n° 2002, referente a operação tributada, fazendo constar nesse docu- mento, como valor da operação e da base de cálculo do ICMS, valor equivalente a 50% do efetivo valor da operação e da base de cálculo. As duas infrações ocorreram no mesmo mês. Dois anos depois de cometidas essas infrações, o Estado, mediante lei ordinária, anistiou os contribuintes do ICMS que tives- sem cometido infrações contra a legislação desse imposto. Tendo como base o CTN, é correto afirmar que a infração relacionada com o documento fiscal",
+      "alternativas": {
+        "A": "n° 2002 não pode ser objeto de anistia, pois essa infração não é tipificada, concomitantemente, como contravenção na lei penal.",
+        "B": "n° 1001 pode ser objeto de anistia, pois ela não ocasionou prejuízo no pagamento do ICMS.",
+        "C": "n° 2002 não pode ser objeto de anistia, pois as duas infrações foram cometidas pelo contribuinte, no mesmo ano civil, sendo que somente a infração cometida em primeiro lugar é que poderia ser anistiada.",
+        "D": "n° 1001 pode ser objeto de anistia, pois essa infração não é tipificada, concomitantemente, como crime na lei penal.",
+        "E": "n° 2002 não pode ser objeto de anistia, pois o contribuinte agiu com dolo."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "De acordo com o CTN, é de cinco anos, contados da data da sua constituição definitiva, o prazo para a propositura de ação para a cobrança do crédito tributário. De acordo com o CTN,",
+      "alternativas": {
+        "A": "o referido prazo, que é prescricional, se interrompe pela citação pessoal feita ao devedor.",
+        "B": "qualquer ato inequívoco, ainda que extrajudicial, que importe em reconhecimento do débito pelo devedor, interrompe a fluência do referido prazo.",
+        "C": "a não propositura dessa ação, no referido prazo, acarretará a decadência do direito fazendário de cobrar.",
+        "D": "qualquer ato judicial que constitua em mora o devedor suspende a fluência do referido prazo.",
+        "E": "o protesto judicial, extrajudicial ou administrativo suspende a fluência do referido prazo."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Mateus está endividado, especialmente em relação às dívidas tributárias. Tem dívidas vencidas junto à Fazenda Pública do Maranhão, tanto na condição de contribuinte, como na condição de responsável. Por sua vez, os créditos tributários de que é devedor têm naturezas diversas, pois são oriundos de impostos, taxas e contribuições de melhoria, sendo que todas essas dívidas têm valores diferentes e prazos prescricionais diferentes. Para liquidar parcialmente essas dívidas, pois os recursos de que dispõe não são suficientes para liquidar todas elas, Mateus efetuou um depósito bancário, na conta do sujeito ativo, sem especificar o débito a ser pago, e informou à repartição fiscal com- petente, a fim de que a autoridade administrativa responsável procedesse à imputação de valores em pagamento, liquidando, com isso, alguns dos créditos tributários pendentes. Essa autoridade, com base na disciplina estabelecida no CTN, deverá proceder à imputação de valores, obedecendo as seguintes regras, na ordem enumerada, liquidando-se,",
+      "alternativas": {
+        "A": "primeiramente, os débitos com os maiores prazos de decadência.",
+        "B": "em último lugar, os juros de mora e as multas e mora.",
+        "C": "em primeiro lugar, os débitos com montantes menores, para reduzir ao máximo a quantidade de créditos tributários.",
+        "D": "em primeiro lugar, débitos por obrigação própria e, em segundo lugar, aqueles decorrentes de responsabilidade tributária.",
+        "E": "primeiramente, os créditos tributários referentes aos impostos e, posteriormente, os referentes às taxas e às contribuições de melhoria, respectivamente."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "De acordo com o CTN, a modalidade de extinção do crédito tributário, autorizada por lei e baseada nas condições por ela estabelecidas, por meio da qual os sujeitos ativo e passivo da obrigação tributária, mediante concessões mútuas, podem pôr fim a um litígio, extinguindo, desse modo, o crédito tributário, denomina-se",
+      "alternativas": {
+        "A": "transação.",
+        "B": "compensação.",
+        "C": "conversão de depósito em renda.",
+        "D": "decisão administrativa irreformável.",
+        "E": "decisão judicial passada em julgado."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "A empresa de Marcelo está considerando a hipótese de importar cestas de natal do exterior, para revendê-las por ocasião das festas de fim de ano. Se ela efetivamente realizar essas importações, terá de recolher todos os tributos incidentes sobre a mercadoria importada. Não havendo disposição de lei em contrário, e considerando que essa importação será feita em dólares americanos, o valor tributário dessa transação, em reais, de acordo com o CTN, será apurado mediante",
+      "alternativas": {
+        "A": "a aplicação da alíquota do imposto correspondente, diretamente sobre o valor tributário expresso em dólares americanos, tratando-se de incidência de imposto federal ou estadual que deva ser pago pelo importador, em moeda conversível.",
+        "B": "sua conversão em moeda nacional, ao câmbio do dia da notificação da efetivação do lançamento tributário, apenas quando se tratar de impostos estaduais e municipais.",
+        "C": "sua conversão em moeda nacional, ao câmbio do dia da ocorrência do fato gerador da obrigação, salvo disposição de lei em contrário.",
+        "D": "a aplicação da alíquota do tributo correspondente, diretamente sobre o valor tributário expresso em moeda estrangeira, tratando-se de incidência de tributo federal que deva ser pago pelo importador em moeda conversível.",
+        "E": "sua conversão em moeda nacional, ao câmbio do dia da efetivação do lançamento tributário."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "De acordo com o CTN, deverá ser interpretada da maneira mais favorável ao",
+      "alternativas": {
+        "A": "responsável tributário, a legislação tributária que lhe atribui essa condição, mesmo que não esteja prevista na legislação tributária a existência de benefício de ordem.",
+        "B": "contribuinte, a lei tributária que define o fato gerador do tributo, sempre que se tratar de empresa de porte pequeno, assim definida nos termos da lei.",
+        "C": "sujeito passivo, a lei tributária que define benefícios fiscais, quando houver dúvida sobre a abrangência e o alcance de um convênio ICMS.",
+        "D": "acusado, a lei tributária que define infrações, se houver dúvida quanto às circunstâncias materiais do fato.",
+        "E": "contribuinte, ao responsável e ao terceiro, a legislação tributária relacionada com a forma, circunstâncias e prazos refe- rentes ao cumprimento de obrigações acessórias."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Quando uma lei deixar de definir um ato como infração, essa lei, de acordo com o CTN.",
+      "alternativas": {
+        "A": "deverá ser aplicada a ato pretérito, desde que ainda não tenha sido definitivamente julgado.",
+        "B": "não poderá ser aplicada a ato pretérito, se já tiver sido iniciado o processo relativo ao julgamento desse ato infracional.",
+        "C": "não poderá ser aplicada a ato pretérito, em nenhuma hipótese.",
+        "D": "deverá ser aplicada a ato pretérito, apenas para excluir a exigência de juros de mora e de multa de mora, desde que ainda não tenha sido definitivamente julgado.",
+        "E": "poderá ser aplicada a ato pretérito, apenas para excluir a exigência de juros de mora, mesmo que o ato já tenha sido definitivamente julgado."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "De acordo com a Constituição Federal, o Imposto Territorial Rural é um tributo de competência da União, mas 50% do produto de sua arrecadação pertence aos Municípios. Caso, porém, um Município brasileiro opte por fiscalizá-lo e cobrá-lo, na forma da lei, sem reduzir o seu montante e sem adotar qualquer outra forma de renúncia fiscal, caberá a esse Município a integralidade do produto de sua arrecadação. Ciente disso, em dezembro de 2015, um Município brasileiro celebrou convênio com a União, por intermédio da Secretaria da Receita Federal, que lhe delegou as atribuições de fiscalização (inclusive a de lançamento dos créditos tributários) e de cobrança do ITR, abrindo mão, também, de eventual competência supletiva da União para fiscalizá-lo e cobrá-lo, enquanto o referido Município mantivesse observância de todas as regras legais e de todas as cláusulas do referido convênio. Com base no CTN, o sujeito ativo da obrigação tributária principal, relativa ao ITR incidente sobre as propriedades territoriais rurais localizadas nesse Município, será",
+      "alternativas": {
+        "A": "tanto a União, como o Município, em solidariedade ativa, relativamente a todos os créditos tributários constituídos nesse Município.",
+        "B": "apenas o Município.",
+        "C": "aquele que for indicado como sujeito ativo no convênio firmado entre a União e o Município.",
+        "D": "apenas a União.",
+        "E": "a União, em relação a 50% dos créditos tributários constituídos nesse Município, e será o Município em relação aos outros 50%."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "Marcos, analista tributário de uma empresa comercial localizada em Alcântara/MA, está analisando o custo tributário de alguns negócios que a empresa pretende realizar. Verificando a Lei Complementar n° 87/1996, constatou que o ICMS NÃO incide",
+      "alternativas": {
+        "A": "sobre a entrada de mercadoria ou bem importados do exterior, por pessoa física, que não seja contribuinte habitual do imposto, qualquer que seja a finalidade dessa entrada.",
+        "B": "nas operações de qualquer natureza de que decorra a transferência de propriedade de estabelecimento industrial, co- mercial ou de outra espécie.",
+        "C": "nas operações de arrendamento mercantil, inclusive na hipótese de venda do bem arrendado ao arrendatário.",
+        "D": "nas prestações onerosas de serviços de comunicação, por meio de TV a cabo ou internet, inclusive a geração, a emissão, a recepção, a transmissão, a retransmissão, a repetição e a ampliação de comunicação de qualquer natureza.",
+        "E": "nas operações de saída ou na entrada no território do Estado destinatário, de petróleo, de energia elétrica, e de gás natural veicular ou doméstico, quando não destinados à comercialização ou à industrialização, decorrentes de operações in- terestaduais."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "Relativamente ao ICMS, a Lei Complementar n° 87/1996 estabelece disciplina relacionada com a responsabilidade pelo paga- mento do imposto e com o regime de substituição tributária. De acordo com essa Lei Complementar, a responsabilidade pelo pagamento do imposto",
+      "alternativas": {
+        "A": "poderá ser atribuída, por ato do poder executivo, a qualquer pessoa, contribuinte ou não do imposto, nas operações que destinem mercadorias ou bens a pessoa física ou jurídica localizada em outro Estado, relativamente ao imposto incidente sobre uma ou mais operações, desde que sejam antecedentes.",
+        "B": "será atribuída, em relação a mercadorias, bens ou serviços, desde que previstos em lei complementar nacional, sendo vedado aos Estados ampliar a relação, por meio de lei estadual.",
+        "C": "e acréscimos, devidos pelo contribuinte ou responsável, poderá ser atribuída a terceiros, por meio de lei federal, regulamento ou convênio, quando os atos ou omissões daqueles concorrerem para o não recolhimento do ICMS.",
+        "D": "poderá ser atribuída a contribuinte do imposto ou a depositário a qualquer título, por meio de lei estadual, hipótese em que assumirá a condição de substituto tributário.",
+        "E": "e a adoção do regime de substituição tributária em operações interestaduais independem de acordo específico celebrado pelos Estados interessados, podendo ser estabelecidas por lei estadual de um ou de outro Estado."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "A Lei Complementar n° 24/1975, dispõe sobre convênios e benefícios fiscais relativos ao ICMS. Conforme esta lei.",
+      "alternativas": {
+        "A": "as regras e condições aplicáveis para a concessão de isenção aplicam-se também aos incentivos ou favores fiscais ou financeiros fiscais, mas não se aplicam à devolução total ou parcial de tributo ao contribuinte ou responsável.",
+        "B": "os convênios ratificados obrigam todas as Unidades da Federação, exceto as que, regularmente convocadas, não se tenham feito representar na reunião.",
+        "C": "a concessão de benefícios dependerá sempre de decisão unânime dos Estados representados na reunião, após terem sido regularmente convocados representantes de todos os Estados e do Distrito Federal.",
+        "D": "a inobservância dos dispositivos nela previstos acarretará, alternativamente, a nulidade do ato e a ineficácia do crédito fiscal atribuído ao estabelecimento recebedor da mercadoria, ou a exigibilidade do imposto não pago ou devolvido, cabendo essa escolha ao sujeito passivo.",
+        "E": "os Municípios podem conceder às empresas neles estabelecidas benefícios fiscais relativos ao ICMS, até o limite de 25% do valor do imposto devido, sem a necessidade de convênio ou de lei complementar municipal."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "A Lei Complementar n° 123/2006 instituiu o regime de arrecadação de tributos conhecido como Simples Nacional. Conforme esta lei, o recolhimento mensal mediante o documento único de arrecadação do regime simplificado NÃO exclui a incidência",
+      "alternativas": {
+        "A": "do ICMS devido nas aquisições em outros Estados e no Distrito Federal de bens ou mercadorias não sujeitas ao regime de antecipação do recolhimento do imposto, relativo à diferença entre a alíquota interna e a interestadual, que deverá ser pago com observância da legislação aplicável às demais pessoas jurídicas.",
+        "B": "do IPI, relativo à saída de produto de fabricação própria, que deverá ser pago com observância da legislação aplicável às demais pessoas jurídicas.",
+        "C": "do ISSQN, relativo a serviço prestado pelo contribuinte, no Brasil, quando caiba a ele pagar o imposto em guia de recolhimento especial, que deverá ser pago com observância da legislação aplicável às demais pessoas jurídicas.",
+        "D": "do ICMS devido nas operações de saída interna, promovidas pelo contribuinte, com destino a consumidor final não con- tribuinte, acobertadas por documento fiscal hábil, não sujeita ao regime de substituição tributária, tributação concentrada ou antecipação do recolhimento do imposto, que deverá ser pago com observância da legislação aplicável às demais pessoas jurídicas.",
+        "E": "nem dispensa o pagamento das contribuições instituídas pela União, para as entidades privadas de serviço social e de formação profissional, vinculadas ao sistema sindical."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "João, gerente tributário de um estabelecimento empresarial localizado em Imperatriz/MA, estava em dúvida sobre as regras de incidência do ICMS no Estado. Ao consultar a Lei estadual n2 7.799/2002, que dispõe sobre o Sistema Tributário do Estado do Maranhão, João constatou que essa lei considera saída do estabelecimento",
+      "alternativas": {
+        "A": "do importador, a mercadoria estrangeira saída de repartição aduaneira com destino a estabelecimento com titularidade di- versa daquele que a tiver importado, situado em outro Estado.",
+        "B": "onde se realizou o abate, a carne e todo o produto de matança do gado, seja o matadouro público ou particular, próprio ou de terceiro.",
+        "C": "do depositante, em território maranhense, a mercadoria depositada em armazém geral deste Estado e entregue real ou simbolicamente a estabelecimento diverso daquele que a tiver remetido para depósito.",
+        "D": "que executou a industrialização sob encomenda, a mercadoria que for por ele remetida diretamente a terceiro, sem transitar pelo estabelecimento que a tiver remetido para industrializar (encomendante).",
+        "E": "da empresa de leasing, a mercadoria arrendada, em contrato de arrendamento mercantil por período inferior a dois anos, sem opção de compra."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "Francisco, analista fiscal em Açailândia/MA, identificou que a Lei estadual n2 7.799/2002 estabelece algumas presunções sobre a ocorrência do fato gerador do ICMS. Conforme a referida lei, presume-se a ocorrência do fato gerador do ICMS, por omissão de receita, sempre que a ação fiscal indicar",
+      "alternativas": {
+        "A": "suprimento de caixa, com origem não comprovada.",
+        "B": "o recebimento de matéria prima ou de produto para revenda, com nota fiscal vencida, assim entendida aquela emitida há mais de 12 dias da data da entrada.",
+        "C": "saldo devedor de caixa.",
+        "D": "eliminação, do passivo, de obrigações já pagas.",
+        "E": "manutenção, no passivo, de obrigações vencidas e não liquidadas."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "Conforme a Lei estadual n2 7.799/2002, a base de cálculo do ICMS é.",
+      "alternativas": {
+        "A": "na hipótese de desembaraço aduaneiro de mercadorias ou bens importados do exterior, a soma das seguintes parcelas: o valor da mercadoria ou bem indicado nos documentos da importação, o imposto de importação, o imposto de produtos industrializados, as despesas aduaneiras, e quaisquer outras pagas ao porto ou ao recinto alfandegado.",
+        "B": "na saída de mercadoria para estabelecimento localizado em outro Estado, pertencente ao mesmo titular, tratando-se de mercadorias industrializadas, o valor correspondente à entrada mais recente da mercadoria.",
+        "C": "na hipótese de pagamento antecipado, em razão da entrada, em território maranhense, de mercadoria destinada a re- venda ambulante no Estado, sem destinatário certo, o valor da mercadoria ou da prestação, acrescido, necessariamente, de percentual de margem de lucro de 60%.",
+        "D": "na entrada, no estabelecimento de contribuinte, de mercadoria oriunda de outra unidade da Federação, destinada ao ativo fixo, o valor da operação sobre o qual foi cobrado no Estado de origem, acrescido do montante relativo ao ajuste da diferença entre a alíquota interestadual e a alíquota interna.",
+        "E": "necessariamente, composta pela soma do valor da mercadoria, frete, seguro, juros e descontos incondicionados, exceto, no caso de importação do exterior, quando deve ser acrescido ainda o Adicional de Frete da Marinha Mercante."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "Manuel, comerciante em São Luís/MA, ficou em dúvida sobre o local em que ocorre a cobrança do ICMS. Consultando a Lei estadual n2 7.799/2002, constatou que o local da operação ou prestação, para os efeitos dessa cobrança e da definição do estabelecimento responsável, é, tratando-se de",
+      "alternativas": {
+        "A": "prestação de serviço de transporte, o do domicilio destinatário do serviço, na hipótese da utilização, por não contribuinte, de serviço cuja prestação se tenha iniciado em outro Estado e não esteja vinculada a operação ou prestação subsequente.",
+        "B": "prestação de serviço de comunicação, o do estabelecimento ou domicílio do tomador do serviço, quando prestado por meio de cabo ou fibra óptica.",
+        "C": "bem importado do exterior, o de desembarque do produto, quando transportado por avião ou barco.",
+        "D": "mercadoria, onde se encontre, quando em situação irregular pela falta de documentação fiscal.",
+        "E": "prestação de serviço de comunicação não medido, que envolva localidades em diversos Estados, o local da prestação se- rá aquele em que se localiza a antena do satélite e o imposto será dividido igualmente entre todos os Estados envolvidos."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "Antonio, empresário em Balsas/MA, preocupado com seu plano de negócios, ficou em dúvida sobre quem seria o contribuinte do ICMS em determinadas situações. Consultando a Lei estadual n° 7.799/2002, constatou que o contribuinte é a",
+      "alternativas": {
+        "A": "pessoa física ou jurídica que importe mercadorias ou bens do exterior, qualquer que seja a sua finalidade.",
+        "B": "pessoa jurídica que realize, mesmo sem habitualidade ou intuito comercial, operações de circulação de bens próprios, valores ou pessoas.",
+        "C": "pessoa que, no exterior, tenha contratado e utilizado serviço de taxi entre o aeroporto e o centro da mesma cidade, e pago com cartão de crédito emitido no Brasil.",
+        "D": "entidade que adquira álcool de cana, biodiesel de mamona ou gás processado de aterro sanitário, oriundos de outra unidade da Federação, destinados à geração de água quente em hospital privado, do qual seja titular.",
+        "E": "a pessoa que promova o leilão de veículo devolvido a banco ou a empresa de leasing, em decorrência de inadimplência em financiamento ou arrendamento."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "Fernando, auditor de uma empresa de avaliação de riscos empresariais, está verificando as contas de algumas empresas clientes que possuem estabelecimentos no Estado do Maranhão. Preocupado com os riscos envolvidos na apuração do ICMS destes estabelecimentos, consultou a Lei estadual n2 7.799/2002 e constatou que é VEDADO o crédito de ICMS",
+      "alternativas": {
+        "A": "na entrada de energia elétrica, quando seu consumo resultar em operação de saída ou prestação para o exterior, na proporção destas sobre as saídas ou prestações totais.",
+        "B": "relativamente a mercadorias entradas no estabelecimento, quando estejam acobertadas por documento fiscal falso, ou que não contenha em destaque o valor do ICMS.",
+        "C": "no recebimento de serviço de comunicação, quando sua utilização resultar em prestação de serviços da mesma natureza.",
+        "D": "relativamente a mercadorias entradas no estabelecimento, para consumo em processo de produção de mercadorias semi- elaboradas destinadas ao exterior.",
+        "E": "relativamente a mercadorias entradas no estabelecimento, para integração ou consumo em produção rural, quando a saída do produto resultante não for tributada, por se tratar-se de saída para o exterior."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "Conforme a Lei estadual n2 7.799/2002, o contribuinte do ICMS deverá proceder ao estorno do crédito relativo à entrada da mer- cadoria, sempre que a referida mercadoria",
+      "alternativas": {
+        "A": "for objeto de saída subsequente com redução da base de cálculo, hipótese em que o estorno será integral.",
+        "B": "perecer, deteriorar ou for extraviada, furtada, roubada ou devolvida.",
+        "C": "for objeto de saída interna não tributada ou isenta, sendo esta circunstância imprevisível na data da entrada da merca- doria.",
+        "D": "for alienada por valor inferior ao custo de produção, caracterizando concorrência desleal, cartel ou dumping, hipótese em que o estorno será integral.",
+        "E": "venha a ser objeto de operações destinadas ao exterior."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "O ICMS pode ser cobrado mediante o mecanismo denominado Substituição Tributária. Nestes casos, e considerando o disposto na Lei estadual n2 7.799/2002, a base de cálculo, para fins de substituição tributária, será,",
+      "alternativas": {
+        "A": "tratando-se de empresa distribuidora de energia elétrica, responsável pelo pagamento do imposto relativamente às opera- ções anteriores e posteriores, obtida pelo somatório do valor da operação de aquisição da energia, dos valores de seguro, frete e outros encargos, acrescido da margem de valor agregado, inclusive lucro, relativa às operações ou prestações subsequentes.",
+        "B": "tratando-se de mercadoria ou serviço cujo preço final a consumidor, único ou máximo, seja fixado por órgão público competente, o referido preço por ele estabelecido, deduzido o percentual relativo aos descontos usualmente concedidos nas vendas em quantidade.",
+        "C": "em relação a operações subsequentes, calculada com utilização de margem de valor agregado, que será estabelecida com base em preços praticados nos últimos 12 meses no mercado considerado, obtidos por amostragem, adotando-se a média dos maiores valores praticados, no caso de venda à consumidor, e a média dos menores valores, no caso de vendas a atacadista ou varejista.",
+        "D": "tratando-se de mercadoria para a qual exista preço final a consumidor sugerido pelo fabricante, e para a qual inexista pre- ço final a consumidor, único ou máximo, fixado por órgão público competente, o preço sugerido, desde que assim esta- belecido pelo Poder Executivo.",
+        "E": "em relação às operações ou prestações antecedentes ou concomitantes, o valor da operação ou prestação praticado pelo contribuinte substituído, acrescido dos valores de frete, seguro e outros encargos transferíveis, e da margem de valor agregado prevista na legislação nacional ou estadual, a que for menor."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "O ICMS pode ser cobrado mediante o mecanismo denominado Substituição Tributária. Neste caso, e considerando o disposto na Lei estadual n° 7.799/2002, na saída das mercadorias relacionadas no Anexo I dessa lei e observado o disposto no seu artigo 58, fica atribuída a qualidade de contribuinte substituto",
+      "alternativas": {
+        "A": "ao produtor, extrator, gerador, inclusive de energia, importador, industrial, distribuidor, comerciante ou transportador, pelo pagamento do imposto devido nas operações subsequentes.",
+        "B": "às empresas geradoras ou distribuidoras de energia solar, eólica e de carvão, nas operações interestaduais destinadas a contribuintes localizados em outros Estados, pelo pagamento do imposto, desde a produção ou importação até a última operação, sendo seu cálculo efetuado sobre o preço praticado na operação final, assegurado seu recolhimento a este Estado.",
+        "C": "à empresa de rádio difusão aberta ou telefonia celular móvel, em relação aos serviços de comunicação prestados para consumidores ou anunciantes, estabelecidos ou domiciliados em outros Estados, assegurado seu recolhimento a este Estado.",
+        "D": "ao despachante aduaneiro, quando o desembarque ou desembaraço alfandegário ocorrer em outro Estado, e a mercadoria importada deva seguir para atacadista ou varejista localizado em terceiro Estado, sem transitar por seu estabelecimento neste Estado, em decorrência de venda a ordem, ou importação por encomenda.",
+        "E": "ao contribuinte que receber, de fora do Estado, mercadoria sujeita a substituição tributária, sem que a retenção total ou parcial tenha sido realizada ou informada no documento fiscal, em caráter principal, pelo imposto das operações an- teriores, concomitantes e posteriores."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "Para o ICMS, é importante o conceito de estabelecimento e seus atributos. Conforme o disposto na Lei estadual n° 7.799/2002,",
+      "alternativas": {
+        "A": "na impossibilidade de determinação do estabelecimento, considera-se como tal o local em que tenha sido fabricada ou importada a mercadoria.",
+        "B": "quando o imóvel estiver situado em território de mais de um Estado, considera-se o contribuinte domiciliado, para fins de ICMS, no local de sua opção, ou, na ausência desta, onde se situe a maior área do imóvel.",
+        "C": "cada estabelecimento do mesmo titular, localizado no mesmo Estado, é autônomo, mas todos estes estabelecimentos respondem pelos débitos tributários declarados e não recolhidos, exceto se estiverem em situação fiscal irregular.",
+        "D": "depósito fechado do contribuinte é o local onde havia armazenamento de mercadorias ou de bens, mas que em decor- rência de ter sido constatada a cessação da atividade ou a incompatibilidade com a atividade econômica exercida, teve sua inscrição cancelada de ofício.",
+        "E": "equipara-se a estabelecimento autônomo, o veículo, barco ou aeronave, utilizado no comércio ambulante e na captura de pescado ou na prestação de serviços."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "Conforme a Lei estadual n° 7.799/2002, os contribuintes do ICMS, os armazéns gerais e os estabelecimentos congéneres são obrigados a inscrever seus estabelecimentos no cadastro de contribuintes do ICMS. De acordo com a disciplina dessa lei acerca do referido cadastro.",
+      "alternativas": {
+        "A": "a inscrição, quanto à situação fiscal, poderá ser classificada como regular, nos casos em que as obrigações principais e acessórias estejam em dia, semirregular, nos casos em que a obrigação principal estiver em dia, mas a acessória estiver inadimplente, ou irregular, nos casos em que houver débitos vencidos e omissão de declaração.",
+        "B": "a inscrição será suspensa de ofício, desde que constatado atraso no pagamento do ICMS devido por substituição tributária, por período superior a 90 dias.",
+        "C": "a inscrição será baixada de ofício, quando o quadro societário for composto por interpostas pessoas, desde que essa situação subsista por mais de 180 dias consecutivos.",
+        "D": "a inscrição será cancelada de ofício, se constatado que as instalações físicas do estabelecimento do contribuinte são incompatíveis com a atividade econômica pretendida, salvo se, pela tipicidade da natureza da operação, não devam as mercadorias por ali transitar, conforme previsto em contrato social ou requerimento do empresário.",
+        "E": "o enquadramento do estabelecimento nas situações de cancelado de ofício, suspenso de ofício e baixado de ofício, resulta na obrigação de recolher antecipadamente o ICMS, via internet banking, antes de praticar o fato gerador."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "Conforme a Lei estadual n° 7.799/2002, no que se refere aos poderes outorgados à Receita Estadual para fiscalizar o ICMS,",
+      "alternativas": {
+        "A": "o inspetor fiscal poderá submeter o contribuinte do imposto a sistema especial de controle e fiscalização, sempre que julgar insatisfatórios os valores declarados, a título de imposto devido, nos documentos e livros, fiscais ou comerciais.",
+        "B": "as mercadorias transportadas ou encontradas sem documentos fiscais, ou com documentação fiscal falsa, poderão ser retidas para garantir o pagamento do imposto, multas e demais acréscimos devidos pelo infrator.",
+        "C": "no levantamento fiscal poderão ser usados quaisquer meios indiciários, bem como de controle quantitativo dos estoques do estabelecimento, e poderá ser renovado sempre que forem apurados os dados não considerados quando de sua ela- boração anterior.",
+        "D": "existindo suspeita de que as mercadorias se encontram em residência particular ou em estabelecimento comercial ou industrial utilizado como moradia, será promovida a respectiva busca e apreensão administrativa, se o morador, ou de- tentor, não apresentar os documentos fiscais relativos à aquisição ou, alternativamente, a guia de recolhimento do imposto, com multa e acréscimos legais, em até 6 horas, contadas da notificação.",
+        "E": "em caso de levantamento fiscal de contribuinte que não possua escrita comercial registrada, o lucro líquido arbitrado deve- rá ser de 20% (vinte por cento) do total das saídas registradas ou não."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "No que se refere às penalidades cominadas na Lei estadual n° 7.799/2002 para o caso de descumprimento das obrigações principal ou acessória relativas ao ICMS, apurado mediante procedimento fiscal cabível, a multa",
+      "alternativas": {
+        "A": "aplicada, desde que seja paga no prazo fixado na legislação, dispensa o contribuinte de recolher o valor do imposto even- tualmente devido.",
+        "B": "será de 30% do valor do imposto, quando o sujeito passivo deixar de recolher, no prazo legal, no todo ou em parte, o imposto correspondente, se tiver emitido documentos fiscais e efetuado os lançamentos no livro próprio.",
+        "C": "será de 90% do valor da operação, aplicada ao destinatário e ao transportador, cumulativamente, no caso de o remetente deixar de recolher, na qualidade de contribuinte substituto, o imposto retido na fonte, em operação interestadual que destine mercadoria ao Maranhão.",
+        "D": "será de 120% do valor do imposto, quando utilizar crédito indevido ou inexistente, independentemente de o fato resultar em falta de recolhimento do imposto, ficando dispensado o estorno do crédito indevido ou inexistente.",
+        "E": "será de R$ 10.000,00, por mês ou fração, quando o contribuinte retirar ou permitir a retirada de combustível de posto revendedor de combustível, sem que a bomba do respectivo combustível esteja autorizada pelo Fisco e inspecionada e lacrada pelo Órgão de Defesa do Consumidor."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "No que se refere às penalidades cominadas na Lei estadual n2 7.799/2002 para o caso de descumprimento das obrigações prin- cipal ou acessória relativas ao ICMS, as multas",
+      "alternativas": {
+        "A": "oriundas de Notificação de Lançamento terão o seu valor reduzido de 60% (sessenta por cento), quando o crédito tributário exigido for pago no prazo de até 30 dias, a contar da data da intimação.",
+        "B": "oriundas de Auto de Infração, relativas a descumprimento de obrigação acessória, não sofrem qualquer redução, mesmo que pagas em até 30 dias, a contar da data da intimação.",
+        "C": "devem ser aplicadas em dobro, em caso de reincidência ocorrida dentro do prazo de até 5 (cinco) anos.",
+        "D": "referentes a crédito indevido do ICMS, devem ser aplicadas em dobro, no caso de diferença apurada por meio de delação premiada ou termo de ajustamento de conduta.",
+        "E": "referentes à falta de pagamento do imposto serão reduzidas em 50%, quando o contribuinte infrator possuir saldo credo no período, em montante não inferir a 150% do valor do imposto não pago."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "Juan, espanhol, nunca se naturalizou cidadão brasileiro, embora tenha fixado domicílio unicamente na cidade de Fortaleza/CE, desde que chegou ao Brasil, por volta dos anos 60. Em 2013, decidiu se desfazer de imóvel rural de sua propriedade, localizado no Município de Timon/MA. Para tanto, procurou um tabelião amigo seu, titular de cartório na cidade de Teresina/PI, e pediu que lavrasse uma escritura pública, por meio da qual Juan: (I) instituía Álvaro como usufrutuário vitalício desse imóvel; (II) trans- mitia a nua-propriedade do mesmo imóvel a Bernardo; e, por fim, (III) doava a Carlos os bens móveis existentes nesse imóvel. Tanto o valor venal do usufruto instituído, como o da nua-propriedade e dos bens móveis transmitidos excedeu, individualmente, 60 salários mínimos vigentes no Estado do Maranhão, na data das referidas transmissões. Considerando os fatos acima enumerados e o disposto na Lei estadual n2 7.799/2002.",
+      "alternativas": {
+        "A": "não há ITCD devido ao Estado do Maranhão, porque Juan não é cidadão brasileiro.",
+        "B": "há ITCD devido ao Estado do Maranhão, relativamente à instituição do usufruto, à transmissão da nua-propriedade e à doação dos bens móveis.",
+        "C": "não há ITCD devido ao Estado do Maranhão, porque a escritura de doação foi passada em Teresina/PI, local da ocorrência do fato gerador.",
+        "D": "não há ITCD devido do Estado do Maranhão, porque Juan é domiciliado em Fortaleza/CE.",
+        "E": "há ITCD devido ao Estado do Maranhão, relativamente à instituição do usufruto e à transmissão da nua-propriedade."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "Elias, domiciliado na cidade de Paço do Lumiar/MA, faleceu, em janeiro de 2016, deixando como herança apenas um pequeno imóvel urbano, localizado no referido Município, cujo valor venal, nesse mesmo exercício, para fins de tributação do ITCD, era de R$ 28.000,00. Considerando que o salário mínimo vigente no Estado do Maranhão, na data da transmissão, era de R$ 880,00, essa transmissão aos herdeiros de Elias, com base na Lei estadual n2 7.799/2002, relativamente ao ITCD, é",
+      "alternativas": {
+        "A": "tributada, com aplicação da alíquota de 2,0%.",
+        "B": "tributada, com aplicação da alíquota de 1,0%.",
+        "C": "tributada, com aplicação da alíquota de 3,0%.",
+        "D": "isenta.",
+        "E": "tributada, com aplicação da alíquota de 1,5%."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "Em 2016, Cássio, domiciliado em Santa Inês/MA, faleceu, deixando sua esposa Adélia e três filhas: Cristina, Maria e Léa. O total dos bens comuns do casal montava a importância de R$ 3.060.000,00. De acordo com a legislação civil em vigor na data do óbito, e com o regime de casamento adotado pelo casal, caberia a Adélia apenas 50% desses bens comuns, a título de meação, devendo os outros 50% ser divididos igualmente entre as três filhas, de modo a que cada uma delas recebesse R$ 510.000,00. Ocorre, todavia, que, feita a partilha, decidiu-se que Adélia receberia bens no valor total de R$ 1.600.000,00. Cristina nada recebeu, pois renunciou pura e simplesmente ao quinhão que lhe caberia como herança, enquanto que Léa ficou com R$ 1.000.000,00, em razão de Maria ter renunciado a parte de seus bens, em favor da irmã Léa, que os aceitou de bom grado. O casal não possuía bens imóveis. Com base nessas informações e na disciplina estabelecida na Lei estadual n2 7.799/2002, acerca do ITCD, é correto afirmar que",
+      "alternativas": {
+        "A": "a desistência pura e simples de Cristina a seu quinhão não descaracteriza a incidência do ITCD sobre ele, devido a título de transmissão causa mortis.",
+        "B": "o ITCD devido por Adélia, a título de transmissão causa mortis, incidirá sobre montante de R$ 1.600.000,00, quantia por ela recebida.",
+        "C": "há incidência do ITCD, devido a título de doação, sobre a importância recebida por Léa, no montante de R$ 235.000,00.",
+        "D": "há incidência do ITCD, devido a título de transmissão causa mortis, sobre a importância de R$ 1.000.000,00, recebida por Léa.",
+        "E": "há incidência do ITCD, devido a título de transmissão causa mortis, apenas sobre a importância que coube a Maria na partilha, no importe de R$ 460.000,00."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "A empresa Lençóis Maranhenses Ltda., com estabelecimento matriz na cidade de São Luís/MA, importa e revende veículos automotores. Neste ano de 2016, ela importou da Alemanha, na qualidade de consumidora final, 01 (uma) caminhonete nova, para transportar peças entre os estabelecimentos da empresa, e importou também mais 09 (nove) veículos de passeio novos para revenda. Um mês depois de os nove veículos de passeio estarem estacionados no pátio da referida empresa, aguardando compradores, seus diretores decidiram incorporar um deles ao ativo imobilizado da empresa, com a finalidade de ser utilizado pela sua diretoria. Os demais foram vendidos novos. De acordo com a Lei estadual n2 7.799/2002 e com o Decreto estadual n2 20.685/2004, o fato gerador do IPVA devido ao Estado do Maranhão considera-se ocorrido, para efeito de primeira tributação.",
+      "alternativas": {
+        "A": "relativamente aos veículos de passeio novos, nas datas de suas saídas a consumidores finais e, relativamente à ca- minhonete usada e ao veículo de passeio usado pelos diretores, nas datas das respectivas vendas, que foram realizadas a adquirentes domiciliados fora do Estado do Maranhão.",
+        "B": "no dia 1o de janeiro do ano em que tiver ocorrido a importação da caminhonete e do veículo de passeio usado pelos diretores.",
+        "C": "relativamente à caminhonete usada, na data de sua saída em decorrência de venda feita a consumidor final, domiciliado no Estado do Maranhão.",
+        "D": "na data do desembaraço aduaneiro, relativamente aos oito veículos que foram destinados à revenda.",
+        "E": "no momento da incorporação do veículo de passeio ao ativo imobilizado da empresa importadora, para uso da diretoria."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "São isentos do Imposto sobre a Propriedade de Veículos Automotores – IPVA devido ao Estado do Maranhão, de acordo com a Lei estadual n2 7.799/2002 e com o Decreto estadual n2 20.685/2004, os veículos",
+      "alternativas": {
+        "A": "e máquinas, agrícolas ou de terraplenagem, desde que sejam utilizadas exclusivamente nessas atividades.",
+        "B": "de uso terrestre, com mais de 10 anos de fabricação.",
+        "C": "movidos a álcool e à força motriz elétrica.",
+        "D": "do tipo ambulância, desde que não haja cobrança pelo serviço.",
+        "E": "de Corpo Diplomático acreditado junto ao Governo Brasileiro, desde que o país estrangeiro, cumulativamente, faça parte da Organização das Nações Unidas e adote tratamento recíproco com os veículos do Brasil."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "De acordo com a Lei estadual n2 7.799/2002 e com o Decreto estadual n2 20.685/2004, é responsável pelo pagamento do Imposto sobre a Propriedade de Veículos Automotores – IPVA",
+      "alternativas": {
+        "A": "e pelos acréscimos devidos, solidariamente, o servidor que autorizar o registro e licenciamento do veículo, sem a prova de pagamento do imposto, sempre que esse imposto for devido ao Estado do Maranhão.",
+        "B": "e pelos acréscimos devidos, subsidiariamente, o possuidor a qualquer título.",
+        "C": "e pelos acréscimos devidos, solidariamente, o sócio, diretor, gerente, administrador ou responsável pela empresa loca- dora, em relação aos veículos locados no Estado do Maranhão.",
+        "D": "o adquirente de veículo com alienação fiduciária ou com reserva de domínio, subsidiariamente, exceto no que se refere ao pagamento dos acréscimos devidos.",
+        "E": "e pelos acréscimos devidos, de modo subsidiário e exclusivamente em relação aos débitos atinentes ao exercício corrente, o despachante, quando for o proprietário do veículo e tiver promovido seu despacho de registro e licenciamento sem o pagamento do IPVA."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "Conforme a Lei estadual n2 7.799/2002, a fase litigiosa do Processo Administrativo Tributário tem início",
+      "alternativas": {
+        "A": "com o primeiro ato de ofício, escrito, praticado por funcionário competente, cientificando o sujeito passivo da obrigação tributária ou seu preposto.",
+        "B": "com a não apresentação de declaração de informações fiscais, no prazo regulamentar.",
+        "C": "com a apresentação tempestiva da impugnação ao auto de infração.",
+        "D": "30 dias após a ciência da notificação de lançamento e aviso para efetuar o pagamento do imposto e acréscimos legais, ou apresentar defesa.",
+        "E": "com a retenção de mercadorias, documentos ou livros."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "Conforme a Lei n2 7.799/2002, o julgamento do Processo Administrativo Tributário oriundo de auto de infração",
+      "alternativas": {
+        "A": "compete, em primeira e segunda instâncias, ao Tribunal Administrativo de Recursos Fiscais.",
+        "B": "compete, em primeira instância, ao órgão da Receita Estadual a que estiver circunscricionado o sujeito passivo, e, em segunda instância, ao Tribunal Administrativo de Recursos Fiscais.",
+        "C": "compete, em primeira instância, ao Tribunal Administrativo de Recursos Fiscais, e, em segunda instância, ao titular da área de tributação.",
+        "D": "será concluído no prazo de 30 dias, contados da data em que se considerar feita a intimação da exigência fiscal, sob pena de grave falta funcional e extinção do crédito tributário.",
+        "E": "será nulo, quando a decisão contiver inexatidões materiais, devidas a lapso manifesto, ou erros de escrita ou de cálculo, ocasionando a extinção do crédito tributário."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "Conforme a Lei estadual n2 7.765/2002, o TARF é composto",
+      "alternativas": {
+        "A": "na primeira instância, por 12 julgadores, no mínimo, divididos em 4 turmas.",
+        "B": "na segunda instância, por 13 Conselheiros titulares e 12 suplentes.",
+        "C": "na segunda instância, por 6 Conselheiros representantes da Administração Tributária e 6 Conselheiros representantes da Procuradoria do Estado, nomeados pelo Procurador Geral.",
+        "D": "pelos seguintes órgãos: Presidência, Vice Presidência, Turmas Julgadoras, Câmara Recursal, Tribunal Pleno e Ouvidoria.",
+        "E": "pela primeira, segunda e terceira instâncias, e tem por finalidade julgar os processos tributários administrativos decorrentes de Auto de Infração e de pedido de restituição."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "Conforme a Lei estadual n2 7.765/2002, compete à segunda instância do TARF julgar",
+      "alternativas": {
+        "A": "recurso de ofício, interposto pela Autoridade Julgadora ou pelo representante da Procuradoria do Estado, quando a decisão de Turma Julgadora de primeira instância reduzir ou cancelar a exigência fiscal, qualquer que seja o valor.",
+        "B": "recurso de revista, interposto pelo Procurador do Estado ou pelo Gerente de Estado da Receita Estadual, quando divergirem da decisão recorrida.",
+        "C": "embargos de declaração, interposto pelo Gerente de Estado da Receita Estadual, quando a decisão recorrida for confusa ou vaga, e reduzir o crédito tributário.",
+        "D": "recurso voluntário, interposto pelo contribuinte.",
+        "E": "recurso de ofício, interposto pelo Presidente e julgado pelo Tribunal Pleno, em caso de julgamentos divergentes de câmaras."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "Conforme a Lei n2 7.765/2002, no que se refere às nulidades no âmbito do Processo Administrativo Tributário.",
+      "alternativas": {
+        "A": "quando estiver tendente a decidir do mérito a favor do sujeito passivo, a quem aproveitaria a declaração de nulidade, a Autoridade Julgadora deverá, sempre que possível, determinar a nulidade de atos ou peças do processo, para que o trabalho seja refeito, preservando o crédito tributário.",
+        "B": "as incorreções ou omissões do Auto de Infração não acarretarão a sua nulidade, se o Agente Fiscal entender existirem elementos suficientes para determinar, com segurança, a base de cálculo e a alíquota do tributo.",
+        "C": "ao proferir declaração de nulidade, a autoridade dirá os atos alcançados e determinará as providências necessárias à identificação do responsável pela perda do crédito tributário.",
+        "D": "as irregularidades, incorreções e omissões não importarão em nulidade, e serão sanadas, quando resultarem em prejuízo para o sujeito ativo.",
+        "E": "a nulidade do ato será declarada pela autoridade competente para julgar a sua legitimidade."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Uma empresa importou um lote de mercadorias para comercialização no Brasil, sendo que a compra foi realizada em outubro de 2013 e o preço pago à vista ao fornecedor no exterior foi R$ 3.000.000,00. Os gastos descritos a seguir foram necessários para a empresa dispor das mercadorias em condições de venda, e foram todos pagos à vista: – Gasto de R$ 300.000,00 para transportar as mercadorias do país de origem até o Brasil. – Taxas e tarifas no valor de R$ 120.000,00 para o ingresso e regularização das mercadorias no Brasil. – Imposto de importação no valor de R$ 30.000,00. Este imposto é definitivo e não é compensável pela empresa. – Gasto de R$ 50.000,00 para transporte das mercadorias até o depósito da empresa. – Impostos locais no valor de R$ 45.000,00 que podem ser compensados com os impostos incidentes no momento da venda das mercadorias. Sabe-se que não havia saldo de estoque antes desta compra e que, em dezembro de 2013, a empresa vendeu oitenta por cento (80%) das mercadorias que haviam sido importadas. O valor evidenciado pela empresa no Balanço Patrimonial de 31/12/2013, exclusivamente em relação às mercadorias importadas remanescentes, foi, em reais:",
+      "alternativas": {
+        "A": "600.000.00.",
+        "B": "709.000.00.",
+        "C": "700.000.00.",
+        "D": "630.000.00.",
+        "E": "606.000.00"
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "No dia 01/12/2014, a empresa comercial Facilito A Venda S.A. realizou vendas de mercadorias no valor total de R$ 12.800.000,00, sendo que R$ 5.000.000,00 foram recebidos à vista e o restante para ser recebido integralmente em 01/12/2016. Na data da venda, a empresa estava praticando, para as suas vendas a prazo, a taxa de juros de 1,099% ao mês que corresponde a 30% em 2 anos. No Balanço Patrimonial da empresa Facilito A Venda S.A. de 31/12/2014, o valor evidenciado para o saldo a receber das vendas efetuadas em 01/12/2014 foi, em reais:",
+      "alternativas": {
+        "A": "7.800.000.00.",
+        "B": "7.885.722.00.",
+        "C": "6.000.000.00.",
+        "D": "6.065.940.00.",
+        "E": "12.940.672.00."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "A empresa Compro Melhor S.A. negociou com um fornecedor a aquisição de 120.000 unidades de determinada mercadoria que deveriam ser entregues nos 12 meses posteriores. A negociação ocorreu em 31/10/2015 e, tendo em vista a perspectiva de aumento de preços no período, a Compro Melhor S.A. pagou, nesta data, o valor integral de R$ 12.000.000,00 ao fornecedor. Durante o ano de 2015, a empresa requereu, e o fornecedor entregou, 40% do total de unidades contratadas. O valor eviden- ciado no Balanço Patrimonial de 31/12/2015, correspondente ao direito que a empresa Compro Melhor S.A. detinha sobre o fornecedor foi, em reais:",
+      "alternativas": {
+        "A": "12.000.000.00.",
+        "B": "7.200.000.00.",
+        "C": "10.000.000.00.",
+        "D": "4.800.000.00.",
+        "E": "0.00."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "O preço de aquisição de um equipamento de produção foi R$ 9.000.000,00, o pagamento da compra ocorreu à vista em 31/12/2013 e o mesmo entrou em funcionamento na mesma data. A empresa definiu a vida útil do equipamento em 8 anos de utilização e calcula sua despesa de depreciação em função do tempo decorrido. Na data da aquisição o valor residual no final do prazo de vida útil foi estimado em R$ 1.120.000,00. No início do ano de 2015, a empresa reavaliou a vida útil remanescente do equipamento para 5 anos, em função de alteração na sua política de substituição do equipamento, e estimou que o valor residual no final desta nova vida útil seria R$ 1.205.000,00. A análise feita pela empresa no final de 2014 identificou que não havia necessidade de redução do valor contábil do equipamento. Para fins fiscais a vida útil do equipamento é definida em 10 anos. O valor contábil que deveria ser evidenciado no Balanço Patrimonial de 31/12/2015 para este equipamento foi, em reais:",
+      "alternativas": {
+        "A": "R$ 7.030.000.00.",
+        "B": "R$ 6.750.000.00.",
+        "C": "R$ 7.200.000.00.",
+        "D": "R$ 6.653.000.00.",
+        "E": "R$ 5.757.000.00."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "As aplicações financeiras realizadas por uma empresa durante o ano de 2015 são apresentadas na tabela abaixo, onde são encontradas as informações sobre os valores aplicados, as taxas de juros compostos para remuneração, as datas das aplicações e de vencimentos, a classificação feita pela empresa quanto ao objetivo em relação a cada aplicação financeira e os valores justos de cada aplicação em 31/12/2015. <table>Data da aplicaçãoValor Aplicado (em reais)Data de vencimento dos títulosClassificação pela empresaTaxa de jurosValor Justo em 31/12/2015 (em reais)01/12/201590.000,0031/12/2018Mantido até o vencimento1,5% a.m.91.500,0031/10/201580.000,0031/12/2019Disponível para venda futura1,2% a.m.82.000,0030/09/201550.000,0031/12/2017Destinados à venda imediata1,0% a.m.51.800,00</table> Ignorando os valores representativos de centavos, o valor total evidenciado no Balanço Patrimonial de 31/12/2015 para as três aplicações financeiras em conjunto foi, em reais:",
+      "alternativas": {
+        "A": "220.000.",
+        "B": "224.796.",
+        "C": "225.300.",
+        "D": "224.946.",
+        "E": "225.150."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Uma sociedade por ações utiliza um equipamento obtido por meio de um contrato de arrendamento mercantil financeiro que foi iniciado em 01/12/2015. Pelo contrato de arrendamento, a empresa deverá pagar 48 parcelas mensais de R$ 28.631,46 e um valor residual garantido de R$ 200.000,00 que vence junto com a última parcela mensal. A taxa de juros implícita no contrato é 1,8% ao mês e o valor presente dos pagamentos na data de início do contrato era R$ 1.000.000,00. O valor justo do equipamento na data de início do arrendamento mercantil era R$ 1.200.000,00, a empresa definiu que vai utilizá-lo por 8 anos e no final deste prazo de utilização será possível vendê-lo por um valor líquido de despesas de vendas de R$ 232.000,00. Sabendo-se que para fins fiscais as parcelas mensais são consideradas despesas dedutíveis pelo valor integral e que a em- presa calcula a depreciação de seus equipamentos pelo método das quotas constantes, a empresa deveria evidenciar na demonstração do resultado do ano de 2015, em reais, exclusivamente em relação ao contrato de arrendamento mercantil:",
+      "alternativas": {
+        "A": "Despesa de arrendamento = R$ 28.631,46",
+        "B": "Despesa de depreciação = R$ 10.416,67 e Despesa de arrendamento = R$ 28.631,46",
+        "C": "Despesa de depreciação = R$ 12.500,00 e Despesa financeira = R$ 21.600,00",
+        "D": "Despesa de depreciação = R$ 8.000,00 e Despesa financeira = R$ 18.000,00",
+        "E": "Despesa de depreciação = R$ 10.083,33 e Despesa financeira = R$ 18.000,00"
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Os saldos das contas do Balanço Patrimonial de uma empresa, em 31/12/2014, eram os seguintes, em reais: Fornecedores 30.000,00 Depreciação Acumulada 40.000,00 Receitas Antecipadas 10.000,00 Estoques 50.000,00 Perdas Estimadas com Clientes 7.500,00 Caixa e Equivalentes de Caixa 10.000,00 Equipamentos 200.000,00 Reservas de Lucros 17.500,00 Imóveis 100.000,00 Contas a Pagar 10.000,00 Capital Social 350.000,00 Valores a Receber de Clientes 105.000,00 Os diversos eventos apresentados a seguir, relacionados com os Valores a Receber de Clientes existentes em 31/12/2014, ocorreram durante o ano de 2015 e nesta ordem: – Valores a Receber de Clientes no valor total de R$ 10.000,00 foram considerados incobráveis pela empresa. – Do saldo remanescente da conta Valores a Receber de Clientes a empresa recebeu 90% em 2015 e o restante será recebido em 2016. – As vendas a prazo de 2015 que vencerão após 31/12/2015 totalizaram R$ 100.500,00. – A empresa estimou as prováveis perdas com clientes aplicando o percentual de 4% sobre o saldo da conta Valores a Receber de Clientes em 31/12/2015. No resultado de 2015 o valor total registrado de despesas relacionadas com a não realização de créditos sobre Valores a Receber de Clientes foi, em reais:",
+      "alternativas": {
+        "A": "6.520.00.",
+        "B": "14.020.00.",
+        "C": "14.400.00.",
+        "D": "4.400.00.",
+        "E": "6.900.00."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Uma empresa recebeu de um cliente o valor de R$ 1.200.000,00 para prestar serviços de manutenção pelo prazo de um ano. O contrato foi assinado em 01/10/2015, entrou em vigor imediatamente e estabelecia um total de 10 horas mensais de manutenção ordinária a serem atendidas, limitado a 120 horas no período contratado. Durante 2015, além das 10 horas mensais de manu- tenção ordinária, no mês de dezembro de 2015 a empresa aplicou mais 35 horas totais de trabalho em função de problemas extraordinários que ocorreram com os equipamentos da empresa contratante. Na empresa contratada, o valor evidenciado na Demonstração do Resultado de 2015 e o saldo da conta do Balanço Patrimonial em 31/12/2015 decorrentes do contrato citado foram:",
+      "alternativas": {
+        "A": "Receita de Serviços = R$ 300.000,00; Receitas Antecipadas = R$ 900.000,00.",
+        "B": "Receita de Serviços = R$ 650.000,00; Receitas Antecipadas = R$ 550.000,00.",
+        "C": "Receita de Serviços = R$ 200.000,00; Receitas Antecipadas = R$ 1.000.000,00.",
+        "D": "Receita de Serviços = R$ 550.000,00; Receitas Antecipadas = R$ 650.000,00.",
+        "E": "Receita de Serviços = R$ 1.200.000,00."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "Os estoques de uma empresa são controlados pelo Sistema de Inventário Permanente e mensurados pelo critério da Média Ponderada Móvel. Durante o ano de 2015, a empresa realizou, em ordem cronológica, as seguintes transações com compra e venda de mercadorias: <table>DataOperaçãoQuantidade (unidades)Preço unitário de compra (R$)Preço unitário de venda (R$)02/03/2015Compra500100,0006/04/2015Venda200-140,0013/05/2015Compra10096,0021/08/2015Venda200-144,0029/11/2015Compra10096,00-</table> Sabendo que a empresa não detinha estoque inicial, o valor do Estoque apresentado no Balanço Patrimonial de 31/12/2015 foi, em reais:",
+      "alternativas": {
+        "A": "29.400.00.",
+        "B": "29.200.00.",
+        "C": "29.600.00.",
+        "D": "69.200.00.",
+        "E": "39.800.00."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Um equipamento foi adquirido à vista por R$ 10.000.000,00 em 31/03/2015 e a empresa definiu sua vida útil em 8 anos. O valor realizável líquido de despesa de venda do equipamento no final do prazo de vida útil para a empresa foi estimado em R$ 4.000.000,00 e, para fins fiscais, a vida útil é definida em 10 anos. No final do ano de 2015, a empresa realizou o teste de redução ao valor recuperável para o equipamento (teste de impairment) e os valores obtidos em 31/12/2015 para a realização do teste para o equipamento foram: – Valor justo líquido de despesa de venda = R$ 9.200.000,00 – Valor em uso = R$ 9.300.000,00 Sabendo-se que a empresa adota o método das quotas constantes para o cálculo da despesa mensal de depreciação, o valor total que impactou negativamente o resultado de 2015, exclusivamente em relação ao equipamento, foi, em reais:",
+      "alternativas": {
+        "A": "750.000.00.",
+        "B": "562.500.00.",
+        "C": "700.000.00.",
+        "D": "937.500.00.",
+        "E": "450.000.00."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "No Balanço Patrimonial de 31/12/2014, o Patrimônio Líquido da empresa Comércio de Produtos A Granel S.A. estava composto pelas seguintes contas (valores em reais): Capital Social ........................................................................................................................................... 8.000.000,00 Reserva Legal .......................................................................................................................................... 1.400.000,00 Reserva Estatutária .................................................................................................................................. 500.000,00 Reserva de Capital................................................................................................................................... 300.000,00 Total do Patrimônio Líquido ..................................................................................................................... 10.200.000,00 No ano de 2015, a empresa apurou um lucro líquido de R$ 4.800.000,00 e constituiu as seguintes reservas: − Reserva Legal, de acordo com os critérios e limites estabelecidos na Lei das Sociedades por Ações (Lei no 6.404/1976 e alte- rações posteriores). − Reserva Estatutária no valor correspondente a 10% do Lucro Líquido deduzido do valor destinado para a constituição da Reserva Legal. O estatuto da empresa estabelece que o dividendo mínimo obrigatório é calculado pela alíquota de 30% sobre o saldo remanes- cente de lucro líquido do período, após a constituição das reservas legal e estatutária. O valor dos dividendos que deveria ser evidenciado no passivo e o valor total do Patrimônio Líquido, ambos no Balanço Patrimonial de 31/12/2015, eram respectiva- mente, em reais:",
+      "alternativas": {
+        "A": "1.242.000,00 e 13.758.000,00",
+        "B": "1.231.200,00 e 13.768.800,00.",
+        "C": "1.368.000,00 e 13.632.000,00.",
+        "D": "1.380.000,00 e 13.620.000,00.",
+        "E": "1.224.000,00 e 13.776.000,00."
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "A Demonstração do Resultado do ano de 2015 da empresa Produtos de Segurança Porta Aberta S.A. é apresentada a seguir: Produtos de Segurança Porta Aberta S.A. Demonstração do Resultado – Período: 01/01/2015 a 31/12/2015 Receita de Vendas 816.000 (−) Custo das Mercadorias Vendidas (524.000) (=) Resultado Bruto com Mercadorias 292.000 (−) Despesas Operacionais Depreciação (24.000) Outras despesas operacionais (236.000) (+) Resultado de Equivalência Patrimonial 12.000 (+) Resultado antes dos efeitos financeiros 44.000 (−) Despesas Financeiras (20.000) (=) Resultado após os efeitos financeiros 24.000 (=) Outras receitas e despesas não recorrentes Lucro na Venda de Terrenos 28.000 (=) Resultado antes de Impostos e Participações 52.000 (−) Despesa com Imposto de Renda (15.600) (=) Resultado Líquido 36.400 As seguintes informações adicionais são conhecidas: − A empresa não tinha saldo a receber de vendas no início de 2015. − Do total das vendas efetuadas em 2015, 20% foram vendidos a prazo e serão recebidos em 2016. − Todas as mercadorias vendidas foram adquiridas e pagas em 2015 e não havia estoques iniciais de mercadorias. − No início do período, a empresa não tinha dívidas com fornecedores. − Todas as outras despesas operacionais foram pagas no próprio ano de 2015. − Do total de Despesas Financeiras, a empresa pagou 80% no próprio ano de 2015. A empresa classifica as Despesas Financeiras no grupo das atividades operacionais. − O Imposto de Renda será pago em 2016. Desconsiderando os tributos sobre vendas e sobre compras, o valor correspondente ao Caixa das Atividades Operacionais do ano de 2015 foi, em reais:",
+      "alternativas": {
+        "A": "48.400 (positivo).",
+        "B": "20.400 (positivo).",
+        "C": "127.200 (negativo).",
+        "D": "40.000 (positivo).",
+        "E": "123.200 (negativo)."
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Um lote de mercadorias foi adquirido à vista por uma empresa em 31/10/2015. O valor total da compra foi R$ 1.120.000,00 e engloba um imposto compensável pela empresa no valor de R$ 120.000,00. Em 18/12/2015 a empresa vendeu 70% dessas mercadorias por R$ 900.000,00 à vista e no valor total da venda está incluído um imposto sobre vendas de R$ 90.000,00. O valor do Resultado Bruto com Mercadorias reconhecido no resultado de 2015, exclusivamente em relação a estas mercadorias vendidas, foi, em reais:",
+      "alternativas": {
+        "A": "116.000.00.",
+        "B": "26.000.00.",
+        "C": "200.000.00.",
+        "D": "110.000.00.",
+        "E": "137.000.00."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Uma empresa contratou um empréstimo junto a uma instituição financeira de fomento com as seguintes características: – Data da obtenção do empréstimo: 01/12/2015 – Prazo total do empréstimo: 8 anos – Valor do empréstimo: $ 50.000.000.00. – Taxa de juros contratada: 1,5% ao mês – Carência de 2 anos com pagamentos semestrais dos juros acumulados em cada semestre. O valor de cada parcela semes- tral de juros é R$ 4.672.163,20. – Pagamento mensais de 72 parcelas no valor de R$ 1.140.389,55 cada uma, com a primeira vencendo no final do 25º mês. – A empresa pagou despesas iniciais (custos de transação), na data do contrato, no valor de R$ 1.000.000,00 – O custo efetivo da operação é 1,549% ao mês. O valor do passivo relativo ao empréstimo obtido apresentado no Balanço Patrimonial de 31/12/2015 foi, em reais:",
+      "alternativas": {
+        "A": "50.774.500.00.",
+        "B": "50.750.000.00.",
+        "C": "49.759.010.00.",
+        "D": "49.735.000.00.",
+        "E": "50.778.693.87."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "O Balanço Patrimonial de uma empresa, em 31/12/2014, apresentou o saldo de R$ 1.200.000,00 na conta representativa das provisões que era composta dos seguintes valores: <table>Tipo de processoProvisão reconhecida em 31/12/2014TrabalhistaR$ 500.000,00TributárioR$ 700.000,00</table> Para a elaboração do Balanço Patrimonial de 31/12/2015, as informações obtidas pela empresa sobre os processos existentes em 31/12/2014 e sobre outros que surgiram durante o ano de 2015 são apresentadas na tabela a seguir: <table>Tipo de processoClassificação pela empresa em 31/12/2015Valor estimado em 31/12/2015TrabalhistaProvávelR$ 400.000,00TributárioPossívelR$ 200.000,00CívelPossívelR$ 100.000,00AmbientalProvávelR$ 150.000,00</table> O efeito líquido causado na Demonstração do Resultado de 2015 da empresa relacionado com as provisões foi, em reais:",
+      "alternativas": {
+        "A": "redução de 850.000,00.",
+        "B": "aumento de 650.000,00.",
+        "C": "redução de 550.000,00.",
+        "D": "aumento de 350.000,00.",
+        "E": "aumento de 450.000,00."
+      }
+    },
+    {
+      "numero": 61,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "As demonstrações contábeis do exercício de 2015 da Companhia de Fornecimento de Energia Solar do Estado serão auditadas pela firma Absolutos Auditores. Os princípios fundamentais da ética profissional a serem observados pelos auditores na realiza- ção da auditoria de demonstrações contábeis incluem: I. Moralidade e Independência Técnica. II. Probidade e Afinidade Profissional. III. Integridade e Comportamento Profissional. IV. Objetividade e Confidencialidade. V. Competência Profissional e Devido Zelo. Está correto o que se afirma APENAS em",
+      "alternativas": {
+        "A": "I, II, III.",
+        "B": "I, IV e V.",
+        "C": "II, III e V.",
+        "D": "I, III e IV.",
+        "E": "III, IV e V."
+      }
+    },
+    {
+      "numero": 62,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "Os auditores independentes, nas auditorias das demonstrações contábeis, utilizam informações para fundamentar suas conclu- sões em que se baseia a sua opinião, obtidas através de evidência de auditoria. Acerca da evidência de auditoria é correto afirmar que",
+      "alternativas": {
+        "A": "é afetada pela elaboração tempestiva da documentação de auditoria.",
+        "B": "a suficiência das evidências de auditoria é a medida da quantidade da evidência de auditoria.",
+        "C": "é obtida a partir do planejamento realizado para reduzir o risco de auditoria a um nível aceitavelmente baixo.",
+        "D": "não é de natureza cumulativa e somente é válida se obtida a partir de procedimentos de auditoria executados.",
+        "E": "a adequação da evidência de auditoria é a medida da quantidade da evidência de auditoria."
+      }
+    },
+    {
+      "numero": 63,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "Na auditoria das demonstrações contábeis de determinada empresa de economia mista do Estado, o auditor pretende realizar auditoria, por amostragem, na conta “Duplicatas a Receber”. O auditor se quiser reduzir o tamanho da amostra sem aumentar o risco de amostragem, dividindo a população em subpopulações distintas que tenham características homogêneas ou similares, deve proceder",
+      "alternativas": {
+        "A": "uma seleção sistemática.",
+        "B": "um agrupamento de itens para investigação.",
+        "C": "um detalhamento de itens para teste.",
+        "D": "uma estratificação.",
+        "E": "uma seleção aleatória."
+      }
+    },
+    {
+      "numero": 64,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "Os resultados obtidos nos procedimentos de auditoria executados pelo auditor independente contribuem para fundamentar as conclusões apresentadas em seu relatório. O auditor pode utilizar como procedimentos de avaliação de riscos, testes de controles ou procedimentos substantivos, dependendo do contexto em que sejam aplicados, entre outros, os procedimentos de auditoria:",
+      "alternativas": {
+        "A": "inspeção, amostragem, perícia.",
+        "B": "inspeção, monitoramento, vistoria.",
+        "C": "inspeção, indagação, perícia.",
+        "D": "inspeção, observação, confirmação externa.",
+        "E": "inspeção, amostragem, vistoria."
+      }
+    },
+    {
+      "numero": 65,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "Nas auditorias das demonstrações contábeis o auditor deve preparar tempestivamente a documentação de auditoria. Quanto à forma, ao conteúdo e à extensão, o auditor deve levar em conta, entre outros, os seguintes fatores: I. Resultado de auditorias anteriores e os ajustes promovidos pela entidade. II. Natureza dos procedimentos de auditoria a serem executados. III. Volume dos recursos e a importância das transações realizadas pela entidade. IV. Riscos identificados de distorção relevante. V. Tamanho e complexidade da entidade. Está correto o que se afirma APENAS em",
+      "alternativas": {
+        "A": "II, IV e V.",
+        "B": "I, III e IV.",
+        "C": "II e III.",
+        "D": "III, IV e V.",
+        "E": "I, II, e V."
+      }
+    },
+    {
+      "numero": 66,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "Na auditoria realizada na companhia distribuidora de peças e acessórios para veículos leves e pesados, o auditor registrou as seguintes constatações: I. Descontos obtidos pelo pagamento de duplicatas a fornecedores contabilizados como receitas de aplicações financeiras. II. Adulteração para mais de valores de créditos de ICMS registrados no livro apuração do ICMS referente a compras para comercialização. III. Por desatenção de funcionário da tesouraria recém contratado foi concedido desconto no pagamento com atraso de duplicatas a receber efetuado pelo cliente. IV. Registro de notas fiscais fictícias de despesas, com o objetivo de justificar saque na tesouraria da empresa. Segundo as Normas de Auditoria, as constatações registradas pelo auditor caracterizam, respectivamente,",
+      "alternativas": {
+        "A": "erro, fraude, erro e fraude.",
+        "B": "fraude, fraude, erro e erro.",
+        "C": "erro, fraude, fraude e erro.",
+        "D": "fraude, erro, fraude e fraude.",
+        "E": "erro, fraude, fraude e fraude."
+      }
+    },
+    {
+      "numero": 67,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "O documento que inclui a natureza, a época e a extensão dos procedimentos de auditoria a serem realizados pelos membros da equipe de trabalho é denominado de",
+      "alternativas": {
+        "A": "roteiro de auditoria.",
+        "B": "plano de auditoria.",
+        "C": "papeis de trabalho.",
+        "D": "normas de auditoria.",
+        "E": "estratégia para execução dos trabalhos."
+      }
+    },
+    {
+      "numero": 68,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "Determinada empresa de economia mista do Estado fez o seguro do ativo imobilizado, junto à seguradora Martelo, para o período de 24 meses: 01/10/2015 a 30/09/2017. – O prêmio de seguro foi de R$ 600.000,00, pago 40% no ato e o restante 30 e 60 dias. – A empresa encerra seu exercício social em 31 de dezembro de cada ano. – O lucro do exercício de 2015 foi de R$ 1.390.000,00. O auditor independente no exame dos registros contábeis da apólice do seguro contratado constatou que: – 300.000,00 – foram contabilizados (apropriados) como despesas de seguro do exercício de 2015, e que o valor da apropria- ção do seguro está incorreto. – 300.000,00 – foram contabilizados na conta “Seguros a Vencer” classificada no realizável de curto prazo. O auditor concluiu, se a despesa com seguro do exercício de 2015 tivesse sido apropriada corretamente, o lucro do exercício de 2015 passaria de R$ 1.390.000,00, para, em reais, de",
+      "alternativas": {
+        "A": "1.190.000.00.",
+        "B": "1.440.000.00.",
+        "C": "1.615.000.00.",
+        "D": "1.165.000.00.",
+        "E": "1.465.000.00."
+      }
+    },
+    {
+      "numero": 69,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "Determinada empresa de economia mista do Estado fez o seguro do ativo imobilizado, junto à seguradora Martelo, para o período de 24 meses: 01/10/2015 a 30/09/2017. – O prêmio de seguro foi de R$ 600.000,00, pago 40% no ato e o restante 30 e 60 dias. – A empresa encerra seu exercício social em 31 de dezembro de cada ano. – O lucro do exercício de 2015 foi de R$ 1.390.000,00. O auditor independente no exame dos registros contábeis da apólice do seguro contratado constatou que: – 300.000,00 – foram contabilizados (apropriados) como despesas de seguro do exercício de 2015, e que o valor da apropria- ção do seguro está incorreto. – 300.000,00 – foram contabilizados na conta “Seguros a Vencer” classificada no realizável de curto prazo. A despesa de seguro paga antecipadamente (seguro a vencer), segundo o auditor, deveria ter sido classificada, respectiva- mente, nos grupos de contas e valores",
+      "alternativas": {
+        "A": "ativo imobilizado – R$ 300.000,00 e passivo não circulante – R$ 225.000,00.",
+        "B": "ativo circulante – R$ 75.000,00 e ativo não circulante – R$ 525.000,00.",
+        "C": "ativo realizável curto prazo – R$ 225.000,00 e ativo realizável longo prazo – R$ 300.000,00.",
+        "D": "ativo circulante – R$ 300.000,00 e ativo não circulante – R$ 225.000,00.",
+        "E": "passivo circulante – R$ 75.000,00 e passivo não circulante – R$ 300.000,00."
+      }
+    },
+    {
+      "numero": 70,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "Determinada empresa de economia mista do Estado fez o seguro do ativo imobilizado, junto à seguradora Martelo, para o período de 24 meses: 01/10/2015 a 30/09/2017. – O prêmio de seguro foi de R$ 600.000,00, pago 40% no ato e o restante 30 e 60 dias. – A empresa encerra seu exercício social em 31 de dezembro de cada ano. – O lucro do exercício de 2015 foi de R$ 1.390.000,00. O auditor independente no exame dos registros contábeis da apólice do seguro contratado constatou que: – 300.000,00 – foram contabilizados (apropriados) como despesas de seguro do exercício de 2015, e que o valor da apropria- ção do seguro está incorreto. – 300.000,00 – foram contabilizados na conta “Seguros a Vencer” classificada no realizável de curto prazo. O auditor considerou que as distorções, individualmente ou em conjunto, são relevantes, mas não generalizadas nas demons- trações contábeis. Nestas condições, o auditor deve",
+      "alternativas": {
+        "A": "expressar uma opinião pela regularidade, com ressalvas.",
+        "B": "considerar as demonstrações contábeis regulares, após ajustes.",
+        "C": "expressar uma opinião adversa.",
+        "D": "considerar as demonstrações contábeis regulares, com recomendação.",
+        "E": "expressar uma opinião com ressalvas."
+      }
+    }
+  ]
+}

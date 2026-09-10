@@ -1,0 +1,1712 @@
+[
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Língua Portuguesa",
+    "assunto": "Interpretação de Texto - Coesão e Coerência",
+    "numero_original": 1,
+    "enunciado": "…a Justiça sustenta numa das mãos a balança e que pesa o\nDireito, e na outra a espada de que se serve para o defender.\nA espada sem a balança é a força brutal; a balança sem a espada\né a impotência do Direito .\n(Rudolf von Ihering. Metáfora da balança da Justiça.)\nSobre o texto acima, assinale a afirmativa incorreta .",
+    "alternativas": {
+      "A": "Segundo o texto, as punições são indispensáveis no exercício\nda justiça.",
+      "B": "O emprego da vírgula no segundo período se deve à omissão\ndo verbo.",
+      "C": "O primeiro período do texto podia mostrar entre vírgulas o\ntermo “numa das mãos”.",
+      "D": "O texto não cita o fato de a justiça também ser cega, o que\naparece representado na imagem.",
+      "E": "O texto pode ser interpretado como uma crítica à justiça."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Língua Portuguesa",
+    "assunto": "Interpretação de Texto - Argumentação",
+    "numero_original": 2,
+    "enunciado": "Leia a nota da OAB a seguir.\nA prática reiterada e impune de atos de corrupção leva as pessoas\na pensar que a improbidade e a falta de ética são naturais e a\nimprobidade é uma regra para os grandes delinquentes.\nSobre a estruturação desse pequeno texto, assinale a afirmativa\ncorreta.",
+    "alternativas": {
+      "A": "O adjetivo “grandes” mostra valor de importância social dos\ndelinquentes.",
+      "B": "Os adjetivos “reiterada” e “impune” são redundantes,\nbastando tão somente o emprego de um deles.",
+      "C": "O texto mostra um erro de construção na forma verbal\n“pensar”, qu e deveria ser substituída por “pensarem”.",
+      "D": "A repetição da palavra “improbidade” poderia ser evitada,\ntrocando -se a segunda ocorrência pelo demonstrativo “esta”.",
+      "E": "O verbo “pensar” só tem por complemento a primeira oração\nque o segue: “que a improbidade e a falta de ética são\nnaturais”."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Língua Portuguesa",
+    "assunto": "Morfologia - Família de Palavras",
+    "numero_original": 3,
+    "enunciado": "Leia o fragmento a seguir.\nTemo que deveríamos tornar o mundo honesto antes de\nhonestamente dizer a nossos filhos que a honestidade é a melhor\npolítica. (Bernard Shaw)\nNesse pensamento aparecem três palavras da mesma família:\nhonesto , honestamente e honestidade .\nAssinale a opção que apresenta três palavras que pertencem\ntambém a uma mesma família e repetem, respectivamente, as\nmesmas classes gramaticais.",
+    "alternativas": {
+      "A": "legível – legalmente – leitura.",
+      "B": "correto – corretamente – correção.",
+      "C": "elegível – eleitoralmente – eleitoral.",
+      "D": "distinguido – distintamente – distinto.",
+      "E": "punibilidade – impunemente – punição."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Língua Portuguesa",
+    "assunto": "Coesão Textual - Referenciação",
+    "numero_original": 4,
+    "enunciado": "Assinale a frase em que termo sublinhado não mantém coesão\ncom um termo anterior.",
+    "alternativas": {
+      "A": "Jogo imbecil é aquele em que ninguém ganha.",
+      "B": "Se eu morresse em um hospital, eu o processaria.",
+      "C": "Um pouco de incenso queimado é bom remédio para deixar\nlá com ela.",
+      "D": "Os médicos creem que, encontrada a causa d a enfermidade,\nsua cura está descoberta.",
+      "E": "Por quatro gerações estamos fazendo remédios como se a\nvida das pessoas dependesse deles ."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Língua Portuguesa",
+    "assunto": "Sintaxe - Partícula de Ênfase 'Que'",
+    "numero_original": 5,
+    "enunciado": "Assinale a frase em que a expressão é que está empregada para\ndar ênfase.",
+    "alternativas": {
+      "A": "Quanto é que custam as batatas?",
+      "B": "Onde é que você mora?",
+      "C": "Como é que você se chama?",
+      "D": "Quando é que é o dia da Independência?",
+      "E": "Quando é que ela chega?"
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Língua Portuguesa",
+    "assunto": "Semântica - Antonímia",
+    "numero_original": 6,
+    "enunciado": "Assinale a frase que mostra a presença de antônimos em sua\nestruturação.",
+    "alternativas": {
+      "A": "Para grandes males, grandes remédios.",
+      "B": "A distância mais longa é entre a cabeça e o coração.",
+      "C": "Depois do jantar descansarás ou andarás mil passos.",
+      "D": "Sabemos que tudo pode ser comum ou extraordinário.",
+      "E": "Os médicos devem inserir fé e esperança nos pacientes."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Língua Portuguesa",
+    "assunto": "Discurso Direto e Indireto",
+    "numero_original": 7,
+    "enunciado": "Leia a frase em discurso direto a seguir.\n— Amanhã estarei saindo daqui com minha irmã .\nAssinale a opção que apresenta essa frase em discurso indireto.\n(Começando por Ele disse que ...)",
+    "alternativas": {
+      "A": "amanhã estará saindo de lá com sua irmã.",
+      "B": "amanhã estaria saindo de lá com a irmã dele.",
+      "C": "amanhã estava saindo de lá com a irmã dele.",
+      "D": "no dia seguinte estaria saindo de lá com sua irmã.",
+      "E": "no dia seguinte ele estaria saindo de lá com a irmã dele."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Língua Portuguesa",
+    "assunto": "Tipologia Textual - Modo Narrativo",
+    "numero_original": 8,
+    "enunciado": "Assinale a opção que indica o fragme nto textual que pertence ao\nmodo narrativo de organização discursiva.",
+    "alternativas": {
+      "A": "“A iluminação era fraca, mas, como havia luz externa, o\nproblema era de pouca monta.”",
+      "B": "“Alguns clientes conversavam em diversas mesas e pareciam\ncontentes com alguma coisa.”",
+      "C": "“O restaurante era pequeno, com muitas mesas espalhadas\npelo salão, com velas sobre elas.”",
+      "D": "“Restaurantes são lugares públicos e devem estar sempre\ncom boa aparência para atrair os clientes.”",
+      "E": "“Estava com fome. Dobrei a esquina, dirigi -me a um\nrestaurante que estava aberto e sentei -me na primeira\nmesa.”"
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Língua Portuguesa",
+    "assunto": "Semântica - Denotação e Conotação",
+    "numero_original": 9,
+    "enunciado": "Assinale a frase que está inteiramente em linguagem lógica, sem\nconotação (linguagem figurada).",
+    "alternativas": {
+      "A": "Dinheiro fala.",
+      "B": "Êxtase: descobrir uma nova camada de bombons sob a\nprimeira .",
+      "C": "Se você ficar com medo da guerra, coma uma bomba de\nchocolate.",
+      "D": "Se você tem alguma coisa importante a dizer, embrulhe -a em\nchocolate.",
+      "E": "Lavo muita roupa no tanque e só ando de bicicleta. Acho que\nisso faz o corpo ficar em forma."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Língua Portuguesa",
+    "assunto": "Estrutura do Texto Argumentativo",
+    "numero_original": 10,
+    "enunciado": "Todo texto argumentativo mostra uma tese e os argumentos que\na defendem.\nAssinale a frase em que o argumento apresentado é\ncaracterizado como testemunho de autoridade.",
+    "alternativas": {
+      "A": "Não deixe para amanhã o que pode fazer depois de amanhã.",
+      "B": "Se quiser consertar o país, basta fazer com que todos creiam\nem Deus.",
+      "C": "Sigo tomando o ônibus em lugar do metrô, pois assim faz a\nmaioria dos cidadãos.",
+      "D": "Já dizia meu pai que o samba brasileiro ia perder espaço para\na música estrangeira.",
+      "E": "Ontem choveu e as ruas ficaram alagadas; hoje, choveu de\nnovo, logo as ruas ficarão alagadas.\nAdministração Pública"
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Pública",
+    "assunto": "Modelos de Administração Pública (Patrimonialista, Burocrático, Gerencial)",
+    "numero_original": 11,
+    "enunciado": "Os modelos de Administração Pública refletem a evolução das\nformas de gestão governamental, buscando equilibrar eficiência,\ntransparência e participação cidadã para melhor atender às\ndemandas da sociedade.\nO modelo em que a legitimidade se origina das leis e do direito e\né pautada, a princ ípio, pela racionalidade e objetividade é o(a)",
+    "alternativas": {
+      "A": "carismático.",
+      "B": "tradicional.",
+      "C": "racional legal.",
+      "D": "nova gestão pública.",
+      "E": "nova governança pública."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Pública",
+    "assunto": "Políticas Públicas - Conceito",
+    "numero_original": 12,
+    "enunciado": "Uma política pública é uma diretriz criada para enfrentar um\nproblema público, orientando ações ou omissões, e as atividades\nresultantes dessa orientação também integram a política pública.\nAssinale a opção que apresenta os elementos fundamentais para\na elaboração de uma política pública.",
+    "alternativas": {
+      "A": "Interesse pessoal e solução privada.",
+      "B": "Participação exclusiva do setor privado.",
+      "C": "Ação governamental sem objetivo claro.",
+      "D": "Decisão baseada apenas em interesses individuais.",
+      "E": "Intencionalidade pública e resposta a um problema público."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Pública",
+    "assunto": "Ciclo de Políticas Públicas",
+    "numero_original": 13,
+    "enunciado": "O processo de elaboração de políticas públicas, ou ciclo de\npolíticas públicas, organiza a vida de uma política em fases\nsequenciais e interdependentes.\nAssinale a opção que apresenta a definição de agenda formal.",
+    "alternativas": {
+      "A": "Conjunto de problemas que o poder público já decidiu\nenfrentar.",
+      "B": "Conjunto de problemas que a sociedade civil traz para o\ndebate público.",
+      "C": "Conjunto d e problemas que recebem atenção especial dos\nmeios de comunicação.",
+      "D": "Conjunto de problemas percebidos pela mídia como\nimportantes para a sociedade.",
+      "E": "Conjunto de problemas que a comunidade política considera\nmerecedores de intervenção pública."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Pública",
+    "assunto": "Políticas Públicas - Fase de Formulação",
+    "numero_original": 14,
+    "enunciado": "A formulação de uma política pública envolve definir os objetivos\ne as estratégias e avaliar as possíveis consequências de cada\nalternativa. O policymaker usa diferentes mecanismos genéricos\npara induzir o comportamento desejado em uma política pública.\nAssinale a opção que exemplifica o uso da coerção como\nmecanismo de indução de comportamento.",
+    "alternativas": {
+      "A": "Implementar multas para quem descumprir leis d e trânsito.",
+      "B": "Oferecer incentivos fiscais a empresas que adotam práticas\nsustentáveis.",
+      "C": "Lançar campanhas de conscientização sobre a importância da\nvacinação.",
+      "D": "Distribuir prêmios para os servidores públicos com melhor\ndesempenho anual.",
+      "E": "Desenvolv er novas tecnologias para facilitar o cumprimento\nde normas de segurança no trabalho."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Pública",
+    "assunto": "Políticas Públicas - Atores (Stakeholders)",
+    "numero_original": 15,
+    "enunciado": "Os atores relevantes em uma política pública são aqueles que\npodem influenciar, direta ou indiretamente, o conteúdo e os\nresultados, sensibilizando a op inião pública e decidindo o que\nentra na agenda política.\nAssinale a opção que apresenta exemplo de atores\ngovernamentais.",
+    "alternativas": {
+      "A": "Partidos políticos.",
+      "B": "Trabalhadores.",
+      "C": "Empresários.",
+      "D": "Think tanks.",
+      "E": "Juízes."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Pública",
+    "assunto": "Políticas Públicas - Modelos de Relação entre Atores",
+    "numero_original": 16,
+    "enunciado": "Modelos de relação e de prevalência são constructos teóricos que\nexplicam, respectivamente, como os atores interagem e quais\natores predominam em um processo de política pública. Eles são\nbaseados em observações práticas e ajudam a interpretar a\ndistribuição de poder nas arenas p olíticas.\nO modelo usado para interpretar a relação entre o governo e a\nburocracia é denominado",
+    "alternativas": {
+      "A": "elitismo.",
+      "B": "pluralismo.",
+      "C": "principal -agente.",
+      "D": "triângulo de ferro.",
+      "E": "redes de políticas públicas."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Pública",
+    "assunto": "Parcerias Público-Privadas - Modalidades",
+    "numero_original": 17,
+    "enunciado": "No Brasil, as Parcerias Público -Privadas (PPPs) têm duas\nmodalidades: patrocinada e administrativa.\nNa patrocinada, o parceiro privado pode cobrar tarifas dos\nusuários, mas o governo ainda paga contraprestações. Já na\nmodalidade administrativa, a remuneração do parceiro privado\nvem exclusivamente do poder público, sem cobrança de tarifas\ndos usuários.\nUm exemplo de modelo de concessão administrativa com o uso\ndo shadow toll nas PPPs é a",
+    "alternativas": {
+      "A": "remuneração do concessionário com base na receita obtida\nexclusivamente com o pedágio.",
+      "B": "cobrança de pedágio diretamente dos usuários da rodovia\npara remunerar o concessionário.",
+      "C": "participação dos usuários no pagamento da manutenção da\nrodovia por meio de taxas adicionais cobradas anualmente.",
+      "D": "remuneração do concessionário pela administração pública,\ncom base na disponibilidade da rodovia, sem cobrança de\npedágio aos usuários.",
+      "E": "remuneração do concessionário pelos usuários com base na\ndemanda de tráfego, sendo o valor proporcional ao número\nde veículos que trafegam na rodovia."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Pública",
+    "assunto": "Governo Eletrônico (e-Gov)",
+    "numero_original": 18,
+    "enunciado": "O governo eletrônico ( e-gov) consiste no uso de tecnologia da\ninformação e comunicação (TICs) combinado com mudanças\norganizacionais para aperfeiçoar as estruturas e operações do\ngoverno.\nCom relação a o e-gov, analise as afirmativas a seguir.\nI. O e-gov é uma alternativa mais rápida e prática para os\ncidadãos no acesso a serviços governamentais.\nII. A percepção de risco pelos cidadãos, como em questões de\nprivacidade e segurança, pode desencorajá -los a utilizar os\nsistemas de e-gov.\nIII. O uso de serviços presenciais tradicionais tende a aumentar\nquando os cidadãos percebem o uso de e-gov como\narriscado.\nEstá correto o que se afirma em",
+    "alternativas": {
+      "A": "I, apenas.",
+      "B": "I e II, apenas.",
+      "C": "I e III, apenas.",
+      "D": "II e III, apenas.",
+      "E": "I, II e III."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Pública",
+    "assunto": "Políticas Públicas - Neocorporativismo",
+    "numero_original": 19,
+    "enunciado": "O neocorporativismo é um sistema de intermediação de\ninteresses em que as organizações são limitadas, e o Estado lhes\ndá o monopólio da representação em troca de alguma influência\nsobre nomeações no parlament o.\nAssinale a opção que apresenta requisitos para o\nestabelecimento do neocorporativismo.",
+    "alternativas": {
+      "A": "Um governo pró -trabalhismo, centralização dos grupos de\ninteresse e monopólio da representação.",
+      "B": "Centralização dos grupos de interesse, pluralismo irrestrito e\nparticipação mínima do Executivo.",
+      "C": "Descentralização dos grupos de interesse e abertura total\npara o pluralismo político.",
+      "D": "Ausência de monopólio na representação e governo\nneoliberal.",
+      "E": "Um governo antissindical e representação fragmentada."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Pública",
+    "assunto": "Gestão da Integridade Pública",
+    "numero_original": 20,
+    "enunciado": "Nos últimos anos, a administração pública brasileira tem dado\ncada vez mais atenção à gestão da integridade. Programas de\nintegridade, que abrangem ações preventivas e corretivas contra\nfraudes e corrupção, são fundamentais para promover a\nconfiança pública e criar um ambiente favorável ao\ndesenvolvimento econômico.\nAssinale a opção que descreve a função suporte da alta\nadministração nos programas de integridade.",
+    "alternativas": {
+      "A": "Desenvolver mecanismos de controle para gerenciar os riscos\ninternos e ex ternos da organização.",
+      "B": "Promover a adesão dos colaboradores a um código de\nconduta específico para prevenir fraudes e corrupção.",
+      "C": "Realizar auditorias independentes para detectar violações e\ngarantir a conformidade com as políticas da organização.",
+      "D": "Dar aval explícito e apoio incondicional como exemplo a ser\nseguido, reforçando o compromisso de transformar a cultura\nda organização.",
+      "E": "Monitorar continuamente as operações da organização,\ngarantindo a adaptação dos instrumentos e estruturas às\nnovas d emandas.\nLegislação Aplicável ao Tribunal de\nContas do Estado do Piauí"
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Financeira e Orçamentária",
+    "assunto": "Classificação Econômica da Despesa Pública",
+    "numero_original": 31,
+    "enunciado": "Do Manual Técnico do Orçamento depreende -se as possíveis\ntipologias para classificação da despesa.\nA esse respeito, assinale a afirmativa correta.",
+    "alternativas": {
+      "A": "A classificação por Esfera Orçamentária é formada por\nfunções e subfunções e procura explicitar as áreas em que as\ndespesas são realizadas.",
+      "B": "Em se tratando de despesa por Esfera Orçamentária, há\napenas duas possíveis classificações: 10 – Orçamento Fiscal e\n20 – Orçamento da Seguridade Social.",
+      "C": "Na classificação por Esfera Orçamentária temos os dois\nprimeiros dígitos para o Órgão Orçamentário e os três dígitos\nseguintes para a Unidade Orçamentária.",
+      "D": "A classificação institucional engloba o orçamento das\nempresas em que a União, direta ou indiretamente, detenha\na maioria do capital soc ial com direito a voto, ou seja, o\nOrçamento de Investimento.",
+      "E": "Em termos de Classificação Institucional, alguns fundos\nespeciais podem figurar como um Órgão Orçamentário ou\numa Unidade Orçamentária, sem corresponder,\nnecessariamente, a uma estrutura adm inistrativa."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Financeira e Orçamentária",
+    "assunto": "Orçamento Público - Estimativa de Receitas",
+    "numero_original": 32,
+    "enunciado": "O processo de elaboração das estimativas de Receitas\nOrçamentárias possui etapas que envolvem a revisão e a\npossibilidade de alteração nas estimativas realizadas, para as\nquais se requer uma justificativa, que não pode ser",
+    "alternativas": {
+      "A": "pautada em uma argumentação de necessidade de gasto\nessencial.",
+      "B": "baseada em alterações nas alíquotas ou valores de taxas,\ntarifas e/ou serviços.",
+      "C": "baseada no fato de se tratar de uma receita nova, que não\npossui histórico de arrecadação, dificultando a modelagem\nno SIOP.",
+      "D": "fundamentada em situações a partir das quais as receitas\nforem impactadas direta ou indiretamente por efeitos\ndecorrentes de alterações legais ou contratuais.",
+      "E": "sustentada a partir do fato de que se trata de uma receita\natípica ou de baixa previsibilidade, de difícil modelagem no\nSIOP, como por exemplo as receitas oriundas de licitações,\nconvênios, doações, inscrições, entre outras."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Financeira e Orçamentária",
+    "assunto": "Lei de Responsabilidade Fiscal - Execução Orçamentária e Contingenciamento",
+    "numero_original": 33,
+    "enunciado": "A Seção IV do Capítulo II da Lei de Responsabilidade Fiscal trata\nda Execução Or çamentária e do Cumprimento das Metas no\nOrçamento Público.\nSobre este tema, avalie as afirmativas a seguir.\nI. A execução orçamentária e financeira identificará os\nbeneficiários de pagamento de sentenças judiciais, por meio\nde sistema de contabilidade e administração financeira, para\nfins de observância da ordem cronológica.\nII. O Ministério da Fazenda é o órgão responsável para, no prazo\nde noventa dias após o encerramento de cada semestre,\navaliar o cumprimento dos objetivos e metas das políticas\nmonetá ria e creditícia, evidenciando o impacto e o custo\nfiscal de suas operações e os resultados demonstrados nos\nbalanços.\nIII. Uma vez estabelecida a programação financeira e o\ncronograma de execução mensal de desembolso pelo Poder\nExecutivo, é possível utili zar recursos legalmente vinculados à\nfinalidade específica para atender ao objeto de sua\nvinculação, mesmo que seja em exercício diverso daquele em\nque ocorrer o ingresso.\nEstá correto o que se afirma em",
+    "alternativas": {
+      "A": "I, apenas.",
+      "B": "I e II, apenas.",
+      "C": "I e III, apenas.",
+      "D": "II e III, apenas.",
+      "E": "I, II e III."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Financeira e Orçamentária",
+    "assunto": "Contabilidade Aplicada ao Setor Público - Procedimentos Contábeis Orçamentários",
+    "numero_original": 34,
+    "enunciado": "Relacione os procedimentos da Contabilidade Aplicada ao Setor\nPúblico (CASP) a seguir às respectivas afirmativas.\n1. Orçamentário.\n2. Patrimonial.\n3. Fiscal.\n( ) Os princípios e as normas contábeis voltadas para o\nreconhecimento, a mensuração e a evidenciação dos ativos e\npassivos e de suas variações, devem ser atendidos.\n( ) Compreende a apuração e a evidenciação, por meio da\ncontabilidade, dos indicadores esta belecidos pela LRF. Entre\nos objetivos de seus relatórios está o de analisar o equilíbrio\ndas contas públicas .\n( ) Os procedimentos contábeis visam melhorar a qualidade e a\nconsistência das informações prestadas a toda a sociedade,\nde modo a possibilitar o exercício da cidadania no processo\nde fiscalização da arrecadação das receitas e da execução das\ndespesas.\nAssinale a opção que apresenta a relação correta, segundo a\nordem apresentada.",
+    "alternativas": {
+      "A": "1 – 2 – 3.",
+      "B": "2 – 3 – 1.",
+      "C": "3 – 1 – 2.",
+      "D": "1 – 3 – 2.",
+      "E": "2 – 1 – 3."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Financeira e Orçamentária",
+    "assunto": "Instrumentos de Planejamento Orçamentário (PPA, LDO, LOA)",
+    "numero_original": 35,
+    "enunciado": "Sobre os instrumentos de planejamento orçamentário, avalie as\nafirmativas a seguir.\nI. Em consonância com o PPA, compete à Lei de Diretrizes\nOrçamentárias (LDO), entre outras atribuições, estabelecer as\nmetas e prioridades da administração pública e orientar a\nelaboração dos orçamentos anuais.\nII. A Lei de Responsabilidade Fiscal (LRF) conferiu à LDO novas e\nimportantes atribuições, além das constitucionalmente\nprevistas, especialmente no tocante à fixação de met as\nfiscais.\nIII. À luz do PPA e da LDO, cabe à Lei Orçamentária Anual (LOA)\nestimar receitas e fixar despesas, de modo a efetivamente\nautorizar a realização de gastos públicos em determinado\nexercício financeiro.\nEstá correto o que se afirma em",
+    "alternativas": {
+      "A": "I, apen as.",
+      "B": "I e II, apenas.",
+      "C": "I e III, apenas.",
+      "D": "II e III, apenas.",
+      "E": "I, II e III."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Financeira e Orçamentária",
+    "assunto": "Orçamento-Programa",
+    "numero_original": 36,
+    "enunciado": "Com relação ao Orçamento -Programa, avalie as afirmativas a\nseguir e assinale (V) para a verdadeira e (F) para a falsa.\n( ) O Orçamento -Programa está lig ado à ideia de planejamento.\nAssim, o orçamento deve considerar os objetivos que o\ngoverno pretende alcançar, durante um período determinado\nde tempo.\n( ) O Orçamento -Programa tem como característica marcante a\navaliação da eficiência, da eficácia e da e fetividade das ações\ngovernamentais.\n( ) No Orçamento -Programa a s decisões orçamentárias são\ntomadas tendo em vista as necessidades das unidades\norganizacionais .\nAs afirmativas são, respectivamente,",
+    "alternativas": {
+      "A": "V – V – V.",
+      "B": "V – V – F.",
+      "C": "F – V – V.",
+      "D": "V – F – V.",
+      "E": "F – V – F."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Financeira e Orçamentária",
+    "assunto": "Lei de Responsabilidade Fiscal - Vinculação de Receitas",
+    "numero_original": 37,
+    "enunciado": "A CRFB/88 estabelece:\n“Art. 167. São vedados: [...] IV. A vinculação de receita de\nimpostos a órgão, fundo ou despesa, ressalvadas a repartição do\nproduto da arrecadação dos impostos a que se referem os Arts.\n158 e 159, a destinação de recursos para as ações e serviços\npúblicos de saúde, para manutenção e desen volvimento do ensino\ne para realização de atividades da administração tributária [...]”\nCom relação aos impostos e às vinculações, o princípio da\nConstituição Federal que o texto acima consagra é o",
+    "alternativas": {
+      "A": "do Equilíbrio .",
+      "B": "da Exclusividade .",
+      "C": "da Uniformid ade.",
+      "D": "do Orçamento Bruto .",
+      "E": "da Não -Afetação das Receitas ."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Administração Financeira e Orçamentária",
+    "assunto": "Lei de Diretrizes Orçamentárias - Anexo de Metas Fiscais",
+    "numero_original": 38,
+    "enunciado": "Com relação ao Anexo de Metas Fiscais, que integrará o Projeto\nde Lei de Diretrizes Orçamentárias, em atendimento ao disposto\nno Art. 4º, § 1º, da Lei Complementar nº 101/2000 , e que deverá\nser elaborado, de acordo com o Art. 1º, § 2º, da LRF, pelo Poder\nExecutivo da União, dos Estados, do Distrito Federal e dos\nMunicípios, abrangendo tanto o Poder Executivo quanto os\nPoderes Legislativo e Judiciário, avalie as afirmativas a se guir.\nI. O cumprimento das metas deve ser acompanhado com base\nnas informações divulgadas no Relatório Resumido da\nExecução Orçamentária e no Relatório de Gestão Fiscal.\nII. O Demonstrativo das Metas Anuais deverá ser instruído com\na memória e a metodolog ia de cálculo, visando esclarecer a\nforma de obtenção dos valores relativos a receitas, despesas,\nresultado primário, resultado nominal, e montante da dívida\npública.\nIII. O Demonstrativo de Metas Anuais tem por objetivo, além de\ndar transparência sobre as metas fiscais, orientar a\nelaboração do projeto de lei orçamentária anual, de forma a\npermitir o alcance das metas, conforme planejado.\nEstá correto o que se afirma em",
+    "alternativas": {
+      "A": "I, apenas.",
+      "B": "I e II, apenas.",
+      "C": "I e III, apenas.",
+      "D": "II e III, apenas.",
+      "E": "I, II e III.\nAuditoria Governamental"
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "Normas Brasileiras de Auditoria no Setor Público (NBASP 100)",
+    "numero_original": 39,
+    "enunciado": "A NBASP 100 - Princípios Fundamentais de Auditoria no Setor\nPúblico estabelece as diretrizes essenciais que regem as\nauditorias governamentais, orientando a conduta e a prática dos\nauditores no setor público. Essa norma define os princípios\nbásicos de independência, competência, ética e ceticismo\nprofissional, além de enf atizar a necessidade de uma auditoria\ntransparente, objetiva e eficiente, visando promover a\nresponsabilidade, a boa governança e a prestação de contas no\nuso dos recursos públicos.\nQuanto à NBASP 100, avalie as afirmativas a seguir e assinale (V)\npara a v erdadeira e (F) para a falsa.\n( ) Em geral, a auditoria do setor público pode ser descrita como\num processo sistemático de obter e avaliar objetivamente\nevidências para determinar se as informações ou as\ncondições reais de um objeto estão de acordo com c ritérios\naplicáveis.\n( ) Todas as auditorias do setor público contam com os mesmos\nelementos básicos: o auditor, os demonstrativos contábeis e\nos usuários previstos (as três partes da auditoria).\n( ) O objeto da auditoria refere -se à informação, condiç ão ou\natividade que é mensurada ou avaliada de acordo com certos\ncritérios. Pode assumir várias formas e ter diferentes\ncaracterísticas, dependendo do objetivo da auditoria.\nAs afirmativas são, respectivamente,",
+    "alternativas": {
+      "A": "V – V – V.",
+      "B": "V – F – V.",
+      "C": "F – F – F.",
+      "D": "V – V – F.",
+      "E": "F – V – V."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "Auditoria Governamental - Finalidade e Princípios",
+    "numero_original": 40,
+    "enunciado": "A auditoria no setor público é fundamental para assegurar a\ncorreta aplicação dos recursos públicos, promovendo\ntransparência, responsabilidade e boa governança. As auditorias\najudam a prevenir fraudes e desp erdícios, fortalecendo a\nconfiança dos cidadãos nas instituições governamentais e\ngarantindo que os recursos sejam utilizados de forma ética e\neficaz para o bem coletivo.\nRelacione os tipos principais de auditoria do setor público\nestabelecidos na NBASP 10 0 - Princípios Fundamentais de\nAuditoria no Setor Público, às suas respectivas definições.\nI. Auditoria Financeira\nII. Auditoria Operacional\nIII. Auditoria de Conformidade\n( ) Foca em determinar se um particular objeto está de acordo\ncom normas identificadas como critérios. É realizada para\navaliar se atividades, transações financeiras e informações\ncumprem, em todos os aspectos relevantes, as normas que\nregem a entidade auditada.\n( ) Foca em determinar se intervenções, programas e\ninstituiçõe s estão atuando em conformidade com os\nprincípios de economicidade, de eficiência e de efetividade,\nbem como se há espaço para aperfeiçoamento. O objetivo é\nresponder a questões -chave de auditoria e apresentar\nrecomendações para aperfeiçoamento.\n( ) Foca em determinar se a informação contábil de uma\nentidade é apresentada em conformidade com a estrutura de\nrelatório financeiro e o marco regulatório aplicável.\nAssinale a opção que indica a relação correta, segundo a ordem\napresen tada.",
+    "alternativas": {
+      "A": "I – II – III.",
+      "B": "III – II – I.",
+      "C": "III – I – II.",
+      "D": "I – III – II.",
+      "E": "II – III – I."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "Abordagem Geral de Auditoria",
+    "numero_original": 41,
+    "enunciado": "A abordagem geral de auditoria é um elemento central de\nqualquer auditoria. Ela determina a natureza do exame que deve\nser feito. Também defin e o conhecimento, a informação, os\ndados e os procedimentos de auditoria necessários para obtê -los\ne analisá -los.\nA auditoria operacional geralmente segue abordagens orientadas a",
+    "alternativas": {
+      "A": "sistemas, resultados e problemas.",
+      "B": "programas, processos e resultados .",
+      "C": "orçamento, resultados e operações.",
+      "D": "operações, desempenho e problemas.",
+      "E": "sistemas, procedimentos e orçamento."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "NBASP 3000 - Auditoria Operacional",
+    "numero_original": 42,
+    "enunciado": "O Auditor Governamental, ao seguir os requisitos gerais da\nNBASP 3000, realiza auditorias operacionais com integridad e,\nindependência e competência, garantindo a credibilidade e a\nqualidade do trabalho. Esses requisitos asseguram que o auditor\naplique ceticismo profissional, obtenha evidências apropriadas e\nsuficientes, e adote uma abordagem baseada em risco.\nQuanto à NB ASP 3000, avalie as afirmativas a seguir e assinale (V)\npara a verdadeira e (F) para a falsa.\n( ) O auditor deve, como parte do planejamento e/ou da\ncondução da auditoria, discutir os critérios de auditoria com a\nentidade auditada.\n( ) O auditor deve gerenciar ativamente o risco de auditoria para\nevitar o desenvolvimento de achados, conclusões e\nrecomendações incorretos ou incompletos, fornecendo\ninformações inconsistentes ou que não agregam valor.\n( ) O auditor deve planejar e manter uma comuni cação eficaz e\nadequada dos aspectos -chave da auditoria com a entidade\nauditada e as partes interessadas durante todo o processo de\nauditoria.\nAs afirmativas são, respectivamente,",
+    "alternativas": {
+      "A": "V – F – V.",
+      "B": "F – V – V.",
+      "C": "V – V – V.",
+      "D": "V – V – F.",
+      "E": "V – F – F."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "NBASP 400 - Auditoria de Conformidade",
+    "numero_original": 43,
+    "enunciado": "A NBASP 400 - Auditoria de Conformidade assegura que o auditor\nexecute seu trabalho de maneira objetiva, garantindo a\ntransparência e a integridade da gestão pública. Ao promover a\nconformidade, a NBASP 400 reforça a responsabilidade e a\nprestação de contas, fortalecendo a confiança da sociedade nas\ninstituições governamentais.\nAssinale a opção que indica o elemento que um Relatório de\nAuditoria de Conformidade deve incluir.",
+    "alternativas": {
+      "A": "Local da auditoria.",
+      "B": "Entidade revisora.",
+      "C": "Programas aval iados.",
+      "D": "Achados de auditoria.",
+      "E": "Planejamento da auditoria."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "Avaliação de Políticas Públicas",
+    "numero_original": 44,
+    "enunciado": "A avaliação de política pública objetiva avaliar a utilidade dessa\npolítica. Ela analisa seus objetivos, sua implementação, seus\nprodutos, resultados e impactos o mais sistem aticamente\npossível, mede seu desempenho visando avaliar sua utilidade.\nPor isso, a avaliação está se tornando cada vez mais importante\npara o debate público, uma vez que líderes políticos precisam\ntomar decisões baseadas em evidências.\nDe acordo com a NBA SP 9020, uma avaliação de política pública\npode ser realizada em três momentos diferentes a saber:",
+    "alternativas": {
+      "A": "antes, durante e depois.",
+      "B": "antes, no início e no final.",
+      "C": "no início, durante e depois.",
+      "D": "no início, no meio e no final.",
+      "E": "planejamento, execução e relatório."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "NBASP 200 - Princípios de Auditoria Financeira",
+    "numero_original": 45,
+    "enunciado": "De acordo com a NBASP 200 – Princípios de Auditoria Financeira,\no auditor governamental deve, como parte da identificação e da\navaliação dos riscos de distorção relevante, considerar se essas\ndistorções podem surgir devido a fraude e, assim, responder de\nforma apropriada a esses riscos.\nQuanto às situações referentes à fraude , avalie as afirmativas a\nseguir.\nI. A responsabilidade primária pela prevenção e detecção de\nfraudes é da administração da entidade e dos responsáveis\npela governança.\nII. O auditor é responsável por fornecer asseguração razoável\nsobre se as demonstrações contábeis estão livres de\ndistorções relevantes.\nIII. Distorções relevantes podem surgir apenas de fraude, tendo\nem vista que é muito importante o julgamento da intenção\npelo auditor.\nEstá correto o que se afirma em",
+    "alternativas": {
+      "A": "II, apenas.",
+      "B": "I e II, apenas.",
+      "C": "I e III, apenas.",
+      "D": "II e III, ap enas.",
+      "E": "I, II e III.\nControle Externo da Administração\nPública"
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Controle Externo da Administração Pública",
+    "assunto": "Controle Externo - Sanções e Responsabilização de Agentes",
+    "numero_original": 46,
+    "enunciado": "José, servidor efetivo de município jurisdicionado ao TCE -PI,\npraticou atos que violavam as normas financeiras, contábeis e\norçamentárias aplicáveis, razão pela qual foi multado pela Corte\nde Contas Estadual, no valor de R$ 100.000,00 (cem mil reais).\nOs atos praticados por José não resultaram em prejuízo ao erário,\npelo que a penalidade aplicada pode ser considerada uma multa\nsimples.\nSobre a hipótese, a execução do crédito decorrente da multa\naplicada compete",
+    "alternativas": {
+      "A": "ao Estado do Piauí.",
+      "B": "ao Tribunal de Contas.",
+      "C": "ao Tribunal Regional Eleitoral do Piauí.",
+      "D": "à Câmara de Vereadores do respectivo Município.",
+      "E": "ao Município a que José está vi nculado funcionalmente."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Controle Externo da Administração Pública",
+    "assunto": "Ministério Público de Contas - Atribuições",
+    "numero_original": 47,
+    "enunciado": "Ao Ministério Público junto ao TCE -PI (MPC -PI) incumbe a função\nconstitucional de defesa da ordem jurídica, do regime\ndemocrático e dos interesses sociais e individuais indisponíveis.\nSobre o MPC -PI, avalie as afir mativas a seguir.\nI. O dispositivo de lei orgânica estadual, que dispensa a\nformação de lista tríplice para nomeação de Procurador -Geral\nde Contas do MPC -PI, é constitucional.\nII. O Ministério Público junto ao Tribunal de Contas não dispõe\nde fisionomia in stitucional própria, não integrando o conceito\nde Ministério Público como ente despersonalizado de função\nessencial à Justiça.\nIII. Ao MPC -PI compete a iniciativa legislativa para propor\nprojetos de lei que tratem da criação e da extinção de seus\ncargos e serviços auxiliares, da política remuneratória de seus\nmembros, seus planos de carreira e, especialmente, sobre\nsua organização e funcionamento.\nEstá correto o que se afirma em",
+    "alternativas": {
+      "A": "I, apenas.",
+      "B": "I e II apenas.",
+      "C": "I e III, apenas.",
+      "D": "II e III, apenas.",
+      "E": "I, II e III."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Controle Externo da Administração Pública",
+    "assunto": "Controle Externo - Multa e Imputação de Débito",
+    "numero_original": 48,
+    "enunciado": "Em razão da prática de ato danoso ao erário, o TCE -PI aplicou\nmulta e imputou débito a João, gestor de uma autarquia de\nmunicípio jurisdicionado àquela Corte de Contas.\nA decisão do TCE -PI que resultou na imputação de débito a João\ntem natureza de",
+    "alternativas": {
+      "A": "dívida ativa.",
+      "B": "dívida tributária.",
+      "C": "decisão jurisdicional.",
+      "D": "título de crédito judicial.",
+      "E": "título executivo extrajudicial."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Controle Externo da Administração Pública",
+    "assunto": "Controle Externo - Jurisdição e Competência dos Tribunais de Contas",
+    "numero_original": 49,
+    "enunciado": "José, Diretor -Presidente da Fundação de Educação do Município\nBeta , localizado no Estado Alfa, foi nomeado para esse cargo em\njaneiro de 2016, hipótese em que recebeu um montante\nsignificativo de recursos necessários à implementação de uma\npolítica pública voltada à melhoria da qualidade da educação.\nEm agosto de 2022, José foi exonerado do cargo, ocasião em que\no Tribunal de Contas do Estado Alfa (TCE) iniciou uma auditoria\npara apurar a falta de aplicação dos recursos e a não realização\nda referida políti ca pública.\nEm setembro de 2024, o TCE julgou os fatos apontados no\nrelatório de auditoria, aplicando a José as penalidades de multa e\nde inabilitação para o exercício de cargo em comissão na\nadministração pública direta e indireta nos entes federativos do\nEstado Alfa.\nNessa hipótese, sobre a decisão do TCE que resultou na aplicação\nde penalidades, assinale a afirmativa correta.",
+    "alternativas": {
+      "A": "Não está sujeita ao controle jurisdicional.",
+      "B": "Tem a prescrição interrompida com a publicação do ato de\nexoneração de João.",
+      "C": "Decai em 10 anos, a contar da prática dos fatos apurados no\nrelatório de auditoria.",
+      "D": "É válida, pois a pretensão punitiva do TCE tem seu termo\nprescricional iniciado em agosto de 2022.",
+      "E": "É nula, em razão do advento da prescrição da pretensão\npunitiv a, cujo termo inicial se deu em janeiro de 2016."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Controle Externo da Administração Pública",
+    "assunto": "Composição dos Tribunais de Contas Estaduais",
+    "numero_original": 50,
+    "enunciado": "Os Tribunais de Contas dos Estados são compostos por sete\nConselheiros, dentre os quais, três são escolhidos pelo Poder\nExecutivo (Governador do Estado) e os demais pelo Poder\nLegislativo ( Assembleia Legislativa).\nSobre as regras constitucionais de escolha de Conselheiro do TCE\npelo Governador do Estado Alfa, avalie as afirmativas a seguir.\nI. Os critérios de antiguidade e merecimento não se aplicam na\nescolha do Conselheiro -Substituto para a vaga de Conselheiro\nTitular.\nII. A escolha de Procurador do Ministério Público de Contas para\na vaga de Conselheiro do TCE prescinde de aprovação da\nAssembleia Legislativa do Estado Alfa.\nIII. O Membro do Ministério Público de Contas deve contar com\nidade máxima de setenta anos para ocupa r a vaga de\nConselheiro do TCE.\nEstá correto o que se afirma em",
+    "alternativas": {
+      "A": "I, apenas.",
+      "B": "II apenas.",
+      "C": "III, apenas.",
+      "D": "I e III, apenas.",
+      "E": "II e III, apenas."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Controle Externo da Administração Pública",
+    "assunto": "Controle Externo - Impedimentos e Responsabilização de Conselheiros",
+    "numero_original": 51,
+    "enunciado": "Adão, Conselheiro de Tribunal de Contas do Estado Alfa, foi\ndenunciado pelo Ministério Público pela prática de crime comum\n(homicídio).\nA denúncia foi aceita pelo Superior Tribunal de Justiça e\ninaugurou o respectivo processo penal em que Adão figurou\ncomo réu.\nConsiderando a situação hipotética, avalie as afirmativas a seguir.\nI. O processo deve ser encaminhado ao juízo de primeira\ninstância, tendo em vista que o STJ somente pode processar e\njulgar os membros dos Tribunais de Contas por crimes\nrelacionados ao exercício de suas funções.\nII. A prerrogativa de foro privilegiado fica afastada, exceto na\nhipótese de federalização das investigações, o que desloca a\ncompetência do julgamento para o STF.\nIII. O crime cometido pelo Conselheiro, mesmo que não esteja\nrelacionado às suas funções, deverá ser julgado pelo STJ com\no objetivo de preservar a isenção (imparcialidade e\nindependência) do órgão julgador.\nEstá correto o que se afirma em",
+    "alternativas": {
+      "A": "I, apenas.",
+      "B": "II, apenas.",
+      "C": "III, apenas.",
+      "D": "I e II, apenas.",
+      "E": "II e III, apenas."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Controle Externo da Administração Pública",
+    "assunto": "Controle Externo - Independência e Imparcialidade do Controlador",
+    "numero_original": 52,
+    "enunciado": "Ismar Viana destaca que é necessário “ ...afastar das atividades de\ncontrole o agente a quem é atribuído o mister de executar outras\nfunções, tendo em vista que, no regular exercício da função de\ncontrole, quem controla não deve executar, quem executa não\ndeve controlar .” (2019, p.12)\nO princípio da atividade de controle da Administração Pública a\nque se refere o autor é o",
+    "alternativas": {
+      "A": "da probidade.",
+      "B": "da objeti vidade.",
+      "C": "da impessoalidade.",
+      "D": "da segregação de funções.",
+      "E": "do ceticismo profissional."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Controle Externo da Administração Pública",
+    "assunto": "Tribunais de Contas - Natureza Jurídica e Funções",
+    "numero_original": 53,
+    "enunciado": "Sobre a organização, os papéis e as funções constitucionais e\njurisprudenciais atribuídas aos Tribunais de Contas, avalie as\nafirmativas a seguir.\nI. Na ausência do Ministério Público Especial, de atuação\nespecífica no Tribunal de Contas Estadual, é constitucional o\ndispositivo da Lei Orgânica dessa Corte que possibilita a\natuação de promotores de justiça para suprirem a\ninexistência de procuradores de contas.\nII. Tendo em vista o princípio da simetria, que orienta a\norganização e a estruturação dos Tribunais de Contas, é\nconstitucional a atribuição às Cortes de Contas estaduais de\ncompetência para homologação dos cálculos das cotas do\nICMS devidas a os Municípios.\nIII. É possível a aprovação de Emenda à Constituição estadual, de\niniciativa parlamentar, que tenha por finalidade a extinção de\nTribunal de Contas responsável pela fiscalização dos\nMunicípios.\nEstá correto o que se afirma em",
+    "alternativas": {
+      "A": "I, apenas.",
+      "B": "II, apenas.",
+      "C": "III, apenas.",
+      "D": "I e II, apenas.",
+      "E": "I e III, apenas."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Controle Externo da Administração Pública",
+    "assunto": "Controle Externo - Jurisdição sobre Terceiros (Contador)",
+    "numero_original": 54,
+    "enunciado": "João é contador de uma sociedade empresária que comercializa\nroupas masculinas em um shopping localizado no Município Beta ,\nno Estado do Piauí.\nEm razão de um pequeno acidente, João precisou ser atendido na\nemergência de um Hospital da rede pública do Muni cípio Beta.\nNo entanto, após aguardar por atendimento por mais de 3 horas,\nfoi informado pela equipe do Hospital de que não havia médicos\ndisponíveis para atendê -lo, pelo que deveria retornar na manhã\ndo dia seguinte.\nRevoltado, João quebrou um aparelho de diagnóstico e os\ncomputadores do laboratório do hospital, causando um prejuízo\nde R$ 150 mil.\nConsiderando os fatos narrados e a jurisdição e competências\nconstitucionais e regimentais do Tribunal de Contas do Estado do\nPiauí, é correto afirmar que João",
+    "alternativas": {
+      "A": "não pode ser julgado pelo TCE -PI.",
+      "B": "fica sujeito apenas à aplicação de multa pelo TCE -PI.",
+      "C": "pode ser sujeito de tomada de contas especial, a ser\nsubmetida a julgamento do TCE -PI.",
+      "D": "fica sujeito à responsabilização administrativa, que somente\npoder á ser apurada pelo Poder Judiciário.",
+      "E": "não pode ser obrigado a ressarcir os prejuízos causados,\ntendo em vista que a falha na prestação dos serviços justifica\nsua conduta."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Controle Externo da Administração Pública",
+    "assunto": "Controle Externo - Responsabilidade do Ordenador de Despesas",
+    "numero_original": 55,
+    "enunciado": "Avalie as seguintes situações:\nI. João é prefeito do Município Beta e ordenador de despesas\nda respectiva Secretaria de Saúde.\nII. José é Secretário de Educação do Município Alfa.\nIII. Manoel é Presidente de uma autarquia do Município Ômega.\nTodos os gestores elaboraram suas prestações de contas e as\nencaminharam ao órgão competente, não havendo quaisquer\nindícios de dano ou de irregularidades.\nSobre as contas anuais (ou de gestão) prestadas pelos referidos\ngestores, assinale a afirmativa correta.",
+    "alternativas": {
+      "A": "As contas do Prefeito do Município Beta serão julgadas pelo\nTribunal de Contas.",
+      "B": "As contas da Secretaria de Saúde do Município Beta serão\njulgadas pelo Tribunal de Contas.",
+      "C": "As contas da Autarquia do Município Ômega serão julgadas\npelo Ministério Público de Contas.",
+      "D": "As contas da Secret aria de Saúde do Município Beta serão\njulgadas pela respectiva Câmara Municipal.",
+      "E": "As contas da Secretaria de Educação do Município Alfa são de\nresponsabilidade da respectiva Auditoria Interna.\nNoções de Direito Administrativo"
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Administrativo",
+    "assunto": "Direito Administrativo - Aposentadoria de Servidor Público (Ato Complexo)",
+    "numero_original": 56,
+    "enunciado": "João, auditor de controle externo do Tribunal de Contas do\nEstado Alfa, no exercício de suas funções, analisou de forma\nerrônea o pedido de concessão de aposentadoria formulado por\nAna, servidora pública de órgão jurisdicionado. Esse fato resultou\nno indeferimento do pedido de aposentadoria por parte do corpo\ndeliberativo da Corte de Contas, com consequente retorno da\nservidora ao exercício das funções, mesmo já tendo cumprido\nintegralmente o período aquisitivo.\nSentindo -se prejudicada pelo indeferimento do pleito, Ana\najuizou demanda judicial diretamente contra João, pleiteando\nreparação pelos danos morais e materiais sofridos, em razão da\nanálise errônea realizada pelo auditor.\nNesse contexto, em sede de responsa bilidade civil do Estado,\nassinale a afirmativa correta.",
+    "alternativas": {
+      "A": "João poderá ser demandado diretamente, sendo sua\nresponsabilidade de natureza objetiva.",
+      "B": "João poderá ser demandado diretamente, sendo sua\nresponsabilidade de natureza subjetiva.",
+      "C": "João não p oderá ser demandado diretamente, mas apenas\nem regresso, sendo sua responsabilidade de natureza\nobjetiva.",
+      "D": "João não poderá ser demandado diretamente, mas apenas\nem regresso, sendo sua responsabilidade de natureza\nsubjetiva.",
+      "E": "João poderá ser demandado concomitantemente com o\nórgão público ao qual pertence, sendo sua responsabilidade\nde natureza objetiva."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Administrativo",
+    "assunto": "Administração Direta e Indireta - Classificação de Entes",
+    "numero_original": 57,
+    "enunciado": "Considere os atores do Estado do Piauí listados a seguir.\nI. Fundação Pública Estadual de direito privado Alfa.\nII. Ministério Públi co do Estado do Piauí.\nIII. Empresa Pública Federal Beta, sediada em Teresina/PI.\nIV. João, Secretário de Estado do Piauí, ordenador de despesas.\nV. Ordem dos Advogados do Brasil, seccional Piauí.\nAcerca da competência das Cortes de Contas, os atores que e stão\nsujeitos ao controle externo exercido pelo Tribunal de Contas do\nEstado do Piauí são",
+    "alternativas": {
+      "A": "III e IV, apenas.",
+      "B": "III e V, apenas.",
+      "C": "I, II e IV, apenas.",
+      "D": "I, II e III, apenas.",
+      "E": "I, II, III e V, apenas."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Administrativo",
+    "assunto": "Direito Administrativo - Políticas de Fomento e Incentivo",
+    "numero_original": 58,
+    "enunciado": "O Município de Teresina -PI, atento à realidade nacional, pretende\nimplementar, no exercício de 2025, política pública de busca de\npessoas desaparecidas.\nUm dos programas dessa política refere -se ao desenvolvimento\nde um sistema de alertas, que permite a c omunicação, em tempo\nreal, do desaparecimento de crianças, adolescentes e pessoas\nvulneráveis.\nVisando concretizar e dar eficácia ao programa, a municipalidade\npretende firmar parcerias com organizações da sociedade civil,\npermitindo uma melhor interface entre o poder público e a\npopulação.\nEssa parceria terá por escopo a divulgação de informações, fotos\ne características da pessoa desaparecida pelas organizações, por\nmeio de uma central informática, implementada com recursos\noriundos de transferências fi nanceiras realizadas pelo Município\nde Teresina.\nConsiderando a Lei nº 13.019/2014, o instrumento jurídico\nadequado a ser firmado pelo Município de Teresina com as\nOrganizações da Sociedade Civil é o",
+    "alternativas": {
+      "A": "Termo de Colaboração.",
+      "B": "Termo de Fomento.",
+      "C": "Termo de Pactuação.",
+      "D": "Acordo de Finanças.",
+      "E": "Acordo de Divulgação."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Administrativo",
+    "assunto": "Direito Administrativo - Contratações Públicas (Lei 14.133/2021)",
+    "numero_original": 59,
+    "enunciado": "O Governo do Estado do Piauí pretende realizar, no exercício\nfinanceiro de 2025, tratativas para adquirir, entre outros, os bens\ne serviços listados a seguir.\nI. Aquisi ção de software inovador de inteligência artificial com\nfuncionalidades adaptadas, específica e individualmente, para\ncada tipo de trabalho executado por suas Secretarias de\nEstado, a serem definidas e identificados durante o processo\nlicitatório.\nII. Regi stro formal de preços de notebooks de última geração a\nserem licitados quando da implementação do software de\ninteligência artificial.\nIII. Chamamento público de profissionais interessados na\nprestação de serviço de TI e manutenção de equipamentos\ninform áticos, em regime de contratação simultânea e\npadronizada.\nNo que tange à Lei de Licitações (Lei nº 14.133/2021), os\ninstrumentos jurídicos a serem adotados pela administração do\nEstado do Piauí para a aquisição dos bens e serviços\nsupramencionados (segundo a ordem apresentada) são,\nrespectivamente,",
+    "alternativas": {
+      "A": "concurso, pregão e diálogo competitivo.",
+      "B": "pré-qualificação, credenciamento e diálogo competitivo.",
+      "C": "diálogo competitivo, sistema de registro de preços e pregão.",
+      "D": "credenciamento , diálogo competitivo e sistema de registro de\npreços.",
+      "E": "diálogo competitivo, sistema de registro de preços e\ncredenciamento."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Administrativo",
+    "assunto": "Direito Administrativo - Controle Externo dos Tribunais de Contas",
+    "numero_original": 60,
+    "enunciado": "Os Tribunais de Contas são órgãos independentes, de\nenvergadura constitucional, responsáveis pelo controle ext erno\nda Administração Pública, ostentando competências próprias e\nprivativas.\nAs decisões proferidas pelas Cortes de Contas têm capacidade de\nimpactar diretamente a esfera jurídica dos órgãos\njurisdicionados, definindo deveres e responsabilidades.\nNesse c ontexto, considerando as disposições da Lei de Introdução\nàs Normas do Direito Brasileiro - LINDB, no âmbito de sua\natuação, o Tribunal de Contas do Estado do Piauí",
+    "alternativas": {
+      "A": "ao decidir, poderá se basear em valores jurídicos abstratos,\nmesmo sem considerar as c onsequências práticas da decisão,\ndesde que o faça de forma motivada.",
+      "B": "ao motivar seus atos, demonstrará a necessidade e a\nadequação da medida imposta ou da invalidação de ato,\ncontrato, ajuste, processo ou norma administrativa, inclusive\nem face da s possíveis alternativas.",
+      "C": "ao interpretar normas sobre gestão pública, deverá\nconsiderar os obstáculos, as dificuldades reais do gestor e as\nexigências das políticas públicas a seu cargo, mesmo que com\neventual prejuízo dos direitos dos administrados.",
+      "D": "ao decretar a invalidação de ato, contrato, ajuste, processo\nou norma administrativa, deverá indicar de modo expresso\nsuas consequências administrativas, mas não as jurídicas, em\nrazão do princípio da inafastabilidade do controle\njurisdi cional.",
+      "E": "ao estabelecer interpretação ou orientação nova sobre\nnorma de conteúdo indeterminado, impondo novo dever ou\nnovo condicionamento de direito, dará a ela aplicabilidade\nimediata, se abstendo, em qualquer caso, de estabelecer\nregime de transição, aplicável apenas à esfera judicial.\nNoções de Direito Constitucional"
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Constitucional",
+    "assunto": "Direito Constitucional - Reforma Tributária (EC nº 132/2023)",
+    "numero_original": 61,
+    "enunciado": "O Art. 92 -B, §2º, do Ato das Disposições Constitucionais\nTransitórias da Constituição da República, acrescido pela Emenda\nConstitucional nº 132/2023, tem a seguinte redação:\nLei complementar instituirá Fundo de Sustentabilidade e\nDiversificação Econômica do Estado do Amazonas, que será\nconstituído com recursos da União e por ela gerido, com a efetiva\nparticipação do Estado do Amazonas na definição das políti cas,\ncom o objetivo de fomentar o desenvolvimento e a diversificação\ndas atividades econômicas no Estado .\nA interpretação desse comando normativo permite concluir que\nse está perante norma de",
+    "alternativas": {
+      "A": "eficácia contida.",
+      "B": "aplicabilidade imediata.",
+      "C": "aplicabilidade direta, mas não integral.",
+      "D": "eficácia limitada e de princípio institutivo.",
+      "E": "eficácia limitada e de princípio programático."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Constitucional",
+    "assunto": "Direito Constitucional - Competência Legislativa Municipal",
+    "numero_original": 62,
+    "enunciado": "Após ampla mobilização popular, o Município Alfa editou a Lei\nmunicipal nº X, dispondo que os jo vens de até vinte e um anos de\nidade teriam direito a concessão de desconto de 50% sobre o\npreço do ingresso cobrado por casas de diversões situadas em\nseu território.\nEsse diploma normativo foi muito festejado no ambiente social,\npois nem a legislação do Estado em cujo território Alfa está\nsituado nem a legislação da União contêm preceito similar.\nApesar disso, a associação dos empresários do setor, os quais\nteriam seus lucros reduzidos, criticou duramente a Lei municipal\nnº X, tendo solicitado que um espe cialista analisasse a sua\nconformidade constitucional, mais especificamente se Alfa\npoderia legislar sobre a matéria.\nAssinale a opção que apresenta o esclarecimento correto dado à\nassociação.",
+    "alternativas": {
+      "A": "Compete privativamente à União legislar sobre produção e\nconsumo, logo, a Lei municipal nº X é inconstitucional nesse\naspecto.",
+      "B": "O Município Alfa somente tem competência para legislar\nsobre a matéria se houver lei complementar federal\nautorizativa.",
+      "C": "Todos os entes federativos possuem competência legislativa\ncomum para legislar sobre lazer, logo, a Lei municipal nº X é\nconstitucional nesse aspecto.",
+      "D": "Se trata de típico interesse local, logo, Alfa tem competência\nprivativa para legislar sobre a matéria, o que torna a Lei\nmunicipal nº X constitucional nesse as pecto.",
+      "E": "O Município Alfa pode suplementar a legislação federal e\nestadual em matéria de direito econômico, logo, a Lei\nmunicipal nº X é constitucional nesse aspecto."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Constitucional",
+    "assunto": "Direito Constitucional - Aposentadoria de Servidor Público",
+    "numero_original": 63,
+    "enunciado": "Ana, servidora pública estadual ocupante de cargo de provimento\nefeti vo, preencheu os requisitos para a aposentadoria\ncompulsória, o que redundou na expedição do ato de\naposentadoria, com a correlata fixação dos seus proventos pela\nautoridade máxima da estrutura de poder a que estava vinculada.\nEsse ato foi expedido no dia 10 de setembro de 2018, mas até a\npresente data ainda não foi analisado pelo Tribunal de Contas.\nSobre a hipótese apresentada, à luz da sistemática vigente,\nassinale a afirmativa correta.",
+    "alternativas": {
+      "A": "Pela natureza do ato de aposentação, não é necessário o seu\nregistro no Tribunal de Contas.",
+      "B": "Em razão do tempo decorrido desde a expedição do ato, a\naposentadoria de Maria tornou -se irreversível.",
+      "C": "O Tribunal de Contas pode analisar a qualquer tempo a\nlegalidade do ato inicial de aposentadoria, não se exigindo a\nobservância do contraditório e da ampla defesa.",
+      "D": "Em razão do tempo decorrido, eventual negativa de registro,\npelo Tribunal de Contas, deve ser antecedida da observância\ndas garantias do contraditório e da ampla defesa.",
+      "E": "É possível que o ato seja considerado registrado em razão do\ndecurso do tempo, mas o termo inicial da contagem é o\ningresso do processo administrativo no Tribunal de Contas."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Constitucional",
+    "assunto": "Direito Constitucional Tributário - Espécies de Taxas",
+    "numero_original": 64,
+    "enunciado": "A Lei estadual nº X instituiu a Taxa de Serviços Diversos (TSD),\ndispondo que o s eu fato gerador decorreria do exercício do poder\nde polícia ou pela utilização, efetiva ou potencial, de serviços\npúblicos específicos e divisíveis, prestados ao contribuinte ou\npostos à sua disposição pela Secretaria Estadual de\nDesenvolvimento Econômico.\nLogo após a edição da Lei estadual nº X e a realização dos\nprimeiros lançamentos tributários, diversos contribuintes\ninsurgiram -se contra a cobrança desse tributo, argumentando\ncom a sua inconstitucionalidade.\nSobre a TSD, considerando a sistemática cons titucional vigente,\nassinale a afirmativa correta.",
+    "alternativas": {
+      "A": "É inconstitucional, pois somente a União poderia instituir\ntributo dessa natureza.",
+      "B": "É inconstitucional, por não definir a atuação estatal que seria\no fato gerador do tributo.",
+      "C": "É constitucional, c onsiderando que a descrição do fato\ngerador se ajusta ao permissivo constitucional.",
+      "D": "É inconstitucional, pois tributo dessa natureza deveria ser\ncriado por meio de lei complementar estadual.",
+      "E": "É constitucional, pois cabe ao regulamento detalhar o fato\ngerador do tributo, a partir da enunciação geral da lei."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Constitucional",
+    "assunto": "Direito Constitucional Tributário - Incentivos Fiscais Regionais",
+    "numero_original": 65,
+    "enunciado": "O Estado Beta editou a Lei estadual nº Y, instituindo o programa\nestadual de crescimento econômico, que tem como um dos\npilares o diferimento do recolhimento do imposto sobre\noperações relativas à circulação de mercadorias e sobre\nprestações de serviços de transporte interestadual e\nintermunicipal e de comunicação, ainda que as operações e as\nprestações se iniciem no exterior (ICMS).\nEsse diferimento seria fruído pelas socieda des empresárias que\nse instalassem na região do Estado que apresentasse menor\níndice de desenvolvimento humano.\nDiversos municípios do Estado Beta argumentaram com a\ninconstitucionalidade da Lei estadual nº Y, pois esse diploma\nnormativo impactara negativ amente as suas receitas.\nSobre a hipótese narrada, à luz da sistemática constitucional,\nassinale a afirmativa correta.",
+    "alternativas": {
+      "A": "A arrecadação do ICMS, pelo Estado Beta , não apresenta\nqualquer correlação com o aumento ou a redução da\narrecadação dos municípios s ituados em seu território.",
+      "B": "Não há afronta ao sistema de repartição de receitas\ntributárias, desde que o repasse da parcela pertencente aos\nmunicípios seja realizado quando do recolhimento do ICMS.",
+      "C": "Caso haja o depósito prévio, no Fundo de Participaç ão dos\nMunicípios, do valor a que fazem jus os municípios atingidos,\no diferimento do recolhimento do ICMS será considerado\nlícito.",
+      "D": "O diferimento do recolhimento do ICMS não afeta o sistema\nde repartição de receitas tributárias, desde que o repasse d a\nparcela pertencente aos Municípios seja realizado quando da\nprática do fato gerador do imposto.",
+      "E": "O diferimento do recolhimento do ICMS somente será\nconsiderado lícito se forem adotadas medidas de\ncompensação por Beta , considerando outros impostos cuja\narrecadação deva ser repartida com os municípios.\nCONHECIMENTOS ESPECIALIZADOS\nAtuária"
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Atuária - Renda Vitalícia e Anuidades",
+    "numero_original": 66,
+    "enunciado": "Um segurado com 55 anos de idade pretende receber uma renda\nvitalícia após os 60 anos de idade. A renda anual postecipada\ndesejada é de R$ 100.000.\nIdade qx px lx Dx Nx Mx\n55 0,002449 0,997551 96.727,44 19.032,78 392.941,47 7.072,81\n56 0,002691 0,997309 96.467,14 18.428,70 373.908,68 7.026,19\n57 0,002957 0,997043 96.181,89 17.839,04 355.479,98 6.976,59\n58 0,003250 0,996750 95.869,32 17.263,17 337.640,94 6.923,85\n59 0,003572 0,996428 95.526,85 16.700,49 320.377,76 6.867,74\n60 0,003927 0,996073 95.151,75 16.150,40 303.677,27 6.808,09\n61 0,004317 0,995683 94.740,98 15.612,31 287.526,87 6.744,67\nAssinale a opção que indica o valor aproximado (R$) do prêmio à\nvista calculado com base nas comutações atuariais fornecidas.",
+    "alternativas": {
+      "A": "R$ 35.437",
+      "B": "R$ 35.770",
+      "C": "R$ 117.847",
+      "D": "R$ 1.510.693",
+      "E": "R$ 1.595.549"
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Atuária - Tábua Biométrica de Decrementos",
+    "numero_original": 67,
+    "enunciado": "Na construção de uma tábua biométrica de serviço sujeita aos\ndecrementos de invalidez e morte, de válidos e inválidos, utilizou -\nse o Método de Hamza com\n2xi\nx xai qi q •= , a fim de se\ndeterminar o número de segurados inválidos para o cálculo de\numa re nda.\nSegundo a notação atuarial, se\nxii\nxaa\nx l l l += e\n0 0=ii\nl , então\npodemos definir\n1+xii\nl como:",
+    "alternativas": {
+      "A": "xi\nxii\nxi\nxxaa\nplqil •+\n\n\n\n\n−••21",
+      "B": "xi\nxii\nxi\nxxaa\npl q il •+−•• 1",
+      "C": "xi\nxii\nxi\nxxii\nplqil •+\n\n\n\n\n−••21",
+      "D": "xi\nxii\nxi\nxxii\npl q il •+−•• 1",
+      "E": "xaa\nxl l−"
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Atuária - Custo Normal e Custeio de Plano Previdenciário",
+    "numero_original": 68,
+    "enunciado": "Os custos atuariais são fundamentais para manter o equilíbrio do\nplano. O custo normal financia os benefícios futuros, enquanto\nque o custo suplementar cobre déficits atuariais. Sabe -se que um\nRegime Próprio possui ativos de R$ 2 bilhões, que o valor atual\ndos benefícios futuros (encargos atuariais) é de R$ 10 bilhões e\nque a folha salarial atuarial futura é de R$ 32 bilhões.\nO custo normal (%) calculado pelo método de financiamento\nagregado corresponde a",
+    "alternativas": {
+      "A": "6,25.",
+      "B": "20,00.",
+      "C": "25,00.",
+      "D": "31,25.",
+      "E": "33,33."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Atuária - Premissas Atuariais (Inflação)",
+    "numero_original": 69,
+    "enunciado": "A premissa ou hipótese atuarial que aborda a perda de poder de\ncompra ao longo do ano, resultante da diferença entre a\nperiodicidade anual (maior) do reajuste dos benefícios e a\nperiodicidade mensal (menor) dos seus pagamentos é",
+    "alternativas": {
+      "A": "a compensação previdenciária.",
+      "B": "o fator de capacidade.",
+      "C": "a geração futura.",
+      "D": "a reposição.",
+      "E": "a rotatividade."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Atuária - Avaliação Atuarial e Déficit Técnico",
+    "numero_original": 70,
+    "enunciado": "No parecer de uma avaliação atuarial, um Atuário afirma que “ ...o\ndéficit decorre de fatores decorrentes de oscilações econômicas e\nflutuações momentâneas nos retornos dos ativos, mas não reflete\num desequilíbrio no modelo atuarial ou nas premissas do plano.\nCom a normalização das co ndições de mercado e a recuperação\ndos investimentos, espera -se que o plano retorne ao equilíbrio... ”\nNesse caso, a melhor definição para a situação do resultado do\nplano é de",
+    "alternativas": {
+      "A": "desequilíbrio atuarial conjuntural.",
+      "B": "desequilíbrio atuarial estrutural.",
+      "C": "desequilíbrio atuarial financeiro.",
+      "D": "equilíbrio atuarial.",
+      "E": "especulação financeira."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Atuária - Cálculo de Benefício de Renda",
+    "numero_original": 71,
+    "enunciado": "Segundo o regulamento de um plano de previdência\ncomplementar, o benefício de renda será calculado pelo maior\nvalor entre o salário -mínimo vigente e a média dos 80% maiores\nsalários do participante dos últimos 60 meses, atualizados pelo\níndice de inflação do plano.\nEsse tipo regra caracteriza um plano atuarial na modalidade de",
+    "alternativas": {
+      "A": "contribuição definida.",
+      "B": "contribuição variáve l.",
+      "C": "benefício definido.",
+      "D": "benefício variável.",
+      "E": "contribuição e benefício variáveis."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Atuária - Regime Financeiro de Capitalização",
+    "numero_original": 72,
+    "enunciado": "Um plano de regime próprio adota o regime financeiro de\ncapitalização para os benefícios concedidos e também para as\naposentadorias programadas a c onceder e sua continuidade ao\ncônjuge/companheiro/filhos em forma de pensão.\nPara os demais benefícios, ele adota o regime de repartição de\ncapitais de cobertura.\nBenefícios a Conceder 140\nAposentadoria Programada 100\nPensão revertida de Aposentadoria Programada 10\nAposentadoria por Invalidez 8\nPensão revertida de aposentadoria por Invalidez 2\nPensão por Morte de Ativo 20\nBenefícios a Concedidos 205\nAposentadoria Programada 120\nPensão revertida de Aposentadoria Programada 30\nAposentadoria por Invalidez 20\nPensão revertida de aposentadoria por Invalidez 15\nPensão por Morte de Ativo 20\nO valor total das provisões matemáticas, com base nos valores\npresentes atuariais (R$ milhões) acima e desconsiderando -se as\ncontribuições, é",
+    "alternativas": {
+      "A": "140.",
+      "B": "205.",
+      "C": "305.",
+      "D": "315.",
+      "E": "345."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Atuária - Ativo Real Líquido e Equilíbrio Financeiro",
+    "numero_original": 73,
+    "enunciado": "Um regime próprio de previdência possui um plano\nprevidenciário com ativo real líquido de R$ 700 milhões e os\nseguintes valores em termos de valor presente atuarial (em\nmilhões de reais).\nProvisões para Benefícios Concedidos 525\nAposentadorias e Pensões 585\nContribuições do Ente 40\nContribuições do Aposentado 17\nContribuições do Pensionista 3\nProvisões para Benefícios a Conceder 175\nAposentadorias e Pensões 262\nContribuições do Ente 58\nContribuições do Servidor 29\nCom base nesses dados e adotando o regime de capitalização, o\nresultado atuarial é",
+    "alternativas": {
+      "A": "déficit de R$ 127 milhões.",
+      "B": "déficit de R$ 147 milhões.",
+      "C": "déficit de R$ 175 milhões.",
+      "D": "superávit de R$ 700 milhões.",
+      "E": "zero."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Atuária - Plano de Amortização do Déficit Atuarial",
+    "numero_original": 74,
+    "enunciado": "Analise a tabela a seguir.\nPlano de amortização do déficit atuarial:\nAno Alíquota mensal (%) Aporte anual (R$)\n2024 35,00 0,00\n2025 35,00 0,00\n2026 35,00 0,00\n2027 35,00 0,00\n2028 35,00 0,00\nEssa tabela representa uma seção importante do seguinte\ndocumento oficial, publicado por um regime próprio de\nprevidência social no ano de 2024:",
+    "alternativas": {
+      "A": "auditoria atuarial.",
+      "B": "demonstrativo de resultados da avaliação atuarial.",
+      "C": "fluxo de caixa atuarial.",
+      "D": "nota técnic a atuarial.",
+      "E": "teste de aderência estatística."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Atuária - Rotatividade e Gerações Futuras",
+    "numero_original": 75,
+    "enunciado": "O termo rotatividade refere -se à saída de participantes ativos de\num plano, enquanto as “entradas gerações futuras” dizem\nrespeito ao ingresso de novos participantes, geralmente mais\njovens, que contribuirão ao longo do tempo e poderão,\neventualmente, se desligar antes de rec eberem benefícios.\nAmbos os fatores têm impacto no equilíbrio atuarial dos planos\nprevidenciários.\nConsiderando todas as particularidades dos regimes próprios\nfinanciados pelo regime de capitalização, é sempre correto\nafirmar que",
+    "alternativas": {
+      "A": "as gerações futuras provocam aumento de déficit atuarial.",
+      "B": "as gerações futuras provocam redução de superávit atuarial.",
+      "C": "a rotatividade provoca aumento de déficit atuarial.",
+      "D": "a rotatividade provoca redução de superávit atuarial.",
+      "E": "as gerações futuras combinad as com a rotatividade provocam\nvariação do resultado atuarial. Estatística"
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Estatística Descritiva - Séries Temporais",
+    "numero_original": 76,
+    "enunciado": "A tabela a seguir exibe a quantidade mensal de sinistros\nregistrados por uma seguradora num determinado ano.\nJan Fev Mar Abr Mai Jun\n87 65 76 81 58 80\nJul Ago Set Out Nov Dez\n98 64 59 76 71 80\nA mediana do número mensal de sinistros nesse ano foi",
+    "alternativas": {
+      "A": "74.",
+      "B": "76.",
+      "C": "78.",
+      "D": "80.",
+      "E": "89."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Estatística Descritiva - Média Aritmética",
+    "numero_original": 77,
+    "enunciado": "A média das idades de um grupo de 11 pessoas é igual a 38,4. Se\na esse grupo se junta uma pessoa que tem 54 anos de idade, a\nmédia das idades desse novo grupo é então igual a",
+    "alternativas": {
+      "A": "38,7.",
+      "B": "39,1.",
+      "C": "39,5.",
+      "D": "39,7.",
+      "E": "40,1."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Estatística Descritiva - Box-plot",
+    "numero_original": 78,
+    "enunciado": "A figura a s eguir mostra os box-plots de cinco diferentes\namostras:\nA amostra com maior mediana e a amostra com menor intervalo\ninterquartil são, respectivamente,",
+    "alternativas": {
+      "A": "a II e a III.",
+      "B": "a III e a V.",
+      "C": "a IV e a V.",
+      "D": "a I e a III.",
+      "E": "a II e a IV."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Probabilidade - Distribuição Binomial",
+    "numero_original": 79,
+    "enunciado": "Numa determinada população, 40% das famílias moram em locais\nsem acesso a saneamento básico. Se quatro famílias dessa\npopulação forem sorteadas ao acaso, sem reposição, a\nprobabilidade de que duas morem em locais sem saneamento\nbásico é, apr oximadamente, igual a",
+    "alternativas": {
+      "A": "0,25.",
+      "B": "0,30.",
+      "C": "0,35.",
+      "D": "0,40.",
+      "E": "0,45."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Probabilidade - Variável Aleatória Discreta (Esperança e Variância)",
+    "numero_original": 80,
+    "enunciado": "Uma variável aleatória discreta X tem a seguinte função de\nprobabilidade:\nx 0 2 4 6\np(x) 0,2 0,3 0,3 0,2\nA variância de X é então igual a",
+    "alternativas": {
+      "A": "3,4.",
+      "B": "3,6.",
+      "C": "3,8.",
+      "D": "4,0.",
+      "E": "4,2."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Inferência Estatística - Distribuição Amostral",
+    "numero_original": 81,
+    "enunciado": "Suponha que uma amostra aleatória simples de tamanho n de\numa distribuição normal com média  e variância 2 será obtida.\nSejam 𝑥̅ 𝑒 𝑠 a média amostral e o desvio padrão amostral usuais.\nSe z denota o 97,5% perce ntil da distribuição normal padrão,\nentão o intervalo de 95% de confiança usual para  será dado por",
+    "alternativas": {
+      "A": "(𝑥̅ – √𝑛 zs/2; 𝑥̅ + √𝑛 zs/2).",
+      "B": "(𝑥̅ – 2zs/√𝑛; 𝑥̅ + 2zs/√𝑛).",
+      "C": "(𝑥̅ – z/𝑠√𝑛; 𝑥̅ + z/𝑠√𝑛).",
+      "D": "(𝑥̅ – zs/√𝑛; 𝑥̅ + zs/√𝑛).",
+      "E": "(𝑥̅ – zs; 𝑥̅ + zs)."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Matemática, Raciocínio Lógico e Estatística",
+    "assunto": "Inferência Estatística - Propriedades de um Bom Estimador",
+    "numero_original": 82,
+    "enunciado": "Um bom estimador de um parâmetro  deve",
+    "alternativas": {
+      "A": "ser não tendencioso e ter variância grande.",
+      "B": "ser tendencioso e ter variância pequena.",
+      "C": "ser não tendencioso e ter variância pequena.",
+      "D": "ser tendencioso e ter variância grande.",
+      "E": "ter ten dência pequena, compensada por variância\nrazoavelmente grande.\nDireito Previdenciário"
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Previdenciário",
+    "assunto": "Direito Previdenciário - Verbas Trabalhistas e Contracheque",
+    "numero_original": 83,
+    "enunciado": "Pedro é empregado em uma sociedade empresária localizada em\nTeresina/PI desde 2021. No contracheque de Pedro há diversas\nparcelas especificando o que ele recebe.\nDe acordo com a norma de regência, assinale a opção que\ncontempla dois direitos recebidos por Pedro sobre os quais não\nhaverá incidência de contribuição previdenciária.",
+    "alternativas": {
+      "A": "Diárias para viagem e 13º salário.",
+      "B": "Cessão de d ireitos autorais e vale -cultura.",
+      "C": "Férias indenizadas e remuneração auferida.",
+      "D": "Gorjetas e vale -transporte, na forma da legislação.",
+      "E": "Participação nos lucros da empresa e adiantamento\ndecorrentes de reajuste salarial."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Previdenciário",
+    "assunto": "Direito Previdenciário - Inadimplência da Contribuição Patronal",
+    "numero_original": 84,
+    "enunciado": "Uma sociedade empresária localizada em Parnaíba/PI deixou de\npagar por alguns meses a contribuição previdenciária de 2024 por\nfalta de recurso financeiro.\nEla foi então informada de que o Governo Federal havia lançado\num programa permitindo a quitação da dívida com exc lusão das\npenalidades. A sociedade empresária aderiu ao programa porque\nviu nele uma boa oportunidade de quitar sua obrigação.\nAssinale a opção que indica o fenômeno ocorrido.",
+    "alternativas": {
+      "A": "Anistia.",
+      "B": "Remição.",
+      "C": "Remissão.",
+      "D": "Imunidade.",
+      "E": "Dação em pagamento."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Previdenciário",
+    "assunto": "Direito Previdenciário - Aposentadoria Especial (RGPS)",
+    "numero_original": 85,
+    "enunciado": "Ana recebe aposentadoria especial do INSS porque atuava em\ncondições prejudiciais à saúde , o que lhe permitiu se aposentar\ntão logo completou 20 anos de contribuição.\nJá na condição de aposentada, Ana estudou com afinco e\ndisciplina, obtendo aprovação no concurso do TCE -PI, em 2024. A\nrespeito das contribuições que Ana fez para o INSS,\nespecificamente na contagem recíproca para fins de\naposentadoria, assinale a afirmativa correta.",
+    "alternativas": {
+      "A": "É direito de Ana averbar metade do tempo de contribuição\nfeito ao RGPS.",
+      "B": "Ana não poderá averbar no serviço público o tempo de\ncontribuição feito ao RGPS.",
+      "C": "Ana poderá averbar no serviço público o tempo integral de\ncontribuição feito ao RGPS.",
+      "D": "Ana poderá averbar o tempo de recolhimento feito ao RGPS\ndesde que se disponha a pagar o pedágio.",
+      "E": "Ana não só averbará o tempo de recolhimento feito ao RGPS,\ncomo poderá fazê -lo com o tempo convertido."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Previdenciário",
+    "assunto": "Direito Previdenciário - Filiação e Início de Contribuição",
+    "numero_original": 86,
+    "enunciado": "Verônica, contratada há dois meses por uma sociedade\nempresária localizada em Uruçuí/PI, está empolgada por ser o\nseu primeiro emprego e satisfeita porque terá cobertura\nprevidenciária para diversas situações. Verônica recebe um\nsalário mínimo, mas vê reais perspectivas de crescimento\nprofissional e salarial na socied ade empresária.\nDos benefícios previdenciários listados a seguir, assinale aquele\nque, por exigir carência, não será concedido de imediato a\nVerônica.",
+    "alternativas": {
+      "A": "Salário -família.",
+      "B": "Auxílio -acidente.",
+      "C": "Auxílio -reclusão.",
+      "D": "Salário -maternidade.",
+      "E": "Auxílio por incapacidade temporária acidentário."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Previdenciário",
+    "assunto": "Regime Próprio de Previdência Social do Piauí (RPPS-PI) - Insuficiência Financeira",
+    "numero_original": 87,
+    "enunciado": "Havendo insuficiências financeiras no Fundo de Previdência Social\ndo Estado do Piauí, indique, de acordo com a Lei Complementar\nEstadual nº 39/2004, quem será responsável pela cobertura da\ndiferença.",
+    "alternativas": {
+      "A": "Os servidores públicos ativos do Estado do Piauí.",
+      "B": "O Estado do Piauí, seus servidores públicos ativos e inativos.",
+      "C": "O Estado do Piauí, por meio dos respectivos poderes e órgãos\nautônomos.",
+      "D": "Os servidores públicos ativos e inativos do Estado do Piauí,\nem partes iguais.",
+      "E": "O Estado do Piauí e seus servidores públicos inativos, em\npartes iguais."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Previdenciário",
+    "assunto": "Regime Próprio de Previdência Social do Piauí (RPPS-PI) - Regras de Ingresso",
+    "numero_original": 88,
+    "enunciado": "Godofredo está radiante porque foi aprovado no concurso\npúblico para o Tribunal de Contas do Estado do Piauí, em 2024.\nAgora G odofredo prepara -se para tomar posse e cumprir\nescorreitamente as suas atividades no serviço público.\nDe acordo com a Lei de Regência, assinale a opção que indica a\ncontribuição mensal de Godofredo para o plano de custeio do\nregime próprio de previdência social dos servidores públicos do\nEstado do Piauí.",
+    "alternativas": {
+      "A": "10%.",
+      "B": "12%.",
+      "C": "11%.",
+      "D": "14%.",
+      "E": "13%."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Previdenciário",
+    "assunto": "Direito Previdenciário - Pensão por Morte de Servidor",
+    "numero_original": 89,
+    "enunciado": "Jorge e Eliana são casados há 22 anos e residem em Picos/PI.\nAmbos são servidores públicos estaduais, sendo que Eliana\nexerce suas funções junto ao TCE -PI e Jorge é professor, e\nsempre exerceu o magistério no ensino médio de uma escola\nestadual.\nConsiderando a Emenda Constitucional estadual nº 54/2019,\nassinale a opção que contempla com que idade, no mínimo, o\ncasal poderá requerer a aposentadoria voluntária, imaginando\nque ambos tenham cumprido os demais requisitos legais.",
+    "alternativas": {
+      "A": "Ambos com 62 anos de idade.",
+      "B": "Ambos com 65 anos de idade.",
+      "C": "Eliana com 62 anos de idade e Jorge com 60 anos de idade.",
+      "D": "Eliana com 65 anos de idade e J orge com 70 anos de idade",
+      "E": "Jorge com 65 anos de idade e Eliana com 62 anos de idade."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Direito Previdenciário",
+    "assunto": "Direito Previdenciário - Auxílio-Acidente e Aposentadoria por Incapacidade",
+    "numero_original": 90,
+    "enunciado": "Gustavo é servidor público no Estado do Piauí, titular de cargo\nefetivo.\nEm 2024, Gustavo sofreu um grave acidente de automóvel e teve\ncomprometimento parcial de sua capacidade mental. A perícia\nconfirmou que Gustavo não pode mais realizar as atividades que\nexercia, mas poderia fazer outras atividades mais simples e de\nmenor co mplexidade, úteis ao serviço público.\nSobre a hipótese, considerando a Emenda Constitucional\nestadual nº 54/2019, assinale a afirmativa correta.",
+    "alternativas": {
+      "A": "Gustavo deverá ser aposentado por incapacidade\npermanente.",
+      "B": "Gustavo será readaptado e receberá a remune ração do novo\ncargo que vier a ocupar.",
+      "C": "Não será possível a readaptação, porque isso somente é\npossível quando a limitação for da capacidade física.",
+      "D": "Gustavo poderá ser readaptado para cargo de menor\ncomplexidade, mantida a remuneração do cargo de origem.",
+      "E": "Gustavo decidirá se aceita ou não a readaptação, e caso\naceite a remuneração será a média física entre aquela do\ncargo de origem e o novo cargo.\nNoções de Contabilidade Aplicada ao\nSetor Público"
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Contabilidade Pública",
+    "assunto": "NBC TSP Estrutura Conceitual - Bases de Mensuração",
+    "numero_original": 91,
+    "enunciado": "Em relação à seleçã o das bases de mensuração de ativos e\npassivos, de acordo com a NBC TSP Estrutura Conceitual –\nestrutura conceitual para elaboração e divulgação de informação\ncontábil de propósito geral pelas entidades do setor público,\nconsidere os itens a seguir.\nI. O custo dos serviços prestados no período, em termos\nhistóricos ou atuais.\nII. A capacidade operacional, que representa a capacidade da\nentidade em dar suporte à prestação de serviços no futuro\npor meio de recursos físicos e outros.\nIII. A capacidade finance ira, que representa a capacidade da\nentidade em financiar as suas próprias atividades.\nA seleção da base de mensuração para ativos e passivos contribui\npara satisfazer aos objetivos da elaboração e divulgação da\ninformação contábil pelas entidades do setor público, ao fornecer\na informação que possibilita aos usuários avaliarem o(s) item(ns)",
+    "alternativas": {
+      "A": "I, apenas.",
+      "B": "I e II, apenas.",
+      "C": "I e III, apenas.",
+      "D": "II e III, apenas.",
+      "E": "I, II e III."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Contabilidade Pública",
+    "assunto": "Contabilidade Pública - Avaliação de Ativo Imobilizado",
+    "numero_original": 92,
+    "enunciado": "Em 31/12/2024, uma repartição pública apresentava, em s eu\nBalanço Patrimonial, equipamentos de informática avaliados por\nR$ 20.000. Esses equipamentos eram utilizados pelos\nfuncionários em suas atividades diárias.\nOs funcionários receberam férias coletivas no mês de janeiro.\nEntão, em 01/01/2025, a repartição vendeu os equipamentos à\nvista por R$ 23.000, com o intuito de adquirir itens mais\nmodernos em fevereiro.\nAssinale a opção que indica o impacto da venda dos\nequipamentos de informática na Demonstração dos Fluxos de\nCaixa da repartição, em janeiro de 2025.",
+    "alternativas": {
+      "A": "Geração de R$ 3.000 pela atividade operacional.",
+      "B": "Geração de R$ 3.000 pela atividade de investimento.",
+      "C": "Geração de R$ 23.000 pela atividade operacional.",
+      "D": "Geração de R$ 23.000 pela atividade de investimento.",
+      "E": "Geração de R$ 23.000 pela atividade de financiamento"
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Contabilidade Pública",
+    "assunto": "Contabilidade Pública - Contas de Compensação",
+    "numero_original": 93,
+    "enunciado": "Na elaboração do Quadro das Contas de Compensação, que\ncompõe o Balanço Patrimonial, assinale a opção que indica,\nrespectivamente, atos potenciais ativos e atos potenciais\npassivos.",
+    "alternativas": {
+      "A": "Garantias concedidas e ga rantias recebidas",
+      "B": "Direitos contratuais e obrigações contratuais",
+      "C": "Ativos contingentes e provisão para contingências",
+      "D": "Reservas para contingências e garantias recebidas",
+      "E": "Reservas para contingências e passivos contingentes"
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Contabilidade Pública",
+    "assunto": "Lei de Responsabilidade Fiscal - Relatório Resumido da Execução Orçamentária",
+    "numero_original": 94,
+    "enunciado": "De acordo com a Lei Complementar nº 101/2000, acompanharão\no Relatório Resumido da Execução Orçamentária, demonstrativos\nrelativos a resultados",
+    "alternativas": {
+      "A": "fixos e variáveis.",
+      "B": "correntes e de capital.",
+      "C": "contábeis e econômicos.",
+      "D": "nominais e pri mários.",
+      "E": "financeiros e patrimoniais."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Contabilidade Pública",
+    "assunto": "Contabilidade Pública - Eventos Subsequentes",
+    "numero_original": 95,
+    "enunciado": "Em dezembro de 2024, um hospital do setor público planejou\nrealizar uma reestruturação, de modo a oferecer, em 2025, novos\nserviços de atendimento ao público. A reorganização dos setores\ntem efeito material na natureza e no foco das operações da\nentidade.\nO hospital tem um plano formal para a reestruturação e criou\numa expectativa válida na população afetada, ao anunciar as suas\nprincipais características.\nEm dezembro foram gastos R$ 8.000 em marketing, R$ 12.000\nem novo treinamento de funcionários, e R$ 15.000 em novos\nsistemas e redes de distribuição.\nDos gastos, o seguinte montante deve ser incluído na provisão de\nreestruturação:",
+    "alternativas": {
+      "A": "zero.",
+      "B": "R$ 15.000.",
+      "C": "R$ 20.000.",
+      "D": "R$ 27.000.",
+      "E": "R$ 35.000."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Contabilidade Pública",
+    "assunto": "Contabilidade Pública - Regime Orçamentário e Regime de Competência",
+    "numero_original": 96,
+    "enunciado": "Em uma entidade do setor público, o Regime Orçamentário\nreconhece as despesas orçamentárias no exercício financeiro",
+    "alternativas": {
+      "A": "da emissão do empenho.",
+      "B": "da arrecadação da receita.",
+      "C": "da ocorrência da liquidação.",
+      "D": "da realização do pagamento.",
+      "E": "do acontecimento do fato gerador."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Contabilidade Pública",
+    "assunto": "Contabilidade Pública - Créditos Orçamentários Adicionais",
+    "numero_original": 97,
+    "enunciado": "Em relação ao orçamento final, considere as informações a\nseguir.\nI. Reservas e transferências.\nII. Alocações e créditos adicionais.\nIII. Estimativas e projeções divulgadas para os perí odos\nseguintes.\nDe acordo com a NBC TSP 13 – Apresentação de Informação\nOrçamentária nas Demonstrações Contábeis, o orçamento final é\no orçamento original ajustado pelo que se apresenta em",
+    "alternativas": {
+      "A": "I, apenas.",
+      "B": "I e II, apenas.",
+      "C": "I e III, apenas.",
+      "D": "II e III, apenas.",
+      "E": "I, II e III."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Contabilidade Pública",
+    "assunto": "Contabilidade de Custos no Setor Público - Materiais em Estoque",
+    "numero_original": 98,
+    "enunciado": "Uma escola do setor público, por política administrativa,\ncostuma manter estoque de folha de papel para seis meses em\nseu almoxarifado.\nEm dezembro de 2024, uma tubulação estourou e molhou todo o\nestoque de folhas, que estava avaliado por R$10.000. O valor era\nconsiderado material pela escola.\nDe acordo com os termos apresentados no Manual de\nInformações de Custos do Governo Federal, a baixa no valor, em\ndezembro, representa um(a)",
+    "alternativas": {
+      "A": "custo.",
+      "B": "gasto.",
+      "C": "perda.",
+      "D": "despesa.",
+      "E": "desembolso."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Contabilidade Pública",
+    "assunto": "Contabilidade de Custos no Setor Público - Atributos da Informação de Custos",
+    "numero_original": 99,
+    "enunciado": "Entre os atributos da informação de custos está a especificidade.\nDe acordo com este atributo, as informações de custos devem ser\nelaboradas de acordo com",
+    "alternativas": {
+      "A": "a relação custo/benefício.",
+      "B": "o momento adeq uado à tomada de decisão.",
+      "C": "a evidenciação do uso dos recursos públicos.",
+      "D": "o nível de detalhamento definido previamente.",
+      "E": "a finalidade específica pretendida pelos usuários."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "TCE-PI",
+    "ano": 2024,
+    "cargo": "Auditor de Controle Externo",
+    "area": "Contabilidade Pública",
+    "assunto": "Auditoria - Asseguração Razoável x Limitada",
+    "numero_original": 100,
+    "enunciado": "Ao comparar o risco do trabalho e a extensão dos procedimentos\nexecutados no trabalho de asseguração razoável e no trabalho de\nasseguração limitada, de acordo com a NBC TA Estrutura\nConceitual para Trabalhos de Asseguração, é correto afirmar que",
+    "alternativas": {
+      "A": "no trabalho de asseguração razoável, o risco do trabalh o é\nmaior, enquanto a natureza, a época e a extensão dos\nprocedimentos executados são menos extensos.",
+      "B": "no trabalho de asseguração limitada, o risco do trabalho é\nmenor, e a natureza, a época e a extensão dos\nprocedimentos executados são menos extensos.",
+      "C": "no trabalho de asseguração limitada, o risco do trabalho é\nmaior, enquanto a natureza, a época e a extensão dos\nprocedimentos executados são menos extensos.",
+      "D": "o risco do trabalho é igual, no entanto, no trabalho de\nasseguração razoável, a natureza, a época e a extensão dos\nprocedimentos executados são menos extensos.",
+      "E": "o risco do trabalho é igual, no entanto, no trabalho de\nasseguração limitada, a natureza, a época e a extensão dos\nprocedimentos executados são menos extensos.\nRealização"
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  }
+]
