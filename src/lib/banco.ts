@@ -1,5 +1,5 @@
 /**
- * Banco de questões reais de concurso (kuestion_db_1.json, ~1.350 questões de
+ * Banco de questões reais de concurso (kuestion_db_1.json, ~1.386 questões de
  * SEFAZ estaduais, ISS-RJ, TCE-PI e RFB), usado pela 4ª forma de montar
  * blocos na aba Blocos: em vez de gerar questões inéditas via API, sorteia
  * questões reais já formuladas por banca. Só enunciado, alternativas e
