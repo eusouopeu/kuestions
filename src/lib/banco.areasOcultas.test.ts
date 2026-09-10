@@ -8,6 +8,7 @@ describe("areasBanco (matérias não-core ocultas, feature auditor fiscal estadu
       "Administração Pública",
       "Administração Geral e Pública",
       "Direito Civil e Empresarial",
+      "Direito Penal",
       "Direito Previdenciário",
       "Língua Inglesa",
     ];

@@ -173,7 +173,7 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
 - `lib/banco.ts`: `AREAS_OCULTAS` remove do dropdown "Área" de GerarBancoView (via `areasBanco()`)
   as áreas do banco fora do núcleo de auditor fiscal estadual: "Administração Pública",
   "Administração Geral e Pública" (duas variantes de rótulo pra área equivalente na fonte),
-  "Direito Civil e Empresarial", "Direito Previdenciário", "Língua Inglesa". Só oculta do
+  "Direito Civil e Empresarial", "Direito Penal", "Direito Previdenciário", "Língua Inglesa". Só oculta do
   dropdown — a questão continua em `BANCO`/`POR_ID` e abre normalmente se reaberta via
   Refazer/Blocos anteriores/Simulado (não quebra histórico já respondido dessas áreas antes do
   filtro existir). `MATERIAS` (`lib/constants.ts`, tab Gerar por IA) já não tinha nenhuma dessas

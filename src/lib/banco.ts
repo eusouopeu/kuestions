@@ -83,6 +83,7 @@ const AREAS_OCULTAS = new Set([
   "Administração Pública",
   "Administração Geral e Pública",
   "Direito Civil e Empresarial",
+  "Direito Penal",
   "Direito Previdenciário",
   "Língua Inglesa",
 ]);
