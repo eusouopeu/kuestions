@@ -134,3 +134,30 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
   checagem por enunciado normalizado (trim + minúsculas + espaços colapsados), só avisa, não
   bloqueia — usado em `ImportarView.tsx` antes de `iniciarBlocoReal`.
 
+## Aulas e blocos por matéria (tópico específico da geração por IA)
+
+- `TOPICOS_POR_MATERIA`/`TITULOS_BLOCO_POR_MATERIA` em `src/lib/topicos.ts`: lista fixa de
+  aulas/blocos por matéria, extraída da coluna "#"/"Tarefas" dos planos de estudo
+  (`Bancos de dados/Planos de estudo/*.md`, fora do repo — linhas do tipo `Aula`, ignorando
+  `Questões`/`simulado`). Alimenta o dropdown "Tópico específico" (aula específica/bloco de
+  aulas) em `GerarView.tsx`; matéria sem entrada aqui continua com o campo de texto livre.
+- Cada matéria é declarada em `DEFINICOES_MATERIA` como lista de blocos (`{ titulo, aulas: string[] }`,
+  na ordem do plano) — o código de cada aula (`"<bloco>.<aula>"`, ex. `"2.3"`) é gerado a partir da
+  posição, não copiado do "#" bruto do plano (que numera Aula/Questões juntas e varia de fonte).
+  A chave de cada matéria tem que bater exatamente com uma entrada de `MATERIAS`
+  (`src/lib/constants.ts`) — não com o nome da área homônima no banco de questões
+  (`AREAS_BANCO`/`src/data/banco_questoes.json`), que é um universo separado (ex.: matéria
+  `"Informática"` aqui vs. área `"Noções de Informática"` no banco).
+- Padrão de rótulo (`rotuloTopico`/`rotuloBloco`, únicas funções que devem formatar isso — não
+  reimplementar noutro lugar): aula = `"[<código>] <nome>"` (ex. `"[1.2] Elasticidades"`); bloco =
+  `"[<número>] <título> (<n> aulas)"` (ex. `"[2] Balanço Patrimonial (BP) (8 aulas)"`). O valor
+  salvo em `Config.topico`/`questoes_respondidas.topico` continua vindo de `descricaoBloco`
+  (texto livre pro prompt), que também ganhou o título do bloco.
+- Título de bloco, quando a matéria tem banco de questões real cobrindo a mesma área (Direito
+  Administrativo, Direito Constitucional, Direito Tributário, Estatística, Economia, Finanças
+  Públicas, Matemática Financeira, Auditoria, Contabilidade Geral, Contabilidade Pública, Informática):
+  usar o mesmo texto do campo `bloco` de `banco_questoes.json` pra aquele grupo de aulas — mesma
+  fonte (Estratégia Concursos, curso SEFAZ-BA), evita nome divergente pro mesmo bloco em dois
+  lugares do app. Bloco sem cobertura no banco (ex. Direito Administrativo Bloco 8, legislação
+  estadual da Bahia) tem título inventado, comentado como tal no código.
+

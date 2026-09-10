@@ -1,8 +1,19 @@
 /**
  * Tópicos específicos por matéria, extraídos dos planos de estudo (coluna "#"
- * + "Tarefas" das linhas do tipo Aula — Questões e simulados ficam de fora).
- * Alimenta o dropdown de "Tópico específico" em GerarView no lugar do texto
- * livre, só para as matérias abaixo; as demais continuam com o campo aberto.
+ * + "Tarefas" das linhas do tipo Aula — Questões e simulados ficam de fora,
+ * ver `docs/` / `Bancos de dados/Planos de estudo/*.md`). Alimenta o dropdown
+ * de "Tópico específico" em GerarView no lugar do texto livre, só para as
+ * matérias abaixo; as demais continuam com o campo aberto.
+ *
+ * Cada matéria é uma lista de blocos (`DEFINICOES_MATERIA`), cada bloco com
+ * um título e as aulas que o compõem, na ordem do plano — o código de cada
+ * aula ("<bloco>.<aula>", ex. "2.3") é derivado dessa posição, não copiado
+ * do "#" bruto do plano (que numera Aula/Questões juntas e varia de fonte
+ * pra fonte). Título e contagem de aulas do bloco (ex. Direito Tributário
+ * Bloco 1 — Sistema Tributário Nacional: Conceitos e Princípios, 5 aulas)
+ * batem com o campo `bloco`/`assunto` do banco de questões real (ver
+ * `src/data/banco_questoes.json` e `lib/banco.ts`) nas matérias em que os
+ * dois se sobrepõem — mesma fonte (Estratégia Concursos, curso SEFAZ-BA).
  */
 
 export interface TopicoEspecifico {
@@ -11,143 +22,506 @@ export interface TopicoEspecifico {
   nome: string;
 }
 
-/** Ordena por bloco e depois por aula, numericamente (não lexicograficamente). */
-function ordenarPorCodigo(a: TopicoEspecifico, b: TopicoEspecifico): number {
-  const [blocoA, aulaA] = a.codigo.split(".").map(Number);
-  const [blocoB, aulaB] = b.codigo.split(".").map(Number);
-  return blocoA - blocoB || aulaA - aulaB;
+interface DefinicaoBloco {
+  titulo: string;
+  /** Nomes das aulas do bloco, na ordem do plano — o código de cada uma
+   * ("<bloco>.<posição>") é gerado a partir do índice aqui, não digitado. */
+  aulas: string[];
 }
 
-function topicos(lista: [string, string][]): TopicoEspecifico[] {
-  return lista.map(([codigo, nome]) => ({ codigo, nome })).sort(ordenarPorCodigo);
+/** Gera `TopicoEspecifico[]` (com código "<bloco>.<aula>") e o título de
+ * cada bloco a partir da lista declarativa de blocos de uma matéria. */
+function definirMateria(blocos: DefinicaoBloco[]): {
+  topicos: TopicoEspecifico[];
+  titulosBloco: Record<string, string>;
+} {
+  const topicos: TopicoEspecifico[] = [];
+  const titulosBloco: Record<string, string> = {};
+  blocos.forEach((b, i) => {
+    const numeroBloco = String(i + 1);
+    titulosBloco[numeroBloco] = b.titulo;
+    b.aulas.forEach((nome, j) => {
+      topicos.push({ codigo: `${numeroBloco}.${j + 1}`, nome });
+    });
+  });
+  return { topicos, titulosBloco };
 }
 
-export const TOPICOS_POR_MATERIA: Record<string, TopicoEspecifico[]> = {
-  "Direito Administrativo": topicos([
-    ["1.1", "Princípios do Direito Administrativo"],
-    ["1.2", "Estado, Governo e Direito Administrativo"],
-    ["1.3", "Poderes Administrativos"],
-    ["2.1", "Ato Administrativo: Conceito e Atributos"],
-    ["2.2", "Ato Administrativo: Espécies e Invalidação"],
-    ["3.1", "Organização Administrativa"],
-    ["3.2", "Lei das Estatais (Lei 13.303/2016)"],
-    ["3.3", "Entidades Paraestatais e Parcerias (Lei 13.019/2014)"],
-    ["4.1", "Agentes Públicos"],
-    ["4.2", "Licitações — Lei 14.133/2021 (Parte I)"],
-    ["4.3", "Licitações — Lei 14.133/2021 (Parte II)"],
-    ["4.4", "Contrato Administrativo e Convênios"],
-    ["5.1", "Serviços Públicos (Lei 8.987/1995)"],
-    ["5.2", "Parceria Público-Privada (Lei 11.079/2004)"],
-    ["6.1", "Responsabilidade Civil do Estado"],
-    ["6.2", "Controle da Administração Pública"],
-    ["6.3", "Improbidade Administrativa (Lei 8.429/1992)"],
-    ["7.1", "Bens Públicos"],
-    ["7.2", "Intervenção do Estado na Propriedade Privada"],
-    ["8.1", "Convênios e Contratos de Repasse"],
-    ["8.2", "Revisão Acelerada e Resumo"],
-    ["8.3", "Processo Administrativo (Lei Estadual)"],
-    ["8.4", "CE-BA: Arts. 89 e 90 (Direito Constitucional)"],
-    ["8.5", "Lei Estadual 14.63/2023 — Licitações e Contratos"],
-    ["8.6", "Legislação Estadual — Leis 12.949/2014 e 9.290/2004"],
-  ]),
+const DEFINICOES_MATERIA: Record<string, DefinicaoBloco[]> = {
+  "Direito Administrativo": [
+    {
+      titulo: "Fundamentos e Poderes Administrativos",
+      aulas: [
+        "Princípios do Direito Administrativo",
+        "Estado, Governo e Direito Administrativo",
+        "Poderes Administrativos",
+      ],
+    },
+    {
+      titulo: "Atos Administrativos",
+      aulas: ["Ato Administrativo: Conceito e Atributos", "Ato Administrativo: Espécies e Invalidação"],
+    },
+    {
+      titulo: "Organização Administrativa e Entidades",
+      aulas: [
+        "Organização Administrativa",
+        "Lei das Estatais (Lei 13.303/2016)",
+        "Entidades Paraestatais e Parcerias (Lei 13.019/2014)",
+      ],
+    },
+    {
+      titulo: "Agentes Públicos e Licitações/Contratos",
+      aulas: [
+        "Agentes Públicos",
+        "Licitações — Lei 14.133/2021 (Parte I)",
+        "Licitações — Lei 14.133/2021 (Parte II)",
+        "Contrato Administrativo e Convênios",
+      ],
+    },
+    {
+      titulo: "Serviços Públicos e Parcerias",
+      aulas: ["Serviços Públicos (Lei 8.987/1995)", "Parceria Público-Privada (Lei 11.079/2004)"],
+    },
+    {
+      titulo: "Responsabilidade, Controle e Improbidade",
+      aulas: [
+        "Responsabilidade Civil do Estado",
+        "Controle da Administração Pública",
+        "Improbidade Administrativa (Lei 8.429/1992)",
+      ],
+    },
+    {
+      titulo: "Bens Públicos e Intervenção na Propriedade",
+      aulas: ["Bens Públicos", "Intervenção do Estado na Propriedade Privada"],
+    },
+    // Título não vem do banco de questões (zero questões reais cobrem este
+    // bloco — conteúdo específico do edital estadual da Bahia).
+    {
+      titulo: "Legislação Estadual (BA) e Revisão Final",
+      aulas: [
+        "Convênios e Contratos de Repasse",
+        "Revisão Acelerada e Resumo",
+        "Processo Administrativo (Lei Estadual)",
+        "CE-BA: Arts. 89 e 90 (Direito Constitucional)",
+        "Lei Estadual 14.63/2023 — Licitações e Contratos",
+        "Legislação Estadual — Leis 12.949/2014 e 9.290/2004",
+      ],
+    },
+  ],
 
-  "Direito Constitucional": topicos([
-    ["1.1", "Teoria da Constituição e Poder Constituinte"],
-    ["1.2", "Princípios Fundamentais e Teoria Geral dos DF"],
-    ["1.3", "Direitos e Deveres Individuais e Coletivos I"],
-    ["1.4", "Direitos e Deveres Individuais e Coletivos II"],
-    ["1.5", "Direitos Sociais"],
-    ["2.1", "Nacionalidade"],
-    ["2.2", "Direitos Políticos"],
-    ["2.3", "Partidos Políticos"],
-    ["3.1", "Organização do Estado (Art. 18 a 36)"],
-    ["3.2", "Administração Pública"],
-    ["4.1", "Poder Legislativo"],
-    ["4.2", "Processo Legislativo"],
-    ["4.3", "Poder Executivo"],
-    ["4.4", "Poder Judiciário"],
-    ["4.5", "Funções Essenciais à Justiça"],
-    ["5.1", "Defesa do Estado e das Instituições Democráticas"],
-    ["5.2", "Sistema Tributário Nacional"],
-    ["5.3", "Orçamento e Finanças"],
-    ["5.4", "Ordem Econômica e Financeira"],
-    ["5.5", "Ordem Social"],
-    ["6.1", "Controle de Constitucionalidade"],
-  ]),
+  "Direito Constitucional": [
+    {
+      titulo: "Teoria Constitucional e Direitos Fundamentais",
+      aulas: [
+        "Teoria da Constituição e Poder Constituinte",
+        "Princípios Fundamentais e Teoria Geral dos DF",
+        "Direitos e Deveres Individuais e Coletivos I",
+        "Direitos e Deveres Individuais e Coletivos II",
+        "Direitos Sociais",
+      ],
+    },
+    {
+      titulo: "Nacionalidade e Direitos Políticos",
+      aulas: ["Nacionalidade", "Direitos Políticos", "Partidos Políticos"],
+    },
+    {
+      titulo: "Organização do Estado e Administração Pública",
+      aulas: ["Organização do Estado (Art. 18 a 36)", "Administração Pública"],
+    },
+    {
+      titulo: "Organização dos Poderes",
+      aulas: [
+        "Poder Legislativo",
+        "Processo Legislativo",
+        "Poder Executivo",
+        "Poder Judiciário",
+        "Funções Essenciais à Justiça",
+      ],
+    },
+    {
+      titulo: "Defesa do Estado, Tributação e Ordem Econômico-Social",
+      aulas: [
+        "Defesa do Estado e das Instituições Democráticas",
+        "Sistema Tributário Nacional",
+        "Orçamento e Finanças",
+        "Ordem Econômica e Financeira",
+        "Ordem Social",
+      ],
+    },
+    {
+      titulo: "Controle de Constitucionalidade",
+      aulas: ["Controle de Constitucionalidade"],
+    },
+  ],
 
-  "Estatística": topicos([
-    ["1.1", "Apresentação de Dados"],
-    ["1.2", "Medidas de Posição: Médias"],
-    ["1.3", "Medidas Separatrizes ou Quantis"],
-    ["1.4", "Medidas de Posição: Moda"],
-    ["1.5", "Medidas de Variabilidade ou Dispersão"],
-    ["2.1", "Análise Combinatória"],
-    ["2.2", "Probabilidade"],
-    ["3.1", "Variáveis Aleatórias Discretas"],
-    ["3.2", "Distribuições Discretas de Probabilidade"],
-    ["3.3", "Variáveis Aleatórias e Distribuições Contínuas"],
-    ["3.4", "Distribuições Conjuntas e Momentos de Variáveis Aleatórias"],
-    ["4.1", "Teoria da Amostragem"],
-    ["4.2", "Estimação Pontual e Intervalar"],
-    ["4.3", "Testes de Hipóteses"],
-    ["4.4", "Análise de Variância"],
-    ["5.1", "Regressão Linear Simples"],
-    ["5.2", "Regressão Linear Múltipla"],
-    ["5.3", "Séries Temporais"],
-    ["5.4", "Análise Multivariada"],
-    ["5.5", "Análise Bidimensional"],
-  ]),
+  "Estatística": [
+    {
+      titulo: "Estatística Descritiva Univariada",
+      aulas: [
+        "Apresentação de Dados",
+        "Medidas de Posição: Médias",
+        "Medidas Separatrizes ou Quantis",
+        "Medidas de Posição: Moda",
+        "Medidas de Variabilidade ou Dispersão",
+      ],
+    },
+    {
+      titulo: "Combinatória e Probabilidade",
+      aulas: ["Análise Combinatória", "Probabilidade"],
+    },
+    {
+      titulo: "Variáveis Aleatórias e Distribuições",
+      aulas: [
+        "Variáveis Aleatórias Discretas",
+        "Distribuições Discretas de Probabilidade",
+        "Variáveis Aleatórias e Distribuições Contínuas",
+        "Distribuições Conjuntas e Momentos de Variáveis Aleatórias",
+      ],
+    },
+    {
+      titulo: "Inferência Estatística",
+      aulas: ["Teoria da Amostragem", "Estimação Pontual e Intervalar", "Testes de Hipóteses", "Análise de Variância"],
+    },
+    {
+      titulo: "Regressão, Séries Temporais e Análise Multivariada",
+      aulas: [
+        "Regressão Linear Simples",
+        "Regressão Linear Múltipla",
+        "Séries Temporais",
+        "Análise Multivariada",
+        "Análise Bidimensional",
+      ],
+    },
+  ],
 
-  "Direito Tributário": topicos([
-    ["1.1", "Conceito, Espécies e Classificação dos Tributos"],
-    ["1.2", "Princípios Tributários"],
-    ["1.3", "Imunidades Tributárias"],
-    ["1.4", "Competência Tributária"],
-    ["1.5", "Legislação Tributária"],
-    ["2.1", "Obrigação Tributária"],
-    ["2.2", "Responsabilidade Tributária"],
-    ["2.3", "Crédito Tributário: Constituição e Lançamento"],
-    ["2.4", "Suspensão da Exigibilidade do Crédito Tributário"],
-    ["2.5", "Extinção do Crédito Tributário"],
-    ["2.6", "Exclusão do Crédito Tributário"],
-    ["2.7", "Garantias e Privilégios do Crédito Tributário"],
-    ["3.1", "Administração Tributária e Fiscalização"],
-    ["3.2", "Tributos de Competência da União"],
-    ["3.3", "Tributos de Competência dos Estados"],
-    ["3.4", "Tributos de Competência dos Municípios"],
-    ["4.1", "IBS — Imposto sobre Bens e Serviços"],
-    ["4.2", "CBS — Contribuição sobre Bens e Serviços"],
-    ["4.3", "Repartição de Receitas Tributárias"],
-    ["4.4", "Simples Nacional"],
-  ]),
+  "Direito Tributário": [
+    {
+      titulo: "Sistema Tributário Nacional: Conceitos e Princípios",
+      aulas: [
+        "Conceito, Espécies e Classificação dos Tributos",
+        "Princípios Tributários",
+        "Imunidades Tributárias",
+        "Competência Tributária",
+        "Legislação Tributária",
+      ],
+    },
+    {
+      titulo: "Obrigação e Crédito Tributário",
+      aulas: [
+        "Obrigação Tributária",
+        "Responsabilidade Tributária",
+        "Crédito Tributário: Constituição e Lançamento",
+        "Suspensão da Exigibilidade do Crédito Tributário",
+        "Extinção do Crédito Tributário",
+        "Exclusão do Crédito Tributário",
+        "Garantias e Privilégios do Crédito Tributário",
+      ],
+    },
+    {
+      titulo: "Administração Tributária e Tributos em Espécie",
+      aulas: [
+        "Administração Tributária e Fiscalização",
+        "Tributos de Competência da União",
+        "Tributos de Competência dos Estados",
+        "Tributos de Competência dos Municípios",
+      ],
+    },
+    {
+      titulo: "Reforma Tributária e Regimes Especiais",
+      aulas: [
+        "IBS — Imposto sobre Bens e Serviços",
+        "CBS — Contribuição sobre Bens e Serviços",
+        "Repartição de Receitas Tributárias",
+        "Simples Nacional",
+      ],
+    },
+  ],
 
-  Economia: topicos([
-    ["1.1", "Fundamentos de Economia"],
-    ["1.2", "Elasticidades"],
-    ["1.3", "Microeconomia: Teoria do Consumidor"],
-    ["2.1", "Teoria da Produção"],
-    ["2.2", "Teoria dos Custos"],
-    ["2.3", "Teoria dos Mercados: Concorrência Perfeita"],
-    ["2.4", "Teoria dos Mercados: Monopólio"],
-    ["2.5", "Teoria dos Mercados: Oligopólio e Concorrência Monopolística"],
-    ["3.1", "Bens Públicos, Bem-Estar Social e Meio Ambiente"],
-    ["3.2", "Macroeconomia: Contabilidade Nacional"],
-    ["4.1", "O Modelo Keynesiano Simples"],
-    ["4.2", "Sistema Monetário e Mercado Financeiro"],
-    ["4.3", "Modelo IS-LM e Políticas Fiscal e Monetária"],
-    ["4.4", "Modelo AO-DA e Inflação"],
-    ["5.1", "Balanço de Pagamentos"],
-    ["5.2", "Política Cambial: Câmbio Fixo e Câmbio Flutuante"],
-  ]),
+  "Economia": [
+    {
+      titulo: "Microeconomia: Fundamentos e Consumidor",
+      aulas: ["Fundamentos de Economia", "Elasticidades", "Microeconomia: Teoria do Consumidor"],
+    },
+    {
+      titulo: "Microeconomia: Produção e Estruturas de Mercado",
+      aulas: [
+        "Teoria da Produção",
+        "Teoria dos Custos",
+        "Teoria dos Mercados: Concorrência Perfeita",
+        "Teoria dos Mercados: Monopólio",
+        "Teoria dos Mercados: Oligopólio e Concorrência Monopolística",
+      ],
+    },
+    {
+      titulo: "Bem-Estar, Externalidades e Contabilidade Nacional",
+      aulas: ["Bens Públicos, Bem-Estar Social e Meio Ambiente", "Macroeconomia: Contabilidade Nacional"],
+    },
+    {
+      titulo: "Macroeconomia: Modelos e Política Econômica",
+      aulas: [
+        "O Modelo Keynesiano Simples",
+        "Sistema Monetário e Mercado Financeiro",
+        "Modelo IS-LM e Políticas Fiscal e Monetária",
+        "Modelo AO-DA e Inflação",
+      ],
+    },
+    {
+      titulo: "Setor Externo",
+      aulas: ["Balanço de Pagamentos", "Política Cambial: Câmbio Fixo e Câmbio Flutuante"],
+    },
+  ],
+
+  "Finanças Públicas": [
+    {
+      titulo: "Orçamento Público: Fundamentos e Instrumentos",
+      aulas: [
+        "Orçamento Público: Conceito, Técnicas e Natureza Jurídica",
+        "O Orçamento Público no Brasil: PPA, LDO e LOA",
+        "Princípios Orçamentários",
+      ],
+    },
+    {
+      titulo: "Ciclo Orçamentário, Créditos e Classificações",
+      aulas: [
+        "Ciclo Orçamentário e Processo de Orçamentação",
+        "Créditos Ordinários e Adicionais",
+        "Classificações Orçamentárias e Estrutura Programática",
+      ],
+    },
+    {
+      titulo: "Receita e Despesa Pública",
+      aulas: [
+        "Receita Pública: Conceito, Classificações e Fontes",
+        "Despesa Pública: Conceito e Classificações",
+        "Estágios da Receita e da Despesa",
+      ],
+    },
+    {
+      titulo: "Lei de Responsabilidade Fiscal (LRF)",
+      aulas: [
+        "LRF Parte I: Introdução, Disposições Preliminares e Planejamento",
+        "LRF Parte II: Despesa Pública, DOCC e Despesas com Pessoal",
+        "LRF Parte III: Transparência, Controle, Gestão Patrimonial e Transferências",
+        "LRF Parte IV: Dívida, Endividamento e Disposições Finais",
+      ],
+    },
+  ],
+
+  "Matemática Financeira": [
+    {
+      titulo: "Juros e Taxas",
+      aulas: ["Juros Compostos", "Operações de Desconto", "Taxas"],
+    },
+    {
+      titulo: "Equivalência e Aplicações Financeiras",
+      aulas: ["Equivalência de Capitais", "Análise de Investimentos", "Sistemas de Amortização"],
+    },
+    {
+      titulo: "Matemática Básica Aplicada",
+      aulas: ["Sistemas de Unidades e Medidas", "Sistemas de Numeração"],
+    },
+  ],
+
+  "Auditoria": [
+    {
+      titulo: "Fundamentos e Normas Gerais de Auditoria",
+      aulas: [
+        "Conceitos Iniciais de Auditoria (NBC TA 200)",
+        "Auditoria Interna (NBC TI 01/PI 01)",
+        "Planejamento e Documentação (NBC TA 300/230)",
+      ],
+    },
+    {
+      titulo: "Procedimentos, Evidências e Amostragem",
+      aulas: [
+        "Procedimentos e Evidências de Auditoria (NBC TA 500/505/520)",
+        "Amostragem em Auditoria (NBC TA 530)",
+        "Materialidade, Risco e Fraude (NBC TA 320/240)",
+      ],
+    },
+    {
+      titulo: "Relatório, Controle Interno e Situações Especiais",
+      aulas: [
+        "Relatório de Auditoria (NBC TA 700/705/706)",
+        "Controle Interno (NBC TA 315/265)",
+        "Continuidade, Estimativas e Eventos Subsequentes (NBC TA 540/550/560/570)",
+        "Representações Formais (NBC TA 580)",
+        "Distorções e Resposta a Riscos (NBC TA 450/330)",
+        "Uso de Especialistas e Auditoria Interna (NBC TA 610/620)",
+      ],
+    },
+    {
+      titulo: "Procedimentos Específicos e Auditoria no Setor Público",
+      aulas: [
+        "Procedimentos em Áreas Específicas das DCs — Parte I",
+        "Procedimentos em Áreas Específicas das DCs — Parte II",
+        "Auditoria Fiscal — Parte I",
+        "Auditoria Fiscal — Parte II",
+        "NBC TSP — Estrutura Conceitual",
+      ],
+    },
+  ],
+
+  "Informática": [
+    {
+      titulo: "Redes de Computadores",
+      aulas: [
+        "Redes: Conceitos e Tecnologias (Parte 1)",
+        "Redes: Acesso Remoto e Wireless (Parte 2)",
+        "Redes: Intranet",
+      ],
+    },
+    {
+      titulo: "Segurança da Informação",
+      aulas: [
+        "Segurança da Informação: Malwares e Crimes Digitais (Parte 1)",
+        "Segurança da Informação (Parte 2)",
+        "Segurança da Informação (Parte 3)",
+      ],
+    },
+    {
+      titulo: "Banco de Dados e Modelagem",
+      aulas: [
+        "Banco de Dados: Conceitos Básicos",
+        "Modelo Conceitual",
+        "Modelo Relacional",
+        "Modelagem de Dados e SQL",
+      ],
+    },
+    {
+      titulo: "Business Intelligence e Big Data",
+      aulas: ["BI: Data Warehouse e Data Mart", "Data Mining", "Big Data"],
+    },
+    {
+      titulo: "Gestão de Processos e Engenharia de Software",
+      aulas: [
+        "Gestão de Processos: Modelagem (BPM)",
+        "BPMN e Técnicas de Análise de Processos",
+        "Gerência de Requisitos de Software",
+      ],
+    },
+    {
+      titulo: "Ferramentas Corporativas e Web",
+      aulas: [
+        "Gerenciamento Eletrônico de Documentos (GED)",
+        "Portais Corporativos e Colaborativos",
+        "Web Services",
+      ],
+    },
+    {
+      titulo: "Gestão e Governança de TI",
+      aulas: ["Gerência de Projetos (PMBOK 7ª ed.)", "Governança de TI (PETI, SWOT, BSC)"],
+    },
+  ],
+
+  "Contabilidade Pública": [
+    {
+      titulo: "MCASP — Procedimentos e Plano de Contas",
+      aulas: [
+        "MCASP: Proc. Orçamentários (I)",
+        "MCASP: Proc. Orçamentários (II)",
+        "MCASP: Proc. Patrimoniais (I)",
+        "MCASP: Proc. Patrimoniais (II)",
+        "MCASP: Proc. Patrimoniais (III)",
+        "MCASP: Plano de Contas (PCASP)",
+        "MCASP: Proc. Específicos (PDF)",
+      ],
+    },
+    {
+      titulo: "NBC TSP — Normas Vigentes",
+      aulas: ["NBC TSP — Estrutura Conceitual", "NBC TSP — Tópicos Vigentes", "NBC TSP — Tópicos Vigentes II (PDF)"],
+    },
+    {
+      titulo: "Balanços e Demonstrações Contábeis (Lei 4.320/64)",
+      aulas: [
+        "Balanço Orçamentário",
+        "Balanço Financeiro",
+        "Balanço Patrimonial (BP)",
+        "Variações Patrimoniais (DVP)",
+        "DFC, DMPL e Notas Explicativas",
+        "Título IX — Lei 4.320/64",
+      ],
+    },
+    {
+      titulo: "LRF e Princípios Aplicados ao Setor Público",
+      aulas: ["LRF (I): RREO e RGF", "LRF (II)", "Princípios"],
+    },
+  ],
+
+  "Contabilidade Geral": [
+    {
+      titulo: "Fundamentos: Patrimônio, Escrituração e Regimes",
+      aulas: [
+        "Patrimônio: Equação, Atos/Fatos, Contas",
+        "Plano de Contas, Partidas Dobradas e Livros",
+        "Competência x Caixa; Apuração do Resultado",
+      ],
+    },
+    {
+      titulo: "Balanço Patrimonial (BP)",
+      aulas: [
+        "BP — Ativo Circulante (AC)",
+        "BP — Estoques",
+        "BP — Ativo Não Circulante (ANC)",
+        "BP — Ativo Imobilizado",
+        "BP — Passivo",
+        "BP — Operações Diversas",
+        "BP — PL, Parte I",
+        "BP — PL, Parte II",
+      ],
+    },
+    {
+      titulo: "Demonstrações Complementares e Princípios",
+      aulas: [
+        "DRE e Resultado Abrangente (DRA)",
+        "DLPA e DMPL",
+        "DFC (Direto e Indireto)",
+        "DVA — Valor Adicionado",
+        "Princípios Contábeis (CFC)",
+      ],
+    },
+    {
+      titulo: "CPCs — Pronunciamentos Técnicos",
+      aulas: [
+        "CPC 00 — Estrutura Conceitual",
+        "CPC 01 — Impairment",
+        "CPC 04 — Intangível",
+        "CPC 25 — Provisões e Contingências",
+        "CPC 26 — Apresentação das DCs",
+        "CPC 27 — Imobilizado",
+        "CPC 18 — Equivalência Patrimonial",
+        "CPC 16 — Estoques",
+        "CPC 12 — Ajuste a Valor Presente",
+        "CPC 47 — Receita de Contrato",
+        "CPC 48 — Instrumentos Financeiros",
+      ],
+    },
+  ],
 };
 
+export const TOPICOS_POR_MATERIA: Record<string, TopicoEspecifico[]> = {};
+/** Título de cada bloco por matéria, chaveado pelo número do bloco (ex.
+ * `TITULOS_BLOCO_POR_MATERIA["Economia"]["2"]`) — usado por `rotuloBloco`. */
+export const TITULOS_BLOCO_POR_MATERIA: Record<string, Record<string, string>> = {};
+
+for (const [materia, blocos] of Object.entries(DEFINICOES_MATERIA)) {
+  const { topicos, titulosBloco } = definirMateria(blocos);
+  TOPICOS_POR_MATERIA[materia] = topicos;
+  TITULOS_BLOCO_POR_MATERIA[materia] = titulosBloco;
+}
+
+/** "[<código>] <nome>", ex. "[1.2] Elasticidades". */
 export function rotuloTopico(t: TopicoEspecifico): string {
-  return `${t.codigo} ${t.nome}`;
+  return `[${t.codigo}] ${t.nome}`;
 }
 
 export interface BlocoDeAulas<T extends TopicoEspecifico = TopicoEspecifico> {
   /** Primeiro segmento do código, ex. "1" em "1.3". */
   bloco: string;
+  /** Título do bloco (ver `TITULOS_BLOCO_POR_MATERIA`) — ausente quando
+   * `agruparPorPrefixo` é chamado fora do contexto de uma matéria com
+   * blocos titulados (ex. heatmap de Dados). */
+  titulo?: string;
   aulas: T[];
 }
 
@@ -170,16 +544,21 @@ export function agruparPorPrefixo<T extends TopicoEspecifico>(
 }
 
 /** Blocos de aulas de uma matéria (agrupa TOPICOS_POR_MATERIA pelo número
- * antes do "."), para a seleção "bloco de aulas" em vez de aula única. */
+ * antes do "."), com título (ver TITULOS_BLOCO_POR_MATERIA), para a seleção
+ * "bloco de aulas" em vez de aula única. */
 export function blocosDeMateria(materia: string): BlocoDeAulas[] {
   const topicos = TOPICOS_POR_MATERIA[materia];
   if (!topicos) return [];
-  return agruparPorPrefixo(topicos, (t) => t.codigo.split(".")[0]);
+  return agruparPorPrefixo(topicos, (t) => t.codigo.split(".")[0]).map((b) => ({
+    ...b,
+    titulo: TITULOS_BLOCO_POR_MATERIA[materia]?.[b.bloco],
+  }));
 }
 
-/** Rótulo de um bloco para o dropdown, ex. "Bloco 2 (4 aulas)". */
+/** Rótulo de um bloco para o dropdown: "[<número>] <título> (<n> aulas)". */
 export function rotuloBloco(b: BlocoDeAulas): string {
-  return `Bloco ${b.bloco} (${b.aulas.length} aula${b.aulas.length > 1 ? "s" : ""})`;
+  const titulo = b.titulo ? ` ${b.titulo}` : "";
+  return `[${b.bloco}]${titulo} (${b.aulas.length} aula${b.aulas.length > 1 ? "s" : ""})`;
 }
 
 /**
@@ -266,7 +645,8 @@ export function pontuarTopicos(
 /** String descritiva do bloco inteiro, usada como `Config.topico` ao
  * escolher "Bloco de aulas" — vai direto para o prompt como texto livre. */
 export function descricaoBloco(b: BlocoDeAulas): string {
-  return `Bloco ${b.bloco} (aulas ${b.aulas[0].codigo}–${b.aulas[b.aulas.length - 1].codigo}): ${b.aulas
+  const titulo = b.titulo ? ` — ${b.titulo}` : "";
+  return `Bloco ${b.bloco}${titulo} (aulas ${b.aulas[0].codigo}–${b.aulas[b.aulas.length - 1].codigo}): ${b.aulas
     .map((a) => a.nome)
     .join("; ")}`;
 }
