@@ -1,0 +1,1282 @@
+[
+ {
+  "id": "SJC-2024-Q001",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Língua Portuguesa",
+  "assunto": "Interpretação de Texto",
+  "numero_original": 1,
+  "enunciado": "Observe o seguinte texto:\n\n“Só é possível pensar com palavras, isto é, com imagens. Por isso as palavras dominam o mundo, e as ideias, em sua ação imediata, pertencem a elas.” Assinale a opção que apresenta uma frase em que a palavra sublinhada mostra o mesmo significado que nesta frase original.",
+  "alternativas": {
+   "A": "Ninguém pode ficar com alguém que faça com que se sinta inferior.",
+   "B": "Em duas ocasiões as mulheres não sabem o que dizer, isto é, no início e no fim de um amor.",
+   "C": "É preciso viver como se pensa, opinião expressa por alguém de grande peso intelectual.",
+   "D": "A contradição não consente o arrependimento e o pecado ao mesmo tempo.",
+   "E": "A opinião é determinada, em qualquer lugar, pelos sentimentos e não pelo intelecto."
+  },
+  "gabarito": "D",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q002",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Língua Portuguesa",
+  "assunto": "Sintaxe",
+  "numero_original": 2,
+  "enunciado": "Assinale a única frase a seguir de construção aceitável.",
+  "alternativas": {
+   "A": "Escutei ontem à noite toda a partida de futebol do meu time, mas infelizmente eles perderam de novo.",
+   "B": "A lei foi finalmente votada no fim da noite. Enfim eles a aprovaram depois de longas discussões.",
+   "C": "A patinação artística é uma atividade muito exigente, pois elas devem treinar várias horas por dia.",
+   "D": "A piscina municipal será inaugurada no início do verão, por isso eles já começaram a limpá-la.",
+   "E": "Os maratonistas da prova deste ano correrão pelo meio da floresta e eles devem estar preparados contra as mordidas dos mosquitos."
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q003",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Língua Portuguesa",
+  "assunto": "Morfossintaxe - Substituição do Adjetivo",
+  "numero_original": 3,
+  "enunciado": "Em todas as opções abaixo há uma oração adjetiva sublinhada; aquela em que essa oração foi adequadamente substituída por um adjetivo, é:",
+  "alternativas": {
+   "A": "Não se pode falar mal senão das pessoas que se conhece bem. / célebres.",
+   "B": "Há quatro coisas que eu de bom grado dispensaria: amor, curiosidade, sardas e dúvidas. / bem dispensáveis.",
+   "C": "O homem livre é aquele que não tem medo de ir até o fim do seu pensamento. / temeroso.",
+   "D": "As atitudes que mostram retidão geralmente conduzem as coisas a bom termo. / diretas.",
+   "E": "Homem absurdo é aquele que não muda. / radical."
+  },
+  "gabarito": "B",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q004",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Língua Portuguesa",
+  "assunto": "Tipologia Textual - Texto Injuntivo",
+  "numero_original": 4,
+  "enunciado": "Assinale a frase abaixo que deve ser incluída entre os textos injuntivos.",
+  "alternativas": {
+   "A": "Boas opiniões não têm valor. Depende de quem as tem.",
+   "B": "Toda nova fé começa com uma heresia.",
+   "C": "Não suba ou desça escadas na escuridão.",
+   "D": "Um radical é um homem com os pés firmemente plantados no ar.",
+   "E": "Os paradoxos de hoje são os preconceitos de amanhã. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO"
+  },
+  "gabarito": "C",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q005",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Língua Portuguesa",
+  "assunto": "Pontuação",
+  "numero_original": 5,
+  "enunciado": "Assinale a frase cuja vírgula está corretamente justificada.",
+  "alternativas": {
+   "A": "Todas as especulações são cinza, meu amigo, mas a árvore de ouro da vida é eternamente verde. / separar o vocativo.",
+   "B": "Fui passear com as árvores, e o resultado é que fiquei mais alto. / separar uma oração reduzida.",
+   "C": "A ave canta, mesmo quando o galho começa a estalar. / marcar a elipse do verbo.",
+   "D": "Mesmo quando uma ave anda, sente que tem asas. / separar elementos de mesma função.",
+   "E": "A flor do vaso sorri, mas já não está sorrindo mais. / evitar ambiguidade."
+  },
+  "gabarito": "A",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q006",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Língua Portuguesa",
+  "assunto": "Morfologia - Pronomes",
+  "numero_original": 6,
+  "enunciado": "Todas as frases abaixo, exceto uma, mostram o mesmo problema na utilização de pronomes; assinale a frase que está inteiramente correta.",
+  "alternativas": {
+   "A": "Para se encontrar um emprego dentro de nossa especialidade, meus amigos de trabalho e eu temos de batalhar",
+   "B": "Decidimos nos opor a esse projeto do governo e faremos todo o possível de se opor a ele.",
+   "C": "Em torno da fogueira do acampamento, estávamos todos sentados e perguntando-nos o que faríamos no dia seguinte.",
+   "D": "Heloísa nos disse no último minuto que ele tinha decidido retirar-se do projeto. Nós devíamos, então, se organizar pra encontrar uma substituta.",
+   "E": "Poderemos voltar ao campo para se descansar porque o serviço de meteorologia anuncia bom tempo para amanhã. Direito Constitucional"
+  },
+  "gabarito": "C",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q007",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Constitucional",
+  "assunto": "Poder Legislativo",
+  "numero_original": 7,
+  "enunciado": "O Presidente da Câmara dos Vereadores do Município Alfa recebeu, do Tribunal de Contas do Estado, manifestação no sentido da rejeição das contas de gestão apresentadas pelo Prefeito do referido Município. Ao solicitar que sua assessoria analisasse os efeitos dessa manifestação em relação à atuação do Poder Legislativo, foi-lhe corretamente informado que",
+  "alternativas": {
+   "A": "ela pode ser livremente analisada, considerando que compete privativamente ao Poder Legislativo a análise das contas anuais do Chefe do Poder Executivo.",
+   "B": "ela apresenta contornos decisórios, considerando a natureza das contas apresentadas, sendo que seria alcançada conclusão diversa caso estivéssemos perante contas de governo.",
+   "C": "a Câmara Municipal pode dispor, em seu regimento interno, sobre a atribuição de definitividade à manifestação do Tribunal de Contas caso nenhum vereador se insurja contra o seu teor.",
+   "D": "apesar de atuar como órgão auxiliar da Câmara Municipal, a manifestação do Tribunal de Contas ocupa uma posição preferente, só deixando de prevalecer por decisão de uma maioria qualificada de vereadores.",
+   "E": "ela é mera manifestação do federalismo cooperativo, considerando a autonomia política do Estado e do Município, não sendo possível que juízos de valor de órgãos vinculados a um ente prevaleçam sobre os de outro.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS"
+  },
+  "gabarito": "D",
+  "bloco": "[4] Organização dos Poderes (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q008",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Constitucional",
+  "assunto": "Ordem Social",
+  "numero_original": 8,
+  "enunciado": "Nos termos do Art. 224 da Constituição da República, “para os efeitos do disposto neste capítulo, o Congresso Nacional instituirá, como seu órgão auxiliar, o Conselho de Comunicação Social, na forma da lei. Considerando a classificação das normas constitucionais, a intepretação do referido preceito conduz à obtenção de uma norma de eficácia",
+  "alternativas": {
+   "A": "plena.",
+   "B": "contida.",
+   "C": "imediata.",
+   "D": "limitada, de princípio institutivo.",
+   "E": "limitada, de princípio programático."
+  },
+  "gabarito": "D",
+  "bloco": "[5] Defesa do Estado, Tributação e Ordem Econômico-Social (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q009",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Constitucional",
+  "assunto": "Direitos Políticos",
+  "numero_original": 9,
+  "enunciado": "João almejava concorrer a um cargo eletivo nas próximas eleições. Ao procurar um advogado e descrever os distintos aspectos afetos à sua trajetória, João recebeu a informação de que era alcançado por uma causa de inelegibilidade prevista na Constituição da República. Ao questionar o advogado em relação às consequências de uma causa de inelegibilidade como a referida, foi-lhe corretamente respondido que, pelas características desse instituto, ele",
+  "alternativas": {
+   "A": "não pode concorrer a nenhum cargo eletivo.",
+   "B": "somente não pode concorrer aos cargos eletivos indicados.",
+   "C": "somente não pode concorrer a cargos eletivos em certas esferas territoriais.",
+   "D": "pode afastar a incidência da causa de inelegibilidade valendo- se da desincompatibilização.",
+   "E": "preserva os direitos políticos, ainda que haja restrições em relação à possibilidade de concorrer a cargo eletivo."
+  },
+  "gabarito": "E",
+  "bloco": "[2] Nacionalidade e Direitos Políticos (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q010",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Constitucional",
+  "assunto": "Organização do Estado (Art. 18 a 36)",
+  "numero_original": 10,
+  "enunciado": "O recém-empossado Prefeito do Município Alfa, por ser um entusiasta do patrimônio histórico-cultural local, solicitou que sua assessoria promovesse um detalhado levantamento das propriedades existentes no Município e realizasse um detalhado plano de proteção. Além disso, solicitou que fosse analisado se a atuação do Município sofreria ingerência de alguma estrutura de poder vinculada a ente federativo diverso. Foi corretamente esclarecido ao Prefeito Municipal que, à luz da ordem constitucional, nas circunstâncias indicadas,",
+  "alternativas": {
+   "A": "o Município Alfa tem autonomia política para adotar as medidas necessárias à proteção do referido patrimônio, sem a ingerência de outros entes federativos.",
+   "B": "apesar de o Município Alfa ter autonomia política para adotar as medidas necessárias à proteção do referido patrimônio, está adstrito apenas à legislação federal e estadual.",
+   "C": "o Município Alfa deve promover a proteção do referido patrimônio, devendo não só observar a legislação federal e estadual como se sujeitar à fiscalização desses níveis de governo.",
+   "D": "a ordem constitucional estabelece não só a competência da União para proteger o patrimônio-histórico cultural como a competência protetiva suplementar dos demais entes federativos.",
+   "E": "como todo patrimônio histórico-cultural existente no território brasileiro é considerado patrimônio nacional, a competência para protegê-lo é da União, o que se se estende aos demais entes federativos conforme lei federal. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO"
+  },
+  "gabarito": "C",
+  "bloco": "[3] Organização do Estado e Administração Pública (2 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q011",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Constitucional",
+  "assunto": "Poder Judiciário",
+  "numero_original": 11,
+  "enunciado": "João, Antônio e Pedro analisaram o alcance das competências do Supremo Tribunal Federal, considerando os balizamentos estabelecidos pela Constituição da República. João defendia que essas competências não poderiam ser ampliadas pela legislação infraconstitucional. Antônio, por sua vez, entendia que o Tribunal, em determinada situação, é competente para processar e julgar recurso interposto contra sentença de juiz monocrático. Pedro, por fim, afirmava que o Tribunal somente apreciava recursos de fundamentação vinculada. Ao analisar as assertivas de João, Antônio e Pedro, Marcos concluiu corretamente que",
+  "alternativas": {
+   "A": "todas estão certas.",
+   "B": "apenas a assertiva de Pedro está certa.",
+   "C": "apenas a assertiva de Antônio está certa.",
+   "D": "apenas as assertivas de João e Pedro estão certas.",
+   "E": "apenas as assertivas de João e Antônio estão certas."
+  },
+  "gabarito": "E",
+  "bloco": "[4] Organização dos Poderes (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q012",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Constitucional",
+  "assunto": "Processo Legislativo",
+  "numero_original": 12,
+  "enunciado": "Jonas, Vereador no Município Sigma, solicitou que sua assessoria analisasse a possibilidade de ser apresentado projeto de lei visando a fixar a sistemática de subsídios em relação a todos os servidores públicos municipais que são alcançados pelos institutos da progressão e da promoção funcional. A assessoria de Jonas, à luz dos balizamentos estabelecidos pela Constituição da República, respondeu corretamente que",
+  "alternativas": {
+   "A": "o projeto de lei alvitrado por Jonas, embora seja compatível com a ordem constitucional, somente pode ser apresentado pelo Prefeito Municipal.",
+   "B": "a sistemática de subsídios somente pode ser aplicada aos denominados agentes políticos, não se compatibilizando com a generalidade dos servidores públicos.",
+   "C": "é possível a aplicação dos subsídios a todos os servidores públicos, que serão remunerados em parcela única, absorvendo verbas remuneratórias e indenizatórias.",
+   "D": "a sistemática de subsídios pode ser instituída, passando a coexistir com gratificações, adicionais e verbas de representação a que fazem jus os servidores públicos.",
+   "E": "por se tratar de norma-quadro, que não terá a funcionalidade de fixar os estipêndios a serem recebidos, apenas de definir a respectiva sistemática, Jonas tem legitimidade para o projeto.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS Direito Administrativo"
+  },
+  "gabarito": "A",
+  "bloco": "[4] Organização dos Poderes (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q013",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Administrativo",
+  "assunto": "Licitações — Lei 14.133/2021 (Parte I)",
+  "numero_original": 13,
+  "enunciado": "A Administração Pública do Município Alfa pretende contratar, por meio de empresário exclusivo, João, profissional do setor artístico, consagrado pela crítica especializada, para realizar uma performance durante as festividades de fim de ano. Por outro lado, a União Federal pretende comprar bem produzido no país e que envolva, cumulativamente, alta complexidade tecnológica e defesa nacional. Nesse cenário, considerando as disposições da Lei no 14.133/2021, é correto afirmar ser",
+  "alternativas": {
+   "A": "dispensável a licitação para a contratação de João por parte do Município Alfa. Igualmente, é dispensável o procedimento licitatório para a compra que a União Federal pretende realizar, desde que os valores não ultrapassem duzentos e cinquenta mil reais.",
+   "B": "dispensável a licitação para a contratação de João por parte do Município Alfa. Por sua vez, é inexigível o procedimento licitatório para a compra que a União Federal pretende realizar, desde que os valores não ultrapassem duzentos e cinquenta mil reais.",
+   "C": "inexigível a licitação para a contratação de João por parte do Município Alfa. Igualmente, é inexigível o procedimento licitatório para a compra que a União Federal pretende realizar.",
+   "D": "inexigível a licitação para a contratação de João por parte do Município Alfa. Por sua vez, é dispensável o procedimento licitatório para a compra que a União Federal pretende realizar.",
+   "E": "dispensável a licitação para a contratação de João por parte do Município Alfa. Por sua vez, é inexigível o procedimento licitatório para a compra que a União Federal pretende realizar."
+  },
+  "gabarito": "D",
+  "bloco": "[4] Agentes Públicos e Licitações/Contratos (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q014",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Administrativo",
+  "assunto": "Serviços Públicos (Lei 8.987/1995)",
+  "numero_original": 14,
+  "enunciado": "Jonas, candidato ao cargo de Prefeito do Município Alfa, divulga, nas suas redes sociais, projetos que pretende implementar no âmbito da municipalidade – relacionados aos serviços públicos de iluminação pública, de calçamento e de fornecimento domiciliar de água – caso se torne o Chefe do Poder Executivo local. Nesse cenário, à luz da classificação dos serviços públicos quanto aos destinatários, é correto afirmar que",
+  "alternativas": {
+   "A": "a iluminação pública e o fornecimento domiciliar de água são considerados serviços públicos uti universi. Por sua vez, o calçamento é reputado um serviço público uti singuli.",
+   "B": "a iluminação pública é considerada um serviço público uti universi. Por sua vez, o calçamento e o fornecimento domiciliar de água são reputados serviços públicos uti singuli.",
+   "C": "a iluminação pública e o calçamento são considerados serviços públicos uti universi. Por sua vez, o fornecimento domiciliar de água é reputado um serviço público uti singuli.",
+   "D": "a iluminação pública, o calçamento e o fornecimento domiciliar de água são considerados serviços públicos uti universi.",
+   "E": "a iluminação pública, o calçamento e o fornecimento domiciliar de água são considerados serviços públicos uti singuli. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO"
+  },
+  "gabarito": "C",
+  "bloco": "[5] Serviços Públicos e Parcerias (2 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q015",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Administrativo",
+  "assunto": "Poderes Administrativos",
+  "numero_original": 15,
+  "enunciado": "A Administração Pública do Município Alfa editou ato administrativo proibindo os servidores públicos de se ausentarem da municipalidade, mesmo durante os períodos de folga. Ao tomar ciência dos fatos, João, Vereador, juntou diversas pessoas para que todos protestassem, em conjunto, contra o ato da Prefeitura. Nesse cenário, considerando o entendimento doutrinário e jurisprudencial dominantes, é correto afirmar que a Administração Pública poderá",
+  "alternativas": {
+   "A": "revogar o ato administrativo, em razão do seu caráter inconveniente e inoportuno, sem prejuízo da possibilidade de revogação pelo Poder Judiciário.",
+   "B": "anular o ato administrativo, em razão do seu caráter inconveniente e inoportuno, vedada a intervenção do Poder Judiciário.",
+   "C": "revogar o ato administrativo, em razão da sua ilegalidade, sem prejuízo da possibilidade de revogação pelo Poder Judiciário.",
+   "D": "anular o ato administrativo, em razão da sua ilegalidade, sem prejuízo da possibilidade de anulação pelo Poder Judiciário.",
+   "E": "anular o ato administrativo, em razão da sua ilegalidade, vedada a intervenção do Poder Judiciário."
+  },
+  "gabarito": "D",
+  "bloco": "[1] Fundamentos e Poderes Administrativos (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q016",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Administrativo",
+  "assunto": "Bens Públicos",
+  "numero_original": 16,
+  "enunciado": "Após a observância do procedimento licitatório, a Administração Pública concorda, atendido o interesse público, com a utilização privativa de bem público pela sociedade empresária XYZ, visando à exploração de grande infraestrutura pela entidade, por prazo determinado. Nesse cenário, considerando o entendimento doutrinário e jurisprudencial dominantes, o uso privativo do bem público dar- se-á por meio de uma",
+  "alternativas": {
+   "A": "autorização de uso de bem público, caracterizando-se como um ato administrativo discricionário e precário.",
+   "B": "concessão de uso de bem público, caracterizando-se como um ato administrativo discricionário e precário.",
+   "C": "permissão de uso de bem público, caracterizando-se como um ato administrativo discricionário e precário.",
+   "D": "concessão de uso de bem público, caracterizando-se como um contrato administrativo.",
+   "E": "permissão de uso de bem público, caracterizando-se como um contrato administrativo.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS"
+  },
+  "gabarito": "D",
+  "bloco": "[7] Bens Públicos e Intervenção na Propriedade (2 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q017",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Administrativo",
+  "assunto": "Poderes Administrativos",
+  "numero_original": 17,
+  "enunciado": "Caio, guarda municipal no âmbito do Município Alfa, é chamado para auxiliar na contenção a um determinado homem, que se encontra embriagado e destruindo o patrimônio público. Ao comparecer ao local, Caio saca a sua arma de choque e efetua um disparo que atinge o olho do particular, cegando-o. Nesse contexto, deflagra-se um processo administrativo para apurar a conduta do agente público. Instado pela Administração Pública a nomear o advogado Caio, por acreditar piamente na sua inocência, não o faz. Nesse cenário, considerando o entendimento doutrinário e jurisprudencial dominantes, é correto afirmar que a responsabilidade administrativa do agente público é",
+  "alternativas": {
+   "A": "objetiva, sendo certo que eventual ausência de defesa técnica no procedimento administrativo disciplinar não é fato gerador de ilegalidade, salvo se demonstrado prejuízo por Caio.",
+   "B": "subjetiva, sendo certo que eventual ausência de defesa técnica no procedimento administrativo disciplinar não é fato gerador de ilegalidade, salvo se demonstrado prejuízo por Caio.",
+   "C": "subjetiva, sendo certo que eventual ausência de defesa técnica no procedimento administrativo disciplinar não é fato gerador de ilegalidade.",
+   "D": "subjetiva, sendo certo que eventual ausência de defesa técnica no procedimento administrativo disciplinar é fato gerador de ilegalidade.",
+   "E": "objetiva, sendo certo que eventual ausência de defesa técnica no procedimento administrativo disciplinar é fato gerador de ilegalidade."
+  },
+  "gabarito": "C",
+  "bloco": "[1] Fundamentos e Poderes Administrativos (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q018",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Administrativo",
+  "assunto": "Contrato Administrativo e Convênios",
+  "numero_original": 18,
+  "enunciado": "O Município Alfa, após a observância de todas as formalidades constitucionais e legais, celebrará contrato administrativo, sem investimento, com a sociedade empresária XYZ, o qual gerará receita para a Administração Pública. Nesse cenário, considerando as disposições da Lei no 14.133/2021, é correto afirmar que o contrato a ser celebrado poderá ter vigência máxima de",
+  "alternativas": {
+   "A": "vinte e cinco anos.",
+   "B": "quinze anos.",
+   "C": "cinco anos.",
+   "D": "vinte anos.",
+   "E": "dez anos. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO Direito Civil"
+  },
+  "gabarito": "E",
+  "bloco": "[4] Agentes Públicos e Licitações/Contratos (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q019",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Empresarial - Incorporação e Sucessão de Obrigações",
+  "numero_original": 19,
+  "enunciado": "Com a incorporação da sociedade XYZ pela sociedade ABC, ocorreu a transmissão das obrigações civis da empresa incorporada, gerando, por conseguinte, diversas polêmicas entre os membros do corpo jurídico da sociedade incorporadora. A respeito do tema transmissão das obrigações, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "A cessão de crédito independe de notificação do devedor, desde que realizada por instrumento público, em virtude da eficácia erga omnes.",
+   "B": "A assunção de dívida exonera o devedor primitivo, quando houver o consentimento expresso do credor, salvo se aquele, ao tempo da assunção, era insolvente e o credor o ignorava.",
+   "C": "Salvo estipulação em contrário, o cedente responde pela solvência do devedor.",
+   "D": "As exceções pessoais que competiam ao devedor primitivo na assunção de dívida podem ser opostas ao novo devedor.",
+   "E": "Na cessão de crédito, os atos conservatórios do direito cedido não podem ser exercidos pelo cessionário, por falta de legitimidade."
+  },
+  "gabarito": "B",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q020",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Civil - Propriedade e Posse",
+  "numero_original": 20,
+  "enunciado": "Marcelo Rocha relata à sua advogada, Gabriela Ruth, que é proprietário e possuidor do apartamento 72, da Rua do Céu, 99999, Bairro Paraíso da Lua, desde 2002, sendo que João Catapimba é o proprietário da unidade 62, que se encontra localizada imediatamente embaixo da sua. Entre 2002 e 2010, a unidade 62 ficou alugada, sendo que de 2010 a 2022, a tia do proprietário habitou o apartamento (unidade 62). Durante os dois períodos, nenhuma reclamação houve a respeito de barulho ou qualquer incômodo que pudesse ter sido causado por Marcelo. Com a morte da tia, João Catapimba passou a habitar o imóvel. Desde então, injustificadamente, João passou a desferir golpes no teto de sua residência, ou seja, no piso da residência de Marcelo. Com o passar do tempo, os incidentes pioraram, ocasionando até em xingamentos e ameaças de morte praticados por João contra Marcelo. Esses atos eram realizados, a partir da janela do apartamento 62, em direção à unidade 72. Diante da situação hipotética narrada, com base no tema Direitos de Vizinhança, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "O exercício das prerrogativas de proprietário e possuidor não pode extravasar os limites da razoabilidade e da normalidade de modo a prejudicar a segurança, o sossego e a saúde das pessoas que habitam a propriedades vizinha.",
+   "B": "Na situação narrada, não se configura qualquer forma de abuso, pois discussões por barulhos fazem parte das relações de vizinhança, se tratando de transtorno passageiro do cotidiano.",
+   "C": "A violação do Direito de Vizinhança só se caracteriza quando o uso da propriedade violar normas administrativas emanadas da autoridade municipal.",
+   "D": "O dissabor cotidiano é o fato contumaz e imperceptível que não atinge a esfera jurídica personalíssima do indivíduo, por conseguinte, as atitudes de João são normais e aceitáveis na relação entre vizinhos.",
+   "E": "As atitudes de João são legítimas e válidas, se realizadas até as 22 horas, pois se encontram no limite legal para o exercício pleno do direito de uso do proprietário.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS"
+  },
+  "gabarito": "A",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q021",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Civil - Regime de Bens",
+  "numero_original": 21,
+  "enunciado": "Romeu e Julieta, casados desde 2010 pelo regime da comunhão parcial de bens, encontram-se em crise conjugal, agravada pelo início da adolescência dos únicos filhos do casal. Destaca-se que não há consenso acerca da partilha do vasto patrimônio do casal. Diante da situação hipotética narrada, com base no tema dissolução da sociedade e do vínculo conjugal e seus efeitos, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "A separação judicial, que pode advir unicamente da vontade dos cônjuges, é uma das formas lícitas e aceitas pelo ordenamento jurídico e jurisprudências pátrias de extinção do casamento.",
+   "B": "Caso não haja concesso ou prévia partilha de bens, o divórcio torna-se inviável, não podendo ser concedido.",
+   "C": "Em caso de litígio judicial de ordem patrimonial, o divórcio modificará os direitos e deveres dos pais em relação aos filhos, gerando como consequência a guarda exclusiva que será conferida ao cônjuge inocente.",
+   "D": "O adultério e a tentativa de homicídio geram o divórcio direto e unilateral, sendo que o cônjuge culpado perde o direito ao uso do nome e a guarda dos filhos.",
+   "E": "O casamento válido só se dissolve pela morte de um dos cônjuges ou pelo divórcio, aplicando-se a presunção estabelecida no Código Civil quanto ao ausente."
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q022",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Civil - Capacidade e Curatela",
+  "numero_original": 22,
+  "enunciado": "Júlio Silva promoveu ação de curatela em face de sua esposa, Ana, de 42 anos, alegando que Ana não possui discernimento necessário e não está apta a expressar a sua vontade. No curso do processo, Ana deduz requerimento ao juízo para a adoção do processo de tomada de decisão apoiada e indica suas irmãs como suas apoiadoras. A sentença julga improcedente o pedido de Júlio e defere o pedido de Ana. Em relação ao caso, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "O deferimento do pedido de Ana pressupõe a prévia declaração da sua incapacidade relativa.",
+   "B": "O deferimento do pedido de Ana não interfere em sua capacidade civil, que continua sendo absoluta.",
+   "C": "O pedido de Ana não poderia ter sido deferido, pois Júlio Silva, em razão da relação de conjugalidade, deveria ter sido nomeado seu apoiador.",
+   "D": "Considerando que as alegações de Júlio Silva tenham sido devidamente comprovadas por laudo médico e testemunhas, o juízo deveria ter declarado a incapacidade absoluta de Ana.",
+   "E": "O deferimento do pedido de Ana não interfere em sua capacidade civil, mas a validade dos negócios que ela venha a praticar após o trânsito em julgado da sentença dependem da anuência das apoiadoras. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO"
+  },
+  "gabarito": "B",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q023",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Civil - Contrato de Seguro",
+  "numero_original": 23,
+  "enunciado": "Tereza contratou o seguro de vida Mulher com cobertura por morte, acidentes pessoais e diagnóstico de câncer junto à Seguradora Tranquilidade. Na vigência do contrato, em 30 de novembro de 2021, Tereza foi diagnosticada com câncer de útero, sendo submetida ao tratamento médico devido; o tratamento ainda está em curso. Em 1o de dezembro de 2023, quando da segunda renovação sucessiva do contrato, Tereza identificou que teria direito a uma verba compensatória em razão de seu diagnóstico de câncer. Assim, Tereza, observando todo o procedimento para a regularização do sinistro, bem como atendendo a todas as exigências da Seguradora Tranquilidade, incluindo o envio do diagnóstico, requer da Seguradora Tranquilidade o pagamento do capital estipulado. Entretanto, Tereza tem seu pedido negado pela Seguradora, sob o argumento de que a pretensão estaria prescrita. Diante da situação hipotética narrada, é correto afirmar que a recusa da Seguradora Tranquilidade",
+  "alternativas": {
+   "A": "não encontra respaldo legal, pois a contagem do prazo prescricional de 1 ano fica impedida durante o tratamento médico.",
+   "B": "não encontra respaldo legal, pois o prazo prescricional para a pretensão de Tereza é de 3 anos.",
+   "C": "não encontra respaldo legal, pois o prazo prescricional para a pretensão de Tereza é de 2 anos, contado o prazo a partir do diagnóstico, que é o fato gerador da pretensão.",
+   "D": "encontra respaldo legal, pois o prazo prescricional para a pretensão de Tereza é de 1 ano, contado a partir do diagnóstico, que é o fato gerador da pretensão.",
+   "E": "não encontra respaldo legal, pois a contagem do prazo prescricional de 2 anos fica impedida durante o tratamento médico.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS"
+  },
+  "gabarito": "D",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q024",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Civil - Responsabilidade Civil",
+  "numero_original": 24,
+  "enunciado": "Tula, profissional autônoma, atuante na área de publicidade e marketing digital, 30 anos, solteira, após sofrer um acidente e ter a sua perna fraturada, se dirigiu ao Hospital Privado Bem-Estar onde, após os exames rotineiros indicados para a situação, teve sua perna imobilizada por um dos médicos integrantes do corpo clínico do hospital. Já em casa, dias após o atendimento hospitalar, Tula passou a sentir muitas dores na perna, acima do esperado. Não suportando as dores, Tula se dirigiu novamente ao hospital, para realização de um novo exame, a partir do qual se constatou que, sob o gesso, havia uma ferida infeccionada que não havia sido observada pelo médico quando da imobilização. Em decorrência de tais fatos, Tula ficou afastada de suas atividades por quatro meses, quando deveria ter ficado apenas 15 dias. Além disso, em virtude da gravidade da infecção, Tula foi impedida de realizar uma viagem à Espanha, onde terminaria um curso de especialização de suma importância para sua carreira. Tula, muito abalada com todo o ocorrido, acabou desenvolvendo um quadro leve de depressão. Diante desses fatos e de todo o sofrimento, Kátia, mãe de Tula, optou por reduzir substancialmente suas próprias atividades laborativas para cuidar de sua filha. Diante dos fatos hipotéticos narrados, analise as assertivas abaixo.\n\nI. O Hospital Bem-Estar e o médico respondem de forma objetiva e solidária pelos danos suportados por Tula, entre os quais os danos emergentes correspondentes aos custos de internação, tratamento médico e demais despesas devidamente comprovadas.\nII. O Hospital Bem-Estar responde, independentemente da demonstração de culpa do médico, de forma objetiva pelos danos suportados por Tula, entre os quais, a perda da chance de realização da viagem e os lucros cessantes de Kátia.\nIII. O Hospital Bem-Estar responde de forma objetiva pelos danos suportados por Tula, dentre os quais, danos emergentes, correspondentes aos custos de internação, tratamento médico e demais despesas devidamente comprovadas, e os custos de cancelamento da viagem à Espanha.\n\nEstá correto apenas o que se afirma em",
+  "alternativas": {
+   "A": "I.",
+   "B": "II.",
+   "C": "III.",
+   "D": "I e II.",
+   "E": "I e III. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO Contabilidade Geral"
+  },
+  "gabarito": "C",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q025",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC 00 — Estrutura Conceitual",
+  "numero_original": 25,
+  "enunciado": "As demonstrações contábeis elaboradas dentro do que prescreve a Estrutura Conceitual para Elaboração e Divulgação de Relatório Contábil- Financeiro, de acordo com o Pronunciamento Conceitual Básico (R1), satisfazem as necessidades comuns da maioria dos seus usuários, uma vez que quase todos utilizam essas demonstrações contábeis para a tomada de decisões econômicas. Tais tomadas de decisões incluem as a seguir listadas, à exceção de uma. Assinale-a.",
+  "alternativas": {
+   "A": "Determinar políticas tributárias e a distribuição de lucros e dividendos.",
+   "B": "Verificar como são calculadas as estimativas utilizadas e se estas correspondem à realidade observada.",
+   "C": "Decidir quando comprar, manter ou vender instrumentos patrimoniais.",
+   "D": "Avaliar a segurança quanto à recuperação dos recursos financeiros emprestados à entidade.",
+   "E": "Avaliar a capacidade de a entidade pagar seus empregados e proporcionar-lhes outros benefícios."
+  },
+  "gabarito": "B",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q026",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "Competência x Caixa; Apuração do Resultado",
+  "numero_original": 26,
+  "enunciado": "Uma sociedade empresária trabalha exclusivamente com turismo voltado para a Copa do Mundo de futebol, realizada a cada quatro anos. Deste modo, a empresa costuma apresentar lucro considerável em um exercício e prejuízo nos três exercícios seguintes. No exercício lucrativo, ela destina parte do lucro líquido à formação de reserva, com a finalidade de compensar, nos exercícios seguintes, a diminuição do lucro decorrente de perda julgada provável, cujo valor pode ser estimado. O procedimento realizado pela empresa representa constituição de reserva",
+  "alternativas": {
+   "A": "legal.",
+   "B": "estatutária.",
+   "C": "para contingências.",
+   "D": "de lucros a realizar.",
+   "E": "de lucros para expansão."
+  },
+  "gabarito": "C",
+  "bloco": "[1] Fundamentos: Patrimônio, Escrituração e Regimes (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q027",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "BP — Estoques",
+  "numero_original": 27,
+  "enunciado": "Uma entidade tem como atividade-fim a venda de imóveis a terceiros. Em 01/01/2023, a entidade adquiriu um imóvel por R$300.000 à vista, com o intuito de revendê-lo. Em 01/04/2023, a entidade vendeu o imóvel por R$320.000. O pagamento foi recebido no mês seguinte. Assinale a opção que indica a variação do fluxo de caixa, respectivamente, das atividades operacional e de investimento em 2023.",
+  "alternativas": {
+   "A": "R$20.000 e zero.",
+   "B": "Zero e R$20.000.",
+   "C": "Zero e R$320.000.",
+   "D": "R$320.000 e -R$300.000.",
+   "E": "R$300.000 e R$320.000.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS"
+  },
+  "gabarito": "A",
+  "bloco": "[2] Balanço Patrimonial (BP) (8 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q028",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "BP — Estoques",
+  "numero_original": 28,
+  "enunciado": "Em 01/01/2023, uma loja adquiriu 100 unidades de mochilas para revenda, por R$8.500. No primeiro semestre de 2023, 30 mochilas foram vendidas, por R$110, cada. Em 01/07/2023, o preço de venda da mochila era R$90, sendo que, para concretizar a venda, eram estimados gastos necessários de 10% do preço. Assinale a opção que indica o valor do estoque apresentado no balanço patrimonial da loja em 31/12/2023, considerando que não houve vendas no segundo semestre.",
+  "alternativas": {
+   "A": "R$5.355.",
+   "B": "R$5.670.",
+   "C": "R$5.950.",
+   "D": "R$6.300.",
+   "E": "R$6.930."
+  },
+  "gabarito": "B",
+  "bloco": "[2] Balanço Patrimonial (BP) (8 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q029",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "BP — Ativo Imobilizado",
+  "numero_original": 29,
+  "enunciado": "Em uma sociedade empresária, são classificados(as) como “Ativo Imobilizado em Andamento”",
+  "alternativas": {
+   "A": "os melhoramentos e as obras integradas aos terrenos utilizados.",
+   "B": "os bens incorpóreos destinados à manutenção das atividades.",
+   "C": "as peças destinadas à substituição em máquinas e equipamentos.",
+   "D": "os bens utilizados para deslocamento de pessoal ou transporte de mercadorias.",
+   "E": "os bens em uso durante a fase pré-operacional, relativos ao desenvolvimento de um projeto."
+  },
+  "gabarito": "E",
+  "bloco": "[2] Balanço Patrimonial (BP) (8 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q030",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC 26 — Apresentação das DCs",
+  "numero_original": 30,
+  "enunciado": "De acordo com a Lei nº 6.404/76 e modificações, as informações divulgadas pelas notas explicativas",
+  "alternativas": {
+   "A": "não são auditadas pelo auditor independente.",
+   "B": "não são exigidas pelas práticas contábeis adotadas no Brasil.",
+   "C": "não são consideradas necessárias para uma apresentação adequada.",
+   "D": "não são apresentadas em outra parte das demonstrações financeiras.",
+   "E": "não devem seguir os mesmos padrões contábeis das demonstrações financeiras. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO CONHECIMENTOS ESPECÍFICOS Direito Tributário"
+  },
+  "gabarito": "D",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q032",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Tributário",
+  "assunto": "Dívida Ativa e Certidão Negativa (CTN)",
+  "numero_original": 32,
+  "enunciado": "Julia Almeida tem uma dívida de IPTU com a prefeitura de São José dos Campos ainda não inscrita em dívida ativa, tanto que não tem a Certidão de Dívida Ativa (CDA) respectiva. Julia foi surpreendida com o protesto desta dívida num Tabelionato de Protesto de Títulos, inclusive com seu nome passando a constar em serviços de proteção ao crédito. Sobre a situação de Júlia, assinale a afirmativa correta.",
+  "alternativas": {
+   "A": "É possível o protesto de título da dívida do Município mesmo sem a CDA.",
+   "B": "Não é possível o protesto de título sem a respectiva CDA.",
+   "C": "É possível o protesto de título, se a Execução Fiscal for suspensa por não terem sido encontrados bens da devedora.",
+   "D": "Não é possível protesto de título de dívida do Município, devendo ser proposta a Execução Fiscal.",
+   "E": "É possível o protesto de títulos apenas com a CDA, mas não é permitido a inscrição em serviços de proteção ao crédito."
+  },
+  "gabarito": "B",
+  "bloco": "[3] Administração Tributária e Tributos em Espécie (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q033",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Tributário",
+  "assunto": "Tributos de Competência dos Municípios",
+  "numero_original": 33,
+  "enunciado": "Maria Silveira é proprietária de uma casa em São José dos Campos. A casa é localizada a 2,5 quilômetros de um posto de saúde e tem abastecimento de água, mas não tem nem sistema de esgoto sanitário, nem iluminação pública ou meio-fio com canalização de águas pluviais. Maria Silveira questiona um tributarista se deverá pagar o IPTU - Imposto Sobre a Propriedade Predial e Territorial Urbana sobre tal imóvel e ele responde corretamente que",
+  "alternativas": {
+   "A": "não, pela necessidade de iluminação pública, além do abastecimento de água.",
+   "B": "sim, por só ser necessário o abastecimento de água.",
+   "C": "não, por ser considerado como localizado em zona rural.",
+   "D": "sim, por ser considerada zona urbana com apenas dois melhoramentos exigidos pela lei municipal.",
+   "E": "não, pela necessidade de sistema de esgoto sanitário além do abastecimento de água.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS"
+  },
+  "gabarito": "D",
+  "bloco": "[3] Administração Tributária e Tributos em Espécie (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q035",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Tributário",
+  "assunto": "Princípios Tributários",
+  "numero_original": 35,
+  "enunciado": "João Oliveira é proprietário de um imóvel na cidade de ABCD e foi informado de que a Câmara Municipal alterou a base de cálculo do IPTU, por lei, em 23 de novembro de 2021. João questiona se o novo cálculo do referido imposto poderá ser cobrado de João em janeiro de 2022. A resposta correta é:",
+  "alternativas": {
+   "A": "não poderá, pois alteração de base de cálculo do IPTU tem de obedecer aos princípios da anterioridade e anterioridade nonagesimal.",
+   "B": "poderá, pois alteração de base de cálculo do IPTU não tem de obedecer aos princípios da anterioridade e anterioridade nonagesimal.",
+   "C": "poderá, pois alteração de base de cálculo do IPTU não precisa obedecer ao princípio da anterioridade nonagesimal mas precisa observar o da anterioridade.",
+   "D": "não poderá, pois alteração de base de cálculo do IPTU não precisa obedecer o princípio da anterioridade mas precisa observar a anterioridade nonagesimal.",
+   "E": "Poderá, pois a Prefeitura nem precisaria de lei para alterar a base de cálculo do IPTU, podendo ser feito por decreto."
+  },
+  "gabarito": "C",
+  "bloco": "[1] Sistema Tributário Nacional: Conceitos e Princípios (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q036",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Tributário",
+  "assunto": "Responsabilidade Tributária",
+  "numero_original": 36,
+  "enunciado": "José se tornou inventariante do espólio de seu pai, que deixou dívidas de IPTU de seu único imóvel, dos três anos anteriores (2109, 2020 e 2021) ao óbito ocorrido em fevereiro de 2022. O Inventário judicial tramitou e não houve pagamento do referido tributo em 2022 e 2023. O espólio não tem condições de pagar a dívida e o imóvel foi partilhado entre José e seu irmão André. Em relação à responsabilidade de José em relação à dívida, é correto afirmar que",
+  "alternativas": {
+   "A": "André é responsável solidário pelas dívidas de IPTU de 2019 a 2021 por ter sido inventariante; em 2022 e 2023 só responde por seu quinhão.",
+   "B": "não há responsabilidade solidária por André ser inventariante.",
+   "C": "André é pessoalmente responsável pelas dívidas de IPTU dos anos de 2019 a 2023, por ter sido inventariante.",
+   "D": "André é responsável solidário pelas dívidas de IPTU dos anos de 2019 a 2023 por ter sido inventariante.",
+   "E": "André é responsável solidário pelas dívidas de IPTU dos anos de 2019 a 2023 apenas em relação a seu quinhão. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO"
+  },
+  "gabarito": "A",
+  "bloco": "[2] Obrigação e Crédito Tributário (7 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q037",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Tributário",
+  "assunto": "Administração Tributária e Fiscalização",
+  "numero_original": 37,
+  "enunciado": "A Administradora de imóveis PDQA foi intimada pela Receita Federal a prestar informações dos imóveis e valor dos aluguéis em nome do seu cliente, Sr. Alexandre Batista, para apuração de possível sonegação de Imposto de Renda nos últimos anos. Em relação a tal intimação, a Administradora deve",
+  "alternativas": {
+   "A": "negar as informações, pois só pode prestá-las em caso de ordem judicial.",
+   "B": "prestar as informações em relação aos imóveis, mas não em relação aos valores dos aluguéis.",
+   "C": "negar as informações, pois só pode prestá-las em caso de ordem judicial ou requisição do Ministério Público.",
+   "D": "negar as informações, devido ao sigilo bancário e fiscal do cliente.",
+   "E": "prestar as informações tanto em relação aos imóveis quanto ao valor dos aluguéis."
+  },
+  "gabarito": "E",
+  "bloco": "[3] Administração Tributária e Tributos em Espécie (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q039",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Tributário",
+  "assunto": "Competência Tributária",
+  "numero_original": 39,
+  "enunciado": "Nosso sistema tributário se caracteriza por cada ente federativo ter os impostos que são de sua competência, mas também porque temos uma repartição de receitas tributárias que se caracteriza por um ente repassar a outro percentuais daquele tributo por ele arrecadado. Sobre o Imposto sobre Produtos Industrializados (IPI) relativos à exportação destes, é correto afirmar que os Municípios",
+  "alternativas": {
+   "A": "têm direito a 10% (dez por cento) do valor arrecadado pela União Federal.",
+   "B": "não têm direito a nenhum percentual, cabendo 25% (vinte e cinco por cento) aos Estados proporcionalmente às exportações de produtos industrializados.",
+   "C": "têm direito a 2,5% (dois vírgula cinco por cento) do valor arrecadado pela União Federal.",
+   "D": "têm direito a 10% (dez por cento) do valor arrecadado pela União Federal e repassado aos Estados.",
+   "E": "têm direito a 20% (vinte por cento) do valor arrecadado pela União Federal e repassado aos Estados.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS"
+  },
+  "gabarito": "C",
+  "bloco": "[1] Sistema Tributário Nacional: Conceitos e Princípios (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q040",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Direito Previdenciário",
+  "assunto": "Direito Previdenciário - Salário de Benefício (RGPS)",
+  "numero_original": 40,
+  "enunciado": "Mariana Pereira se revolta ao saber que se aposentou pelo Regime Geral da Previdência Social com salário de benefício de R$4.000,00 (quatro mil reais). Ela avalia que não poderá viver apenas com o valor de sua aposentadoria, de modo que precisará continuar a trabalhar no mesmo emprego de contadora numa empresa especializada. Nessa situação, em relação ao recolhimento de contribuição previdenciária de Mariana, é correto afirmar que",
+  "alternativas": {
+   "A": "não haverá recolhimento de contribuição previdenciária nem quanto à aposentadoria, por ser imune, nem quanto ao salário de seu emprego, por já ser aposentada.",
+   "B": "haverá recolhimento de contribuição previdenciária tanto da sua aposentadoria, por ser superior a 2 (dois) salários mínimos, como em relação ao salário de seu emprego.",
+   "C": "haverá recolhimento de contribuição previdenciária tanto da sua aposentadoria, por ser superior a 1 (um) salário mínimo, como em relação ao salário de seu emprego.",
+   "D": "haverá recolhimento de contribuição previdenciária sobre o valor da soma da aposentadoria e do salário que exceder o teto do Regime Geral da Previdência Social.",
+   "E": "não haverá recolhimento de contribuição previdenciária quanto à aposentadoria, por ser imune, mas haverá em relação ao salário de seu emprego. Contabilidade Avançada"
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q041",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC 25 — Provisões e Contingências",
+  "numero_original": 41,
+  "enunciado": "Em relação aos ativos contingentes, é correto afirmar que",
+  "alternativas": {
+   "A": "resultam de eventos futuros.",
+   "B": "surgem, normalmente, de evento planejado ou esperado.",
+   "C": "devem ser reconhecidos no Balanço Patrimonial apenas quando a entrada de recursos é provável.",
+   "D": "quando a entrada de recursos é provável, é reconhecida uma Receita Operacional na Demonstração do Resultado do Exercício.",
+   "E": "são avaliados periodicamente para garantir que os desenvolvimentos sejam apropriadamente refletidos nas demonstrações contábeis."
+  },
+  "gabarito": "E",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q042",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC 23 — Políticas Contábeis, Mudança de Estimativa e Erro",
+  "numero_original": 42,
+  "enunciado": "Uma sociedade empresária apresentava o seguinte Balanço Patrimonial em 31/12/2022: Ativo Circulante Patrimônio Líquido Disponibilidades 50.000 Capital Social 150.000 Ativo não Circulante Propriedade para Investimento Terreno 70.000 Intangível Marca 30.000 Total do Ativo 150.000 Total do PL 150.000 No ano de 2023, a sociedade empresária passou a avaliar e contabilizar o terreno e a marca pelo valor justo que eram, respectivamente, de R$80.000 e de R$50.000. De acordo com o Pronunciamento Técnico CPC 23- Políticas Contábeis, Mudança de Estimativa e Retificação de Erro, as mudanças representam, respectivamente,",
+  "alternativas": {
+   "A": "Erro e Erro.",
+   "B": "Mudança de Estimativa e Erro.",
+   "C": "Mudança na Política Contábil e Erro.",
+   "D": "Erro e Mudança na Política Contábil.",
+   "E": "Mudança na Política Contábil e Mudança na Política Contábil. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO"
+  },
+  "gabarito": "C",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q043",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC 18 — Equivalência Patrimonial",
+  "numero_original": 43,
+  "enunciado": "A Cia X possui 80% de participação na Cia Y, sua controlada. Em 31/12/2023, a Cia Y distribuiu R$100.000 em dividendos aos sócios. Assinale a opção que indica o reconhecimento dos dividendos recebidos pela Cia X em suas demonstrações contábeis.",
+  "alternativas": {
+   "A": "Redução em Patrimônio Líquido.",
+   "B": "Aumento em Receita Financeira.",
+   "C": "Aumento em Receita Operacional.",
+   "D": "Redução em Investimentos Societários.",
+   "E": "Aumento em Investimentos Societários."
+  },
+  "gabarito": "D",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q044",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC — Combinação de Negócios",
+  "numero_original": 44,
+  "enunciado": "Em relação à reorganização e reestruturação de empresas, analise as situações a seguir:\n\nI. encerramento da liquidação;\nII. incorporação ou fusão;\nIII. cisão com versão de todo o patrimônio em outras sociedades. De acordo com a Lei nº 6.404/76 e modificações, extingue-se a companhia na(s) seguinte(s) situação(ões):",
+  "alternativas": {
+   "A": "I, somente.",
+   "B": "I e II, somente.",
+   "C": "I e III, somente.",
+   "D": "II e III, somente.",
+   "E": "I, II e III."
+  },
+  "gabarito": "E",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q045",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC — Combinação de Negócios",
+  "numero_original": 45,
+  "enunciado": "A Cia A adquiriu 90% de participação na Cia B por R$40.000 em uma combinação de negócios. Na data, verificou o custo histórico e o valor justo líquido reconhecido dos grupos do Balanço Patrimonial da Cia B, constatando o seguinte: Custo Histórico Valor Justo Ativo Circulante 20.000 21.000 Ativo não Circulante 50.000 60.000 Passivo Circulante 12.000 10.000 Passivo não Circulante 31.000 35.000 O montante do goodwill atribuído ao controlador contabilizado pela Cia A, em relação à compra da participação na Cia B, é de",
+  "alternativas": {
+   "A": "R$4.000.",
+   "B": "R$7.600.",
+   "C": "R$8.100.",
+   "D": "R$12.000.",
+   "E": "R$15.700."
+  },
+  "gabarito": "B",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q046",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC 27 — Imobilizado",
+  "numero_original": 46,
+  "enunciado": "Em 01/01/2023, uma sociedade empresária adquiriu um terreno para usar em sua atividade fim por R$120.000. Em 31/12/2023, ela constatou que o valor justo líquido de despesas de venda do terreno era de R$100.000. Já o valor em uso era estimado em R$90.000. Na data, deve-se reconhecer, na Demonstração do Resultado do Exercício da sociedade empresária, uma",
+  "alternativas": {
+   "A": "despesa financeira de R$20.000.",
+   "B": "despesa financeira de R$30.000.",
+   "C": "perda por desvalorização do ativo de R$10.000.",
+   "D": "perda por desvalorização do ativo de R$20.000.",
+   "E": "perda por desvalorização do ativo de R$30.000.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS"
+  },
+  "gabarito": "D",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q047",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC 48 — Instrumentos Financeiros",
+  "numero_original": 47,
+  "enunciado": "No ano de 2023, uma sociedade empresária emitiu debêntures. Na apresentação do balanço patrimonial, os custos diretos incorridos na emissão das debêntures devem ser considerados como",
+  "alternativas": {
+   "A": "Reserva de Capital.",
+   "B": "Redutores do passivo.",
+   "C": "Reserva de Lucros.",
+   "D": "Despesa antecipada.",
+   "E": "Ajuste de Avaliação Patrimonial."
+  },
+  "gabarito": "B",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q048",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC 28 — Propriedade para Investimento",
+  "numero_original": 48,
+  "enunciado": "Em 31/12/2022, uma entidade que trabalhava com consultoria possuía três terrenos em seu Balanço Patrimonial, que eram mantidos para valorização. Os três imóveis apresentavam as seguintes datas de compra e custo: Data de compra Custo Terreno A 01/01/2020 40.000 Terreno B 01/06/2020 50.000 Terreno C 01/03/2021 60.000 Foi estimado que, em 31/12/2022, os valores justos dos terrenos A, B e C eram, respectivamente, R$50.000, R$55.000 e R$64.000. Na data, os três terrenos foram colocados à venda: o terreno A por R$45.000, o terreno B por R$50.000 e o terreno C por R$80.000. O nível hierárquico de gestão apropriado estava comprometido com o plano de venda dos terrenos e foi iniciado um programa firme para localizar um comprador e concluir o plano em até 6 meses. Além disso, as despesas de venda eram estimadas em 10% do preço. Assinale a opção que indica o montante correspondente ao grupo “Ativo não Circulante mantido para a venda” em 31/12/2022.",
+  "alternativas": {
+   "A": "R$89.500.",
+   "B": "R$94.500.",
+   "C": "R$95.000.",
+   "D": "R$105.000.",
+   "E": "R$147.100."
+  },
+  "gabarito": "A",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q049",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC 04 — Intangível",
+  "numero_original": 49,
+  "enunciado": "De acordo com a Lei nº 6.404/76 e modificações, o saldo existente em 31 de dezembro de 2008 no ativo diferido que, pela sua natureza, não pôde ser alocado a outro grupo de contas, poderia permanecer no ativo sob essa classificação e sujeito à análise sobre a recuperação até",
+  "alternativas": {
+   "A": "a extinção da empresa.",
+   "B": "a sua alienação a terceiros.",
+   "C": "a sua completa amortização.",
+   "D": "o término do prazo definido pela Lei.",
+   "E": "a definição da classificação mais adequada."
+  },
+  "gabarito": "C",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q050",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC 07 — Subvenção e Assistência Governamentais",
+  "numero_original": 50,
+  "enunciado": "Uma subvenção governamental não deve ser reconhecida até que exista razoável segurança de que",
+  "alternativas": {
+   "A": "a entidade irá efetuar ampla divulgação a seus acionistas.",
+   "B": "o direito à subvenção será publicado no Diário Oficial da União.",
+   "C": "os tributos devidos e relacionados à operação serão recolhidos no período.",
+   "D": "a entidade irá concluir e publicar as suas Demonstrações Contábeis do período da subvenção.",
+   "E": "a entidade cumprirá todas as condições estabelecidas e relacionadas à subvenção e a subvenção será recebida. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO Auditoria"
+  },
+  "gabarito": "E",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q051",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Auditoria",
+  "assunto": "Amostragem em Auditoria (NBC TA 530)",
+  "numero_original": 51,
+  "enunciado": "O objetivo do auditor, ao usar a amostragem em auditoria, de acordo com a NBC TA 530 – Amostragem em Auditoria, é",
+  "alternativas": {
+   "A": "construir uma amostra tempestiva e que represente toda a população.",
+   "B": "otimizar os recursos despendidos para gerar informação completa e livre de erros.",
+   "C": "assegurar que as demonstrações contábeis auditadas estão livres de fraude e de erro.",
+   "D": "minimizar o tempo e os recursos necessários para que sejam apresentados resultados confiáveis.",
+   "E": "proporcionar uma base razoável para o auditor concluir quanto à população da qual a amostra é selecionada."
+  },
+  "gabarito": "E",
+  "bloco": "[2] Procedimentos, Evidências e Amostragem (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q052",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Auditoria",
+  "assunto": "Risco de Amostragem (NBC TA 530)",
+  "numero_original": 52,
+  "enunciado": "Avalie se os riscos não resultantes da amostragem, incluem:\n\nI. uso de procedimentos de auditoria não apropriados.\nII. interpretação errônea da evidência de auditoria.\nIII. não reconhecimento de uma distorção ou de um desvio.\n\nEstá correto o que se indica em",
+  "alternativas": {
+   "A": "I, somente.",
+   "B": "I e II, somente.",
+   "C": "I e III, somente.",
+   "D": "II e III, somente.",
+   "E": "I, II e III."
+  },
+  "gabarito": "E",
+  "bloco": "[2] Procedimentos, Evidências e Amostragem (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q053",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Auditoria",
+  "assunto": "Procedimentos e Evidências de Auditoria (NBC TA 500/505/520)",
+  "numero_original": 53,
+  "enunciado": "De acordo com a NBC TA 500 (R1) – Evidência de Auditoria, ao estabelecer e executar procedimentos de auditoria, o auditor deve considerar as seguintes características das informações a serem utilizadas como evidência de auditoria, incluindo informações obtidas de fonte de informações externa:",
+  "alternativas": {
+   "A": "relevância e confiabilidade.",
+   "B": "verificabilidade e relevância.",
+   "C": "tempestividade e verificabilidade.",
+   "D": "compreensibilidade e oportunidade.",
+   "E": "tempestividade e compreensibilidade."
+  },
+  "gabarito": "A",
+  "bloco": "[2] Procedimentos, Evidências e Amostragem (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q054",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Auditoria",
+  "assunto": "Procedimentos em Áreas Específicas das DCs — Parte I",
+  "numero_original": 54,
+  "enunciado": "De acordo com a NBC TA 501 – Evidência de Auditoria– Considerações Específicas para Itens Selecionados, a inspeção do estoque, ao acompanhar a sua contagem física, ajuda o auditor a",
+  "alternativas": {
+   "A": "observar o cumprimento das instruções da administração em relação ao ciclo operacional.",
+   "B": "identificar estoques obsoletos, danificados ou sem movimentação.",
+   "C": "verificar a adequação das políticas de compra e venda praticadas.",
+   "D": "determinar o método de custeio mais eficiente para o controle do estoque.",
+   "E": "averiguar sobre a diferença de preços praticados pela administração.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS"
+  },
+  "gabarito": "B",
+  "bloco": "[4] Procedimentos Específicos e Auditoria no Setor Público (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q055",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Auditoria",
+  "assunto": "Continuidade, Estimativas e Eventos Subsequentes (NBC TA 540/550/560/570)",
+  "numero_original": 55,
+  "enunciado": "Na auditoria independente de uma entidade, os procedimentos de auditoria executados indicaram que outros litígios ou reclamações poderiam existir. Nesse caso, o auditor deve",
+  "alternativas": {
+   "A": "entrar em contato com os auditores independente anteriores, por meio de carta de indagação elaborada e enviada pelo auditor.",
+   "B": "retirar-se imediatamente do trabalho, comunicando formalmente o fato à administração, por meio de uma carta assinada pelo sócio.",
+   "C": "elaborar e enviar aos consultores jurídicos externos da entidade uma carta de circularização, sem comunicar o fato à administração.",
+   "D": "comunicar-se diretamente com os consultores jurídicos externos da entidade, por meio de circularização aos advogados, elaborada pela administração e enviada pelo auditor.",
+   "E": "solicitar que a administração se comunique com os consultores jurídicos externos da entidade, elaborando e enviando correspondência aos advogados, em relação ao tema."
+  },
+  "gabarito": "D",
+  "bloco": "[3] Relatório, Controle Interno e Situações Especiais (6 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q056",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Auditoria",
+  "assunto": "Procedimentos Analíticos (NBC TA 520)",
+  "numero_original": 56,
+  "enunciado": "Em relação aos procedimentos analíticos, avalie se as afirmativas a seguir são verdadeiras (V) ou falsas (F), de acordo com a NBC TA 520 – Procedimentos Analíticos:\n\n( ) Os procedimentos analíticos podem ser aplicados para demonstrações contábeis consolidadas, componentes e elementos individuais de informação.\n( ) Os procedimentos analíticos substantivos são mais aplicáveis a pequenos volumes de transações, que apresentam imprevisibilidade ao longo do tempo.\n( ) Para fins das normas de auditoria, o termo procedimento analítico significa avaliações de informações contábeis por meio de análise das relações plausíveis entre dados financeiros e não financeiros.\n\nAs afirmativas são, respectivamente,",
+  "alternativas": {
+   "A": "V – V – V.",
+   "B": "V – F – V.",
+   "C": "V – F – F.",
+   "D": "F – V – F.",
+   "E": "F – F – V."
+  },
+  "gabarito": "B",
+  "bloco": "[2] Procedimentos, Evidências e Amostragem (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q057",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Auditoria",
+  "assunto": "Materialidade, Risco e Fraude (NBC TA 320/240)",
+  "numero_original": 57,
+  "enunciado": "De acordo com a NBC TA 240 (R1)– Responsabilidade do Auditor em Relação à Fraude, no Contexto da Auditoria de Demonstrações Contábeis, a principal responsabilidade pela prevenção e detecção de fraude em uma entidade é",
+  "alternativas": {
+   "A": "dos auditores.",
+   "B": "dos auditores e das entidades reguladoras.",
+   "C": "da administração da entidade e das entidades reguladoras.",
+   "D": "dos auditores e dos responsáveis pela governança da entidade.",
+   "E": "dos responsáveis pela governança da entidade e da sua administração. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Fundamentos e Normas Gerais de Auditoria (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q058",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Auditoria",
+  "assunto": "Materialidade, Risco e Fraude (NBC TA 320/240)",
+  "numero_original": 58,
+  "enunciado": "Em relação ao risco de o auditor não detectar uma distorção relevante decorrente de fraude, assinale a afirmativa correta, de acordo com a NBC TA 240 (R1)– Responsabilidade do Auditor em Relação à Fraude.",
+  "alternativas": {
+   "A": "É maior no caso de fraude cometida por empregados, uma vez que são eles que fornecem as informações solicitadas pelo auditor.",
+   "B": "É maior no caso de fraude cometida por empregados, uma vez que estes estão envolvidos diretamente no dia-a-dia da entidade.",
+   "C": "É maior no caso de fraude cometida por empregados, uma vez que estes estão presentes em maior número, tendo, portanto, mais oportunidades.",
+   "D": "É maior no caso de fraude da administração, uma vez que esta frequentemente tem condições de manipular os registros contábeis, direta ou indiretamente.",
+   "E": "É maior no caso de fraude da administração, uma vez que a fraude envolve esquemas sofisticados e cuidadosamente organizados, destinados a ocultá-la."
+  },
+  "gabarito": "D",
+  "bloco": "[1] Fundamentos e Normas Gerais de Auditoria (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q059",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Auditoria",
+  "assunto": "Procedimentos em Áreas Específicas das DCs — Parte I",
+  "numero_original": 59,
+  "enunciado": "Uma entidade apresentava em 01/01/2023 saldo de R$200.000 em caixa. Os seguintes fatos aconteceram em dezembro de 2023:  Compra à vista de R$30.000 em estoques.  Venda do estoque adquirido por R$100.000, para recebimento em fevereiro de 2024.  Reconhecimento de R$20.000 como despesas de salários, para pagamento no mês seguinte. Em 31/12/2023, o auditor constatou que a entidade seguiu, em dezembro de 2023, o Regime de Caixa para reconhecer as suas receitas e despesas. Na data, o resultado do exercício, de acordo com o Regime de Competência, deveria estar",
+  "alternativas": {
+   "A": "maior em R$80.000.",
+   "B": "maior em R$50.000.",
+   "C": "menor em R$80.000.",
+   "D": "menor em R$50.000.",
+   "E": "menor em R$30.000."
+  },
+  "gabarito": "A",
+  "bloco": "[4] Procedimentos Específicos e Auditoria no Setor Público (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q060",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Auditoria",
+  "assunto": "Procedimentos em Áreas Específicas das DCs — Parte II",
+  "numero_original": 60,
+  "enunciado": "Em 01/01/2010, uma entidade adquiriu uma máquina por R$50.000 para usar em seus negócios. A vida útil da máquina foi estimada em 10 anos e não foi considerado valor residual. Além disso, a máquina era depreciada pelo método da linha reta. Em 31/12/2023, ao realizar a auditoria das demonstrações contábeis, o auditor independente constatou que a entidade continuava executando os lançamentos contábeis relacionados à depreciação destas máquinas. Assinale a opção que indica uma conclusão correta do auditor em relação às Demonstrações Contábeis de 2023.",
+  "alternativas": {
+   "A": "O ativo e o resultado do exercício estavam subavaliados em R$5.000.",
+   "B": "O ativo estava subavaliado em R$15.000 e o resultado do exercício, em R$5.000.",
+   "C": "O ativo estava subavaliado em R$20.000 e o resultado do exercício, em R$5.000.",
+   "D": "O ativo e o resultado do exercício estavam subavaliados em R$15.000.",
+   "E": "O ativo e o resultado do exercício estavam subavaliados em R$20.000.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS Tecnologia da Informação"
+  },
+  "gabarito": "C",
+  "bloco": "[4] Procedimentos Específicos e Auditoria no Setor Público (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q062",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Noções de Informática",
+  "assunto": "SQL",
+  "numero_original": 62,
+  "enunciado": "Com relação à linguagem SQL e seus operadores, avalie se as afirmativas a seguir são verdadeiras (V) ou falsas (F).\n\n( ) O operador LIKE é usado em uma cláusula WHERE para procurar um padrão especificado em uma coluna. Existem dois curingas frequentemente usados em conjunto com este operador; o sinal de % representa zero, um ou vários caracteres, já o sinal de - representa um único caractere.\n( ) O operador IN permite especificar vários valores em uma cláusula WHERE. Ele é uma abreviação para múltiplas condições OR e AND sequenciais. Ao usar a palavra-chave NOT na frente do operador IN, haverá o retorno todos os registros que não são nenhum dos valores de uma lista.\n( ) A palavra-chave RIGHT JOIN retorna todos os registros da tabela à direita em uma junção e os registros correspondentes da tabela à esquerda em uma junção. O resultado é zero registro do lado esquerdo, se não houver correspondência.\n\nAs afirmativas são, respectivamente,",
+  "alternativas": {
+   "A": "F – V – V.",
+   "B": "F – F – V.",
+   "C": "V – V – F.",
+   "D": "V – F – V.",
+   "E": "F – F – F. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO"
+  },
+  "gabarito": "B",
+  "bloco": "[3] Banco de Dados e Modelagem (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q063",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Noções de Informática",
+  "assunto": "BI: Data Warehouse e Data Mart",
+  "numero_original": 63,
+  "enunciado": "Relacione as características de um data warehouse listadas a seguir com suas descrições, conforme estabelecido por William Inmon.\n\n1. Orientados a Assunto.\n2. Integração.\n3. Não Volátil.\n4. Variante no Tempo.\n( ) O foco de um data warehouse na mudança ao longo do tempo é essencial para descobrir tendências e identificar padrões e relacionamentos ocultos nos negócios, para isso os analistas precisam de grandes quantidades de dados. Isso contrasta muito com o processamento de transações on-line onde os requisitos de desempenho exigem que os dados históricos sejam movidos para arquivos.\n( ) Os data warehouses devem colocar dados de fontes diferentes em um formato consistente. Eles devem resolver problemas como nomear conflitos e inconsistências entre unidades de medida.\n( ) Significa que, uma vez inseridos no data warehouse, os dados não devem mudar. Essa característica é lógica porque o propósito de um data warehouse é permitir que um analista\n\nanalise o que ocorreu no passado.\n\n( ) Os data warehouses são projetados para ajudar os profissonais a analisar grandes volumes de dados. Por exemplo, para saber mais sobre os dados de vendas de uma empresa, o analista pode construir um data warehouse que concentre a venda. Usando esse data warehouse, ele poderá responder perguntas como \"Quem foi nosso melhor cliente para este item no ano passado?\" ou \"Quem provavelmente será nosso melhor cliente no próximo ano?\" A relação correta, na ordem dada, é:",
+  "alternativas": {
+   "A": "1 – 2 – 3 – 4.",
+   "B": "2 – 1 – 4 – 3.",
+   "C": "4 – 2 – 3 – 1.",
+   "D": "3 – 4 – 1 – 2.",
+   "E": "2 – 3 – 1 – 4."
+  },
+  "gabarito": "C",
+  "bloco": "[4] Business Intelligence e Big Data (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q065",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Noções de Informática",
+  "assunto": "Big Data",
+  "numero_original": 65,
+  "enunciado": "Com relação ao Big Data e suas tecnologias, assinale V para a afirmativa verdadeira e F para a falsa.\n\n( ) Existem diversas tecnologias para processamento e análise de Big Data, mas a maioria possui algumas características comuns. Ou seja, adotam técnicas de escalonamento e processamento paralelo; utilizam dados não relacionais, e aplicam análises avançadas e visualização de dados.\n( ) Existem três tecnologias de Big Data que se destacam: MapReduce, Hadoop e NoSQL. O Hadoop é uma técnica popularizada pelo Google que distribui o processamento de dados em grandes arquivos de dados multiestruturados em um grande cluster que pode ser alcançado dividindo o processamento em pequenas unidades de trabalho que podem ser executadas em paralelo.\n( ) O MapReduce é um modelo de programação e uma implementação associada para processar e gerar grandes conjuntos de dados. Os programas escritos neste estilo funcional são automaticamente paralelizados e executados em um grande cluster de máquinas de alto desempenho. O modelo que programadores sem qualquer experiência com sistemas paralelos e distribuídos utilizem facilmente os recursos.\n\nAs afirmativas são, respectivamente,",
+  "alternativas": {
+   "A": "F – V – F.",
+   "B": "F – F – V.",
+   "C": "F – V – V.",
+   "D": "V – F – V.",
+   "E": "V – V – F."
+  },
+  "gabarito": "D",
+  "bloco": "[4] Business Intelligence e Big Data (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q067",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Noções de Informática",
+  "assunto": "LGPD",
+  "numero_original": 67,
+  "enunciado": "Relacione os termos empregados na Lei Geral de Proteção de Dados Pessoais (LGPD) com suas definições: 1. dado pessoal 2. dado pessoal sensível 3. titular 4. controlador\n\n( ) pessoa que pode ser de natureza jurídica ou natural, de direito privado ou público, a quem competem as decisões referentes ao tratamento de dados de pessoa natural, identificável ou identificada;\n( ) informação de pessoa natural identificável ou identificada.\n( ) dado de pessoa natural, identificada ou identificável, sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural;\n( ) pessoa natural, identificável ou identificada, a quem se referem os dados que são objeto de tratamento;\n\nAssinale a opção que indica a relação correta, na ordem apresentada.",
+  "alternativas": {
+   "A": "4 – 2 – 3 – 1",
+   "B": "3 – 1 – 2 – 4",
+   "C": "3 – 4 – 2 – 1",
+   "D": "4 – 3 – 1 – 2",
+   "E": "4 – 1 – 2 – 3"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Segurança da Informação (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q068",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Noções de Informática",
+  "assunto": "Cobit 5",
+  "numero_original": 68,
+  "enunciado": "O COBIT 5 é um framework de governança e gestão corporativa de TI que foi desenvolvido e difundido pelo ISACA no final de 2012. Avalie se seus objetivos incluem:\n\nI. oferecer um framework abrangente que auxilia as organizações a maximizar o valor gerado pela TI.\nII. permitir que a TI seja governada e gerenciada de forma holística para toda a organização.\nIII. criar uma linguagem comum entre TI e negócios para a governança e gestão de TI corporativa.\n\nEstá correto apenas o que se afirma em",
+  "alternativas": {
+   "A": "II e III.",
+   "B": "III.",
+   "C": "I e III.",
+   "D": "I e II.",
+   "E": "I.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS"
+  },
+  "gabarito": "A",
+  "bloco": "[7] Gestão e Governança de TI (2 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q069",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Noções de Informática",
+  "assunto": "Scrum",
+  "numero_original": 69,
+  "enunciado": "Com relação à metodologia de desenvolvimento de software ágil, avalie se as afirmativas a seguir são verdadeiras (V) ou falsas (F).\n\n( ) Os métodos ágeis são métodos de desenvolvimento incremental nos quais os incrementos são pequenos e, normalmente, novas versões do sistema são criadas e disponibilizadas aos clientes a cada duas ou três semanas.\n( ) Esta metodologia envolve aos clientes no processo de desenvolvimento para obter feedback rápido sobre as mudanças nos requisitos.\n( ) Maximizam a documentação utilizando comunicações formais em vez de reuniões informais com documentos escritos.\n\nAs afirmativas são, respectivamente,",
+  "alternativas": {
+   "A": "F – V – V.",
+   "B": "F – F – V.",
+   "C": "F – V – F.",
+   "D": "V – F – F.",
+   "E": "V – V – F. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO"
+  },
+  "gabarito": "E",
+  "bloco": "[5] Gestão de Processos e Engenharia de Software (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SJC-2024-Q070",
+  "instituicao": "SJC-São José dos Campos",
+  "ano": 2024,
+  "cargo": "Auditor Tributário Municipal",
+  "area": "Noções de Informática",
+  "assunto": "Segurança da Informação - Criptografia",
+  "numero_original": 70,
+  "enunciado": "Com relação à criptografia, avalie se as afirmativas a seguir são verdadeiras (V) ou falsas (F).\n\n( ) A criptografia é uma ciência que usa a matemática para criptografar e descriptografar dados.\n( ) A criptologia abrange apenas a criptografia.\n( ) A criptografia permite armazenar informações confidenciais ou transmiti-las através de redes inseguras para que não possam ser lidas por ninguém, exceto pelo destinatário pretendido.\n\nAs afirmativas são, respectivamente,",
+  "alternativas": {
+   "A": "V – V – F.",
+   "B": "V – F – V.",
+   "C": "F – F – V.",
+   "D": "F – V – V.",
+   "E": "F – V – F.  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS REDAÇÃO Politicamente correto é utilizado como um título para classificar algo o oficial. Normalmente, quando se fala em “politicamente correto”, refere-se narrativas estereotipadas ou que possam fazer referências às diversa homofobia etc. Em contrapartida, existe a ideia do politicamente incorreto. Nesta pe que possam ofender determinadas camadas ou grupos sociais, é consi Os discursos politicamente incorretos são bastante comuns no h desconsiderando princípios clássicos da moral, da ética e dos bons cos O politicamente correto mostra um posicionamento socialmente n onde não havia? Defenda sua opinião a respeito do tema, num texto d 20 e 30 linhas. AUDITOR TRIBUTÁRIO FGV CONHECIMENTO ou alguém que segue as normas e leis estabelecidas por uma instituição e à neutralização de uma linguagem ou discurso, evitando o uso de as formas de discriminação existentes, como o racismo, o sexismo, a erspectiva, toda a precaução em evitar o uso de termos, por exemplo, iderada estúpida e totalmente ignorada. humor, que exploram assuntos considerados tabu pela sociedade, stumes. necessário ou indica algo totalmente descabido, que cria problemas dissertativo-argumentativo, em linguagem culta, com extensão entre  MUNICÍPIO DE SÃO JOSÉ DOS CAMPOS 1 -------------------------------------------------------------------------------------------------------- 2 -------------------------------------------------------------------------------------------------------- 3 -------------------------------------------------------------------------------------------------------- 4 -------------------------------------------------------------------------------------------------------- 5 -------------------------------------------------------------------------------------------------------- 6 -------------------------------------------------------------------------------------------------------- 7 -------------------------------------------------------------------------------------------------------- 8 -------------------------------------------------------------------------------------------------------- 9 -------------------------------------------------------------------------------------------------------- 10 -------------------------------------------------------------------------------------------------------- 11 -------------------------------------------------------------------------------------------------------- 12 -------------------------------------------------------------------------------------------------------- 13 -------------------------------------------------------------------------------------------------------- 14 -------------------------------------------------------------------------------------------------------- 15 -------------------------------------------------------------------------------------------------------- 16 -------------------------------------------------------------------------------------------------------- 17 -------------------------------------------------------------------------------------------------------- 18 -------------------------------------------------------------------------------------------------------- 19 -------------------------------------------------------------------------------------------------------- 20 -------------------------------------------------------------------------------------------------------- 21 -------------------------------------------------------------------------------------------------------- 22 -------------------------------------------------------------------------------------------------------- 23 -------------------------------------------------------------------------------------------------------- 24 -------------------------------------------------------------------------------------------------------- 25 -------------------------------------------------------------------------------------------------------- 26 -------------------------------------------------------------------------------------------------------- 27 -------------------------------------------------------------------------------------------------------- 28 -------------------------------------------------------------------------------------------------------- 29 -------------------------------------------------------------------------------------------------------- 30 -------------------------------------------------------------------------------------------------------- AUDITOR TRIBUTÁRIO FGV CONHECIMENTO --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------  Realiz zação"
+  },
+  "gabarito": "B",
+  "bloco": "[2] Segurança da Informação (3 aulas)",
+  "incidencia": ""
+ }
+]
