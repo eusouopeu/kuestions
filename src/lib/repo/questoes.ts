@@ -3,7 +3,16 @@
 import { all, one, parseJSON, run, runBatch, toBool } from "../db";
 import type { ConfiancaResposta } from "../pontuacaoTopicos";
 import type { Questao, QuestaoRespondida } from "../types";
-import { CAIXA_MAX_ERRO_PERIGOSO, INTERVALOS_LEITNER_DIAS } from "./leitner";
+import {
+  ajustarFacilidade,
+  CAIXA_MAX_ERRO_PERIGOSO,
+  diasProximaRevisao,
+  DELTA_FACILIDADE_CERTEZA,
+  DELTA_FACILIDADE_ERRO,
+  DELTA_FACILIDADE_LENTO,
+  FACILIDADE_PADRAO,
+  INTERVALOS_LEITNER_DIAS,
+} from "./leitner";
 import { agoraISO } from "./util";
 
 /**
@@ -493,6 +502,15 @@ export async function enunciadosExistentes(enunciados: string[]): Promise<Set<st
  * `CAIXA_MAX_ERRO_PERIGOSO`, então continua reaparecendo num ciclo curto em
  * vez de se espaçar como um acerto comum — e nunca ganha o avanço de 2 acima,
  * que seria o oposto do propósito desse teto.
+ *
+ * FACILIDADE POR QUESTÃO (rec. 7, ver lib/repo/leitner.ts): além da caixa,
+ * cada questão carrega um multiplicador de intervalo próprio, ajustado pelos
+ * MESMOS três sinais acima (lento, certeza, erro) — os mesmos que já
+ * modulavam o avanço de caixa agora também deslocam a facilidade, então uma
+ * questão difícil (erra, ou acerta devagar) se espaça cada vez menos que uma
+ * fácil, mesmo alcançando a mesma caixa. `dias` deixa de vir direto de
+ * `INTERVALOS_LEITNER_DIAS[caixa]` e passa por `diasProximaRevisao`, que
+ * escala esse dia-base pela facilidade.
  */
 export async function registrarRevisao(
   id: number,
@@ -500,9 +518,16 @@ export async function registrarRevisao(
   tempoMs?: number | null,
 ): Promise<void> {
   if (!acertou) {
-    await run(
-      `UPDATE questoes_respondidas SET revisada = 0, caixa_leitner = 1, proxima_revisao = NULL WHERE id = ?`,
+    const row = await one<{ facilidade: number }>(
+      `SELECT facilidade FROM questoes_respondidas WHERE id = ?`,
       [id],
+    );
+    const facilidade = ajustarFacilidade(row?.facilidade ?? FACILIDADE_PADRAO, DELTA_FACILIDADE_ERRO);
+    await run(
+      `UPDATE questoes_respondidas
+       SET revisada = 0, caixa_leitner = 1, proxima_revisao = NULL, facilidade = ?
+       WHERE id = ?`,
+      [facilidade, id],
     );
     return;
   }
@@ -510,22 +535,29 @@ export async function registrarRevisao(
     caixa: number;
     perigosa: number;
     confianca: string | null;
+    facilidade: number;
     tempoMedioMs: number | null;
   }>(
     `SELECT caixa_leitner AS caixa, (acertou = 0 AND confianca = 'certeza') AS perigosa, confianca,
+            facilidade,
             (SELECT AVG(tempo_ms) FROM questoes_respondidas WHERE tempo_ms IS NOT NULL) AS tempoMedioMs
      FROM questoes_respondidas WHERE id = ?`,
     [id],
   );
   const teto = row?.perigosa ? CAIXA_MAX_ERRO_PERIGOSO : INTERVALOS_LEITNER_DIAS.length;
   const lenta = tempoMs != null && row?.tempoMedioMs != null && tempoMs > 2 * row.tempoMedioMs;
-  const avanco = lenta ? 0 : !row?.perigosa && row?.confianca === "certeza" ? 2 : 1;
+  const certeza = !row?.perigosa && row?.confianca === "certeza";
+  const avanco = lenta ? 0 : certeza ? 2 : 1;
   const novaCaixa = Math.min((row?.caixa ?? 1) + avanco, teto);
-  const dias = INTERVALOS_LEITNER_DIAS[novaCaixa - 1];
+  const deltaFacilidade = lenta ? DELTA_FACILIDADE_LENTO : certeza ? DELTA_FACILIDADE_CERTEZA : 0;
+  const facilidade = ajustarFacilidade(row?.facilidade ?? FACILIDADE_PADRAO, deltaFacilidade);
+  const dias = diasProximaRevisao(novaCaixa, facilidade);
   const proxima = new Date(Date.now() + dias * 86_400_000).toISOString();
   await run(
-    `UPDATE questoes_respondidas SET revisada = 1, caixa_leitner = ?, proxima_revisao = ? WHERE id = ?`,
-    [novaCaixa, proxima, id],
+    `UPDATE questoes_respondidas
+     SET revisada = 1, caixa_leitner = ?, proxima_revisao = ?, facilidade = ?
+     WHERE id = ?`,
+    [novaCaixa, proxima, facilidade, id],
   );
 }
 

@@ -87,7 +87,9 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
   `migrate()` sai cedo (`if (atual >= SCHEMA_VERSION) return`) sem rodar nada além disso.
   `SCHEMA_VERSION` estava presa em 15 com `MIGRATIONS` já em 16 (a migração de `pdfs.pasta` nunca
   rodava em quem já tinha o banco na versão 15); corrigido para 17 junto da migração da tabela
-  `simulados`. Atualmente na versão 17.
+  `simulados`. Atualmente na versão 18 (migração 18: `questoes_respondidas.facilidade`, fator de
+  facilidade por questão — ver `lib/repo/leitner.ts` — e tabela `blocos_pendentes`, fila de blocos
+  pré-gerados em segundo plano — ver `lib/preGeracao.ts`).
 - `@capacitor/local-notifications` foi adicionado (lembrete diário de revisão, ver
   `src/lib/lembretes.ts`) — rodar `npx cap sync android`/`ios` depois de puxar essa mudança.
 

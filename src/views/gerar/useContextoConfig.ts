@@ -79,19 +79,24 @@ export function useContextoConfig({
       .catch(() => setCustoEstimado(null));
   }, [ativa, quantidade]);
 
-  // Sugestão de nível: olha o último bloco JÁ FECHADO desta matéria (gerado
-  // por IA — só esses gravam `nivel` 1–5; blocos do banco de questões reais
-  // gravam nivel 0 e ficam de fora, ver Bloco.nivel).
+  // Sugestão de nível: olha os últimos blocos JÁ FECHADOS desta matéria
+  // (gerados por IA — só esses gravam `nivel` 1–5; blocos do banco de
+  // questões reais gravam nivel 0 e ficam de fora, ver Bloco.nivel). Até 3
+  // blocos (rec. 8, ver sugerirNivel) — mais recente primeiro, mesma ordem
+  // de listarBlocos.
   useEffect(() => {
     if (!ativa || !materia) {
       setSugestaoNivel(null);
       return;
     }
     let cancelado = false;
-    listarBlocos(materia, 1)
-      .then(([ultimo]) => {
+    listarBlocos(materia, 3)
+      .then((todos) => {
         if (cancelado) return;
-        setSugestaoNivel(ultimo && ultimo.nivel >= 1 ? sugerirNivel(ultimo) : null);
+        // Só blocos de IA (nivel 1–5) — blocos do banco de questões reais
+        // gravam nivel 0 e não entram na progressão de dificuldade.
+        const ultimos = todos.filter((b) => b.nivel >= 1);
+        setSugestaoNivel(ultimos.length ? sugerirNivel(ultimos) : null);
       })
       .catch(() => {
         if (!cancelado) setSugestaoNivel(null);

@@ -19,6 +19,8 @@
  * - ./repo/backup.ts        mesclagem entre aparelhos
  * - ./repo/usoApi.ts        tabela `uso_api` (custo/tokens)
  * - ./repo/leitner.ts       constante de repetição espaçada compartilhada
+ * - ./repo/blocosPendentes.ts tabela `blocos_pendentes` (fila de blocos
+ *                           pré-gerados em segundo plano, ver lib/preGeracao.ts)
  * - ./repo/util.ts          helper compartilhado (agoraISO)
  */
 export * from "./repo/blocos";
@@ -33,3 +35,4 @@ export * from "./repo/mapas";
 export * from "./repo/tarefas";
 export * from "./repo/pdfs";
 export * from "./repo/simulados";
+export * from "./repo/blocosPendentes";

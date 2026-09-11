@@ -387,4 +387,38 @@ export const MIGRATIONS: Migracao[] = [
       CREATE INDEX IF NOT EXISTS ix_simulados_ts ON simulados (ts);
     `,
   },
+  {
+    // Fator de facilidade por questão (rec. 7, ver INTERVALOS_LEITNER_DIAS/
+    // diasProximaRevisao em lib/repo/leitner.ts): antes toda questão na
+    // mesma caixa de Leitner esperava o mesmo número de dias até a próxima
+    // revisão, então uma questão trivial e uma que a pessoa erra sempre
+    // nunca se diferenciavam além da caixa (que reseta a cada erro). Agora
+    // cada questão carrega seu próprio multiplicador, ajustado a cada
+    // revisão por registrarRevisao (lib/repo/questoes.ts). Default
+    // FACILIDADE_PADRAO (2.5) = comportamento idêntico ao anterior até a
+    // primeira revisão modular o valor.
+    //
+    // Fila de blocos pré-gerados (rec. 12, ver lib/preGeracao.ts): um bloco
+    // inteiro gerado em segundo plano, com a chave de API, enquanto o
+    // usuário está online — servido instantaneamente (sem chamada de API)
+    // na próxima vez que ele abrir "Gerar", inclusive offline. `config`
+    // guarda o Config serializado (matéria, tópico, tipos, formato, nível)
+    // usado para casar com a tela de configuração; `questoes` guarda o
+    // bloco de Questao[] já pronto (mesmo formato gravado em
+    // questoes_respondidas.enunciado/alternativas/etc.).
+    version: 18,
+    sql: `
+      ALTER TABLE questoes_respondidas ADD COLUMN facilidade REAL NOT NULL DEFAULT 2.5;
+
+      CREATE TABLE IF NOT EXISTS blocos_pendentes (
+        id       INTEGER PRIMARY KEY AUTOINCREMENT,
+        materia  TEXT    NOT NULL,
+        topico   TEXT,
+        config   TEXT    NOT NULL,
+        questoes TEXT    NOT NULL,
+        ts       TEXT    NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS ix_blocos_pendentes_ts ON blocos_pendentes (ts);
+    `,
+  },
 ];

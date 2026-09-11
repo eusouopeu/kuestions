@@ -51,6 +51,14 @@ export default function App() {
   const [badgeAtivo, setBadgeAtivo] = useState(false);
   const [badgePendencias, setBadgePendencias] = useState(0);
 
+  // "Treinar este conceito" (rec. 11): Dados manda matéria+tópico pra cá,
+  // App troca de aba e QuestoesTab (via GerarView) consome e limpa — canal
+  // simples de estado entre as duas abas, mesmo padrão do resto do arquivo
+  // (trocar/badgeAtivo), já que as duas ficam permanentemente montadas.
+  const [treinoConceito, setTreinoConceito] = useState<{ materia: string; topico: string } | null>(
+    null,
+  );
+
   // Relê a cada troca de aba (não só no boot): é o jeito mais simples de
   // captar quando o usuário liga/desliga o selo em Ajustes e volta pra
   // Questões, sem precisar de um canal de estado entre as duas telas.
@@ -133,7 +141,12 @@ export default function App() {
         return (
           <div key={a} style={{ display: aba === a ? "block" : "none" }}>
             {a === "questoes" && (
-              <QuestoesTab onDados={() => trocar("dados")} onAjustes={() => trocar("ajustes")} />
+              <QuestoesTab
+                onDados={() => trocar("dados")}
+                onAjustes={() => trocar("ajustes")}
+                treinoConceito={treinoConceito}
+                onTreinoConsumido={() => setTreinoConceito(null)}
+              />
             )}
             {a === "notas" && (
               <NotasTab ativa={aba === "notas"} onQuestoes={() => trocar("questoes")} />
@@ -156,7 +169,10 @@ export default function App() {
               >
                 <DadosTab
                   ativa={aba === "dados"}
-                  onQuestoes={() => trocar("questoes")}
+                  onQuestoes={(treino) => {
+                    if (treino) setTreinoConceito(treino);
+                    trocar("questoes");
+                  }}
                   onAjustes={() => trocar("ajustes")}
                 />
               </Suspense>

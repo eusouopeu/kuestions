@@ -22,12 +22,15 @@ import { getComExplicacoesIA, getMostrarRecomendacoes } from "../lib/preferencia
 import { escolherMateriaSugerida } from "../lib/materiaSugerida";
 import {
   atualizarTotalQuestoesBloco,
+  buscarBlocoPendente,
   buscarBlocoReaproveitavel,
+  buscarQualquerBlocoPendente,
   criarBloco,
   fecharBloco,
   gravarResposta,
   pontosPorTopico,
 } from "../lib/repo";
+import { talvezPreGerarBloco } from "../lib/preGeracao";
 import { escolherPonderado } from "../lib/pontuacaoTopicos";
 import {
   gabaritosCEDe,
@@ -74,10 +77,17 @@ export default function GerarView({
   onDados,
   onAjustes,
   onEmDrill,
+  presetTreino,
+  onPresetConsumido,
 }: {
   onDados: () => void;
   onAjustes: () => void;
   onEmDrill?: (v: boolean) => void;
+  /** "Treinar este conceito" vindo de Dados (rec. 11, ver QuestoesTab/App.tsx)
+   * — matéria + conceito já prontos pra tela de configuração, sem precisar
+   * digitar de novo o que já foi diagnosticado como fraco. */
+  presetTreino?: { materia: string; topico: string } | null;
+  onPresetConsumido?: () => void;
 }) {
   const [tela, setTela] = useState<Tela>("config");
 
@@ -150,11 +160,35 @@ export default function GerarView({
   // em vez de sempre MATERIAS[0] — só troca se a matéria ainda for a inicial
   // (usuário não mexeu, nem um rascunho/lacuna já decidiu por ele).
   useEffect(() => {
+    if (presetTreino) return; // rec. 11 abaixo já decide a matéria — não disputa com o sorteio.
     escolherMateriaSugerida(MATERIAS).then((sugerida) => {
       if (!sugerida) return;
       setCfg((atual) => (atual.materia === MATERIAS[0] ? { ...atual, materia: sugerida } : atual));
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- presetTreino só decide se este efeito roda, não precisa disparar de novo.
   }, []);
+
+  // "Treinar este conceito" (rec. 11): pré-preenche matéria + tópico com o
+  // que Dados já diagnosticou como fraco. `modoTopico` sai de "todos" (que
+  // sortearia outro tópico e ignoraria o conceito pedido, ver iniciarBloco)
+  // para "aula" — mesmo quando a matéria não tem lista fixa de aulas
+  // (TOPICOS_POR_MATERIA), caso em que o campo de tópico é texto livre e
+  // `modoTopico` não influencia nada além de sair de "todos".
+  useEffect(() => {
+    if (!presetTreino) return;
+    // Matéria personalizada (fora de MATERIAS, salva via "Outra…") cai no
+    // mesmo mecanismo do dropdown: materia = "__outra" + materiaCustom.
+    const materiaConhecida = (MATERIAS as readonly string[]).includes(presetTreino.materia);
+    setCfg((atual) => ({
+      ...atual,
+      materia: materiaConhecida ? presetTreino.materia : "__outra",
+      materiaCustom: materiaConhecida ? atual.materiaCustom : presetTreino.materia,
+      topico: presetTreino.topico,
+    }));
+    setModoTopico("aula");
+    onPresetConsumido?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- só reage a um novo presetTreino; onPresetConsumido é estável o bastante (setState de App).
+  }, [presetTreino]);
 
   // dispararSub roda fora do render e precisa ler o estado mais recente.
   const subsRef = useRef(subs);
@@ -214,6 +248,20 @@ export default function GerarView({
     salvarRascunho({ cfg: c, subs, tamanhos, statusSub, qIdx, acertos, blocoId, comExplicacoes });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- `c` é derivado de cfg (já nas deps) a cada render.
   }, [tela, cfg, subs, tamanhos, statusSub, qIdx, acertos, blocoId, comExplicacoes, restaurandoRascunho]);
+
+  /** Reparte um bloco pré-gerado inteiro (ver lib/preGeracao.ts) nos mesmos
+   * tamanhos de sub-bloco que `dispararSub` preenche um a um — usado só ao
+   * consumir a fila de `blocos_pendentes` (rec. 12), que já vem com as
+   * questões todas prontas de uma vez. */
+  function dividirEmSubs(questoes: Questao[], tams: number[]): Questao[][] {
+    const subs: Questao[][] = [];
+    let offset = 0;
+    for (const tam of tams) {
+      subs.push(questoes.slice(offset, offset + tam));
+      offset += tam;
+    }
+    return subs;
+  }
 
   function dispararSub(i: number, conf: Config & { materia: string }, tams: number[]) {
     setStatusSub((st) => st.map((v, k) => (k === i ? "carregando" : v)));
@@ -283,6 +331,41 @@ export default function GerarView({
     if (topicoEfetivo !== cfg.topico) setCfg((atual) => ({ ...atual, topico: topicoEfetivo }));
 
     const totalQuestoesBloco = tams.reduce((a, b) => a + b, 0);
+
+    // Bloco pré-gerado em segundo plano (rec. 12, ver lib/preGeracao.ts):
+    // pula a chamada de API por completo quando a config bate. Sem rede e
+    // sem match exato, ainda tenta QUALQUER pendente — estudar um bloco
+    // pronto de outra config vale mais que travar sem nenhum.
+    let pendente = await buscarBlocoPendente(cEfetivo).catch(() => null);
+    if (!pendente && typeof navigator !== "undefined" && !navigator.onLine) {
+      pendente = await buscarQualquerBlocoPendente().catch(() => null);
+    }
+    if (pendente) {
+      const cfgPendente = pendente.config;
+      const tamsPendente = tamanhosSubs(pendente.questoes.length, Q_POR_SUB);
+      setCfg((atual) => ({ ...atual, ...cfgPendente }));
+      setTamanhos(tamsPendente);
+      setSubs(dividirEmSubs(pendente.questoes, tamsPendente));
+      setStatusSub(tamsPendente.map(() => "ok" as StatusSub));
+      setAcertos(tamsPendente.map(() => 0));
+      try {
+        const existente = await buscarBlocoReaproveitavel(cfgPendente);
+        if (existente) {
+          setBlocoId(existente.id);
+          if (existente.total_questoes !== pendente.questoes.length) {
+            await atualizarTotalQuestoesBloco(existente.id, pendente.questoes.length);
+          }
+        } else {
+          setBlocoId(await criarBloco(cfgPendente, pendente.questoes.length));
+        }
+      } catch (e) {
+        console.error("criar bloco (pré-gerado)", e);
+        setBlocoId(null);
+      }
+      void talvezPreGerarBloco(); // repõe a fila em segundo plano, se der
+      return;
+    }
+
     try {
       // Reaproveita um bloco existente com a mesma configuração que ainda não
       // foi feito (ou só teve 1-2 questões feitas) em vez de criar outro —
@@ -351,6 +434,10 @@ export default function GerarView({
       if (passou) setCfg((atual) => ({ ...atual, nivel: Math.min(atual.nivel + 1, 5) }));
       void limparRascunho();
       setTela("resultado");
+      // Repõe a fila de blocos pré-gerados (rec. 12) logo ao fechar um bloco
+      // — momento em que o usuário provavelmente segue online e prestes a
+      // pedir outro. Silencioso: talvezPreGerarBloco nunca lança.
+      void talvezPreGerarBloco();
       return;
     }
     setQIdx(qIdx + 1);

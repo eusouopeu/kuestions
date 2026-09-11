@@ -6,32 +6,65 @@
  * último nível escolhido manualmente, mesmo tendo aprovado ou reprovado o
  * último bloco daquela matéria específica.
  *
- * Função pura (sem SQL) — recebe o último bloco já respondido daquela
- * matéria (ou null, sem histórico) e decide. Mesmo padrão de preverAprovacao/
- * estimarNotaProvavel em repo.ts.
+ * Função pura (sem SQL) — recebe os últimos blocos já respondidos daquela
+ * matéria (mais recente primeiro, mesma ordem de `listarBlocos`) e decide.
+ * Mesmo padrão de preverAprovacao/estimarNotaProvavel em repo.ts.
+ *
+ * REC. 8 — média dos últimos blocos, não só o último: olhar um único bloco
+ * fazia a sugestão oscilar com a sorte de uma prova só (um bloco ruim
+ * isolado derrubava a progressão de quem vinha indo bem). A decisão agora é
+ * por MAIORIA entre até 3 blocos recentes (aprovados vs. reprovados) — um
+ * bloco ruim cercado de bons continua subindo; só maioria de reprovações
+ * segura o nível. `pctMedio` (média simples dos %) entra só no texto do
+ * motivo, não na decisão.
  */
 export interface SugestaoNivel {
   nivel: number;
   motivo: string;
 }
 
-export function sugerirNivel(
-  ultimoBloco: { nivel: number; total_acertos: number; total_questoes: number; aprovado: boolean } | null,
-): SugestaoNivel | null {
-  if (!ultimoBloco || !ultimoBloco.total_questoes) return null;
+interface BlocoResumo {
+  nivel: number;
+  total_acertos: number;
+  total_questoes: number;
+  aprovado: boolean;
+}
 
-  const placar = `${ultimoBloco.total_acertos}/${ultimoBloco.total_questoes}`;
+/** No máximo 3 blocos entram na média — janela curta o bastante para
+ * reagir a uma mudança real de desempenho, longa o bastante para um bloco
+ * isolado não decidir sozinho. */
+const MAX_BLOCOS_CONSIDERADOS = 3;
 
-  if (ultimoBloco.aprovado) {
-    if (ultimoBloco.nivel >= 5) {
-      return { nivel: 5, motivo: `Você aprovou o último bloco desta matéria (${placar}) — já no nível máximo.` };
+export function sugerirNivel(ultimosBlocos: BlocoResumo[] | null): SugestaoNivel | null {
+  const blocos = (ultimosBlocos ?? [])
+    .filter((b) => b.total_questoes > 0)
+    .slice(0, MAX_BLOCOS_CONSIDERADOS);
+  if (!blocos.length) return null;
+
+  const nivelAtual = blocos[0].nivel;
+  const aprovados = blocos.filter((b) => b.aprovado).length;
+  const reprovados = blocos.length - aprovados;
+  const pctMedio =
+    blocos.reduce((soma, b) => soma + b.total_acertos / b.total_questoes, 0) / blocos.length;
+  const percentualFmt = `${Math.round(pctMedio * 100)}%`;
+  const amostra = blocos.length === 1 ? "seu último bloco" : `seus últimos ${blocos.length} blocos`;
+
+  if (aprovados >= reprovados) {
+    if (nivelAtual >= 5) {
+      return {
+        nivel: 5,
+        motivo: `Desempenho bom em ${amostra} desta matéria (${percentualFmt} de média) — já no nível máximo.`,
+      };
     }
-    const nivel = ultimoBloco.nivel + 1;
-    return { nivel, motivo: `Você aprovou o último bloco desta matéria (${placar}) — sugerido subir para o nível ${nivel}.` };
+    const nivel = nivelAtual + 1;
+    return {
+      nivel,
+      motivo: `Desempenho bom em ${amostra} desta matéria (${percentualFmt} de média) — sugerido subir para o nível ${nivel}.`,
+    };
   }
 
   return {
-    nivel: ultimoBloco.nivel,
-    motivo: `Seu último bloco desta matéria ficou abaixo de 80% (${placar}) — sugerido continuar no nível ${ultimoBloco.nivel} para consolidar.`,
+    nivel: nivelAtual,
+    motivo: `${amostra[0].toUpperCase()}${amostra.slice(1)} desta matéria ficaram abaixo de 80% (${percentualFmt} de média) — sugerido continuar no nível ${nivelAtual} para consolidar.`,
   };
 }

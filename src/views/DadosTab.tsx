@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { SparklesIcon } from "@heroicons/react/24/outline";
 import {
   CartesianGrid,
   Line,
@@ -90,7 +91,10 @@ export default function DadosTab({
   onAjustes,
 }: {
   ativa: boolean;
-  onQuestoes: () => void;
+  /** Sem argumento: só troca de aba (todo uso anterior). Com `treino`: troca
+   * de aba E já abre "Gerar" pré-preenchido com matéria + tópico (rec. 11,
+   * ver TreinarConceito abaixo) — fecha o laço diagnóstico → prática. */
+  onQuestoes: (treino?: { materia: string; topico: string }) => void;
   onAjustes: () => void;
 }) {
   const [filtro, setFiltro] = useState<string>(TODAS);
@@ -885,7 +889,40 @@ export default function DadosTab({
               alto, mas nenhuma legenda se sobrepõe. */}
           <Cartao titulo="ACERTO POR CONCEITO">
             {dadosConceitos.length ? (
-              <BarrasPct dados={dadosConceitos} alturaPorItem={30} />
+              <>
+                <BarrasPct dados={dadosConceitos} alturaPorItem={30} />
+                {/* Treinar este conceito (rec. 11): porConceito já ordena do
+                    mais fraco pro mais forte, então os 3 primeiros são
+                    exatamente o que mais precisa de prática. Só com matéria
+                    específica selecionada (filtro !== TODAS) — sem isso o
+                    conceito pode vir de mais de uma matéria, e o bloco de
+                    geração exige uma matéria só. */}
+                {filtro !== TODAS && (
+                  <div style={{ padding: "2px 4px 12px", display: "flex", flexDirection: "column", gap: 4 }}>
+                    {dadosConceitos.slice(0, 3).map((c) => (
+                      <button
+                        key={c.nome}
+                        onClick={() => onQuestoes({ materia: filtro, topico: c.nome })}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 6,
+                          background: "none",
+                          border: "none",
+                          padding: "4px 0",
+                          fontSize: 12.5,
+                          color: C.caneta,
+                          cursor: "pointer",
+                          textAlign: "left",
+                        }}
+                      >
+                        <SparklesIcon width={14} height={14} stroke={C.caneta} strokeWidth={1.8} />
+                        Treinar “{c.nome}”
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </>
             ) : (
               <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
                 Nenhum conceito com amostra suficiente ainda.

@@ -200,9 +200,14 @@ function MetasSemanais() {
 export default function QuestoesTab({
   onDados,
   onAjustes,
+  treinoConceito,
+  onTreinoConsumido,
 }: {
   onDados: () => void;
   onAjustes: () => void;
+  /** "Treinar este conceito" vindo de Dados (rec. 11) — ver App.tsx. */
+  treinoConceito?: { materia: string; topico: string } | null;
+  onTreinoConsumido?: () => void;
 }) {
   const [view, setView] = useState<ViewQuestoes>("gerar");
   const [venceHojeAberto, setVenceHojeAberto] = useState(false);
@@ -214,6 +219,16 @@ export default function QuestoesTab({
       .then((tem) => setView(escolherViewInicial(tem)))
       .catch(() => {});
   }, []);
+
+  // Um treino pedido de Dados sempre abre em "Gerar" (a única view que lê
+  // presetTreino) e sai da fila unificada, mesmo que o usuário estivesse
+  // noutra sub-view ou dentro dela.
+  useEffect(() => {
+    if (treinoConceito) {
+      setView("gerar");
+      setVenceHojeAberto(false);
+    }
+  }, [treinoConceito]);
 
   if (venceHojeAberto) {
     return (
@@ -278,7 +293,13 @@ export default function QuestoesTab({
       </div>
 
       {view === "gerar" && (
-        <GerarView onDados={onDados} onAjustes={onAjustes} onEmDrill={setEmDrill} />
+        <GerarView
+          onDados={onDados}
+          onAjustes={onAjustes}
+          onEmDrill={setEmDrill}
+          presetTreino={treinoConceito ?? null}
+          onPresetConsumido={onTreinoConsumido}
+        />
       )}
       {view === "banco" && <GerarBancoView onEmDrill={setEmDrill} />}
       {view === "importar" && <ImportarView />}
