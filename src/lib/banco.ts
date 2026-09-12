@@ -1,5 +1,5 @@
 /**
- * Banco de questões reais de concurso (kuestion_db_1.json, ~1.386 questões de
+ * Banco de questões reais de concurso (kuestion_db_1.json, ~2.440 questões de
  * SEFAZ estaduais, ISS-RJ, TCE-PI e RFB), usado pela 4ª forma de montar
  * blocos na aba Blocos: em vez de gerar questões inéditas via API, sorteia
  * questões reais já formuladas por banca. Só enunciado, alternativas e
@@ -10,7 +10,7 @@
  * `alternativas` é exatamente {C: "Certo", E: "Errado"}) — ver
  * `questaoBancoParaQuestao`, que traduz um e outro para o `Questao` do app.
  *
- * O arquivo tem ~1,5 MB — carregado com `import()` dinâmico (ver
+ * O arquivo tem ~3 MB — carregado com `import()` dinâmico (ver
  * `garantirBanco`) em vez de `import` estático, para não entrar no chunk
  * inicial do app: quem só usa Gerar/Notas/Dados nunca baixa nem faz o parse
  * disso. Todo o resto deste módulo (índices, filtros, sorteio) é síncrono e
