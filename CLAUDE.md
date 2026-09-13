@@ -181,3 +181,12 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
   filtro existir). `MATERIAS` (`lib/constants.ts`, tab Gerar por IA) já não tinha nenhuma dessas
   matérias — não precisou de filtro equivalente lá.
 
+
+## Explicação dos cartões da aba Dados
+
+- `Cartao` (`src/views/DadosTab.tsx`) tem duas props de texto distintas: `legenda` (dado dinâmico
+  sempre visível, ex. contagem de tópicos em "Cobertura de tópicos") e `ajuda` (explicação do que o
+  cartão mostra). `ajuda` fica recolhida atrás de um botão-ícone `QuestionMarkCircleIcon` no
+  extremo direito da linha do título; o toque abre uma caixinha no fluxo do cartão (empurra o
+  conteúdo, não é popover/popup/overlay) e o segundo toque fecha. Explicação nova de cartão vai em
+  `ajuda`, não em `legenda`.

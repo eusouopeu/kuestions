@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SparklesIcon } from "@heroicons/react/24/outline";
+import { QuestionMarkCircleIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import {
   CartesianGrid,
   Line,
@@ -54,27 +54,70 @@ const GRUPOS_NOTA: { rotulo: string; pertence: (pct: number) => boolean; fundo: 
 function Cartao({
   titulo,
   legenda,
+  ajuda,
   children,
 }: {
   titulo: string;
+  /** Texto de dado visível sempre (ex.: contagem de tópicos praticados). */
   legenda?: string;
+  /** Explicação do que o cartão mostra: fica recolhida atrás do botão "?" na
+   * linha do título e abre como caixa no fluxo do cartão (empurra o conteúdo
+   * para baixo) — não é popover/overlay, para não cobrir o gráfico. */
+  ajuda?: string;
   children: React.ReactNode;
 }) {
+  const [ajudaAberta, setAjudaAberta] = useState(false);
   return (
     <div style={{ ...cartao, padding: "14px 12px 8px", marginBottom: 12 }}>
       <div
         style={{
-          ...mono,
-          fontSize: 11,
-          fontWeight: 700,
-          color: C.caneta,
-          letterSpacing: 0.8,
-          marginBottom: legenda ? 2 : 10,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 8,
+          marginBottom: legenda || ajudaAberta ? 2 : 10,
           paddingLeft: 4,
         }}
       >
-        {titulo}
+        <div style={{ ...mono, fontSize: 11, fontWeight: 700, color: C.caneta, letterSpacing: 0.8 }}>
+          {titulo}
+        </div>
+        {ajuda && (
+          <button
+            type="button"
+            aria-label={ajudaAberta ? "Ocultar explicação" : "Mostrar explicação"}
+            aria-expanded={ajudaAberta}
+            onClick={() => setAjudaAberta((v) => !v)}
+            style={{
+              background: "none",
+              border: "none",
+              padding: 2,
+              margin: -2,
+              cursor: "pointer",
+              display: "flex",
+              flexShrink: 0,
+              color: ajudaAberta ? C.caneta : C.sub,
+            }}
+          >
+            <QuestionMarkCircleIcon width={18} height={18} strokeWidth={1.8} />
+          </button>
+        )}
       </div>
+      {ajuda && ajudaAberta && (
+        <div
+          style={{
+            fontSize: 12,
+            color: C.ink,
+            background: C.canetaSoft,
+            borderRadius: 8,
+            padding: "8px 10px",
+            margin: "6px 4px 10px",
+            lineHeight: 1.5,
+          }}
+        >
+          {ajuda}
+        </div>
+      )}
       {legenda && (
         <div style={{ fontSize: 12, color: C.sub, marginBottom: 10, paddingLeft: 4, lineHeight: 1.4 }}>
           {legenda}
@@ -283,7 +326,7 @@ export default function DadosTab({
 
           {/* Calendário de sequência — mesma constância "do estudo como um
               todo", não filtrada por matéria/nível (ver comentário acima). */}
-          <Cartao titulo="CALENDÁRIO DE SEQUÊNCIA" legenda="Questões respondidas por dia, últimas 20 semanas.">
+          <Cartao titulo="CALENDÁRIO DE SEQUÊNCIA" ajuda="Questões respondidas por dia, últimas 20 semanas.">
             <div style={{ padding: "0 4px 14px" }}>
               <CalendarioSequencia atividade={atividade} dias={DIAS_HEATMAP} />
             </div>
@@ -408,7 +451,7 @@ export default function DadosTab({
           {/* Evolução por bloco */}
           <Cartao
             titulo="EVOLUÇÃO — % DE ACERTO POR BLOCO"
-            legenda={
+            ajuda={
               serie.length < 2
                 ? "Um único bloco registrado: a linha aparece a partir do segundo."
                 : `Linha tracejada = ${LIMIAR_APROVACAO_PCT}%, o limiar de aprovação.`
@@ -441,7 +484,7 @@ export default function DadosTab({
           {simulados.length > 0 && (
             <Cartao
               titulo="EVOLUÇÃO — NOTA PONDERADA POR SIMULADO"
-              legenda={
+              ajuda={
                 simulados.length < 2
                   ? "Um único simulado registrado: a linha aparece a partir do segundo."
                   : `Linha tracejada = ${LIMIAR_APROVACAO_PCT}%, o limiar de aprovação.`
@@ -481,7 +524,7 @@ export default function DadosTab({
           {/* Nível de dificuldade */}
           <Cartao
             titulo="ACERTO POR NÍVEL DE DIFICULDADE"
-            legenda="Questões sem nível (importadas ou geradas do banco) não entram aqui."
+            ajuda="Questões sem nível (importadas ou geradas do banco) não entram aqui."
           >
             {dadosNiveis.length ? (
               <BarrasPct dados={dadosNiveis} />
@@ -601,7 +644,7 @@ export default function DadosTab({
           {heatmap && heatmap.some((t) => t.total > 0) && (
             <Cartao
               titulo="MAPA DE CALOR — DESEMPENHO POR TÓPICO"
-              legenda="Cada quadrado é uma aula; a cor é a % de acerto das questões respondidas sobre ela. Cinza = ainda não praticada."
+              ajuda="Cada quadrado é uma aula; a cor é a % de acerto das questões respondidas sobre ela. Cinza = ainda não praticada."
             >
               <div style={{ padding: "0 4px 14px" }}>
                 {agruparPorPrefixo(heatmap, (t) => t.codigo.split(".")[0]).map((grupo) => (
@@ -680,7 +723,7 @@ export default function DadosTab({
               dias), mais está sobrevivendo à repetição espaçada. */}
           <Cartao
             titulo="RETENÇÃO — DISTRIBUIÇÃO POR CAIXA DE LEITNER"
-            legenda="Fatia das questões já revisadas em cada caixa, não taxa de acerto. Só existe para o que já passou por ao menos uma revisão em Refazer."
+            ajuda="Fatia das questões já revisadas em cada caixa, não taxa de acerto. Só existe para o que já passou por ao menos uma revisão em Refazer."
           >
             {dadosCaixaLeitner.length ? (
               <BarrasPct dados={dadosCaixaLeitner} alturaPorItem={40} rotuloTooltip="do total revisado" />
@@ -746,7 +789,7 @@ export default function DadosTab({
           {filtro === TODAS && calibracaoPorMateria.length > 0 && (
             <Cartao
               titulo="CALIBRAÇÃO POR MATÉRIA"
-              legenda="Das vezes que você marcou certeza absoluta, quanto % errou mesmo assim — só matérias com pelo menos 5 certezas registradas."
+              ajuda="Das vezes que você marcou certeza absoluta, quanto % errou mesmo assim — só matérias com pelo menos 5 certezas registradas."
             >
               <div style={{ padding: "0 4px 14px", display: "flex", flexDirection: "column", gap: 8 }}>
                 {calibracaoPorMateria.map((m) => (
@@ -786,7 +829,7 @@ export default function DadosTab({
           {lentidao && lentidao.acertosCronometrados > 0 && (
             <Cartao
               titulo="ACERTO LENTO"
-              legenda="Questões que você acertou gastando mais que o dobro do seu tempo médio — entram na frente dos outros acertos na fila de revisão."
+              ajuda="Questões que você acertou gastando mais que o dobro do seu tempo médio — entram na frente dos outros acertos na fila de revisão."
             >
               <div style={{ display: "flex", gap: 8, padding: "0 4px 14px" }}>
                 {[
@@ -836,7 +879,7 @@ export default function DadosTab({
               aparecia na fatura. `cacheLeituraMes` mostra o efeito do prompt
               caching de anthropic.ts — tokens que NÃO foram cobrados cheios. */}
           {custo && custo.total > 0 && (
-            <Cartao titulo="CUSTO DA API" legenda="Gasto na sua chave da Anthropic. O teto mensal é configurado em Ajustes.">
+            <Cartao titulo="CUSTO DA API" ajuda="Gasto na sua chave da Anthropic. O teto mensal é configurado em Ajustes.">
               <div style={{ display: "flex", gap: 8, padding: "0 4px 12px" }}>
                 {[
                   {
