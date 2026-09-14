@@ -53355,5 +53355,1875 @@
   "gabarito": "A",
   "bloco": "[3] Relatório, Controle Interno e Situações Especiais (6 aulas)",
   "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q013",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Administrativo",
+  "assunto": "Princípios do Direito Administrativo",
+  "numero_original": 13,
+  "enunciado": "Em relação à organização do Estado e da administração pública, julgue os seguintes itens.\n\nO princípio da legalidade se aplica apenas ao Poder Executivo federal.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Fundamentos e Poderes Administrativos (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q014",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Constitucional",
+  "assunto": "Organização do Estado (Art. 18 a 36)",
+  "numero_original": 14,
+  "enunciado": "Em relação à organização do Estado e da administração pública, julgue os seguintes itens.\n\nCompete privativamente à União legislar sobre o sistema monetário e de medidas, títulos e garantia de valores.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[3] Organização do Estado e Administração Pública (2 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q015",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Administração Pública",
+  "assunto": "Modelos de Administração Pública (Patrimonialista, Burocrático, Gerencial)",
+  "numero_original": 15,
+  "enunciado": "No que se refere à administração pública brasileira, julgue os itens a seguir.\n\nO modelo de administração pública gerencial respondeu à expansão das funções econômicas e sociais da sociedade com uma proposta de diminuição do tamanho do Estado.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q016",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Administração Pública",
+  "assunto": "Gestão da Integridade Pública",
+  "numero_original": 16,
+  "enunciado": "No que se refere à administração pública brasileira, julgue os itens a seguir.\n\nAs políticas de compliance no âmbito da administração pública objetivam garantir que os servidores públicos prestem contas, aos órgãos de controle, das atividades exercidas no âmbito de suas funções.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q019",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Pública",
+  "assunto": "NBC TSP — Estrutura Conceitual",
+  "numero_original": 19,
+  "enunciado": "Relativamente à natureza e ao propósito dos ativos e passivos do setor público, julgue os itens que se seguem.\n\nPara que os objetivos da informação contábil sejam alcançados, pode-se reconhecer, nas demonstrações contábeis, recurso ou obrigação que não satisfaça a definição de elemento definido na estrutura conceitual.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] NBC TSP — Normas Vigentes (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q020",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Pública",
+  "assunto": "NBC TSP — Estrutura Conceitual",
+  "numero_original": 20,
+  "enunciado": "Relativamente à natureza e ao propósito dos ativos e passivos do setor público, julgue os itens que se seguem.\n\nPara que uma entidade do setor público seja capaz de acessar o potencial de serviços associado a um recurso, é necessário que essa entidade obtenha direitos jurídicos sobre ele.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] NBC TSP — Normas Vigentes (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q021",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Pública",
+  "assunto": "NBC TSP — Estrutura Conceitual",
+  "numero_original": 21,
+  "enunciado": "Relativamente à natureza e ao propósito dos ativos e passivos do setor público, julgue os itens que se seguem.\n\nPara que uma obrigação presente exista, é essencial conhecer a identidade dos terceiros antes da época da extinção do passivo.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] NBC TSP — Normas Vigentes (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q022",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Pública",
+  "assunto": "NBC TSP — Tópicos Vigentes",
+  "numero_original": 22,
+  "enunciado": "Considerando que os sistemas de custos dos entes públicos objetivam a mensuração, o controle e a avaliação de custos na administração pública, julgue os itens a seguir.\n\nA contabilização dos itens de custo subsidia o gestor e os demais usuários de informações sobre os insumos utilizados pelos entes públicos no processo de prestação de serviços à sociedade.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] NBC TSP — Normas Vigentes (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q023",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Pública",
+  "assunto": "NBC TSP — Tópicos Vigentes",
+  "numero_original": 23,
+  "enunciado": "Considerando que os sistemas de custos dos entes públicos objetivam a mensuração, o controle e a avaliação de custos na administração pública, julgue os itens a seguir.\n\nSão exemplos de itens de custo das entidades públicas os gastos incorridos com o pagamento de salários e a aquisição de computadores e material de consumo.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] NBC TSP — Normas Vigentes (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q024",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Pública",
+  "assunto": "NBC TSP — Tópicos Vigentes",
+  "numero_original": 24,
+  "enunciado": "Considerando que os sistemas de custos dos entes públicos objetivam a mensuração, o controle e a avaliação de custos na administração pública, julgue os itens a seguir.\n\nO acesso à informação de custos permite a avaliação de riscos na aplicação de recursos públicos voltados ao alcance das metas estabelecidas na ação governamental.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] NBC TSP — Normas Vigentes (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q025",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Pública",
+  "assunto": "Balanço Orçamentário",
+  "numero_original": 25,
+  "enunciado": "Com base nas normas que regem a contabilidade pública, julgue os itens a seguir.\n\nO saldo da receita disponível no balanço orçamentário deve ser maior ou igual a zero, uma vez que é vedado realizar despesas sem a fonte de recursos correspondente.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[3] Balanços e Demonstrações Contábeis (Lei 4.320/64) (6 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q026",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Pública",
+  "assunto": "MCASP: Proc. Orçamentários (I)",
+  "numero_original": 26,
+  "enunciado": "Com base nas normas que regem a contabilidade pública, julgue os itens a seguir.\n\nO destaque de determinado crédito orçamentário pode ser realizado independentemente de autorização específica da lei orçamentária anual.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[1] MCASP — Procedimentos e Plano de Contas (7 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q029",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Administrativo",
+  "assunto": "Responsabilidade Civil do Estado",
+  "numero_original": 29,
+  "enunciado": "Acerca da responsabilidade civil do Estado, julgue o item a seguir.\n\nUma vez que o ordenamento jurídico brasileiro adota a teoria da responsabilidade objetiva do Estado, com base no risco administrativo, a mera ocorrência de ato lesivo causado pelo poder público à vítima gera o dever de indenização pelo dano pessoal e(ou) patrimonial sofrido, independentemente da caracterização de culpa dos agentes estatais ou da demonstração de falta do serviço público. Não obstante, em caso fortuito ou de força maior, a responsabilidade do Estado pode ser mitigada ou afastada.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[6] Responsabilidade, Controle e Improbidade (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q030",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Administrativo",
+  "assunto": "Serviços Públicos (Lei 8.987/1995)",
+  "numero_original": 30,
+  "enunciado": "Acerca da concessão de serviços públicos, julgue o item que se segue.\n\nConcessão de serviço público é um contrato administrativo pelo qual a administração pública delega a terceiro a execução de um serviço público, para que este o realize em seu próprio nome e por sua conta e risco, sendo assegurada ao terceiro a remuneração mediante tarifa paga pelo usuário, que é fixada pelo preço da proposta vencedora da licitação e não pode ser alterada unilateralmente pelo poder público ou pela concessionária.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[5] Serviços Públicos e Parcerias (2 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q031",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Administrativo",
+  "assunto": "Lei das Estatais (Lei 13.303/2016)",
+  "numero_original": 31,
+  "enunciado": "Considerando a Lei n.º 13.303/2016, que dispõe sobre o estatuto jurídico da empresa pública, da sociedade de economia mista e de suas subsidiárias, no âmbito da União, dos estados, do Distrito Federal e dos municípios, julgue o próximo item.\n\nOcorre superfaturamento quando os preços orçados para a licitação ou os preços contratados são expressivamente superiores aos preços referenciais de mercado.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[4] Agentes Públicos e Licitações/Contratos (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q032",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Administrativo",
+  "assunto": "Processo Administrativo (Lei 9.784/1999)",
+  "numero_original": 32,
+  "enunciado": "Considerando as normas de direito administrativo, as disposições normativas relativas ao pregão e a Lei federal n.º 9.784/1999, acerca de processo administrativo, julgue os itens seguintes.\n\nNo processo administrativo, os cidadãos e as associações têm legitimidade para interpor recurso administrativo, quando se tratar de direitos ou interesses difusos.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[6] Responsabilidade, Controle e Improbidade (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q033",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Administrativo",
+  "assunto": "Licitações — Pregão",
+  "numero_original": 33,
+  "enunciado": "Considerando as normas de direito administrativo, as disposições normativas relativas ao pregão e a Lei federal n.º 9.784/1999, acerca de processo administrativo, julgue os itens seguintes.\n\nNo pregão, a definição das exigências de habilitação no certame é feita durante a fase externa.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[4] Agentes Públicos e Licitações/Contratos (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q034",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Administrativo",
+  "assunto": "Processo Administrativo (Lei 9.784/1999)",
+  "numero_original": 34,
+  "enunciado": "Considerando as normas de direito administrativo, as disposições normativas relativas ao pregão e a Lei federal n.º 9.784/1999, acerca de processo administrativo, julgue os itens seguintes.\n\nÉ impedido de atuar em processo administrativo o servidor que tenha amizade íntima com algum dos interessados no processo.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[6] Responsabilidade, Controle e Improbidade (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q035",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Constitucional",
+  "assunto": "Direitos e Deveres Individuais e Coletivos I",
+  "numero_original": 35,
+  "enunciado": "Acerca dos direitos e garantias fundamentais, das cláusulas pétreas e da organização político-administrativa do Estado, julgue os itens a seguir.\n\nA Constituição Federal de 1988 prevê expressamente a exigência de inscrição em conselho de fiscalização para o exercício de qualquer atividade profissional.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Teoria Constitucional e Direitos Fundamentais (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q036",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Constitucional",
+  "assunto": "Teoria da Constituição e Poder Constituinte",
+  "numero_original": 36,
+  "enunciado": "Acerca dos direitos e garantias fundamentais, das cláusulas pétreas e da organização político-administrativa do Estado, julgue os itens a seguir.\n\nAs cláusulas pétreas correspondem às limitações temporais, implícitas, circunstanciais e materiais de alteração da Constituição Federal de 1988.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Teoria Constitucional e Direitos Fundamentais (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q037",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Constitucional",
+  "assunto": "Nacionalidade",
+  "numero_original": 37,
+  "enunciado": "Acerca dos direitos e garantias fundamentais, das cláusulas pétreas e da organização político-administrativa do Estado, julgue os itens a seguir.\n\nEmbora a Constituição Federal de 1988 preveja expressamente não distinção entre brasileiros, o próprio constituinte estabeleceu, no texto constitucional, hipóteses de tratamentos distintos entre homens e mulheres.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] Nacionalidade e Direitos Políticos (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q038",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Constitucional",
+  "assunto": "Ordem Econômica e Financeira",
+  "numero_original": 38,
+  "enunciado": "Considerando os princípios gerais da atividade econômica previstos na Constituição Federal de 1988, julgue os itens a seguir.\n\nA prestação de serviços públicos de transporte coletivo sob o regime de permissão prescinde de licitação, que é exigida apenas para a modalidade de concessão.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[5] Defesa do Estado, Tributação e Ordem Econômico-Social (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q039",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Constitucional",
+  "assunto": "Ordem Econômica e Financeira",
+  "numero_original": 39,
+  "enunciado": "Considerando os princípios gerais da atividade econômica previstos na Constituição Federal de 1988, julgue os itens a seguir.\n\nAs empresas públicas e as sociedades de economia mista gozam de privilégios fiscais não extensivos às sociedades comerciais do setor privado.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[5] Defesa do Estado, Tributação e Ordem Econômico-Social (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q040",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Constitucional",
+  "assunto": "Ordem Econômica e Financeira",
+  "numero_original": 40,
+  "enunciado": "Considerando os princípios gerais da atividade econômica previstos na Constituição Federal de 1988, julgue os itens a seguir.\n\nA União detém o monopólio da pesquisa e lavra das jazidas de petróleo e gás natural, sendo-lhe permitida a contratação de empresas estatais e privadas para a realização dessas atividades, desde que observadas as condições estabelecidas em lei.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[5] Defesa do Estado, Tributação e Ordem Econômico-Social (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q043",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Civil - Responsabilidade Civil e Prescrição",
+  "numero_original": 43,
+  "enunciado": "João dirigia embriagado quando colidiu com outro veículo, causando um grave acidente. João morreu no local do acidente e o motorista do outro veículo, Pedro, foi levado ao hospital, onde ficou internado por dois meses, até falecer. Os herdeiros de Pedro decidiram pleitear danos morais e materiais contra os herdeiros de João.\n\nConsiderando essa situação hipotética, julgue os itens subsequentes.\n\nA pretensão dos herdeiros de Pedro é viável, pois tanto o direito de exigir a reparação civil por ato ilícito quanto a obrigação de prestá-la são transmitidos por sucessão aos herdeiros.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q044",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Civil - Responsabilidade Civil e Prescrição",
+  "numero_original": 44,
+  "enunciado": "João dirigia embriagado quando colidiu com outro veículo, causando um grave acidente. João morreu no local do acidente e o motorista do outro veículo, Pedro, foi levado ao hospital, onde ficou internado por dois meses, até falecer. Os herdeiros de Pedro decidiram pleitear danos morais e materiais contra os herdeiros de João.\n\nConsiderando essa situação hipotética, julgue os itens subsequentes.\n\nA prescrição da pretensão indenizatória iniciou-se na data do acidente, interrompeu-se com a morte de Pedro e recomeçou contra os seus sucessores.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q045",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Civil - Personalidade",
+  "numero_original": 45,
+  "enunciado": "Considerando o disposto no Código Civil acerca de personalidade e o disposto na Lei de Introdução às Normas do Direito Brasileiro acerca da vigência das leis, julgue os itens a seguir.\n\nO início da personalidade civil das pessoas físicas ocorre com o nascimento com vida, enquanto o início da personalidade civil das pessoas jurídicas de direito privado ocorre com a inscrição do seu ato constitutivo no respectivo registro, precedida de autorização ou aprovação do Poder Executivo, quando necessário.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q046",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "LINDB - Vigência e Revogação das Leis",
+  "numero_original": 46,
+  "enunciado": "Considerando o disposto no Código Civil acerca de personalidade e o disposto na Lei de Introdução às Normas do Direito Brasileiro acerca da vigência das leis, julgue os itens a seguir.\n\nLei nova que estabeleça disposições especiais a par das já existentes revogará a lei anterior.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q047",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Empresarial - Sociedade Limitada",
+  "numero_original": 47,
+  "enunciado": "A respeito das sociedades limitadas, julgue os itens a seguir.\n\nÉ de dois anos da data da subscrição das quotas sociais o prazo para que os sócios respondam solidariamente pela exata estimação de bens conferidos ao capital social de uma sociedade limitada.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q048",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Empresarial - Sociedade Limitada",
+  "numero_original": 48,
+  "enunciado": "A respeito das sociedades limitadas, julgue os itens a seguir.\n\nEm atenção ao princípio da estabilidade ou da variabilidade condicionada do capital social, ressalvado o disposto em lei especial, só pode ser aumentado o capital social após a integralização das quotas sociais inicialmente subscritas.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q049",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Civil e Empresarial",
+  "assunto": "Direito Empresarial - Sociedade Limitada",
+  "numero_original": 49,
+  "enunciado": "A respeito das sociedades limitadas, julgue os itens a seguir.\n\nA sociedade limitada poderá reduzir o capital se houver perdas irreparáveis, após a integralização do capital social original, ou se o capital for excessivo em relação ao objeto da sociedade.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q050",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Penal",
+  "assunto": "Direito Penal - Falsificação de Selo ou Sinal Público",
+  "numero_original": 50,
+  "enunciado": "À luz da legislação penal brasileira, julgue os itens a seguir.\n\nO agente que faz uso de selo falsificado destinado a controle tributário, sabendo de sua falsificação, comete crime contra a fé pública.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q051",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Penal",
+  "assunto": "Direito Penal - Crimes Funcionais contra a Ordem Tributária",
+  "numero_original": 51,
+  "enunciado": "À luz da legislação penal brasileira, julgue os itens a seguir.\n\nAuditor-fiscal que exigir vantagem indevida para deixar de lançar ou de cobrar tributo devido por contribuinte terá cometido o crime de concussão previsto no Código Penal.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q052",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Penal",
+  "assunto": "Direito Penal - Crimes contra as Finanças Públicas",
+  "numero_original": 52,
+  "enunciado": "À luz da legislação penal brasileira, julgue os itens a seguir.\n\nPara a caracterização do crime de ordenação de despesa não autorizada, é necessário o efetivo prejuízo financeiro ao ente público.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q053",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Economia",
+  "assunto": "Balanço de Pagamentos",
+  "numero_original": 53,
+  "enunciado": "Com relação a conceitos econômicos e monetários, julgue os itens a seguir.\n\nSe um país possuir superávit no balanço de pagamentos, haverá oscilação positiva na base monetária.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[5] Setor Externo (2 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q054",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Economia",
+  "assunto": "Política Cambial: Câmbio Fixo e Câmbio Flutuante",
+  "numero_original": 54,
+  "enunciado": "Com relação a conceitos econômicos e monetários, julgue os itens a seguir.\n\nSe há plena mobilidade de capitais e a autoridade monetária conduz a política monetária com a fixação do juro, então o regime cambial não poderá ser do tipo câmbio fixo.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[5] Setor Externo (2 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q055",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Economia",
+  "assunto": "Tributação e Incidência Tributária",
+  "numero_original": 55,
+  "enunciado": "Com relação a conceitos econômicos e monetários, julgue os itens a seguir.\n\nSe o governo decide aumentar a carga tributária sobre determinado produto, então a maior parte do imposto será necessariamente paga pelo consumidor.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[3] Bem-Estar, Externalidades e Contabilidade Nacional (2 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q056",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Crédito Tributário: Constituição e Lançamento",
+  "numero_original": 56,
+  "enunciado": "Relativamente a tópicos específicos de finanças públicas, julgue os itens a seguir.\n\nO lançamento tributário deve ser feito por homologação se o sujeito passivo da obrigação tributária antecipar o pagamento do tributo sem prévio exame da autoridade administrativa.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] Obrigação e Crédito Tributário (7 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q057",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Finanças Públicas",
+  "assunto": "Classificações Orçamentárias e Estrutura Programática",
+  "numero_original": 57,
+  "enunciado": "Relativamente a tópicos específicos de finanças públicas, julgue os itens a seguir.\n\nA classificação institucional da despesa orçamentária deve atribuir a cada órgão público com competência para realizar despesas uma unidade orçamentária única e exclusiva.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Ciclo Orçamentário, Créditos e Classificações (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q058",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Finanças Públicas",
+  "assunto": "Receita Pública: Conceito, Classificações e Fontes",
+  "numero_original": 58,
+  "enunciado": "Relativamente a tópicos específicos de finanças públicas, julgue os itens a seguir.\n\nA arrecadação de impostos compartilhados com diversos entes da Federação deve ser contabilizada no âmbito do ente arrecadador pelo seu valor líquido, descontados os valores pertencentes aos demais entes.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[3] Receita e Despesa Pública (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q059",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Finanças Públicas",
+  "assunto": "Ciclo Orçamentário e Processo de Orçamentação",
+  "numero_original": 59,
+  "enunciado": "Relativamente a tópicos específicos de finanças públicas, julgue os itens a seguir.\n\nEmenda parlamentar ao projeto de lei orçamentária destinada a reforçar a dotação para os serviços da dívida correspondentes a determinada operação de crédito deve ser rejeitada por inconstitucionalidade se apresentar como fonte de recursos a anulação das despesas com serviços da dívida correspondentes a outra operação de crédito.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] Ciclo Orçamentário, Créditos e Classificações (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q060",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Finanças Públicas",
+  "assunto": "LRF Parte III: Transparência, Controle, Gestão Patrimonial e Transferências",
+  "numero_original": 60,
+  "enunciado": "Julgue os itens a seguir, relativos ao disposto na Lei de Responsabilidade Fiscal sobre limites para dívida, transferências voluntárias e destinação de recursos para o setor privado.\n\nAs sanções de suspensão de transferências voluntárias não se aplicam sobre as ações de educação, saúde e assistência social.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[4] Lei de Responsabilidade Fiscal (LRF) (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q062",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Finanças Públicas",
+  "assunto": "LRF Parte IV: Dívida, Endividamento e Disposições Finais",
+  "numero_original": 62,
+  "enunciado": "Julgue os itens a seguir, relativos ao disposto na Lei de Responsabilidade Fiscal sobre limites para dívida, transferências voluntárias e destinação de recursos para o setor privado.\n\nA prevenção de insolvência e outros riscos associados à destinação de recursos para o setor privado fica a cargo de mecanismos constituídos pelo respectivo ente federativo.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[4] Lei de Responsabilidade Fiscal (LRF) (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q063",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Noções de Informática",
+  "assunto": "Hardware - Armazenamento (SSD)",
+  "numero_original": 63,
+  "enunciado": "A respeito de componentes funcionais de computadores e do sistema operacional Linux, julgue os itens a seguir.\n\nO SSD (solid-state drive) é uma tecnologia de armazenamento que utiliza memória flash e cuja interface de comunicação é a mesma utilizada em discos rígidos.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q064",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Noções de Informática",
+  "assunto": "Linux - Estrutura de Diretórios",
+  "numero_original": 64,
+  "enunciado": "A respeito de componentes funcionais de computadores e do sistema operacional Linux, julgue os itens a seguir.\n\nNo Linux, o diretório /home é o local onde é instalada a maior parte dos aplicativos e das bibliotecas do sistema operacional, enquanto no diretório /usr são armazenados os arquivos dos usuários.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q065",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Noções de Informática",
+  "assunto": "Ferramentas de Produtividade - MS Excel",
+  "numero_original": 65,
+  "enunciado": "Com relação ao MS Excel 2013, julgue o próximo item.\n\nA função PROCV permite localizar itens em qualquer posição de uma tabela ou em um intervalo por coluna, pesquisando-se a partir de determinado valor para se obter o valor de retorno.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[6] Ferramentas Corporativas e Web (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q066",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Noções de Informática",
+  "assunto": "Navegadores - Google Chrome",
+  "numero_original": 66,
+  "enunciado": "Acerca do navegador Google Chrome, julgue o item seguinte.\n\nO atalho SHIFT + ESC permite acessar o Gerenciador de Tarefas para visualizar e finalizar processos do Google Chrome em execução.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[6] Ferramentas Corporativas e Web (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q067",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Noções de Informática",
+  "assunto": "Gerência de Projetos (PMBOK)",
+  "numero_original": 67,
+  "enunciado": "No que se refere à gerência de projetos, julgue o próximo item, com base no PMBOK 5.\n\nOs cinco grupos de processos de gerenciamento de projetos previstos no PMBOK são iniciação, planejamento, execução, monitoramento e controle, e encerramento.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[5] Gestão de Processos e Engenharia de Software (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q069",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Noções de Informática",
+  "assunto": "Segurança da Informação - Assinatura Digital",
+  "numero_original": 69,
+  "enunciado": "Com relação ao plano de continuidade de negócios, a assinatura digital e a auditoria, julgue os itens a seguir.\n\nA assinatura digital foi desenvolvida especialmente com o objetivo de prover confidencialidade. Para criá-la, basta que o emissor gere um hash da mensagem enviada e cifre esse código hash com sua chave privada.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Segurança da Informação (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q070",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Noções de Informática",
+  "assunto": "Auditoria de Sistemas",
+  "numero_original": 70,
+  "enunciado": "Com relação ao plano de continuidade de negócios, a assinatura digital e a auditoria, julgue os itens a seguir.\n\nSão objetivos da auditoria a revisão e o exame independentes de registros e atividades do sistema, para testar a adequabilidade dos controles desse sistema, de modo a verificar se há obediência às políticas e aos procedimentos estabelecidos.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] Segurança da Informação (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q071",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Matemática Financeira",
+  "assunto": "Juros Compostos",
+  "numero_original": 71,
+  "enunciado": "Em determinada loja, uma bicicleta é vendida por R$ 1.720 a vista ou em duas vezes, com uma entrada de R$ 920 e uma parcela de R$ 920 com vencimento para o mês seguinte. Caso queira antecipar o crédito correspondente ao valor da parcela, o lojista paga para a financeira uma taxa de antecipação correspondente a 5% do valor da parcela.\n\nCom base nessas informações, julgue os itens a seguir.\n\nConsidere que um comprador sabe que o preço da bicicleta não irá aumentar durante 1 mês e tem a possibilidade de investir suas economias em uma aplicação com rendimento líquido de 5% ao mês. Nessa situação, o comprador poderá realizar a compra à vista da bicicleta investindo nessa aplicação uma quantia inferior a R$ 1.650, independentemente de o regime de capitalização da aplicação ser simples ou composto.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[1] Juros e Taxas (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q072",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Matemática Financeira",
+  "assunto": "Taxas",
+  "numero_original": 72,
+  "enunciado": "Em determinada loja, uma bicicleta é vendida por R$ 1.720 a vista ou em duas vezes, com uma entrada de R$ 920 e uma parcela de R$ 920 com vencimento para o mês seguinte. Caso queira antecipar o crédito correspondente ao valor da parcela, o lojista paga para a financeira uma taxa de antecipação correspondente a 5% do valor da parcela.\n\nCom base nessas informações, julgue os itens a seguir.\n\nNa compra a prazo, o custo efetivo da operação de financiamento pago pelo cliente será inferior a 14% ao mês.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Juros e Taxas (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q073",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Matemática Financeira",
+  "assunto": "Operações de Desconto",
+  "numero_original": 73,
+  "enunciado": "Em determinada loja, uma bicicleta é vendida por R$ 1.720 a vista ou em duas vezes, com uma entrada de R$ 920 e uma parcela de R$ 920 com vencimento para o mês seguinte. Caso queira antecipar o crédito correspondente ao valor da parcela, o lojista paga para a financeira uma taxa de antecipação correspondente a 5% do valor da parcela.\n\nCom base nessas informações, julgue os itens a seguir.\n\nNo caso de uma venda a prazo em que o lojista optasse pela antecipação do crédito correspondente à parcela que só seria paga no mês seguinte, o valor total que ele receberia (entrada mais antecipação) seria superior a R$ 1.790.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] Equivalência e Aplicações Financeiras (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q074",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Estatística",
+  "assunto": "Medidas de Posição: Médias",
+  "numero_original": 74,
+  "enunciado": "A partir de uma amostra aleatória simples de tamanho n, sabe-se que a média aritmética de uma variável X foi igual a 3.\n\nConsiderando que os valores possíveis para a variável X sejam −1 e +4, julgue os itens que se seguem.\n\nNessa amostra aleatória, a quantidade de observações iguais a +4 foi igual a 0,8 n.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[1] Estatística Descritiva Univariada (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q075",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Estatística",
+  "assunto": "Medidas de Variabilidade ou Dispersão",
+  "numero_original": 75,
+  "enunciado": "A partir de uma amostra aleatória simples de tamanho n, sabe-se que a média aritmética de uma variável X foi igual a 3.\n\nConsiderando que os valores possíveis para a variável X sejam −1 e +4, julgue os itens que se seguem.\n\nO desvio padrão amostral da variável X foi igual ou superior a 2.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[1] Estatística Descritiva Univariada (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q076",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Estatística",
+  "assunto": "Medidas Separatrizes ou Quantis",
+  "numero_original": 76,
+  "enunciado": "A partir de uma amostra aleatória simples de tamanho n, sabe-se que a média aritmética de uma variável X foi igual a 3.\n\nConsiderando que os valores possíveis para a variável X sejam −1 e +4, julgue os itens que se seguem.\n\nA mediana amostral da variável X foi igual a 2,5.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Estatística Descritiva Univariada (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q077",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Estatística",
+  "assunto": "Distribuição de Frequências e Medidas",
+  "numero_original": 77,
+  "enunciado": "A partir de uma amostra aleatória simples de tamanho n, sabe-se que a média aritmética de uma variável X foi igual a 3.\n\nConsiderando que os valores possíveis para a variável X sejam −1 e +4, julgue os itens que se seguem.\n\nA distribuição da variável X é simétrica em torno da sua média amostral.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Estatística Descritiva Univariada (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q078",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Matemática e Raciocínio Lógico",
+  "assunto": "Lógica Proposicional",
+  "numero_original": 78,
+  "enunciado": "Considerando a proposição P: “Se o servidor gosta do que faz, então o cidadão-cliente fica satisfeito”, julgue os itens a seguir.\n\nA proposição “O servidor não gosta do que faz, ou o cidadão-cliente não fica satisfeito” é uma maneira correta de negar a proposição P.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q079",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Matemática e Raciocínio Lógico",
+  "assunto": "Lógica Proposicional",
+  "numero_original": 79,
+  "enunciado": "Considerando a proposição P: “Se o servidor gosta do que faz, então o cidadão-cliente fica satisfeito”, julgue os itens a seguir.\n\nA proposição P é logicamente equivalente à seguinte proposição: “Se o cidadão-cliente não fica satisfeito, então o servidor não gosta do que faz”.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q080",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Matemática e Raciocínio Lógico",
+  "assunto": "Lógica Proposicional",
+  "numero_original": 80,
+  "enunciado": "Considerando a proposição P: “Se o servidor gosta do que faz, então o cidadão-cliente fica satisfeito”, julgue os itens a seguir.\n\nP é uma proposição composta formada por duas proposições simples, de modo que sua tabela-verdade possui 2 linhas.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q081",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Planejamento e Documentação (NBC TA 300/230)",
+  "numero_original": 81,
+  "enunciado": "Com relação a planos, procedimentos e amostragem de auditoria, julgue os itens a seguir.\n\nPreliminarmente aos trabalhos de auditoria independente das demonstrações contábeis, o profissional responsável deve avaliar a conformidade com os requisitos éticos, incluindo-se a independência da equipe de trabalho em relação ao auditado, conforme exigido pelas normas aplicáveis.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[1] Fundamentos e Normas Gerais de Auditoria (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q082",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Procedimentos Analíticos (NBC TA 520)",
+  "numero_original": 82,
+  "enunciado": "Com relação a planos, procedimentos e amostragem de auditoria, julgue os itens a seguir.\n\nAo utilizar informações comparáveis de períodos anteriores para estabelecer relações plausíveis entre dados financeiros e dados não financeiros da entidade auditada, o auditor está aplicando um procedimento analítico de auditoria.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] Procedimentos, Evidências e Amostragem (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q083",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Risco de Amostragem (NBC TA 530)",
+  "numero_original": 83,
+  "enunciado": "Com relação a planos, procedimentos e amostragem de auditoria, julgue os itens a seguir.\n\nO risco de amostragem em auditoria está associado ao desvio não representativo do desvio existente em uma população.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Procedimentos, Evidências e Amostragem (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q084",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Procedimentos e Evidências de Auditoria (NBC TA 500/505/520)",
+  "numero_original": 84,
+  "enunciado": "A respeito dos testes de auditoria, julgue os itens seguintes.\n\nTestes de observância em auditoria estão intimamente ligados à verificação do cumprimento dos procedimentos de controles internos da auditada.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] Procedimentos, Evidências e Amostragem (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q085",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Procedimentos e Evidências de Auditoria (NBC TA 500/505/520)",
+  "numero_original": 85,
+  "enunciado": "A respeito dos testes de auditoria, julgue os itens seguintes.\n\nA constatação da existência real e da integridade das transações evidenciadas nos relatórios contábeis é o principal objetivo dos testes de observância.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Procedimentos, Evidências e Amostragem (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q086",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Procedimentos e Evidências de Auditoria (NBC TA 500/505/520)",
+  "numero_original": 86,
+  "enunciado": "A respeito dos testes de auditoria, julgue os itens seguintes.\n\nAo encontrar lançamentos contábeis com valores incorretos para maior e para menor em várias rubricas de uma entidade, o auditor externo deve aplicar os testes principais de subavaliação nas contas de ativos e despesas dessa entidade.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Procedimentos, Evidências e Amostragem (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q087",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Materialidade, Risco e Fraude (NBC TA 320/240)",
+  "numero_original": 87,
+  "enunciado": "As distorções nas demonstrações contábeis podem originar-se de fraude ou de erro.\n\nAcerca desse assunto, julgue os itens seguintes.\n\nOmissões intencionais de eventos nas demonstrações contábeis poderão ser consideradas erro ou fraude, conforme a gravidade.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Fundamentos e Normas Gerais de Auditoria (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q088",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Materialidade, Risco e Fraude (NBC TA 320/240)",
+  "numero_original": 88,
+  "enunciado": "As distorções nas demonstrações contábeis podem originar-se de fraude ou de erro.\n\nAcerca desse assunto, julgue os itens seguintes.\n\nO auditor deve se preocupar com qualquer tipo de fator que cause distorção nas demonstrações contábeis, podendo ser responsabilizado em caso de não detecção de tais fatores.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Fundamentos e Normas Gerais de Auditoria (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q089",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Materialidade, Risco e Fraude (NBC TA 320/240)",
+  "numero_original": 89,
+  "enunciado": "As distorções nas demonstrações contábeis podem originar-se de fraude ou de erro.\n\nAcerca desse assunto, julgue os itens seguintes.\n\nA responsabilidade pela prevenção e detecção da fraude compete principalmente à área de gestão de riscos da organização.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Fundamentos e Normas Gerais de Auditoria (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q090",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Materialidade, Risco e Fraude (NBC TA 320/240)",
+  "numero_original": 90,
+  "enunciado": "As distorções nas demonstrações contábeis podem originar-se de fraude ou de erro.\n\nAcerca desse assunto, julgue os itens seguintes.\n\nA realização de lançamentos contábeis em contas não relacionadas, não usuais ou raramente utilizadas, com números quebrados e informações de centavos, caracteriza lançamentos fraudulentos.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Fundamentos e Normas Gerais de Auditoria (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q091",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Materialidade, Risco e Fraude (NBC TA 320/240)",
+  "numero_original": 91,
+  "enunciado": "As distorções nas demonstrações contábeis podem originar-se de fraude ou de erro.\n\nAcerca desse assunto, julgue os itens seguintes.\n\nAo determinar respostas globais para enfrentar os riscos avaliados de distorção relevante nas demonstrações contábeis, o auditor deve incorporar elementos de imprevisibilidade na seleção dos procedimentos de auditoria.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[1] Fundamentos e Normas Gerais de Auditoria (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q092",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Conceitos Iniciais de Auditoria (NBC TA 200)",
+  "numero_original": 92,
+  "enunciado": "O objetivo da auditoria é aumentar o grau de confiança dos usuários nas demonstrações contábeis. Isso é alcançado mediante a opinião expressa pelo auditor sobre se as demonstrações contábeis foram elaboradas, em todos os aspectos relevantes, em conformidade com uma estrutura de relatório financeiro aplicável. Com referência à auditoria das demonstrações contábeis, julgue os itens a seguir.\n\nO auditor deve, antes de expressar uma opinião, ter obtido segurança razoável de que as demonstrações contábeis como um todo estão livres de distorção relevante, independentemente de terem sido causadas por fraude ou erro.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[1] Fundamentos e Normas Gerais de Auditoria (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q093",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Conceitos Iniciais de Auditoria (NBC TA 200)",
+  "numero_original": 93,
+  "enunciado": "O objetivo da auditoria é aumentar o grau de confiança dos usuários nas demonstrações contábeis. Isso é alcançado mediante a opinião expressa pelo auditor sobre se as demonstrações contábeis foram elaboradas, em todos os aspectos relevantes, em conformidade com uma estrutura de relatório financeiro aplicável. Com referência à auditoria das demonstrações contábeis, julgue os itens a seguir.\n\nAo planejar e executar a auditoria de demonstrações contábeis, o auditor deve considerar as circunstâncias envolvidas, a magnitude e a natureza das distorções, ou a combinação de ambos.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[1] Fundamentos e Normas Gerais de Auditoria (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q094",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Conceitos Iniciais de Auditoria (NBC TA 200)",
+  "numero_original": 94,
+  "enunciado": "O objetivo da auditoria é aumentar o grau de confiança dos usuários nas demonstrações contábeis. Isso é alcançado mediante a opinião expressa pelo auditor sobre se as demonstrações contábeis foram elaboradas, em todos os aspectos relevantes, em conformidade com uma estrutura de relatório financeiro aplicável. Com referência à auditoria das demonstrações contábeis, julgue os itens a seguir.\n\nA opinião do auditor sobre as demonstrações contábeis assegura a viabilidade futura da entidade, assim como assegura a eficiência da administração na condução dos negócios dessa entidade.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Fundamentos e Normas Gerais de Auditoria (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q096",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Noções de Informática",
+  "assunto": "EFD-ICMS/IPI (SPED Fiscal)",
+  "numero_original": 96,
+  "enunciado": "Com relação à auditoria na escrituração fiscal digital (EFD), julgue os itens a seguir.\n\nO auditor-fiscal do GDF não pode solicitar ao contribuinte a EFD ICMS-IPI, uma vez que a recepção e a validação dos dados são realizadas no ambiente do Sistema Público de Escrituração Digital, administrado pelo próprio GDF.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[6] Ferramentas Corporativas e Web (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q097",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Noções de Informática",
+  "assunto": "EFD-ICMS/IPI (SPED Fiscal)",
+  "numero_original": 97,
+  "enunciado": "Com relação à auditoria na escrituração fiscal digital (EFD), julgue os itens a seguir.\n\nAo arquivo digital da EFD ICMS-IPI anexado a processo de fiscalização, não se aplica nenhuma especificação quanto ao leiaute na sua geração, já que se devem respeitar as características de cada empresa.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[6] Ferramentas Corporativas e Web (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q100",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Auditoria",
+  "assunto": "Auditoria Fiscal — Parte II",
+  "numero_original": 100,
+  "enunciado": "Julgue o item a seguir, a respeito da escrita fiscal.\n\nSalvo disposição em contrário, o contribuinte que mantiver mais de um estabelecimento — filial, sucursal, agência, depósito, fábrica ou outro — deverá fazer escrituração em livros fiscais distintos para cada um deles, vedada a sua centralização.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[4] Procedimentos Específicos e Auditoria no Setor Público (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q103",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "CPC 00 — Estrutura Conceitual",
+  "numero_original": 103,
+  "enunciado": "Com relação aos conceitos de ativos, passivos e patrimônio líquido, julgue o item a seguir.\n\nAo avaliar se um item se enquadra na definição de ativo, passivo ou patrimônio líquido, deve-se atentar para a sua essência subjacente e sua realidade econômica, e não apenas para sua forma legal.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q104",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "Patrimônio: Equação, Atos/Fatos, Contas",
+  "numero_original": 104,
+  "enunciado": "Determinada entidade contratou dois funcionários para a área de vendas no primeiro dia do mês. No dia 15 do referido mês, esses dois funcionários receberam adiantamentos correspondentes a 30% dos salários a que tinham direito no mês. O restante foi pago no quinto dia útil do mês subsequente.\n\nA respeito da situação hipotética apresentada, julgue o item a seguir.\n\nOs adiantamentos pagos aos funcionários no dia 15 do referido mês são considerados fatos modificativos porque reduzem o ativo (saída de caixa) e reduzem o patrimônio (reconhecimento de despesa).",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Fundamentos: Patrimônio, Escrituração e Regimes (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q105",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "BP — Estoques",
+  "numero_original": 105,
+  "enunciado": "Determinada entidade privada adquiriu, para revenda, mercadorias pelo valor de R$ 500.000. Com base nesse montante, o fornecedor cobrou, ainda, 10% referentes aos tributos não recuperáveis e 5% de frete para entrega.\n\nA partir dessas informações, julgue os itens a seguir.\n\nO gestor contábil deve contabilizar as mercadorias como ativo circulante ao custo de R$ 550.000.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Balanço Patrimonial (BP) (8 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q106",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "BP — Estoques",
+  "numero_original": 106,
+  "enunciado": "Determinada entidade privada adquiriu, para revenda, mercadorias pelo valor de R$ 500.000. Com base nesse montante, o fornecedor cobrou, ainda, 10% referentes aos tributos não recuperáveis e 5% de frete para entrega.\n\nA partir dessas informações, julgue os itens a seguir.\n\nO gestor contábil deve debitar como despesa operacional o valor de R$ 25.000, referente ao valor pago pelo frete.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Balanço Patrimonial (BP) (8 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q107",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "DFC (Direto e Indireto)",
+  "numero_original": 107,
+  "enunciado": "A respeito das demonstrações contábeis, julgue os itens que se seguem.\n\nA partir da análise da demonstração dos fluxos de caixa, o usuário da informação toma conhecimento de como a entidade financia suas atividades, descritas através dos fluxos operacional, de investimento e de financiamento.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[3] Demonstrações Complementares e Princípios (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q109",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade de Custos — Custeio por Absorção",
+  "numero_original": 109,
+  "enunciado": "No que se refere à metodologia do custeio por absorção, julgue os itens seguintes.\n\nO custeio RKW é um tipo de custeio por absorção.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[5] Contabilidade de Custos e Gerencial",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q110",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade de Custos — Custeio por Absorção",
+  "numero_original": 110,
+  "enunciado": "No que se refere à metodologia do custeio por absorção, julgue os itens seguintes.\n\nOs custos que podem ser associados aos objetos de custeio sem o uso de modelos matemáticos de rateio são atribuídos a esses objetos na metodologia do custeio por absorção.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[5] Contabilidade de Custos e Gerencial",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q111",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade de Custos — Custeio por Absorção",
+  "numero_original": 111,
+  "enunciado": "No que se refere à metodologia do custeio por absorção, julgue os itens seguintes.\n\nNa metodologia de custeio por absorção, as rubricas necessárias para o controle de custos e estoques diferem no que se refere aos sistemas produtivos empregados: produção por ordem de serviços e produção contínua, respectivamente.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[5] Contabilidade de Custos e Gerencial",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q112",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade de Custos — Custeio Variável x Absorção",
+  "numero_original": 112,
+  "enunciado": "Com relação às metodologias adotadas tanto para fins de custeamento de estoques quanto para fins meramente gerenciais, julgue os itens que se seguem.\n\nSituação hipotética:\n\nEm 20X9, no seu último ano de exercício social, determinada empresa apurou, antes de impostos, lucro de R$ 1.350.000, pelo método do custeio variável, e lucro de R$ 1.125.000, pelo método do custeio por absorção.\n\nAssertiva:\n\nConsiderando-se essas informações, é correto afirmar que a empresa teve redução de estoques no período.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[5] Contabilidade de Custos e Gerencial",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q113",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade de Custos — Custeio ABC",
+  "numero_original": 113,
+  "enunciado": "Com relação às metodologias adotadas tanto para fins de custeamento de estoques quanto para fins meramente gerenciais, julgue os itens que se seguem.\n\nEm seu segundo estágio, o custeio ABC atribui custos de insumos às atividades.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[5] Contabilidade de Custos e Gerencial",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q114",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade de Custos — Ponto de Equilíbrio",
+  "numero_original": 114,
+  "enunciado": "Com relação às metodologias adotadas tanto para fins de custeamento de estoques quanto para fins meramente gerenciais, julgue os itens que se seguem.\n\nSituação hipotética:\n\nDeterminada empresa atingiu seu ponto de equilíbrio ao vender 4 mil unidades de seu único produto. Seus custos e despesas fixas somaram R$ 160.000.\n\nAssertiva:\n\nNessa situação, se a empresa apurar um lucro, antes de impostos, de R$ 80.000, ela terá obtido uma margem de segurança superior a 40%.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[5] Contabilidade de Custos e Gerencial",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q115",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Contabilidade Geral",
+  "assunto": "Contabilidade de Custos — Custo Padrão",
+  "numero_original": 115,
+  "enunciado": "Com relação às metodologias adotadas tanto para fins de custeamento de estoques quanto para fins meramente gerenciais, julgue os itens que se seguem.\n\nSituação hipotética:\n\nUma empresa que utiliza o sistema de custo padrão para fins gerenciais considera que uma unidade de dado produto deve consumir 0,45 horas de mão de obra direta, cuja taxa horária é de R$ 13,00. Em dado período foram produzidas 200 unidades desse produto, o que gerou uma variação favorável de taxa de mão de obra direta (MOD) de R$ 90,00 e uma variação total de R$ 40,00 desfavorável.\n\nAssertiva:\n\nCom base nessas informações, é correto concluir que a taxa efetivamente incorrida pela mão de obra utilizada foi inferior a R$ 12,50.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[5] Contabilidade de Custos e Gerencial",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q116",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Finanças Públicas",
+  "assunto": "Créditos Ordinários e Adicionais",
+  "numero_original": 116,
+  "enunciado": "Considerando as regras constitucionais de direito financeiro, julgue o item a seguir.\n\nO crédito especial cujo ato de autorização seja promulgado nos últimos quatro meses do exercício financeiro pode ser reaberto e incorporado ao orçamento do ano seguinte, desde que respeitado o limite do seu saldo.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] Ciclo Orçamentário, Créditos e Classificações (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q117",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Finanças Públicas",
+  "assunto": "Receita Pública: Conceito, Classificações e Fontes",
+  "numero_original": 117,
+  "enunciado": "Julgue os próximos itens, considerando o disposto na Lei n.º 4.320/1964.\n\nOs valores objeto da previsão de arrecadação de receitas constante da lei orçamentária anual pertencem ao respectivo exercício financeiro.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[3] Receita e Despesa Pública (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q118",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Finanças Públicas",
+  "assunto": "Receita Pública: Conceito, Classificações e Fontes",
+  "numero_original": 118,
+  "enunciado": "Julgue os próximos itens, considerando o disposto na Lei n.º 4.320/1964.\n\nOs créditos da fazenda pública serão escriturados como receita do exercício financeiro em que tiver se dado o fato gerador.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[3] Receita e Despesa Pública (3 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q119",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Finanças Públicas",
+  "assunto": "LRF Parte I: Introdução, Disposições Preliminares e Planejamento",
+  "numero_original": 119,
+  "enunciado": "Julgue os itens a seguir, à luz da Lei de Responsabilidade Fiscal.\n\nNo conceito de receita corrente líquida dos estados, são deduzidos os valores das transferências que eles fizerem aos municípios por determinação constitucional.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[4] Lei de Responsabilidade Fiscal (LRF) (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q120",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Finanças Públicas",
+  "assunto": "LRF Parte III: Transparência, Controle, Gestão Patrimonial e Transferências",
+  "numero_original": 120,
+  "enunciado": "Julgue os itens a seguir, à luz da Lei de Responsabilidade Fiscal.\n\nExige-se autorização por lei específica para a realização de doação, pelo governo federal, de determinada quantia em dinheiro para satisfazer necessidades de pessoa física que tenha prestado relevantes serviços à nação.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[4] Lei de Responsabilidade Fiscal (LRF) (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q122",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Princípios Tributários",
+  "numero_original": 122,
+  "enunciado": "Julgue os próximos itens, com base no disposto na Lei Orgânica do DF, na Constituição Federal de 1988 e no Código Tributário Nacional (CTN).\n\nA majoração de qualquer tributo por medida provisória somente produzirá efeitos no exercício financeiro seguinte se for convertida em lei até o último dia do exercício em que tiver sido editada.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Sistema Tributário Nacional: Conceitos e Princípios (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q123",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Obrigação Tributária",
+  "numero_original": 123,
+  "enunciado": "Julgue os próximos itens, com base no disposto na Lei Orgânica do DF, na Constituição Federal de 1988 e no Código Tributário Nacional (CTN).\n\nDe acordo com o CTN, o arrematante de produtos importados apreendidos pela aduana é contribuinte do imposto sobre a importação.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] Obrigação e Crédito Tributário (7 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q124",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Legislação Tributária",
+  "numero_original": 124,
+  "enunciado": "Considerando as regras do CTN acerca da vigência da legislação tributária e das limitações constitucionais ao poder de tributar, julgue os itens que se seguem.\n\nNão havendo disposição em contrário, os efeitos normativos das decisões dos órgãos coletivos de jurisdição administrativa a que a lei atribua eficácia normativa entram em vigor trinta dias após a data da publicação da decisão.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[1] Sistema Tributário Nacional: Conceitos e Princípios (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q125",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Imunidades Tributárias",
+  "numero_original": 125,
+  "enunciado": "Considerando as regras do CTN acerca da vigência da legislação tributária e das limitações constitucionais ao poder de tributar, julgue os itens que se seguem.\n\nA imunidade tributária recíproca dos entes federativos não é extensível às respectivas autarquias e fundações públicas.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Sistema Tributário Nacional: Conceitos e Princípios (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q126",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Responsabilidade Tributária",
+  "numero_original": 126,
+  "enunciado": "No que se refere a aplicação da lei e responsabilidade tributária, julgue os itens seguintes.\n\nA atribuição de responsabilidade tributária solidária ao administrador da massa falida pelas penalidades tributárias por ela devidas se restringe às de caráter moratório.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] Obrigação e Crédito Tributário (7 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q127",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Infrações e Penalidades",
+  "numero_original": 127,
+  "enunciado": "No que se refere a aplicação da lei e responsabilidade tributária, julgue os itens seguintes.\n\nO Código Tributário Nacional admite a aplicação do princípio da insignificância aos ilícitos tributários, de modo que a ocorrência da infração fiscal depende da análise da efetividade e da extensão dos efeitos do ato.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Obrigação e Crédito Tributário (7 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q128",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Obrigação Tributária",
+  "numero_original": 128,
+  "enunciado": "No que se refere a aplicação da lei e responsabilidade tributária, julgue os itens seguintes.\n\nÉ incompatível com o Código Tributário Nacional lei distrital que admita a indicação do sujeito passivo do imposto sobre transmissão de bens imóveis (ITBI) pelas partes no contrato de compra e venda de imóvel, pois as convenções particulares não são oponíveis à fazenda pública.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Obrigação e Crédito Tributário (7 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q129",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Responsabilidade Tributária",
+  "numero_original": 129,
+  "enunciado": "No que se refere a aplicação da lei e responsabilidade tributária, julgue os itens seguintes.\n\nA sociedade empresária que tenha sócio remanescente de sociedade extinta e que explore a mesma atividade não responde pelos débitos tributários desta.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Obrigação e Crédito Tributário (7 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q130",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Legislação Tributária",
+  "numero_original": 130,
+  "enunciado": "No que se refere a aplicação da lei e responsabilidade tributária, julgue os itens seguintes.\n\nComo o conceito de doação constante do direito civil decorre de legislação infraconstitucional ordinária da União, não oponível aos demais entes federados, o intérprete da legislação que necessitar utilizar tal conceito para fins tributários no âmbito do Distrito Federal deve buscá-lo exclusivamente na legislação tributária distrital, ainda que esta veicule definição mais ampla que a do direito privado.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[1] Sistema Tributário Nacional: Conceitos e Princípios (5 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q131",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Dívida Ativa e Certidão Negativa (CTN)",
+  "numero_original": 131,
+  "enunciado": "Com relação à inscrição na dívida ativa, julgue os itens a seguir.\n\nÉ facultativo constar no termo de inscrição da dívida ativa a maneira de calcular os juros de mora acrescidos à quantia devida.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[3] Administração Tributária e Tributos em Espécie (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q132",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Dívida Ativa e Certidão Negativa (CTN)",
+  "numero_original": 132,
+  "enunciado": "Com relação à inscrição na dívida ativa, julgue os itens a seguir.\n\nÉ obrigatório constar no termo de inscrição da dívida ativa o número do processo administrativo de que se origina o crédito tributário.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[3] Administração Tributária e Tributos em Espécie (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q133",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Dívida Ativa e Certidão Negativa (CTN)",
+  "numero_original": 133,
+  "enunciado": "Com relação à inscrição na dívida ativa, julgue os itens a seguir.\n\nEventual nulidade do termo de inscrição da dívida ativa poderá ser sanada até a decisão de primeira instância, mediante a substituição da certidão nula, devolvendo-se o prazo de defesa.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[3] Administração Tributária e Tributos em Espécie (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q134",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Garantias e Privilégios do Crédito Tributário",
+  "numero_original": 134,
+  "enunciado": "A respeito das garantias e dos privilégios do crédito tributário, julgue os itens seguintes.\n\nIndependentemente da inscrição em dívida ativa, pode-se presumir como fraudulenta a alienação de bens realizada pelo sujeito passivo que esteja em débito com a fazenda pública, desde que exista o crédito tributário.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "E",
+  "bloco": "[2] Obrigação e Crédito Tributário (7 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q135",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Garantias e Privilégios do Crédito Tributário",
+  "numero_original": 135,
+  "enunciado": "A respeito das garantias e dos privilégios do crédito tributário, julgue os itens seguintes.\n\nNão há presunção de fraude na alienação de bens feita por sujeito passivo se o devedor reservar bens ou rendas suficientes ao pagamento da dívida regularmente inscrita.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[2] Obrigação e Crédito Tributário (7 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q157",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Simples Nacional",
+  "numero_original": 157,
+  "enunciado": "No que se refere ao Estatuto Nacional da Microempresa e da Empresa de Pequeno Porte – Simples Nacional, julgue os próximos itens.\n\nA lei que institui esse estatuto destina-se a dar tratamento diferenciado às micro e pequenas empresas no que se refere tanto às obrigações principais quanto às acessórias.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[4] Reforma Tributária e Regimes Especiais (4 aulas)",
+  "incidencia": ""
+ },
+ {
+  "id": "SEFAZ-DF-2020-Q158",
+  "instituicao": "SEFAZ-DF",
+  "ano": 2020,
+  "cargo": "Auditor-Fiscal da Receita do Distrito Federal",
+  "area": "Direito Tributário",
+  "assunto": "Simples Nacional",
+  "numero_original": 158,
+  "enunciado": "No que se refere ao Estatuto Nacional da Microempresa e da Empresa de Pequeno Porte – Simples Nacional, julgue os próximos itens.\n\nPara efeito de caracterização como micro ou pequena empresa, é levada em consideração a receita bruta, que deve ser entendida como o produto da venda de bens e serviços nas operações de conta própria, o preço dos serviços prestados e o resultado nas operações em conta alheia, não incluídos vendas canceladas nem descontos incondicionais concedidos.",
+  "alternativas": {
+   "C": "Certo",
+   "E": "Errado"
+  },
+  "gabarito": "C",
+  "bloco": "[4] Reforma Tributária e Regimes Especiais (4 aulas)",
+  "incidencia": ""
  }
 ]
