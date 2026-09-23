@@ -7,7 +7,6 @@ import QuestaoCard, { type Confianca } from "../components/QuestaoCard";
 import EsqueletoQuestao from "../components/EsqueletoQuestao";
 import { Vazio } from "../components/Shell";
 import {
-  LIMIAR_APROVACAO,
   MATERIAS,
   MATERIAS_ORDENADAS,
   NIVEIS,
@@ -33,10 +32,10 @@ import {
 import { talvezPreGerarBloco } from "../lib/preGeracao";
 import { escolherPonderado } from "../lib/pontuacaoTopicos";
 import {
+  aprovadoNoBloco,
   gabaritosCEDe,
   localizarQuestao,
   padroesDe,
-  questoesNaoRespondidas,
   tamanhosSubs,
 } from "../lib/blocoUtils";
 import { useContextoConfig } from "./gerar/useContextoConfig";
@@ -125,9 +124,10 @@ export default function GerarView({
   const [erroApi, setErroApi] = useState<string | null>(null);
   const [confirmandoAbandono, setConfirmandoAbandono] = useState(false);
   const [abandonando, setAbandonando] = useState(false);
-  // A questão em `qIdx` já foi registrada (respondida ou reportada como
-  // errada)? Distingue, no abandono, o que já foi gravado do que ainda falta.
-  const [respondidaAtual, setRespondidaAtual] = useState(false);
+  // Quantas questões deste bloco foram REALMENTE respondidas — o bloco pode
+  // ser encerrado antes do fim, e questão pulada ou nunca vista não é
+  // gravada nem contabilizada (ver encerrarBloco/pularQuestao).
+  const [respondidas, setRespondidas] = useState(0);
 
   // Rascunho de um bloco em andamento encontrado ao abrir a tela (ver
   // lib/blocoRascunho.ts) — sobrevive ao app sendo fechado/morto no meio do
@@ -207,10 +207,6 @@ export default function GerarView({
       .catch(() => {});
   }, []);
 
-  useEffect(() => {
-    setRespondidaAtual(false);
-  }, [qIdx]);
-
   /** Alterna um tipo na seleção. Nunca deixa a lista vazia — desmarcar o
    * último selecionado não faz nada, para sempre haver ao menos 1 tipo. */
   function alternarTipo(id: TipoId) {
@@ -245,7 +241,17 @@ export default function GerarView({
   useEffect(() => {
     if (tela !== "drill" || restaurandoRascunho) return;
     if (!subs.some((s) => s)) return;
-    salvarRascunho({ cfg: c, subs, tamanhos, statusSub, qIdx, acertos, blocoId, comExplicacoes });
+    salvarRascunho({
+      cfg: c,
+      subs,
+      tamanhos,
+      statusSub,
+      qIdx,
+      acertos,
+      respondidas,
+      blocoId,
+      comExplicacoes,
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- `c` é derivado de cfg (já nas deps) a cada render.
   }, [tela, cfg, subs, tamanhos, statusSub, qIdx, acertos, blocoId, comExplicacoes, restaurandoRascunho]);
 
@@ -308,6 +314,7 @@ export default function GerarView({
     setStatusSub(Array.from({ length: numSubs }, () => "idle" as StatusSub));
     setQIdx(0);
     setAcertos(Array.from({ length: numSubs }, () => 0));
+    setRespondidas(0);
     setErroApi(null);
     setConfirmandoAbandono(false);
     setTela("drill");
@@ -387,7 +394,6 @@ export default function GerarView({
   }
 
   const totalQuestoesAtual = tamanhos.reduce((a, b) => a + b, 0);
-  const minAprovacaoAtual = Math.ceil(totalQuestoesAtual * LIMIAR_APROVACAO);
   const posAtual = localizarQuestao(tamanhos, qIdx);
   const subAtual = posAtual?.sub ?? 0;
   const questao = posAtual ? (subs[posAtual.sub]?.[posAtual.pos] ?? null) : null;
@@ -400,7 +406,7 @@ export default function GerarView({
     confianca: Confianca | null,
   ): Promise<number | null> {
     if (acertou) setAcertos((a) => a.map((v, k) => (k === subAtual ? v + 1 : v)));
-    setRespondidaAtual(true);
+    setRespondidas((n) => n + 1);
     if (!questao) return null;
     // Toda questão respondida é gravada, certa ou errada: é a base da revisão
     // de erradas e de todos os gráficos da aba Dados.
@@ -420,9 +426,15 @@ export default function GerarView({
   async function proxima() {
     if (ultimaDoBloco) {
       const total = acertos.reduce((a, b) => a + b, 0);
-      const passou = total >= minAprovacaoAtual;
+      const passou = aprovadoNoBloco(total, respondidas);
       if (blocoId != null) {
         try {
+          // `total_questoes` passa a ser o que foi respondido de fato: com
+          // questões puladas, manter a quantidade original diluiria o
+          // percentual do bloco na aba Dados.
+          if (respondidas !== totalQuestoesAtual) {
+            await atualizarTotalQuestoesBloco(blocoId, respondidas);
+          }
           await fecharBloco(blocoId, acertos, passou);
         } catch (e) {
           console.error("fechar bloco", e);
@@ -443,37 +455,43 @@ export default function GerarView({
     setQIdx(qIdx + 1);
   }
 
-  async function abandonarBloco() {
+  /**
+   * Encerra o bloco onde estiver. O que foi respondido continua gravado; o
+   * que faltava NÃO é registrado de forma alguma — não conta em estatística,
+   * não aparece em "Refazer" e segue disponível para blocos futuros. (Antes,
+   * o abandono gravava as pendentes como erradas; na prática isso enchia a
+   * fila de revisão de questões que nunca foram lidas.)
+   */
+  async function encerrarBloco() {
     setAbandonando(true);
     try {
-      const pendentes = questoesNaoRespondidas({ subs, qIdx, tamanhos, respondidaAtual });
-      for (const q of pendentes) {
-        try {
-          await gravarResposta({
-            blocoId,
-            materia: c.materia,
-            topico: c.topico,
-            nivel: c.nivel,
-            questao: q,
-            resposta: "",
-            acertou: false,
-          });
-        } catch (e) {
-          console.error("gravar não respondida", e);
-        }
-      }
       if (blocoId != null) {
         try {
-          await fecharBloco(blocoId, acertos, false);
+          await atualizarTotalQuestoesBloco(blocoId, respondidas);
+          await fecharBloco(blocoId, acertos, aprovadoNoBloco(
+            acertos.reduce((a, b) => a + b, 0),
+            respondidas,
+          ));
         } catch (e) {
-          console.error("fechar bloco abandonado", e);
+          console.error("encerrar bloco", e);
         }
       }
       await limparRascunho();
     } finally {
       setAbandonando(false);
-      setTela("config");
+      setConfirmandoAbandono(false);
+      setTela(respondidas > 0 ? "resultado" : "config");
     }
+  }
+
+  /** Pula a questão atual sem gravar nada (ver `encerrarBloco` para o
+   * mesmo raciocínio). Na última do bloco, encerra o bloco. */
+  function pularQuestao() {
+    if (ultimaDoBloco) {
+      void encerrarBloco();
+      return;
+    }
+    setQIdx(qIdx + 1);
   }
 
   /** Restaura um rascunho encontrado ao abrir a tela (ver lib/blocoRascunho.ts)
@@ -488,6 +506,9 @@ export default function GerarView({
     setBlocoId(r.blocoId);
     setQIdx(r.qIdx);
     setAcertos(r.acertos);
+    // Rascunho antigo não guardava `respondidas`; nele, toda questão até
+    // `qIdx` tinha sido respondida (não havia como pular).
+    setRespondidas(r.respondidas ?? r.qIdx);
     setSubs(r.subs);
     // Rascunho antigo (sem `tamanhos`) veio de quando todo sub-bloco tinha
     // exatamente Q_POR_SUB questões — reconstruir assim preserva o drill.
@@ -1058,6 +1079,7 @@ export default function GerarView({
             origem="ia"
             labelProxima={ultimaDoBloco ? "Ver resultado" : "Próxima questão"}
             onResponder={responder}
+            onPular={pularQuestao}
             onProxima={proxima}
           />
         )}
@@ -1073,9 +1095,9 @@ export default function GerarView({
             }}
           >
             <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
-              Abandonar este bloco? As questões já respondidas ficam gravadas; as que faltam
-              (inclusive as já geradas e ainda não vistas) vão para "Refazer erradas" como
-              não respondidas, em vez de se perderem.
+              Encerrar este bloco agora? As questões já respondidas ficam gravadas; as que
+              faltam não são contabilizadas — não entram em estatísticas nem em "Refazer", e
+              continuam disponíveis para blocos futuros.
             </div>
             <div style={{ display: "flex", gap: 8 }}>
               <Botao
@@ -1087,11 +1109,11 @@ export default function GerarView({
                 Cancelar
               </Botao>
               <Botao
-                onClick={abandonarBloco}
+                onClick={encerrarBloco}
                 disabled={abandonando}
                 style={{ background: C.erro, borderColor: C.erro }}
               >
-                {abandonando ? "Salvando…" : "Abandonar"}
+                {abandonando ? "Encerrando…" : "Encerrar bloco"}
               </Botao>
             </div>
           </div>
@@ -1102,7 +1124,7 @@ export default function GerarView({
 
   /* ---------- RESULTADO ---------- */
   const total = acertos.reduce((a, b) => a + b, 0);
-  const passou = total >= minAprovacaoAtual;
+  const passou = aprovadoNoBloco(total, respondidas);
   return (
     <div>
       <div style={{ textAlign: "center", padding: "10px 0 4px" }}>
@@ -1119,7 +1141,7 @@ export default function GerarView({
           }}
         >
           {total}
-          <span style={{ fontSize: 28, color: C.sub, fontWeight: 600 }}>/{totalQuestoesAtual}</span>
+          <span style={{ fontSize: 28, color: C.sub, fontWeight: 600 }}>/{respondidas}</span>
         </div>
       </div>
 

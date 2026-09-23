@@ -5,14 +5,22 @@ import Segmented from "../components/Segmented";
 import QuestaoCard from "../components/QuestaoCard";
 import { Vazio } from "../components/Shell";
 import {
-  LIMIAR_APROVACAO,
   MATERIAS,
   MATERIAS_ORDENADAS,
   TIPOS,
   type TipoId,
 } from "../lib/constants";
 import { extrairQuestoesDeArquivos, mensagemDeErro, normalizarQuestao, type ArquivoImportacao } from "../lib/anthropic";
-import { criarBloco, enunciadosExistentes, fecharBloco, gravarResposta, normalizarEnunciado } from "../lib/repo";
+import {
+  atualizarTotalQuestoesBloco,
+  criarBloco,
+  enunciadosExistentes,
+  fecharBloco,
+  gravarResposta,
+  normalizarEnunciado,
+} from "../lib/repo";
+import { aprovadoNoBloco } from "../lib/blocoUtils";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { gerarTagAssunto } from "../lib/texto";
 import type { Questao } from "../lib/types";
 
@@ -193,6 +201,8 @@ export default function ImportarView() {
   const [blocoId, setBlocoId] = useState<number | null>(null);
   const [idx, setIdx] = useState(0);
   const [acertos, setAcertos] = useState(0);
+  // Só o que foi de fato respondido conta (ver pularQuestao/encerrarBloco).
+  const [respondidas, setRespondidas] = useState(0);
 
   const materiaFinal =
     materia === "__outra" ? materiaCustom.trim() || "Matéria personalizada" : materia;
@@ -359,6 +369,7 @@ export default function ImportarView() {
       );
       setBlocoId(id);
       setIdx(0);
+      setRespondidas(0);
       setAcertos(0);
       setFase("drill");
     } catch (e) {
@@ -385,6 +396,7 @@ export default function ImportarView() {
 
     async function responder(letra: string, acertou: boolean, tempoMs: number): Promise<number | null> {
       if (acertou) setAcertos((a) => a + 1);
+      setRespondidas((n) => n + 1);
       if (!questaoAtual) return null;
       return gravarResposta({
         blocoId,
@@ -400,14 +412,32 @@ export default function ImportarView() {
 
     async function proxima() {
       if (ultima) {
-        if (blocoId != null) {
-          try {
-            await fecharBloco(blocoId, [acertos], acertos / fila.length >= LIMIAR_APROVACAO);
-          } catch (e) {
-            console.error("fechar bloco importado", e);
+        await encerrar();
+        return;
+      }
+      setIdx(idx + 1);
+    }
+
+    /** Fecha o bloco com o que foi respondido: questão pulada (ou deixada
+     * para trás ao encerrar o bloco no meio) não é gravada, então não entra
+     * em estatística nem em "Refazer" e continua na fila para outra vez. */
+    async function encerrar() {
+      if (blocoId != null) {
+        try {
+          if (respondidas !== fila.length) {
+            await atualizarTotalQuestoesBloco(blocoId, respondidas);
           }
+          await fecharBloco(blocoId, [acertos], aprovadoNoBloco(acertos, respondidas));
+        } catch (e) {
+          console.error("fechar bloco importado", e);
         }
-        setFase("resultado");
+      }
+      setFase(respondidas > 0 ? "resultado" : "montar");
+    }
+
+    function pularQuestao() {
+      if (ultima) {
+        void encerrar();
         return;
       }
       setIdx(idx + 1);
@@ -417,8 +447,36 @@ export default function ImportarView() {
 
     return (
       <div>
-        <div style={{ ...mono, fontSize: 12, color: C.sub, textAlign: "center", marginBottom: 14 }}>
-          Importado {idx + 1}/{fila.length} · {materiaFinal}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            marginBottom: 14,
+          }}
+        >
+          <div style={{ ...mono, flex: 1, fontSize: 12, color: C.sub, textAlign: "center" }}>
+            Importado {idx + 1}/{fila.length} · {materiaFinal}
+          </div>
+          <button
+            onClick={() => void encerrar()}
+            aria-label="Encerrar bloco"
+            title="Encerrar bloco — as questões restantes não são contabilizadas"
+            style={{
+              flexShrink: 0,
+              width: 30,
+              height: 30,
+              borderRadius: 8,
+              border: `1.5px solid ${C.line}`,
+              background: C.card,
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <XMarkIcon width={16} height={16} stroke={C.sub} strokeWidth={2} />
+          </button>
         </div>
         <QuestaoCard
           key={idx}
@@ -429,6 +487,7 @@ export default function ImportarView() {
           origem="importada"
           labelProxima={ultima ? "Ver resultado" : "Próxima questão"}
           onResponder={responder}
+          onPular={pularQuestao}
           onProxima={proxima}
         />
       </div>
@@ -437,7 +496,7 @@ export default function ImportarView() {
 
   /* ---------- RESULTADO ---------- */
   if (fase === "resultado") {
-    const passou = acertos / fila.length >= LIMIAR_APROVACAO;
+    const passou = aprovadoNoBloco(acertos, respondidas);
     return (
       <div>
         <div style={{ textAlign: "center", padding: "10px 0 4px" }}>
@@ -454,7 +513,7 @@ export default function ImportarView() {
             }}
           >
             {acertos}
-            <span style={{ fontSize: 28, color: C.sub, fontWeight: 600 }}>/{fila.length}</span>
+            <span style={{ fontSize: 28, color: C.sub, fontWeight: 600 }}>/{respondidas}</span>
           </div>
         </div>
         <Botao tipo="tinta" onClick={reiniciarFluxo} style={{ marginTop: 16 }}>

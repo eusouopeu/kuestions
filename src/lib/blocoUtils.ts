@@ -5,6 +5,7 @@
  * SQL, sem API — o que também as torna testáveis isoladamente
  * (blocoUtils.test.ts).
  */
+import { LIMIAR_APROVACAO } from "./constants";
 import type { Questao } from "./types";
 
 /**
@@ -76,31 +77,13 @@ export function gabaritosCEDe(subs: (Questao[] | null)[], ate: number): string[]
 }
 
 /**
- * Questões já geradas mas que nunca chegaram a ser respondidas: a atual (se
- * ainda não foi registrada) e todas as dos lotes já carregados à frente. O
- * abandono grava essas como erradas em vez de descartá-las, para caírem em
- * "Refazer erradas" na próxima visita — questão gerada é questão paga.
+ * O bloco foi aprovado? Compara os acertos com o que foi REALMENTE
+ * respondido, não com o tamanho original do bloco — um bloco encerrado na
+ * 5ª de 10 questões é julgado pelas 4-5 feitas, já que as demais não são
+ * contabilizadas em lugar nenhum (ver "Encerrar bloco" em GerarView e
+ * GerarBancoView). Bloco sem nenhuma resposta nunca é aprovado.
  */
-export function questoesNaoRespondidas(args: {
-  subs: (Questao[] | null)[];
-  qIdx: number;
-  /** Tamanho de cada sub-bloco (ver tamanhosSubs) — a soma é o total do bloco. */
-  tamanhos: number[];
-  /** A questão em `qIdx` já foi respondida/reportada nesta sessão? */
-  respondidaAtual: boolean;
-}): Questao[] {
-  const { subs, qIdx, tamanhos, respondidaAtual } = args;
-  const totalQuestoes = tamanhos.reduce((a, b) => a + b, 0);
-  const em = (idx: number) => {
-    const loc = localizarQuestao(tamanhos, idx);
-    return loc ? subs[loc.sub]?.[loc.pos] : undefined;
-  };
-  const pendentes: Questao[] = [];
-  const atual = em(qIdx);
-  if (atual && !respondidaAtual) pendentes.push(atual);
-  for (let idx = qIdx + 1; idx < totalQuestoes; idx++) {
-    const q = em(idx);
-    if (q) pendentes.push(q);
-  }
-  return pendentes;
+export function aprovadoNoBloco(acertos: number, respondidas: number): boolean {
+  if (respondidas <= 0) return false;
+  return acertos / respondidas >= LIMIAR_APROVACAO;
 }

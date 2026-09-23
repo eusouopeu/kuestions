@@ -12,7 +12,7 @@ import { C, mono } from "../theme";
 /**
  * `onSair`, quando informado, desenha um botão de saída fixo ao lado da barra
  * — sempre visível no topo do drill, sem depender de rolar até o fim do
- * card para abandonar o bloco (o link antigo ficava depois da questão
+ * card para encerrar o bloco (o link antigo ficava depois da questão
  * inteira, invisível em blocos de MC longos numa tela pequena).
  */
 export default function Rail({
@@ -61,8 +61,8 @@ export default function Rail({
       {onSair && (
         <button
           onClick={onSair}
-          aria-label="Abandonar bloco"
-          title="Abandonar bloco"
+          aria-label="Encerrar bloco"
+          title="Encerrar bloco — as questões restantes não são contabilizadas"
           style={{
             flexShrink: 0,
             width: 30,

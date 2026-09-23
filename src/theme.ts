@@ -83,6 +83,12 @@ export const cartao: CSSProperties = {
  * parágrafo corrido, ilegível. `pre-wrap` preserva as quebras do texto e
  * ainda quebra a linha longa na largura da tela.
  */
-export const textoPreservado: CSSProperties = { whiteSpace: "pre-wrap" };
+export const textoPreservado: CSSProperties = {
+  whiteSpace: "pre-wrap",
+  // Linha longa sem espaço (código de conta, número de processo, valor
+  // colado) não pode estourar a largura da tela — com `pre-wrap` sozinho ela
+  // empurraria o card inteiro e criaria rolagem horizontal.
+  overflowWrap: "anywhere",
+};
 
 export const TAB_BAR_H = 58;

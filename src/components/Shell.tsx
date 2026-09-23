@@ -32,9 +32,18 @@ export default function Shell({
     >
       <header
         style={{
-          padding: "22px 0 6px",
+          // Fixa no topo: título da aba, busca, tema e as ferramentas
+          // (calculadora/cronômetro) continuam alcançáveis no meio de uma
+          // questão longa, sem rolar de volta. Os 16px de padding lateral
+          // são do container — o fundo é estendido por margin/padding
+          // negativos para a barra cobrir a largura inteira ao rolar.
+          position: "sticky",
+          top: 0,
+          zIndex: 40,
+          background: C.paper,
+          margin: largo ? "0 -24px 18px" : "0 -16px 18px",
+          padding: largo ? "22px 24px 6px" : "22px 16px 6px",
           borderBottom: `1.5px solid ${C.ink}`,
-          marginBottom: 18,
           display: "flex",
           alignItems: "flex-start",
           justifyContent: "space-between",

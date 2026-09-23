@@ -26,6 +26,7 @@ import {
 import { gerarExplicacoes, SemCredencialError } from "../lib/anthropic";
 import { getComExplicacoesIA } from "../lib/preferenciasGeracao";
 import {
+  atualizarTotalQuestoesBloco,
   buscarExplicacoesBanco,
   criarBloco,
   fecharBloco,
@@ -36,7 +37,7 @@ import {
 } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
 import { escolherMateriaSugerida } from "../lib/materiaSugerida";
-import { LIMIAR_APROVACAO } from "../lib/constants";
+import { aprovadoNoBloco } from "../lib/blocoUtils";
 import type { Questao, StatusSub } from "../lib/types";
 
 type Tela = "config" | "drill" | "resultado";
@@ -96,7 +97,10 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   const [erro, setErro] = useState<string | null>(null);
   const [confirmandoAbandono, setConfirmandoAbandono] = useState(false);
   const [abandonando, setAbandonando] = useState(false);
-  const [respondidaAtual, setRespondidaAtual] = useState(false);
+  // Quantas questões deste bloco foram REALMENTE respondidas — questão
+  // pulada ou nunca vista não é gravada nem contabilizada (ver
+  // encerrarBloco/pularQuestao).
+  const [respondidas, setRespondidas] = useState(0);
   // ids do banco fixo já respondidos em qualquer bloco anterior — usado para
   // priorizar questões inéditas (ver lib/banco.ts) e avisar quando o estoque
   // de inéditas do filtro atual está acabando.
@@ -123,10 +127,6 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
     setInstituicao("");
     setAno(0);
   }, [area]);
-
-  useEffect(() => {
-    setRespondidaAtual(false);
-  }, [qIdx]);
 
   useEffect(() => {
     if (tela === "config") {
@@ -248,6 +248,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
     setQIdx(0);
     setTotalQuestoes(selecionadas.length);
     setAcertos(0);
+    setRespondidas(0);
     setErro(null);
     setConfirmandoAbandono(false);
     setTela("drill");
@@ -286,7 +287,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
     confianca: Confianca | null,
   ): Promise<number | null> {
     if (acertou) setAcertos((a) => a + 1);
-    setRespondidaAtual(true);
+    setRespondidas((n) => n + 1);
     if (!questao) return null;
     return gravarResposta({
       blocoId,
@@ -308,59 +309,51 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
 
   async function proxima() {
     if (ultimaDoBloco) {
-      if (blocoId != null) {
-        try {
-          await fecharBloco(blocoId, [acertos], acertos / totalQuestoes >= LIMIAR_APROVACAO);
-        } catch (e) {
-          console.error("fechar bloco do banco", e);
-        }
-      }
+      await gravarFechamento();
       setTela("resultado");
       return;
     }
     setQIdx(qIdx + 1);
   }
 
-  function questoesNaoRespondidas(): Questao[] {
-    const pendentes: Questao[] = [];
-    if (questao && !respondidaAtual) pendentes.push(questao);
-    for (let idx = qIdx + 1; idx < totalQuestoes; idx++) {
-      const l = Math.floor(idx / LOTE);
-      const q = lotes[l]?.[idx % LOTE];
-      if (q) pendentes.push(q);
+  /** Fecha a linha do bloco com o que foi respondido de fato: `total_questoes`
+   * vira o número de respondidas (questão pulada ou não alcançada não conta
+   * em lugar nenhum) e a aprovação é medida sobre elas. */
+  async function gravarFechamento() {
+    if (blocoId == null) return;
+    try {
+      if (respondidas !== totalQuestoes) {
+        await atualizarTotalQuestoesBloco(blocoId, respondidas);
+      }
+      await fecharBloco(blocoId, [acertos], aprovadoNoBloco(acertos, respondidas));
+    } catch (e) {
+      console.error("fechar bloco do banco", e);
     }
-    return pendentes;
   }
 
-  async function abandonarBloco() {
+  /**
+   * Encerra o bloco onde estiver. O que faltava NÃO é gravado de forma
+   * alguma: não conta em estatística, não aparece em "Refazer" e as questões
+   * seguem inéditas para blocos futuros (ver `vistas`/idsBancoRespondidos).
+   */
+  async function encerrarBloco() {
     setAbandonando(true);
     try {
-      for (const q of questoesNaoRespondidas()) {
-        try {
-          await gravarResposta({
-            blocoId,
-            materia: area,
-            topico: topicoAtual,
-            nivel: NIVEL_BANCO,
-            questao: q,
-            resposta: "",
-            acertou: false,
-          });
-        } catch (e) {
-          console.error("gravar não respondida (banco)", e);
-        }
-      }
-      if (blocoId != null) {
-        try {
-          await fecharBloco(blocoId, [acertos], false);
-        } catch (e) {
-          console.error("fechar bloco do banco abandonado", e);
-        }
-      }
+      await gravarFechamento();
     } finally {
       setAbandonando(false);
-      setTela("config");
+      setConfirmandoAbandono(false);
+      setTela(respondidas > 0 ? "resultado" : "config");
     }
+  }
+
+  /** Pula a questão atual sem gravar nada — mesma regra de `encerrarBloco`. */
+  function pularQuestao() {
+    if (ultimaDoBloco) {
+      void encerrarBloco();
+      return;
+    }
+    setQIdx(qIdx + 1);
   }
 
   /* ---------- CONFIG ---------- */
@@ -553,6 +546,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
             origem="banco"
             labelProxima={ultimaDoBloco ? "Ver resultado" : "Próxima questão"}
             onResponder={responder}
+            onPular={pularQuestao}
             onProxima={proxima}
           />
         )}
@@ -568,8 +562,9 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
             }}
           >
             <div style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 10 }}>
-              Abandonar este bloco? As questões já respondidas ficam gravadas; as que faltam vão
-              para "Refazer erradas" como não respondidas.
+              Encerrar este bloco agora? As questões já respondidas ficam gravadas; as que
+              faltam não são contabilizadas — não entram em estatísticas nem em "Refazer", e
+              continuam inéditas para blocos futuros.
             </div>
             <div style={{ display: "flex", gap: 8 }}>
               <Botao
@@ -581,11 +576,11 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
                 Cancelar
               </Botao>
               <Botao
-                onClick={abandonarBloco}
+                onClick={encerrarBloco}
                 disabled={abandonando}
                 style={{ background: C.erro, borderColor: C.erro }}
               >
-                {abandonando ? "Salvando…" : "Abandonar"}
+                {abandonando ? "Encerrando…" : "Encerrar bloco"}
               </Botao>
             </div>
           </div>
@@ -595,7 +590,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   }
 
   /* ---------- RESULTADO ---------- */
-  const passou = totalQuestoes > 0 && acertos / totalQuestoes >= LIMIAR_APROVACAO;
+  const passou = aprovadoNoBloco(acertos, respondidas);
   return (
     <div>
       <div style={{ textAlign: "center", padding: "10px 0 4px" }}>
@@ -612,7 +607,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
           }}
         >
           {acertos}
-          <span style={{ fontSize: 28, color: C.sub, fontWeight: 600 }}>/{totalQuestoes}</span>
+          <span style={{ fontSize: 28, color: C.sub, fontWeight: 600 }}>/{respondidas}</span>
         </div>
       </div>
 

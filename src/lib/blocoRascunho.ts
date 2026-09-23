@@ -26,6 +26,10 @@ export interface RascunhoBloco {
   statusSub: StatusSub[];
   qIdx: number;
   acertos: number[];
+  /** Quantas questões foram de fato respondidas (questão pulada não conta,
+   * ver pularQuestao em GerarView) — ausente em rascunhos anteriores a
+   * "pular questão", onde `qIdx` equivalia a isso. */
+  respondidas?: number;
   blocoId: number | null;
   comExplicacoes: boolean;
   ts: string;

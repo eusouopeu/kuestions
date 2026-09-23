@@ -8,18 +8,23 @@ function ItemComPopover({
   icone,
   rotulo,
   largura,
+  /** Semifixo: só fecha pelo próprio botão-ícone. É o caso da calculadora —
+   * tocar no enunciado para reler um dado, ou no campo de outra coisa, não
+   * pode derrubar a conta em andamento no meio da questão. */
+  semifixo,
   children,
 }: {
   icone: React.ReactNode;
   rotulo: string;
   largura: number;
+  semifixo?: boolean;
   children: React.ReactNode;
 }) {
   const [aberto, setAberto] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!aberto) return;
+    if (!aberto || semifixo) return;
     function aoClicarFora(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) setAberto(false);
     }
@@ -32,7 +37,7 @@ function ItemComPopover({
       document.removeEventListener("mousedown", aoClicarFora);
       document.removeEventListener("keydown", aoTeclar);
     };
-  }, [aberto]);
+  }, [aberto, semifixo]);
 
   return (
     <div ref={ref} style={{ position: "relative" }}>
@@ -87,7 +92,8 @@ export function BotoesFerramentas() {
       <ItemComPopover
         icone={<CalculatorIcon width={19} height={19} stroke={C.sub} strokeWidth={1.8} />}
         rotulo="Calculadora"
-        largura={220}
+        largura={240}
+        semifixo
       >
         <TecladoCalculadora />
       </ItemComPopover>

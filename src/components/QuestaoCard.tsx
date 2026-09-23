@@ -1,5 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FlagIcon as FlagOutline, SpeakerWaveIcon, StopIcon } from "@heroicons/react/24/outline";
+import {
+  FlagIcon as FlagOutline,
+  ForwardIcon,
+  SpeakerWaveIcon,
+  StopIcon,
+} from "@heroicons/react/24/outline";
 import { FlagIcon as FlagSolid } from "@heroicons/react/24/solid";
 import { C, cartao, disp, mono, textoPreservado } from "../theme";
 import Botao from "./Botao";
@@ -20,6 +25,24 @@ import ModalReport from "./ModalReport";
 import { lerEmVoz, pararLeitura, vozDisponivel } from "../lib/acessibilidade";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
+
+/** Botão-ícone da barra do enunciado (pular, ouvir) — `ativo` marca o estado
+ * ligado (leitura em andamento). */
+function botaoFerramentaCard(ativo: boolean) {
+  return {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 36,
+    height: 36,
+    flexShrink: 0,
+    borderRadius: 8,
+    border: `1.5px solid ${ativo ? C.caneta : C.line}`,
+    background: ativo ? C.canetaSoft : "transparent",
+    color: ativo ? C.caneta : C.sub,
+    cursor: "pointer",
+  } as const;
+}
 
 export type { Confianca };
 
@@ -50,6 +73,7 @@ export default function QuestaoCard({
   labelProxima,
   pedirConfianca = true,
   onResponder,
+  onPular,
   onProxima,
 }: {
   questao: Questao;
@@ -91,6 +115,11 @@ export default function QuestaoCard({
     tempoMs: number,
     confianca: Confianca | null,
   ) => Promise<number | null> | void;
+  /** Pular esta questão sem responder: nada é gravado, então ela não entra
+   * em estatística nem em "Refazer", e segue disponível para blocos futuros.
+   * Ausente nas telas em que pular não faz sentido (revisão de uma questão
+   * já respondida). Só aparece antes de revelar o gabarito. */
+  onPular?: () => void;
   onProxima: () => void;
 }) {
   const [selecionada, setSelecionada] = useState<string | null>(null);
@@ -345,27 +374,25 @@ export default function QuestaoCard({
       )}
 
       <div style={{ display: "flex", alignItems: "flex-start", gap: 8, margin: "0 0 16px" }}>
-        <p style={{ fontSize: 16, lineHeight: 1.55, margin: 0, flex: 1, ...textoPreservado }}>
+        <p style={{ fontSize: 16, lineHeight: 1.55, margin: 0, flex: 1, minWidth: 0, ...textoPreservado }}>
           {normalizarLayoutTexto(questao.enunciado)}
         </p>
+        {!revelada && onPular && (
+          <button
+            onClick={onPular}
+            aria-label="Pular esta questão"
+            title="Pular esta questão — não conta em nenhuma estatística"
+            style={botaoFerramentaCard(false)}
+          >
+            <ForwardIcon width={17} height={17} />
+          </button>
+        )}
         {vozDisponivel() && (
           <button
             onClick={alternarLeitura}
             aria-label={lendo ? "Parar leitura" : "Ouvir a questão"}
             title={lendo ? "Parar leitura" : "Ouvir enunciado e alternativas"}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 36,
-              height: 36,
-              flexShrink: 0,
-              borderRadius: 8,
-              border: `1.5px solid ${lendo ? C.caneta : C.line}`,
-              background: lendo ? C.canetaSoft : "transparent",
-              color: lendo ? C.caneta : C.sub,
-              cursor: "pointer",
-            }}
+            style={botaoFerramentaCard(lendo)}
           >
             {lendo ? <StopIcon width={17} height={17} /> : <SpeakerWaveIcon width={17} height={17} />}
           </button>

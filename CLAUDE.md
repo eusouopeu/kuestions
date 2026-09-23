@@ -196,6 +196,31 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
   mostraria só a primeira linha de uma tabela em vez do começo da pergunta. Ao expandir
   (`aberta`), volta a `pre-wrap` + `normalizarLayoutTexto`.
 
+## Barra superior, calculadora e encerramento de bloco
+
+- O header do `Shell` (`src/components/Shell.tsx`) é `position: sticky; top: 0` com fundo
+  `C.paper` e margem/padding laterais negativos para cobrir a largura toda ao rolar — título da
+  aba, busca, tema e as ferramentas (calculadora/cronômetro) seguem acessíveis no meio de uma
+  questão longa.
+- Calculadora (`src/components/Calculadora.tsx`): duas linhas apenas — campo de entrada
+  (`<input inputMode="text">`, teclado virtual nativo; o motor em `lib/calculadora.ts` já aceita
+  `*`, `/`, `,`, `%`, `×`, `÷`) e linha de resultado. O teclado próprio de 20 teclas foi removido
+  (ocupava metade da tela do celular). A expressão vive em `src/lib/calculadoraEstado.ts`, fora do
+  componente, para sobreviver ao fechar/reabrir; o popover da calculadora é `semifixo`
+  (`FerramentasFlutuantes.tsx`) — só fecha pelo próprio botão-ícone, clique fora não derruba.
+- Encerrar bloco / pular questão: o X do `Rail` encerra o bloco onde estiver e `onPular` do
+  `QuestaoCard` (botão-ícone `ForwardIcon`, só antes de revelar) pula a questão. Em ambos os
+  casos **nada é gravado** para as questões não respondidas — antes o abandono as inseria com
+  `resposta = ''`, o que as jogava em "Refazer" e nas estatísticas sem nunca terem sido lidas.
+  Sem linha gravada, elas não contam em estatística, não entram na fila de revisão e continuam
+  inéditas para novos blocos (inclusive `idsBancoRespondidos`, que alimenta `vistas` no banco).
+- Cada view do drill (`GerarView`, `GerarBancoView`, `ImportarView`) mantém um contador
+  `respondidas`; ao fechar, `atualizarTotalQuestoesBloco` ajusta `total_questoes` para esse número
+  e `aprovadoNoBloco(acertos, respondidas)` (`lib/blocoUtils.ts`) decide a aprovação — senão um
+  bloco encerrado na 5ª de 12 apareceria como 4/12 na aba Dados. `blocoRascunho` guarda
+  `respondidas` (opcional; rascunho antigo cai em `qIdx`).
+- `questoesNaoRespondidas` (blocoUtils) foi removida junto com o antigo abandono.
+
 ## Explicação dos cartões da aba Dados
 
 - `Cartao` (`src/views/DadosTab.tsx`) tem duas props de texto distintas: `legenda` (dado dinâmico
