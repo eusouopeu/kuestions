@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { ClockIcon } from "@heroicons/react/24/outline";
-import { C, campo, cartao, disp, mono, rotulo } from "../theme";
+import { C, campo, cartao, disp, mono, rotulo, textoPreservado } from "../theme";
 import Botao from "../components/Botao";
 import Opcao, { type Reveal } from "./../components/Opcao";
 import Chip from "../components/Chip";
+import { normalizarLayoutTexto, resumirEmLinha } from "../lib/texto";
 import { Vazio } from "../components/Shell";
 import {
   areasBanco,
@@ -637,7 +638,9 @@ export default function SimuladoView({ onEmDrill }: { onEmDrill?: (v: boolean) =
           <div style={{ marginBottom: 10 }}>
             <Chip tom="neutro">{pergunta.area}</Chip>
           </div>
-          <p style={{ fontSize: 16, lineHeight: 1.55, margin: "0 0 16px" }}>{pergunta.questao.enunciado}</p>
+          <p style={{ fontSize: 16, lineHeight: 1.55, margin: "0 0 16px", ...textoPreservado }}>
+            {normalizarLayoutTexto(pergunta.questao.enunciado)}
+          </p>
 
           {/* O banco real tem os dois formatos (ver questaoBancoParaQuestao
               em lib/banco.ts): Certo/Errado desenha os dois botões grandes,
@@ -864,9 +867,15 @@ export default function SimuladoView({ onEmDrill }: { onEmDrill?: (v: boolean) =
                       WebkitLineClamp: aberta ? undefined : 2,
                       WebkitBoxOrient: "vertical",
                       overflow: aberta ? "visible" : "hidden",
+                      // Recolhida a prévia vira uma linha só (2 linhas de
+                      // recorte mostrariam só o topo de uma tabela); aberta,
+                      // o enunciado volta com o layout original.
+                      ...(aberta ? textoPreservado : null),
                     }}
                   >
-                    {e.questao.enunciado}
+                    {aberta
+                      ? normalizarLayoutTexto(e.questao.enunciado)
+                      : resumirEmLinha(e.questao.enunciado)}
                   </span>
                 </button>
                 {aberta && (

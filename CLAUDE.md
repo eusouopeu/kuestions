@@ -182,6 +182,20 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
   matérias — não precisou de filtro equivalente lá.
 
 
+## Layout preservado do enunciado
+
+- Enunciado, texto de apoio e alternativas do banco real trazem quebras de linha
+  significativas (itens "I., II., III.", linhas de tabela): 686 das 2.440 questões de
+  `src/data/banco_questoes.json` têm `\n` no enunciado e 166 nas alternativas. Render em
+  tela cheia usa `textoPreservado` (`whiteSpace: "pre-wrap"`, `src/theme.ts`) +
+  `normalizarLayoutTexto` (`src/lib/texto.ts`, só tira espaço em fim de linha, pontas e
+  colapsa 3+ linhas em branco em duas — recuo no começo da linha é preservado):
+  `QuestaoCard`, `ResumoQuestaoRespondida`, `Opcao`, `SimuladoView`.
+- Prévias recortadas em 2 linhas (busca global, `RelatorioSimulado`, lista de revisão do
+  simulado quando recolhida) usam `resumirEmLinha` — com as quebras preservadas o recorte
+  mostraria só a primeira linha de uma tabela em vez do começo da pergunta. Ao expandir
+  (`aberta`), volta a `pre-wrap` + `normalizarLayoutTexto`.
+
 ## Explicação dos cartões da aba Dados
 
 - `Cartao` (`src/views/DadosTab.tsx`) tem duas props de texto distintas: `legenda` (dado dinâmico

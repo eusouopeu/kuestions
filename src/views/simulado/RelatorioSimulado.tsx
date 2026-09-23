@@ -1,4 +1,5 @@
 import { C, cartao, disp, mono } from "../../theme";
+import { resumirEmLinha } from "../../lib/texto";
 import { estimarNotaProvavel, type Fatia } from "../../lib/repo";
 import { pesoDe, type PesosEdital } from "../../lib/edital";
 
@@ -185,7 +186,7 @@ export default function RelatorioSimulado({
                   overflow: "hidden",
                 }}
               >
-                {l.enunciado}
+                {resumirEmLinha(l.enunciado)}
               </span>
               <span
                 style={{

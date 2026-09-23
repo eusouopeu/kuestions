@@ -1,5 +1,5 @@
 import { useRef, useState, type CSSProperties } from "react";
-import { C, disp } from "../theme";
+import { C, disp, textoPreservado } from "../theme";
 
 export type Reveal = "certo" | "errado" | null;
 
@@ -121,6 +121,9 @@ export default function Opcao({
         fontSize: big ? 15 : 14.5,
         fontWeight: big ? 700 : 400,
         lineHeight: 1.4,
+        // Alternativa do banco real às vezes tem quebras próprias (item de
+        // lista, linha de tabela) — preservá-las é o que separa os itens.
+        ...textoPreservado,
         color: tachada
           ? C.sub
           : reveal === "certo"

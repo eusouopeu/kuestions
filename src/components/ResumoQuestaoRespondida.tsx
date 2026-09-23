@@ -1,5 +1,5 @@
-import { C, mono } from "../theme";
-import { dataCurta } from "../lib/texto";
+import { C, mono, textoPreservado } from "../theme";
+import { dataCurta, normalizarLayoutTexto } from "../lib/texto";
 import type { QuestaoRespondida } from "../lib/types";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
@@ -26,7 +26,9 @@ export default function ResumoQuestaoRespondida({
         {questao.materia.toUpperCase()} · {dataCurta(questao.ts)}
       </div>
 
-      <p style={{ fontSize: 14, lineHeight: 1.55, margin: "0 0 10px" }}>{questao.enunciado}</p>
+      <p style={{ fontSize: 14, lineHeight: 1.55, margin: "0 0 10px", ...textoPreservado }}>
+        {normalizarLayoutTexto(questao.enunciado)}
+      </p>
 
       {questao.formato === "mc" && questao.alternativas ? (
         <div style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: 10 }}>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { C, campo, cartao, mono } from "../theme";
+import { resumirEmLinha } from "../lib/texto";
 import { Vazio } from "./Shell";
 import NotaCard from "./NotaCard";
 import ResumoQuestaoRespondida from "./ResumoQuestaoRespondida";
@@ -291,7 +292,7 @@ export default function BuscaGlobal({
                                   overflow: "hidden",
                                 }}
                               >
-                                {q.enunciado}
+                                {resumirEmLinha(q.enunciado)}
                               </div>
                             </>
                           )}

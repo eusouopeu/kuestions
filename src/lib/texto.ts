@@ -183,3 +183,32 @@ export function pareceCalculo(questao: {
   if (numeros.length < 2) return false;
   return /R\$|%/.test(texto) || MARCADORES_CALCULO.test(texto);
 }
+
+/**
+ * Normaliza o layout de um texto de questão SEM destruí-lo: o enunciado do
+ * banco real traz quebras de linha que separam itens ("I.", "II.", "III.")
+ * e linhas de tabela — é o que dá legibilidade à questão, então elas são
+ * preservadas (a tela renderiza com `whiteSpace: "pre-wrap"`, ver
+ * `textoPreservado` em theme.ts). Só tira lixo: espaços no fim de cada
+ * linha, espaços/linhas em branco nas pontas e sequências de 3+ linhas em
+ * branco (viram uma linha em branco só).
+ */
+export function normalizarLayoutTexto(texto: string): string {
+  return texto
+    .replace(/\r\n?/g, "\n")
+    .split("\n")
+    .map((l) => l.replace(/[ \t]+$/g, ""))
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+/**
+ * Versão de uma linha só: para as prévias recortadas em 2 linhas (busca
+ * global, relatório do simulado, lista de revisão), onde preservar as
+ * quebras mostraria só a primeira linha da tabela em vez do começo da
+ * pergunta. Não usar onde a questão aparece inteira.
+ */
+export function resumirEmLinha(texto: string): string {
+  return texto.replace(/\s+/g, " ").trim();
+}

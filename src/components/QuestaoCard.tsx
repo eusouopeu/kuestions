@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { FlagIcon as FlagOutline, SpeakerWaveIcon, StopIcon } from "@heroicons/react/24/outline";
 import { FlagIcon as FlagSolid } from "@heroicons/react/24/solid";
-import { C, cartao, disp, mono } from "../theme";
+import { C, cartao, disp, mono, textoPreservado } from "../theme";
 import Botao from "./Botao";
 import Chip from "./Chip";
 import Opcao, { type Reveal } from "./Opcao";
@@ -15,7 +15,7 @@ import { mesclarExplicacoesBanco, mesclarExplicacoesRespondida, reportarQuestao 
 import type { MotivoReport } from "../lib/repo";
 import { gerarExplicacaoParcial, letrasExplicaveis, mensagemDeErro } from "../lib/anthropic";
 import { bancoCarregado, buscarQuestaoBanco, emojiIncidencia, garantirBanco, nomeDaProva } from "../lib/banco";
-import { pareceCalculo } from "../lib/texto";
+import { normalizarLayoutTexto, pareceCalculo } from "../lib/texto";
 import ModalReport from "./ModalReport";
 import { lerEmVoz, pararLeitura, vozDisponivel } from "../lib/acessibilidade";
 
@@ -339,11 +339,15 @@ export default function QuestaoCard({
           caixa cinza separada dava a impressão de não fazer parte da
           questão, especialmente em enunciados grandes. */}
       {qb?.texto_apoio && (
-        <p style={{ fontSize: 16, lineHeight: 1.55, margin: "0 0 10px" }}>{qb.texto_apoio}</p>
+        <p style={{ fontSize: 16, lineHeight: 1.55, margin: "0 0 10px", ...textoPreservado }}>
+          {normalizarLayoutTexto(qb.texto_apoio)}
+        </p>
       )}
 
       <div style={{ display: "flex", alignItems: "flex-start", gap: 8, margin: "0 0 16px" }}>
-        <p style={{ fontSize: 16, lineHeight: 1.55, margin: 0, flex: 1 }}>{questao.enunciado}</p>
+        <p style={{ fontSize: 16, lineHeight: 1.55, margin: 0, flex: 1, ...textoPreservado }}>
+          {normalizarLayoutTexto(questao.enunciado)}
+        </p>
         {vozDisponivel() && (
           <button
             onClick={alternarLeitura}

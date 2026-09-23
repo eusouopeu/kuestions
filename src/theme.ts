@@ -76,4 +76,13 @@ export const cartao: CSSProperties = {
 };
 
 /** Altura da tab bar, usada como padding inferior nas telas roláveis. */
+/**
+ * Texto que deve manter o layout original (quebras de linha e recuos): o
+ * enunciado e as alternativas do banco de questões usam quebras para separar
+ * itens ("I.", "II.", "III.") e linhas de tabela, e sem isto tudo vira um
+ * parágrafo corrido, ilegível. `pre-wrap` preserva as quebras do texto e
+ * ainda quebra a linha longa na largura da tela.
+ */
+export const textoPreservado: CSSProperties = { whiteSpace: "pre-wrap" };
+
 export const TAB_BAR_H = 58;
