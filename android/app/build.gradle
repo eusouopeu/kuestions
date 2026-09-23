@@ -7,8 +7,11 @@ android {
         applicationId "com.pedroteles.kumonfiscal"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        // Bumpar a cada APK novo entregue: com versionCode fixo o Android
+        // não distingue a instalação nova da antiga, e fica difícil saber no
+        // aparelho qual build está rodando.
+        versionCode 2
+        versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
             // Só arm64-v8a: todo celular Android relevante desde ~2019 é
