@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import {
   ArrowLeftIcon,
   ArrowPathIcon,
+  ArrowUpTrayIcon,
   BookOpenIcon,
   CheckCircleIcon,
   ClipboardDocumentListIcon,
@@ -31,6 +32,7 @@ import TarefasView from "./notas/TarefasView";
 import { slugify } from "../lib/texto";
 import type { ConceitoSalvo } from "../lib/types";
 import { getModoNotas, setModoNotas, type ModoNotas } from "../lib/notasModo";
+import { lerNotasImportadas, importarNotas } from "../lib/importarNotas";
 
 /** Opções do Segmented de topo da aba — PDFs fica dentro do Caderno, não
  * como segmento próprio, para não apertar o Segmented no celular. */
@@ -109,6 +111,7 @@ export default function NotasTab({
   const [csvExportado, setCsvExportado] = useState(false);
   const [exportandoApkg, setExportandoApkg] = useState(false);
   const [apkgExportado, setApkgExportado] = useState(false);
+  const inputImportRef = useRef<HTMLInputElement>(null);
 
   // Seleção múltipla dentro de uma pasta, para apagar/exportar um subconjunto
   // sem precisar ir nota por nota.
@@ -222,6 +225,23 @@ export default function NotasTab({
       setErroExport(e instanceof Error ? e.message : "Falha ao exportar .apkg.");
     } finally {
       setExportandoApkg(false);
+    }
+  }
+
+  /**
+   * Importa notas de um JSON externo (hoje: exportação "Notas p/ kuestions"
+   * do app Prova do Crime — ver lib/importarNotas.ts). Item inválido é só
+   * descartado, não trava o resto do arquivo.
+   */
+  async function importarArquivoNotas(arquivo: File) {
+    try {
+      const { notas, descartadas } = lerNotasImportadas(JSON.parse(await arquivo.text()));
+      const n = await importarNotas(notas);
+      alert(`${n} nota(s) importada(s)${descartadas ? `, ${descartadas} descartada(s)` : ""}.`);
+      carregarItens();
+      carregarPastas();
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Arquivo inválido.");
     }
   }
 
@@ -423,6 +443,24 @@ export default function NotasTab({
                 >
                   <CheckCircleIcon width={18} height={18} stroke={C.ink} strokeWidth={1.8} />
                 </BotaoIcone>
+                <BotaoIcone
+                  onClick={() => inputImportRef.current?.click()}
+                  aria-label="Importar notas (JSON)"
+                  title="Importar notas (JSON)"
+                >
+                  <ArrowUpTrayIcon width={18} height={18} stroke={C.ink} strokeWidth={1.8} />
+                </BotaoIcone>
+                <input
+                  ref={inputImportRef}
+                  type="file"
+                  accept=".json,application/json"
+                  hidden
+                  onChange={(e) => {
+                    const arq = e.target.files?.[0];
+                    e.target.value = "";
+                    if (arq) void importarArquivoNotas(arq);
+                  }}
+                />
                 <Botao
                   tipo="fantasma"
                   onClick={() => exportarCSV(itens, pasta)}

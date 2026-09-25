@@ -182,6 +182,10 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
   matérias — não precisou de filtro equivalente lá.
 
 
+## Importação de notas do Prova do Crime
+
+- `lib/importarNotas.ts` (`lerNotasImportadas`/`importarNotas`): importa `{ origem, caso, notas: [{ materia, corpo, tag }] }`, formato exportado pelo app Prova do Crime (`/Users/pedro/Codigos/Apps/Prova do crime`, `lib/caso/exportacao.ts`). `corpo` precisa de `::` (flashcard básico). Botão-ícone em Notas, ao lado da exportação CSV. Mudou o formato de um lado → mudar do outro.
+
 ## Layout preservado do enunciado
 
 - Enunciado, texto de apoio e alternativas do banco real trazem quebras de linha
