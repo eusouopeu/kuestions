@@ -224,7 +224,7 @@ export default function FilaRevisaoDrill({
         questaoOrigemId={q.id}
         reportadaInicial={q.reportada}
         temNotaInicial={comNota.has(q.id)}
-        pedirConfianca={false}
+        embaralhar
         cabecalho={
           <div
             style={{
@@ -259,6 +259,9 @@ export default function FilaRevisaoDrill({
         }
         labelProxima={ultima ? "Encerrar revisão" : carregandoLote ? "Carregando…" : "Próxima questão"}
         onResponder={onResponder}
+        // Pular na revisão: avança sem registrar nada — a caixa de Leitner
+        // não muda e a questão continua pendente.
+        onPular={onProxima}
         onProxima={onProxima}
       />
 

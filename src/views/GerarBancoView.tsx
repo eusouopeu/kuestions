@@ -38,6 +38,7 @@ import {
 import { gerarTagAssunto } from "../lib/texto";
 import { escolherMateriaSugerida } from "../lib/materiaSugerida";
 import { aprovadoNoBloco } from "../lib/blocoUtils";
+import { Q_POR_BLOCO } from "../lib/constants";
 import type { Questao, StatusSub } from "../lib/types";
 
 type Tela = "config" | "drill" | "resultado";
@@ -78,7 +79,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   // "todas" já usada no resto do app.
   const [instituicao, setInstituicao] = useState<string>("");
   const [ano, setAno] = useState<number>(0);
-  const [quantidade, setQuantidade] = useState<number>(12);
+  const [quantidade, setQuantidade] = useState<number>(Q_POR_BLOCO);
   // Gerar comentário/explicações já na montagem do bloco, ou deixar para
   // sob demanda depois de responder — mesma ideia de GerarView. Preferência
   // única em Ajustes (ver lib/preferenciasGeracao.ts).

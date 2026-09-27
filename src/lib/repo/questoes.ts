@@ -486,8 +486,8 @@ export async function enunciadosExistentes(enunciados: string[]): Promise<Set<st
  * ignorando dois sinais que o app já coleta. `tempoMs` é o tempo desta
  * própria revisão (cronometrado em QuestaoCard, mesmo mecanismo do bloco
  * original) — comparado à média geral via `condLenta`. `confianca` é a
- * autoavaliação da resposta ORIGINAL (a revisão em si não pergunta
- * confiança, ver `pedirConfianca={false}` em FilaRevisaoDrill):
+ * autoavaliação da resposta ORIGINAL (a revisão usa o slider só como gesto
+ * de envio e ignora a confiança dele, ver FilaRevisaoDrill):
  *
  *   - lento (tempo > 2× a média) → avanço 0: mesmo acertando, o cartão não
  *     saiu de fluência baixa, então repete o mesmo intervalo em vez de
@@ -640,6 +640,12 @@ export async function mesclarExplicacoesRespondida(
     JSON.stringify(mescladas),
     id,
   ]);
+}
+
+/** Corrige o enunciado de uma questão já gravada (botão-ícone de editar no
+ * QuestaoCard) — erro de digitação/extração no texto original. */
+export async function atualizarEnunciadoRespondida(id: number, enunciado: string): Promise<void> {
+  await run(`UPDATE questoes_respondidas SET enunciado = ? WHERE id = ?`, [enunciado, id]);
 }
 
 /** Mesma mescla de `mesclarExplicacoesRespondida`, para o cache de

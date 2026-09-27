@@ -136,6 +136,32 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
   checagem por enunciado normalizado (trim + minúsculas + espaços colapsados), só avisa, não
   bloqueia — usado em `ImportarView.tsx` antes de `iniciarBlocoReal`.
 
+## Revisão: embaralhar, slider, pular e corrigir enunciado
+
+- `FilaRevisaoDrill` passa `embaralhar` ao `QuestaoCard`: a ordem das alternativas de múltipla
+  escolha é embaralhada (`ordemEmbaralhada`, `src/lib/embaralhar.ts`) com o gabarito sempre saindo
+  da letra original. É só exibição — internamente as letras seguem as originais (`onResponder`,
+  explicações gravadas e gabarito não mudam); o prefixo "A) " do texto é reescrito com a letra
+  exibida (`rotularAlternativa`) e o gabarito/rótulos das explicações usam `letraExibida`. CE
+  nunca embaralha.
+- Revisão agora usa o slider de confiança (`pedirConfianca` padrão) só como gesto de envio — a
+  confiança recebida é ignorada pelos handlers (`registrarRevisao` usa a confiança ORIGINAL).
+- Pular na revisão (`onPular={onProxima}`) avança sem gravar nada: caixa de Leitner inalterada.
+- Botão-ícone de lápis no `QuestaoCard` corrige o enunciado em qualquer drill. Com linha já gravada
+  (`origemId`) persiste na hora via `atualizarEnunciadoRespondida`; na primeira resposta de um
+  bloco a correção fica local e é persistida logo após `onResponder` devolver o id. Só altera
+  `questoes_respondidas`, não o JSON do banco fixo.
+- Bloco padrão: `Q_POR_BLOCO = 10` (`src/lib/constants.ts`), usado como padrão de GerarView,
+  GerarBancoView e da pré-geração; `tamanhosSubs` reparte em [3, 3, 2, 2].
+
+## Menu nativo de seleção de texto (Android)
+
+- `MainActivity.onWindowStartingActionMode` devolve, para `TYPE_FLOATING`, um `ActionMode` "mudo"
+  (sem UI) — a seleção continua ativa, mas a barra Copiar/Compartilhar do sistema não aparece por
+  cima do botão "+ Salvar nota" (`SelecaoNota`). Sobrescrever `Activity.startActionMode` (tentativa
+  anterior) não interceptava o pedido da WebView. Não devolver `null` ali: a DecorView criaria a
+  barra padrão. No iOS continua só o `WebkitTouchCallout: none` do card.
+
 ## Aulas e blocos por matéria (tópico específico da geração por IA)
 
 - `TOPICOS_POR_MATERIA`/`TITULOS_BLOCO_POR_MATERIA` em `src/lib/topicos.ts`: lista fixa de

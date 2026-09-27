@@ -97,10 +97,11 @@ export const NIVEL_DESCRICOES: string[] = [
 
 export const SUB_LETRAS = ["A", "B", "C", "D"] as const;
 
-/** 4 sub-blocos × 3 questões = 12 por bloco. */
+/** Sub-blocos de até 3 questões; bloco padrão de 10 questões, repartido
+ * por `tamanhosSubs` (lib/blocoUtils.ts) em [3, 3, 2, 2]. */
 export const Q_POR_SUB = 3;
 export const N_SUBS = 4;
-export const Q_POR_BLOCO = Q_POR_SUB * N_SUBS; // 12
+export const Q_POR_BLOCO = 10;
 
 /** Aprovação em ≥ 80% de acerto (ver minAprovacaoAtual em GerarView.tsx e o
  * mesmo limiar em GerarBancoView/ImportarView). */

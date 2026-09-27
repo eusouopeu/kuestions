@@ -1,12 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
+  CheckIcon,
   FlagIcon as FlagOutline,
   ForwardIcon,
+  PencilSquareIcon,
   SpeakerWaveIcon,
   StopIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { FlagIcon as FlagSolid } from "@heroicons/react/24/solid";
-import { C, cartao, disp, mono, textoPreservado } from "../theme";
+import { C, campo, cartao, disp, mono, textoPreservado } from "../theme";
 import Botao from "./Botao";
 import Chip from "./Chip";
 import Opcao, { type Reveal } from "./Opcao";
@@ -16,13 +19,19 @@ import Calculadora from "./Calculadora";
 import { BannerProveniencia, BannerTopico } from "./BannerQuestao";
 import type { Questao } from "../lib/types";
 import { labelTipo } from "../lib/constants";
-import { mesclarExplicacoesBanco, mesclarExplicacoesRespondida, reportarQuestao } from "../lib/repo";
+import {
+  atualizarEnunciadoRespondida,
+  mesclarExplicacoesBanco,
+  mesclarExplicacoesRespondida,
+  reportarQuestao,
+} from "../lib/repo";
 import type { MotivoReport } from "../lib/repo";
 import { gerarExplicacaoParcial, letrasExplicaveis, mensagemDeErro } from "../lib/anthropic";
 import { bancoCarregado, buscarQuestaoBanco, emojiIncidencia, garantirBanco, nomeDaProva } from "../lib/banco";
 import { normalizarLayoutTexto, pareceCalculo } from "../lib/texto";
 import ModalReport from "./ModalReport";
 import { lerEmVoz, pararLeitura, vozDisponivel } from "../lib/acessibilidade";
+import { ordemEmbaralhada, rotularAlternativa } from "../lib/embaralhar";
 
 const LETRAS = ["A", "B", "C", "D", "E"];
 
@@ -72,6 +81,7 @@ export default function QuestaoCard({
   cabecalho,
   labelProxima,
   pedirConfianca = true,
+  embaralhar = false,
   onResponder,
   onPular,
   onProxima,
@@ -101,11 +111,17 @@ export default function QuestaoCard({
   cabecalho?: React.ReactNode;
   labelProxima: string;
   /** Pede a autoavaliação de confiança pelo slider (ver SliderConfianca e
-   * lib/repo.ts → porConfianca) antes de revelar o gabarito — só faz sentido
-   * numa resposta nova, gravada de verdade; desligado em Refazer erradas
-   * (que não grava uma linha nova, só avança a caixa de Leitner da mesma
-   * questão). */
+   * lib/repo.ts → porConfianca) antes de revelar o gabarito. Ligado também
+   * na revisão (FilaRevisaoDrill) pelo gesto único de envio, embora lá a
+   * confiança recebida seja ignorada — a revisão não grava linha nova, só
+   * avança a caixa de Leitner da mesma questão. */
   pedirConfianca?: boolean;
+  /** Embaralha a ordem das alternativas de múltipla escolha (revisão, ver
+   * FilaRevisaoDrill) para não acertar só por lembrar a letra do gabarito.
+   * É só exibição: internamente as letras continuam as originais, então
+   * `onResponder`, explicações gravadas e o gabarito salvo não mudam — só o
+   * rótulo mostrado na tela segue a posição embaralhada. */
+  embaralhar?: boolean;
   /** `tempoMs` é o tempo entre a questão aparecer e a resposta ser enviada
    * (cronometrado aqui). `confianca` é null quando `pedirConfianca` é false.
    * Devolve o id da linha gravada, para vincular a nota à questão de origem. */
@@ -117,8 +133,8 @@ export default function QuestaoCard({
   ) => Promise<number | null> | void;
   /** Pular esta questão sem responder: nada é gravado, então ela não entra
    * em estatística nem em "Refazer", e segue disponível para blocos futuros.
-   * Ausente nas telas em que pular não faz sentido (revisão de uma questão
-   * já respondida). Só aparece antes de revelar o gabarito. */
+   * Na revisão, pular só avança a fila sem mexer na caixa de Leitner.
+   * Só aparece antes de revelar o gabarito. */
   onPular?: () => void;
   onProxima: () => void;
 }) {
@@ -143,6 +159,13 @@ export default function QuestaoCard({
   // Leitura em voz alta (ver lib/acessibilidade.ts) — permite acompanhar o
   // enunciado sem olhar a tela. Só aparece onde a WebView tem síntese de voz.
   const [lendo, setLendo] = useState(false);
+  // Correção do enunciado (botão-ícone de lápis): erro de digitação ou de
+  // extração no texto. Sem linha gravada ainda (primeira resposta num
+  // bloco), a correção fica pendente e é persistida logo depois de
+  // `onResponder` devolver o id — ver `enviar`.
+  const [enunciadoAtual, setEnunciadoAtual] = useState(questao.enunciado);
+  const [editandoEnunciado, setEditandoEnunciado] = useState(false);
+  const [rascunhoEnunciado, setRascunhoEnunciado] = useState("");
   const cardRef = useRef<HTMLDivElement>(null);
   // Só para forçar um re-render quando o banco de questões carrega depois do
   // card já ter montado — acontece quando uma questão com `bancoId` aparece
@@ -170,6 +193,8 @@ export default function QuestaoCard({
     setSelecionadasExplicar(new Set());
     setGerandoExplicacao(false);
     setErroExplicacao(null);
+    setEnunciadoAtual(questao.enunciado);
+    setEditandoEnunciado(false);
     // A voz não pode continuar lendo a questão anterior depois de virar a
     // página (ver lib/acessibilidade.ts).
     pararLeitura();
@@ -223,6 +248,7 @@ export default function QuestaoCard({
     try {
       const questaoAtual: Questao = {
         ...questao,
+        enunciado: enunciadoAtual,
         comentario: comentarioAtual,
         explicacoes_erradas: explicacoesAtuais,
       };
@@ -261,7 +287,7 @@ export default function QuestaoCard({
     setTachadas((t) => t.filter((x) => x !== l));
   }
 
-  /** Sem slider (pedirConfianca=false — ex.: revisão em Refazer erradas), o
+  /** Sem slider (pedirConfianca=false), o
    * envio é o botão "Enviar" sozinho, sem pedir a autoavaliação; o valor
    * default aqui nunca é usado nesse caso porque `onResponder` recebe null
    * (ver mais abaixo). */
@@ -273,12 +299,31 @@ export default function QuestaoCard({
     const tempoMs = Date.now() - inicioRef.current;
     try {
       const id = await onResponder(selecionada, acertou, tempoMs, pedirConfianca ? confianca : null);
-      if (typeof id === "number") setOrigemId(id);
+      if (typeof id === "number") {
+        setOrigemId(id);
+        if (enunciadoAtual !== questao.enunciado) {
+          atualizarEnunciadoRespondida(id, enunciadoAtual).catch((e) =>
+            console.error("persistir enunciado corrigido", e),
+          );
+        }
+      }
     } catch (e) {
       // A resposta já está revelada; falha de gravação não deve travar o drill.
       console.error("gravar resposta", e);
     } finally {
       setEnviando(false);
+    }
+  }
+
+  function salvarEnunciado() {
+    const novo = rascunhoEnunciado.trim();
+    setEditandoEnunciado(false);
+    if (!novo || novo === enunciadoAtual) return;
+    setEnunciadoAtual(novo);
+    if (origemId != null) {
+      atualizarEnunciadoRespondida(origemId, novo).catch((e) =>
+        console.error("persistir enunciado corrigido", e),
+      );
     }
   }
 
@@ -291,9 +336,9 @@ export default function QuestaoCard({
       setLendo(false);
       return;
     }
-    const partes = [questao.enunciado, ...(questao.alternativas ?? [])];
+    const partes = [enunciadoAtual, ...alternativasExibidas.map((a) => a.texto)];
     if (revelada) {
-      partes.push(`Gabarito: ${questao.gabarito}.`);
+      partes.push(`Gabarito: ${letraExibida(questao.gabarito)}.`);
       if (comentarioAtual) partes.push(comentarioAtual);
     }
     setLendo(true);
@@ -301,6 +346,29 @@ export default function QuestaoCard({
   }
 
   const acertou = selecionada === questao.gabarito;
+
+  // Ordem de exibição das alternativas: `ordem[posição] = índice original`.
+  // Identidade fora da revisão; CE nunca embaralha (CERTO/ERRADO são fixos).
+  const ordem = useMemo(() => {
+    const n = questao.alternativas?.length ?? 0;
+    if (!embaralhar || questao.formato === "ce" || n < 2) {
+      return Array.from({ length: n }, (_, i) => i);
+    }
+    return ordemEmbaralhada(n, LETRAS.indexOf(questao.gabarito));
+  }, [questao, embaralhar]);
+  const embaralhada = ordem.some((orig, pos) => orig !== pos);
+  const alternativasExibidas = ordem.map((orig, pos) => {
+    const texto = questao.alternativas?.[orig] ?? "";
+    return {
+      letra: LETRAS[orig],
+      texto: embaralhada ? rotularAlternativa(texto, LETRAS[pos]) : texto,
+    };
+  });
+  /** Letra original → letra mostrada na tela (iguais sem embaralhar). */
+  function letraExibida(l: string): string {
+    const pos = ordem.indexOf(LETRAS.indexOf(l));
+    return pos >= 0 ? LETRAS[pos] : l;
+  }
 
   /**
    * Os dois banners do topo (ver components/BannerQuestao.tsx):
@@ -331,8 +399,12 @@ export default function QuestaoCard({
   const letrasParaExplicar = useMemo(() => {
     const explicaveis = letrasExplicaveis(questao);
     if (questao.formato === "ce") return explicaveis;
-    return explicaveis.filter((l) => l === questao.gabarito || !tachadas.includes(l));
-  }, [questao, tachadas]);
+    // Na ordem em que aparecem na tela (importa quando embaralhada).
+    const posicao = (l: string) => ordem.indexOf(LETRAS.indexOf(l));
+    return explicaveis
+      .filter((l) => l === questao.gabarito || !tachadas.includes(l))
+      .sort((a, b) => posicao(a) - posicao(b));
+  }, [questao, tachadas, ordem]);
 
   const temCalculadora = pareceCalculo(questao);
 
@@ -374,10 +446,53 @@ export default function QuestaoCard({
       )}
 
       <div style={{ display: "flex", alignItems: "flex-start", gap: 8, margin: "0 0 16px" }}>
-        <p style={{ fontSize: 16, lineHeight: 1.55, margin: 0, flex: 1, minWidth: 0, ...textoPreservado }}>
-          {normalizarLayoutTexto(questao.enunciado)}
-        </p>
-        {!revelada && onPular && (
+        {editandoEnunciado ? (
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <textarea
+              value={rascunhoEnunciado}
+              onChange={(e) => setRascunhoEnunciado(e.target.value)}
+              aria-label="Enunciado da questão"
+              autoFocus
+              style={{ ...campo, width: "100%", minHeight: 140, fontSize: 15, lineHeight: 1.5, resize: "vertical" }}
+            />
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: 8, marginTop: 6 }}>
+              <button
+                onClick={() => setEditandoEnunciado(false)}
+                aria-label="Descartar correção"
+                title="Descartar correção"
+                style={botaoFerramentaCard(false)}
+              >
+                <XMarkIcon width={17} height={17} />
+              </button>
+              <button
+                onClick={salvarEnunciado}
+                aria-label="Salvar enunciado corrigido"
+                title="Salvar enunciado corrigido"
+                style={botaoFerramentaCard(true)}
+              >
+                <CheckIcon width={17} height={17} />
+              </button>
+            </div>
+          </div>
+        ) : (
+          <p style={{ fontSize: 16, lineHeight: 1.55, margin: 0, flex: 1, minWidth: 0, ...textoPreservado }}>
+            {normalizarLayoutTexto(enunciadoAtual)}
+          </p>
+        )}
+        {!editandoEnunciado && (
+          <button
+            onClick={() => {
+              setRascunhoEnunciado(enunciadoAtual);
+              setEditandoEnunciado(true);
+            }}
+            aria-label="Corrigir enunciado"
+            title="Corrigir erro no enunciado desta questão"
+            style={botaoFerramentaCard(false)}
+          >
+            <PencilSquareIcon width={17} height={17} />
+          </button>
+        )}
+        {!revelada && !editandoEnunciado && onPular && (
           <button
             onClick={onPular}
             aria-label="Pular esta questão"
@@ -427,12 +542,11 @@ export default function QuestaoCard({
         </div>
       ) : (
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-          {(questao.alternativas ?? []).map((alt, i) => {
-            const l = LETRAS[i];
+          {alternativasExibidas.map(({ letra: l, texto }) => {
             return (
               <Opcao
                 key={l}
-                texto={alt}
+                texto={texto}
                 tachada={tachadas.includes(l)}
                 marcada={!revelada && selecionada === l}
                 reveal={
@@ -509,7 +623,7 @@ export default function QuestaoCard({
                 color: acertou ? C.ok : C.erro,
               }}
             >
-              {acertou ? "✓ ACERTO" : `✗ ERRO — gabarito: ${questao.gabarito}`}
+              {acertou ? "✓ ACERTO" : `✗ ERRO — gabarito: ${letraExibida(questao.gabarito)}`}
             </div>
 
             {origemId != null && (
@@ -572,7 +686,7 @@ export default function QuestaoCard({
             {letrasParaExplicar.map((l) => {
               const ehGabarito = l === questao.gabarito;
               const texto = ehGabarito ? comentarioAtual : explicacoesAtuais?.[l];
-              const rotuloLetra = questao.formato === "ce" ? (l === "C" ? "C" : "E") : l;
+              const rotuloLetra = questao.formato === "ce" ? (l === "C" ? "C" : "E") : letraExibida(l);
 
               if (texto) {
                 return (
