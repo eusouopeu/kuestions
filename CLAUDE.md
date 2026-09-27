@@ -147,6 +147,9 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
 - Revisão agora usa o slider de confiança (`pedirConfianca` padrão) só como gesto de envio — a
   confiança recebida é ignorada pelos handlers (`registrarRevisao` usa a confiança ORIGINAL).
 - Pular na revisão (`onPular={onProxima}`) avança sem gravar nada: caixa de Leitner inalterada.
+- Lápis (corrigir enunciado) e pular ficam na barra de rodapé do `QuestaoCard`, à direita; a
+  prop `acoesExtras` ocupa o resto da linha (na revisão, o botão "Tirar dúvida" do tutor, que
+  `FilaRevisaoDrill` passa por ali em vez de renderizar abaixo do card).
 - Botão-ícone de lápis no `QuestaoCard` corrige o enunciado em qualquer drill. Com linha já gravada
   (`origemId`) persiste na hora via `atualizarEnunciadoRespondida`; na primeira resposta de um
   bloco a correção fica local e é persistida logo após `onResponder` devolver o id. Só altera

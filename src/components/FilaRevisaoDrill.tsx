@@ -71,7 +71,7 @@ function TutorQuestao({ questao }: { questao: QuestaoRespondida }) {
         onClick={() => setAberto(true)}
         style={{
           ...mono,
-          marginTop: 12,
+          minHeight: 36,
           fontSize: 11.5,
           background: "none",
           border: `1px dashed ${C.line}`,
@@ -89,7 +89,7 @@ function TutorQuestao({ questao }: { questao: QuestaoRespondida }) {
   }
 
   return (
-    <div style={{ marginTop: 12, border: `1px solid ${C.line}`, borderRadius: 10, padding: 10 }}>
+    <div style={{ border: `1px solid ${C.line}`, borderRadius: 10, padding: 10 }}>
       <div style={{ ...mono, fontSize: 10.5, color: C.sub, letterSpacing: 0.6, marginBottom: 8 }}>
         TUTOR DA QUESTÃO
       </div>
@@ -263,9 +263,8 @@ export default function FilaRevisaoDrill({
         // não muda e a questão continua pendente.
         onPular={onProxima}
         onProxima={onProxima}
+        acoesExtras={<TutorQuestao questao={q} />}
       />
-
-      <TutorQuestao questao={q} />
 
       <button
         onClick={onSair}

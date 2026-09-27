@@ -79,6 +79,7 @@ export default function QuestaoCard({
   temNotaInicial,
   origem,
   cabecalho,
+  acoesExtras,
   labelProxima,
   pedirConfianca = true,
   embaralhar = false,
@@ -109,6 +110,10 @@ export default function QuestaoCard({
    * gerado por IA, o resto da questão é uma prova real. */
   origem?: OrigemQuestao;
   cabecalho?: React.ReactNode;
+  /** Conteúdo à esquerda da barra de rodapé do card, na mesma linha dos
+   * botões-ícone de corrigir enunciado e pular (ex.: o tutor da questão na
+   * revisão). */
+  acoesExtras?: React.ReactNode;
   labelProxima: string;
   /** Pede a autoavaliação de confiança pelo slider (ver SliderConfianca e
    * lib/repo.ts → porConfianca) antes de revelar o gabarito. Ligado também
@@ -479,29 +484,6 @@ export default function QuestaoCard({
             {normalizarLayoutTexto(enunciadoAtual)}
           </p>
         )}
-        {!editandoEnunciado && (
-          <button
-            onClick={() => {
-              setRascunhoEnunciado(enunciadoAtual);
-              setEditandoEnunciado(true);
-            }}
-            aria-label="Corrigir enunciado"
-            title="Corrigir erro no enunciado desta questão"
-            style={botaoFerramentaCard(false)}
-          >
-            <PencilSquareIcon width={17} height={17} />
-          </button>
-        )}
-        {!revelada && !editandoEnunciado && onPular && (
-          <button
-            onClick={onPular}
-            aria-label="Pular esta questão"
-            title="Pular esta questão — não conta em nenhuma estatística"
-            style={botaoFerramentaCard(false)}
-          >
-            <ForwardIcon width={17} height={17} />
-          </button>
-        )}
         {vozDisponivel() && (
           <button
             onClick={alternarLeitura}
@@ -796,6 +778,36 @@ export default function QuestaoCard({
           </Botao>
         </div>
       )}
+
+      {/* Barra de ações do rodapé: `acoesExtras` (ex.: "Tirar dúvida",
+          ver FilaRevisaoDrill) ocupa o espaço livre à esquerda; corrigir
+          enunciado e pular ficam na mesma linha, à direita. */}
+      <div style={{ display: "flex", alignItems: "flex-start", gap: 8, marginTop: 14 }}>
+        <div style={{ flex: 1, minWidth: 0 }}>{acoesExtras}</div>
+        {!editandoEnunciado && (
+          <button
+            onClick={() => {
+              setRascunhoEnunciado(enunciadoAtual);
+              setEditandoEnunciado(true);
+            }}
+            aria-label="Corrigir enunciado"
+            title="Corrigir erro no enunciado desta questão"
+            style={botaoFerramentaCard(false)}
+          >
+            <PencilSquareIcon width={17} height={17} />
+          </button>
+        )}
+        {!revelada && !editandoEnunciado && onPular && (
+          <button
+            onClick={onPular}
+            aria-label="Pular esta questão"
+            title="Pular esta questão — não conta em nenhuma estatística"
+            style={botaoFerramentaCard(false)}
+          >
+            <ForwardIcon width={17} height={17} />
+          </button>
+        )}
+      </div>
 
       {modalReport && (
         <ModalReport onCancelar={() => setModalReport(false)} onConfirmar={reportar} />
