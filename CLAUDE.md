@@ -45,40 +45,28 @@ Homebrew é opcional e não é necessário para este fluxo).
 - O diretório `docs/` na raiz é conteúdo pré-existente do usuário, não gerado
   por sessões de código — não mexer nele a menos que pedido.
 
-## Skill obrigatória
+## Padrões compartilhados
 
-SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda resposta neste projeto.
+Este projeto segue os padrões comuns aos apps do Pedro, documentados em
+`../_shared/tech-standards.md` (stack, testes, commit/push/release, skill
+`/caveman` obrigatória, subagentes, leitura de dependências) e
+`../_shared/design-standards.md` + `../_shared/minimalismo.md` (visual,
+ícones, estética minimalista, "ajuda recolhida"). As seções abaixo cobrem só o
+que é específico deste projeto.
 
+### Particularidades deste projeto
 
-## Padrões técnicos e visuais obrigatórios
-
-- Sempre usar **TypeScript**, **Tailwind CSS**, ícones **Lucide** e fonte **Montserrat** com
-  espaçamento entrelinhas (line-height) de 1.5.
-- Dar preferência a **botões-ícone** em vez de botões com texto.
-- Exceção já consolidada no código: ícones usam **`@heroicons/react`**, não Lucide — todo o app já
-  usa Heroicons (`QuestaoCard`, `Rail`, `Calculadora`, etc.); manter esse pacote em vez de
-  misturar duas bibliotecas de ícone no mesmo projeto. Estilo (inline styles via `theme.ts`, não
-  Tailwind) segue o mesmo raciocínio — o projeto não usa classes Tailwind em lugar nenhum.
-
-## Testes
-
-- Por rodada de alterações, realizar apenas os **2 ou 3 testes mais essenciais** — não mais que isso.
-- Esses testes devem ser **elaborados ANTES** da implementação das mudanças de código, para que não
-  sejam enviesados pelo resultado da implementação.
-
-
-## Commit, push e atualização do CLAUDE.md
-
-- A cada rodada em que o código do app/site for alterado, deve ser feito o **commit** e o **push**
-  para o repositório remoto no GitHub.
-- Nessa mesma rodada, atualizar o conteúdo deste **CLAUDE.md** no que couber (novas convenções,
-  decisões, mudanças de stack, etc.), mantendo-o coerente com o estado atual do projeto.
-
-## Proibição de leitura de dependências
-
-- NUNCA ler arquivos de dependências (ex.: `node_modules/`, `dist/`, `build/`, pastas de vendor
-  ou qualquer artefato gerado/instalado) para obter contexto. Usar apenas o código-fonte do
-  próprio projeto.
+- Ícones: já usa **Heroicons** (`@heroicons/react`) em todo o app
+  (`QuestaoCard`, `Rail`, `Calculadora` etc.) — alinhado ao padrão
+  compartilhado, não precisa migrar.
+- Estilização real: apesar do padrão compartilhado ser Tailwind CSS, este
+  projeto usa **inline styles via `theme.ts`** em todo lugar — divergência
+  conhecida e aceita por ora; não introduzir Tailwind no meio do código atual
+  sem migração explícita.
+- "Ajuda recolhida": este projeto já é a referência do padrão — `Cartao`
+  (`src/views/DadosTab.tsx`) esconde a explicação (`ajuda`) atrás de um botão
+  `QuestionMarkCircleIcon`, só visível sob toque. Reaproveitar esse mesmo
+  padrão para qualquer funcionalidade nova que precise de explicação.
 
 ## Schema SQLite
 
