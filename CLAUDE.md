@@ -31,3 +31,17 @@ V. União e Instituto Nacional de Seguridade Social.
 
 Está correto o que consta APENAS em
 ```
+
+# Guia de trabalho: histórico, instruções e próximos passos
+
+Antes de buscar, baixar ou incorporar provas, consultar (nesta ordem, lendo só o necessário):
+
+- `historico.md` — provas já importadas, totais e lacunas. **Sempre** conferir antes de baixar uma prova, para não duplicar.
+- `steps.md` — prioridades de quais concursos buscar a seguir (recentes, estilo SEFAZ Auditor Fiscal) e metas por matéria. Ao escolher a próxima prova, partir daqui.
+- `instrucoes/README.md` — regras de economia de tokens; ele indica qual arquivo abrir:
+  - `01-buscar-provas.md` ao procurar/baixar PDFs (fontes que funcionam ou estão bloqueadas);
+  - `02-extrair-pdf.md` ao converter PDF em questões (FGV, FCC, Cebraspe, escaneado);
+  - `03-classificar-e-incorporar.md` ao classificar, fazer merge e commitar;
+  - `04-taxonomia.md` para os valores válidos de `area` e `bloco`.
+
+Ao terminar cada prova incorporada: atualizar `historico.md` e `steps.md` e fazer um commit por prova.
