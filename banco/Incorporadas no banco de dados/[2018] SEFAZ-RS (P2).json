@@ -1,0 +1,1049 @@
+{
+  "instituicao": "SEFAZ-RS",
+  "ano": 2018,
+  "cargo": "Auditor-Fiscal da Receita Estadual, Classe A",
+  "tipo_prova": "BLOCO II",
+  "gabarito_tipo": null,
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Contabilidade Geral",
+      "gabarito": "X",
+      "enunciado": "Se uma entidade adquirir, à vista, ações da própria entidade pelo valor de mercado, então, para a entidade essa operação representará um fato contábil",
+      "alternativas": {
+        "A": "misto aumentativo.",
+        "B": "misto diminutivo.",
+        "C": "modificativo diminutivo.",
+        "D": "modificativo aumentativo.",
+        "E": "permutativo."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Na fiscalização de uma sociedade anônima comercial, após o seu primeiro ano de funcionamento, verificou-se que a empresa possuía:\n\n• capital subscrito no valor de R$ 2.000;\n• capital realizado no valor de R$ 1.700;\n• capital de terceiros no valor de R$ 600;\n• prejuízo acumulado no valor de R$ 300.\n\nNessa situação hipotética, o valor do capital total à disposição da sociedade é igual a",
+      "alternativas": {
+        "A": "R$ 1.700.",
+        "B": "R$ 2.000.",
+        "C": "R$ 2.300.",
+        "D": "R$ 3.400.",
+        "E": "R$ 4.000."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Em uma compra de mercadorias para composição dos estoques de entidade que utiliza inventário permanente, o lançamento do imposto de circulação de mercadorias e serviços (ICMS) deve ser feito em uma conta de natureza",
+      "alternativas": {
+        "A": "credora, no ativo.",
+        "B": "devedora, no ativo.",
+        "C": "credora, no passivo.",
+        "D": "devedora, no passivo.",
+        "E": "devedora, no resultado."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Informações a respeito da riqueza econômica gerada por uma entidade e sobre a forma de distribuição dessa riqueza podem ser obtidas mediante a análise do(a)",
+      "alternativas": {
+        "A": "balanço patrimonial.",
+        "B": "demonstração das mutações do patrimônio líquido.",
+        "C": "demonstração do resultado do exercício.",
+        "D": "demonstração dos fluxos de caixa.",
+        "E": "demonstração do valor adicionado."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Ao final do exercício social, uma empresa que utiliza o sistema de inventário periódico realizou a contagem de estoques; porém, em auditoria, o auditor deseja calcular o estoque final de mercadorias com base nas informações contábeis. Para essa empresa, os saldos são os seguintes:\n\n• estoque inicial = R$ 55.000;\n• compras líquidas = R$ 100.000;\n• receita de vendas = R$ 175.000;\n• lucro bruto = R$ 105.000.\n\nNessa situação hipotética, desconsiderando-se os efeitos de impostos/tributos e de demais receitas/despesas não citadas, o valor do estoque final de mercadorias com base nos saldos contábeis apresentados é igual a",
+      "alternativas": {
+        "A": "R$ 50.000.",
+        "B": "R$ 70.000.",
+        "C": "R$ 75.000.",
+        "D": "R$ 85.000.",
+        "E": "R$ 155.000."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Ao estimar e registrar o valor corrente dos fluxos de caixa futuros para suas obrigações, encargos e riscos classificados no passivo não circulante, uma empresa que se encontre no curso normal de suas atividades aplica o conceito de",
+      "alternativas": {
+        "A": "ajuste de avaliação patrimonial.",
+        "B": "evento subsequente.",
+        "C": "moeda funcional.",
+        "D": "regime de caixa.",
+        "E": "valor presente."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "Se, indevidamente, a contabilidade de uma empresa superestimar seu saldo de estoques no inventário final do ano 20X1 e, embora constatado, esse problema não for corrigido, tal situação acarretará uma",
+      "alternativas": {
+        "A": "superestimação do lucro líquido do ano 20X1.",
+        "B": "subestimação do lucro líquido do ano 20X1.",
+        "C": "subestimação da situação líquida do ano 20X1.",
+        "D": "subestimação do custo da mercadoria vendida do ano 20X2.",
+        "E": "superestimação do lucro líquido do ano 20X2."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "A tabela a seguir, com valores em R$ mil, corresponde ao balanço patrimonial de determinada companhia em 31/12/2017.\n\n<table>ativopassivocirculante1.000circulante 600caixa100salários a pagar 200estoques500fornecedores 300duplicatas a receber400impostos a pagar 45não circulante4.000empréstimos a pagar 50realizável a longo prazo500contas a pagar 5duplicatas a receber300não circulante 800empréstimos a sócios200financiamentos a pagar 800imobilizado2.000patrimônio líquido 3.600imóveis1.900capital social 3.000móveis e utensílios100reservas de capital 200investimentos1.000reservas de lucros 400imóveis para renda1.000intangível500marcas e patentes500total do ativo5.000total do passivo 5.000</table>\n\nConsiderando-se esse balanço patrimonial e os índices de liquidez corrente, seca e geral da companhia em 31/12/2017, é correto afirmar que essa companhia, relativamente às obrigações de curto prazo (OBC) e à capacidade de pagamento de dívidas de curto e de longo prazo (CPDCLP), é",
+      "alternativas": {
+        "A": "capaz de honrar suas OBC sem depender da realização financeira dos seus estoques e, no que diz respeito à CPDCLP, os indicadores apontam para situação de insolvência.",
+        "B": "capaz de honrar suas OBC, desde que realize financeiramente os seus estoques e, no que diz respeito à CPDCLP, os indicadores apontam para situação de solvência.",
+        "C": "incapaz de honrar suas OBC, mas, em um cenário de longo prazo, os indicadores apontam para situação de solvência.",
+        "D": "capaz de honrar suas dívidas de curto e de longo prazo, sem necessidade da realização financeira dos seus estoques.",
+        "E": "incapaz de honrar suas OBC, mas sua capacidade de pagamento melhorará se forem considerados na análise os realizáveis e exigíveis a longo prazo."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Contabilidade Geral",
+      "gabarito": "X",
+      "enunciado": "Em 2018, uma empresa converteu em ações as debêntures por ela emitidas no mercado em 2014. A data de vencimento dessas debêntures é 31/10/2019.\n\nNessa situação hipotética, os indicadores econômico-financeiros das demonstrações contábeis encerradas em 2018 mostrarão um(a)",
+      "alternativas": {
+        "A": "aumento na relação capital de terceiros/capital próprio.",
+        "B": "diminuição do índice de liquidez geral.",
+        "C": "aumento do grau de imobilização do patrimônio líquido.",
+        "D": "diminuição da rentabilidade sobre os ativos totais.",
+        "E": "diminuição na participação das dívidas de curto prazo no endividamento total."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Os eventos que provocam aumento no capital permanente líquido de uma empresa incluem o(a)",
+      "alternativas": {
+        "A": "aumento de capital com incorporação de reservas de lucros.",
+        "B": "aquisição de ativo imobilizado com financiamento de longo prazo.",
+        "C": "venda de estoques para recebimento no longo prazo.",
+        "D": "conversão de dívidas de curto prazo em dívidas de longo prazo.",
+        "E": "obtenção de empréstimos com vencimento anterior ao término do exercício social seguinte."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Os indicadores econômico-financeiros que podem ser obtidos por meio de análise vertical incluem o",
+      "alternativas": {
+        "A": "retorno sobre o patrimônio líquido e a margem de lucro.",
+        "B": "giro do ativo e o índice de endividamento.",
+        "C": "índice de endividamento e a margem de lucro.",
+        "D": "giro de contas a receber e o giro dos estoques.",
+        "E": "capital circulante próprio e o capital permanente líquido."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "Acerca do giro de estoques, assinale a opção correta.",
+      "alternativas": {
+        "A": "Uma política de estoques mínimos favorece a obtenção de giros de estoques cada vez maiores.",
+        "B": "Giro de estoques de cinco vezes significa que a empresa leva mais de oitenta dias para vender integralmente o seu estoque uma vez.",
+        "C": "A aquisição de estoques em grande quantidade para obter descontos comerciais tende a aumentar o giro dos estoques.",
+        "D": "Quanto maior for o giro de estoques, maior será o prazo médio de vendas da empresa.",
+        "E": "O fato de o giro de estoques de uma empresa ser mais elevado que o de outras empresas do mesmo setor pode indicar que essa empresa esteja mantendo bens obsoletos em estoque ou mantendo estoque em nível desnecessariamente alto."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "O fato de uma empresa ter poder de negociação com fornecedores para postergar ao máximo o pagamento de suas compras a prazo tem impacto direto no",
+      "alternativas": {
+        "A": "ciclo econômico.",
+        "B": "ciclo operacional.",
+        "C": "ciclo financeiro.",
+        "D": "prazo médio de renovação de estoques.",
+        "E": "prazo médio de recebimento de vendas."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Se, no ano de 2017, uma empresa tiver obtido receitas de vendas líquidas no valor de R$ 500.000 e, nesse mesmo ano, o giro do ativo da empresa houver sido de 0,5 vez e a rentabilidade do seu ativo tiver ficado em 20%, então, nessa situação hipotética, o lucro líquido dessa empresa no mesmo período alcançou o valor de",
+      "alternativas": {
+        "A": "R$ 100.000.",
+        "B": "R$ 200.000.",
+        "C": "R$ 250.000.",
+        "D": "R$ 1.000.000.",
+        "E": "R$ 5.000.000."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Em 2/1/2015, determinada empresa incorporou ao seu imobilizado um equipamento industrial pelo valor de R$ 120.000. O fornecedor informou que a vida útil do equipamento é de quinze anos, mas a empresa verificou que revistas especializadas apontam durabilidade de doze anos e, assim, pretende utilizar o equipamento por dez anos. A empresa tem por prática considerar um valor residual de 10% em todos os seus equipamentos industriais. O equipamento é destinado ao uso em dois turnos de oito horas, e a empresa aplica a depreciação contábil acelerada, pelo método da linha reta, com quotas constantes.\n\nNo encerramento do exercício de 2017, depois de contabilizada a depreciação do período, o valor contábil líquido do bem era",
+      "alternativas": {
+        "A": "inferior a R$ 70.000.",
+        "B": "superior a R$ 70.000 e inferior a R$ 74.000.",
+        "C": "superior a R$ 74.000 e inferior a R$ 78.000.",
+        "D": "superior a R$ 78.000 e inferior a R$ 82.000.",
+        "E": "superior a R$ 82.000."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Contabilidade Geral",
+      "gabarito": "X",
+      "enunciado": "As informações mostradas a seguir foram extraídas de uma nota fiscal emitida por fornecedor a uma companhia industrial que havia adquirido matérias-primas para seu processo produtivo.\n\n• valor das mercadorias: R$ 100.000,00\n• imposto sobre produtos industrializados (IPI) destacado: R$ 10.000,00\n• alíquota de ICMS: 18%\n\nSe a transação não implicou outros custos, então a companhia industrial deve ter contabilizado",
+      "alternativas": {
+        "A": "R$ 72.000.00 como entrada no estoque de mercadorias.",
+        "B": "R$ 18.000.00 como tributos a compensar.",
+        "C": "R$ 110.000.00 como custo de produção.",
+        "D": "R$ 21.951,20 como ICMS a compensar.",
+        "E": "R$ 10.000.00 como despesa de IPI."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Com relação à consolidação de demonstrações contábeis, julgue os itens a seguir.\n\nI Trata-se de procedimento obrigatório para todas as sociedades por ações, abertas ou fechadas, e, ainda, para entidades limitadas, quando existirem investimentos em controladas, sem qualquer exceção.\nII É admissível uma defasagem de até sessenta dias entre as datas das demonstrações contábeis das empresas consolidadas e da empresa consolidadora, desde que satisfeitas as demais condições exigíveis.\nIII Devem ser excluídos das demonstrações os custos de estoque e os lucros ou prejuízos relativos a resultados ainda não realizados de negócios entre sociedades.\nIV Os resultados relativos ao goodwill decorrente de operações intragrupo devem ser evidenciados na consolidação.\n\nEstão certos apenas os itens",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "I e IV.",
+        "C": "II e III.",
+        "D": "I, III e IV.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Determinada sociedade anônima adquiriu 90% das ações de uma companhia, por $ 11 milhões. Os dados patrimoniais (em $ milhões) da companhia são mostrados a seguir. A alíquota de imposto de renda sobre contribuição social sobre o lucro líquido (IR/CSLL) vigente é de 34%.\n\n<table>valor contábilvalor justoativos totais1013passivos totais1,981,98</table>\n\nNessas condições, o goodwill apurado pela referida sociedade anônima na combinação de negócios é um valor",
+      "alternativas": {
+        "A": "inferior a $ 0,5 milhão.",
+        "B": "superior a $ 0,5 milhão e inferior a $ 1,0 milhão.",
+        "C": "superior a $ 1,0 milhão e inferior a $ 1,5 milhão.",
+        "D": "superior a $ 1,5 milhão e inferior a $ 2,5 milhões.",
+        "E": "superior a $ 2,5 milhões."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "O imobilizado de certa empresa é composto pelos ativos A e B. Os dados contábeis relativos a esses ativos, em R$, estão apresentados a seguir.\n\n<table>ABvalor de aquisição75.000250.000depreciação acumulada (-)37.50050.000perda por valor não recuperável (-)010.000</table>\n\nEm razão de cenário macroeconômico recessivo, a empresa resolveu realizar o teste de recuperabilidade desses ativos, tendo constatado as informações presentes na seguinte tabela (valores em R$).\n\n<table>ABvalor justo líquido de despesa de venda34.000205.000valor em uso36.000185.000</table>\n\nNessas condições, o procedimento contábil necessário é",
+      "alternativas": {
+        "A": "constituir R$ 1.500 para perda de recuperabilidade do ativo A, baixar toda a perda relativa ao ativo B e baixar mais R$ 5.000 de sua depreciação.",
+        "B": "constituir mais R$ 8.500 em perda por valor não recuperável, dos quais R$ 3.500 sejam relativos ao ativo A e R$ 5.000, relativos ao ativo B.",
+        "C": "reverter toda a perda por valor não recuperável do ativo B e registrar perda de R$ 1.500 para o ativo A.",
+        "D": "manter os saldos atuais, pois eles já refletem o valor recuperável dos ativos.",
+        "E": "registrar R$ 3.500 por perda de recuperabilidade do ativo A."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Determinado clube brasileiro de futebol adquiriu, por R$ 20 milhões, o passe de um jogador uruguaio, de um clube uruguaio de futebol. Imediatamente após a aquisição, o clube brasileiro recebeu uma proposta de um clube argentino para a compra do passe desse jogador uruguaio por R$ 40 milhões.\n\nNessa situação, assinale a opção correta quanto à contabilidade do clube brasileiro, no que se refere ao passe do jogador uruguaio.",
+      "alternativas": {
+        "A": "Por ocasião da aquisição do passe do jogador, o clube brasileiro deverá registrá-lo como um ativo imobilizado, pelo seu custo, e realizar sua depreciação ao longo do tempo de vida útil estimado, não tendo a proposta do time argentino qualquer influência contábil.",
+        "B": "Quando do recebimento da proposta do clube argentino, o clube brasileiro deverá registrá-lo como investimento, pelo valor de R$ 20 milhões, e apurar a valorização desse investimento, pelo seu valor de mercado.",
+        "C": "O clube brasileiro deverá reconhecer, a custo histórico, um intangível, abstendo-se de qualquer procedimento quanto à proposta recebida do clube argentino.",
+        "D": "O clube brasileiro deverá registrá-lo como estoque, pelo seu valor justo de R$ 40 milhões.",
+        "E": "O clube brasileiro deverá registrar um ativo realizável em longo prazo, no valor de R$ 20 milhões."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Considerando 0,94 como valor aproximado para 1,01-6, assinale a opção correspondente à contabilização inicial da transação pelo vendedor.",
+      "alternativas": {
+        "A": "D – contas a receber R$ 400.000 C – receita de capital R$ 400.000",
+        "B": "D – contas a receber R$ 400.000 C – receita de juros R$ 25.000 C – receita de capital R$ 375.000",
+        "C": "D – contas a receber R$ 375.000 C – juros ativos a transcorrer R$ 25.000 C – receita de capital R$ 400.000",
+        "D": "D – contas a receber R$ 376.000 D – juros a receber R$ 24.000 C – receita de capital R$ 400.000",
+        "E": "D – contas a receber R$ 400.000 C – juros ativos a transcorrer R$ 24.000 C – receita de capital R$ 376.000"
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "A contabilidade da produção agropecuária possui procedimentos e elementos próprios que a diferenciam da contabilidade societária tradicional. Um desses procedimentos é a necessidade de avaliação, a valor justo, dos chamados ativos biológicos, exceto aqueles que se caracterizem como hospedeiros ou portadores. Um exemplo de ativo hospedeiro é",
+      "alternativas": {
+        "A": "a laranjeira.",
+        "B": "o pé de soja.",
+        "C": "o café colhido.",
+        "D": "o boi para abate.",
+        "E": "o algodão herbáceo."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "X",
+      "enunciado": "A tabela a seguir mostra os gastos realizados, no período X0, por determinada empresa industrial que fabrica apenas um tipo de produto. Essa empresa utiliza o custeio por absorção, sendo o objeto de custeio o produto fabricado.\n\n<table>custo/despesavalor (em R$)salários de vendedores10.000salários do pessoal da fábrica30.000salários da administração20.000materiais utilizados na produção4.000embalagens do produto fabricado5.000seguro do prédio da fábrica1.500manutenção do prédio da fábrica5.000matéria-prima consumida120.000despesas financeiras10.000depreciação dos equipamentos da fábrica5.000material de escritório2.000</table>\n\nA partir dessas informações, assinale a opção correta.",
+      "alternativas": {
+        "A": "Os custos de transformação somam R$ 50.500.",
+        "B": "Os custos primários somam R$ 159.000.",
+        "C": "Os custos diretos somam R$ 174.000.",
+        "D": "Os custos indiretos de fabricação somam R$ 25.500.",
+        "E": "Os custos fixos somam R$ 41.500."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "B",
+      "enunciado": "Com relação a conceitos e características dos custos fixos e variáveis, julgue os itens seguintes.\n\nI Determinado item de custo cujo consumo por unidade produzida seja o mesmo em cada período é um custo variável, uma vez que seu valor global depende do volume produzido.\nII Determinado item de custo cujo valor unitário se altere a cada período em função do volume produzido é um custo variável.\nIII Para que determinado item de custo seja caracterizado como fixo, é necessário considerar um período, o valor total de custos incorridos nesse período, seu comportamento em função do volume de atividades no período e sua relação com o produto produzido.\nIV Determinado item de custo fixo cujo valor global se altere mês a mês por força de alteração na política de preços dos fornecedores não se torna variável em razão da sua característica de não recorrente.\n\nEstão certos apenas os itens",
+      "alternativas": {
+        "A": "I e III.",
+        "B": "I e IV.",
+        "C": "II e IV.",
+        "D": "I, II e III.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "X",
+      "enunciado": "Determinada empresa industrial fabrica os produtos A e B e dispõe de um departamento de serviço e de um de produção. A tabela seguinte mostra informações relativas a determinado período de apuração de custos desses produtos.\n\ncustos\nproduto A\nproduto B\ndiretos\nR$ 2.000\nR$ 4.000\ntotais\nR$ 4.000\nR$ 6.000\n\nOs custos indiretos próprios do departamento de produção, que somaram R$ 3.000, bem como os custos indiretos recebidos por rateio do departamento de serviço da fábrica, foram alocados aos produtos na proporção dos seus custos diretos.\n\nO total dos custos indiretos do departamento de serviço dessa empresa corresponde a",
+      "alternativas": {
+        "A": "R$ 1.000, dos quais  foi alocado ao produto A.",
+        "B": "R$ 1.000, dos quais  foram alocados ao produto A.",
+        "C": "R$ 4.000, dos quais  foi alocado ao produto B.",
+        "D": "R$ 4.000, dos quais  foram alocados ao produto B.",
+        "E": "R$ 3.000, dos quais  foi alocado ao produto B."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "C",
+      "enunciado": "Julgue os itens a seguir, relativos a produção por ordem.\n\nI Pelo critério da proporcionalidade do custo total, a relação percentual entre a receita total contratada e o custo total previsto aplicada sobre os custos reais incorridos define o valor da receita a ser apropriada no período.\nII Pelo critério da proporcionalidade do custo total, a relação percentual entre os custos reais incorridos no período e o custo total previsto aplicada sobre a receita total contratada define o valor da receita a ser apropriada no período.\nIII O critério da proporcionalidade do custo de conversão exclui do custo total previsto os valores relativos a matéria-prima e mão de obra direta para o estabelecimento de uma relação percentual entre custo e receita totais, relação essa que é utilizada para definição do valor da receita a ser apropriada no período.\nIV O critério da proporcionalidade do custo de conversão exclui do custo total previsto os valores relativos a mão de obra direta e custos indiretos de produção para estabelecimento de uma relação percentual entre custo e receita totais, relação essa que é utilizada para definição do valor da receita a ser apropriada no período.\nV O critério da proporcionalidade do custo de conversão exclui do custo total previsto os valores relativos a matéria-prima para estabelecimento de uma relação percentual entre custo e receita totais, relação essa que é utilizada para definição do valor da receita a ser apropriada no período.\n\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas os itens I e II estão certos.",
+        "B": "Apenas os itens III e IV estão certos.",
+        "C": "Apenas os itens I, II e V estão certos.",
+        "D": "Apenas os itens III, IV e V estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "B",
+      "enunciado": "As seguintes informações referem-se a uma empresa industrial hipotética.\n\norçado\nreal\nvolume de produção (horas)\n1.000\n800\ncustos indiretos de produção\nfixos (R$)\n3.000.000\n4.000.000\n\nConsiderando essas informações, assinale a opção correta, com relação à taxa de aplicação de custos indiretos de produção nessa empresa e à análise de suas variações.",
+      "alternativas": {
+        "A": "A variação total de custos indiretos de produção é R$ 1.000.000.",
+        "B": "A variação total de custos indiretos de produção é R$ 1.600.000.",
+        "C": "A variação em função do volume das atividades é R$ 1.000.000.",
+        "D": "A taxa predeterminada de custos indiretos de produção é R$ 3.750.",
+        "E": "A taxa real de custos indiretos de produção é R$ 4.000."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "C",
+      "enunciado": "Julgue os próximos itens, relativos a custo estimado e a custo padrão.\n\nI Custo estimado e custo padrão corrente têm a mesma fundamentação técnica e, portanto, são sinônimos.\nII O custo padrão ideal considera os melhores fatores de produção que devem estar à disposição da empresa, sem incorporar ineficiências.\nIII Um dos aspectos que diferenciam o custo padrão ideal do custo padrão corrente é o fato de o primeiro ser uma meta de longo prazo, enquanto o segundo se refere a metas de curto e médio prazos.\nIV O custo padrão corrente é mais adequado para elaboração de orçamentos de produção que o custo padrão ideal.\n\nEstão certos apenas os itens",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "I e III.",
+        "C": "III e IV.",
+        "D": "I, II e IV.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "B",
+      "enunciado": "Os dados a seguir são relativos a uma empresa que fabrica carros elétricos.\n\n• preço de venda: R$ 50.000/unidade\n• custos e despesas variáveis: R$ 40.000/unidade\n• custos e despesas fixas: R$ 1.000.000 por período\n\nA empresa operou, no período X1, com um volume de vendas de 120 unidades e, no período X2, com 150 unidades.\n\nA partir das informações do texto, assinale a opção correta, com relação a margem de segurança.",
+      "alternativas": {
+        "A": "No nível de 120 unidades vendidas, a margem de segurança é de 20%.",
+        "B": "No nível de 120 unidades vendidas, a margem de segurança é superior a 15% e inferior a 20%.",
+        "C": "No nível de 120 unidades vendidas, a receita total pode ser diminuída em 18% antes de entrar na faixa de prejuízo.",
+        "D": "No nível de 150 unidades vendidas, a margem de segurança é superior a 35%.",
+        "E": "No nível de 150 unidades vendidas, a receita total pode ser diminuída em R$ 2.600.000 antes de entrar na faixa de prejuízo."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "E",
+      "enunciado": "Considerando-se o aumento do volume de vendas de 120 unidades para 150 unidades na empresa referida no texto, é correto afirmar que, nas condições apresentadas, a alavancagem operacional é",
+      "alternativas": {
+        "A": "negativa.",
+        "B": "de 100%.",
+        "C": "de duas vezes.",
+        "D": "de duas a cinco vezes.",
+        "E": "de cinco a oito vezes."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Direito Administrativo",
+      "gabarito": "C",
+      "enunciado": "O deslocamento de servidor público, por interesse da administração, para o exercício em uma nova sede, com mudança de domicílio permanente, configura",
+      "alternativas": {
+        "A": "recondução, com direito a ajuda de custo para sua instalação.",
+        "B": "readaptação, com direito a ajuda de custo para sua instalação.",
+        "C": "remoção, com direito a ajuda de custo para sua instalação.",
+        "D": "readaptação, sem direito a ajuda de custo para sua instalação.",
+        "E": "remoção, sem direito a ajuda de custo para sua instalação."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Direito Administrativo",
+      "gabarito": "D",
+      "enunciado": "O alvará de licença e o alvará de autorização concedidos pela administração pública constituem meio de atuação do poder",
+      "alternativas": {
+        "A": "disciplinar.",
+        "B": "regulamentar.",
+        "C": "hierárquico.",
+        "D": "de polícia.",
+        "E": "hierárquico e do disciplinar."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Direito Constitucional",
+      "gabarito": "D",
+      "enunciado": "A exploração de serviços de radiodifusão sonora bem como de sons e imagens pode ocorrer mediante",
+      "alternativas": {
+        "A": "autorização, apenas.",
+        "B": "permissão, apenas.",
+        "C": "concessão, apenas.",
+        "D": "autorização, permissão e concessão.",
+        "E": "autorização e concessão, apenas."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Direito Administrativo",
+      "gabarito": "B",
+      "enunciado": "De acordo com a legislação pertinente, se o objeto de um contrato administrativo for a construção de uma estrutura essencial para um evento internacional a ser sediado pelo país e, injustificadamente, o contratado atrasar a execução desse contrato, de modo que a conclusão da obra não seja mais possível em tempo hábil para o evento, poderá a administração pública",
+      "alternativas": {
+        "A": "alterar unilateralmente o contrato, sem a possibilidade de aplicação de multa contratual.",
+        "B": "rescindir unilateralmente o contrato, com a possibilidade de aplicação de multa contratual.",
+        "C": "rescindir unilateralmente o contrato, sem a possibilidade de aplicação de multa contratual.",
+        "D": "alterar unilateralmente o contrato, com a possibilidade de aplicação de multa contratual.",
+        "E": "aplicar a multa contratual, o que exclui a possibilidade de rescisão unilateral do contrato."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Direito Administrativo",
+      "gabarito": "A",
+      "enunciado": "Um estado da Federação criou uma premiação como forma de reconhecimento pelos serviços prestados por agentes públicos de diversos órgãos. Assim, o estado contratou um artista plástico amplamente consagrado pela crítica especializada para elaborar os troféus e as medalhas, hipótese que configura",
+      "alternativas": {
+        "A": "inexigibilidade de licitação.",
+        "B": "dispensa de licitação.",
+        "C": "leilão.",
+        "D": "concorrência.",
+        "E": "tomada de preço."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Direito Administrativo",
+      "gabarito": "C",
+      "enunciado": "Se, na instalação de uma passagem de fios com a finalidade de distribuição de energia elétrica para a população local, apresentar-se como uma necessidade pública a utilização de parte de um terreno privado, caberá, sobre essa propriedade privada, a intervenção estatal na modalidade",
+      "alternativas": {
+        "A": "servidão civil.",
+        "B": "desapropriação.",
+        "C": "servidão administrativa.",
+        "D": "tombamento.",
+        "E": "requisição."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Direito Administrativo",
+      "gabarito": "D",
+      "enunciado": "Caso uma autoridade da administração pública, como forma de punição, determine, de ofício, a remoção de um agente público com quem tenha tido desavenças anteriormente, o ato administrativo em questão revelará vício",
+      "alternativas": {
+        "A": "no motivo, sendo passível de convalidação.",
+        "B": "na competência, sendo passível de convalidação.",
+        "C": "na forma, sendo inviável a convalidação.",
+        "D": "na finalidade, sendo inviável a convalidação.",
+        "E": "na competência, sendo inviável a convalidação."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Direito Administrativo",
+      "gabarito": "A",
+      "enunciado": "Um terreno pertencente ao Estado e anteriormente sem utilização passou a ser usado por um órgão público para o desempenho de determinadas tarefas. Trata-se de bem público que era de uso",
+      "alternativas": {
+        "A": "dominical e, após afetação, passou a ser bem de uso especial.",
+        "B": "especial e, após desafetação, passou a ser bem de uso comum do povo.",
+        "C": "especial e, após afetação, passou a ser bem dominical.",
+        "D": "dominical e, após desafetação, passou a ser bem de uso comum do povo.",
+        "E": "especial e, após afetação, passou a ser bem de uso comum do povo."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Direito Administrativo",
+      "gabarito": "C",
+      "enunciado": "No âmbito administrativo, convênio caracteriza-se por ser",
+      "alternativas": {
+        "A": "um contrato administrativo, dada a oposição dos interesses envolvidos.",
+        "B": "uma cooperação, dado o estrito objetivo de lucro dos envolvidos.",
+        "C": "uma cooperação, dada a coincidência dos interesses dos envolvidos.",
+        "D": "um contrato administrativo, dado o caráter episódico da cooperação mútua.",
+        "E": "uma cooperação, dado o objetivo de alcançar resultados diversos."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Direito Administrativo",
+      "gabarito": "A",
+      "enunciado": "A entidade da administração pública indireta criada por meio de lei para desempenho de atividades específicas, com personalidade jurídica pública e capacidade de autoadministração é a",
+      "alternativas": {
+        "A": "autarquia.",
+        "B": "fundação privada.",
+        "C": "sociedade de economia mista.",
+        "D": "empresa pública.",
+        "E": "empresa subsidiária."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Direito Constitucional",
+      "gabarito": "C",
+      "enunciado": "Julgue os itens a seguir, acerca da supremacia da Constituição Federal de 1988 (CF) e do controle de constitucionalidade.\n\nI O sistema de controle de constitucionalidade adotado no Brasil é o misto: as leis federais, além de realizar exame sobre a inconstitucionalidade tanto material quanto formal das normas, ficam sob o controle político do Congresso Nacional, e as estaduais e municipais, sob o controle jurisdicional.\nII O controle de constitucionalidade está ligado à supremacia da CF sobre todas as leis e normas jurídicas.\nIII A supremacia material deriva do fato de a CF organizar e distribuir as formas de competências, hierarquizando-as. Já a supremacia formal apoia-se na ideia da rigidez constitucional.\nIV Sob o prisma constitucional, o governo federal, os governos dos estados da Federação, os dos municípios e o do Distrito Federal são soberanos, pois estão investidos de poderes e competências governamentais absolutas.\n\nEstão certos apenas os itens",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "I e IV.",
+        "C": "II e III.",
+        "D": "I, III e IV.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Direito Constitucional",
+      "gabarito": "E",
+      "enunciado": "Acerca das ações constitucionais, assinale a opção correta.",
+      "alternativas": {
+        "A": "Mandado de injunção destina-se a regulamentar normas constitucionais de eficácia contida e de eficácia limitada.",
+        "B": "Ação popular pode ser ajuizada por pessoa física ou jurídica, podendo figurar como réus a administração pública e pessoa física ou jurídica que tenha causado danos ao meio ambiente e/ou ao patrimônio público, histórico e cultural.",
+        "C": "Nas ações de habeas corpus, o juiz está adstrito à causa de pedir e aos pedidos formulados.",
+        "D": "Mandado de segurança coletivo pode ser impetrado por partido político legalmente constituído e em funcionamento há pelo menos um ano.",
+        "E": "Habeas data pode ser impetrado tanto por pessoa física, brasileira ou estrangeira, quanto por pessoa jurídica, sendo uma ação isenta de custas."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Direito Constitucional",
+      "gabarito": "A",
+      "enunciado": "A respeito da organização do Estado, a União, os estados federados e o Distrito Federal podem legislar concorrentemente sobre",
+      "alternativas": {
+        "A": "direito tributário, financeiro, penitenciário, econômico e urbanístico.",
+        "B": "ordenamento territorial, mediante planejamento e controle do uso, do parcelamento e da ocupação do solo urbano.",
+        "C": "combate às causas da pobreza e aos fatores de marginalização, promovendo a integração social dos setores desfavorecidos.",
+        "D": "direito civil, comercial, penal, processual, eleitoral, agrário, marítimo, aeronáutico, espacial e do trabalho.",
+        "E": "política de crédito, câmbio, seguros e transferência de valores."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Direito Constitucional",
+      "gabarito": "B",
+      "enunciado": "Com base nas normas constitucionais que versem sobre as funções essenciais à justiça, assinale a opção correta.",
+      "alternativas": {
+        "A": "Procuradoria-Geral da Fazenda Nacional integra o Ministério Público Federal.",
+        "B": "Incumbe à Advocacia Geral da União representar a União, judicial e extrajudicialmente.",
+        "C": "A Defensoria Pública da União faz parte do Conselho Nacional do Ministério Público.",
+        "D": "Aos membros da Defensoria Pública e aos integrantes da Advocacia Geral da União são asseguradas as prerrogativas constitucionais da inamovibilidade e da vitaliciedade.",
+        "E": "A autonomia administrativa é garantida constitucionalmente ao Ministério Público, à Defensoria Pública e à Advocacia Pública."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Direito Constitucional",
+      "gabarito": "C",
+      "enunciado": "A respeito do julgamento dos crimes de responsabilidade e dos crimes comuns cometidos pelo presidente da República, assinale a opção correta.",
+      "alternativas": {
+        "A": "Qualquer pessoa tem legitimidade para oferecer acusação contra o presidente da República pela prática de crime de responsabilidade.",
+        "B": "O presidente da República será responsabilizado por crime comum que guardar conexão com o exercício das funções presidenciais somente após o término do seu mandato.",
+        "C": "O processamento e o julgamento do presidente da República por crimes de responsabilidade e por crimes comuns são de competência do Senado Federal e da Câmara dos Deputados.",
+        "D": "O juízo positivo de admissibilidade da acusação pela Câmara dos Deputados vincula o Senado Federal, que não tem discricionariedade para deliberar sobre a instauração ou não do processo de impeachment do presidente da República.",
+        "E": "O presidente da República, ao longo do processo de julgamento dos crimes de responsabilidade, será afastado do cargo, e o presidente do Supremo Tribunal Federal ocupará, temporariamente, a Presidência da República."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Direito Constitucional",
+      "gabarito": "B",
+      "enunciado": "De acordo com a CF, tem legitimidade ativa para propor originariamente ação direta de inconstitucionalidade e ação declaratória de constitucionalidade o",
+      "alternativas": {
+        "A": "Conselho Nacional do Ministério Público.",
+        "B": "defensor público geral da União.",
+        "C": "Conselho Federal da Ordem dos Advogados do Brasil.",
+        "D": "advogado geral da União.",
+        "E": "Conselho Nacional de Justiça."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Direito Constitucional",
+      "gabarito": "X",
+      "enunciado": "À luz do disposto na CF, assinale a opção correta no que se refere aos princípios fundamentais da CF.",
+      "alternativas": {
+        "A": "O Legislativo, o Executivo e o Judiciário — poderes independentes e harmônicos entre si, integrantes da República Federativa do Brasil — não estão sujeitos ao princípio da indissolubilidade do vínculo federativo.",
+        "B": "A República Federativa do Brasil é composta pela união entre os estados federados, municípios e o Distrito Federal, não podendo ser nem mesmo objeto de deliberação uma proposta de emenda constitucional tendente a abolir a forma federativa.",
+        "C": "A independência nacional como princípio significa a manifestação da soberania na ordem interna com superioridade a todas as demais manifestações de poder em âmbito global.",
+        "D": "A solução pacífica dos conflitos é um dos objetivos fundamentais da República Federativa do Brasil.",
+        "E": "O Legislativo, o Executivo e o Judiciário são poderes harmônicos e preservam o equilíbrio no exercício das funções estatais essenciais, coibindo o sistema de freios e contrapesos."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Direito Constitucional",
+      "gabarito": "C",
+      "enunciado": "Felipe é brasileiro naturalizado e foi morar no Japão, onde se casou com Júlia, uma mexicana. Quando Júlia estava a serviço de seu país na Alemanha, nasceu Alberto, filho do casal, que não foi registrado no consulado brasileiro nem no mexicano. Aos vinte anos de idade, Alberto veio para o Brasil, onde instaurou residência e, ato contínuo, optou pela nacionalidade brasileira.\n\nNessa situação hipotética, no que diz respeito à nacionalidade, a CF estabelece que Alberto",
+      "alternativas": {
+        "A": "é alemão e brasileiro, tendo obrigatoriamente dupla nacionalidade.",
+        "B": "é brasileiro naturalizado.",
+        "C": "é brasileiro nato.",
+        "D": "não pode optar pela nacionalidade brasileira por não estar residindo, sem condenação penal, há mais de quinze anos ininterruptos no Brasil.",
+        "E": "é alemão, brasileiro e mexicano, tendo obrigatoriamente cidadania múltipla."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Direito Constitucional",
+      "gabarito": "A",
+      "enunciado": "Os itens a seguir apresentam proposições normativas a respeito da eficácia das normas constitucionais.\n\nI A lei disporá sobre a criação e a extinção de ministérios e órgãos da administração pública.\nII É direito dos trabalhadores urbanos e rurais, além de outros que visem à melhoria de sua condição social, o piso salarial proporcional à extensão e à complexidade do trabalho.\nIII Cessado o estado de defesa ou o estado de sítio, cessarão também seus efeitos, sem prejuízo da responsabilidade pelos ilícitos cometidos por seus executores ou agentes.\nIV A organização político-administrativa da República Federativa do Brasil compreende a União, os estados, o Distrito Federal e os municípios, todos autônomos, nos termos da Constituição Federal de 1988.\n\nSão normas de eficácia limitada apenas as proposições normativas apresentadas nos itens",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "I e III.",
+        "C": "II e IV.",
+        "D": "I, III e IV.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "De acordo com a Constituição do Rio Grande do Sul, compete à Assembleia Legislativa local",
+      "alternativas": {
+        "A": "apreciar todos os projetos de iniciativa do governador obrigatoriamente em regime de urgência.",
+        "B": "criar e aumentar a remuneração de cargos, funções ou empregos públicos na administração direta ou autárquica, por meio de lei de iniciativa parlamentar.",
+        "C": "estabelecer regras gerais sobre o pagamento de 13.º salário aos servidores estaduais.",
+        "D": "regulamentar o fretamento de ônibus para o transporte com finalidade turística e para o atendimento do turismo no estado do Rio Grande do Sul.",
+        "E": "apreciar exclusivamente proposta de empréstimo internacional a ser celebrado entre o estado do Rio Grande do Sul e a entidade internacional."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "A respeito de tributos, assinale a opção correta.",
+      "alternativas": {
+        "A": "São três as espécies de tributos: impostos, taxas e contribuições sociais.",
+        "B": "A extrafiscalidade relaciona-se com a independência do Estado em prestar atividade ao contribuinte.",
+        "C": "A manifestação prévia do sujeito passivo é condição para a cobrança assumir natureza tributária.",
+        "D": "Instituir contribuições previdenciárias de servidores públicos do Distrito Federal é competência exclusiva da União.",
+        "E": "Pessoa natural destinatária de operações de importação pode ser equiparada a pessoa jurídica."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Com base nas disposições da CF quanto à contribuição de intervenção no domínio econômico incidente sobre combustíveis (CIDE), assinale a opção correta.",
+      "alternativas": {
+        "A": "A contribuição em referência subordina-se ao princípio da anterioridade relativa ao exercício financeiro.",
+        "B": "A destinação do valor arrecadado dessa contribuição é definida por resolução do Senado Federal.",
+        "C": "Essa contribuição incide exclusivamente sobre petróleo e seus derivados.",
+        "D": "A alíquota da referida contribuição pode ser reduzida e restabelecida por ato do Poder Executivo Federal.",
+        "E": "Não pode haver diferenciação de alíquotas da contribuição mencionada por uso ou produto."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "A legislação tributária atribui particularidades à medida provisória enquanto instrumento com força de lei. Nesse sentido, é correto afirmar que",
+      "alternativas": {
+        "A": "é vedado o aumento de imposto por medida provisória que não possa ser votada no mesmo exercício financeiro de sua edição.",
+        "B": "a exigibilidade de tributo instituído por medida provisória depende do cumprimento do princípio da legalidade estrita.",
+        "C": "as relações jurídico-tributárias decorrentes de medida provisória conservam-se por esta regidas no caso de não se editar decreto legislativo no prazo de sessenta dias.",
+        "D": "a eficácia de medida provisória que instituir tributo será vinculada a sua votação em prazo improrrogável de sessenta dias.",
+        "E": "pode ser objeto de medida provisória a criação de tributos para custear despesas excepcionais que decorram de guerra internacional ou da iminência desta."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "Na solução de aparentes conflitos de normas de direito tributário,",
+      "alternativas": {
+        "A": "a regra geral tem preferência sobre a especial, e a pregressa é a preferida em relação à ulterior.",
+        "B": "a solução de um conflito entre princípios e regras é alcançada, entre outros meios, por postulados normativos aplicativos.",
+        "C": "colisão entre princípios se resolve com a aplicação da hierarquia e a análise de validade de um sobre o outro.",
+        "D": "a ausência de gradação entre regras requer o emprego de razões de otimização.",
+        "E": "regras, postulados e princípios estão no mesmo plano quanto ao nível, ao objeto e ao destinatário."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "O Simples Nacional",
+      "alternativas": {
+        "A": "depende, para o seu ingresso, da formalização dessa opção pelas sociedades empresariais.",
+        "B": "é obrigatório para microempresas e facultativo para empresas de pequeno porte.",
+        "C": "afasta a incidência de tributos federais, estaduais e daqueles que o Distrito Federal fiscaliza na condição de estado-membro.",
+        "D": "pode ser retratado no mesmo ano-calendário em que a microempresa exceder o limite de faturamento relativo ao seu enquadramento.",
+        "E": "é inaplicável a sociedade limitada cujas cotas sociais pertençam, em um terço ou mais, a empregado público."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Com relação à competência tributária dos entes federados, assinale a opção correta.",
+      "alternativas": {
+        "A": "O Distrito Federal e os municípios têm competência para instituir contribuições para o custeio de serviços de iluminação pública.",
+        "B": "Os estados federados e o Distrito Federal têm competência residual para legislar sobre empréstimos compulsórios.",
+        "C": "Os municípios, os estados federados, o Distrito Federal e a União têm competência concorrente para instituir contribuições sociais interventivas e de interesse das categorias profissionais.",
+        "D": "À União competem originariamente os impostos sobre doações de bens imóveis quando o donatário vier a ser beneficiado com os direitos reais em dois ou mais estados.",
+        "E": "Aos municípios e ao Distrito Federal competem os impostos incidentes sobre operações relativas à circulação de mercadorias com a mudança de titularidade."
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "A atuação da administração tributária deve garantir a fiscalização, o lançamento e a cobrança dos tributos, de forma a preservar a igualdade entre os administrados, sem prejuízo da responsabilidade fiscal do sujeito ativo. Considerando-se a legislação pertinente a esse assunto, é correto afirmar que",
+      "alternativas": {
+        "A": "as autoridades fiscais devem restringir-se à avaliação do acervo material e documental disponibilizado espontaneamente pelo administrado.",
+        "B": "o procedimento de fiscalização tributária deve ser documentado mediante termo específico que lavre o início do procedimento e que fixe prazo máximo de conclusão.",
+        "C": "os tabeliães, escrivães e serventuários de ofício são obrigados a prestar informações exigidas pela autoridade administrativa, salvo quando se tratar de bens, negócios ou atividades de terceiros.",
+        "D": "informações obtidas em razão do ofício pelo fisco e que antes eram protegidas por sigilo bancário deixam de ser confidenciais e passam a ser públicas.",
+        "E": "é vedada a troca de informações entre administrações tributárias de diferentes entes federados."
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "O Código Tributário Nacional (CTN) disciplina o que a autoridade competente pode fazer para interpretar a norma tributária, a fim de resolver dúvidas e solucionar casos de ausência de disposição expressa acerca de determinada questão. Com relação à interpretação e à integração da legislação tributária, é correto afirmar que",
+      "alternativas": {
+        "A": "os princípios gerais de direito público precedem os de direito tributário.",
+        "B": "a equidade pode ser utilizada para estender a isenção de tributos a outros sujeitos passivos.",
+        "C": "é vedado o uso da analogia para instituir contribuições sociais não previstas em lei.",
+        "D": "não se admite a interpretação literal de norma que trate de suspensão ou exclusão do crédito tributário.",
+        "E": "devem ser interpretadas em favor do fisco as questões que envolvam imputabilidade e circunstâncias materiais do fato."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "A atividade estatal de arrecadação de tributos depende do cumprimento de obrigações de naturezas distintas pelo contribuinte e pelo não contribuinte, para que se materialize todo o percurso de lançamento, cobrança e fiscalização do crédito tributário. Com relação a esse assunto, é correto afirmar que",
+      "alternativas": {
+        "A": "as relações contributivas dispensam a atuação do fisco.",
+        "B": "presume-se por facultativa a obrigação que vise auxiliar a fiscalização tributária atribuída a terceiro não contribuinte.",
+        "C": "obrigação acessória, quando descumprida por terceiro não contribuinte, converte-se em principal, exceto quanto às penalidades pecuniárias.",
+        "D": "o contribuinte que usufrui de imunidade deve cumprir as obrigações acessórias relativas ao benefício fiscal.",
+        "E": "obrigações acessórias extinguem-se com a ocorrência do fato gerador em relação a terceiro não contribuinte."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Para que os créditos tributários sejam executados, seu lançamento em certidão de dívida ativa (CDA) deve ser válido. A esse respeito, é correto afirmar que",
+      "alternativas": {
+        "A": "a CDA pode fundar-se em crédito tributário parcelado.",
+        "B": "penalidade pecuniária pelo descumprimento de obrigação acessória não pode ser objeto de CDA.",
+        "C": "compete aos estados e municípios executar créditos tributários da União nos locais onde houver vara federal correspondente ao domicílio do devedor.",
+        "D": "o crédito tributário lançado em CDA prescreve em três anos, a partir do seu lançamento.",
+        "E": "o executado citado com base em título extrajudicial deve, no prazo de cinco dias, pagar a dívida indicada na CDA ou garantir a execução."
+      }
+    },
+    {
+      "numero": 61,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "De acordo com a CF, no que se refere à distribuição de competência legislativa de natureza tributária,",
+      "alternativas": {
+        "A": "cabe ao Senado Federal estabelecer, obrigatoriamente, as alíquotas do ICMS aplicáveis às operações internas e às operações de exportação.",
+        "B": "é obrigatório ao Senado Federal estabelecer alíquotas mínimas de ICMS nas operações internas.",
+        "C": "é facultado ao Senado Federal fixar alíquotas máximas nas operações internas para resolver conflito específico que envolva interesse de estados federados.",
+        "D": "cabe ao Senado Federal fixar alíquotas mínimas do imposto sobre heranças e doações (ITCD).",
+        "E": "cabe ao Senado Federal fixar alíquotas máximas do imposto sobre a propriedade de veículos automotores (IPVA)."
+      }
+    },
+    {
+      "numero": 62,
+      "materia": "Direito Tributário",
+      "gabarito": "X",
+      "enunciado": "As contribuições sociais de intervenção no domínio econômico e de interesse das categorias profissionais ou econômicas",
+      "alternativas": {
+        "A": "não precisam ser definidas por meio de lei complementar.",
+        "B": "submetem-se às regras gerais relativas ao lançamento tributário.",
+        "C": "devem ter seus fatos geradores definidos por meio de lei complementar.",
+        "D": "submetem-se ao princípio da anterioridade, o que determina que a elevação de alíquota somente poderá ser cobrada no exercício financeiro posterior ao da publicação da lei complementar.",
+        "E": "podem ter suas alíquotas alteradas por ato do Poder Executivo, desde que atendidos os limites estabelecidos por lei complementar."
+      }
+    },
+    {
+      "numero": 63,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Isenção do crédito tributário estabelecida por determinada lei federal",
+      "alternativas": {
+        "A": "dispensará o cumprimento de obrigações acessórias.",
+        "B": "será extensiva aos tributos que venham a ser criados após a concessão dessa isenção, se tiver sido destinada a determinado grupo de pessoas.",
+        "C": "não alcançará as taxas, mas apenas as contribuições de melhoria, caso seja destinada a determinado grupo de pessoas.",
+        "D": "não poderá ser restritivamente concedida a uma região do território da entidade tributante.",
+        "E": "poderá ser concedida sob determinadas condições ou por prazo certo."
+      }
+    },
+    {
+      "numero": 64,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Lei municipal instituiu imposto sobre transmissões inter vivos de bens imóveis (ITBI) estabelecendo o seguinte:\n\nI alíquotas progressivas para o imposto com base no valor venal do imóvel;\nII exigibilidade de cobrança do imposto a partir da lavratura da escritura para o adquirente;\nIII incidência do imposto nos contratos de promessa de compra e venda;\nIV obrigatoriedade de cobrança do imposto ao munícipe, ainda que o imóvel esteja situado em outro município.\n\nNessa situação hipotética, considerando-se as disposições da CF e a jurisprudência do STF, é correto afirmar que a referida lei é inconstitucional no que se refere ao estabelecido nos itens",
+      "alternativas": {
+        "A": "I, II e III, apenas.",
+        "B": "I, II e IV, apenas.",
+        "C": "I, III e IV, apenas.",
+        "D": "II, III e IV, apenas.",
+        "E": "I, II, III e IV."
+      }
+    },
+    {
+      "numero": 65,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Se um contribuinte não eleger o seu domicílio fiscal na forma da lei, a administração tributária deverá considerar como domicílio",
+      "alternativas": {
+        "A": "a residência habitual do contribuinte, ainda que incerta, caso se trate de pessoa natural.",
+        "B": "a residência do empresário, caso se trate de firma individual.",
+        "C": "o estabelecimento mantido na capital do estado federado, caso se trate de sociedade de economia mista.",
+        "D": "qualquer uma das repartições localizadas no território da entidade tributante, caso se trate de pessoa jurídica de direito público.",
+        "E": "qualquer uma das filiais localizadas no território da entidade tributante, caso se trate de empresa pública."
+      }
+    },
+    {
+      "numero": 66,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "Verificada situação que enseje a imposição de multa em decorrência de infração tributária legalmente prevista, a administração tributária poderá impor a penalidade considerando",
+      "alternativas": {
+        "A": "a intenção do agente causador.",
+        "B": "a efetividade do ato.",
+        "C": "a natureza do ato.",
+        "D": "a extensão dos efeitos do ato.",
+        "E": "a ocorrência do ato."
+      }
+    },
+    {
+      "numero": 67,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "Um contribuinte está em débito para com a fazenda pública em razão de um crédito tributário regularmente inscrito como dívida ativa.\n\nCom relação a essa situação hipotética, é correto afirmar que, em regra, presume-se lícita a conduta do contribuinte mesmo que ele promova",
+      "alternativas": {
+        "A": "a alienação de seus bens.",
+        "B": "a alienação de suas rendas.",
+        "C": "a oneração de seus bens, desde que reserve rendas suficientes para o pagamento total da dívida.",
+        "D": "a oneração de suas rendas, desde que reserve bens suficientes para o pagamento de mais de 80% do total da dívida.",
+        "E": "a oneração de rendas em um procedimento com esse objetivo ainda em estágio inicial."
+      }
+    },
+    {
+      "numero": 68,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "Nas operações interestaduais, o ICMS incide sobre",
+      "alternativas": {
+        "A": "operações que destinem mercadorias ao exterior, inclusive produtos primários e produtos industrializados semielaborados.",
+        "B": "operações de entrada de bem importado do exterior por pessoa jurídica que não seja contribuinte habitual do imposto.",
+        "C": "operações de qualquer natureza, das quais decorra a transferência de propriedade de estabelecimento industrial.",
+        "D": "operações com ouro, quando este for definido em lei como instrumento cambial.",
+        "E": "operações que envolvam livros, jornais, periódicos e o papel destinado à impressão destes."
+      }
+    },
+    {
+      "numero": 69,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "A administração tributária de um estado federado deverá propor execução fiscal em desfavor de um contribuinte pessoa física",
+      "alternativas": {
+        "A": "na capital do respectivo estado federado ou no foro de domicílio do contribuinte.",
+        "B": "no foro de domicílio do contribuinte ou no lugar onde ele for encontrado.",
+        "C": "na capital do respectivo estado federado ou no local da ocorrência do fato gerador que originou a execução.",
+        "D": "no local do fato gerador que originou a execução ou no foro de residência do contribuinte.",
+        "E": "no foro de residência do contribuinte ou no local por ele escolhido."
+      }
+    },
+    {
+      "numero": 70,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "A CF prevê que cabe aos estados federados e ao Distrito Federal, mediante deliberação e por meio de lei complementar, regulamentar a concessão e revogação de isenções, incentivos e benefícios fiscais relativos ao ICMS. A Lei Complementar n.º 24/1975, que trata de convênios sobre ICMS, dispensou a celebração desses convênios sobre",
+      "alternativas": {
+        "A": "as anistias de multas relativas ao ICMS.",
+        "B": "as reduções da base de cálculo do ICMS.",
+        "C": "as devoluções totais ou parciais do ICMS ao contribuinte.",
+        "D": "as concessões de créditos presumidos de ICMS.",
+        "E": "as isenções do ICMS."
+      }
+    },
+    {
+      "numero": 71,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "O ICMS é espécie tributária que pode ser classificada como um imposto",
+      "alternativas": {
+        "A": "direto e especial, que deverá ser seletivo.",
+        "B": "indireto e real, que poderá ser seletivo.",
+        "C": "direto e pessoal, que deverá ser seletivo.",
+        "D": "indireto e pessoal, que poderá ser seletivo.",
+        "E": "direto e real, que poderá ser seletivo."
+      }
+    },
+    {
+      "numero": 72,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Determinadas espécies normativas são aptas a aumentar as alíquotas de ICMS sobre operações internas e operações interestaduais. A respeito desse assunto, assinale a opção correta.",
+      "alternativas": {
+        "A": "Lei estadual é apta a aumentar as alíquotas de ICMS sobre as operações internas e interestaduais.",
+        "B": "Lei complementar estadual é apta a aumentar alíquotas de ICMS sobre operações internas, e resolução do Senado Federal, sobre operações interestaduais.",
+        "C": "Resolução do Senado Federal é apta a aumentar alíquotas de ICMS sobre operações internas, e resolução do Conselho Nacional de Política Fazendária, sobre operações interestaduais.",
+        "D": "Lei estadual é apta a aumentar alíquotas de ICMS sobre operações internas, e resolução do Senado Federal, sobre operações interestaduais.",
+        "E": "Lei complementar estadual é apta a aumentar alíquotas de ICMS sobre operações internas, e convênio do Conselho Nacional de Política Fazendária, sobre operações interestaduais."
+      }
+    },
+    {
+      "numero": 73,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "Determinada empresa, constituída como pessoa jurídica de direito privado, elegeu por domicílio tributário, entre os seus estabelecimentos fabris, um situado em área distante de seu centro administrativo de distribuição logística, que é o lugar de situação dos bens a serem vendidos, o que dificulta a arrecadação e a fiscalização de tributos.\n\nNessa situação hipotética, a autoridade administrativa",
+      "alternativas": {
+        "A": "pode rejeitar o domicílio eleito e considerar como domicílio tributário da empresa o centro de distribuição.",
+        "B": "não pode rejeitar o domicílio tributário eleito porque a empresa agiu nos limites de sua discricionariedade.",
+        "C": "pode rejeitar o domicílio eleito e considerar como domicílio tributário o centro habitual da atividade.",
+        "D": "pode rejeitar o domicílio eleito e considerar como domicílio tributário qualquer outro de seus estabelecimentos situados no território da entidade tributante.",
+        "E": "não pode rejeitar o domicílio eleito caso o domicílio tributário indicado seja o local de residência habitual do administrador."
+      }
+    },
+    {
+      "numero": 74,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Determinada lei estadual transferiu para momento posterior o pagamento de tributo referente à saída de mercadoria de produção própria entre um produtor e uma cooperativa.\n\nNessa situação hipotética, verifica-se hipótese de responsabilidade por",
+      "alternativas": {
+        "A": "transferência progressiva.",
+        "B": "transferência de terceiros.",
+        "C": "substituição regressiva.",
+        "D": "transferência regressiva.",
+        "E": "substituição progressiva."
+      }
+    },
+    {
+      "numero": 75,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "A secretaria de fazenda de determinado estado da Federação realizará o lançamento de tributo de sua competência na importação de mercadoria; o valor tributário está expresso em moeda estrangeira e discriminado em documento idôneo.\n\nNesse caso, de acordo com o CTN, o lançamento será feito por",
+      "alternativas": {
+        "A": "arbitramento do valor mediante aferição de similar exclusivamente nacional.",
+        "B": "arbitramento do valor mediante aferição de similares nacional e internacional, prevalecendo o que for maior.",
+        "C": "conversão em moeda nacional ao câmbio do dia fixado na nota fiscal de remessa da mercadoria no exterior.",
+        "D": "conversão em moeda nacional ao câmbio do dia do lançamento definitivo do tributo.",
+        "E": "conversão em moeda nacional ao câmbio do dia da ocorrência do fato gerador da obrigação."
+      }
+    },
+    {
+      "numero": 76,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "Conforme o CTN, com o objetivo de aprimorar a fiscalização tributária, a permuta de informações entre a fazenda pública da União e determinada secretaria de fazenda estadual é permitida",
+      "alternativas": {
+        "A": "se houver previsão em lei ou convênio e desde que não inclua informações sigilosas.",
+        "B": "independentemente da existência de lei, convênio ou processo administrativo, e pode incluir qualquer tipo de informação.",
+        "C": "se houver previsão legal e desde que inclua apenas informações não sigilosas.",
+        "D": "se houver previsão em lei ou convênio e pode incluir informações sigilosas.",
+        "E": "se houver previsão legal e deve restringir-se a informações estritamente sigilosas."
+      }
+    },
+    {
+      "numero": 77,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Uma cooperativa criada para industrializar produtos rurais insurgiu-se contra lançamento decorrente de ICMS por substituição tributária, sob o argumento de já ter realizado pagamento relativo a esse Tributo por meio do recolhimento mensal em documento único de arrecadação do Simples Nacional.\n\nDe acordo com a Lei Complementar n.º 123/2006, o argumento apresentado pela cooperativa",
+      "alternativas": {
+        "A": "é válido caso, de fato, o tributo tenha sido integralmente pago na forma do Simples Nacional.",
+        "B": "não é válido, pois nenhuma cooperativa poderá aderir ao regime tributário do Simples Nacional.",
+        "C": "não é válido, pois essa cooperativa não pode aderir ao Simples Nacional e não pode recolher ICMS por substituição tributária pelo documento de arrecadação única mensal.",
+        "D": "não é válido, pois, embora essa cooperativa possa recolher o ICMS mediante substituição tributária pelo documento de arrecadação única mensal, ela não pode aderir ao Simples Nacional.",
+        "E": "não é válido, pois, embora essa cooperativa possa se enquadrar como microempresa, ela não pode aderir ao Simples Nacional."
+      }
+    },
+    {
+      "numero": 78,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "O governo de determinado estado da Federação, ao contrário dos governos dos demais estados, não publicou decreto ratificando convênio de eficácia nacional que havia revogado isenções do imposto sobre operações relativas a circulação de mercadorias. O referido convênio foi aprovado por 21 dos 25 representantes de estados da Federação que estavam presentes à reunião. O representante do estado da Federação que não publicou o decreto ratificando o convênio não estava presente à deliberação.\n\nNessa situação hipotética, de acordo com dispositivos da Lei Complementar Federal n.º 24/1975, esse convênio",
+      "alternativas": {
+        "A": "não obriga o referido estado, devido a ausência da ratificação expressa por meio de decreto.",
+        "B": "obriga o referido estado, porque a ratificação será considerada tácita e porque foi atendido o quórum deliberativo.",
+        "C": "não obriga o referido estado, em razão do descumprimento do quórum deliberativo.",
+        "D": "obriga o referido estado se, a qualquer tempo, vier a publicar o decreto de ratificação.",
+        "E": "não obriga o referido estado, porque o seu representante não estava presente à reunião deliberativa."
+      }
+    },
+    {
+      "numero": 79,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "Determinado produto, oriundo do estado de São Paulo, foi comprado, pela Internet, por consumidor final residente no estado do Rio Grande do Sul.\n\nNesse caso, com relação ao ICMS devido nessa negociação, é correto afirmar que o estado do Rio Grande do Sul",
+      "alternativas": {
+        "A": "não fará jus ao ICMS, devendo o estado de São Paulo auferir o valor integral de alíquota interna.",
+        "B": "fará jus ao diferencial entre a alíquota interna de ICMS do estado do Rio Grande do Sul e a alíquota interestadual apenas se o destinatário final for contribuinte do tributo.",
+        "C": "fará jus à integralidade da alíquota interna de ICMS do estado do Rio Grande do Sul.",
+        "D": "fará jus ao diferencial entre a alíquota interna de ICMS do estado de São Paulo e a alíquota interestadual.",
+        "E": "fará jus ao diferencial entre a alíquota interna de ICMS do estado do Rio Grande do Sul e a alíquota interestadual."
+      }
+    },
+    {
+      "numero": 80,
+      "materia": "Direito Tributário",
+      "gabarito": null,
+      "enunciado": "De acordo com o Código de Processo Civil (CPC) e a doutrina pertinente, os valores decorrentes de multas por atos atentatórios à dignidade da justiça são de natureza",
+      "alternativas": {
+        "A": "não tributária, podendo integrar a dívida ativa da União e dos estados, sendo cobrada sob o rito da execução fiscal.",
+        "B": "tributária, podendo integrar a dívida ativa da União e dos estados.",
+        "C": "não tributária, não podendo integrar a dívida ativa da União e dos estados, sendo cobrada sob o rito do cumprimento de sentença.",
+        "D": "tributária e destinados ao fundo de defesa de direitos coletivos.",
+        "E": "não tributária e destinados ao fundo de defesa dos direitos coletivos."
+      }
+    }
+  ]
+}

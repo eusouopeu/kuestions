@@ -1,0 +1,1313 @@
+{
+  "instituicao": "SEFAZ-RJ",
+  "ano": 2025,
+  "cargo": "Auditor Fiscal da Receita Estadual (3a categoria)",
+  "tipo_prova": "Conhecimentos Especificos II - P2",
+  "gabarito_tipo": "060_SEFAZRJAUDITOR_002_01",
+  "_aviso": "O gabarito oficial fornecido pode nao corresponder exatamente a ordem/tipo de caderno do texto da prova fornecido (provas CEBRASPE tem multiplos tipos com ordem embaralhada). Questoes 11, 12 e 21 apresentaram divergencia entre o gabarito oficial e o conteudo da questao verificado manualmente; nesses casos o gabarito OFICIAL foi mantido, com a divergencia sinalizada no campo _gabarito_conflito de cada questao. Recomenda-se conferencia adicional antes de uso definitivo.",
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Português",
+      "gabarito": "A",
+      "enunciado": "No texto 2A1-I, a noção de estratégia de ficção é",
+      "alternativas": {
+        "A": "exemplificada mais de uma vez ao longo do texto.",
+        "B": "descrita como uma habilidade determinante para a formação da identidade carioca.",
+        "C": "conceituada de maneira técnica a partir de sua manifestação em uma obra literária.",
+        "D": "apresentada como forma de fuga permanente à realidade.",
+        "E": "listada como um fenômeno irrefreável que se observa em camadas mais pobres da sociedade."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Português",
+      "gabarito": "C",
+      "enunciado": "O trecho \"De dentro da máscara, nada ao redor é realidade\" (penúltimo período do texto 2A1-I)",
+      "alternativas": {
+        "A": "exprime um juízo de valor sobre a realidade.",
+        "B": "indica uma forma de criar histórias extravagantes.",
+        "C": "reflete um elemento do tema central do texto.",
+        "D": "exemplifica uma tentativa de mudar a realidade.",
+        "E": "expressa uma valorização do excesso de ficção."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Português",
+      "gabarito": "B",
+      "enunciado": "No terceiro parágrafo do texto 2A1-I, o vocábulo \"ele\" (último período) retoma, por coesão, o termo",
+      "alternativas": {
+        "A": "\"Machado\" (terceiro período).",
+        "B": "\"rapaz\" (primeiro período).",
+        "C": "\"negro\" (primeiro período).",
+        "D": "\"bombom\" (segundo período).",
+        "E": "\"pregão\" (segundo período)."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Português",
+      "gabarito": "C",
+      "enunciado": "Julgue os itens a seguir, relativos a aspectos linguísticos do texto 2A1-I.\nI Seria mantida a correção gramatical do trecho \"Não se trata de inventar histórias\" (primeiro período do segundo parágrafo) caso ele fosse assim reescrito: Isso não se trata de inventar histórias.\nII Estaria preservada a correção gramatical do primeiro período do quarto parágrafo caso se substituísse o segmento \"com as quais convivia\" por que eu convivia.\nIII Sem prejuízo da correção gramatical do primeiro período do último parágrafo, a forma pronominal \"se\" poderia ser deslocada para a posição proclítica — se negar.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Nenhum item está certo.",
+        "B": "Apenas o item II está certo.",
+        "C": "Apenas o item III está certo.",
+        "D": "Apenas os itens I e II estão certos.",
+        "E": "Apenas os itens I e III estão certos."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Português",
+      "gabarito": "A",
+      "enunciado": "No penúltimo período do quarto parágrafo do texto 2A1-I, a palavra \"tipo\" é empregada com o sentido de",
+      "alternativas": {
+        "A": "indivíduo.",
+        "B": "intérprete.",
+        "C": "gênero.",
+        "D": "modelo.",
+        "E": "artesão."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Português",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção em que a proposta de substituição apresentada para termo presente no texto 2A1-I preserva tanto os sentidos quanto a correção gramatical do texto.",
+      "alternativas": {
+        "A": "\"se apropriou\" (último período do terceiro parágrafo) por tomou",
+        "B": "\"desfilam\" (sexto período do último parágrafo) por se exibem",
+        "C": "\"gostei\" (primeiro período do primeiro parágrafo) por apreciei",
+        "D": "\"escolhe\" (último período do texto) por se decide",
+        "E": "\"resisto\" (terceiro período do quarto parágrafo) por me recuso"
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Português",
+      "gabarito": "A",
+      "enunciado": "No texto 2A1-I, a vírgula logo após o vocábulo \"funcionava\" (primeiro período do quarto parágrafo) é empregada para",
+      "alternativas": {
+        "A": "marcar o deslocamento de uma oração adverbial.",
+        "B": "isolar elementos que exercem a mesma função sintática.",
+        "C": "introduzir uma oração de valor adversativo.",
+        "D": "separar orações aditivas com sujeitos diferentes.",
+        "E": "delimitar uma oração com valor explicativo."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Português",
+      "gabarito": "B",
+      "enunciado": "No texto 2A1-I, pertencem à mesma classe de palavras os vocábulos",
+      "alternativas": {
+        "A": "\"grife\" (último período do segundo parágrafo) e \"compre\" (penúltimo período do terceiro parágrafo).",
+        "B": "\"presente\" (primeiro período do primeiro parágrafo) e \"carioca\" (primeiro período do segundo parágrafo).",
+        "C": "\"anasalada\" (primeiro período do terceiro parágrafo) e \"cocada\" (primeiro período do terceiro parágrafo).",
+        "D": "\"plástico\" (último período do segundo parágrafo) e \"sociológico\" (primeiro período do terceiro parágrafo).",
+        "E": "\"ameaça\" (penúltimo período do quarto parágrafo) e \"atraso\" (último período do quarto parágrafo)."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Português",
+      "gabarito": "A",
+      "enunciado": "Assinale a opção em que é apresentada a ideia principal do texto 2A1-II.",
+      "alternativas": {
+        "A": "Os pensamentos se relacionam estruturalmente às sentenças, sendo ambos constituídos de partes menores.",
+        "B": "A possibilidade de segmentar sentenças depende da forma como os pensamentos se combinam entre si.",
+        "C": "A capacidade de compreender sentenças e pensamentos novos é típica dos seres humanos.",
+        "D": "A possibilidade de construir infinitas sentenças decorre da existência de sílabas.",
+        "E": "Os pensamentos são qualitativa e estruturalmente uniformes entre os seres humanos."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Português",
+      "gabarito": "D",
+      "enunciado": "No primeiro parágrafo do texto 2A1-II, a expressão \"Essa analogia\" (último período) refere-se à",
+      "alternativas": {
+        "A": "distinção entre sentença e pensamento.",
+        "B": "atribuição de roupagem, pela linguagem, a pensamentos.",
+        "C": "decomposição da sentença em segmentos.",
+        "D": "aplicação da relação todo-parte a pensamentos.",
+        "E": "apreensão de pensamentos por meio de palavras."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Português",
+      "gabarito": "X",
+      "enunciado": "Assinale a opção em que há correta correspondência entre o termo ou o segmento extraído do segundo período do primeiro parágrafo do texto 2A1-II e a função sintática por ele exercida.",
+      "alternativas": {
+        "A": "\"incalculável\" – predicativo",
+        "B": "\"esse pensamento\" – objeto direto",
+        "C": "\"lhe\" – objeto indireto",
+        "D": "\"de apreendê-lo\" – complemento nominal",
+        "E": "\"um ser humano\" – sujeito"
+      },
+      "_gabarito_conflito": "Gabarito oficial indica 'X', mas o conteudo da questao (conforme extraido) aponta para 'C'. Mantido o gabarito oficial abaixo por seguranca."
+    },
+    {
+      "numero": 12,
+      "materia": "Português",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção em que é apresentada proposta de reescrita gramaticalmente correta e coerente para o seguinte trecho do primeiro período do último parágrafo do texto 2A1-II: \"então podemos compreender como é possível formar, a partir de poucas partes da sentença, uma grande variedade de sentenças, às quais, por sua vez, corresponde uma grande variedade de pensamentos.\"",
+      "alternativas": {
+        "A": "pois podemos compreender como, a partir de poucas partes da sentença, é possível formar uma grande variedade de sentenças, que, por sua vez, correspondem à uma grande variedade de pensamentos.",
+        "B": "podemos outrossim, compreender como é possível formar, a partir de poucas partes da sentença, uma grande variedade de sentenças, as quais, por sua vez, correspondem uma grande variedade de pensamentos.",
+        "C": "podemos compreender assim, como é possível formar, a partir de poucas partes da sentença, uma grande variedade de sentenças, a que, por sua vez, corresponde a uma grande variedade de pensamentos.",
+        "D": "logo podemos compreender como a partir de poucas partes da sentença, é possível formar uma grande variedade de sentenças, às quais por sua vez corresponde uma grande variedade de pensamentos.",
+        "E": "podemos, pois, compreender como é possível, a partir de poucas partes da sentença, formar uma grande variedade de sentenças, a que, por sua vez, corresponde uma grande variedade de pensamentos."
+      },
+      "_gabarito_conflito": "Gabarito oficial indica 'E', mas o conteudo da questao (conforme extraido) aponta para 'A'. Mantido o gabarito oficial abaixo por seguranca."
+    },
+    {
+      "numero": 13,
+      "materia": "Português",
+      "gabarito": "C",
+      "enunciado": "A correção gramatical e a coerência do texto 2A1-II seriam mantidas caso fosse isolado por vírgulas o trecho",
+      "alternativas": {
+        "A": "\"quando aplicamos\" (penúltimo período do primeiro parágrafo).",
+        "B": "\"ao pensamento\" (penúltimo período do primeiro parágrafo).",
+        "C": "\"no pensamento\" (terceiro período do primeiro parágrafo).",
+        "D": "\"como imagem\" (terceiro período do primeiro parágrafo).",
+        "E": "\"que correspondem\" (terceiro período do primeiro parágrafo)."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Português",
+      "gabarito": "A",
+      "enunciado": "Assinale a opção em que há correta correspondência entre o termo destacado e seu respectivo valor semântico no texto 2A1-II.",
+      "alternativas": {
+        "A": "\"que\" (último período do primeiro parágrafo) – consequência",
+        "B": "\"como\", em \"como compostos de partes simples\" (primeiro período do segundo parágrafo) – causa",
+        "C": "\"por\" (último período do primeiro parágrafo) – lugar",
+        "D": "\"Com\" (segundo período do primeiro parágrafo) – companhia",
+        "E": "\"ainda\" (segundo período do primeiro parágrafo) – tempo"
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Português",
+      "gabarito": "B",
+      "enunciado": "No primeiro período do segundo parágrafo do texto 2A1-II, os termos \"correspondem\" e \"corresponde\" concordam, respectivamente, com",
+      "alternativas": {
+        "A": "\"estas\" e \"uma grande variedade de sentenças\".",
+        "B": "\"partes simples da sentença\" e \"uma grande variedade de pensamentos\".",
+        "C": "\"partes simples da sentença\" e \"uma grande variedade de sentenças\".",
+        "D": "\"os pensamentos\" e \"uma grande variedade de pensamentos\".",
+        "E": "\"estas\" e \"uma grande variedade de pensamentos\"."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Administração",
+      "gabarito": "C",
+      "enunciado": "Na teoria clássica da administração, o princípio defendido por Fayol, segundo o qual os funcionários e administradores são alocados nas diversas áreas funcionais da organização, tais como a técnica, a administrativa, a contábil, a financeira e a de segurança, com base na especialização, denomina-se",
+      "alternativas": {
+        "A": "disciplina.",
+        "B": "autoridade e responsabilidade.",
+        "C": "divisão do trabalho.",
+        "D": "unidade de direção.",
+        "E": "unidade de comando."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Administração",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção correta no que se refere às funções administrativas nas organizações.",
+      "alternativas": {
+        "A": "A função controle concentra-se na padronização do desempenho, mediante procedimentos e inspeções, e na proteção dos bens organizacionais.",
+        "B": "No nível operacional, a função direção compreende a gerência e a alocação de recursos com vistas à ação organizacional e liderança.",
+        "C": "O componente pessoas, concernente à função planejamento, diz respeito à designação de cada colaborador para ocupar um cargo ou função, que é parte específica do trabalho geral da organização.",
+        "D": "No nível departamental, a função organização focaliza cada tarefa, atividade ou operação especificamente, mediante a descrição e análise dos cargos.",
+        "E": "O desenho organizacional consiste na definição da estrutura organizacional mais adequada ao ambiente, estratégia, tecnologia, pessoas, atividades e tamanho da organização."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Administração",
+      "gabarito": "C",
+      "enunciado": "No que diz respeito ao planejamento estratégico organizacional, julgue os itens seguintes.\nI Mercados em expansão e novos segmentos no mercado com alta rentabilidade constituem pontos fortes de uma organização que devem ser explorados.\nII Ausência de fatores de diferenciação e debilitada visibilidade no mercado representam fraquezas de uma organização.\nIII Na matriz GUT, a letra G associa-se ao fator que mede o impacto de um problema ou demanda para os demais processos de negócio da organização.\nIV O uso da ferramenta 5W2H facilita a implementação de melhorias, independentemente da racionalização dos processos de trabalho.\nEstão certos apenas os itens",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "I e IV.",
+        "C": "II e III.",
+        "D": "I, III e IV.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Administração",
+      "gabarito": "E",
+      "enunciado": "Julgue os itens seguintes, em relação aos fatores que estão relacionados ao sucesso na implementação do balanced scorecard nas organizações.\nI adoção de visão estratégica real\nII identificação das metas estratégicas de forma abrangente e precisa\nIII comunicação eficiente do plano estratégico a todos os colaboradores da organização\nIV alocação de recursos adequada e suficiente à execução das metas estratégicas\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas os itens I, II e III estão certos.",
+        "B": "Apenas os itens I, II e IV estão certos.",
+        "C": "Apenas os itens I, III e IV estão certos.",
+        "D": "Apenas os itens II, III e IV estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Administração",
+      "gabarito": "C",
+      "enunciado": "O tipo de departamentalização relacionado à sequência do método produtivo, na qual cada departamento consiste em um centro de produção, e indicado para situações cujo foco é a tecnologia e para quando os atributos da tecnologia utilizada e dos produtos ou serviços produzidos são estáveis e permanentes denomina-se departamentalização por",
+      "alternativas": {
+        "A": "área geográfica.",
+        "B": "projeto.",
+        "C": "processo.",
+        "D": "função.",
+        "E": "clientela."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Administração",
+      "gabarito": "C",
+      "enunciado": "Assinale a opção correta no que concerne à cultura organizacional, à motivação e liderança, e à comunicação nas organizações.",
+      "alternativas": {
+        "A": "No processo de comunicação, tanto o emissor quanto o receptor veem e escutam com base em suas próprias necessidades, motivações e experiências, ao que se chama de percepção inclusiva.",
+        "B": "Os valores dominantes e as irregularidades nos comportamentos observados são características definidoras da cultura de uma organização.",
+        "C": "Na cultura organizacional, o componente filosofia consiste nas políticas que afirmam as crenças sobre como os colaboradores ou clientes devem ser tratados.",
+        "D": "O enriquecimento de tarefas constitui uma forma de construir motivadores extrínsecos ao próprio trabalho.",
+        "E": "O sistema administrativo do tipo consultivo pende mais para o lado autocrático que para o lado participativo, sendo encontrado em organizações industriais mais avançadas."
+      },
+      "_gabarito_conflito": "Gabarito oficial indica 'C', mas o conteudo da questao (conforme extraido) aponta para 'B'. Mantido o gabarito oficial abaixo por seguranca."
+    },
+    {
+      "numero": 22,
+      "materia": "Administração",
+      "gabarito": "E",
+      "enunciado": "Os colaboradores buscam um relacionamento humano mais próximo e franco, caracterizado pelo respeito mútuo, pela confiança recíproca e pela amizade autêntica. Nas organizações, o aspecto descrito está associado a",
+      "alternativas": {
+        "A": "oportunidades de crescimento e desenvolvimento.",
+        "B": "reconhecimento e recompensas.",
+        "C": "divertimento, alegria e satisfação.",
+        "D": "liberdade e autonomia.",
+        "E": "camaradagem e coleguismo."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Administração",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção correta a respeito da gestão por competências nas organizações.",
+      "alternativas": {
+        "A": "A introdução da gestão por competências nas organizações tende a dificultar o relacionamento entre gestores e liderados, em face dos constantes feedbacks.",
+        "B": "As pessoas dotadas de competências possuem maior potencial para desempenhar suas tarefas, embora tal condição lese diretamente sua produtividade.",
+        "C": "A gestão por competências aumenta o viés pessoal, visto que prioriza a seleção do candidato cujas competências melhor se adéquam às estratégias organizacionais.",
+        "D": "Uma das dificuldades da implantação da gestão por competências nas organizações é a existência de dissociação entre a gestão de competências e as estratégias organizacionais.",
+        "E": "A gestão por competências estabelece a necessidade de treinamentos e concentra-se no mais adequado para aprimorar as capacidades do colaborador, sendo ineficaz para transformá-las em vantagem competitiva."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Administração",
+      "gabarito": "A",
+      "enunciado": "Considerando as contribuições dos principais teóricos para a gestão da qualidade, julgue os itens seguintes.\nI Shewhart foi um dos pioneiros na aplicação da estatística ao controle de qualidade, tendo preparado o primeiro rascunho do que viria a ser conhecido como carta de controle.\nII Deming defendia a constância de propósitos para a melhoria do produto e do serviço, para que a organização se tornasse competitiva, se mantivesse em atividade e gerasse empregos.\nIII Ishikawa contribuiu para o desenvolvimento da visão ampla da qualidade, com ênfase no lado humano, tendo desenvolvido o diagrama de causa e efeito.\nIV Segundo Juran, há duas dimensões no conceito de qualidade: uma externa, relativa às necessidades dos consumidores, e uma interna, relacionada à correta execução do produto ou serviço.\nV A proposta de Feigenbaurn é a de que devem existir limites de tolerância, ao invés de valores fixos, para as especificações de projeto.\nEstão certos apenas os itens",
+      "alternativas": {
+        "A": "I, II, III e IV.",
+        "B": "I, II, III e V.",
+        "C": "I, II, IV e V.",
+        "D": "I, III, IV e V.",
+        "E": "II, III, IV e V."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Administração",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção em que é apresentada a denominação da ferramenta que, usada na gestão de qualidade, é caracterizada pela representação de seus resultados em um gráfico de pontos cartesianos que permite verificar se existe relação de causa e efeito entre duas variáveis de natureza quantitativa e possibilita encontrar a intensidade da relação entre as variáveis pesquisadas.",
+      "alternativas": {
+        "A": "folha de verificação",
+        "B": "carta de controle",
+        "C": "diagrama de Pareto",
+        "D": "diagrama de dispersão",
+        "E": "histograma"
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Administração",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção correta no que se refere à elaboração, análise e avaliação de projetos nas organizações.",
+      "alternativas": {
+        "A": "Com o desenrolar do projeto, a incerteza a respeito do risco diminui na mesma proporção em que diminui a quantidade dos recursos arriscada.",
+        "B": "A análise do ciclo de vida do projeto é imprópria na determinação do que foi, ou não, realizado pelo projeto.",
+        "C": "A imprecisão relativa aos prazos e custos propendem a aumentar com a conclusão de cada fase.",
+        "D": "Os momentos finais do projeto são favoráveis a novas ideias e criatividade relacionadas aos processos de mudança, inclusive as corretivas.",
+        "E": "A velocidade de desenvolvimento do projeto, na maioria das vezes, segue o padrão denominado lento-rápido-lento."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Administração",
+      "gabarito": "A",
+      "enunciado": "As metodologias ágeis de gestão de projetos caracterizam-se pela",
+      "alternativas": {
+        "A": "construção de projetos em torno de colaboradores motivados, em um ambiente de confiança e com suporte necessário para a execução do trabalho.",
+        "B": "comunicação protocolar na transmissão de informações para e entre a equipe de desenvolvimento do projeto.",
+        "C": "priorização da satisfação do chefe da equipe de projeto mediante a entrega contínua e adiantada do projeto com valor agregado.",
+        "D": "aversão às mudanças nos requisitos, principalmente as solicitadas tardiamente no desenvolvimento do projeto.",
+        "E": "participação diária de colaboradores do negócio organizacional e desenvolvedores, segregados de suas funções, durante todo o projeto."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Administração",
+      "gabarito": "A",
+      "enunciado": "Com base na tabela precedente (ano/quantidade de processos não conformes: 2015:30, 2016:27, 2017:35, 2018:27, 2019:25, 2020:28, 2021:27, 2022:27, 2023:29, 2024:31), que evidencia a distribuição, por ano, de ocorrências de não conformidades em processos administrativos sancionadores, assinale a opção em que é corretamente apresentada a moda para essa distribuição.",
+      "alternativas": {
+        "A": "27",
+        "B": "28,6",
+        "C": "25",
+        "D": "35",
+        "E": "28"
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Administração",
+      "gabarito": "B",
+      "enunciado": "No mapeamento de processos, a ferramenta utilizada na representação do fluxograma das transações integrantes de um processo de prestação de serviço é denominada",
+      "alternativas": {
+        "A": "método CPM.",
+        "B": "blueprinting.",
+        "C": "gráfico de Weibull.",
+        "D": "mapofluxograma.",
+        "E": "diagrama homem-máquina."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Uma organização apresentou, no início do ano, um total de ativo no valor de R$ 60.000, um passivo exigível de R$ 45.000 e contabilizou, ao final do ano, um lucro líquido do exercício de R$ 3.000. Nessa situação hipotética, a organização obteve, sobre o capital próprio, uma rentabilidade de",
+      "alternativas": {
+        "A": "71,42%.",
+        "B": "70,00%.",
+        "C": "50,00%.",
+        "D": "20,00%.",
+        "E": "6,66%."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Economia",
+      "gabarito": "C",
+      "enunciado": "Em uma economia hipotética, o produto interno bruto a preços de mercado foi mensurado no valor de $ 300, as rendas dos residentes e das firmas domésticas auferidas no exterior foram de $ 40, as rendas obtidas no país pelos não residentes e pelas firmas estrangerias foram de $ 75, a depreciação foi estimada em $ 30, os impostos indiretos totalizaram $ 100, e as transferências indiretas foram de $ 30. Com base nas contas nacionais mencionadas, é correto concluir que o valor da renda nacional, na economia em apreço, é igual a",
+      "alternativas": {
+        "A": "$ 225.",
+        "B": "$ 135.",
+        "C": "$ 165.",
+        "D": "$ 235.",
+        "E": "$ 270."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Economia",
+      "gabarito": "A",
+      "enunciado": "O valor do produto nacional líquido a preço de mercado da economia hipotética referida (texto 2A3) é igual a",
+      "alternativas": {
+        "A": "$ 235.",
+        "B": "$ 225.",
+        "C": "$ 270.",
+        "D": "$ 265.",
+        "E": "$ 295."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Economia",
+      "gabarito": "C",
+      "enunciado": "Com base na curva ou fronteira de possibilidades de produção em uma economia com dois produtos (alimento e vestuário), representada na imagem precedente, assinale a opção correta.",
+      "alternativas": {
+        "A": "O ponto d tem maior ineficiência que o ponto a.",
+        "B": "O ponto a é o ponto de máxima produção.",
+        "C": "O que faz a economia sair do ponto b para o ponto e, ou vice-versa, é o custo de oportunidade.",
+        "D": "O que induz a mudança do ponto c para o ponto b é o avanço tecnológico.",
+        "E": "O ponto e é ineficiente quando comparado ao ponto b."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Economia",
+      "gabarito": "B",
+      "enunciado": "Com base nas informações da tabela precedente, que fornece estatísticas de comércio internacional do setor agropecuário para os dez principais países agroexportadores, julgue os itens a seguir.\nI Os Estados Unidos são o maior exportador líquido do mundo.\nII O Brasil é o terceiro maior exportador líquido do mundo.\nIII O Brasil tem o maior saldo comercial agropecuário entre os países listados.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas o item II está certo.",
+        "B": "Apenas o item III está certo.",
+        "C": "Apenas os itens I e II estão certos.",
+        "D": "Apenas os itens I e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Economia",
+      "gabarito": "E",
+      "enunciado": "No modelo IS-LM, se a curva IS for menos inclinada,",
+      "alternativas": {
+        "A": "uma política monetária contracionista deslocará a curva LM para a direita, induzindo a queda dos juros e aumentando o nível de renda da economia.",
+        "B": "o aumento do estoque de moeda deslocará a curva LM para a esquerda, aumentando juros e reduzindo o nível de renda da economia.",
+        "C": "a política monetária expansionista será menos eficaz.",
+        "D": "a política monetária somente será eficaz quando o investimento for inelástico aos juros.",
+        "E": "o aumento do estoque de moeda reduzirá a taxa de juros e, consequentemente, ampliará o nível de renda, o que implica maior eficácia."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Economia",
+      "gabarito": "X",
+      "enunciado": "Acerca da eficácia relativa das políticas monetária e fiscal, assinale a opção correta, considerando o modelo IS-LM.",
+      "alternativas": {
+        "A": "Se a curva IS for muito inclinada, a política monetária será eficaz.",
+        "B": "Se a curva IS for muito inclinada, a política fiscal será ineficaz.",
+        "C": "Se a curva IS for pouco inclinada, a política fiscal será ineficaz.",
+        "D": "Se a curva LM for pouco inclinada, a política monetária será eficaz.",
+        "E": "Se a curva LM for muito inclinada, a política fiscal será eficaz."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Economia",
+      "gabarito": "B",
+      "enunciado": "No que concerne à previdência social no Brasil atual, julgue os itens seguintes.\nI Nos últimos anos, houve redução da expectativa de vida do brasileiro, o que atenuou o impacto dos gastos previdenciários.\nII A inversão do bônus econômico demográfico prejudica o equilíbrio das contas previdenciárias.\nIII O gasto com previdência social, em 2024, só não foi maior que o gasto com saúde.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas o item I está certo.",
+        "B": "Apenas o item II está certo.",
+        "C": "Apenas os itens I e III estão certos.",
+        "D": "Apenas os itens II e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Economia",
+      "gabarito": "A",
+      "enunciado": "Em relação às finanças públicas e às funções do Estado, julgue os itens que se seguem.\nI As finanças públicas visam à promoção do bem-estar coletivo por meio da maximização da eficiência alocativa e distributiva dos recursos.\nII A definição de metas fiscais está dissociada da função estabilizadora do Estado, pois depende exclusivamente de objetivos políticos.\nIII As finanças públicas abrangem as atividades relacionadas à arrecadação de tributos, excluída a gestão de despesas e da dívida pública.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas o item I está certo.",
+        "B": "Apenas o item III está certo.",
+        "C": "Apenas os itens I e II estão certos.",
+        "D": "Apenas os itens II e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Economia",
+      "gabarito": "C",
+      "enunciado": "Entre os principais objetivos das finanças públicas, o que está diretamente associado à correção de falhas de mercado e à provisão de bens públicos é",
+      "alternativas": {
+        "A": "o controle da base monetária.",
+        "B": "a sustentabilidade da dívida pública.",
+        "C": "a alocação eficiente de recursos.",
+        "D": "a eficiência na política de distribuição de renda.",
+        "E": "a equidade tributária."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Economia",
+      "gabarito": "D",
+      "enunciado": "Considerando os critérios estabelecidos na teoria econômica do bem-estar para a avaliação da eficiência e da equidade das alocações de recursos, julgue os itens a seguir.\nI Uma alocação é considerada eficiente no sentido de Pareto se não for possível realocar recursos de forma a melhorar a situação de um agente sem piorar a de outro.\nII A eficiência de Pareto garante uma distribuição equitativa de recursos entre os indivíduos.\nIII A busca por eficiência pode entrar em conflito com objetivos de equidade, o que exige compensações por meio de políticas públicas.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas o item II está certo.",
+        "B": "Apenas o item III está certo.",
+        "C": "Apenas os itens I e II estão certos.",
+        "D": "Apenas os itens I e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Economia",
+      "gabarito": "B",
+      "enunciado": "No contexto das políticas públicas, a função estabilizadora do governo é implementada por meio de instrumentos que visam atenuar as flutuações econômicas. Um desses instrumentos consiste",
+      "alternativas": {
+        "A": "no estabelecimento de metas rígidas de superávit primário, independentemente do ciclo econômico.",
+        "B": "na implementação de políticas monetárias contracionistas em períodos de crescimento econômico acelerado.",
+        "C": "no aumento da alíquota do imposto de renda em períodos de recessão.",
+        "D": "na privatização de empresas estatais com vistas à redução do déficit público.",
+        "E": "na redução dos gastos públicos durante uma crise econômica."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Economia",
+      "gabarito": "E",
+      "enunciado": "No debate sobre justiça tributária, equidade e eficiência econômica, é essencial a compreensão dos efeitos práticos da estrutura dos tributos diretos e indiretos. Considerando a afirmativa precedente no contexto da realidade do sistema tributário brasileiro, assinale a opção correta em relação à análise técnica sobre os efeitos redistributivos dos tributos.",
+      "alternativas": {
+        "A": "A distinção entre progressividade e regressividade perdeu relevância diante da complexidade fiscal contemporânea, tendo sido substituída por critérios de arrecadação eficiente e equilíbrio orçamentário.",
+        "B": "Tributos diretos são sempre progressivos, pois possuem estrutura de alíquotas escalonadas que, por definição, garantem justiça fiscal e redução das desigualdades.",
+        "C": "A neutralidade dos tributos indiretos no Brasil é garantida pela ampla aplicação do princípio da não cumulatividade e pela uniformidade das alíquotas sobre todos os bens de consumo.",
+        "D": "A regressividade dos tributos indiretos no Brasil é integralmente compensada pela atuação das transferências governamentais e pelos mecanismos de devolução fiscal, como o cashback tributário.",
+        "E": "Tributos indiretos tendem a ser regressivos por incidirem proporcionalmente mais sobre os mais pobres, sendo essa distorção agravada quando combinada com um sistema de tributos diretos que possui brechas e privilégios estruturais."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Economia",
+      "gabarito": "D",
+      "enunciado": "No que tange à distribuição da carga tributária no Brasil, assinale a opção em que é apresentada uma razão estrutural para a baixa efetividade da redução das desigualdades.",
+      "alternativas": {
+        "A": "o ICMS é fortemente seletivo, e seu efeito progressivo resulta em maior desigualdade, dada a proteção do consumo de bens de luxo",
+        "B": "a predominância de contribuições sobre a folha de salários, como a feita para o INSS, torna o sistema progressivo, mas reduz a produtividade do trabalho formal",
+        "C": "a elevada carga tributária brasileira é majoritariamente composta por tributos diretos com baixa elasticidade-renda, o que agrava a desigualdade",
+        "D": "a estrutura de tributos sobre consumo, aliada à baixa incidência sobre rendimentos do capital, reduz a capacidade redistributiva do sistema tributário",
+        "E": "a isenção de lucros e dividendos no IRPF favorece a base da pirâmide social, mas compromete o potencial arrecadatório do Estado"
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Economia",
+      "gabarito": "B",
+      "enunciado": "Considerando que a restrição orçamentária intertemporal do governo é essencial para a sustentabilidade da dívida pública, assinale a opção em que é indicada a condição-chave para a garantia da solvência fiscal no longo prazo.",
+      "alternativas": {
+        "A": "o governo deve evitar déficits primários durante períodos de recessão para assegurar um balanço orçamentário cíclico",
+        "B": "a taxa real de juros deve ser inferior à taxa de crescimento real do PIB no longo prazo",
+        "C": "o crescimento do PIB deve superar, de forma persistente, o crescimento da base monetária",
+        "D": "a taxa real de juros da dívida pública deve ser inferior ao superávit primário estrutural",
+        "E": "o déficit nominal deve ser sempre menor que o déficit em conta corrente do balanço de pagamentos"
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Economia",
+      "gabarito": "C",
+      "enunciado": "Considerando os desequilíbrios verticais e horizontais na alocação de recursos entre os entes no federalismo fiscal brasileiro, assinale a opção em que é apresentada medida que representa uma proposta tecnicamente sólida para fortalecer a equidade e a coordenação intergovernamental.",
+      "alternativas": {
+        "A": "substituição do ICMS, estadual, pelo IPI, federal, com redistribuição de recursos via fundo de participação dos municípios e fundo de participação dos estados",
+        "B": "extinção do fundo de participação dos estados e concentração dos recursos financeiros na União para posterior distribuição por meio de emendas parlamentares impositivas",
+        "C": "criação de um conselho federativo com poderes deliberativos e vinculantes sobre a repartição de receitas e mecanismos de compensação regional, de modo a promover maior coordenação fiscal entre União, estados e municípios",
+        "D": "manutenção da autonomia tributária plena dos entes subnacionais, mesmo diante de desequilíbrios regionais, como expressão da soberania federativa",
+        "E": "unificação dos regimes próprios de previdência social dos entes federativos em um único fundo nacional de capitalização administrado centralmente"
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Matemática Financeira",
+      "gabarito": "C",
+      "enunciado": "Durante uma auditoria, verificou-se que, no ano de 2024, as receitas de determinada empresa haviam sido de R$ 350.000, enquanto suas despesas operacionais haviam sido de R$ 200.000. Além disso, foi feita a previsão de que as despesas operacionais da empresa aumentariam para R$ 240.000 no ano de 2025. Na situação hipotética precedente, para que a margem de lucro da empresa em 2025 seja mantida igual à de 2024, o valor previsto das receitas para o ano de 2025 deverá ser igual a",
+      "alternativas": {
+        "A": "R$ 560.000.",
+        "B": "R$ 466.666.",
+        "C": "R$ 420.000.",
+        "D": "R$ 390.000.",
+        "E": "R$ 385.000."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Matemática Financeira",
+      "gabarito": "E",
+      "enunciado": "Caso se realize um investimento em um fundo que rende 20% de juros a cada dois anos, com capitalização composta, então, ao final do sexto ano, o valor inicialmente investido terá aumentado",
+      "alternativas": {
+        "A": "0,8%.",
+        "B": "6,12%.",
+        "C": "44%.",
+        "D": "60%.",
+        "E": "72,8%."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Matemática Financeira",
+      "gabarito": "C",
+      "enunciado": "Suponha que uma empresa possua um título a receber no valor de R$ 591.500 com vencimento em quatro anos e que a taxa de desconto seja de 30% ao biênio, com capitalização composta. Nesse caso, o valor presente do referido título é",
+      "alternativas": {
+        "A": "R$ 236.600.",
+        "B": "R$ 289.835.",
+        "C": "R$ 350.000.",
+        "D": "R$ 369.687.",
+        "E": "R$ 455.000."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Matemática Financeira",
+      "gabarito": "C",
+      "enunciado": "Acerca das diferentes taxas de juros, assinale a opção correta.",
+      "alternativas": {
+        "A": "A taxa de juros efetiva é sempre maior que a taxa de juros real.",
+        "B": "Para um mesmo período, a taxa de juros efetiva sempre será inferior à taxa de juros nominal.",
+        "C": "A taxa de juros real é aquela que considera os efeitos da inflação.",
+        "D": "Quanto maior a frequência de capitalização, menor será a taxa de juros efetiva.",
+        "E": "A taxa de juros real é sempre igual a taxa de juros efetiva."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Matemática Financeira",
+      "gabarito": "B",
+      "enunciado": "Considere que Joana venha realizando, todos os anos, sempre no mês de julho, aplicações de R$ 20.000 em um fundo de investimento que paga 10% de juros compostos ao ano. Nesse caso, se Joana verificar seu saldo logo após o quarto depósito, ela encontrará um valor igual a",
+      "alternativas": {
+        "A": "R$ 117.128.",
+        "B": "R$ 92.820.",
+        "C": "R$ 106.480.",
+        "D": "R$ 408.408.",
+        "E": "R$ 88.000."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Matemática Financeira",
+      "gabarito": "B",
+      "enunciado": "Considere que um empréstimo de R$ 240.000 tenha sido realizado pelo sistema de amortização constante e deva ser quitado em 12 parcelas mensais. Nessa situação, se a taxa de juros for de 2% ao mês, então o valor dos juros pagos na quarta parcela será igual a",
+      "alternativas": {
+        "A": "R$ 4.000.",
+        "B": "R$ 3.600.",
+        "C": "R$ 400.",
+        "D": "R$ 3.200.",
+        "E": "R$ 4.800."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Matemática Financeira",
+      "gabarito": "D",
+      "enunciado": "Uma empresa pretende realizar um investimento de R$ 400.000 que possui uma expectativa de três retornos anuais consecutivos com valor fixo de R$ 170.368. Nesse caso, considerando-se que a taxa de desconto é de 10% ao ano, é correto afirmar que o valor presente líquido dessa proposta de investimento é igual a",
+      "alternativas": {
+        "A": "R$ 111.104.",
+        "B": "R$ 66.640.",
+        "C": "R$ 66.048.",
+        "D": "R$ 23.680.",
+        "E": "−R$ 16.000."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Matemática Financeira",
+      "gabarito": "B",
+      "enunciado": "A taxa interna de retorno (TIR)",
+      "alternativas": {
+        "A": "relaciona-se ao período de retorno do capital investido.",
+        "B": "é a taxa de desconto que iguala a zero o valor presente líquido das entradas e saídas de caixa do investimento.",
+        "C": "é a taxa de desconto que maximiza o valor presente líquido dos fluxos de caixa do investimento.",
+        "D": "reduz o custo do investimento inicial ao menor valor possível.",
+        "E": "é a taxa de desconto que gera o menor prejuízo percentual em relação ao investimento realizado."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Estatística",
+      "gabarito": "A",
+      "enunciado": "Considerando que a figura precedente apresenta as frequências relativas acumuladas, em porcentagem, de uma variável quantitativa discreta X, assinale a opção correta.",
+      "alternativas": {
+        "A": "A mediana de X é igual a 3.",
+        "B": "A moda de X é igual a 4.",
+        "C": "O primeiro quartil de X é igual a zero.",
+        "D": "O valor máximo de X é 5.",
+        "E": "O terceiro quartil de X é igual a 5."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Estatística",
+      "gabarito": "A",
+      "enunciado": "Um auditor fiscal está analisando os valores de notas fiscais emitidas por um grupo de empresas durante determinado período. Ao organizar os valores em ordem crescente e calcular os quartis, ele observa que o primeiro quartil (Q1) é igual a R$ 1.000 e o terceiro quartil (Q3) é igual a R$ 9.000. Com base nessa situação, é correto afirmar que a diferença entre esses dois valores, Q3 − Q1, chamada de amplitude interquartílica, representa uma medida de",
+      "alternativas": {
+        "A": "dispersão.",
+        "B": "curtose.",
+        "C": "posição.",
+        "D": "assimetria (positiva).",
+        "E": "assimetria (negativa)."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Estatística",
+      "gabarito": "C",
+      "enunciado": "Considerando que o quadro precedente mostra a distribuição de frequência absoluta de uma variável quantitativa discreta Y (Y=20, freq=13; Y=40, freq=13; total=26), assinale a opção que apresenta corretamente sua variância amostral.",
+      "alternativas": {
+        "A": "10",
+        "B": "20",
+        "C": "104",
+        "D": "400",
+        "E": "676"
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Estatística",
+      "gabarito": "D",
+      "enunciado": "Um auditor verificou que a probabilidade de determinado tipo de documento, quando feito em papel, ser preenchido corretamente é igual a P(C|A) = 0,4. Por outro lado, a probabilidade de esse mesmo documento ser preenchido corretamente por meio de um aplicativo computacional é igual a P(C|B) = 0,7. Cada interessado deve optar por apenas uma das modalidades — papel ou aplicativo —, não sendo possível preencher o documento simultaneamente pelas duas formas. Considerando a situação hipotética precedente e sabendo que o preenchimento por aplicativo computacional representa 90% dos casos, assinale a opção em que é apresentada a probabilidade de um processo ser preenchido corretamente, ou seja, P(C).",
+      "alternativas": {
+        "A": "0,28",
+        "B": "0,40",
+        "C": "0,55",
+        "D": "0,67",
+        "E": "0,70"
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Estatística",
+      "gabarito": "D",
+      "enunciado": "Supondo que as probabilidades de ocorrência de dois eventos independentes sejam P(G) = 0,4 e P(H) = 0,6, e considerando que Gᶜ e Hᶜ denotem, respectivamente, os eventos complementares a G e H, assinale a opção correta.",
+      "alternativas": {
+        "A": "P(G|H) = 0,6",
+        "B": "P(G∪H) = 1",
+        "C": "P(G∩H) = 0",
+        "D": "P(Gᶜ∩Hᶜ) = 0,24",
+        "E": "P(Hᶜ|G) = 0,6"
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Estatística",
+      "gabarito": "B",
+      "enunciado": "Com o objetivo de avaliar o cumprimento das obrigações acessórias relativas à emissão de documentos fiscais eletrônicos, a equipe de auditoria da secretaria da fazenda de certo estado decidiu realizar uma fiscalização em estabelecimentos comerciais de médio porte. Devido ao grande número de empresas distribuídas por todo o território estadual, os auditores decidiram, em um primeiro momento, selecionar aleatoriamente 10 municípios dentre os 92 existentes. Em seguida, todos os estabelecimentos comerciais localizados em cada um dos municípios sorteados foram incluídos na amostra e inspecionados quanto à regularidade do uso do sistema de emissão de notas fiscais. Nessa situação hipotética, o tipo de levantamento amostral descrito corresponde à amostragem",
+      "alternativas": {
+        "A": "sistemática.",
+        "B": "aleatória por conglomerados.",
+        "C": "aleatória estratificada com alocação ótima.",
+        "D": "aleatória simples.",
+        "E": "aleatória estratificada com alocação proporcional."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Estatística",
+      "gabarito": "A",
+      "enunciado": "Considere que o quadro precedente apresente informações populacionais para o planejamento de uma amostragem aleatória estratificada (estrato I: tam=1.000, V=25; estrato II: tam=1.000, V=9; estrato III: tam=2.000, V=1), em que V denota a variância populacional da variável de interesse. Nesse caso, se o tamanho total da amostra for igual a 100, considerando-se a alocação ótima de Neyman, o tamanho da amostra referente ao estrato III será igual a",
+      "alternativas": {
+        "A": "20.",
+        "B": "30.",
+        "C": "40.",
+        "D": "50.",
+        "E": "60."
+      }
+    },
+    {
+      "numero": 61,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "O princípio do direito tributário referente à proibição das isenções heterônomas está diretamente relacionado à",
+      "alternativas": {
+        "A": "isonomia tributária.",
+        "B": "uniformidade geográfica.",
+        "C": "vedação à discriminação baseada em procedência ou destino.",
+        "D": "capacidade contributiva.",
+        "E": "competência tributária."
+      }
+    },
+    {
+      "numero": 62,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Assinale a opção em que é indicado o tributo que pode ser cobrado pelo novo valor antes de decorridos noventa dias da data em que tenha sido publicada a lei que o majorou.",
+      "alternativas": {
+        "A": "IOF",
+        "B": "IPI",
+        "C": "taxa de coleta de lixo",
+        "D": "contribuição social",
+        "E": "ICMS"
+      }
+    },
+    {
+      "numero": 63,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "Segundo o entendimento majoritário do Supremo Tribunal Federal (STF), o sistema vigente de classificação de tributos quanto à sua espécie segue a teoria",
+      "alternativas": {
+        "A": "dicotômica.",
+        "B": "tricotômica.",
+        "C": "bipartite.",
+        "D": "tripartite.",
+        "E": "pentapartite."
+      }
+    },
+    {
+      "numero": 64,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "Entende-se por capacidade tributária ativa a aptidão para",
+      "alternativas": {
+        "A": "assumir a responsabilidade tributária.",
+        "B": "arrecadar e fiscalizar tributos.",
+        "C": "adquirir e exercer direitos e obrigações na seara tributária.",
+        "D": "realizar o fato gerador de uma obrigação tributária.",
+        "E": "figurar como contribuinte."
+      }
+    },
+    {
+      "numero": 65,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "A imunidade tributária é uma hipótese de",
+      "alternativas": {
+        "A": "garantia infraconstitucional de não incidência tributária.",
+        "B": "exclusão do crédito tributário.",
+        "C": "extinção do crédito tributário.",
+        "D": "norma negativa de competência tributária.",
+        "E": "dispensa do pagamento do tributo."
+      }
+    },
+    {
+      "numero": 66,
+      "materia": "Direito Tributário",
+      "gabarito": "C",
+      "enunciado": "Com base no que prevê o Código Tributário Nacional, é correto afirmar que os tratados internacionais sobre matéria tributária que tenham sido devidamente internalizados",
+      "alternativas": {
+        "A": "são normas complementares à legislação tributária.",
+        "B": "não são cogentes.",
+        "C": "modificam a legislação tributária interna.",
+        "D": "são válidos se compatíveis com a legislação tributária interna.",
+        "E": "não são oponíveis ao fisco."
+      }
+    },
+    {
+      "numero": 67,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "A legislação tributária inovadora pode ser aplicada a atos pretéritos se",
+      "alternativas": {
+        "A": "for expressamente interpretativa, excluída a aplicação de penalidade à infração dos dispositivos interpretados.",
+        "B": "o ato for fraudulento.",
+        "C": "o ato tiver implicado no não pagamento do tributo, de acordo com a norma então vigente.",
+        "D": "defini-los como infração, excluída a aplicação de penalidade à infração dos dispositivos modificados.",
+        "E": "cominar penalidade menos branda."
+      }
+    },
+    {
+      "numero": 68,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "C",
+      "enunciado": "De acordo com a Constituição do Estado do Rio de Janeiro, o IPTU a ser cobrado pelos municípios situados no referido estado",
+      "alternativas": {
+        "A": "não poderá ser progressivo, salvo nos casos de propriedade com mais de 1.000 metros quadrados de área útil.",
+        "B": "não poderá ser progressivo em nenhuma situação.",
+        "C": "poderá ser progressivo, nos termos da legislação municipal.",
+        "D": "deverá ser progressivo, na forma da legislação federal.",
+        "E": "poderá ser progressivo ou regressivo definitivo, de acordo com a lei orgânica de cada município."
+      }
+    },
+    {
+      "numero": 69,
+      "materia": "Direito Tributário",
+      "gabarito": "E",
+      "enunciado": "São modalidades de suspensão do crédito tributário",
+      "alternativas": {
+        "A": "o depósito do seu montante integral, a dação em pagamento em bens imóveis e a moratória.",
+        "B": "a remissão, a dação em pagamento em bens imóveis e o parcelamento.",
+        "C": "o depósito do seu montante integral, a transação e a remissão.",
+        "D": "a moratória, o parcelamento e a dação em pagamento em bens imóveis.",
+        "E": "o depósito do seu montante integral, a moratória e o parcelamento."
+      }
+    },
+    {
+      "numero": 70,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Pode haver incidência de ICMS",
+      "alternativas": {
+        "A": "na transmissão do domínio do credor para o devedor decorrente da extinção da alienação fiduciária em garantia.",
+        "B": "na transferência de bens móveis salvados de sinistro para companhias seguradoras.",
+        "C": "em operações interestaduais de energia elétrica destinada à comercialização.",
+        "D": "no fornecimento de alimentação e bebidas em bares, restaurantes e estabelecimentos similares.",
+        "E": "em operações com ouro como ativo financeiro."
+      }
+    },
+    {
+      "numero": 71,
+      "materia": "Direito Tributário",
+      "gabarito": "B",
+      "enunciado": "De acordo com a Resolução CGSN n.º 140/2018, para fins de opção e permanência no regime tributário do simples nacional, são consideradas receitas brutas as que decorram de",
+      "alternativas": {
+        "A": "verbas de patrocínio e venda de bens do ativo imobilizado.",
+        "B": "gorjetas, royalties e verbas de patrocínio.",
+        "C": "royalties, ganhos líquidos auferidos em aplicações de renda variável e gorjetas.",
+        "D": "ganhos líquidos auferidos em aplicações de renda fixa, venda de bens do ativo imobilizado e royalties.",
+        "E": "venda de bens do ativo imobilizado, verbas de patrocínio e ganhos líquidos auferidos em aplicações de renda variável."
+      }
+    },
+    {
+      "numero": 72,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Determinada lei estadual que previa isenção de ICMS foi declarada inconstitucional pelo STF, pelo fato de a isenção não ter sido aprovada por convênio entre os estados. Essa declaração de inconstitucionalidade não previu nenhuma modulação dos efeitos no tempo. Posteriormente, a isenção foi devidamente convalidada pelos estados, tendo a nova lei previsto a remissão retroativa dos créditos de ICMS decorrentes da isenção declarada inconstitucional. No caso hipotético em apreço, conforme a Lei Complementar n.º 160/2017, as sanções decorrentes do não pagamento do tributo durante o período abrangido pela remissão serão afastadas",
+      "alternativas": {
+        "A": "a partir da data da convalidação da isenção, admitidas apenas a restituição e a compensação de tributo.",
+        "B": "a partir da data da entrada em vigor da nova lei, permitidas a restituição e a compensação e vedada a apropriação de crédito extemporâneo.",
+        "C": "retroativamente à data original de concessão da isenção, permitindo-se a restituição, a compensação de tributo e a apropriação de crédito extemporâneo.",
+        "D": "retroativamente à data original de concessão da isenção, vedadas a restituição, a compensação de tributo e a apropriação de crédito extemporâneo.",
+        "E": "a partir da data da convalidação da isenção, vedadas a restituição, a compensação de tributo e a apropriação de crédito extemporâneo."
+      }
+    },
+    {
+      "numero": 73,
+      "materia": "Direito Tributário",
+      "gabarito": "D",
+      "enunciado": "Com o advento da Emenda Constitucional n.º 132/2023, os conflitos entre os entes federativos e o Comitê Gestor do Imposto sobre Bens e Serviços relativos a esse imposto devem ser julgados",
+      "alternativas": {
+        "A": "pela justiça estadual.",
+        "B": "pela justiça federal.",
+        "C": "pelo STF.",
+        "D": "pelo Superior Tribunal de Justiça.",
+        "E": "pelos tribunais de justiça."
+      }
+    },
+    {
+      "numero": 74,
+      "materia": "Direito Tributário",
+      "gabarito": "A",
+      "enunciado": "Caso os trechos de ida e volta no transporte internacional de passageiros sejam vendidos em conjunto, a base de cálculo da contribuição sobre bens e serviços (CBS) será",
+      "alternativas": {
+        "A": "a metade do valor cobrado.",
+        "B": "o valor de mercado da passagem de volta.",
+        "C": "o valor cobrado.",
+        "D": "o valor de mercado da passagem de ida.",
+        "E": "arbitrado pela administração tributária."
+      }
+    },
+    {
+      "numero": 75,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "A",
+      "enunciado": "Julgue os itens a seguir, com base na Lei estadual n.º 2.877/1997.\nI O adquirente do veículo responde pelo pagamento do IPVA anteriormente devido e não pago.\nII O leiloeiro ou a empresa contratada para realizar o leilão jamais respondem pelo IPVA de veículo arrematado em leilão público.\nIII O arrendatário não responde pelo pagamento do IPVA de veículo objeto de arrendamento mercantil.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas o item I está certo.",
+        "B": "Apenas o item II está certo.",
+        "C": "Apenas os itens I e III estão certos.",
+        "D": "Apenas os itens II e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 76,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "B",
+      "enunciado": "Assinale a opção correta em relação ao IPVA no estado do Rio de Janeiro.",
+      "alternativas": {
+        "A": "O órgão de trânsito pode promover o licenciamento de veículos com débito de IPVA, hipótese em que o débito deverá ser averbado no certificado de registro de veículo.",
+        "B": "Tratores e máquinas agrícolas estão isentos do tributo.",
+        "C": "O valor do imposto de veículos automotores usados será igual ao dos veículos automotores novos.",
+        "D": "Veículos híbridos e elétricos estão sujeitos às mesmas alíquotas do IPVA aplicáveis aos automóveis de passeio.",
+        "E": "Camionetas estão isentas do tributo."
+      }
+    },
+    {
+      "numero": 77,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "E",
+      "enunciado": "Ainda no que diz respeito ao IPVA no estado do Rio de Janeiro, julgue os itens que se seguem.\nI O imposto é devido anualmente, podendo ser pago à vista ou parcelado conforme previsto na legislação.\nII Na aquisição de veículo novo no curso do exercício, por consumidor final, o imposto será devido por duodécimo ou fração que falte para o término do exercício.\nIII Na hipótese de roubo ou furto do veículo, o imposto já pago será restituído proporcionalmente, desde que feito o registro da ocorrência perante a autoridade policial competente.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas o item II está certo.",
+        "B": "Apenas o item III está certo.",
+        "C": "Apenas os itens I e II estão certos.",
+        "D": "Apenas os itens I e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 78,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção correta ainda no que se refere ao IPVA no estado do Rio de Janeiro.",
+      "alternativas": {
+        "A": "É proibida a permuta de qualquer informação relativa ao cadastro dos proprietários de veículos entre a Secretaria de Estado da Fazenda e o órgão executivo de trânsito.",
+        "B": "Competem ao órgão estadual de trânsito as atividades relacionadas ao lançamento do imposto.",
+        "C": "Somente as pessoas físicas são contribuintes desse imposto.",
+        "D": "Os táxis de propriedade de profissionais autônomos estão isentos do imposto.",
+        "E": "Em se tratando de veículo novo, considera-se ocorrido o fato gerador do imposto no exercício seguinte à data da aquisição pelo consumidor final."
+      }
+    },
+    {
+      "numero": 79,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "E",
+      "enunciado": "Ainda no que concerne ao IPVA no estado do Rio de Janeiro, assinale a opção correta.",
+      "alternativas": {
+        "A": "Todos os veículos automotores terrestres com mais de 10 anos de fabricação são isentos do pagamento desse imposto.",
+        "B": "Veículos automotores terrestres de propriedade de pessoas físicas beneficiárias do bolsa família estão isentos do pagamento de IPVA.",
+        "C": "Ônibus e microônibus utilizados para o transporte intermunicipal de atletas para competição esportiva são isentos do pagamento de IPVA.",
+        "D": "Veículos automotores terrestres utilizados em competições automobilísticas são isentos do pagamento desse tributo.",
+        "E": "São isentos desse tributo os veículos automotores de transporte escolar devidamente legalizados pelo órgão público competente, na forma regulamentada por ato do Poder Executivo."
+      }
+    },
+    {
+      "numero": 80,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "D",
+      "enunciado": "No que diz respeito ao imposto sobre a transmissão causa mortis e doação de quaisquer bens e direitos, julgue os itens seguintes, de acordo com o disposto na Lei estadual n.º 7.174/2015.\nI O fato gerador na transmissão causa mortis ocorre na data da abertura do inventário.\nII A legislação estadual do Rio de Janeiro estabelece alíquotas progressivas que variam de 4% a 8%, de acordo com o valor dos bens e direitos transmitidos.\nIII Não há incidência do imposto quando da extinção do usufruto ou de qualquer outro direito real.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Nenhum item está certo.",
+        "B": "Apenas os itens I e II estão certos.",
+        "C": "Apenas os itens I e III estão certos.",
+        "D": "Apenas os itens II e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 81,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "B",
+      "enunciado": "Considerando as disposições da Lei estadual n.º 7.174/2015, assinale a opção correta em relação ao imposto sobre transmissão causa mortis e doação de qualquer natureza.",
+      "alternativas": {
+        "A": "Estão isentas do imposto as doações em dinheiro de até R$ 159.530 por ano, para os herdeiros necessários.",
+        "B": "Estão isentas do imposto as doações de imóvel destinado a programa habitacional promovido pelo poder público a pessoas de baixa renda.",
+        "C": "Os notários não podem ser responsabilizados pelo pagamento do imposto em relação aos atos por eles praticados.",
+        "D": "Na doação, o contribuinte do imposto é o doador.",
+        "E": "A extinção de direito real não interfere na incidência do imposto."
+      }
+    },
+    {
+      "numero": 82,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "X",
+      "enunciado": "Julgue os próximos itens, acerca do imposto sobre transmissão causa mortis e doação de quaisquer bens e direitos, com base no disposto na Lei estadual n.º 7.174/2015.\nI A base de cálculo do imposto é o valor de mercado do bem ou do direito transmitido.\nII No caso de transmissão de ações negociadas em bolsa de valores, a base de cálculo do imposto é o valor médio do pregão na data da ocorrência do fato gerador ou, não havendo pregão nessa data, o valor médio do pregão anterior.\nIII No caso de transmissão de ações não negociadas em bolsa de valores e cotas de sociedades, a base de cálculo do imposto será o seu custo de aquisição.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas o item II está certo.",
+        "B": "Apenas o item III está certo.",
+        "C": "Apenas os itens I e II estão certos.",
+        "D": "Apenas os itens I e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 83,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "E",
+      "enunciado": "A respeito do processo administrativo tributário no estado do Rio de Janeiro, julgue os seguintes itens, com base no Decreto lei Estadual n.º 5/1975.\nI Considera-se instaurado o contencioso tributário com a apresentação da impugnação pelo contribuinte.\nII A impugnação terá efeito suspensivo quando formalizada por escrito dentro do prazo de 30 dias da comunicação do ato impugnado.\nIII São admitidos todos os meios legais para a comprovação dos fatos arguidos na impugnação.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas o item II está certo.",
+        "B": "Apenas o item III está certo.",
+        "C": "Apenas os itens I e II estão certos.",
+        "D": "Apenas os itens I e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 84,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "E",
+      "enunciado": "Ainda em relação ao processo administrativo tributário no estado do Rio de Janeiro, assinale a opção correta à luz do Decreto‐lei estadual n.º 5/1975.",
+      "alternativas": {
+        "A": "A intimação por edital poderá ser realizada a critério da administração, independentemente de resultar improfícuo qualquer outro meio de intimação.",
+        "B": "A intimação por meio eletrônico só será considerada efetuada cinco dias depois de o sujeito passivo acessar a sua caixa postal virtual.",
+        "C": "A intimação do interessado somente poderá ser efetuada por meio eletrônico ou por edital.",
+        "D": "A intimação por meio eletrônico somente poderá ser realizada quando frustradas a intimação pessoal e a por via postal ou telegráfica.",
+        "E": "A intimação por meio eletrônico se dá pelo envio da comunicação para a caixa postal virtual do sujeito passivo, de acordo com a forma estabelecida em regulamento."
+      }
+    },
+    {
+      "numero": 85,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção correta, ainda conforme o disposto no Decreto-lei estadual n.º 5/1975.",
+      "alternativas": {
+        "A": "O auditor fiscal pode iniciar procedimento fiscal contra o consulente em relação à matéria consultada ainda que a consulta esteja pendente de resposta.",
+        "B": "Da decisão de primeira instância cabe recurso voluntário para o conselho de contribuintes, formado exclusivamente por representantes do Estado.",
+        "C": "A consulta produz efeitos ainda que formulada depois de iniciado procedimento fiscal contra o consulente.",
+        "D": "O conselho de contribuintes poderá aprovar proposta ou enunciado de súmula de suas reiteradas e uniformes decisões.",
+        "E": "A observância de enunciado de súmula aprovado pelo secretário de Estado de Fazenda e publicado no diário oficial é facultativa para os órgãos da Secretaria de Estado da Fazenda."
+      }
+    },
+    {
+      "numero": 86,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "E",
+      "enunciado": "Ainda com base no disposto no Decreto-lei estadual n.º 5/1975, julgue os itens a seguir.\nI O valor da taxa judiciária será reduzido quando a parte comprovar documentalmente que tentou composição de conflitos previamente ao ajuizamento da demanda perante os órgãos indicados na legislação.\nII Os litigantes contumazes deverão recolher o valor da taxa judiciária em dobro quando sucumbentes.\nIII O Estado poderá impugnar o valor declarado pela parte para pagamento da taxa judiciária, requerendo, inclusive, o pagamento que entender devido.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Nenhum item está certo.",
+        "B": "Apenas os itens I e II estão certos.",
+        "C": "Apenas os itens I e III estão certos.",
+        "D": "Apenas os itens II e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 87,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "A",
+      "enunciado": "Assinale a opção correta ainda de acordo com as disposições do Decreto-lei estadual n.º 5/1975.",
+      "alternativas": {
+        "A": "A autoridade tributária pode prorrogar os prazos ou reabri-los na hipótese de caso fortuito ou força maior.",
+        "B": "Os prazos se iniciam e vencem independentemente de haver expediente normal na repartição em que corra o processo ou deva ser praticado o ato.",
+        "C": "Os prazos são contados excluindo-se o dia de início e o dia de vencimento.",
+        "D": "Os prazos processuais são contados em dias corridos.",
+        "E": "Os prazos relativos ao pagamento do crédito tributário constituído mediante lançamento de ofício são contados em dias corridos."
+      }
+    },
+    {
+      "numero": 88,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "A",
+      "enunciado": "De acordo com o disposto na Lei n.º 7.990/1989, o recolhimento da compensação financeira pela exploração de recursos minerais (CFEM) ocorrerá por ocasião",
+      "alternativas": {
+        "A": "do consumo do bem mineral, devendo-se considerar consumo a utilização de bem mineral, a qualquer título, pelo detentor ou arrendatário do direito minerário, assim como pela empresa controladora, controlada ou coligada, em processo que importe na obtenção de nova espécie.",
+        "B": "da última saída por venda do bem mineral, salvo quando a mercadoria estiver sujeita à alíquota zero.",
+        "C": "do ato de arrematação, nos casos de bem mineral adquirido em hasta pública, devendo ser considerado bem mineral a substância mineral já lavrada e antes de seu beneficiamento.",
+        "D": "da saída em transferência entre estabelecimentos do mesmo titular da outorga mineral.",
+        "E": "de todas as aquisições em cadeia do bem mineral extraído sob o regime de permissão de lavra garimpeira, desde que não ocorra a descaracterização desse bem mineral."
+      }
+    },
+    {
+      "numero": 89,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "B",
+      "enunciado": "Com base no que dispõe a Lei n.º 7.990/1989, assinale a opção correta.",
+      "alternativas": {
+        "A": "Na hipótese de arrematação em hasta pública de bem mineral, este será entregue ao vencedor daquela mediante o pagamento prévio de 50% da CFEM.",
+        "B": "A energia de hidrelétrica, de uso privativo de produtor, quando aproveitada para uso externo de serviço público, também será gravada com a aplicação de um fator de 6% do valor da energia elétrica correspondente ao faturamento calculado nas mesmas condições e preços do concessionário do serviço público local.",
+        "C": "O valor da compensação financeira corresponderá a um fator percentual do valor da energia constante da fatura, excluídos apenas os impostos.",
+        "D": "Quando o aproveitamento do potencial hidráulico atingir mais de um estado ou município, a distribuição dos percentuais referidos na referida lei será feita proporcionalmente, levando-se em consideração o percentual de população e outros parâmetros de interesse público regional ou local.",
+        "E": "Os rejeitos e estéreis decorrentes da exploração de áreas objeto de direitos minerários que possibilitem a lavra, na hipótese de alienação ou consumo, serão considerados bem mineral para fins de recolhimento da CFEM; no caso de rejeitos e estéreis de minerais associados utilizados em outras cadeias produtivas, haverá uma redução de 70% na alíquota da CFEM."
+      }
+    },
+    {
+      "numero": 90,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "D",
+      "enunciado": "Ainda conforme o disposto na Lei n.º 7.990/1989, assinale a opção correta em relação à CFEM.",
+      "alternativas": {
+        "A": "Admite-se a aplicação dos recursos da CFEM no quadro permanente de pessoal.",
+        "B": "É vedada a aplicação dos recursos da CFEM no custeio de despesas com manutenção e desenvolvimento do ensino, especialmente na educação básica pública em tempo integral, inclusive as relativas a pagamento de salários e outras verbas de natureza remuneratória a profissionais do magistério em efetivo exercício na rede pública.",
+        "C": "O pagamento da CFEM será efetuado até o último dia útil do mês subsequente ao do fato gerador.",
+        "D": "É vedada a aplicação dos recursos da CFEM em pagamento de dívida.",
+        "E": "É vedada a aplicação dos recursos da CFEM ao pagamento de dívidas para com a União e suas entidades."
+      }
+    },
+    {
+      "numero": 91,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "A",
+      "enunciado": "Assinale a opção correta no que diz respeito ao entendimento do STF acerca da CFEM e das disposições da Lei n.º 7.990/1989.",
+      "alternativas": {
+        "A": "A previsão legal de transferência pelos estados aos municípios situados em sua respectiva territorialidade, de 25% da parcela da compensação financeira que lhes é originalmente atribuída, não viola o pacto federativo nem a autonomia dos estados-membros.",
+        "B": "Conforme entendimento do STF, cabe aos estados-membros, Distrito Federal e municípios a definição das condições de recolhimento das CFEM de sua titularidade.",
+        "C": "A CFEM constitui receita originária da União e receita derivada dos estados e municípios, por ser transferida por repasse da União.",
+        "D": "Os estados, o Distrito Federal e os municípios possuem competência para arrecadar diretamente a CFEM, por intermédio de seus órgãos fazendários.",
+        "E": "Os tribunais de contas dos estados não possuem competência para a fiscalização dos recursos oriundos da compensação financeira pelo resultado da exploração de petróleo ou gás natural, de recursos hídricos para fins de geração de energia elétrica, de recursos minerais em seus respectivos territórios."
+      }
+    },
+    {
+      "numero": 92,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "E",
+      "enunciado": "Considerando as participações governamentais nos contratos de concessão de exploração e produção de petróleo e gás natural, assinale a opção correta com base nas disposições da Lei n.º 9.478/1997.",
+      "alternativas": {
+        "A": "A parcela do valor do royalty que exceder a 10% da produção terá a distribuição de 55% aos estados onde for realizada a produção quando a lavra ocorrer em terra ou em lagos, rios, ilhas fluviais e lacustres.",
+        "B": "Para as operações já contratadas na data da promulgação da referida lei, poderão as partes, de comum acordo, ajustar a transferência do depósito dos recursos de participação especial diretamente para conta bancária específica do investidor ou da entidade representativa dos interesses do investidor para essa finalidade.",
+        "C": "Os recursos provenientes dos pagamentos da participação especial serão distribuídos com base nos cálculos de valores devidos a cada beneficiário, fornecidos pela autoridade administrativa competente.",
+        "D": "No caso dos estados e dos municípios, os recursos de participação especial serão creditados em contas bancárias específicas de titularidade desses entes federativos.",
+        "E": "O Poder Executivo federal poderá reduzir o montante de royalties dos contratos de concessão de exploração e produção de petróleo e gás natural oriundos da denominada rodada zero de licitações promovida pela Agência Nacional de Petróleo, Gás Natural e Biocombustíveis (ANP) para até 5% sobre o total da produção como incentivo a investimentos em conteúdo local nas atividades de exploração e de produção relativas a esses contratos, nos termos e nas condições previstos em regulamentos."
+      }
+    },
+    {
+      "numero": 93,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "C",
+      "enunciado": "Com base no disposto na Lei n.º 9.478/1997, assinale a opção correta a respeito das participações governamentais no contrato de concessão de exploração e produção de petróleo e gás natural.",
+      "alternativas": {
+        "A": "A queima de gás em flares, em prejuízo de sua comercialização, e a perda de produto ocorrida sob a responsabilidade do concessionário não serão incluídas no volume total da produção a ser computada para cálculo dos royalties devidos.",
+        "B": "As receitas provenientes das participações governamentais alocadas para órgãos da administração pública federal serão mantidas em conta específica para essas verbas do governo federal enquanto não forem destinadas para as respectivas programações.",
+        "C": "As participações governamentais, os royalties e o pagamento pela ocupação ou retenção da área serão sempre obrigatórios.",
+        "D": "Os critérios para o cálculo do valor dos royalties serão estabelecidos por Resolução do Tribunal de Contas da União, em função dos preços de mercado do petróleo, gás natural ou condensado, das especificações do produto e da localização do campo.",
+        "E": "Considerados os riscos biológicos, a ANP poderá prever, no edital de licitação correspondente, a redução do valor dos royalties estabelecido na referida lei para um montante correspondente a, no mínimo, 10% da produção."
+      }
+    },
+    {
+      "numero": 94,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "E",
+      "enunciado": "Ainda em relação às participações governamentais no contrato de concessão de exploração e produção de petróleo e gás natural, conforme disposto na Lei n.º 9.478/1997, assinale a opção correta.",
+      "alternativas": {
+        "A": "O edital e o contrato disporão sobre o pagamento pela ocupação ou retenção de área, a ser feito mensalmente, fixado por quilômetro quadrado ou fração da superfície do bloco, na forma da regulamentação por decreto do presidente da República.",
+        "B": "O contrato de concessão conterá cláusula que estabelecerá o pagamento de participação de valor fixo mensal ao proprietário da terra, independentemente do volume de produção ou rentabilidade.",
+        "C": "O bônus de participação corresponde ao valor ofertado pelo licitante na proposta do certame para a obtenção da concessão, com valor mínimo previsto no edital e pago imediatamente após o julgamento da licitação.",
+        "D": "Os royalties serão pagos a partir do ano seguinte ao ano em que tenha sido iniciada a produção comercial de cada campo, em montante correspondente a 10% da produção de petróleo ou gás natural.",
+        "E": "A participação especial constitui uma compensação financeira extraordinária devida pelos concessionários de exploração e produção de petróleo ou gás, nos casos de grande volume de produção ou grande rentabilidade e será aplicada sobre a receita bruta da produção, deduzidos os royalties, os investimentos na exploração, os custos operacionais, a depreciação e os tributos previstos na legislação em vigor."
+      }
+    },
+    {
+      "numero": 95,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "A",
+      "enunciado": "Tendo como fundamento a Lei estadual n.º 5.139/2007, que dispõe sobre o acompanhamento e a fiscalização das compensações financeiras oriundas das concessões, permissões, cessões e outras modalidades administrativas para exploração de recursos hídricos e minerais, assinale a opção correta.",
+      "alternativas": {
+        "A": "Os relatórios de gastos trimestrais em relação à compensação financeira pela exploração de petróleo e gás natural apresentados pelas empresas exploradoras devem compreender, separadamente, os gastos das fases de exploração, desenvolvimento e produção de petróleo e gás natural.",
+        "B": "O relatório mensal de atividades é documento obrigatório de entrega à SEFAZ em relação à compensação financeira pela exploração de recursos minerais.",
+        "C": "O demonstrativo anual da apuração da participação especial é documento obrigatório de entrega à SEFAZ em relação à compensação financeira pela exploração de petróleo e gás natural.",
+        "D": "Constitui documento obrigatório de entrega à SEFAZ a declaração de investimento em produção mineral em relação à compensação financeira pela exploração de recursos minerais.",
+        "E": "As empresas de produção e exploração de petróleo e gás natural devem disponibilizar à SEFAZ todos os meios para a medição ou avaliação nos navios transportadores de petróleo para outra unidade da Federação, devendo a ficha de medição ou avaliação ser verificada pelo representante do fisco estadual, mediante sistemática disciplinada em ato do Conselho Nacional de Política Fazendária (CONFAZ)."
+      }
+    },
+    {
+      "numero": 96,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "E",
+      "enunciado": "Ainda à luz das disposições da Lei estadual n.º 5.139/2007, assinale a opção correta.",
+      "alternativas": {
+        "A": "Nos processos para a constituição de créditos das receitas não tributárias reguladas pela referida lei, será exclusivamente observado o que determina o Código de Processo Civil.",
+        "B": "Os créditos estaduais relativos às receitas não tributárias previstas na referida lei, antes de serem encaminhados à cobrança executiva, deverão ser inscritos em dívida ativa pela SEFAZ e a cobrança da dívida ativa será efetuada pela procuradoria-geral do estado.",
+        "C": "É competente para julgar em primeira instância o processo administrativo de constituição de créditos das receitas não tributárias disciplinadas na referida lei o auditor responsável pelo lançamento, cabendo ao Conselho de Contribuintes do Estado do Rio de Janeiro decidir eventual recurso.",
+        "D": "Quando se tratar de infração relativa à falta de recolhimento de receita não tributária regularmente declarada, será lavrada nota de lançamento com o respectivo procedimento de rito especial e sumário, sendo, em seguida, o sujeito passivo intimado para o pagamento da dívida com juros de mora e acréscimos legais, no prazo de 10 dias, ou apresentar pedido de revisão da nota de lançamento; caso ele não pague a dívida ou não apresente pedido de revisão, haverá a incidência de multa de mora.",
+        "E": "Nos processos para a constituição de créditos das receitas não tributárias reguladas por essa lei, os procedimentos, os prazos e os atos processuais obedecerão, no que couber, à legislação que rege o ICMS."
+      }
+    },
+    {
+      "numero": 97,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção correta com base no Regulamento das Receitas Não Tributárias (Decreto estadual n.º 42.475/2010).",
+      "alternativas": {
+        "A": "Equiparam-se à saída por venda o consumo ou a utilização da substância mineral em processo de industrialização realizado dentro das áreas da jazida, mina, salina ou outros depósitos minerais, exceto suas áreas limítrofes, e, ainda, em qualquer estabelecimento.",
+        "B": "O estado do Rio de Janeiro, por meio de sua SEFAZ, pode firmar convênios de cooperação técnica com a União, os estados, o Distrito Federal, os municípios e seus respectivos órgãos e entidades, para auxiliar a fiscalização de que trata o regulamento, devendo os referidos convênios ser comunicados ao Tribunal de Contas da União e ao Tribunal de Contas do Estado do Rio de Janeiro.",
+        "C": "Os procedimentos de administração, de fiscalização, de arrecadação e de lançamento das receitas não tributárias serão executados privativamente por fiscais de rendas da SEFAZ/RJ e se restringirão às parcelas de receitas originárias e derivadas pertencentes ao estado do Rio de Janeiro.",
+        "D": "Na hipótese de vendas com cláusula CIF em que não tenham sido destacados, nas correspondentes notas fiscais, os valores dos transportes e dos seguros, estes somente podem ser deduzidos na apuração da base de cálculo da CFEM relativa ao percentual do estado do Rio de Janeiro, após a sua homologação pela SEFAZ/RJ.",
+        "E": "Na venda de água mineral sujeita à substituição tributária, o valor do ICMS substituição deve ser considerado com base no valor total da nota fiscal deduzido o valor do frete e do seguro."
+      }
+    },
+    {
+      "numero": 98,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "C",
+      "enunciado": "Ainda conforme o disposto no Decreto estadual n.º 42.475/2010, assinale a opção correta.",
+      "alternativas": {
+        "A": "Quando a autoridade julgadora entender pela necessidade de perícia ou a requerimento da parte interessada, nos casos de impugnação ao auto de infração ou à nota de lançamento, a autoridade julgadora remeterá o processo à repartição competente, a fim de ser designado servidor para proceder aos exames, na qualidade de perito, ficando a autoridade julgadora adstrita ao laudo pericial público.",
+        "B": "O procedimento de fiscalização das receitas não tributárias será iniciado com a lavratura de intimação, de termo de início de fiscalização, de auto de infração, de nota de lançamento ou de denúncia devidamente formalizada na SEFAZ.",
+        "C": "Enquanto perdurarem as normas da legislação federal que estipulem que os pagamentos das participações ou das CFEM caibam diretamente à União, a parcela das receitas não tributárias pertencentes ao estado do Rio de Janeiro deverá ser paga do seguinte modo: a parcela principal, recolhida diretamente à União; e as multas, juros e acréscimos moratórios, diretamente ao estado.",
+        "D": "Quando houver o pagamento espontâneo fora do prazo estabelecido, antes, porém, de qualquer procedimento fiscal, das participações ou das compensações financeiras decorrentes da exploração de recursos hídricos e de recursos minerais, não haverá a incidência de multa de mora.",
+        "E": "Se da apuração levada a efeito pela fiscalização estadual resultar valor superior ao obtido pelos órgãos e entidades da União quanto ao pagamento das participações ou das CFEM, deverá a SEFAZ solicitar aos órgãos e entidades da União que efetuem a cobrança, diretamente ao concessionário, das diferenças constatadas."
+      }
+    },
+    {
+      "numero": 99,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção correta ainda de acordo com o que dispõe o Decreto estadual n.º 42.475/2010.",
+      "alternativas": {
+        "A": "Na impugnação do auto de infração ou da nota de lançamento, em havendo perícia, o assistente técnico não assinará o laudo em conjunto com o perito, limitando-se a apresentar os seus quesitos.",
+        "B": "É permitido reunir, em uma só petição, impugnações referentes a mais de um auto de infração, desde que ela verse sobre assunto da mesma natureza ou se refira ao mesmo responsável, em respeito ao princípio da economia processual.",
+        "C": "As incorreções ou omissões do auto de infração acarretarão a sua nulidade, ainda que do processo constem elementos suficientes para determinar, com segurança, a natureza da infração e a pessoa do infrator.",
+        "D": "Do valor da arrecadação de multas e de juros de mora por infração à legislação de receitas não tributárias, inclusive decorrentes de débitos inscritos em dívida ativa, serão destacados 15% para compor o Fundo de Administração Fazendária e 15% para compor o Fundo de Modernização e Incentivo à Cobrança da Dívida Ativa e de Reestruturação Administrativa da Procuradoria-Geral do Estado.",
+        "E": "Os requisitos formais para o pedido de impugnação do auto de infração ou da nota de lançamento deverão basear-se nas normas do Código Tributário Nacional."
+      }
+    },
+    {
+      "numero": 100,
+      "materia": "Legislação Tributária Estadual (BA/RJ)",
+      "gabarito": "A",
+      "enunciado": "À luz do disposto na Resolução SEFAZ/RJ n.º 633/2024, assinale a opção correta.",
+      "alternativas": {
+        "A": "Consideram-se transmitidos os arquivos relativos ao boletim mensal de produção (BMP) e ao demonstrativo de apuração da participação especial (DAPE) no momento em que for emitido o recibo de entrega com um número de protocolo e uma mensagem indicativa de que o processo de transmissão foi realizado com sucesso.",
+        "B": "A geração, o armazenamento e o envio dos arquivos digitais dispensam as empresas concessionárias e os consórcios, por meio de sua empresa líder, da guarda dos documentos que deram origem às informações nele constantes, segundo a forma e os prazos estabelecidos pela legislação aplicável.",
+        "C": "Os arquivos digitais do boletim mensal de produção (BMP) e(ou) do demonstrativo de apuração da participação especial (DAPE) deverão ser retificados no prazo estabelecido pela referida resolução, mediante envio de arquivos de ajuste, mantendo-se os arquivos originalmente encaminhados e regularmente recebidos pela administração fazendária.",
+        "D": "Os arquivos do boletim mensal de produção (BMP) e do demonstrativo de apuração da participação especial (DAPE) deverão ser armazenados pelo prazo de 10 anos.",
+        "E": "Para a garantia da validade jurídica do boletim mensal de produção (BMP) e do demonstrativo de apuração da participação especial (DAPE), que compreende a autenticidade, a integridade, a privacidade e o não repúdio, as informações deverão ser prestadas em arquivo digital com assinatura digital da concessionária ou do consórcio por meio de qualquer de suas empresas integrantes."
+      }
+    }
+  ]
+}

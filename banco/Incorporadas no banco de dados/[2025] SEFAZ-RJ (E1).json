@@ -1,0 +1,1312 @@
+{
+  "instituicao": "SEFAZ-RJ",
+  "ano": 2025,
+  "cargo": "Auditor Fiscal da Receita Estadual (3a categoria)",
+  "tipo_prova": "Conhecimentos Especificos I - P1",
+  "gabarito_tipo": "060_SEFAZRJAUDITOR_001_01",
+  "_aviso": "O gabarito oficial fornecido pode nao corresponder exatamente a ordem/tipo de caderno do texto da prova fornecido (provas CEBRASPE tem multiplos tipos com ordem embaralhada). Varias questoes (1, 2, 10, 14, 15, 35, 60, 78, 83, 90) apresentaram gabarito oficial 'anulada (X)' mas com conteudo de questao normal no texto fornecido, sugerindo possivel divergencia de tipo/caderno entre gabarito e prova. O gabarito OFICIAL foi mantido em todos os casos, com a divergencia sinalizada no campo _gabarito_conflito de cada questao afetada. Recomenda-se conferencia adicional antes de uso definitivo.",
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "X",
+      "enunciado": "Assinale a opção em que são apresentadas perguntas típicas da atividade básica \"direcionar\" na governança organizacional.",
+      "alternativas": {
+        "A": "Há evidências de que essas alternativas de tratamento produzam os efeitos/impactos esperados? Estamos produzindo os efeitos e impactos esperados?",
+        "B": "Que alternativas de tratamento serão selecionadas para o problema? Por quê (evidências)?",
+        "C": "De que recursos dispomos? Aonde queremos chegar?",
+        "D": "Qual é o problema? Quais são as evidências desse problema?",
+        "E": "Que correções devemos fazer? Chegaremos ao destino?"
+      },
+      "_gabarito_conflito": "Gabarito oficial indica 'X'. Mantido o gabarito oficial abaixo por seguranca."
+    },
+    {
+      "numero": 2,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "X",
+      "enunciado": "Assinale a opção correta acerca do Plano Diretor de Tecnologia da Informação e Comunicação (PDTIC) e do Plano Estratégico de Tecnologia da Informação e Comunicação (PETIC).",
+      "alternativas": {
+        "A": "O PDTIC e o PETIC devem ser elaborados pela presidência do órgão e aprovados pelo gestor da área de TIC, sendo o acesso ao PETIC público e ao PDTIC, restrito aos gestores do órgão, nos termos da legislação aplicável e da classificação e sigilo de informações.",
+        "B": "A vigência do PETIC é de quatro anos, de acordo com a validade do Plano Plurianual (PPA), e a do PDTIC não é definida, devendo seguir a vigência do mandato da presidência do órgão ou a validade do PETIC, nos termos em que for aprovado pelo comitê de governança digital do órgão.",
+        "C": "Uma vez elaborado o PDTIC, deve-se produzir PETIC com foco na definição dos objetivos estratégicos do uso da TI no órgão, sendo este último imprescindível para realização do planejamento de TIC.",
+        "D": "O PDTIC é um instrumento de diagnóstico que deve abarcar, no mínimo, aspectos táticos — projetos e ações para a implementação da estratégia — com vistas ao atendimento das necessidades de informação do órgão.",
+        "E": "Ambos são instrumentos de nível estratégico para planejamento e gestão dos recursos e processos de TIC, sendo o PDTIC associado aos processos táticos e o PETI, ao plano institucional do órgão."
+      },
+      "_gabarito_conflito": "Gabarito oficial indica 'X'. Mantido o gabarito oficial abaixo por seguranca."
+    },
+    {
+      "numero": 3,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção em que é indicado o grupo de atividades que, relacionadas à área de foco interativa, são críticas para a entrega eficaz dos resultados do projeto, conforme o PMBOK 7.ª edição.",
+      "alternativas": {
+        "A": "estrutura analítica do projeto (EAP)",
+        "B": "plano de gerenciamento do projeto",
+        "C": "mapeamento da cadeia de valor",
+        "D": "portfólios e programas",
+        "E": "domínio de desempenho do planejamento"
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "À luz do PMBOK 7.ª edição, assinale a opção correta a respeito do processo de tailoring.",
+      "alternativas": {
+        "A": "O referido processo deve ser gerenciado no nível de gestão de portfólios — nível estratégico —, não sendo, portanto, influenciado pelo produto, entrega ou equipe do projeto, mas pelo valor da entrega para organização.",
+        "B": "O ambiente do projeto deve ser analisado e definido com base nas premissas do tailoring; finalizado o tailoring, o projeto inicia-se pela escolha das abordagens de desenvolvimento e entrega, deixando-as adaptadas para o órgão.",
+        "C": "No ambiente de projeto, o tailoring deve basear-se nos processos de gestão e no ciclo de vida do projeto e, por ser gerencial, não deve avaliar a abordagem de desenvolvimento e entregas.",
+        "D": "Esse processo consiste na adaptação deliberada da abordagem, da governança e dos processos de gerenciamento de projetos, com o objetivo de torná-los mais apropriados ao trabalho a ser realizado e a determinado ambiente.",
+        "E": "Por ser tático/estratégico no gerenciamento do projeto, o tailoring deve envolver o contexto e as metas do projeto e do órgão e não a gestão do ambiente operacional do projeto."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "No COBIT 2019, o processo do domínio APO (alinhar, planejar e organizar) que objetiva uma melhor experiência do cliente e melhor eficácia e eficiência operacional por meio do desenvolvimento de I&T e de tecnologias emergentes é denominado",
+      "alternativas": {
+        "A": "garantia gerenciada.",
+        "B": "inovação gerenciada.",
+        "C": "conhecimento gerenciado.",
+        "D": "entrega de benefícios assegurada.",
+        "E": "otimização de recursos assegurada."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "À luz do COBIT 2019, assinale a opção em que é apresentado o conceito relacionado à descrição de determinado tópico ou domínio que pode ser abordado por uma coleção de objetivos de governança.",
+      "alternativas": {
+        "A": "domínios (domains)",
+        "B": "serviços (services)",
+        "C": "área de foco (focus area)",
+        "D": "processo (process)",
+        "E": "políticas e procedimentos (policies and procedures)"
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "De acordo com a Instrução Normativa SGD/ME n.º 94/2022, o objeto de contratação",
+      "alternativas": {
+        "A": "deve incluir, no que se refere à alocação de postos de trabalho, critérios de pontuação técnica em relação à experiência, devidamente comprovada no ato da assinatura do contrato, de cada posto de trabalho em relação às tarefas a serem desempenhadas, facultada a justificativa para trabalhos operacionais de TIC, desde que a competência para a sua execução seja definida exclusivamente por servidores do órgão.",
+        "B": "pode agregar, no mesmo contrato, solução de avaliação, mensuração e apoio à fiscalização da solução de TIC, desde que a contratada que proveja a solução de TIC seja a mesma que a mensure e a fiscalização e avaliação sejam realizadas exclusivamente por servidores do órgão.",
+        "C": "não deve conter mais de uma solução operacional de TIC por contrato, admitindo-se a contratação de serviço de gestão de segurança da informação, desde que sob gestão exclusiva de servidores do órgão.",
+        "D": "prescinde, no que se refere à adoção da métrica homem-hora, da justificativa de seu custo-benefício em relação aos riscos e aos resultados esperados, desde que os prazos e a qualidade da prestação do serviço sejam previamente definidos exclusivamente por servidores do órgão.",
+        "E": "deve conter apenas uma solução de TIC em um único contrato, admitindo-se a contratação de apoio técnico aos processos de gestão, desde que sob supervisão exclusiva de servidores do órgão."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção correta acerca da gestão do contrato, à luz da Instrução Normativa SGD/ME n.º 94/2022.",
+      "alternativas": {
+        "A": "A fase de gestão do contrato inicia-se com a assinatura do documento de formalização da demanda, o qual contém o detalhamento da necessidade da área requisitante da solução a ser atendida pela contratação.",
+        "B": "O papel de gestor do contrato pode ser acumulado com o de fiscal técnico e de requisitante, neste último caso, desde que o gestor pertença à mesma área requisitante da solução.",
+        "C": "Sempre que possível, convém que a autoridade máxima da área de TIC seja indicada para o papel de fiscal administrativo da solução, uma vez que possui respaldo e autoridade estratégica para atuar de forma hierárquica na fiscalização do contrato dentro do órgão.",
+        "D": "Tanto os fiscais técnico e requisitante quanto o fiscal administrativo do contrato poderão ser os mesmos servidores que realizaram o planejamento da contratação.",
+        "E": "Os papéis de fiscais não poderão ser acumulados pelo mesmo servidor, salvo no que diz respeito aos de fiscal requisitante e administrativo, mediante justificativa fundamentada nos autos e desde que aprovado pelo comitê de governança digital do órgão."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "A seguir, são apresentadas duas afirmações acerca da especificação dos direitos decisórios sobre TIC.\nI Decisões que envolvem a definição de princípios de TIC podem ser tomadas pelos profissionais de TIC e por outra parte da organização.\nII Decisões que envolvem a definição da arquitetura de TIC podem ser tomadas pelos profissionais de TIC da organização.\nA partir da análise das duas afirmações precedentes, assinale a opção correta com base no Guia de Governança de TIC do SISP (versão 2.0).",
+      "alternativas": {
+        "A": "A afirmação I é verdadeira, pois convém que a definição de princípios de TIC, como o estabelecimento de políticas, seja realizada com o envolvimento dos profissionais de TIC e a alta administração; a afirmação II também é verdadeira, pois convém que as decisões que envolvam a definição da arquitetura tecnológica sejam tomadas por profissionais de TIC, em função do perfil técnico necessário.",
+        "B": "A afirmação I é falsa, pois convém que a definição de princípios de TIC seja realizada pelo comitê de governança de TIC do órgão, tendo como referência o PETIC aprovado pela alta administração do órgão; a afirmação II é verdadeira, pois convém que as definições sejam realizadas pelos profissionais de TIC da organização desde que subsidiadas pelo PDTIC, aprovado pela alta administração do órgão.",
+        "C": "A afirmação I é falsa, pois convém que a definição de princípios de TIC seja realizada pela alta administração do órgão, ouvidos os profissionais de TIC e com aprovação ad referendum do comitê de governança de TIC; a afirmação II é verdadeira, pois convém que as definições sejam realizadas pelos profissionais de TIC da organização desde que as diretivas tenham sido previamente definidas pelo comitê de governança de TIC e pela alta administração do órgão.",
+        "D": "A afirmação I é verdadeira, pois convém que a definição de princípios de TIC seja realizada pelas áreas requisitantes e pelo comitê de governança de TIC do órgão, ouvidos os profissionais de TIC; a afirmação II é falsa, pois convém que a definição de arquitetura seja realizada pela alta administração quando do desenvolvimento do PETIC.",
+        "E": "A afirmação I é falsa, pois convém que a definição de princípios de TIC seja realizada pela alta administração do órgão ouvido o comitê de Governança de TIC do órgão, sem a participação direta dos profissionais de TIC em função do perfil estratégico necessário; a afirmação II também é falsa, pois convém que a definição de arquitetura seja realizada pelo comitê de governança de TIC do órgão, tendo como referência o instrumento planejamento e gestão dos recursos de TIC do PDTIC."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "X",
+      "enunciado": "A seguir, são descritos dois princípios específicos para a governança de TIC, de acordo com o Guia de Governança de TIC do SISP (versão 2.0).\nI As ações relacionadas à governança de TIC deverão ser implantadas considerados os mecanismos para a medição e o monitoramento das metas de TIC, de modo que a governança intervenha nas estratégias e ações de TIC da organização, validando-as, direcionando-as e justificando-as.\nII As ações relacionadas à governança de TIC devem contribuir para que se cumpram obrigações contratuais aplicáveis.\nNo texto precedente, os princípios descritos em I e II denominam-se, respectivamente,",
+      "alternativas": {
+        "A": "TIC como ativo estratégico e accountability.",
+        "B": "foco nas partes interessadas e responsabilização.",
+        "C": "gestão por resultados e conformidade.",
+        "D": "TIC como ativo estratégico e accountability.",
+        "E": "transparência e responsabilização."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Na metodologia Kanban, a cadência chamada internal team replenishment meeting tem como objetivo",
+      "alternativas": {
+        "A": "quantificar os itens de trabalho em determinado momento.",
+        "B": "observar e acompanhar o fluxo de trabalho do time.",
+        "C": "selecionar os itens de trabalho que serão feitos a seguir.",
+        "D": "considerar o delivery rate do time.",
+        "E": "refletir sobre o modo como o time gerenciou seu trabalho anterior."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Na linguagem Java, quando a mesma operação é implementada várias vezes na mesma classe, ocorre o denominado polimorfismo",
+      "alternativas": {
+        "A": "dinâmico.",
+        "B": "de sobrescrição de método.",
+        "C": "estático.",
+        "D": "de inclusão.",
+        "E": "por refatoração."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "No DDD (domain-driven design), a linguagem ubíqua é",
+      "alternativas": {
+        "A": "um conjunto de termos e regras comuns.",
+        "B": "uma linguagem de programação.",
+        "C": "uma estrutura para tomada de decisão.",
+        "D": "um conjunto de diagramas de componentes.",
+        "E": "uma linguagem gráfica para documentação."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "X",
+      "enunciado": "O componente de registro no contêiner Docker é",
+      "alternativas": {
+        "A": "um arquivo com instruções de como gerar uma nova imagem Docker.",
+        "B": "um serviço executado no servidor Docker para receber as conexões.",
+        "C": "a interface primária de interação com o daemon do servidor Docker.",
+        "D": "o compilado de recursos necessários para execução de uma aplicação.",
+        "E": "o repositório de armazenamento das imagens Docker."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "X",
+      "enunciado": "Assinale a opção em que é indicado o comando que, no Git, permite que se faça uma cópia de um repositório existente para outra conta.",
+      "alternativas": {
+        "A": "merge",
+        "B": "fork",
+        "C": "clone",
+        "D": "commit",
+        "E": "rebase"
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "O BPM (business process management) representa",
+      "alternativas": {
+        "A": "um registro de todos os processos de uma organização.",
+        "B": "uma atividade burocrática feita pela área de qualidade das organizações.",
+        "C": "uma iniciativa contínua para documentação incessante de processos.",
+        "D": "uma disciplina estruturada de gestão conduzida por pessoas engajadas.",
+        "E": "um trabalho criado para o atendimento a normas com vistas à obtenção de certificações de qualidade."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Na fase de AS-IS do BPM, destaca-se a",
+      "alternativas": {
+        "A": "identificação das fontes de dados.",
+        "B": "escolha das tecnologias necessárias.",
+        "C": "determinação de papéis e responsabilidades.",
+        "D": "definição dos momentos de integração com outros processos.",
+        "E": "medição da efetividade das atividades em relação aos objetivos da organização."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "De acordo com o OWASP TOP 10, o risco de falha de controle de acesso permite que invasores",
+      "alternativas": {
+        "A": "falsifiquem solicitações a um servidor remoto.",
+        "B": "desconsiderem autorizações e executem tarefas como se fossem usuários privilegiados.",
+        "C": "obtenham acesso a dados confidenciais e não criptografados.",
+        "D": "explorem vulnerabilidades em bibliotecas compartilhadas.",
+        "E": "injetem código malicioso por meio de uma entrada de formulário."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Nas transações distribuídas, o teorema CAP abrange os princípios de",
+      "alternativas": {
+        "A": "consistência, disponibilidade e tolerância à partição.",
+        "B": "consistência, avaliação e tolerância à partição.",
+        "C": "resiliência, performance e disponibilidade.",
+        "D": "performance, disponibilidade e tolerância à partição.",
+        "E": "consistência, disponibilidade e qualidade."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "Diferentemente da integração contínua, a entrega contínua está vinculada à prática de",
+      "alternativas": {
+        "A": "execução de vários testes pelo servidor de compilação.",
+        "B": "testes em ambientes semelhantes ao de produção.",
+        "C": "mesclagem de alterações de código em um repositório central em curtos espaços de tempo.",
+        "D": "implantação do código em ambiente de teste ou de produção após a etapa de compilação.",
+        "E": "integrações de menores porções de código."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "O modelo relacional de bancos de dados é caracterizado por",
+      "alternativas": {
+        "A": "implementar estruturas multidimensionais para análises de dados.",
+        "B": "armazenar dados em formato JSON com estruturas hierárquicas.",
+        "C": "armazenar dados como pares de chave-valor sem estrutura definida.",
+        "D": "organizar dados em tabelas bidimensionais compostas por linhas e colunas.",
+        "E": "utilizar grafos para representar entidades e seus relacionamentos."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "A principal função da cláusula WITH do SQL é",
+      "alternativas": {
+        "A": "agrupar registros com base em valores comuns em uma ou mais colunas.",
+        "B": "combinar registros de duas ou mais tabelas com base em colunas relacionadas.",
+        "C": "filtrar registros com base em condições específicas.",
+        "D": "ordenar o resultado de uma consulta por uma ou mais colunas.",
+        "E": "definir blocos de consulta nomeados que podem ser referenciados múltiplas vezes."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção em que é citado o modelo de banco de dados NoSQL ideal para representar e consultar relacionamentos complexos entre entidades (como em redes sociais ou sistemas de recomendação).",
+      "alternativas": {
+        "A": "banco de dados multidimensional",
+        "B": "banco de dados orientado a documentos",
+        "C": "banco de dados chave-valor",
+        "D": "banco de dados de família de colunas",
+        "E": "banco de dados de grafos"
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "De acordo com o teorema CAP (consistência, disponibilidade e tolerância a partição), sistemas distribuídos",
+      "alternativas": {
+        "A": "podem garantir disponibilidade e tolerância a partição apenas em bancos de dados NoSQL.",
+        "B": "devem priorizar a tolerância a partição em detrimento da consistência e disponibilidade.",
+        "C": "podem garantir CAP simultaneamente.",
+        "D": "devem escolher entre consistência e disponibilidade durante uma partição de rede.",
+        "E": "podem garantir consistência e disponibilidade apenas, se não houver falhas de rede."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "A técnica de otimização de desempenho que permite ao SGBD acessar rapidamente registros específicos sem necessidade de examinar todos os dados de uma tabela é denominada",
+      "alternativas": {
+        "A": "buffer pool extension.",
+        "B": "particionamento de tabelas.",
+        "C": "normalização de dados.",
+        "D": "criação de índices.",
+        "E": "materialização de visões."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "O plano de execução de consultas (execution plan) é uma ferramenta importante para a otimização de desempenho, pois",
+      "alternativas": {
+        "A": "implementa o particionamento automático de tabelas grandes.",
+        "B": "executa automaticamente a reescrita de consultas SQL para melhorar o desempenho.",
+        "C": "mostra a sequência de operações que o SGBD realizará para executar uma consulta.",
+        "D": "cria automaticamente índices para as colunas mais utilizadas em consultas.",
+        "E": "realiza a normalização automática das tabelas do banco de dados."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "No contexto de data warehousing, o esquema estrela (star schema) caracteriza-se como",
+      "alternativas": {
+        "A": "uma tabela de fatos central conectada a múltiplas tabelas de dimensão desnormalizadas.",
+        "B": "uma estrutura normalizada com múltiplas tabelas de fatos interconectadas.",
+        "C": "um conjunto de data marts independentes, sem dimensões compartilhadas.",
+        "D": "uma estrutura hierárquica que representa diferentes níveis de agregação de dados.",
+        "E": "um modelo de dados orientado a documentos com estruturas aninhadas."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Em data warehousing, o processo ETL é responsável por",
+      "alternativas": {
+        "A": "gerenciar o ciclo de vida dos dados, inclusive arquivamento e exclusão.",
+        "B": "extrair dados de fontes heterogêneas, transformá-los e carregá-los no data warehouse.",
+        "C": "analisar dados multidimensionais por meio de operações como drill-down e roll-up.",
+        "D": "criar esquemas estrela e floco de neve para modelagem dimensional.",
+        "E": "implementar controles de acesso e segurança para dados sensíveis."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Governança de dados consiste em",
+      "alternativas": {
+        "A": "uma metodologia para migração de dados entre sistemas legados e modernos.",
+        "B": "um conjunto de processos, políticas e padrões que garantem o uso efetivo e eficiente das informações.",
+        "C": "um software que automatiza a gestão de metadados e qualidade de dados.",
+        "D": "um processo exclusivo do departamento de TI para o gerenciamento de bancos de dados.",
+        "E": "uma técnica para armazenar grandes volumes de dados em sistemas distribuídos."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "A abordagem de qualidade de dados conhecida como quality by design caracteriza-se pela",
+      "alternativas": {
+        "A": "delegação da responsabilidade pela qualidade exclusivamente aos usuários finais.",
+        "B": "incorporação de controles de qualidade nos processos de captura e transformação de dados.",
+        "C": "correção de problemas de qualidade após o armazenamento dos dados no banco de dados.",
+        "D": "utilização de ferramentas automatizadas para a detecção de anomalias em dados históricos.",
+        "E": "realização de auditorias periódicas para a verificação da conformidade com padrões de qualidade."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Considerando o gerenciamento de workloads em um ambiente de nuvem, assinale a opção correta.",
+      "alternativas": {
+        "A": "Os workloads em nuvem prescindem de monitoramento constante.",
+        "B": "A utilização de instâncias de computação preemptivas é sempre adequada para qualquer workload.",
+        "C": "O auto-scaling ajusta a capacidade computacional conforme a necessidade, com possível aumento dos custos na falta de controle adequado.",
+        "D": "As instâncias reservadas são apropriadas para todos os tipos de workloads.",
+        "E": "A utilização de uma única zona de disponibilidade para todos os workloads não afeta o downtime."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "A respeito das características da arquitetura serverless, assinale a opção correta.",
+      "alternativas": {
+        "A": "A execução de workloads em paralelo não é suportada, o que limita a capacidade de processamento.",
+        "B": "As aplicações devem ser constantemente reescritas para que se adaptem às mudanças na infraestrutura do provedor de nuvem.",
+        "C": "O custo é baseado no tempo de execução e na quantidade de recursos consumidos pelas funções.",
+        "D": "O desenvolvedor é responsável por gerenciar a escalabilidade horizontal dos servidores.",
+        "E": "A arquitetura elimina a necessidade de monitoramento e logging."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Assinale a opção em que é corretamente descrito um dos principais benefícios da implementação do DevSecOps em um pipeline de desenvolvimento de software.",
+      "alternativas": {
+        "A": "promoção de uma cultura de colaboração na qual todos os membros da equipe sejam responsáveis pela segurança, com vistas ao aumento da eficácia e da qualidade do software",
+        "B": "aumento do tempo de entrega em verificações manuais de segurança em todas as etapas do pipeline",
+        "C": "garantia de identificação de vulnerabilidades críticas por meio de testes automatizados realizados desde as fases iniciais de desenvolvimento",
+        "D": "eliminação da necessidade de ferramentas de segurança nas etapas do pipeline CI/CD nativo",
+        "E": "diminuição da necessidade frequente de auditorias externas nas verificações automatizadas de segurança no ciclo de desenvolvimento"
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Assinale a opção em que é indicada a ferramenta mais adequada para a integração contínua, haja vista a automatização e a integração de processos de desenvolvimento, operações e segurança.",
+      "alternativas": {
+        "A": "SonarQube",
+        "B": "Jenkins",
+        "C": "Docker",
+        "D": "Kubernetes",
+        "E": "Ansible"
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "X",
+      "enunciado": "Certa organização precisa realizar uma atualização de software em seus servidores críticos. Essa mudança foi classificada como normal e será avaliada pelo CAB (change advisory board). Considerando essa situação hipotética, assinale a opção em que é apresentado o fator que o CAB deve priorizar para decidir se aprova ou rejeita a mudança.",
+      "alternativas": {
+        "A": "recomendação do gerente de projeto para a implantação da atualização",
+        "B": "recursos financeiros não previstos para a atualização",
+        "C": "probabilidade de a atualização impactar a estabilidade dos serviços",
+        "D": "disponibilidade da equipe para a execução da atualização",
+        "E": "quantidade de pessoas que utilizarão o serviço"
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Após análise detalhada, a equipe de gerenciamento de problemas de determinada empresa identificou falhas recorrentes em um sistema de reservas on-line causadas por um bug em uma atualização recente do software. Um workaround foi documentado e compartilhado com o Service Desk, mas a correção definitiva só estará disponível na próxima versão do sistema, que estará pronta em 30 dias. Com base nessa situação hipotética, assinale a opção em que é apresentada a terminologia correta para o registro da situação no sistema de gerenciamento de serviço.",
+      "alternativas": {
+        "A": "liberação planejada",
+        "B": "requisição de serviços",
+        "C": "incidente crítico",
+        "D": "mudança emergencial",
+        "E": "erro conhecido"
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Um analista forense coletou um arquivo de um servidor suspeito e calculou seu hash SHA-256 antes e após a transferência, tendo obtido o mesmo valor (hash original = hash após transferência). Ao abrir o arquivo, o analista verificou que parte do conteúdo estava corrompida, embora o tamanho do arquivo e os metadados permanecessem inalterados. Nessa situação hipotética, conforme os procedimentos forenses padrão, o referido analista deverá",
+      "alternativas": {
+        "A": "ignorar a corrupção, pois o hash comprova a autenticidade do arquivo.",
+        "B": "usar um algoritmo de hash diferente (como MD5) para verificar novamente o arquivo.",
+        "C": "registrar a inconsistência, coletar novamente o arquivo e verificar os hashes.",
+        "D": "descartar imediatamente a evidência, devido à corrupção verificada.",
+        "E": "considerar a evidência válida porque o hash não foi alterado."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Acerca das técnicas antiforenses, assinale a opção correta.",
+      "alternativas": {
+        "A": "A esteganografia em imagens JPEG é detectável com 100% de precisão com o uso de assinaturas estatísticas, ainda que sejam utilizados algoritmos avançados, como o F5.",
+        "B": "O TrueCrypt, apesar de descontinuado, ainda é considerado seguro para a criptografia de discos devido à implementação de algoritmos pós-quânticos, que resistem a ataques de computadores quânticos.",
+        "C": "O sistema de arquivos Rubberhose foi projetado para fornecer negação plausível por meio de criptografia, o que permite a existência — não provada sem a chave — de múltiplos volumes ocultos.",
+        "D": "O apagamento seguro é suficiente para impedir a recuperação de dados em SSD modernos, pois ignora o wear-leveling.",
+        "E": "A criptografia homomórfica é técnica antiforense eficaz para evitar a detecção de conteúdo durante análises dinâmicas, visto que permite operações com dados criptografados sem descriptografá-los."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "O WAF (web application firewalls)",
+      "alternativas": {
+        "A": "elimina a necessidade de desenvolvimento de código seguro nas aplicações web.",
+        "B": "protege as aplicações web contra todos os tipos de ataques cibernéticos conhecidos.",
+        "C": "funciona exclusivamente no nível de rede (camada 3 do modelo OSI) para proteger aplicações web.",
+        "D": "substitui outras práticas de segurança, como o uso de SSL/TLS e a implementação de políticas de segurança de rede.",
+        "E": "pode ser implementado em modo de detecção (passivo) ou em modo de prevenção (ativo)."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Assinale a opção correta a respeito das tecnologias MPLS (multiprotocol label switching) e SD-WAN (software-defined wide area network).",
+      "alternativas": {
+        "A": "O SD-WAN utiliza uma abordagem centrada em software para gerenciar a conectividade WAN.",
+        "B": "A implementação do SD-WAN requer a substituição completa da infraestrutura de rede existente.",
+        "C": "A tecnologia MPLS substitui completamente o roteamento IP nas redes.",
+        "D": "O MPLS permite a criação de rotas virtuais privadas, sem o isolamento do tráfego de diferentes clientes em uma rede compartilhada.",
+        "E": "A principal vantagem do SD-WAN sobre o MPLS é a sua capacidade de fornecer uma largura de banda garantida e previsível para todas as aplicações."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Para o estabelecimento do escopo do sistema de gestão da segurança da informação, uma organização deverá necessariamente considerar",
+      "alternativas": {
+        "A": "as interfaces e dependências entre as atividades desempenhadas pela organização e por outras organizações.",
+        "B": "a garantia de que a implantação de um sistema de gestão da segurança da informação alcançará os resultados pretendidos em patamares certificados internacionalmente.",
+        "C": "a conformidade e o alinhamento com os requisitos das normas internacionais ISO/IEC 9000, ISO/IEC 14001 e ISO/IEC 27005.",
+        "D": "as atribuições de responsabilidades das autoridades para relatar o desempenho do sistema de gestão da segurança da informação dentro da organização.",
+        "E": "o comprometimento com a satisfação dos requisitos aplicáveis da segurança da informação e com a melhoria contínua do sistema de gestão da segurança."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção em que é indicado critério necessário para a seleção de estratégias e soluções da continuidade de negócios.",
+      "alternativas": {
+        "A": "limitação do impacto de disrupção nos produtos e serviços da organização",
+        "B": "avaliação dos benefícios associados de forma integralmente desvinculada dos custos envolvidos",
+        "C": "proteção e conformidade irrestritas das atividades e dos processos prioritários da organização",
+        "D": "consideração sobre o tamanho e o tipo de risco que a organização pode ou não assumir",
+        "E": "análise dos custos envolvidos de forma integralmente desvinculada dos benefícios associados"
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Assinale a opção em que é citado o processo que, no gerenciamento de identidade e acesso, corresponde à criação e ao gerenciamento de contas de usuário, incluindo-se a especificação dos usuários e dos recursos a que eles têm acesso bem como a atribuição de permissões e níveis de acesso.",
+      "alternativas": {
+        "A": "controle de acesso",
+        "B": "provisionamento de usuários",
+        "C": "federação de identidade",
+        "D": "autenticação de usuários",
+        "E": "autorização de usuários"
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "C",
+      "enunciado": "Assinale a opção em que é apresentado item a ser necessariamente considerado na definição de critérios básicos de impacto desenvolvidos em função do montante dos danos ou custos à organização causados por um evento relacionado à gestão de riscos de segurança da informação.",
+      "alternativas": {
+        "A": "expectativas e percepções das partes interessadas",
+        "B": "diferentes critérios para a aceitação do risco",
+        "C": "perda de oportunidades de negócio e de valor financeiro",
+        "D": "recurso para monitoramento de controles relacionados",
+        "E": "plano de tratamento dos riscos vigente"
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "A característica da arquitetura zero trust definida como a divisão dos perímetros de segurança das redes em pequenas zonas para manter os acessos compartimentados, impedir o movimento lateral de ameaças e reduzir a superfície de ataque em casos de violações de segurança é denominada",
+      "alternativas": {
+        "A": "controle dos dispositivos.",
+        "B": "autenticação multifator.",
+        "C": "privilégio mínimo.",
+        "D": "monitoramento constante.",
+        "E": "microssegmentação."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "E",
+      "enunciado": "Na gestão de vulnerabilidades técnicas, a realização de testes de invasão planejados, documentados e repetíveis bem como a utilização de ferramentas de varredura inserem-se no processo de",
+      "alternativas": {
+        "A": "relatoria de vulnerabilidades.",
+        "B": "comunicação de vulnerabilidades.",
+        "C": "avaliação de vulnerabilidades.",
+        "D": "enfrentamento de vulnerabilidades.",
+        "E": "identificação de vulnerabilidades."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "B",
+      "enunciado": "Um sistema de consulta a registros de rede, disponível em uma intranet corporativa, recebe parâmetros de entrada a partir de requisições HTTP e utiliza-os na composição de comandos de consulta ao seu repositório de dados. Durante um teste de vulnerabilidades relacionadas a ataques contra aplicações, a seguinte entrada foi fornecida no parâmetro de consulta de endereço IP da aplicação: 10.0.0.1'; DELETE FROM registros; --. Após o envio da requisição, um comportamento indesejado ocorreu e verificou-se que o artifício poderia ser objetivamente usado em um ataque real. Em relação à situação hipotética apresentada, assinale a opção correta.",
+      "alternativas": {
+        "A": "O ataque foi viabilizado por uma falha do sistema operacional relacionada ao controle de permissões de arquivos temporários, o que permitiu a execução arbitrária de comandos de manipulação de dados pelo usuário remoto.",
+        "B": "A vulnerabilidade decorre do uso de interpolação textual sem mecanismos de separação lógica entre dados e comandos, o que permite a injeção de código no interpretador de consultas.",
+        "C": "O ataque caracteriza uma parametrização adicional indevida, viabilizada pela ausência de isolamento entre a camada de rede e o sistema operacional.",
+        "D": "O uso do método HTTP para envio de dados é incorreto, o que impede o tratamento seguro de entradas potencialmente maliciosas.",
+        "E": "A entrada fornecida manipula a lógica booleana da cláusula de filtragem, o que resulta em uma condição sempre falsa e instrui incorretamente o sistema sobre como manusear os dados."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "A",
+      "enunciado": "Assinale a opção em que é apresentada recomendação de segurança em norma padrão a usuários de dispositivos endpoint corporativos.",
+      "alternativas": {
+        "A": "encerramento de sessões ativas e finalização de serviços quando não forem mais necessários",
+        "B": "utilização de dispositivos corporativos em propósitos pessoais somente quando conectados a redes externas à organização",
+        "C": "não realização de backup dos dados armazenados no dispositivo quando conectados a redes sem fio",
+        "D": "bloqueio da limpeza remota de dados nos dispositivos corporativos para evitar a perda de dados sensíveis armazenados",
+        "E": "armazenamento em nuvem privada dos artefatos privados desenvolvidos nos equipamentos corporativos"
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "Os certificados digitais autoassinados são utilizados com baixo ou nenhum risco de segurança para as organizações",
+      "alternativas": {
+        "A": "para criptografia de conteúdo de email pela Internet.",
+        "B": "no acesso de usuários externos a redes corporativas por meio de VPN.",
+        "C": "na proteção de tráfego entre servidores web e navegadores e de comunicações.",
+        "D": "em ambiente de desenvolvimento de software para testagem da comunicação segura pela rede.",
+        "E": "para assinatura digital de códigos de software em ambientes de produção."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Tecnologia da Informação",
+      "gabarito": "D",
+      "enunciado": "No que se refere à prevenção e tratamento de incidentes de segurança da informação, o processo que consiste em identificar, analisar e caracterizar artefatos reportados de software suspeitos de constituir técnicas e métodos dos adversários denomina-se análise",
+      "alternativas": {
+        "A": "funcional.",
+        "B": "de sistema.",
+        "C": "de rede.",
+        "D": "de malware.",
+        "E": "forense."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Sociedade anônima do setor comercial deve reconhecer contabilmente como despesa, no momento de sua ocorrência,",
+      "alternativas": {
+        "A": "proposição dos dividendos a serem distribuídos aos acionistas.",
+        "B": "ICMS incidente sobre a compra de mercadorias para revenda.",
+        "C": "adiantamento de recursos por serviços que lhe serão prestados no mês seguinte.",
+        "D": "consumo de material de expediente.",
+        "E": "descontos comerciais obtidos de um fornecedor de mercadorias."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Assinale a opção em que são apresentados os ativos que, segundo a legislação societária, estão sujeitos à provisão para ajuste ao valor de mercado, quando este valor for inferior ao custo de aquisição desses ativos.",
+      "alternativas": {
+        "A": "direitos classificados no intangível",
+        "B": "direitos que tenham por objeto mercadorias do comércio da companhia",
+        "C": "direitos classificados no imobilizado",
+        "D": "investimentos em participação no capital social de outras sociedades",
+        "E": "aplicações em instrumentos financeiros destinados à negociação"
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Contabilidade Geral",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção em que é indicado o evento contábil que é evidenciado na demonstração das mutações do patrimônio líquido da organização e que representa um aumento do valor do patrimônio líquido durante o período coberto pela referida demonstração.",
+      "alternativas": {
+        "A": "aquisição de ações de emissão própria",
+        "B": "aumento de capital social com a utilização de reservas de lucros",
+        "C": "reversão da reserva para contingências constituída em período anterior",
+        "D": "valor obtido com a venda de partes beneficiárias",
+        "E": "proposição dos dividendos a serem distribuídos aos acionistas"
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "As informações a seguir estão relacionadas a determinado ativo imobilizado de uma companhia aberta, ao final de certo exercício social: valor contábil R$ 250.000; valor justo R$ 240.000; valor em uso R$ 230.000; valor residual R$ 50.000; despesas incrementais diretamente atribuíveis à venda R$ 3.000. Com base nos dados hipotéticos apresentados, é correto afirmar que o valor da perda por desvalorização do ativo em apreço é",
+      "alternativas": {
+        "A": "R$ 0.",
+        "B": "R$ 10.000.",
+        "C": "R$ 13.000.",
+        "D": "R$ 20.000.",
+        "E": "R$ 60.000."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "A amortização de empréstimos de longo prazo por uma companhia aberta do setor industrial deve ser apresentada na demonstração dos fluxos de caixa da referida companhia como",
+      "alternativas": {
+        "A": "fluxo de caixa das atividades de financiamento.",
+        "B": "caixa e equivalentes de caixa.",
+        "C": "fluxo de caixa das atividades de investimento.",
+        "D": "fluxos de caixa em base líquida.",
+        "E": "fluxo de caixa das atividades operacionais."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "E",
+      "enunciado": "Acerca da taxa de aplicação dos custos indiretos de produção, julgue os itens a seguir.\nI A taxa de aplicação dos custos indiretos de produção permite que o custo de um produto seja conhecido sem que se tenha encerrado o período considerado como base para a realização do rateio dos custos indiretos de produção.\nII A taxa de aplicação dos custos indiretos de produção depende da estimação de três variáveis: o volume de produção, os custos indiretos de produção a incorrer e a forma de distribuição desses custos indiretos aos produtos.\nIII A diferença entre os valores estimados e os valores reais dos custos indiretos de produção deve ser eliminada na contabilidade, com reflexo no custo dos produtos vendidos e no custo dos produtos que eventualmente ainda estiverem sendo mantidos em estoque.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Apenas o item I está certo.",
+        "B": "Apenas os itens I e II estão certos.",
+        "C": "Apenas os itens I e III estão certos.",
+        "D": "Apenas os itens II e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "C",
+      "enunciado": "Determinada empresa industrial que se dedica à fabricação de um único produto apresentou os seguintes dados em março de 2025, mês em que deu início às suas operações: custos totais de produção R$ 2.400.000; unidades iniciadas no período 20.000 unidades; unidades inacabadas no período 5.000 unidades. Considerando-se que as unidades inacabadas alcançaram um percentual de conclusão igual a 20%, é correto afirmar que o custo unitário das unidades produzidas em março de 2025 foi de",
+      "alternativas": {
+        "A": "R$ 96.",
+        "B": "R$ 120.",
+        "C": "R$ 150.",
+        "D": "R$ 160.",
+        "E": "R$ 300."
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "B",
+      "enunciado": "No âmbito de uma empresa industrial, o sistema de produção por ordem apresenta como características, em regra,",
+      "alternativas": {
+        "A": "produção intermitente, acumulação dos custos em uma conta específica para cada encomenda, padronização dos produtos fabricados, processo de fabricação anterior ao processo de venda.",
+        "B": "produção intermitente, acumulação dos custos em uma conta específica para cada encomenda, flexibilidade e personalização dos produtos fabricados, processo de venda anterior ao processo de fabricação.",
+        "C": "produção por processo, acumulação dos custos em contas representativas das diversas linhas de produção, flexibilidade e personalização dos produtos fabricados, processo de venda anterior ao processo de fabricação.",
+        "D": "produção por processo, acumulação dos custos em uma conta específica para cada encomenda, padronização dos produtos fabricados, processo de venda anterior ao processo de fabricação.",
+        "E": "produção intermitente, acumulação dos custos em contas representativas das diversas linhas de produção, flexibilidade e personalização dos produtos fabricados, processo de fabricação anterior ao processo de venda."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "C",
+      "enunciado": "As informações apresentadas a seguir estão relacionadas a uma empresa industrial fabricante de um único produto. Preço unitário de venda R$ 100. Custos variáveis unitários de fabricação: matéria-prima R$ 20, mão de obra direta R$ 10, custos indiretos variáveis R$ 6. Custos fixos no período R$ 240.000. Despesas administrativas e de vendas: variáveis por unidade vendida R$ 10, despesas fixas no período R$ 140.000, quantidade produzida no período 10.000 unidades. Com base nos dados hipotéticos apresentados, é correto afirmar que a margem de contribuição unitária do produto no período considerado importou em",
+      "alternativas": {
+        "A": "R$ 16.",
+        "B": "R$ 30.",
+        "C": "R$ 54.",
+        "D": "R$ 64.",
+        "E": "R$ 70."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Contabilidade de Custos",
+      "gabarito": "X",
+      "enunciado": "Se for aumentada a participação dos custos fixos nos custos totais de uma empresa industrial, sem que haja qualquer outra alteração, inclusive no valor desses custos totais, será provocado, sobre as variáveis que costumam ser utilizadas na gestão de custos de empresas industriais, o efeito de",
+      "alternativas": {
+        "A": "redução dos custos a serem rateados entre os produtos.",
+        "B": "redução da margem de contribuição total do período.",
+        "C": "redução do lucro calculado com base no custeio por absorção.",
+        "D": "aumento do grau de alavancagem operacional.",
+        "E": "aumento da quantidade de produtos necessária ao atingimento do ponto de equilíbrio."
+      }
+    },
+    {
+      "numero": 61,
+      "materia": "Auditoria",
+      "gabarito": "D",
+      "enunciado": "Considerando as definições e os escopos da NBC TA e da NBC PA, assinale a opção que corretamente delimita a aplicação de cada norma no contexto da auditoria contábil.",
+      "alternativas": {
+        "A": "A NBC TA foca na elaboração do relatório final e a NBC PA, na coleta de evidências documentais, sem sobreposição de funções.",
+        "B": "A NBC TA trata dos aspectos técnicos da auditoria, enquanto a NBC PA se limita à padronização dos relatórios gerenciais.",
+        "C": "A NBC TA é dedicada exclusivamente à auditoria de demonstrações contábeis, enquanto a NBC PA trata apenas de questões operacionais de auditoria interna.",
+        "D": "A NBC TA orienta a execução dos procedimentos de auditoria sobre demonstrações contábeis, enquanto a NBC PA estabelece diretrizes complementares para trabalhos específicos de auditoria.",
+        "E": "A NBC TA e a NBC PA possuem escopos idênticos e podem ser adotadas de maneira concorrente em auditorias externas e internas."
+      }
+    },
+    {
+      "numero": 62,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "De acordo com a NBC TA 530, que foi aprovada pela Resolução CFC n.º 1.222/2009, o objetivo da adoção da amostragem no trabalho de auditoria é",
+      "alternativas": {
+        "A": "reduzir intencionalmente o risco de auditoria, mesmo que isso resulte no aumento do volume de trabalho detalhado.",
+        "B": "substituir os testes substantivos para agilizar o processo de auditoria.",
+        "C": "permitir ao auditor obter evidências representativas da população, reduzindo custos sem comprometer a segurança razoável.",
+        "D": "assegurar a verificação completa de todas as transações, eliminando o risco de não detecção de erros.",
+        "E": "garantir a identificação de todos os erros existentes, independentemente de seu valor monetário."
+      }
+    },
+    {
+      "numero": 63,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "No contexto da auditoria, o propósito dos testes de observância é",
+      "alternativas": {
+        "A": "concentrar-se na avaliação dos controles operacionais, suficientes para a robustez das evidências de auditoria.",
+        "B": "garantir a revisão integral de todas as transações registradas.",
+        "C": "realizar investigações detalhadas apenas em casos de suspeita de fraude.",
+        "D": "substituir a necessidade de testes substantivos na verificação dos saldos contábeis.",
+        "E": "avaliar de forma crítica a conformidade dos controles internos e a aderência aos procedimentos definidos pela administração."
+      }
+    },
+    {
+      "numero": 64,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "Na auditoria de demonstrações financeiras, a principal finalidade dos testes substantivos é",
+      "alternativas": {
+        "A": "confirmar a integridade e a exatidão dos registros por meio de evidências consistentes.",
+        "B": "substituir a necessidade de auditoria analítica dos registros financeiros.",
+        "C": "evitar a necessidade de verificação da veracidade dos saldos no âmbito do tratamento contábil aplicado.",
+        "D": "conduzir auditorias operacionais e evitar a intervenção na avaliação dos controles internos.",
+        "E": "realizar a análise dos controles internos, dispensando a verificação dos saldos contábeis."
+      }
+    },
+    {
+      "numero": 65,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "No contexto da realização de testes voltados a identificar subavaliação e superavaliação e assegurar a consistência dos registros contábeis, deve-se",
+      "alternativas": {
+        "A": "realizar análises comparativas entre os valores registrados e os parâmetros técnicos.",
+        "B": "aplicar os testes na verificação dos registros de receitas, ignorando os registros de ativos e passivos.",
+        "C": "focar na verificação isolada de documentos fiscais.",
+        "D": "confiar nas informações fornecidas pela administração, sem buscar evidências externas.",
+        "E": "concentrar a auditoria na análise dos custos operacionais."
+      }
+    },
+    {
+      "numero": 66,
+      "materia": "Auditoria",
+      "gabarito": "C",
+      "enunciado": "A abordagem integrada mais eficaz para detectar fraudes na escrita fiscal de uma entidade consiste em",
+      "alternativas": {
+        "A": "concluir a análise com base em uma única fonte de dados para simplificar o procedimento.",
+        "B": "confiar na análise exclusiva dos registros contábeis formais, desconsiderando documentos auxiliares.",
+        "C": "combinar o cruzamento entre registros contábeis, fiscais e documentos de suporte, permitindo a comparação e a verificação mútua.",
+        "D": "confiar nos indicadores financeiros, sem realizar uma triangulação de evidências.",
+        "E": "limitar a investigação à análise dos controles internos, sem consultar fontes externas."
+      }
+    },
+    {
+      "numero": 67,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "Em uma auditoria que vise identificar tanto a superavaliação dos custos de estoque quanto a inexistência de registros dos passivos de curto prazo, o procedimento recomendado para assegurar a integridade e a fidedignidade das demonstrações financeiras consiste em",
+      "alternativas": {
+        "A": "proceder à análise dos passivos de curto prazo isoladamente, sem correlacioná-los aos custos de estoque.",
+        "B": "confiar nos registros internos fornecidos pela administração para os custos e passivos, sem realizar verificações independentes.",
+        "C": "priorizar a investigação dos custos de estoque em detrimento da análise dos passivos, que é secundária.",
+        "D": "realizar análises comparativas dos custos documentados com os padrões estabelecidos.",
+        "E": "integrar a verificação dos custos de estoque com a investigação detalhada dos compromissos financeiros, buscando evidências documentais que comprovem a existência e a correta avaliação dos passivos de curto prazo."
+      }
+    },
+    {
+      "numero": 68,
+      "materia": "Auditoria",
+      "gabarito": "E",
+      "enunciado": "Ao examinar os ativos realizáveis a longo prazo e os investimentos de determinada entidade, uma ação que o auditor pode adotar para assegurar a veracidade e a fundamentação dos registros desses ativos é",
+      "alternativas": {
+        "A": "adotar procedimentos isolados para cada área, sem correlacionar os dados referentes aos ativos realizáveis e aos investimentos com a análise das origens dos recursos.",
+        "B": "realizar a auditoria dos investimentos sem verificar a origem dos recursos, uma vez que a documentação interna é suficiente para a validação dos saldos.",
+        "C": "basear-se nas informações fornecidas pela administração sobre os recursos e os investimentos, sem realizar procedimentos de auditoria adicionais para a verificação das origens.",
+        "D": "focar exclusivamente a identificação de recursos fictícios, em detrimento da análise dos investimentos e dos ativos realizáveis, pois estes já seguem padrões normativos.",
+        "E": "integrar a verificação documental dos ativos realizáveis a longo prazo e dos investimentos com a análise crítica das origens dos recursos, utilizando procedimentos comparativos e de cruzamento de informações para identificar eventuais inconsistências."
+      }
+    },
+    {
+      "numero": 69,
+      "materia": "Auditoria",
+      "gabarito": "A",
+      "enunciado": "Em determinada entidade, identificam-se riscos associados a registros incorretos do passivo circulante e não circulante, havendo, inclusive, passivos fictícios, passivos já pagos não baixados e falta de registro dos passivos de curto prazo. Além disso, identificam-se situações de aumento de capital sem comprovação da entrega dos recursos e situações de contabilização inadequada de reservas e subvenções, bem como problemas em contas de resultado com ocultação de receitas e superavaliação de custos e despesas. A partir da situação hipotética precedente, assinale a opção em que é apresentada uma abordagem integrada de auditoria que proporcionaria maior segurança na identificação de erros, fraudes e manipulações na escrita fiscal da entidade em apreço.",
+      "alternativas": {
+        "A": "integrar a análise dos registros e evidências documentais dos passivos, do patrimônio líquido e das contas de resultado com a aplicação de testes de consistência e de auditoria na escrita fiscal",
+        "B": "aplicar testes quantitativos e estatísticos aos registros contábeis, sem considerar o contexto qualitativo e sem a necessidade de cruzar informações de diferentes fontes",
+        "C": "avaliar exclusivamente as informações gerenciais registradas nos sistemas contábeis, considerando que os controles internos já absorvem todas as inconsistências",
+        "D": "realizar procedimentos isolados para cada área (passivo, patrimônio, contas de resultado e escrita fiscal), sem promover a inter-relação entre os diversos controles e registros",
+        "E": "focar a investigação nos passivos de curto prazo e no patrimônio líquido, ignorando-se as análises das contas de resultado e da escrita fiscal, uma vez que essas áreas são de menor risco"
+      }
+    },
+    {
+      "numero": 70,
+      "materia": "Auditoria",
+      "gabarito": "B",
+      "enunciado": "No âmbito da auditoria do ativo imobilizado, a abordagem que auxilia na identificação de ativos ocultos e na detecção de eventuais alienações fictícias, assegurando que os registros reflitam a situação real dos bens da entidade, consiste em",
+      "alternativas": {
+        "A": "limitar a auditoria à análise de índices financeiros relacionados ao ativo imobilizado, prescindindo-se da investigação das transações específicas de alienação e da realização de inventário físico.",
+        "B": "realizar a conciliação detalhada dos registros contábeis com um inventário físico minucioso, acompanhada da análise das transações de alienação, de modo a identificar discrepâncias que apontem para ativos não registrados e(ou) alienações fictícias.",
+        "C": "adotar procedimentos isolados para identificação de ativos ocultos e alienações fictícias, sem integrar as informações provenientes da análise documental e dos registros contábeis.",
+        "D": "embasar-se na documentação contábil fornecida pela administração, sem a realização de inventário físico, visto que os controles internos são suficientes para assegurar a integridade do ativo imobilizado.",
+        "E": "focar na verificação das alienações, utilizando-se análises de razão e comparações com o histórico patrimonial, sem confrontar os dados com um inventário físico atualizado."
+      }
+    },
+    {
+      "numero": 71,
+      "materia": "Direito Constitucional",
+      "gabarito": "C",
+      "enunciado": "Acerca da aplicabilidade das normas constitucionais e dos direitos e garantias fundamentais, assinale a opção correta.",
+      "alternativas": {
+        "A": "Senador da República que tenha nascido em país estrangeiro durante o período em que seu pai, diplomata, estava a serviço do Brasil naquele país estrangeiro não poderá presidir a respectiva casa legislativa visto que não é considerado brasileiro nato.",
+        "B": "As manifestações favoráveis e contrárias às questões que, aprovadas pelas câmaras municipais, tenham sido submetidas às consultas populares ocorrerão durante as campanhas eleitorais, garantida aos grupos manifestantes a utilização de propaganda gratuita no rádio e na televisão.",
+        "C": "A norma constitucional que estabelece a impossibilidade de prisão civil por dívida, salvo a do responsável pelo inadimplemento voluntário e inescusável de obrigação alimentícia e a do depositário infiel, tem eficácia contida, de modo que o legislador infraconstitucional pode restringir sua aplicação.",
+        "D": "A norma constitucional que estabelece a possibilidade de interceptação telefônica por ordem judicial para fins de investigação criminal ou instrução processual penal é classificada como norma de eficácia plena, portanto compete ao juízo analisar as hipóteses e a necessidade da medida, sem a necessidade de previsão em norma infraconstitucional.",
+        "E": "Aquele que fizer pedido expresso de perda da nacionalidade brasileira perante autoridade brasileira competente poderá readquiri-la, porém na condição de nacionalidade derivada."
+      }
+    },
+    {
+      "numero": 72,
+      "materia": "Direito Constitucional",
+      "gabarito": "E",
+      "enunciado": "No que concerne à organização político-administrativa do Estado, assinale a opção correta com base na Constituição Federal de 1988 (CF) e na jurisprudência do Supremo Tribunal Federal (STF).",
+      "alternativas": {
+        "A": "Por integrarem a União, os territórios federais possuem a mesma autonomia conferida aos estados e ao Distrito Federal, sendo seu governador, assim como nos estados e no Distrito Federal, eleito pelos seus cidadãos.",
+        "B": "O plebiscito previsto para o desmembramento de estado pressupõe a oitiva somente da população que resida na parte do estado a ser desmembrada.",
+        "C": "É constitucional a definição de hierarquia dos créditos da dívida pública, havendo a seguinte ordem de preferência: União; estados e Distrito Federal; e, por último, municípios.",
+        "D": "O desmembramento dos estados está condicionado à aprovação do Congresso Nacional, mediante lei complementar, e da população diretamente interessada, por meio de plebiscito, após divulgação dos estudos de viabilidade estadual, apresentados e publicados na forma da lei.",
+        "E": "Ao mencionar os municípios como integrantes do sistema federativo, a CF confere ênfase à autonomia municipal, cuja essência contém a autoadministração e o autogoverno."
+      }
+    },
+    {
+      "numero": 73,
+      "materia": "Direito Administrativo",
+      "gabarito": "D",
+      "enunciado": "Em relação à administração pública, aos servidores públicos e ao Poder Executivo, assinale a opção correta.",
+      "alternativas": {
+        "A": "O presidente da República pode criar órgão público, mediante decreto, desde que tal criação não implique aumento de despesa.",
+        "B": "No âmbito da União, dos estados, do Distrito Federal e dos municípios, o servidor abrangido por regime próprio de previdência será aposentado aos 62 anos de idade se mulher, e aos 65 anos de idade se homem, observados o tempo de contribuição e os demais requisitos estabelecidos em lei federal.",
+        "C": "O presidente da República, na vigência de seu mandato, não pode ser responsabilizado por crime comum, somente por crime de responsabilidade.",
+        "D": "A CF estabelece que os vencimentos dos cargos do Poder Legislativo e do Poder Judiciário não poderão ser superiores aos pagos pelo Poder Executivo.",
+        "E": "O limite de remuneração do serviço público é o subsídio mensal, em espécie, dos ministros do STF, sendo aplicado a todos os órgãos da administração direta, às autarquias, às fundações públicas, às empresas públicas e às sociedades de economia mista."
+      }
+    },
+    {
+      "numero": 74,
+      "materia": "Direito Constitucional",
+      "gabarito": "C",
+      "enunciado": "No que diz respeito ao Poder Legislativo e ao processo legislativo, assinale a opção correta.",
+      "alternativas": {
+        "A": "A iniciativa popular pode ser exercida pela apresentação à Câmara dos Deputados de projeto de lei subscrito por, no mínimo, cinco por cento do eleitorado nacional, distribuído por pelo menos dez estados, com não menos de um por cento dos eleitores de cada um deles.",
+        "B": "A matéria constante de projeto de lei rejeitado somente poderá constituir objeto de novo projeto em sessão legislativa subsequente à sessão de sua rejeição e mediante proposta da maioria simples dos membros de ambas as casas do Congresso Nacional.",
+        "C": "As comissões parlamentares de inquérito detêm poderes de investigação próprios das autoridades judiciais, porém não podem determinar busca e apreensão domiciliar, tampouco interceptação telefônica, haja vista a cláusula de reserva de jurisdição.",
+        "D": "As medidas provisórias perderão eficácia se não forem convertidas em lei no prazo de sessenta dias, prorrogável uma vez por igual período, ainda que esteja em curso o intervalo de recesso do Congresso Nacional, hipótese em que haverá possibilidade de convocação extraordinária.",
+        "E": "No âmbito federal, a matéria tributária é de iniciativa privativa do presidente da República; no âmbito estadual, é de iniciativa privativa do governador do respectivo estado."
+      }
+    },
+    {
+      "numero": 75,
+      "materia": "Direito Constitucional",
+      "gabarito": "A",
+      "enunciado": "Em relação ao Poder Judiciário e às funções essenciais à justiça, assinale a opção correta.",
+      "alternativas": {
+        "A": "A competência do Tribunal de Justiça do Rio de Janeiro é definida na respectiva Constituição do estado, sendo a lei de organização judiciária de iniciativa do próprio Tribunal de Justiça.",
+        "B": "Na ausência de membro do Ministério Público na comarca, poderá o juiz indicar membro ad hoc ou dativo dentre os advogados que atuem perante aquele órgão jurisdicional, com o objetivo de garantir maior celeridade para a prestação funcional.",
+        "C": "Os membros do Poder Judiciário, do Ministério Público, da advocacia pública e da defensoria pública gozam, após dois anos de exercício, de vitaliciedade, sendo necessário o trânsito em julgado de sentença para a perda do cargo.",
+        "D": "A defensoria pública é instituição permanente, essencial à função jurisdicional do Estado, à qual competem a orientação jurídica, a promoção dos direitos humanos e a defesa, em todos os graus, judicial e extrajudicial, dos direitos individuais e coletivos, de forma integral e gratuita, a todos os cidadãos.",
+        "E": "Compete ao Conselho Nacional de Justiça o controle da atuação administrativa, financeira e jurisdicional do Poder Judiciário, além do cumprimento dos deveres funcionais dos juízes e serventuários da justiça."
+      }
+    },
+    {
+      "numero": 76,
+      "materia": "Direito Constitucional",
+      "gabarito": "A",
+      "enunciado": "Lei estadual que seja anterior à promulgação da CF e com ela seja incompatível pode ser impugnada por meio de",
+      "alternativas": {
+        "A": "arguição de descumprimento de preceito fundamental proposta no STF.",
+        "B": "representação interventiva proposta no STF.",
+        "C": "ação direta de inconstitucionalidade proposta no STF.",
+        "D": "ação direta de inconstitucionalidade proposta no Tribunal de Justiça do Rio de Janeiro.",
+        "E": "ação direta de inconstitucionalidade por omissão proposta no STF."
+      }
+    },
+    {
+      "numero": 77,
+      "materia": "Direito Constitucional",
+      "gabarito": "D",
+      "enunciado": "A representação de inconstitucionalidade de lei ou ato normativo estadual ou municipal em face da Constituição do estado do Rio de Janeiro pode ser proposta",
+      "alternativas": {
+        "A": "por subseção do conselho seccional da Ordem dos Advogados do Brasil em cidades do estado que tenham mais de 100 mil habitantes.",
+        "B": "por procurador de justiça que atue perante o Tribunal de Justiça do Rio de Janeiro.",
+        "C": "por sindicato com sede na cidade do Rio de Janeiro.",
+        "D": "pelo defensor público geral do estado do Rio de Janeiro.",
+        "E": "por um terço dos vereadores no exercício do mandato nos municípios do estado do Rio de Janeiro."
+      }
+    },
+    {
+      "numero": 78,
+      "materia": "Direito Administrativo",
+      "gabarito": "X",
+      "enunciado": "Acerca dos atos administrativos e do processo administrativo, assinale a opção correta.",
+      "alternativas": {
+        "A": "Os preceitos estabelecidos para o processo administrativo no Rio de Janeiro aplicam-se ao Poder Executivo, não havendo extensão aos poderes Legislativo, Judiciário, ao Ministério Público, à Defensoria Pública ou ao Tribunal de Contas, ainda que no desempenho de atividade administrativa.",
+        "B": "O prazo decadencial para a administração anular atos administrativos dos quais decorram efeitos patrimoniais contínuos favoráveis para o administrado é de cinco anos, renovando-se mês a mês, haja vista sua natureza permanente.",
+        "C": "Os atos administrativos praticados por auditor da receita estadual do Rio de Janeiro que apresentarem defeitos sanáveis poderão ser convalidados pela administração, havendo inclusive a possibilidade de convalidação voluntária.",
+        "D": "No processo administrativo, a petição inicial deve ser formulada por escrito e dela devem constar a entidade, o órgão ou a autoridade administrativa a que se dirige, bem como a identificação do requerente e a formulação de pedido.",
+        "E": "O ato administrativo pode ser revogado ou anulado por motivo de conveniência e oportunidade, não sendo necessária a verificação de vício de legalidade."
+      }
+    },
+    {
+      "numero": 79,
+      "materia": "Direito Constitucional",
+      "gabarito": "A",
+      "enunciado": "A respeito dos agentes públicos e de seu regime jurídico, assinale a opção correta, considerando as disposições da Constituição Federal de 1988 (CF) e, no que couber, a jurisprudência do STF.",
+      "alternativas": {
+        "A": "É permitido aos auditores fiscais da receita estadual do Rio de Janeiro acumular seu cargo público com outro de professor.",
+        "B": "Nas hipóteses em que permitida a acumulação de cargos conforme a CF, a soma da remuneração de ambos os cargos não poderá exceder o subsídio mensal, em espécie, dos ministros do STF.",
+        "C": "O membro de Poder, o detentor de mandato eletivo, os ministros de Estado e os secretários estaduais e municipais serão remunerados exclusivamente por subsídio fixado em parcela única, vedado o acréscimo de qualquer gratificação.",
+        "D": "Pratica nepotismo inconstitucional a autoridade nomeante que nomeia seu cônjuge para o exercício do cargo de secretário de estado.",
+        "E": "O servidor público estável somente perderá o cargo em virtude de sentença judicial transitada em julgado ou mediante processo administrativo em que lhe seja assegurada ampla defesa."
+      }
+    },
+    {
+      "numero": 80,
+      "materia": "Direito Administrativo",
+      "gabarito": "B",
+      "enunciado": "No âmbito dos poderes da administração pública, o poder hierárquico",
+      "alternativas": {
+        "A": "é o poder concedido à administração pública que lhe confere liberdade para valorar a conveniência e a oportunidade da prática de atos administrativos.",
+        "B": "tem por objetivo ordenar, coordenar, controlar e corrigir as atividades administrativas, no âmbito interno da administração pública.",
+        "C": "é a faculdade da administração pública de complementar a norma naquilo que não seja privativo a lei, sendo uma das formas pelas quais se expressa a função normativa do Poder Executivo.",
+        "D": "controla o desempenho das funções executivas e a conduta interna dos servidores da administração pública, responsabilizando-os pelas faltas cometidas.",
+        "E": "é a faculdade de que dispõe a administração pública para condicionar e restringir o uso e o gozo de bens, atividades e direitos individuais, em benefício da coletividade ou do próprio Estado."
+      }
+    },
+    {
+      "numero": 81,
+      "materia": "Direito Administrativo",
+      "gabarito": "E",
+      "enunciado": "No que diz respeito à responsabilidade civil do Estado, assinale a opção correta.",
+      "alternativas": {
+        "A": "Cabe ao particular o ônus probatório para afastar excludentes de responsabilidade civil do Estado.",
+        "B": "A culpa concorrente é causa excludente da responsabilidade civil do Estado, uma vez que rompe o nexo de causalidade.",
+        "C": "A teoria adotada no Brasil em relação ao nexo de causalidade para a responsabilidade civil do Estado é a da equivalência dos antecedentes causais.",
+        "D": "Para a caracterização da responsabilidade civil estatal, a existência de um dano, a ação ou omissão administrativa e a ocorrência de nexo causal entre o dano e a ação ou omissão são os três requisitos mínimos para a aplicação da responsabilidade objetiva, inexistindo causa excludente da responsabilidade estatal.",
+        "E": "Apesar de a responsabilidade civil do Estado ser objetiva, o direito de regresso da administração pública somente ocorrerá quando houver dolo ou culpa do agente."
+      }
+    },
+    {
+      "numero": 82,
+      "materia": "Direito Administrativo",
+      "gabarito": "D",
+      "enunciado": "Acerca dos serviços públicos, assinale a opção correta.",
+      "alternativas": {
+        "A": "Considera-se autorização a delegação de serviço público por prazo certo mediante prévia licitação na modalidade concorrência ou diálogo competitivo.",
+        "B": "Considera-se concessão de serviço público a delegação, a título precário, mediante licitação, da prestação de serviços públicos, feita pelo poder concedente à pessoa física ou jurídica que demonstre capacidade para seu desempenho, por sua conta e risco.",
+        "C": "A tarifa, como instrumento de remuneração do concessionário de serviço público, é exigida diretamente dos usuários e tem natureza tributária.",
+        "D": "Constituem princípios inerentes ao regime jurídico dos serviços públicos o princípio da continuidade do serviço, o da mutabilidade do regime jurídico e o da igualdade dos usuários.",
+        "E": "Incumbe à concessionária a execução do serviço concedido, cabendo a ela responder por todos os prejuízos causados ao poder concedente, aos usuários ou a terceiros, com a possibilidade de a fiscalização exercida pelo órgão competente excluir ou atenuar essa responsabilidade."
+      }
+    },
+    {
+      "numero": 83,
+      "materia": "Direito Administrativo",
+      "gabarito": "X",
+      "enunciado": "Acerca da organização da administração direta e indireta, assinale a opção correta.",
+      "alternativas": {
+        "A": "Os serviços sociais autônomos são entidades instituídas por lei, sem fins lucrativos, com personalidade jurídica de direito privado, com a finalidade de ministrar assistência ou ensino a certas categorias sociais ou grupos profissionais, as quais são mantidas por contribuições parafiscais ou dotações orçamentárias.",
+        "B": "As fundações de direito privado criadas por órgão público podem qualificar-se como organizações da sociedade civil de interesse público (OSCIP), desde que os respectivos objetivos sociais e normas estatutárias atendam aos requisitos instituídos em lei.",
+        "C": "A criação de secretaria de estado na administração direta do Rio de Janeiro é exemplo de descentralização administrativa.",
+        "D": "A criação de subsidiária de empresa pública prescinde de autorização legislativa, uma vez que esta autorização já foi concedida na criação da própria empresa.",
+        "E": "As autarquias, fundações públicas, empresas públicas e sociedades de economia mista somente podem ser criadas por lei específica."
+      }
+    },
+    {
+      "numero": 84,
+      "materia": "Direito Administrativo",
+      "gabarito": "C",
+      "enunciado": "Constitui ato de improbidade administrativa que causa lesão ao erário a ação ou omissão dolosa de agente público que",
+      "alternativas": {
+        "A": "deixe de prestar contas quando esteja obrigado a fazê-lo, desde que disponha das condições para isso, com vistas a ocultar irregularidades.",
+        "B": "aceite emprego, comissão ou atividade de consultoria ou assessoramento para pessoa jurídica que tenha interesse suscetível de ser amparada por ação ou omissão decorrente das atribuições do agente público, durante a atividade.",
+        "C": "conceda benefício administrativo ou fiscal sem a observância das formalidades legais ou regulamentares aplicáveis à espécie.",
+        "D": "perceba vantagem econômica para intermediar a liberação ou aplicação de verba pública de qualquer natureza.",
+        "E": "utilize, em obra ou serviço particular, qualquer bem móvel de propriedade de entidade do Poder Executivo, bem como o trabalho de servidores, de empregados ou de terceiros contratados por essa entidade."
+      }
+    },
+    {
+      "numero": 85,
+      "materia": "Direito Administrativo",
+      "gabarito": "E",
+      "enunciado": "No que se refere a licitações e contratos administrativos, assinale a opção correta.",
+      "alternativas": {
+        "A": "O contratado não pode, durante a vigência do contrato, contratar cônjuge de dirigente do órgão contratante, sendo desnecessário que a proibição conste expressamente do edital de licitação, porque englobada na proibição de nepotismo.",
+        "B": "O processo licitatório para registro de preços será realizado na modalidade concorrência, diálogo competitivo ou pregão.",
+        "C": "No processo licitatório para registro de preços, será adotado o critério de julgamento de técnica e preço ou de técnica aliada ao maior desconto sobre o preço estimado ou a tabela de preços praticada no mercado.",
+        "D": "O critério de julgamento por maior retorno econômico deve ser utilizado preferencialmente nas compras realizadas pelos órgãos públicos, a fim de garantir maior economia para a administração pública.",
+        "E": "Diálogo competitivo é a modalidade de licitação em que a administração pública realiza diálogos com licitantes previamente selecionados mediante critérios objetivos, com o intuito de desenvolver uma ou mais alternativas capazes de atender às suas necessidades, devendo os licitantes apresentar proposta final após o encerramento dos diálogos."
+      }
+    },
+    {
+      "numero": 86,
+      "materia": "Direito Administrativo",
+      "gabarito": "A",
+      "enunciado": "No que se refere às atribuições e responsabilidades do auditor fiscal da receita estadual do Rio de Janeiro, assinale a opção correta.",
+      "alternativas": {
+        "A": "O Conselho Superior de Fiscalização tributária designará comissão com a incumbência de acompanhar a atuação do auditor fiscal durante o estágio confirmatório, ouvindo os superiores imediatos do estagiário e examinando os seus trabalhos.",
+        "B": "O auditor fiscal é, entre outras autoridades administrativas, competente para exercer a fiscalização e efetuar o lançamento dos tributos estaduais e outras receitas não-tributárias do estado do Rio de Janeiro decorrentes da exploração de recursos hídricos e minerais, inclusive petróleo e gás natural.",
+        "C": "As promoções na carreira de fiscal de rendas serão feitas de uma categoria para outra, por antiguidade e por merecimento, alternadamente, metade por merecimento e metade por antiguidade, imediatamente após a ocorrência de vaga, mediante ato do governador do estado.",
+        "D": "Sempre que houver vagas na 3.ª categoria que correspondam ao percentual de 15% (quinze por cento) do número total de integrantes da carreira, a secretaria de estado competente para a fiscalização e arrecadação tributárias promoverá concurso público para preenchimento de vagas existentes.",
+        "E": "A competência para a expedição de ato referente à lotação, remoção e designação do auditor fiscal pelos diversos órgãos e setores da administração fazendária estadual, será definida pelo governador do estado do Rio de Janeiro."
+      }
+    },
+    {
+      "numero": 87,
+      "materia": "Direito Constitucional",
+      "gabarito": "B",
+      "enunciado": "Podem ter vigência temporária\nI todas as leis brasileiras.\nII apenas as leis estaduais, distritais e municipais.\nIII apenas as leis originárias do Poder Executivo.\nIV apenas as leis infraconstitucionais originárias do Congresso Nacional.\nAssinale a opção correta.",
+      "alternativas": {
+        "A": "Nenhum item está certo.",
+        "B": "Apenas o item I está certo.",
+        "C": "Apenas o item II está certo.",
+        "D": "Apenas o item III está certo.",
+        "E": "Apenas o item IV está certo."
+      }
+    },
+    {
+      "numero": 88,
+      "materia": "Direito Civil",
+      "gabarito": "E",
+      "enunciado": "A incapacidade civil dos menores poderá cessar",
+      "alternativas": {
+        "A": "pela colação de grau em curso de ensino superior, para aqueles que tenham mais de dezoito anos de idade e comprovem renda própria, podendo ser cessada mediante instrumento público ou por decisão judicial.",
+        "B": "pela concessão de emancipação pelos pais, para aqueles que tenham idade superior a dezoito anos e inferior a vinte e um, sendo imprescindível a decisão judicial.",
+        "C": "pelo exercício de emprego público efetivo, para aqueles que tenham idade superior a dezoito anos e inferior a vinte e um, podendo ser cessada mediante instrumento público ou por decisão judicial.",
+        "D": "pelo casamento, para aqueles que tenham entre dezesseis e dezoito anos incompletos de idade, sendo imprescindível a decisão judicial.",
+        "E": "pela emancipação, para aqueles que tenham entre dezesseis e dezoito anos incompletos de idade, prescindindo-se de decisão judicial caso haja autorização dos pais."
+      }
+    },
+    {
+      "numero": 89,
+      "materia": "Direito Civil",
+      "gabarito": "A",
+      "enunciado": "Vinte amigos instituíram uma associação civil por prazo indeterminado, sem fins lucrativos, com o objetivo de acolher e proteger animais domésticos abandonados e garantir seu bem-estar. No entanto, houve uma divergência interna entre os membros da associação, de modo que, agora, determinado grupo de associados pretende excluir outros cinco associados. Nessa situação hipotética, a exclusão de associados é",
+      "alternativas": {
+        "A": "admissível pela via administrativa, desde que haja justa causa, assim reconhecida em procedimento que assegure direito de defesa e de recurso dos associados que se pretende excluir, nos termos previstos no estatuto da associação.",
+        "B": "inadmissível através de assembleia, ainda que convocada especialmente para esse fim, ou de qualquer instrumento administrativo decorrente de normatização interna corporis.",
+        "C": "admissível através de assembleia convocada especialmente para esse fim, desde que a exclusão seja aprovada por maioria absoluta dos associados.",
+        "D": "admissível apenas pela via judicial, desde que os associados que buscam a exclusão demonstrem a impossibilidade de convivência pacífica e harmoniosa com os associados que se pretende excluir.",
+        "E": "admissível apenas pela via judicial, desde que os associados que buscam a exclusão comprovem que os associados que se pretende excluir não cumprem as normas contidas nos instrumentos normativos da associação."
+      }
+    },
+    {
+      "numero": 90,
+      "materia": "Direito Civil",
+      "gabarito": "X",
+      "enunciado": "Carlos, demandado judicialmente por Marcos em ação de execução de uma nota promissória, doou, no curso da ação, a seu irmão Flávio o seu único bem penhorável, com o intuito de frustrar a execução. Nesse caso, a doação do bem realizada por Carlos é",
+      "alternativas": {
+        "A": "anulável mediante ação judicial, desde que esta seja proposta dentro do prazo decadencial de quatro anos contado do dia em que se realizou a doação do bem.",
+        "B": "nula de pleno direito e independe de decisão judicial.",
+        "C": "anulável mediante ação judicial, desde que esta seja proposta dentro do prazo prescricional de cinco anos contado a partir da doação do bem.",
+        "D": "nula de pleno direito, mas depende de decisão judicial.",
+        "E": "anulável administrativamente, desde que o credor realize averbação de certidão de crédito emitida pelo juízo da execução."
+      }
+    },
+    {
+      "numero": 91,
+      "materia": "Direito Civil",
+      "gabarito": "A",
+      "enunciado": "Paulo vendeu por R$ 120.000 um veículo de sua propriedade a Clara, que se comprometeu a pagar o preço no prazo de seis meses após firmado o contrato. Cinco meses depois de decorrido o referido prazo, Clara procurou Paulo e lhe ofereceu em pagamento um veículo avaliado em R$ 145.000. Nessa situação hipotética, Paulo",
+      "alternativas": {
+        "A": "poderá recusar a oferta de Clara, já que a legislação civil em vigor assegura a ele o direito de recusar prestação diversa da que lhe é devida.",
+        "B": "não poderá recusar a oferta de Clara, já que a legislação civil em vigor admite a dação em pagamento como instrumento de quitação de dívida.",
+        "C": "poderá recusar a oferta de Clara, salvo se esta renunciar expressamente o valor excedente à obrigação, caso em que a recusa passa a ser ilegítima.",
+        "D": "poderá recusar a oferta de Clara exclusivamente em decorrência do fato de a proposta ter ocorrido cinco meses após o prazo do vencimento.",
+        "E": "poderá recusar a oferta de Clara porque a obrigação de pagar quantia certa não pode ser adimplida de forma diversa."
+      }
+    },
+    {
+      "numero": 92,
+      "materia": "Direito Civil",
+      "gabarito": "A",
+      "enunciado": "Acerca de aspectos relativos aos contratos, julgue os itens a seguir.\nI Nas relações contratuais, é lícito aos contratantes instituir obrigações a serem cumpridas em favor de terceiros.\nII É válido o contrato que verse sobre bens que o contratante tem a receber a título de herança de seu pai, ainda que este, ao momento da pactuação, esteja vivo.\nIII O adquirente que tiver ciência de que a coisa adquirida em contrato de compra e venda é litigiosa não poderá demandar o vendedor pela evicção.\nIV Em caso de vício oculto existente ao tempo da tradição, se a coisa perecer em poder do alienatário, o alienante será responsabilizado pelos danos suportados pelo alienatário, ainda que o perecimento seja decorrente de outra causa que não o referido vício.\nEstão certos apenas os itens",
+      "alternativas": {
+        "A": "I e III.",
+        "B": "I e IV.",
+        "C": "II e IV.",
+        "D": "I, II e III.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 93,
+      "materia": "Direito Civil",
+      "gabarito": "C",
+      "enunciado": "No que se refere à responsabilidade civil e à obrigação de indenizar, julgue os itens a seguir.\nI O incapaz jamais poderá ser responsabilizado pelos danos causados por ele a terceiros.\nII O empregador responderá civilmente pelos danos causados pelo seu empregado a terceiros se o ato lesivo for praticado em razão do trabalho para o qual o empregado foi contratado.\nIII A obrigação de reparar os danos materiais causados a terceiros cessa com a morte do autor do dano.\nIV A responsabilidade civil decorrente de homicídio comporta indenização por danos de ordem material e moral.\nEstão certos apenas os itens",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "I e III.",
+        "C": "II e IV.",
+        "D": "I, III e IV.",
+        "E": "II, III e IV."
+      }
+    },
+    {
+      "numero": 94,
+      "materia": "Direito Empresarial",
+      "gabarito": "C",
+      "enunciado": "Consideram-se bens corpóreos típicos de exploração comercial",
+      "alternativas": {
+        "A": "o nome empresarial, a marca registrada e os pontos comerciais.",
+        "B": "as marcas, as patentes e as ações adquiridas pela sociedade empresária.",
+        "C": "os mobiliários, os utensílios e os automóveis próprios da empresa.",
+        "D": "os endereços dos sócios em atividade virtual, independentemente de registro.",
+        "E": "os locais físicos ou virtuais de titularidade do empresário e de seus sócios."
+      }
+    },
+    {
+      "numero": 95,
+      "materia": "Direito Empresarial",
+      "gabarito": "D",
+      "enunciado": "Assinale a opção em que é apresentado o nome empresarial que contém o nome civil do empresário, completo ou abreviado, podendo conter também o ramo da atividade.",
+      "alternativas": {
+        "A": "assinatura",
+        "B": "logomarca",
+        "C": "denominação",
+        "D": "firma",
+        "E": "nome fantasia"
+      }
+    },
+    {
+      "numero": 96,
+      "materia": "Direito Empresarial",
+      "gabarito": "A",
+      "enunciado": "A respeito do regramento jurídico aplicável à atividade empresária, julgue os itens a seguir.\nI A inscrição no registro público de empresas mercantis é obrigatória para aqueles que desejam exercer atividade empresária, salvo o produtor rural.\nII São nulas as obrigações contraídas por pessoa legalmente impedida de exercer atividade empresarial.\nIII O pequeno empresário possui tratamento diferenciado assegurado por lei no que se refere à inscrição no registro público de empresas mercantis e aos efeitos dela decorrentes.\nIV O exercício de profissão intelectual não caracteriza atividade empresarial, ainda que constitua elemento de empresa e se dê com o concurso de colaboradores.\nEstão certos apenas os itens",
+      "alternativas": {
+        "A": "I e III.",
+        "B": "II e IV.",
+        "C": "III e IV.",
+        "D": "I, II e III.",
+        "E": "I, II e IV."
+      }
+    },
+    {
+      "numero": 97,
+      "materia": "Direito Empresarial",
+      "gabarito": "A",
+      "enunciado": "Compete ao administrador judicial, por força de lei, tanto nos casos de recuperação judicial quanto na falência,",
+      "alternativas": {
+        "A": "consolidar o quadro-geral de credores.",
+        "B": "fiscalizar as tratativas entre credores e devedor.",
+        "C": "elaborar o auto de arrecadação dos bens e documentos do devedor.",
+        "D": "praticar os atos necessários à realização do ativo.",
+        "E": "examinar a escrituração do devedor."
+      }
+    },
+    {
+      "numero": 98,
+      "materia": "Direito Empresarial",
+      "gabarito": "E",
+      "enunciado": "São considerados créditos extraconcursais, pagos com precedência sobre os demais créditos concursais previstos em lei,",
+      "alternativas": {
+        "A": "os tributos relativos a fatos geradores ocorridos anteriormente à decretação da falência.",
+        "B": "os créditos gravados com direito real de garantia até o limite do valor do bem gravado.",
+        "C": "os créditos trabalhistas vencidos nos últimos 5 meses anteriores à decretação da falência.",
+        "D": "os créditos derivados da legislação trabalhista, decorrentes de acidentes de trabalho.",
+        "E": "as custas judiciais relativas às ações e às execuções em que a massa falida tenha sido vencida."
+      }
+    },
+    {
+      "numero": 99,
+      "materia": "Direito Empresarial",
+      "gabarito": "E",
+      "enunciado": "Assinale a opção em que é indicada, conforme legislação empresarial, uma característica própria da sociedade cooperativa.",
+      "alternativas": {
+        "A": "quórum de assembleia geral fundado no capital social representado",
+        "B": "constituição unicamente por meio de capital social",
+        "C": "transferência do capital a terceiros estranhos somente por herança",
+        "D": "voto dos sócios condicionado ao valor de sua participação",
+        "E": "indivisibilidade do fundo de reserva entre os sócios"
+      }
+    },
+    {
+      "numero": 100,
+      "materia": "Direito Empresarial",
+      "gabarito": "E",
+      "enunciado": "No que se refere ao exercício da atividade empresária, permite-se que servidores públicos federais e membros do Ministério Público participem, respectivamente, como",
+      "alternativas": {
+        "A": "administradores e cotistas de sociedade comercial.",
+        "B": "comanditários e administradores de sociedade privada.",
+        "C": "comanditários e gerentes de sociedade comercial.",
+        "D": "acionistas e gerentes de sociedade privada.",
+        "E": "cotistas e acionistas de sociedade comercial."
+      }
+    }
+  ]
+}

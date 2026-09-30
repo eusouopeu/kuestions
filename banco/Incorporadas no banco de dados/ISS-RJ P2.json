@@ -1,0 +1,1123 @@
+[
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Constitucional",
+    "assunto": "Controle de Constitucionalidade - ADPF",
+    "numero_original": 1,
+    "enunciado": "O Partido Político Alfa, com representação no Congresso\nNacional, foi instado, por seus correligionários, a ajuizar arguição\nde descumprimento de preceito fundamental (ADPF),\nconsiderando três situações que alegadamente eram colidentes\ncom normas estruturantes da Constituição da República de 1988.\nAlmejava -se o ajuizamento da ADPF para: (1) insurgir -se contra\nveto a projeto de lei ordinária aprovado pela Assembleia\nLegislativa, aposto por governador do Estado, que invocara\nargumentos descabidos para sustentar a inconstitucionalidade do\nprojeto; (2) reconhecer a constitucionalidade da Lei estadual\nnº X, que não vinha sendo cumprida pelas estruturas orgânicas\ndos distintos Poderes sob o argumento de ser incompatível com a\nConstit uição da República de 1988; e (3) impugnar decreto\npresidencial que concedera graça a um condenado em particular,\npor razões tidas como contrárias aos princípios regentes da\natividade estatal.\nAo ser consultada, a assessoria de Alfa respondeu, corretamente ,\nem relação à possibilidade de as situações descritas serem objeto\nde ADPF, que:",
+    "alternativas": {
+      "A": "todas podem ser objeto de ADPF;",
+      "B": "nenhuma delas pode ser objeto de ADPF;",
+      "C": "apenas as situações 2 e 3 podem ser objeto de ADPF;",
+      "D": "apenas as situações 1 e 2 podem ser objeto de ADPF;",
+      "E": "apenas a situação 3 pode ser objeto de ADPF."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Constitucional",
+    "assunto": "Competência Legislativa - Direito de Vizinhança/Águas",
+    "numero_original": 2,
+    "enunciado": "Em razão de sucessivos conflitos deflagrados em condomínios\nedilícios que contavam com um único hidrômetro, de modo que\no valor a ser pago em razão do fornecimento de água deveria ser\nrateado entre os condôminos, o Município Alfa editou a Lei nº X,\ndispond o que somente seria concedido habite -se, às construções\niniciadas após a sua publicação, caso contassem com hidrômetros\nindividuais para cada unidade autônoma.\nIrresignado com o teor da Lei municipal nº X, a associação das\nempresas de construção consultou a sua assessoria jurídica em\nrelação à compatibilidade desse diploma normativo com a\nConstituição da República de 1988, sendo -lhe corretamente\nrespondido que:",
+    "alternativas": {
+      "A": "a Lei municipal nº X afrontou a livre iniciativa, o que decorreu\nda oneração excessiva das empresas de construção;",
+      "B": "o Município Alfa tinha competência para legislar sobre a\nmatéria, em razão do preponderante interesse local;",
+      "C": "somente a União poderia legislar sobre a matéria, que\nincursiona nos direitos dos usuários dos serviços públicos;",
+      "D": "o serviço de fornecimento de água, ainda que delegado aos\nMunicípios, é tipicamente estadual, logo, somente o Estado\npoderia legislar sobre a matéria;",
+      "E": "a Lei municipal nº X poderia ter incursionado na temática,\ndesde que essa competência tenha sido r econhecida pelas\nnormas gerais editadas pela União."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Constitucional",
+    "assunto": "Processo Legislativo - Veto e Sanção",
+    "numero_original": 3,
+    "enunciado": "O c hefe do Poder Executivo do Estado Alfa encaminhou à\nAssembleia Legislativa projeto de lei dispondo sobre determinada\npolítica pública de cunho assistencial direcionada à população\nidosa. Por entender que a iniciativa era muito positiva, a\nproposição foi ap rovada, mas com as modificações introduzidas\npor três emendas: (1ª) a configuração da política pública\nproposta foi alterada, de modo a aumentar a transparência das\nmedidas adotadas; (2ª) a criação de uma segunda política\npública, direcionada às crianças e adolescentes, espelhando os\nbalizamentos da outra política pública proposta pelo Poder\nExecutivo; e (3ª) a criação de uma estrutura orgânica com\natribuição para fiscalizar as políticas públicas estaduais, com o\nobjetivo de zelar pela eficiência das medida s adotadas.\nÀ luz da sistemática estabelecida na Constituição da República de\n1988, é correto afirmar, em relação às emendas aprovadas, com\na abstração de aspectos não abordados na narrativa, que:",
+    "alternativas": {
+      "A": "todas são constitucionais;",
+      "B": "todas são inconstitucio nais;",
+      "C": "apenas a 1ª é constitucional;",
+      "D": "apenas a 1ª e a 2ª são constitucionais;",
+      "E": "apenas a 2ª e a 3ª são constitucionais."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Constitucional",
+    "assunto": "Processo Legislativo - Medida Provisória",
+    "numero_original": 4,
+    "enunciado": "O presidente da República editou a Medida Provisória nº X, com\nbase nos referenciais de relevância e urgência, estabelecendo os\nrequisitos para a criação de Territórios Federais. Após a\ntramitação constitucional, com a realização de calorosos debates\nno âmbito do Poder Legislativo, o texto da lei de conversão foi\naprovado com modificações substanciais em relação à proposta\napresentada, vindo a ser, ato contínuo, promulgado pelo\npresidente do Congresso Nacional, daí advindo a Lei fe deral nº Y.\nNesse caso, à luz da sistemática co nstitucional, é correto afirmar\nque a narrativa acima :",
+    "alternativas": {
+      "A": "não apresenta qualquer irregularidade;",
+      "B": "somente apresenta irregularidade em relação à matéria\nobjeto da medida provisória;",
+      "C": "somente apresenta ir regularidade em relação à aprovação de\nmodificações à medida provisória;",
+      "D": "somente apresenta irregularidade em relação à matéria\nobjeto da medida provisória e ao não encaminhamento da\nproposição à sanção presidencial;",
+      "E": "somente apresenta irregularidade em relação à aprovação de\nmodificações à medida provisória e ao não encaminhamento\nda proposição à sanção presidencial.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Constitucional",
+    "assunto": "Princípio da Legalidade Tributária",
+    "numero_original": 5,
+    "enunciado": "O secretário de Fazenda do Município Alfa proferiu decisão no\nsentido de que a majoração da alíquota do imposto sobre\nserviços de qualquer natureza, promovida pela Lei municipal\nnº 123, publicada em 20 de dezembro do ano X, terá eficácia a\npartir de 1º de janeiro do ano subsequente. Irresignada com o\nteor dessa decisão, a sociedade empresária Delta, que terá sua\ncarga tributária aumentada, impetrou mandado de segurança\nperante o Tribunal de Justiça, o qual, a teor da Constituição\nEstadual, tinha competência originária para processar e julgar a\ncausa. O mandado de segurança foi denegado sob o argumento\nde que a decisão do secretário se harmonizava com a ordem\nconstitucional, o que não foi alterado após o exaurimento dos\nrecursos no âmbito do Tribunal.\nÀ luz da narrativa, é correto afirmar que a decisão:",
+    "alternativas": {
+      "A": "observou o princípio da anterioridade, estando em harmonia\ncom a ordem constitucional;",
+      "B": "afrontou a anterioridade nonagesimal, podendo ser\nimpugnada via recurso ordinário;",
+      "C": "afrontou a anterioridade nonagesimal, podendo ser\nimpugnada via recurso especial;",
+      "D": "afrontou a reserva de lei complementar federal, podendo ser\nobjeto de reclamação constitucional;",
+      "E": "afrontou a anterioridade nonagesimal, podendo ser\nimpugnada via recur so extraordinário."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Constitucional",
+    "assunto": "Repartição de Competências - Convênios Federativos",
+    "numero_original": 6,
+    "enunciado": "A União almejava celebrar com o Município Alfa um convênio\nvisando à construção de unidade de acolhimento para crianças e\nadolescentes que não estivessem amparados por seus familiares.\nNesse ajuste, caberia à União repassar os recursos a serem\nutilizados na construção, enquanto Alfa deveria disponibilizar um\nterreno de sua propriedade, no qual seria realizada a referida\nconstrução. O órgão federal responsável pelas tratativas iniciais\nconsultou a Advocacia -Geral da União (AGU) a respeito da\ninserção de uma cláusula prevendo que, caso os recursos federais\nnão fossem aplicados da forma alvitrada, os respectivos valores\nseriam descontados do montante que a União deveria repassar a\nAlfa de acordo com a sistemática constitucional.\nA AGU, à luz da Constituição da República de 1988, respondeu,\ncorretamente, que a cláusula alvitrada:",
+    "alternativas": {
+      "A": "deve ser inserida no convênio, caso os valores repassados\npela União sejam superiores a 1% da receita corrente líquida\nde Alfa;",
+      "B": "não pode ser inserida no convênio, considerando a\nsuperioridade política e econômica da União, o que esvazia o\npoder negocial de Alfa;",
+      "C": "deve ser inserida no convênio, mas o seu alcance ficará\nrestrito ao montante correspondente às cotas de Alfa nos\nFundos de Participação ou aos precatórios federais;",
+      "D": "pode ser inserida no convênio caso seja livremente pactuada\ncom Alfa, sendo que o seu alcance pode se estender a\nqualquer crédito deste ente federativo com a União;",
+      "E": "pode ser inserida no convênio caso seja livremente pactu ada\ncom Alfa, mas somente pode alcançar os valores\ncorrespondentes aos impostos federais que a ordem\nconstitucional atribui a este ente federativo."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Constitucional",
+    "assunto": "Poder Legislativo Municipal - Fiscalização do Executivo",
+    "numero_original": 7,
+    "enunciado": "João, vereador no Município Alfa, solicitou que o chefe do Poder\nExecutivo do respectivo Município encaminhasse um\ndetalhamento dos custos realizados com determinado programa\nsocial direcionado ao idoso, o que foi feito sem que a Mesa\nDiretora da Câmara Municipal de Alfa tivesse conhecimento da\nsolicitação. A solicitação foi indeferida pelo prefeito do Município\nAlfa sob o argumento de que João não tinha legitimidade para\napresentá -la, o que resultou na impetração de mandado de\nsegurança pelo solicitante visando à sua obtenção.\nÀ luz da sistemática constitucional, o pedido formulado no\nmandado de segurança deve ser julgado:",
+    "alternativas": {
+      "A": "improcedente, considerando que o instrumento adequado é\no habeas data ;",
+      "B": "procedente, considerando que Jo ão, embora ocupe o cargo\neletivo de vereador, não deixa de ser cidadão;",
+      "C": "improcedente, considerando que as prerrogativas dos\nparlamentares não se confundem com as da Casa Legislativa;",
+      "D": "improcedente, considerando que João não tem o poder de\nrepresenta ção da Casa Legislativa, salvo se sua solicitação for\nratificada a posteriori ;",
+      "E": "procedente, considerando que cada parlamentar está apto a\nexercer a integralidade dos poderes da Casa Legislativa, os\nquais instrumentalizam as funções dessa estrutura orgân ica."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Constitucional",
+    "assunto": "Administração Indireta - Empresa Pública e Sociedade de Economia Mista",
+    "numero_original": 8,
+    "enunciado": "O prefeito do Município Beta, após a adoção dos procedimentos\nnecessários, almejava criar duas empresas públicas, sendo uma\ndelas destinada a desempenhar atividade econômica em sentido\namplo, e a outra , a desempenhar atividade econômica em\nsentido estrito.\nAo questionar sua assessoria a respeito dessa possibilidade, foi -\nlhe corretamente respondido que a atividade econômica em\nsentido:",
+    "alternativas": {
+      "A": "estrito, bem como a atividade econômica em sentido amplo,\npodem se r desempenhadas por empresa pública, sendo que,\nno exercício da última, terá os mesmos direitos e obrigações\ndas empresas privadas;",
+      "B": "estrito, bem como a atividade econômica em sentido amplo,\npodem ser desempenhadas por empresa pública, sendo que,\nno exe rcício da primeira, terá direitos e obrigações\ndiferenciados em relação às empresas privadas;",
+      "C": "estrito, bem como a atividade econômica em sentido amplo,\npodem ser desempenhadas por empresa pública, sendo que,\nno exercício da última, terá direitos e obri gações\ndiferenciados em relação às empresas privadas;",
+      "D": "amplo é privativa dos particulares, logo, só é possível a\ncriação de empresa pública para desempenhar atividade\neconômica em sentido estrito, tendo os mesmos direitos e\nobrigações que as empresas privadas;",
+      "E": "estrito é privativa dos particulares, logo, só é possível a\ncriação de empresa pública para desempenhar atividade\neconômica em sentido amplo, tendo direitos e obrigações\ndiferenciados em relação às empresas privadas.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Constitucional",
+    "assunto": "Processo Legislativo - Iniciativa de Lei",
+    "numero_original": 9,
+    "enunciado": "João, deputado federal, solicitou que sua assessoria iniciasse\nestudos com o objetivo de subsidiar futuro projeto de lei visando\nà instituição de uma nova contribuição destinada ao custeio da\nseguridade social, diversa daquelas previstas expressamente na\nordem constitucional.\nApós a realização dos estudos necessários, a assessoria informou,\ncorretamente, que as contribuições destinadas à finalidade\nalmejada por João:",
+    "alternativas": {
+      "A": "podem ser instituídas por lei ordinária ou lei complementar ,\nsendo vedada a utilização de medida provisória;",
+      "B": "são apenas aquelas referidas na Constituição da República de\n1988, sendo vedada a instituição de outras mais;",
+      "C": "podem ser instituídas por lei complementar, sendo possível a\nutilização de medida provis ória;",
+      "D": "podem ser instituídas por lei ordinária, sendo possível a\nutilização de medida provisória;",
+      "E": "podem ser criadas apenas por lei complementar."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Constitucional",
+    "assunto": "Direitos Sociais dos Trabalhadores (CF/88)",
+    "numero_original": 10,
+    "enunciado": "Marta e Ana entenderam que os direitos dos trabalhadores,\nincluindo os seus, foram prejudicados em razão da organização\ndas contas do Fundo de Garantia do Tempo de Serviço (FGTS), o\nque ocorrera, a seu ver, com a unificação das contas fundiárias\ndos trabalhadores. Por esse motivo, decidiram apresentar uma\nrepresentação ao Ministério Público para que fosse ajuizada a\nmedida judicial cabível, de modo que foss e reconhecida a\nirregularidade dessa situação, com a sua correlata correção.\nÀ luz da sistemática constitucional, é correto afirmar que o\nMinistério Público:",
+    "alternativas": {
+      "A": "não tem legitimidade para ajuizar qualquer ação,\nconsiderando que os beneficiários são indete rminados,\npodendo dispor livremente sobre o seu direito, além de se\ntratar de interesses individuais homogêneos sem natureza\nconsumerista;",
+      "B": "somente tem legitimidade para ajuizar uma ação penal, de\nmodo que incidentalmente seja reconhecida a injuridicida de\ndo tratamento dispensado às contas do FGTS, com a correlata\ndeterminação de sua regularização;",
+      "C": "tem legitimidade para ajuizar a ação civil pública,\nconsiderando a elevada conotação social do direito\nenvolvido, ainda que os beneficiários possam ser\nindividualmente determinados;",
+      "D": "tem legitimidade para ajuizar a ação civil pública, desde que\nas medidas a serem adotadas não tenham reflexos diretos na\nesfera jurídica individual, considerando a disponibilidade dos\ninteresses envolvidos;",
+      "E": "não tem legit imidade para ajuizar qualquer ação, já que o\nobjeto diria respeito a contribuições sociais, que têm\nnatureza tributária, em relação às quais a instituição não\npode atuar.\nDireito Tributário e Crimes Contra Ordem\nTributária"
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Sistema Tributário Nacional - Espécies Tributárias (Taxas)",
+    "numero_original": 11,
+    "enunciado": "Projeto de lei ordinária do Município Alfa, de iniciativa de\nvereador, pretende criar duas novas modalidades de extinção de\ncrédito tributário, a saber, por meio da dação em pagamento de\nbens imóveis e da dação em pagamento de bens móveis. Em\nambos os caso s, o projeto de lei municipal prevê que o bem,\nobjeto da dação em pagamento, deve se enquadrar em uma das\nhipóteses de dispensa de licitação previstas na Lei de Licitações.\nDiante desse cenário, à luz da jurisprudência do Supremo\nTribunal Federal, é corre to afirmar que:",
+    "alternativas": {
+      "A": "ambas as modalidades de extinção de crédito tributário são\npassíveis de criação por esse projeto de lei municipal;",
+      "B": "tal projeto de lei apresenta vício formal, uma vez que se\nreserva a uma lei complementar nacional a criação de novas\nhipóteses de extinção do crédito tributário;",
+      "C": "tal projeto de lei poderia prever apenas a dação em\npagamento em bens imóveis como modalidade de extinção\ndo crédito tributário, mas não em bens móveis;",
+      "D": "o referido projeto de lei apresenta vício de inici ativa, uma vez\nque projetos de lei em matéria tributária devem ser\napresentados privativamente pelo chefe do Poder Executivo;",
+      "E": "nenhuma das modalidades previstas é possível de ser criada,\npois o tributo deve ser adimplido apenas mediante prestação\npecuni ária."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Imunidade Tributária Recíproca - Sociedade de Economia Mista",
+    "numero_original": 12,
+    "enunciado": "A Companhia de Limpeza Urbana do Município Alfa, sociedade de\neconomia mista municipal responsável pela limpeza urbana e\ncoleta de lixo no território municipal, recebeu por lei municipal\nde iniciativa do prefeito a atribuição de fiscalizar e arrecadar a\ntaxa de coleta de lixo proveniente de imóveis residenciais e\ncomerciais, para custeio desta atividade específica. Dessa forma,\naqueles que não pagavam a referida taxa começaram a sofrer\ncobrança s judiciais de tais valores por parte do corpo de\nadvogados da referida empresa estatal (selecionados por\nconcurso público, porém contratados no regime CLT).\nDiante desse cenário e à luz do entendimento dos Tribunais\nSuperiores, é correto afirmar que:",
+    "alternativas": {
+      "A": "a lei não poderia atribuir a função d e fiscalização e\narrecadação dessa taxa, por ser um tributo, a uma pessoa\njurídica de direito privado, mas somente a pessoas jurídicas\nde direito público;",
+      "B": "a lei poderia atribuir a função de fiscalização e arrecadação\ndessa taxa a uma empresa pública, u ma vez que seu capital\nsocial é integralmente titularizado por pessoas jurídicas de\ndireito público, mas não a uma sociedade de economia mista;",
+      "C": "a atribuição da função de fiscalização dessa taxa a tal\nempresa estatal não é possível, pois permitiria que o\nlançamento tributário fosse realizado por empregados que\nnão são agentes da Administração Tributária Municipal;",
+      "D": "a atribuição da função de arrecadação dessa taxa a tal\nempresa estatal não retira a condição de dívida ativa\ntributária desses débitos, nã o podendo ser cobrados\njudicialmente pelos advogados dessa empresa estatal;",
+      "E": "a lei poderia atribuir a função de fiscalização e arrecadação\ndessa taxa a essa pessoa jurídica de direito privado, ainda que\nse configure como uma sociedade de economia mista.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Direito Tributário e Empresarial - Holding Patrimonial",
+    "numero_original": 13,
+    "enunciado": "Maria e seu pai José pretendem constituir uma sociedade\nlimitada cuja finalidade será fazer a gestão, por meio de\ncontratos de locação, do patrimônio imobiliário de ambos,\ncomposto por vinte imóveis. Para tanto, pretendem transferir,\nem realização de capital, todos os vinte imóveis de sua\npropriedade para a nova empresa, a qual passará a figurar como\nlocadora nos contratos de locação.\nDiante desse cenário e à luz da Constituição da República de 1988\ne do entendimento domina nte dos Tribunais Superiores, é\ncorreto afirmar que:",
+    "alternativas": {
+      "A": "o ITBI não incidirá sobre essas transferências imobiliárias, por\nse tratar de transmissão de bens ou direitos incorporados ao\npatrimônio de pessoa jurídica em realização de capital;",
+      "B": "o ITBI incidi rá sobre essas transferências imobiliárias, sendo\nseu fato gerador a lavratura da escritura pública do negócio\njurídico de transmissão;",
+      "C": "o ITBI incidirá sobre essas transferências imobiliárias, sendo\nseu fato gerador a transcrição da propriedade realiza da no\nregistro de imóveis;",
+      "D": "dado o caráter gratuito dessas transferências, incidirá sobre\ntais transmissões o ITCMD, sendo seu fato gerador a lavratura\nda escritura pública do negócio jurídico de transmissão;",
+      "E": "dado o caráter gratuito dessas transferê ncias, incidirá sobre\ntais transmissões o ITCMD, sendo seu fato gerador a\ntranscrição da propriedade realizada no registro de imóveis."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "IPTU - Progressividade e Função Social da Propriedade",
+    "numero_original": 14,
+    "enunciado": "De modo a tutelar a função social da propriedade urbana, a\nConstituição da República de 1988, em seu Art. 182, §4º, prevê a\npossibilidade de cobrança de IPTU progressivo no tempo.\nSão requisitos para a instituição dessa cobrança progressiva no\ntempo, EXCETO :",
+    "alternativas": {
+      "A": "deve -se atender ao previsto no Estatuto da Cidade;",
+      "B": "a previsão em lei complementar específica do Município da\ncobrança progressiva do IPTU no tempo;",
+      "C": "a área sobre a qu al recairá a cobrança progressiva do IPTU no\ntempo deve estar incluída no plano diretor;",
+      "D": "é necessário que o proprietário do solo urbano não tenha\nedificado ou esteja subutilizando ou não utilizando seu\nimóvel;",
+      "E": "é necessária a prévia notificação do proprietário para\nparcelamento ou edificação compulsórios de seu imóvel."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "ITBI - Fato Gerador (Hipoteca)",
+    "numero_original": 15,
+    "enunciado": "João, solteiro, pretende constituir hipoteca quanto a imóvel de\nsua propriedade em favor de Mário, em razão de vultoso\nempréstimo que contraiu com este último. Em razão disso, foi,\nentão, informado por seu contador de que teria que separar\nrecursos para recolher o ITBI e o ITCMD incidentes sobre tal\nconstituição de hipoteca.\nAcerca desse cenário, é correto afirmar que sobre tal constituição\nde hipoteca:",
+    "alternativas": {
+      "A": "incidem tanto o ITBI como o ITCMD, à razão de 50% cada\nsobre o valor do empr éstimo, por se tratar de hipótese de\nrepartição de receita tributária constitucionalmente prevista;",
+      "B": "incide o ITBI, à razão de 70% do valor do empréstimo, bem\ncomo o ITCMD, à razão de 30% do valor do empréstimo, por\nse tratar de hipótese de repartição d e receita tributária\nconstitucionalmente prevista;",
+      "C": "incide apenas o ITCMD, dado o seu caráter não oneroso;",
+      "D": "incide apenas o ITBI, dada a sua onerosidade e sua natureza\nde direito real celebrado inter vivos ;",
+      "E": "não podem incidir o ITBI nem o ITCMD."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Repartição das Receitas Tributárias (CF/88)",
+    "numero_original": 16,
+    "enunciado": "Na seção “DA REPARTIÇÃO DAS RECEITAS TRIBUTÁRIAS” da\nConstituição da República de 1988, estão previstas regras sobre a\ndistribuição, retenção ou restrição à entrega e ao emprego dos\nrecursos atribuídos, nesta mesma seção, aos Municípios.\nA esse respeito, analise as afirmativas a seguir, considerando V\npara a(s) verdadeira(s) e F para a(s) falsa(s).\n( ) Os Estados podem condicionar a entrega de recursos\natribuídos aos Municípios na seção “DA REPARTIÇÃO DAS\nRECEITAS TRIBUTÁRIAS” da Constituição da Repúblic a de\n1988 ao pagamento dos créditos de suas autarquias\nestaduais.\n( ) A União pode condicionar a entrega de recursos atribuídos\naos Municípios na seção “DA REPARTIÇÃO DAS RECEITAS\nTRIBUTÁRIAS” da Constituição da República de 1988 ao\ncumprimento pelos Mun icípios dos percentuais mínimos de\nrecursos constitucionalmente afetados à área da saúde.\n( ) As renegociações de débitos tributários dos Municípios com a\nUnião conterão cláusulas para autorizar a dedução dos\nvalores devidos dos montantes a serem repassa dos, nos\ntermos da seção “DA REPARTIÇÃO DAS RECEITAS\nTRIBUTÁRIAS” da Constituição da República de 1988,\nrelacionados às respectivas cotas no Fundo de Participação\ndos Municípios ou aos precatórios federais.\nA sequência correta é:",
+    "alternativas": {
+      "A": "V, V, V;",
+      "B": "V, F, F;",
+      "C": "F, V, V;",
+      "D": "F, V, F;",
+      "E": "F, F, F.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Competência Tributária em Território Federal",
+    "numero_original": 17,
+    "enunciado": "Suponha que o Arquipélago de Fernando de Noronha voltou a ser\nqualificado legalmente como Território Federal não dividido em\nMunicípios.\nDiante dessa situação e à luz da Constituição da República de\n1988 acerca da tributação em hipótese semelhante, é correto\nafirmar que:",
+    "alternativas": {
+      "A": "ausente a divisão em Municípios, em tal Território Federal\nnão poderá se realizar a cobrança de IPTU, mas sim de ISS e\nITBI;",
+      "B": "por não ser um Estado, em tal Território Federal a cobrança\nde ICMS deve ser fe ita em favor do ente federado estadual\nmais próximo geograficamente;",
+      "C": "em tal Território Federal não dividido em Municípios, a União\nexercerá as competências tributárias federais e estaduais,\nmas não as municipais;",
+      "D": "os projetos de lei sobre matéria tr ibutária atinentes a tal\nTerritório Federal são de iniciativa privativa do presidente da\nRepública;",
+      "E": "as alíquotas de ICMS a serem aplicadas nas operações\nrealizadas em tal Território Federal deverão ser previstas em\nResolução do Senado Federal."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Princípio da Capacidade Contributiva",
+    "numero_original": 18,
+    "enunciado": "O princípio tributário da capacidade contributiva é previsto no\nArt. 145, §1º, da Constituição da República de 1988, ao\nestabelecer que: “Sempre que possível, os impostos terão caráter\npessoal e serão graduados segundo a capacidade econômica do\ncontribuinte [...]”.\nAcerca desse princípio e sua aplicação aos impostos previstos na\nConstituição da República de 1988, à luz do atual entendimento\ndominante sumulado do Supremo Tribunal Federal, o único\nimposto abaixo elencado que NÃO admit e alíquotas progressivas é:",
+    "alternativas": {
+      "A": "Imposto sobre a Renda e Proventos de Qualquer Natureza;",
+      "B": "Imposto sobre a Propriedade Territorial Rural;",
+      "C": "Imposto sobre a Transmissão Onerosa de Bens Imóveis Inter\nVivos ;",
+      "D": "Imposto sobre a Transmissão Causa Mortis e Doações;",
+      "E": "Imposto sobre a Propriedade Predial e Territorial Urbana."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Vigência e Aplicação da Lei Tributária no Tempo",
+    "numero_original": 19,
+    "enunciado": "Suponha que nova lei complementar federal, publicada em\nsetembro de 2023, trouxe a previsão de que, a partir de outubro\nde 2023, o prazo geral de decadência tributária no país seria de\ntrês anos. Em sua justificativa, a lei afirma que, em razão das\ninovações tecnológicas dos últimos anos, não seria necessário\nmanter prazos decadenciais tributários para além de três anos,\ndevendo a Administração Tributária ser diligente na constituição\ndo crédito tributário.\nAcerca desse cenário, é c orreto afirmar que:",
+    "alternativas": {
+      "A": "não é possível a fixação desse prazo em três anos, por violar o\nprazo geral previsto no Código Tributário Nacional;",
+      "B": "não é possível a fixação desse prazo em três anos, por violar o\nprazo geral previsto na Constituição da Repúblic a de 1988;",
+      "C": "embora fosse possível que tal lei fixasse esse prazo em três\nanos, somente poderia produzir seus efeitos noventa dias\napós sua publicação;",
+      "D": "embora fosse possível que tal lei fixasse esse prazo em três\nanos, somente poderia produzir seus e feitos a partir de\n01/01/2024;",
+      "E": "é possível a fixação desse prazo em três anos, inclusive\nproduzindo seus efeitos a partir de outubro de 2023."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Imunidade Tributária - Requisitos do Art. 14 do CTN",
+    "numero_original": 20,
+    "enunciado": "O Código Tributário Nacional (CTN), recepcionado como lei\ncomplementar pela Constituição da República de 1988, veicula\nrequisitos a serem cumpridos para que certas pessoas jurídicas\nde direito privado possam gozar da imunidade tributária de\nimpostos constitucionalmente prevista. Um desses requisitos é\njustamente o de aplicar integralmente, no Brasil, os seus recursos\nna manutenção dos seus objetivos institucionais.\nAcerca desta regra legal, a única pessoa jurídica abaixo que, à luz\ndo texto do CTN, NÃO se submete a esse requisito é:",
+    "alternativas": {
+      "A": "partido político;",
+      "B": "fundação partidária de partido político;",
+      "C": "entidade sindical de trabalhadores;",
+      "D": "organização religiosa;",
+      "E": "entidade beneficente de assistência social."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "ITR x IPTU - Contribuinte e Fato Gerador",
+    "numero_original": 21,
+    "enunciado": "Um terreno de 200 m² no Município Alfa está localizado em\nperímetro urbano definido em lei municipal. O terreno é utilizado\nexclusivamente para o cultivo de cogumelos orgânicos realizado\napenas por Mateus, possuidor do imóvel (mas que também é\nproprietário de outro imóvel no mesmo bairro). Mateus\ncomercializa tais cogumelos em Feiras de Orgânicos promovidas\nao redor da Cidade com as devidas autorizações da Prefeitura.\nAcerca desse cenário e à luz do entendimento dos Tribunais\nSuperi ores, é correto afirmar que:",
+    "alternativas": {
+      "A": "a venda dos cogumelos em Feiras de Orgânicos configura fato\ngerador do ISS;",
+      "B": "sobre o imóvel onde os cogumelos são cultivados incide o\nImposto sobre a Propriedade Territorial Rural;",
+      "C": "a licença municipal para o funciona mento da barraca de Feira\nde Orgânicos pode ser remunerada pela espécie tributária de\ntaxa de serviço;",
+      "D": "o mero possuidor de imóvel não é constitucionalmente\nconsiderado contribuinte de imposto incidente sobre a\npropriedade imobiliária;",
+      "E": "a exploração desse diminuto imóvel apenas por Mateus\ngarante a imunidade de imposto incidente sobre a\npropriedade imobiliária."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Prazos Tributários - Contagem",
+    "numero_original": 22,
+    "enunciado": "No Município Alfa, a contagem de prazos tributários se dá na\nmesma forma prevista pelo Código Tributário Nacional. Nesse\nMunicípio, o dia do padroeiro, em 20 de janeiro de 2023 (uma\nsexta -feira), é feriado municipal.\nUm prazo tributário municipal de sete dias, cujo início se dê em\n19 de janeiro de 2023, terá como vencimento o dia:",
+    "alternativas": {
+      "A": "25 de janeiro de 2023;",
+      "B": "26 de janeiro de 2023;",
+      "C": "29 de janeiro de 2023;",
+      "D": "30 de janeiro de 2023;",
+      "E": "31 de janeiro de 2023.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Parcelamento de Débitos Tributários",
+    "numero_original": 23,
+    "enunciado": "No Município Alfa, localizado no Estado Beta, não existe lei\nmunicipal específica para parcelamento de débitos tributários de\ndevedor em recuperação judicial. Existe apenas uma lei municipal\ngeral de parcelamento de débitos tributários, mas o Estado Beta\njá conta com lei estadual específica para parcelamento de débitos\ntributários de devedor em recuperação judicial. A empresa ABC\nServiços de Consertos Domiciliares (em recuperação judicial),\ndevedora de ISS e IPTU, pretende parcelar seus débitos perante o\nMunicípio.\nÀ luz do texto do Código Tributário Nacional, ausente lei\nmunicipal específica para parcelamento de débitos tributários do\ndevedor em recuperação judicial, a empresa poderá requerer tal\nparcelamento aplicando -se a lei:",
+    "alternativas": {
+      "A": "específica do Estado Beta para parcelamento de devedor em\nrecuperação judicial, não podendo, neste caso, ser o prazo de\nparcelamento inferior ao concedido pela lei municipal geral\nde parcelamento;",
+      "B": "específica do Estado Beta para parcelamento de devedor em\nrecuperação judicial, não podendo, neste caso, ser o prazo de\nparcelamento inferior ao concedido pela lei federal específica\nde parcelamento de devedor em recuperação judicial;",
+      "C": "municipal geral de parcelamento, não podendo, neste caso,\nser o prazo de parcelamento inferior ao concedido pela lei\nespecífica do Estado Beta para parcelamento de devedor em\nrecuperação judicial;",
+      "D": "municipal geral de parcelamento, não podendo, neste caso,\nser o prazo de parcelamento inferi or ao concedido pela lei\nfederal específica de parcelamento de devedor em\nrecuperação judicial;",
+      "E": "federal específica para parcelamento de devedor em\nrecuperação judicial, não podendo, neste caso, ser o prazo de\nparcelamento inferior ao concedido pela lei específica do\nEstado Beta para parcelamento de devedor em recuperação\njudicial."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Obrigação Tributária Acessória",
+    "numero_original": 24,
+    "enunciado": "As obrigações tributárias acessórias ou instrumentais têm por\nobjeto as prestações, positivas ou negativas, nelas previstas no\ninteresse da arrecadação ou da fiscalização dos tributos.\nAcerca dessa modalidade especial de obrigações tributárias, é\ncorreto afirmar que:",
+    "alternativas": {
+      "A": "a fixação do prazo para seu cumprimento independe de\nprevisão em lei;",
+      "B": "aplica -se o princípio de que a obrigação acessória segue a\nobrigação principal;",
+      "C": "interpreta -se extensivamente a legislação tributária que\ndisponha sobre dispensa do cumprimento de obrigações\ntributárias acessórias;",
+      "D": "a concessão de isenção dispensa o cumprimento das\nobrigações acessórias dependentes da obrigação principal\ncujo crédito seja excluído, ou dela consequente;",
+      "E": "a criação da ob rigação acessória depende de previsão em lei."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Responsabilidade Tributária de Terceiros",
+    "numero_original": 25,
+    "enunciado": "Mário, administrador não sócio da empresa XYZ Ltda., prestadora\nde serviços, com o consentimento dos sócios, alterou o endereço\nde funcionamento da empresa sem notificar ao Fisco municipal.\nEm razão disso, quando o Fisco ajuizou execução fiscal para\ncobrar dívidas de ISS, não obteve sucesso em citar a empresa,\ntampouco tendo sido encontrados bens penhoráveis.\nDiante desse cenário e à luz do Código Tributário Nacional e da\njurisprudência dos Tribunais Superiores, é correto afirmar que:",
+    "alternativas": {
+      "A": "como a empresa não deixou de funcionar, mas simplesmente\nmudou de endereço, não está caracterizada a dissolução\nirregular;",
+      "B": "Mário, mesmo não ostentando a condição de sócio, pode ser\nresponsabilizado tributariamente por eventual irregularidade\nque tenha cometido na gestão da empresa;",
+      "C": "Mário, ao contar com o consentimento dos sócios para\nalterar o endereço, só responde subsidiariamente por\neventuais débitos da empresa;",
+      "D": "a hipótese configura mero inadimplemento tributário, razão\npela qual não se admite o redirecionamento da execução\nfiscal nem para Mário, nem para os sócios;",
+      "E": "a responsabilidade pessoal de Mário e dos sócios exclui a\npossibilidade de cobrança dos débitos diretamente da\nempresa."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "IPTU - Lançamento de Ofício e Imunidade Recíproca",
+    "numero_original": 26,
+    "enunciado": "O Município Alfa realizou lançamento de ofício para cobrança de\nIPTU referente a imóveis de propriedade da União, sob gestão da\nInfraero, arrendados para atividades comerciais de\nfuncionamento de hangares.\nAcerca desse cenário e à luz do entendimento dos Tribunais\nSuperiores, é correto afirmar que:",
+    "alternativas": {
+      "A": "em razão de a União, proprietária do imóvel, ser entidade\nimune, não pode incidir IPTU sobre esses hangares;",
+      "B": "em razão de a Infraero, gestora do imóvel, se r empresa\nestatal imune, não pode incidir IPTU sobre esses hangares;",
+      "C": "o arrendamento para fins comerciais impede o gozo da\nimunidade, de modo que o Município poderia cobrar o IPTU\nda União;",
+      "D": "o arrendamento para fins comerciais impede o gozo da\nimunid ade, de modo que o Município poderia cobrar o IPTU\nda Infraero;",
+      "E": "o Município poderia cobrar esse IPTU dos arrendatários dos\nhangares, em razão de sua atividade comercial, na condição\nde possuidores a qualquer título."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Lançamento por Homologação",
+    "numero_original": 27,
+    "enunciado": "No lançamento por homologação, caso o sujeito passivo declare a\nmenor e pague a menor o valor devido de tributo, mas havendo\nfraude comprovada, o prazo para realizar o lançamento de ofício\nda parcela suplementar será:",
+    "alternativas": {
+      "A": "decadencial, contado do primeiro dia do exercício seguinte\nàquele em que o lançamento poderia ter sido efetuado;",
+      "B": "decadencial, contado da ocorrência do fato gerador;",
+      "C": "prescricional, contado do primeiro dia do exercício seguinte\nàquele em que o lançam ento poderia ter sido efetuado;",
+      "D": "prescricional, contado da ocorrência do fato gerador;",
+      "E": "prescricional, contado da entrega da declaração.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Processo Administrativo Tributário - Restituição de Indébito",
+    "numero_original": 28,
+    "enunciado": "João percebeu que lhe foi indevidamente cobrada certa taxa\nestadual. Irresignado, requereu administrativamente a restituição\ndo indébito tributário. Contudo, na via administrativa, tal direito\nde restituição foi -lhe negado. Diante disso, optou por promover\numa ação para anular a decisão administrativa que denegou a\nrestituição do indébito tributário.\nO prazo prescricional para que João promova a ação anulatória\nda decisão administrativa que denegou a restituição do indébito\ntributár io é de:",
+    "alternativas": {
+      "A": "um ano;",
+      "B": "dois anos;",
+      "C": "três anos;",
+      "D": "quatro anos;",
+      "E": "cinco anos."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Anistia Tributária",
+    "numero_original": 29,
+    "enunciado": "Buscando ampliar a arrecadação tributária, lei ordinária\nmunicipal concedeu anistia de multas referentes a ISS não pago\nno momento devido, abarcando expressamente também a anistia\nde multas decorrentes de infrações tributárias resultantes de\nconluio entre duas ou mais pessoas naturais ou jurídicas. Para\nfazer jus a essa anistia, o sujeito passivo deveria pagar o tributo\nno prazo fixado pela lei que a concedeu.\nAcerca desse cenário, à luz do Código Tributário Nacional, é\ncorreto afirmar que:",
+    "alternativas": {
+      "A": "esta anistia concedida pelo Município configura uma anistia\nconcedida em caráter geral;",
+      "B": "a anistia configura uma causa de extinção do crédito\ntributário;",
+      "C": "a anistia abrange exclusivamente as infrações cometidas\nanteriormente à vigên cia da lei que a concede, não sendo\npossível à lei aplicá -la às infrações resultantes de conluio\nentre duas ou mais pessoas naturais ou jurídicas;",
+      "D": "caso haja expressa disposição legal, apesar do desvalor da\nação ínsito no conluio, lei municipal pode ani stiar as infrações\nresultantes de conluio entre duas ou mais pessoas naturais\nou jurídicas;",
+      "E": "a anistia pode abranger tanto as infrações cometidas\nanteriormente à vigência da lei que a concede como infrações\nposteriores, desde que a lei preveja efeitos a nistiadores pro\nfuturo ."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Responsabilidade Tributária - Sucessão de Cargo Público",
+    "numero_original": 30,
+    "enunciado": "José, detentor de cargo de livre nomeação que nunca foi servidor\npúblico ocupante de cargo de provimento efetivo, chefia\nrepartição pública municipal responsável pelos pagamentos dos\nservidores públicos. Nessa qualidade, José vem retendo para si o\nvalor descontado no contracheque dos servidores referente à\nparcela das contribuições previdenciárias devidas por aqueles ao\nRegime Próprio dos Servidores.\nDiante desse cenário, é correto afirmar que José cometeu o delito\nde:",
+    "alternativas": {
+      "A": "sonegaçã o previdenciária, previsto no Código Penal;",
+      "B": "sonegação previdenciária, previsto na Lei de Crimes contra a\nOrdem Tributária;",
+      "C": "apropriação indébita previdenciária, previsto no Código\nPenal;",
+      "D": "apropriação indébita previdenciária, previsto na Lei de Cr imes\ncontra a Ordem Tributária;",
+      "E": "apropriação indébita, previsto no Código Penal, por não\nostentar a condição de servidor público ocupante de cargo\nefetivo.\nLegislação Específica"
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Processo Administrativo Tributário - Peticionamento Eletrônico",
+    "numero_original": 51,
+    "enunciado": "É necessário que o peticionamento seja realizado de forma\nadequada nos procedimentos e nos processos administrativo -\ntributários no Município do Rio de Janeiro, de modo que os\npleitos dos postulantes possam ser devidamente analisados.\nAcerca desse tema, à luz do Decreto municipal nº 14.602/1996, é\ncorreto afirmar que:",
+    "alternativas": {
+      "A": "o erro na indicação da autoridade ou do órgão competente a\nquem se dirige a petição torna -a inepta, devendo ser\nliminarmente indeferida sem resolução do mé rito, sem\nprejuízo de que o postulante protocole nova petição\ncontendo o mesmo pedido;",
+      "B": "faculta -se ao interessado a apresentação de documentos em\nformato PDF, com o uso de assinatura digital, que deverão ser\ntransmitidos exclusivamente por meio de carre gamento no\nPortal Carioca Digital, não sendo admitida a utilização de\ncorreio eletrônico;",
+      "C": "a apresentação de documentos em forma eletrônica poderá\nocorrer até as 24h00 (vinte e quatro horas) do último dia do\nprazo previsto para a prática do ato, no horá rio oficial de\nBrasília;",
+      "D": "os documentos que acompanham uma petição podem ser\napresentados por cópia reprográfica permanente, podendo\nser exigida, por parte da autoridade municipal, a conferência\ncom o original apenas no ato do recebimento dos\ndocumentos ;",
+      "E": "a aposição de assinatura digital deverá ser feita por\ncertificado digital, emitido por Autoridade Certificadora\nintegrante da Infraestrutura da Chave Pública Brasileira, que\nnão tenha sido revogado e que esteja dentro de seu prazo de\nvalidade, ou por meio de junção de imagem escaneada da\nassinatura física do postulante grafada em tinta azul ou preta."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Processo Administrativo Tributário - Impugnação de Lançamento",
+    "numero_original": 52,
+    "enunciado": "José, contribuinte de IPTU, em 2023, protocolou petição em face\nda Notificação de Lançamento do IPTU, buscando impugnar o\nvalor venal de imóvel atribuído pelo Município do Rio de Janeiro\npara fins de cobrança de tal tributo. Ao analisar o processo, a\nautoridade administrativa indicou a José que deveria produzir\ncertas provas que julgava indispensáveis à formação de seu\nconvencimento, deferindo -lhe prazo para esse fim. Decorrido o\nprazo sem o cumprimento da exigência, o titular do órgão\nlançador negou seguimento à impugnação, por falta de provas\ntécnicas que a justifiquem.\nÀ luz do Decreto municipal nº 14.602/1996, desta última decisão\ncaberá recurso à autoridade julgadora de primeira instância no\nprazo de:",
+    "alternativas": {
+      "A": "dez dias;",
+      "B": "quinze dias;",
+      "C": "trinta dias;",
+      "D": "quarenta e cinco dias;",
+      "E": "sessenta dias.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "ISS - Local de Incidência do Imposto",
+    "numero_original": 53,
+    "enunciado": "Informática Legal Ltda. , empresa prestadora de serviços na área\nde informática sediada no Município do Rio de Janeiro e\ncontribuinte de ISS apurado pelo Sistema da Nota Fiscal de\nServiços Eletrônica – NFS-e – NOTA CARIOCA, não estando sob\nação fiscal, compareceu ao órgão fazendário municipal\napresentando solicitação relacionada a suas obrigações\ntributárias. Em exame daí decorrente, ficou constatada a\nexistência de débito de ISS, por falta de pagamento oriunda de\nerro de cá lculo na apuração do imposto a ser pago.\nAcerca desse cenário e à luz do Decreto municipal\nnº 14.602/1996, é correto afirmar que:",
+    "alternativas": {
+      "A": "na falta de pagamento do ISS apurado pelo Sistema da NFS -e\n– NOTA CARIOCA, a Coordenadoria do ISS e Taxas cientificará\na e mpresa da obrigatoriedade da quitação mediante\npublicação de edital no portal da NFS -e – NOTA CARIOCA na\ninternet, dispensada a publicação no Diário Oficial do\nMunicípio;",
+      "B": "a Gerência de Fiscalização competente fará publicar edital de\nintimação do auto d e infração eletrônico à empresa, para\npagamento ou impugnação da exigência fiscal no prazo de\nsessenta dias, a contar de sua publicação;",
+      "C": "o inteiro teor do auto de infração será publicado no Diário\nOficial do Município, assim como disponibilizado à empr esa\npelo Sistema da NFS -e – NOTA CARIOCA;",
+      "D": "não efetuado pela empresa o recolhimento espontâneo, será\nlavrado auto de infração eletrônico, ficando dispensada a\nmulta imposta caso a empresa, no prazo de trinta dias a partir\nda ciência do auto de infração, pague o débito com a devida\natualização e com os acréscimos moratórios;",
+      "E": "efetuada a revisão de ofício do auto de infração eletrônico, a\nempresa será cientificada da alteração do lançamento por\nmeio de publicação de edital no Diário Oficial do Município ,\nsendo -lhe devolvido o prazo de sessenta dias para\nimpugnação ou pagamento do crédito tributário com o\nbenefício, quando cabível, da redução das penalidades\nprevistas em lei."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Imunidade Tributária - Entidade Beneficente de Assistência Social",
+    "numero_original": 54,
+    "enunciado": "Entidade beneficente de assistência social portadora do\nCertificado de Entidade Beneficente de Assistência Social (Cebas),\nem 2023, impugnou lançamento administrativo de IPTU, no valor\natualizado de duzentos mil reais, feito contra si pelo Município do\nRio de Janeiro, referente a imóvel de sua propriedade. A entidade\nnão efetua o depósito do valor impugnado e alega fazer jus à\nimunidade constitucional tributária do IPTU, razão pela qual a\ncobrança seria indevida. O litígio está para ser julgado em\nprimeira instância administrativo -tributária acerca da presença\nou não da imunidade alegada pela entidade.\nDiante desse cenário e à luz do Decreto municipal\nnº 14.602/1996, é correto afirmar que:",
+    "alternativas": {
+      "A": "por envolver alegação constitucional, o litígio será julgado em\nprimeira instância pelo Conselho de Contribuintes do\nMunicípio do Rio de Janeiro, em razão da cláusula de reserva\nde Plenário;",
+      "B": "por se tratar de alegação em matéria constitucional, da\ndecisão de primeira instância contrária aos i nteresses da\nentidade caberá recurso especial ao secretário municipal de\nFazenda;",
+      "C": "se a decisão de primeira instância exonerar totalmente a\nentidade do pagamento desse crédito tributário, não será\ninterposto recurso de ofício mediante declaração na próp ria\ndecisão;",
+      "D": "caso a decisão de primeira instância seja contrária aos\ninteresses da entidade, caberá pedido de reconsideração ao\ntitular da Coordenadoria de Revisão e Julgamento Tributários;",
+      "E": "se a entidade interpuser recurso voluntário contra decisão de\nprimeira instância contrária a seus interesses, tal interposição\nsuspenderá o curso da mora."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Processo Administrativo Tributário - Instâncias de Julgamento",
+    "numero_original": 55,
+    "enunciado": "A Instância Especial no processo contencioso administrativo -\ntributário do Município do Rio de Janeiro é uma via recursal\nexcepcional, em que a autoridade competente para julgar o\nrecurso será o próprio secretário municipal de Fazenda.\nNaturalmente, suas hipóteses de ca bimento são bastante\nrestritas.\nA esse respeito e à luz do Decreto municipal nº 14.602/1996, a\núnica hipótese listada abaixo em que a decisão final não unânime\ndo Conselho de Contribuintes poderá ser objeto de rec urso\nespecial é a decisão que:",
+    "alternativas": {
+      "A": "verse sobre valor venal de imóveis;",
+      "B": "seja relativa a pedidos de diligência ou perícia e a propostas\nde conversão do julgamento em diligência;",
+      "C": "adote entendimento de súmula administrativa com efeito\nvinculante do Con selho de Contribuintes do Município do Rio\nde Janeiro;",
+      "D": "adote entendimento de Parecer Normativo da Procuradoria\nGeral do Município;",
+      "E": "apresente valor do crédito tributário em litígio entre\nR$ 300.000,00 e R$ 500.000,00.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Imunidade Tributária - Entidade Sindical",
+    "numero_original": 56,
+    "enunciado": "Uma associação civil sem fins lucrativos , que atua como órgão de\nclasse representante de certa categoria profissional , resolveu\nprotocolar, perante a Secretaria de Fazenda do Município do Rio\nde Janeiro, uma petição consultando sobre a interpretação da\nlegislação tributária municipal em um tema de ISS que afetava\ndiretamente seus representados.\nDiante desse cenário e à lu z do Decreto municipal\nnº 14.602/1996, é correto afirmar que:",
+    "alternativas": {
+      "A": "a consulta formulada por tal órgão de classe, visando à\norientação a ser adotada por seus representados, alcança\ntodos os que nela estejam identificados, inclusive aqueles\nque, na data da ap resentação da consulta, estejam\nsubmetidos à ação fiscal;",
+      "B": "para que a consulta seja analisada, não basta a apresentação\nde autorização expressa dos associados em estatuto para\nrepresentá -los administrativamente, devendo o órgão de\nclasse convocar assemb leia específica da categoria com o fim\nde autorizar expressamente tal consulta;",
+      "C": "a resposta à consulta formulada por tal órgão de classe, em\nnome de seus representados, fica condicionada à aprovação\ndo auditor chefe da Receita Municipal;",
+      "D": "é definitiv a a solução dada à consulta pelo secretário\nmunicipal de Fazenda e Planejamento no caso desta consulta\nformulada por órgão de classe representante de categoria\nprofissional, em nome de seus representados;",
+      "E": "como requisito de admissibilidade da petição de consulta, o\nórgão de classe representante de certa categoria profissional\nnecessita comprovar a filiação de ao menos vinte associados."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Imunidade Tributária - Partido Político",
+    "numero_original": 57,
+    "enunciado": "Partido político requereu administrativamente o reconhecimento\nda imunidade tributária de IPTU de prédio de sua propriedade\nalugado a terceiros, no Centro da Cidade do Rio de Janeiro. Já\nconstava contra este imóvel uma série de Notificações de\nlançamentos tributários não pagos até a data do protocolo do\npedido de reconhecimento da imunidade. Ademais, o\nrepresentante legal do partido não chegou a protocolar pedido\nadministrativo de reconhecimento de imunidade de um terreno\nvazio, com matrícula imobiliária própria, de propriedade do\nmesmo partido, ao lado da sua sede regional carioca, usado como\nestacionamento gratuito de seus funcionários e políticos a ele\nfiliados.\nDiante desse cenário e à luz do Decreto municipal\nnº 14.602/1996, é correto afirmar que:",
+    "alternativas": {
+      "A": "a existência de Notificação de Lançamento do IPTU sem o\ndevido pagamento obsta o exame do pedido de\nreconhecimento de imunidade deste partido político;",
+      "B": "ao procedimento que versar sobre reconhecimento de\nimunidade de IPTU não se aplica o disposto na Seção sobre\nConsulta Tributária do Decreto municipal nº 14.602/1996;",
+      "C": "a autoridade lançadora, no caso do IPTU, poderá determinar\na abertura de procedimento de ofício para reconhecimento\nda imunidade do terreno vazio usado como es tacionamento\ngratuito;",
+      "D": "a decisão de primeira instância sobre o reconhecimento da\nimunidade do prédio cabe ao auditor chefe da Receita\nMunicipal;",
+      "E": "a decisão final de reconhecimento de imunidade no\nprocedimento administrativo -tributário não é vinculan te para\nos órgãos julgadores do contencioso administrativo quando\nas respectivas questões forem suscitadas como causa de\npedir no seio de impugnação a Auto de Infração ou Nota de\nLançamento."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Repetição de Indébito Tributário",
+    "numero_original": 58,
+    "enunciado": "A quantia recolhida indevidamente aos cofres municipais em\npagamento de crédito tributário é considerada indébito\ntributário, sendo cabível sua restituição ao sujeito passivo.\nSobre esse tema e à luz do Decreto municipal nº 14.602/1996,\nanalise as afirmativas a seguir, considerando V para a (s)\nverdadeira (s) e F para a (s) falsa (s).\n( ) O sujeito passivo tem direito à restituição do pagamento do\nIPTU incidente sobre imóvel parcialmente desapropriado,\nproporcionalmente à área objeto da desapropriação, relativo\nao período compreendido entre o exercício seguinte ao do\nato declaratório de utilidade pública e o da efetivação da\ndesapropriação.\n( ) A restituição total ou parcial do tributo dá lugar à restituição,\nna mesma propor ção, dos acréscimos legais, salvo os\nreferentes à infração de caráter formal não prejudicada pela\ncausa da restituição.\n( ) No caso de indébito decorrente de pagamento dividido em\ncotas, o prazo para o exercício do direito de pleitear a\nrestituição será contado a partir da data de recolhimento de\ncada cota.\nA sequência correta é:",
+    "alternativas": {
+      "A": "V, V, V;",
+      "B": "V, F, V;",
+      "C": "F, V, F;",
+      "D": "F, F, V;",
+      "E": "F, F, F."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "ISS - Base de Cálculo e Serviços Médicos",
+    "numero_original": 59,
+    "enunciado": "Clínica de Bons Olhos Ltda. , prestadora de serviços médicos na\nárea de oftalmologia no Município do Rio de Janeiro, tem um\nvalor atualizado de quarenta mil reais referente a ISS pago a\nmaior indevidamente aos cofres municipais. Por isso, a clínica\nefetuou lançamento em seus livros fiscais, para fins de\namortização de débitos futuros, desses pagamentos realizados\nindevidamente.\nDiante desse cenário e à luz do Decreto municipal\nnº 14.602/1996, assinale a única condição cujo cumpriment o é\ndispensado para que a clínica possa realizar tal lançamento:",
+    "alternativas": {
+      "A": "condição de a amortização se ref erir ao mesmo tributo em\nrelação ao qual o contribuinte tenha realizado o pagamento\nindevido, a saber, o próprio ISS;",
+      "B": "condição de, nos casos em que o ô nus tributário do ISS não\ntenha sido repassado ao consumidor, apresentar autorização\ndeste , outorgando poderes à clínica para pleitear devolução\ndo valor pago indevidamente;",
+      "C": "condição de a entrada em receita dos valores pagos ser\nconfirmada mediante c ertidão expedida pela Coordenadoria\ndo ISS e Taxas;",
+      "D": "condição de que haja observância do prazo de cinco anos,\ncontado s da data do pagamento indevido, para sua utilização\nna amortização de créditos tributários;",
+      "E": "condição de comprovação do pagamento inde vido , através\nde guias devidamente autenticadas pela rede bancária\narrecad adora, para posterior exame da f iscalização.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Processo Administrativo Tributário - Depósito Recursal",
+    "numero_original": 60,
+    "enunciado": "O Decreto municipal nº 14.602/1996 regulamenta os meios pelos\nquais o sujeito passivo poderá proceder ao depósito total ou\nparcial do crédito tributário impugnado, administrativa ou\njudicialmente, ou referente à questão tributária sob exame em\nprocedimento de consulta, pedido de reconhecimento de\nimunid ade, não incidência ou isenção.\nAcerca do tema do depósito administrativo e à luz do Decreto\nmunicipal nº 14.602/1996, analise as afirmativas a seguir.\nI. O depósito será efetuado na Subsecretaria de Tributação e\nFiscalização da Secretaria Municipal de Fazenda.\nII. O depósito poderá ser levantado a qualquer momento pela\nsimples manifestação de vontade do depositante.\nIII. Quando a lei estabelecer a possibilidade de o tributo ser pag o\nem quotas, o depósito de cada uma delas até a data de seu\nvencimento suspende a exigibilidade do crédito desde que as\ndemais parcelas sejam também depositadas tempestivamente.\nEstá correto somente o que se afirma em:",
+    "alternativas": {
+      "A": "I;",
+      "B": "II;",
+      "C": "III;",
+      "D": "I e III;",
+      "E": "II e III.\nSimples Nacional"
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Simples Nacional - Tributos Abrangidos",
+    "numero_original": 61,
+    "enunciado": "O único tributo e respectivo fato gerador abarcado pelo regime\ndo Simples Nacional indicado abaixo é:",
+    "alternativas": {
+      "A": "o Imposto de Renda relativo aos ganhos de capital auferidos\nna alienação de bens do ativo permanente;",
+      "B": "a Contribuição para manutenção da Seguridade Social,\nrelativa ao trabalhador;",
+      "C": "o IPI incidente na importação de bens;",
+      "D": "a Contribuição Social sobre o Lucro Líquido (CSLL);",
+      "E": "o ISS devido em relação aos serviços sujeitos à substituição\ntributária ou retenção na fonte."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Microempreendedor Individual (MEI)",
+    "numero_original": 62,
+    "enunciado": "Acerca do microempreendedor individual (MEI) e sua sistemática\nprevista na Lei Complementar nº 123/2006, é correto afirmar\nque:",
+    "alternativas": {
+      "A": "a tributação municipal do IPTU deverá assegurar tratamento\nmais favorecido ao MEI para realização de sua atividade no\nmesmo local em que residir;",
+      "B": "poderá enquadrar -se como MEI o empresário individual ou o\nempreendedor que exerça as atividades de industrialização,\ncomercialização e prestação de serviços no âmbito rural, com\ndois empregados que receba m exclusivamente um salário\nmínimo ou o piso salarial da categoria profissional;",
+      "C": "o MEI constituído na forma de startup pode optar pela\nsistemática de recolhimento dos impostos e contribuições\nabrangidos pelo Simples Nacional em valores fixos mensais,\nindependentemente da receita bruta por ele auferida no\nmês;",
+      "D": "a opção pelo recolhimento dos impostos e contribuições\nabrangidos pelo Simples Nacional em valores fixos mensais,\nindependentemente da receita bruta auferida no mês pelo\nMEI, poderá ser alterad a dentro do mesmo ano -calendário;",
+      "E": "o MEI poderá ter sua inscrição automaticamente cancelada\nsomente após o período de 24 meses consecutivos sem\nrecolhimento ou declarações, independentemente de\nqualquer notificação, devendo a informação ser publicada no\nPortal do Empreendedor, na forma regulamentada pelo\nCGSIM."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Simples Nacional - Comunicação Eletrônica (DTE-SN)",
+    "numero_original": 63,
+    "enunciado": "A opção pelo Simples Nacional implica aceitação de sistema de\ncomunicação eletrônica, destinado, dentre outras finalidades, a\ncientificar o sujeito passivo de quaisquer tipos de atos\nadministrativos, incluídos os relativos ao indeferimento de opção,\nà excl usão do regime e a ações fiscais; a encaminhar notificações\ne intimações; e a expedir avisos em geral.\nAcerca de tal sistema eletrônico e à luz da Lei Complementar\nnº 123/2006, é correto afirmar que:",
+    "alternativas": {
+      "A": "as comunicações serão feitas, por meio eletrônico, em portal\npróprio, seguindo -se a sua imprescindível publicação no\nDiário Oficial, mas dispensado o envio por via postal;",
+      "B": "a comunicação feita pelo sistema de comunicação eletrônica\nserá considerada pessoal para todos os efeitos legais;",
+      "C": "por se tratar de sistema eletrônico, considerar -se-á realizada\na comunicação no mesmo dia em que o sujeito passivo\nefetivar a consulta eletrônica ao teor da comunicação,\ninclusive se esta ocorrer em dia não útil;",
+      "D": "ocorrerá a intimação tácita se a consulta não for fe ita em até\ntrinta dias contados da data da disponibilização da\ncomunicação no portal, ou em prazo superior estipulado pelo\nComitê Gestor do Simples Nacional;",
+      "E": "a ciência por meio do sistema de comunicação eletrônica do\nSimples Nacional deverá ser feita a penas mediante utilização\nde certificação digital, não sendo possível o uso de código de\nacesso.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "ISS - Retenção na Fonte no Simples Nacional",
+    "numero_original": 64,
+    "enunciado": "Acerca da retenção na fonte de ISS das microempresas ou das\nempresas de pequeno porte optantes pelo Simples Nacional que\nobservam o disposto no Art. 3º da Lei Complementar\nnº 116/2003, analise as afirmativas a seguir, considerando V para\na(s) verdadeira (s) e F para a (s) falsa (s).\n( ) A alíquota aplicável na retenção na fonte deverá ser\ninformada no documento fiscal e corresponderá à alíquota\nefetiva de ISS a que a microempresa ou a empresa de\npequeno porte estiver sujeita no mês anterior ao da\nprestação.\n( ) Na hipótese de a microempresa ou empresa de pequeno\nporte estar sujeita à tributação do ISS no Simples Nacional\npor valores fixos mensais, caberá a retenção na fonte pela\nalíquota efetiva de 2%.\n( ) Não será eximida a re sponsabilidade do prestador de serviços\nquando a alíquota do ISS informada no documento fiscal for\ninferior à devida, hipótese em que o recolhimento dessa\ndiferença será realizado em guia própria do Município.\nA sequência correta é:",
+    "alternativas": {
+      "A": "V, V, V;",
+      "B": "V, V, F;",
+      "C": "V, F, V;",
+      "D": "F, V, F;",
+      "E": "F, F, V."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Simples Nacional - Vedações ao Ingresso",
+    "numero_original": 65,
+    "enunciado": "A Lei Complementar nº 123/2006 veicula algumas situações que,\ncaso presentes, impedem a microempresa ou empresa de\npequeno porte de recolher os impostos e contribuições na forma\ndo Simples Nacional.\nA única situação que não impede a adesão ao Simples Nacional\npor parte de tais empresas é:",
+    "alternativas": {
+      "A": "possuir débito de foro com a União cuja exigibilidade não\nesteja suspensa;",
+      "B": "presta r serviço de transporte intermunicipal de passageiros\npor via fluvial;",
+      "C": "exercer atividade de produção de munição;",
+      "D": "exercer atividade de produção de cervejas sem álcool por\ncervejaria de grande porte;",
+      "E": "realizar cessão de mão de obra."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Simples Nacional - Composição da Receita Bruta",
+    "numero_original": 66,
+    "enunciado": "Nos termos da Resolução CGSN nº 140/2018, compõe(m) a\nreceita bruta para fins de enquadramento da microempresa (ME)\nou empresa de pequeno porte (EPP) no Simples Nacional:",
+    "alternativas": {
+      "A": "as verbas de patrocínio;",
+      "B": "a venda de bens do ativo imobilizado;",
+      "C": "os juros moratórios auferidos em decorrência do atraso no\npagamento de operações ou prestações;",
+      "D": "os valores recebidos a título de multa por rescisão contratual\nque não corresponda à parte executada do contrato;",
+      "E": "os rendimentos ou gan hos líquidos auferidos em aplicações\nde renda fixa ou variável."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Simples Nacional - Apuração (PGDAS-D)",
+    "numero_original": 67,
+    "enunciado": "O cálculo do valor devido na forma prevista no Simples Nacional\ndeverá ser efetuado por meio da declaração gerada pelo\n“Programa Gerador do Documento de Arrecadação do Simples\nNacional – Declaratório (PGDAS -D)”, disponível no Portal do\nSimples Nacional na internet. Por sua vez, a alteração das\ninformações prestadas no PGDAS -D será efetuada por meio de\nretificação relativa ao respectivo período de apuração.\nÀ luz da Resolução CGSN nº 140/2 018, analise as afirmativas a\nseguir acerca da retificação via PGDAS -D.\nI. O direito de a microempresa (ME) ou a empresa de pequeno\nporte (EPP) retificar as informações prestadas no PGDAS -D\nextingue -se em cinco anos contados a partir do 1º dia do\nexercíci o seguinte àquele ao qual se refere a declaração.\nII. A alteração das informações prestadas no PGDAS -D será\nefetuada por meio de retificação relativa ao respectivo\nperíodo de apuração, e terá a mesma natureza da declaração\noriginariamente apresentada, sub stituindo -a integralmente,\nservindo para declarar novos débitos e aumentar ou reduzir\nos valores de débitos já informados.\nIII. A retificação não produzirá efeitos quando tiver por objeto\nreduzir débitos relativos aos períodos de apuração cujos\nsaldos a p agar tenham sido objeto de pedido de\nparcelamento deferido ou já tenham sido enviados à\nProcuradoria -Geral da Fazenda Nacional (PGFN) para\ninscrição em Dívida Ativa da União (DAU).\nEstá correto o que se afirma em:",
+    "alternativas": {
+      "A": "somente I;",
+      "B": "somente II;",
+      "C": "somente III;",
+      "D": "somente I e II;",
+      "E": "I, II e III."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Simples Nacional - Parcelamento de Débitos",
+    "numero_original": 68,
+    "enunciado": "Os débitos tributários apurados no Simples Nacional poderão ser\nobjeto de parcelamento, na forma e condições previstas pelo\nComitê Gestor do Simples Nacional (CGSN).\nAcerca desse tipo de parcelamento tributário, de acordo com a\nResolução CGSN nº 140/2018, é correto afirmar que:",
+    "alternativas": {
+      "A": "o prazo máximo de parcelamento será de até noventa\nparcelas mensais e sucessivas;",
+      "B": "no caso de parcelamento de débito inscrito em dívida ativa, o\ndevedor será liberado do pagamento de custas e\nemolu mentos, mas não dos demais encargos legais;",
+      "C": "é permitida a concessão de parcelamento para sujeitos\npassivos com falência decretada;",
+      "D": "o parcelamento dos tributos no Simples Nacional aplica -se às\nmultas por descumprimento de obrigação acessória;",
+      "E": "as multas de ofício vinculadas a débitos já vencidos poderão\nser parceladas antes da data de vencimento.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Simples Nacional - Fiscalização (Sefisc)",
+    "numero_original": 69,
+    "enunciado": "As ações fiscais referentes ao Simples Nacional serão registradas\nno Sistema Único de Fiscalização, Lançamento e Contencioso\n(Sefisc) e, caso verificada infração à legislação tributária por\nmicroempresa (ME) ou empresa de pequeno porte (EPP) optante\npelo Simples Nacional, deverá ser lavrado o respectivo Auto de\nInfração e Notificaç ão Fiscal (AINF), emitido por meio do Sefisc.\nAcerca dos temas do registro da ação fiscal, do auto de infração e\nnotificação fiscal, à luz da Resolução CGSN nº 140/2018, é correto\nafirmar que:",
+    "alternativas": {
+      "A": "o mesmo ente federado que abrir a ação fiscal deverá\nencer rá-la, observado o prazo específico previsto na Lei\nComplementar nº 123/2006;",
+      "B": "para a apuração do crédito tributário, deverão ser\nconsideradas as receitas de cada estabelecimento da ME ou\nda EPP;",
+      "C": "a ação fiscal relativa ao Simples Nacional poderá ser realizada\npor estabelecimento, porém o AINF deverá ser lavrado\nsempre com o CNPJ da matriz;",
+      "D": "o AINF é o documento único de autuação, a ser utilizado por\ntodos os entes federados, nos casos de inadimplemento das\nobrigações tributárias principais e acess órias relacionadas ao\nSimples Nacional;",
+      "E": "é obrigatório o registro no Sefisc da autuação por\ndescumprimento de obrigação acessória por parte da\nadministração tributária perante a qual a obrigação deveria\nter sido cumprida."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Direito Tributário",
+    "assunto": "Simples Nacional - Sublimite e Excesso de Receita",
+    "numero_original": 70,
+    "enunciado": "ABC Ltda. EPP (empresa de pequeno porte), prestadora de\nserviços optante pelo Simples Nacional com sede no Município\ndo Rio de Janeiro, foi excluída de ofício de tal regime tributário\nespecial. Por essa razão, protocolou impugnação contra a decisão\nadministrativa de su a exclusão.\nNos termos do Decreto Rio nº 39.733/2015, a cerca de tal\nimpugnação, é correto afirmar que:",
+    "alternativas": {
+      "A": "desta decisão de exclusão cabe impugnação ao titular da\nGerência de Fiscalização do ISS competente;",
+      "B": "o prazo para tal impugnação é de até quinze d ias;",
+      "C": "o prazo para tal impugnação conta -se da data da juntada aos\nautos do comprovante de intimação do Termo de Exclusão;",
+      "D": "tal impugnação deverá ser apresentada à Gerência de\nFiscalização do ISS a que estiver vinculado o contribuinte;",
+      "E": "da decisão da impugnação caberá recurso ao subsecretário\nde Tributação e Fiscalização.\nAuditoria Fiscal Eletrônica"
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "Sistema Público de Escrituração Digital (Sped)",
+    "numero_original": 71,
+    "enunciado": "O Sistema Público de Escrituração Digital (Sped) foi instituído\npara unificar as atividades de recepção, validação,\narmazenamento e autenticação de livros e documentos que\nintegram a escrituração contábil e fiscal dos empresários e das\npessoas jurídicas, mediante fluxo único, computadorizado, de\ninformações.\nAcerca do Sped, à luz do Decreto nº 6.022/2007, é correto\nafirmar que:",
+    "alternativas": {
+      "A": "o Sped manterá funcionalidades de uso exclusivo dos órgãos\nde registro para as atividades de autentica ção de livros\nmercantis;",
+      "B": "as entidades imunes não se submetem ao Sped, mas a\nsistema próprio de escrituração contábil e fiscal denominado\nSistema Público de Escrituração Digital de Entidades Imunes\n(Sped -Imune);",
+      "C": "as Secretarias de Fazenda de Municípi os com menos de\ndez mil habitantes ficam d ispensada s de celebrar convênios\ncom a Secretaria Especial da Receita Federal do Brasil para se\ntornarem u suária s do Sped;",
+      "D": "a Secretaria Especial da Receita Federal do Brasil deve indicar\nrepresentantes dos empr esários, das pessoas jurídicas e de\nentidades de âmbito nacional representativas dos\nprofissionais da área contábil para participar nas atividades\nrelacionadas ao Sped;",
+      "E": "a Secretaria Especial da Receita Federal do Brasil deverá, de\nmodo centralizado, es tabelecer a obrigatoriedade,\nperiodicidade e prazos de apresentação dos livros e\ndocumentos a serem exigidos por todos os entes federados,\npor intermédio do Sped."
+    },
+    "gabarito": "A",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "Escrituração Fiscal Digital do ISS (EFD)",
+    "numero_original": 72,
+    "enunciado": "A Instrução Normativa nº 2.003/2021, da Secretaria Especial da\nReceita Federal do Brasil, dispõe sobre a Escrituração Contábil\nDigital (ECD). Nos termos dessa Instrução, deverão apresentar a\nECD as pessoas jurídicas obrigadas a manter escrituração contábil\nnos termos da legislação comercial. Contudo, excepcionalmente,\nessa obrigação não se aplica a certas pessoas jurídicas.\nDentre as pessoas jurídicas abaixo listadas, a única que está\nobrigada a apresentar a ECD é o(a):",
+    "alternativas": {
+      "A": "Zooló gico do Município Alfa, fundação pública de direito\npúblico;",
+      "B": "entidade binacional “Itaipu Binacional”;",
+      "C": "Sindicato dos Trabalhadores da Construção Civil do Município\nAlfa, que auferiu, no ano -calendário, receitas no valor de\ncinco milhões;",
+      "D": "ABC Máq uinas Ltda., pessoa jurídica inativa, por não ter\nefetuado qualquer atividade operacional, não operacional,\npatrimonial ou financeira, inclusive aplicação no mercado\nfinanceiro ou de capitais, durante todo o ano -calendário;",
+      "E": "ABC Clínica Ltda. ME, pessoa jurídica optante pelo Regime\nEspecial Unificado de Arrecadação de Tributos e\nContribuições devidos pelas Microempresas e Empresas de\nPequeno Porte (Simples Nacional) e que não recebeu aporte\nde capital.\nSecretaria Municipal de Fazenda e Planej amento do Rio de Janeiro FGV Conhecimento"
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "Nota Fiscal de Serviços Eletrônica (NFS-e) - Instituição",
+    "numero_original": 73,
+    "enunciado": "A Lei nº 5.098/2009, que institui a Nota Fiscal de Serviços\nEletrônica ( NFS–e) do Município do Rio de Janeiro, estabelece\ntambém que o Poder Executivo, no interesse da política fiscal de\ntributação, arrecadação e fiscalização, poderá conceder\nincentivos em favor de tomadores de serviços que receberem a\nNFS-e dos respectivos prestadores estabelecidos no Município do\nRio de Janeiro.\nAcerca desses incentivos e à luz da Lei nº 5.098/2009, é correto\nafirmar que:",
+    "alternativas": {
+      "A": "a ABC Ltda. , toma dora de serviços, poderá participar de\nsorteio de prêmios entre tomadores que receberem a NFS -e,\ncomo forma de incentivo;",
+      "B": "o prefeito do Município do Rio de Janeiro pode suspender a\nconcessão de incentivos por ato próprio, desde que haja\nprévia autoriza ção da Câmara Municipal;",
+      "C": "o crédito de percentual do valor do ISS a ser abatido do IPTU\nsofrerá redução de 50% quando o pagamento do ISS se der\napós inscrição em dívida ativa;",
+      "D": "José, tomador de serviço, poderá aproveitar o crédito\ncorrespondente a pe rcentual do valor do ISS relativo a cada\nNFS-e recebida por ele para abater do IPTU a pagar em cada\nexercício quanto a imóvel de seu vizinho Marcos;",
+      "E": "a CDE Ltda. , pessoa jurídica estabelecida no Município de\nDuque de Caxias (RJ), poderá fazer jus ao cré dito de incentivo\nquando tomar serviços de prestadores de serviços situados\nno Município do Rio de Janeiro."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "NFS-e - Identificação do Tomador de Serviços",
+    "numero_original": 74,
+    "enunciado": "Acerca das informações que devem estar contidas na NFS -e –\nNOTA CARIOCA quanto à identificação do tomador do serviço , à\nluz do Decreto nº 32. 250/2010, obrigatoriamente deverá conter:",
+    "alternativas": {
+      "A": "e-mail, quando o tomador do serviço for pessoa jurídica;",
+      "B": "endereço, quando o tomador do serviço for pessoa jurídica;",
+      "C": "e-mail, quando o tomador do serviço for pessoa natural;",
+      "D": "endereço, quando o tomador do serviço for pessoa natural;",
+      "E": "inscrição no Cadastro Nacional de Pessoas Físicas (CPF),\nquando o tomador do serviço for pessoa natural."
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "NFS-e - Contingência e Emissão Offline",
+    "numero_original": 75,
+    "enunciado": "Na impossibilidade de conexão imediata com o sistema para\nemissão da NFS -e – NOTA CARIOCA, o prestador de serviços\ndeverá emitir Recibo Provisório de Serviços (RPS), cujas\ninformações serão posteriormente transmitidas ao sistema para\nconversão em NFS -e – NOTA CARIOCA.\nAcerca do RPS e à luz do Decreto nº 32. 250/2010, é correto\nafirmar que:",
+    "alternativas": {
+      "A": "o RPS terá formato determinado por ato do secretário\nmunicipal de Fazenda;",
+      "B": "a conversão do RPS em NFS -e – NOTA CARIOCA deverá ser\nefetiva da até o vigésimo dia seguinte ao da sua emissão, não\npodendo, entretanto, ultrapassar o dia 8 do mês seguinte ao\nmês de competência;",
+      "C": "o RPS será confeccionado pelo prestador de serviços\nmediante autorização prévia da Secretaria Municipal de\nFazenda ;",
+      "D": "o RPS será emitido em três vias de igual teor, sendo a\nprimeira entregue ao tomador do serviço, a segunda mantida\npelo prestador até a conversão em NFS -e – NOTA CARIOCA e\na terceira enviada à Secretaria Municipal de Fazenda;",
+      "E": "ato do secretário municip al de Fazenda poderá determinar ou\nautorizar a utilização, como RPS, de documentos com\nmodelos admitidos anteriormente à obrigatoriedade da\nNFS-e – NOTA CARIOCA."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "NFS-e - Exigências Setoriais Específicas",
+    "numero_original": 77,
+    "enunciado": "A Resolução SMF nº 2.617/2010 veicula algumas exigências\nespecíficas para certos setores de prestação de serviços.\nAcerca de tais exigências, à luz da Resolução SMF nº 2.617/2010 ,\né correto afirmar que:",
+    "alternativas": {
+      "A": "a concessionária e as permissionárias de serviços funerários\nno Município deverão incluir, no campo “discriminação dos\nserviços” da NFS -e – NOTA CARIOCA, a informação da causa\nmortis constante da certidão de óbito do falecido;",
+      "B": "a NFS -e – NOTA CARIOCA em itida deverá ser impressa em via\núnica e entregue ao tomador do serviço ou ser enviada a este\npor e -mail, a seu critério, na veiculação de publicidade na\ninternet contratada por pessoas naturais;",
+      "C": "será admitida a emissão da NFS -e – NOTA CARIOCA pelo val or\ntotal cobrado do cliente, informando -se como dedução a\nparcela que não corresponder a serviços sujeitos à incidência\nde ISS, na prestação de serviços de hospedagem;",
+      "D": "na prestação de serviços de construção civil, a NFS -e – NOTA\nCARIOCA deverá conter a indicação da matrícula no Cadastro\nEspecífico do INSS – CEI ou, não sendo tal matrícula\nobrigatória, do número do registro profissional do\nengenheiro ou arquiteto responsável pela obra;",
+      "E": "será emitida uma NFS -e – NOTA CARIOCA para cada serviço\nprestado, de acordo com o código de serviço definido em ato\ndo titular da Coordenadoria do ISS e Taxas, quando se tratar\nda prestação de serviços de disponibilização, sem cessão\ndefinitiva, de conteúdos de áudio, vídeo, imagem ou texto\npor meio da internet, para pe ssoas naturais."
+    },
+    "gabarito": "C",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "Recibo Provisório de Serviços (RPS)",
+    "numero_original": 78,
+    "enunciado": "Acerca da sistemática da emissão de Recibo Provisório de\nServiços (RPS) prevista na Resolução SMF nº 2.617/2010, analise\nas afirmativas a seguir.\nI. A data de emissão do RPS será a da efetiva prestação do\nserviço ou do recebimento por adiantamento, sinal ou\npagamento antecipados, inclusive em bens ou direitos.\nII. Os RPS cancelados deverão ser guardados por três anos\ncontados da data de sua emissão.\nIII. Será admitida a emissão de RPS quando se tratar de utilização\nde nota fiscal estadual como RPS, referente aos serviços\nsujeitos ao ISS nela incluídos, desde que contenha as\ninformações necessárias à conversão em NFS -e – NOTA\nCARIOCA, mantendo -se, para o RPS, a numeração da nota\nestadual.\nEstá correto somente o que se afirma em:",
+    "alternativas": {
+      "A": "I;",
+      "B": "II;",
+      "C": "III;",
+      "D": "I e II;",
+      "E": "I e III."
+    },
+    "gabarito": "E",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "NFS-e - Cancelamento e Substituição",
+    "numero_original": 79,
+    "enunciado": "A NFS -e – NOTA CARIOCA já emitida pode ser objeto de\ncancelamento, substituição, consulta e reimpressão.\nAcerca desses temas, à luz da Resolução SMF nº 2.617/2010, é\ncorreto afirmar que:",
+    "alternativas": {
+      "A": "o cancelamento da NFS -e – NOTA CARIOCA poderá ser\nsolicitado pelo emitente apenas mediante o e -mail\ninstitucional da Coordenadoria do ISS e Taxas;",
+      "B": "a NFS -e – NOTA CARIOCA poderá ser consultada e impressa a\nqualquer tempo, observado o prazo máximo de três anos\ncontados da data da emissão;",
+      "C": "transcorrido o prazo máximo para consulta por meio\neletrônico, a consulta às NFS -e – NOTAS CARIOCAS somente\npoderá ser realizada mediante solicitação de cópias impressas\nao órgão responsável pela administração do ISS;",
+      "D": "ato do coordenador da Coordenador ia do ISS e Taxas disporá\nsobre as condições em que a solicitação de cancelamento de\nNFS-e – NOTA CARIOCA poderá ser atendida\nautomaticamente;",
+      "E": "ato do secretário municipal de Fazenda disporá sobre as\ncondições em que a solicitação de substituição de NFS -e –\nNOTA CARIOCA poderá ser submetida à prévia análise da\nautoridade fiscal competente, que decidirá pelo deferimento\nou pelo indeferimento da solicitação."
+    },
+    "gabarito": "D",
+    "texto_apoio": null
+  },
+  {
+    "id": "",
+    "instituicao": "ISS-RJ",
+    "ano": 2023,
+    "cargo": "Fiscal de Rendas (FR)",
+    "area": "Auditoria e Fiscalização",
+    "assunto": "NFS-e - Cálculo e Pagamento do ISS",
+    "numero_original": 80,
+    "enunciado": "Acerca do cálculo e pagamento do ISS por meio do sistema NFS -e\n– NOTA CARIOCA, à luz da Resolução SMF nº 2.617/2010, analise\nas afirmativas a seguir, considerando V para a (s) verdadeira (s) e F\npara a (s) falsa (s).\n( ) Os optantes pelo regime do Simples Nacional não calcularão\no valor do ISS a ser pago relativo a cada período pelo\nsomatório dos valores do imposto referentes a cada NFS -e –\nNOTA CARIOCA emitida nesse período.\n( ) Ato do titular da Coordenadoria do ISS e Taxas defi nirá o\nlimite, os critérios e a forma para a utilização de indébitos\nfiscais para fins de amortização de débitos futuros no sistema\nda NFS -e – NOTA CARIOCA.\n( ) Na hipótese de retenção do ISS na fonte por órgãos da\nadministração pública direta da União, dos Estados, do\nDistrito Federal e do Município, deverá ser utilizado o\nDocumento de Arrecadação de Receitas Municipais (DARM)\nemitido através do sistema da NFS -e – NOTA CARIOCA.\nA sequência correta é:",
+    "alternativas": {
+      "A": "V, V, V;",
+      "B": "V, V, F;",
+      "C": "V, F, V;",
+      "D": "F, V, V;",
+      "E": "F, F, F.\nSecretaria Municipal de Fazenda e Planejamento do Rio de Janeiro FGV Conhecimento\nFiscal de Rendas (FR)  Tipo 1 – Branca\nSecretaria Municipal de Fazenda e Planejamento do Rio de Janeiro FGV Conhecimento\nFiscal de Rendas (FR)  Tipo 1 – Branca\nSecretaria Municipal de Fazenda e Planejamento do Rio de Janeiro FGV Conhecimento\nFiscal de Rendas (FR)  Tipo 1 – Branca\nRealização"
+    },
+    "gabarito": "B",
+    "texto_apoio": null
+  }
+]

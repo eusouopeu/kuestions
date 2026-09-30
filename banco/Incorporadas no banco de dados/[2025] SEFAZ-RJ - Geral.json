@@ -1,0 +1,790 @@
+{
+  "instituicao": "SEFAZ-RJ",
+  "ano": 2025,
+  "cargo": "Conhecimentos Gerais",
+  "tipo_prova": "P1",
+  "gabarito_tipo": null,
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Finanças Públicas",
+      "gabarito": null,
+      "enunciado": "A respeito do plano plurianual (PPA), da lei de diretrizes orçamentárias (LDO) e da lei orçamentária anual (LOA), julgue os seguintes itens com base na Constituição Federal de 1988.\nI O PPA é estabelecido por lei de iniciativa do Poder Executivo, que definirá, de forma regionalizada, as diretrizes, os objetivos e as metas da administração pública federal para as despesas de capital e para aquelas relativas aos programas de duração continuada.\nII A LDO compreende as metas e prioridades da administração pública federal, sendo de competência exclusiva do Poder Legislativo sua elaboração, aprovação e execução.\nIII A LOA deve conter três orçamentos: o fiscal, o de investimento das empresas estatais e o da seguridade social.",
+      "alternativas": {
+        "A": "Apenas o item II está certo.",
+        "B": "Apenas o item III está certo.",
+        "C": "Apenas os itens I e II estão certos.",
+        "D": "Apenas os itens I e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Finanças Públicas",
+      "gabarito": null,
+      "enunciado": "À luz da Lei de Responsabilidade Fiscal — LRF (Lei Complementar n.º 101/2000), julgue os itens a seguir.\nI Considera-se empresa controlada, para os fins da LRF, aquela cuja maioria do capital social com direito a voto pertence diretamente à União, não se aplicando o conceito às sociedades em cujo capital social participem os demais entes federativos.\nII A LOA é o instrumento legal que define os critérios e a forma de limitação de empenho a ser aplicada nas hipóteses de frustração de receita.\nIII O projeto de LDO deve conter, obrigatoriamente, o anexo de metas fiscais, que estabelece metas anuais relativas a receitas, despesas, resultados primário e nominal, e montante da dívida pública, para o então exercício e os dois seguintes.",
+      "alternativas": {
+        "A": "Apenas o item I está certo.",
+        "B": "Apenas o item III está certo.",
+        "C": "Apenas os itens I e II estão certos.",
+        "D": "Apenas os itens II e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Finanças Públicas",
+      "gabarito": null,
+      "enunciado": "A respeito das classificações orçamentárias da receita e da despesa públicas, julgue os próximos itens.\nI As classificações institucional, funcional e por programas têm como principal objetivo apresentar os efeitos econômicos do gasto público sobre o conjunto da economia, razão pela qual são agrupadas sob a denominação de classificações econômicas.\nII A classificação institucional da despesa tem por finalidade identificar as unidades administrativas responsáveis pela execução dos programas orçamentários, sendo essencial para a fixação de responsabilidades, bem como para o controle e a avaliação da gestão pública.\nIII Consideram-se despesas de capital as dotações às quais não corresponda contraprestação direta em bens ou serviços, inclusive aquelas destinadas a contribuições e subvenções voltadas à manutenção de outras entidades públicas ou privadas.",
+      "alternativas": {
+        "A": "Apenas o item II está certo.",
+        "B": "Apenas o item III está certo.",
+        "C": "Apenas os itens I e II estão certos.",
+        "D": "Apenas os itens I e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Finanças Públicas",
+      "gabarito": null,
+      "enunciado": "Acerca da execução orçamentária e financeira e sua relação com a dívida ativa, assinale a opção correta.",
+      "alternativas": {
+        "A": "A dívida ativa compreende tanto créditos tributários quanto não tributários, sendo ambos passíveis de inscrição e cobrança pela fazenda pública.",
+        "B": "A dívida ativa da fazenda pública compreende exclusivamente os créditos tributários inscritos, pois somente estes têm natureza jurídica compatível com a inscrição pelo fisco.",
+        "C": "A dívida ativa limita-se aos créditos originários de impostos e de taxas, excluindo os decorrentes de contribuições e de penalidades administrativas.",
+        "D": "A dívida ativa da União, dos estados e dos municípios inclui os valores arrecadados por suas autarquias, desde que tributários.",
+        "E": "A dívida ativa não tributária integra o conceito de dívida ativa da fazenda pública, mas não pode ser inscrita, pois não decorre de obrigação tributária."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Direito Constitucional",
+      "gabarito": null,
+      "enunciado": "Com base no que dispõe a Constituição Federal de 1988 acerca da competência tributária dos entes federativos, assinale a opção correta.",
+      "alternativas": {
+        "A": "O Distrito Federal exerce competência legislativa própria apenas para impostos federais, delegada pela União.",
+        "B": "Compete à União arrecadar os impostos estaduais em território federal e, se este não for dividido em municípios, também os impostos municipais; ao Distrito Federal cabem os impostos municipais.",
+        "C": "A União detém competência cumulativa para arrecadar exclusivamente tributos federais e municipais nos territórios federais.",
+        "D": "O Distrito Federal pode instituir e arrecadar apenas os impostos estaduais, sendo-lhe vedado arrecadar tributos municipais.",
+        "E": "Em territórios federais, a União arrecadará exclusivamente os tributos federais e estaduais."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Contabilidade Pública",
+      "gabarito": null,
+      "enunciado": "Quando incorridos, os custos da mão de obra utilizada na manutenção periódica de um ativo imobilizado no setor público devem ser reconhecidos",
+      "alternativas": {
+        "A": "no resultado do exercício.",
+        "B": "no valor contábil do próprio ativo imobilizado.",
+        "C": "como reserva de reavaliação.",
+        "D": "como uma conta redutora do referido ativo imobilizado.",
+        "E": "como abatimento da receita gerada pelo ativo."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Contabilidade Pública",
+      "gabarito": null,
+      "enunciado": "Para o devido relacionamento entre o regime contábil e o regime orçamentário, a receita orçamentária e a variação patrimonial aumentativa devem ser registradas, respectivamente, no momento",
+      "alternativas": {
+        "A": "da competência e do lançamento.",
+        "B": "da previsão e do recolhimento.",
+        "C": "do recolhimento e da arrecadação.",
+        "D": "do lançamento e da previsão.",
+        "E": "da arrecadação e da competência."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Contabilidade Pública",
+      "gabarito": null,
+      "enunciado": "No que se refere à despesa pública, a verificação do direito adquirido pelo credor, considerados os títulos e documentos comprobatórios do respectivo crédito, é feita no estágio",
+      "alternativas": {
+        "A": "da liquidação da despesa.",
+        "B": "do pagamento da despesa.",
+        "C": "da fixação da despesa.",
+        "D": "do processo de licitação e contratação da despesa.",
+        "E": "do empenho da despesa."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Contabilidade Pública",
+      "gabarito": null,
+      "enunciado": "A classificação da receita orçamentária é obrigatória para todos os entes da Federação, sendo facultado seu desdobramento para atendimento das respectivas peculiaridades. São critérios de classificação das receitas orçamentárias",
+      "alternativas": {
+        "A": "a natureza, a espécie e o tipo de receita.",
+        "B": "a origem, a espécie e o indicador de resultado primário.",
+        "C": "a natureza, a fonte e a destinação de recursos e o indicador de resultado primário.",
+        "D": "a categoria econômica, a origem e o tipo de receita.",
+        "E": "a procedência, a fonte e a destinação de recursos e a categoria econômica."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Finanças Públicas",
+      "gabarito": null,
+      "enunciado": "Com base nos dados apresentados na tabela precedente, relativos ao planejamento e à execução da receita e da despesa orçamentárias no ano 1 em determinada entidade do setor público, é correto afirmar que, no balanço orçamentário da entidade, o resultado orçamentário do exercício foi\n\n<table>receitadespesaprevisão inicial3.000previsão atualizada2.800lançada2.600realizada2.300</table>",
+      "alternativas": {
+        "A": "deficitário em $ 700.",
+        "B": "deficitário em $ 400.",
+        "C": "nulo.",
+        "D": "superavitário em $ 100.",
+        "E": "superavitário em $ 500."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Finanças Públicas",
+      "gabarito": null,
+      "enunciado": "Assinale a opção em que é corretamente descrita a relação entre o PPA, a LDO e a LOA.",
+      "alternativas": {
+        "A": "O PPA tem vigência anual e a LOA, quadrienal, o que garante flexibilidade à gestão fiscal.",
+        "B": "A LDO define os programas e metas de longo prazo da União, sendo complementada anualmente pela LOA e pelo PPA.",
+        "C": "A LOA estabelece os objetivos e diretrizes da ação governamental para o quadriênio seguinte, sendo o principal instrumento do planejamento estratégico federal.",
+        "D": "A LDO é elaborada com base na LOA e define os investimentos prioritários que devem constar no PPA.",
+        "E": "O PPA orienta a LDO, que, por sua vez, estabelece metas e prioridades para a LOA, havendo uma hierarquia de planejamento entre os instrumentos."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Finanças Públicas",
+      "gabarito": null,
+      "enunciado": "Sabendo-se que, durante a execução orçamentária e financeira, a administração pública deve observar uma série de procedimentos e controles, entre eles a descentralização de créditos e recursos, o uso de sistemas informatizados e a necessidade de alterações formais no orçamento, assinale a opção correta.",
+      "alternativas": {
+        "A": "A programação e a execução orçamentária e financeira devem ser acompanhadas por sistemas como o SIAFI, e podem ser impactadas por descentralizações de crédito e necessidade de abertura de créditos adicionais.",
+        "B": "A descentralização orçamentária ocorre por meio do repasse financeiro direto de recursos entre órgãos, com base no Decreto de Programação Financeira.",
+        "C": "As alterações orçamentárias podem ocorrer por créditos adicionais, mas não por remanejamento de recursos dentro de um mesmo programa.",
+        "D": "O SIAFI é o sistema utilizado para o acompanhamento das alterações na LOA, enquanto o SIOPE se destina ao registro da execução orçamentária federal.",
+        "E": "A execução orçamentária realiza-se a partir da liberação de recursos financeiros, sendo desnecessária a descentralização formal de créditos orçamentários entre as unidades gestoras envolvidas no processo de execução da despesa."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Finanças Públicas",
+      "gabarito": null,
+      "enunciado": "A execução orçamentária das receitas e despesas públicas segue etapas conceituais e procedimentais distintas, embora interdependentes. Considerando os estágios da receita e da despesa, bem como suas classificações, assinale a opção correta.",
+      "alternativas": {
+        "A": "A receita pública originária compreende tributos arrecadados pelo Estado, ao passo que a derivada advém das atividades exploradas pelo Estado como agente econômico.",
+        "B": "A arrecadação é o primeiro estágio da receita pública, cabendo ao órgão arrecadador verificar a origem e legalidade do crédito tributário.",
+        "C": "Para a efetivação da despesa orçamentária, exige-se a realização prévia de empenho, liquidação e pagamento, nessa ordem, mesmo em casos de restos a pagar processados.",
+        "D": "A dotação autorizada constitui o último estágio da despesa pública, encerrando-se o ciclo orçamentário com a entrega do bem ou serviço ao ente público.",
+        "E": "A previsão da receita, embora não faça parte dos estágios de execução, constitui um estágio obrigatório da receita extraorçamentária."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Finanças Públicas",
+      "gabarito": null,
+      "enunciado": "Julgue os itens a seguir, com base no disposto na Lei n.º 10.028/2000 (infrações administrativas contra as leis de finanças públicas).\nI A sanção por infração administrativa pode ser aplicada diretamente pelo Poder Executivo ao agente responsável, independentemente de julgamento pelo tribunal de contas.\nII Tipifica como infração administrativa a assunção de obrigação de despesa que não possa ser cumprida no mandato, sem que haja previsão de disponibilidade de caixa.\nIII A omissão no dever de ordenar a redução do montante da dívida consolidada que exceder o limite legal configura infração administrativa.",
+      "alternativas": {
+        "A": "Apenas o item I está certo.",
+        "B": "Apenas o item II está certo.",
+        "C": "Apenas os itens I e III estão certos.",
+        "D": "Apenas os itens II e III estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Finanças Públicas",
+      "gabarito": null,
+      "enunciado": "Com base nas normas que regem as transferências voluntárias no setor público brasileiro, assinale a opção correta.",
+      "alternativas": {
+        "A": "A realização de transferências voluntárias a entidades privadas sem fins lucrativos prescinde de celebração de parceria, desde que tais transferências sejam de pequeno valor.",
+        "B": "O ente concedente poderá realizar transferência voluntária sem autorização orçamentária específica, desde que haja excesso de arrecadação.",
+        "C": "A vedação à realização de transferências voluntárias não se aplica às situações de emergência ou de calamidade pública formalmente reconhecidas, hipótese em que o repasse pode ocorrer mesmo sem comprovação da adimplência do ente recebedor.",
+        "D": "Em caso de inadimplência previdenciária, os entes federativos estão automaticamente impedidos de celebrar qualquer tipo de convênio, independentemente do objeto do ajuste.",
+        "E": "A existência de pendência na prestação de contas de recursos estaduais não impede a celebração de transferência voluntária com a União."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "Com base nos dois primeiros parágrafos do texto CGIAA, assinale a opção correta.",
+      "alternativas": {
+        "A": "O PISA é aplicado anualmente em vinte países.",
+        "B": "O PISA avalia a qualidade da educação básica nas escolas patrocinadas pela OCDE.",
+        "C": "O Brasil ficou posicionado entre os últimos colocados no ranking de desempenho de estudantes de 15 anos de idade em educação financeira, segundo os resultados de 2024 do PISA.",
+        "D": "O PISA foca primordialmente a avaliação do conhecimento financeiro de alunos da educação básica.",
+        "E": "Segundo os resultados de 2024 do PISA, o conhecimento em educação financeira de quase metade das crianças e dos adolescentes brasileiros está abaixo do adequado."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "De acordo com as ideias presentes no terceiro e no quarto parágrafos do texto CG1A4, é correto afirmar que o conhecimento financeiro dos estudantes participantes do PISA é considerado",
+      "alternativas": {
+        "A": "abaixo do esperado entre os países-membros da OCDE, de maneira geral.",
+        "B": "abaixo do esperado quando se resume ao reconhecimento da diferença entre necessidade e desejo de adquirir ou consumir algo e tomar decisões simples sobre gastos diários.",
+        "C": "acima do esperado quando envolve planejamento financeiro em contextos complexos.",
+        "D": "adequado somente quando envolve habilidades como o cálculo de taxas de juros compostos em empréstimos bancários, bem como a tomada de decisões diante de riscos financeiros.",
+        "E": "o melhor possível quando demonstrada a capacidade de reconhecer a diferença entre necessidade e desejo de adquirir ou consumir algo e tomar decisões simples sobre gastos diários."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "De acordo com o sexto e o sétimo parágrafos do texto CG1A4, o desempenho do Brasil, segundo os resultados de 2024 do PISA,",
+      "alternativas": {
+        "A": "melhorou desde que a educação financeira se tornou disciplina obrigatória nas escolas.",
+        "B": "foi bom porque a educação financeira é trabalhada nas escolas de educação básica como tema transversal.",
+        "C": "nunca se apresentou tão baixo.",
+        "D": "melhorou em comparação com o verificado em 2015.",
+        "E": "demonstra que mais da metade dos brasileiros participantes da avaliação não tem conhecimentos básicos sobre educação financeira."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "Do último parágrafo do texto CG1A4 conclui-se que",
+      "alternativas": {
+        "A": "os estudantes socioeconomicamente desfavorecidos precisam, segundo o relatório da OCDE, de apoio do Estado para tomar decisões economicamente responsáveis.",
+        "B": "os estudantes avaliados no PISA não apresentam condições de tomar decisões economicamente responsáveis.",
+        "C": "os estudantes socioeconomicamente desfavorecidos enfrentam, segundo o relatório da OCDE, um processo de exclusão dentro do sistema educacional de seus países.",
+        "D": "os estudantes mais vulneráveis dos países avaliados no PISA não recebem nenhum apoio de seus países para que tomem decisões economicamente responsáveis.",
+        "E": "os estudantes socioeconomicamente desfavorecidos, segundo o relatório da OCDE, são desconsiderados pelas políticas que visam evitar o aumento das desigualdades."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "O texto CG1A4 caracteriza-se como predominantemente",
+      "alternativas": {
+        "A": "injuntivo.",
+        "B": "dissertativo-expositivo.",
+        "C": "narrativo.",
+        "D": "dissertativo-argumentativo.",
+        "E": "descritivo."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "A correção gramatical e a coerência do texto CG1A4 seriam mantidas caso a forma verbal “têm” (primeiro período do texto) fosse substituída por",
+      "alternativas": {
+        "A": "exercem.",
+        "B": "detém.",
+        "C": "tem.",
+        "D": "possui.",
+        "E": "demonstram."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "Em cada uma das opções a seguir, é apresentada uma proposta de reescrita para o seguinte trecho do segundo parágrafo do texto CG1A4: “entre os 20 países que participaram da avaliação, o Brasil ficou em 18.º lugar, com desempenho semelhante ao do Peru, da Costa Rica e da Arábia Saudita.”. Assinale a opção cuja proposta de reescrita, além de estar gramaticalmente correta, preserva a coerência das ideias do texto.",
+      "alternativas": {
+        "A": "entre os 20 países participantes da avaliação, o Brasil ficou em 18.º lugar, tendo apresentado desempenho análogo ao do Peru, da Costa Rica e da Arábia Saudita.",
+        "B": "entre os 20 países que participaram da avaliação, o Brasil ficou no 18.º lugar, apresentando desempenho similar com o do Peru, da Costa Rica e da Arábia Saudita.",
+        "C": "o Brasil ficou em 18.º lugar entre os 20 países que participaram da avaliação, com desempenho semelhante o do Peru, da Costa Rica e da Arábia Saudita.",
+        "D": "entre os 20 países que participaram da avaliação, o Brasil ficou em 18.º lugar, tendo desempenho igual ao do Peru, ao da Costa Rica e ao da Arábia Saudita.",
+        "E": "entre os 20 países que participaram da avaliação, o Brasil ficou em 18.º lugar, com desempenho parecido com o Peru, a Costa Rica e a Arábia Saudita."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "Estariam mantidos os sentidos originais do texto CG1A4 caso a palavra “patamar” (segundo período do terceiro parágrafo) fosse substituída por",
+      "alternativas": {
+        "A": "processo.",
+        "B": "momento.",
+        "C": "nível.",
+        "D": "grupo.",
+        "E": "intervalo."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "No primeiro período do último parágrafo do texto CG1A4, a forma verbal “Consta” está flexionada na terceira pessoa do singular porque",
+      "alternativas": {
+        "A": "concorda com o termo “desafio”.",
+        "B": "o sujeito da oração expressa por ela é oracional.",
+        "C": "o sujeito da oração expressa por ela é indeterminado.",
+        "D": "concorda com o termo “relatório”.",
+        "E": "a oração em que ela se insere resume o que é expresso no parágrafo anterior."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "Cada uma das opções a seguir apresenta uma proposta de alteração da pontuação empregada no trecho entre aspas no quarto parágrafo do texto CG1A4. Assinale a opção em que a proposta apresentada é gramaticalmente correta no que diz respeito à pontuação.",
+      "alternativas": {
+        "A": "“Promover educação financeira é garantir que os estudantes tenham conhecimento dos conceitos e riscos financeiros e, ainda, garantir que eles tenham competência para aplicar essa compreensão na tomada de decisões”",
+        "B": "“Promover educação financeira, é garantir que os estudantes tenham conhecimento dos conceitos e riscos financeiros, bem como garantir que eles tenham competência para aplicar essa compreensão na tomada de decisões”",
+        "C": "“Promover educação financeira é garantir que os estudantes tenham conhecimento dos conceitos e riscos financeiros, bem como, garantir que eles tenham competência para aplicar essa compreensão na tomada de decisões”",
+        "D": "“Promover educação financeira é garantir que, os estudantes tenham conhecimento dos conceitos e riscos financeiros, e também, garantir que eles tenham competência para aplicar essa compreensão na tomada de decisões”",
+        "E": "“Promover educação financeira é garantir que os estudantes tenham conhecimento dos conceitos e riscos financeiros. Bem como garantir que eles tenham competência para aplicar essa compreensão na tomada de decisões”"
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "Seriam preservados a coerência, a correção gramatical e o nível de formalidade do texto CG1A4 caso se substituísse, no segundo período do quinto parágrafo,",
+      "alternativas": {
+        "A": "“tem registrado” por vêm registrando.",
+        "B": "“tem registrado” por registrou-se.",
+        "C": "“Há” por Tem.",
+        "D": "“Há” por Fazem.",
+        "E": "“tem registrado” por vem registrando."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "No segundo período do quinto parágrafo do texto CG1A4, o segmento “baixo desempenho” exerce, na oração em que se insere, a função sintática de",
+      "alternativas": {
+        "A": "adjunto adnominal.",
+        "B": "complemento nominal.",
+        "C": "sujeito.",
+        "D": "objeto direto.",
+        "E": "adjunto adverbial."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "No primeiro período do sexto parágrafo do texto CG1A4, a expressão “Ainda que” introduz oração que expressa circunstância de",
+      "alternativas": {
+        "A": "tempo.",
+        "B": "condição.",
+        "C": "proporcionalidade.",
+        "D": "finalidade.",
+        "E": "concessão."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "Em cada uma das opções seguintes, é apresentada uma proposta de reescrita para o trecho “53% dos estudantes brasileiros não tinham conhecimentos básicos sobre educação financeira.” (segundo período do sexto parágrafo do texto CG1A4). Assinale a opção cuja proposta preserva tanto a correção gramatical quanto a coerência das ideias do texto.",
+      "alternativas": {
+        "A": "mais da metade dos discentes brasileiros não tinha conhecimentos básicos sobre educação financeira.",
+        "B": "cada um dos 53% dos estudantes do Brasil não tinham conhecimento sobre educação financeira.",
+        "C": "53% dos estudantes brasileiros não tinha conhecimentos básicos sobre educação financeira.",
+        "D": "53% dos estudantes do Brasil não apresentava conhecimentos básicos sobre educação financeira.",
+        "E": "cerca de metade do alunado brasileiro não tinham conhecimentos básicos sobre educação financeira."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Língua Portuguesa",
+      "gabarito": null,
+      "enunciado": "Estariam mantidos os sentidos e a correção gramatical do texto CG1A4 caso o vocábulo ‘imperioso’ (último período do texto) fosse substituído por",
+      "alternativas": {
+        "A": "desejável.",
+        "B": "premente.",
+        "C": "producente.",
+        "D": "preterível.",
+        "E": "auspicioso."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Direito Constitucional",
+      "gabarito": null,
+      "enunciado": "Acerca dos princípios fundamentais e dos direitos e das garantias fundamentais, assinale a opção correta.",
+      "alternativas": {
+        "A": "Será declarada automaticamente a perda da nacionalidade brasileira do brasileiro que adquirir outra nacionalidade.",
+        "B": "Lei que alterar o processo eleitoral entrará em vigor na data de sua publicação, mas somente será aplicada à eleição subsequente à próxima.",
+        "C": "A sucessão de bens de pessoa estrangeira situados no Brasil será regulada sempre pela lei brasileira em benefício do cônjuge ou dos filhos brasileiros, se houver.",
+        "D": "É princípio fundamental da República Federativa do Brasil, em suas relações internacionais, a busca de integração econômica, política, social e cultural dos povos da América Latina, com vistas à formação de uma comunidade latino-americana de nações.",
+        "E": "No caso de iminente perigo público, a autoridade competente poderá usar de propriedade particular, assegurada ao proprietário indenização justa e prévia em dinheiro."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Direito Constitucional",
+      "gabarito": null,
+      "enunciado": "Norma municipal que viole o pacto federativo por usurpar de competência do respectivo estado prevista na Constituição Federal de 1988 pode ser objeto de",
+      "alternativas": {
+        "A": "ação popular, para fins de declaração de inconstitucionalidade abstrata da norma.",
+        "B": "arguição de descumprimento de preceito fundamental, para fins de declaração de inconstitucionalidade abstrata da norma.",
+        "C": "ação direta de inconstitucionalidade, para fins de declaração de inconstitucionalidade abstrata da norma.",
+        "D": "ação direta de inconstitucionalidade, para fins de declaração de inconstitucionalidade concreta da norma.",
+        "E": "ação declaratória de constitucionalidade, para fins de declaração de inconstitucionalidade abstrata da norma."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Direito Constitucional",
+      "gabarito": null,
+      "enunciado": "Acerca da ordem econômica e financeira prevista na Constituição Federal de 1988, assinale a opção correta.",
+      "alternativas": {
+        "A": "Lei ordinária disporá sobre a participação do capital estrangeiro nas instituições que integram o Sistema Financeiro Nacional.",
+        "B": "A defesa do meio ambiente, inclusive mediante tratamento diferenciado conforme o impacto ambiental dos produtos e serviços e de seus processos de elaboração e prestação, constitui princípio da ordem econômica.",
+        "C": "Como agente normativo e regulador da atividade econômica, o Estado exercerá, na forma da lei, as funções de fiscalização, incentivo e planejamento, sendo este determinante para os setores público e privado.",
+        "D": "As jazidas, em lavra ou não, constituem a mesma propriedade do solo, para efeito de exploração ou aproveitamento.",
+        "E": "Ato administrativo federal disporá sobre o regime das empresas concessionárias e permissionárias de serviços públicos, o caráter especial de seu contrato e de sua prorrogação, bem como as condições de caducidade, fiscalização e rescisão da concessão ou permissão."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Direito Constitucional",
+      "gabarito": null,
+      "enunciado": "A respeito da organização político-administrativa do Estado, assinale a opção correta, de acordo com a Constituição Federal de 1988 (CF).",
+      "alternativas": {
+        "A": "Cabe aos municípios explorar diretamente ou mediante concessão os serviços locais de gás canalizado, na forma da lei, vedada a edição de medida provisória para a sua regulamentação.",
+        "B": "Lei complementar federal poderá autorizar os estados a legislar sobre questões específicas das matérias cuja competência legislativa seja privativa da União.",
+        "C": "A organização político-administrativa da federação brasileira compreende a União, os estados, o Distrito Federal, os municípios e os territórios, todos autônomos, nos termos da CF.",
+        "D": "A criação, a incorporação, a fusão e o desmembramento de municípios ocorrerão por lei complementar federal, após a realização de consulta prévia, mediante plebiscito, aos munícipes diretamente interessados.",
+        "E": "No âmbito da legislação concorrente, a superveniência de lei federal sobre normas gerais revoga a lei estadual no que lhe for contrária."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Direito Constitucional",
+      "gabarito": null,
+      "enunciado": "De acordo com as disposições da CF acerca da ordem econômica e financeira, julgue os itens a seguir.\nI A ordem econômica é fundada na valorização do trabalho humano e na livre iniciativa.\nII É finalidade da ordem econômica assegurar a todos existência digna, conforme os ditames da justiça social.\nIII O tratamento favorecido para todas as empresas de pequeno porte é um dos princípios regentes da ordem econômica.\nIV Em regra, é assegurado a todos o livre exercício de qualquer atividade econômica, independentemente da autorização de órgãos públicos.\nV Cabe a leis complementares dispor sobre a participação do capital estrangeiro nas instituições integrantes do sistema financeiro nacional.",
+      "alternativas": {
+        "A": "Apenas os itens I, III e V estão certos.",
+        "B": "Apenas os itens I, II , III e IV estão certos.",
+        "C": "Apenas os itens I, II, IV e V estão certos.",
+        "D": "Apenas os itens II, III, IV e V estão certos.",
+        "E": "Todos os itens estão certos."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Direito Administrativo",
+      "gabarito": null,
+      "enunciado": "Acerca da organização da administração pública, assinale a opção correta.",
+      "alternativas": {
+        "A": "Os órgãos da administração direta estão sujeitos à supervisão do ministro de Estado competente, o que não ocorre com os órgãos da administração indireta, cuja autoridade máxima é o presidente, conselheiro ou diretor-geral.",
+        "B": "A criação de autarquias, empresas públicas, sociedades de economia mista e fundações públicas deve ser realizada por meio de lei específica.",
+        "C": "Cabe à lei ordinária definir as áreas de atuação das fundações públicas.",
+        "D": "A criação de órgão público da administração direta para a prática de atos especializados configura desconcentração administrativa, ao passo que a criação de autarquia configura descentralização.",
+        "E": "As empresas públicas são pessoas jurídicas de direito público pertencentes à administração indireta com capital exclusivo do poder público."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Direito Administrativo",
+      "gabarito": null,
+      "enunciado": "Assinale a opção correta em relação aos atos administrativos e aos agentes públicos.",
+      "alternativas": {
+        "A": "Na hipótese de acumulação remunerada de cargos públicos autorizada pela Constituição Federal de 1988, o teto salarial deve obedecer ao somatório dos ganhos recebidos pelos agentes públicos.",
+        "B": "A presunção de legitimidade do ato administrativo é o atributo que permite à administração pública executar seus próprios atos baseados na lei, independentemente de ordem judicial.",
+        "C": "É competência exclusiva da União instituir o regime jurídico único e os planos de carreira para todos os servidores da administração pública direta, das autarquias e das fundações públicas de qualquer ente da Federação.",
+        "D": "Os chefes do Poder Executivo, seus auxiliares imediatos (ministros ou secretários) e os membros do Poder Legislativo são considerados agentes políticos.",
+        "E": "A investidura em cargos públicos se dará exclusivamente por intermédio de concurso público de provas ou provas e títulos."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Direito Administrativo",
+      "gabarito": null,
+      "enunciado": "A faculdade conferida à administração pública para punir internamente as infrações funcionais dos servidores e demais pessoas sujeitas aos ditames dos órgãos e serviços da administração pública é caracterizada como poder",
+      "alternativas": {
+        "A": "vinculado.",
+        "B": "regulamentar.",
+        "C": "hierárquico.",
+        "D": "de polícia.",
+        "E": "disciplinar."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Direito Administrativo",
+      "gabarito": null,
+      "enunciado": "Em relação ao controle da administração pública, assinale a opção correta.",
+      "alternativas": {
+        "A": "Ao tomarem conhecimento de qualquer irregularidade ou ilegalidade, os responsáveis pelo controle interno devem informá-la aos seus superiores hierárquicos, para a adoção das providências cabíveis, sem a necessidade de remessa ao respectivo tribunal de contas.",
+        "B": "O tribunal de contas tem competência para sustar atos administrativos, na hipótese de não ser atendido; quando se tratar de contrato, entretanto, o ato de sustação será adotado diretamente pelo Congresso Nacional.",
+        "C": "A obrigatoriedade de prestação de contas restringe-se às pessoas físicas ou jurídicas públicas que utilizem, arrecadem, guardem, gerenciem ou administrem dinheiros, bens ou valores públicos.",
+        "D": "Considera-se controle externo o realizado pela controladoria-geral do estado.",
+        "E": "O controle exercido pelo tribunal de contas é definitivo em razão da sua jurisdição."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Direito Administrativo",
+      "gabarito": null,
+      "enunciado": "Julgue os seguintes itens, em relação à responsabilidade civil do Estado.\nI A responsabilidade civil do Estado é subjetiva, fundada no risco integral, devendo haver a demonstração da ação do agente e o resultado.\nII A culpa exclusiva da vítima é causa excludente de responsabilidade do Estado, ao passo que a culpa concorrente não interfere na responsabilidade, uma vez que esta é objetiva.\nIII A responsabilidade civil de concessionária de serviço público é objetiva em relação aos usuários e subjetiva em relação aos não usuários.\nIV O Estado deve indenizar o condenado por erro judiciário, assim como o que ficar preso além do tempo fixado na sentença.",
+      "alternativas": {
+        "A": "Nenhum item está certo.",
+        "B": "Apenas o item I está certo.",
+        "C": "Apenas o item II está certo.",
+        "D": "Apenas o item III está certo.",
+        "E": "Apenas o item IV está certo."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Matemática Financeira",
+      "gabarito": null,
+      "enunciado": "Com base nos conceitos financeiros de juros simples, juros compostos e precificação de títulos, assinale a opção correta.",
+      "alternativas": {
+        "A": "No caso de um título prefixado, sem cupom, com vencimento em 5 anos, negociado com uma taxa de juros anual de 25%, a duration modificada será igual a 4 anos.",
+        "B": "Para uma operação de um ano, com a mesma taxa de juros anual e o mesmo capital investido, os sistemas de juros simples e juros compostos geram valores futuros diferentes.",
+        "C": "Um título prefixado sem cupom e com prazo de vencimento de 3 anos terá uma duration modificada igual ao seu prazo, independentemente da taxa de juros vigente.",
+        "D": "Se uma aplicação financeira obtiver uma taxa de retorno equivalente a 12% ao ano em regime composto, então a taxa proporcional de 6 meses dessa operação será exatamente 6%.",
+        "E": "Um título prefixado, sem pagamento de cupom e com vencimento em 4 anos, terá uma duration modificada superior ao prazo do título, independentemente da taxa de juros praticada no mercado."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Matemática Financeira",
+      "gabarito": null,
+      "enunciado": "Considerando duas aplicações financeiras com o mesmo capital inicial, mesmo prazo e mesma taxa anual de juros positiva, uma delas feita em regime de juros simples e a outra, em regime de juros compostos, assinale a opção correta.",
+      "alternativas": {
+        "A": "Os juros compostos resultarão em um valor acumulado igual ou superior ao do regime de juros simples, sendo o período maior ou igual a 1.",
+        "B": "A diferença entre os juros simples e os juros compostos diminui com o aumento do prazo da aplicação financeira.",
+        "C": "Ao final do primeiro ano, o valor acumulado no regime de juros simples será maior que o que seria no regime de juros compostos.",
+        "D": "O regime de juros simples produz um crescimento exponencial do capital aplicado ao longo do tempo.",
+        "E": "No segundo ano, o rendimento obtido em juros compostos é exatamente o mesmo do primeiro ano."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Matemática Financeira",
+      "gabarito": null,
+      "enunciado": "Assinale a opção correta no que se refere a um empréstimo contratado pelo sistema francês de amortização (tabela Price).",
+      "alternativas": {
+        "A": "O valor da parcela é crescente devido à capitalização mensal dos juros.",
+        "B": "Os juros das parcelas são decrescentes ao longo do prazo do financiamento.",
+        "C": "As parcelas são iguais durante todo o período do financiamento, com redução gradual dos juros e aumento gradual da amortização.",
+        "D": "A amortização é igual durante todo o período do financiamento, com redução gradual dos juros e aumento gradual da amortização.",
+        "E": "Os juros incidentes sobre cada parcela são crescentes ao longo do tempo."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Matemática Financeira",
+      "gabarito": null,
+      "enunciado": "Acerca do sistema de amortização constante (SAC), amplamente utilizado em financiamentos imobiliários, assinale a opção correta.",
+      "alternativas": {
+        "A": "O valor da amortização é crescente, enquanto os juros diminuem ao longo do tempo.",
+        "B": "As parcelas são constantes durante todo o período de financiamento.",
+        "C": "Os juros diminuem gradualmente ao longo do período de financiamento.",
+        "D": "A última parcela do financiamento SAC é sempre maior que a primeira.",
+        "E": "Os juros cobrados a cada período são sempre iguais durante todo o prazo."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Estatística",
+      "gabarito": null,
+      "enunciado": "Com base no texto CG1A8, é correto afirmar, quanto às medidas de posição obtidas a partir do conjunto de dados decorrente da referida avaliação, que",
+      "alternativas": {
+        "A": "a moda é inferior à média e à mediana.",
+        "B": "a moda é superior à média e à mediana.",
+        "C": "a moda é igual à mediana e superior à média.",
+        "D": "a mediana é inferior à média e igual à moda.",
+        "E": "a mediana é inferior à média e à moda."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Estatística",
+      "gabarito": null,
+      "enunciado": "A variância das notas finais dos candidatos mencionados no texto CG1A8 é",
+      "alternativas": {
+        "A": "inferior a 1,3.",
+        "B": "superior a 1,3 e inferior a 1,4.",
+        "C": "superior a 1,4 e inferior a 1,5.",
+        "D": "superior a 1,5 e inferior a 1,6.",
+        "E": "superior a 1,6."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Raciocínio Lógico",
+      "gabarito": null,
+      "enunciado": "Se, de um grupo formado por 5 homens e 15 mulheres, duas pessoas são escolhidas aleatoriamente, a probabilidade de pelo menos uma das pessoas escolhidas ser mulher é",
+      "alternativas": {
+        "A": "inferior a 80%.",
+        "B": "superior a 80% e inferior a 85%.",
+        "C": "superior a 85% e inferior a 90%.",
+        "D": "superior a 90% e inferior a 95%.",
+        "E": "superior a 95%."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Raciocínio Lógico",
+      "gabarito": null,
+      "enunciado": "Sabe-se que, no ramo do direito das obrigações no direito civil, uma obrigação é uma relação jurídica entre duas partes na qual o devedor se obriga voluntariamente, perante o credor, a dar, fazer ou não fazer algo, recebendo por isso uma compensação. Segundo o artigo 257 do Código Civil, havendo mais de um devedor ou mais de um credor em obrigação divisível, esta presume-se dividida em tantas obrigações, iguais e distintas, quantos os credores ou devedores. Considerando que certa obrigação divisível se estabeleça entre 7 devedores e 6 credores, cada um destes tendo direito a reclamar uma parte a cada um daqueles, assinale a opção que apresenta o número total de obrigações reconhecidas pelo direito à luz do art. 257 do Código Civil.",
+      "alternativas": {
+        "A": "1",
+        "B": "6",
+        "C": "7",
+        "D": "13",
+        "E": "42"
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Raciocínio Lógico",
+      "gabarito": null,
+      "enunciado": "Com base no texto CG1A9, assinale a opção que apresenta o número de linhas da tabela-verdade associada à proposição expressa por João.",
+      "alternativas": {
+        "A": "2",
+        "B": "4",
+        "C": "8",
+        "D": "16",
+        "E": "32"
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Raciocínio Lógico",
+      "gabarito": null,
+      "enunciado": "A partir do texto CG1A9, assinale a opção que apresenta, corretamente, a negação da proposição expressa por João.",
+      "alternativas": {
+        "A": "Como bife cozido e bem passado.",
+        "B": "Só não como bife cozido ou bem passado.",
+        "C": "Não como bife nem cozido nem bem passado.",
+        "D": "O bife não estava cozido, nem estava bem passado, mas o comi.",
+        "E": "Como bife cozido ou bem passado."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Economia",
+      "gabarito": null,
+      "enunciado": "A respeito da emissão de títulos públicos e operações do Tesouro Nacional e do Banco Central, assinale a opção correta.",
+      "alternativas": {
+        "A": "A capitalização de bancos públicos pelo Tesouro Nacional reduz a dívida bruta e aumenta a dívida líquida do setor público.",
+        "B": "A partir da vigência da Lei de Responsabilidade Fiscal, somente o Tesouro Nacional pode emitir títulos públicos utilizados pelo Banco Central nas operações de política monetária.",
+        "C": "Quando o BNDES devolve títulos ao Tesouro Nacional, observa-se uma redução imediata da dívida líquida do setor público.",
+        "D": "A Lei de Responsabilidade Fiscal autoriza o Banco Central a emitir títulos públicos para fins de política monetária.",
+        "E": "Conforme determina a Lei de Responsabilidade Fiscal, o Banco Central deve realizar exclusivamente operações compromissadas com títulos próprios."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Economia",
+      "gabarito": null,
+      "enunciado": "Com base na definição e na composição da dívida bruta do governo geral (DBGG), assinale a opção correta.",
+      "alternativas": {
+        "A": "A DBGG inclui exclusivamente os títulos emitidos pelo Tesouro Nacional junto ao setor privado.",
+        "B": "As operações compromissadas do Banco Central não são incluídas no cálculo da DBGG.",
+        "C": "As operações compromissadas realizadas pelo Banco Central entram no cálculo da DBGG, abrangendo a totalidade da dívida mobiliária federal no mercado.",
+        "D": "Apenas dívidas dos governos estaduais e municipais são consideradas na DBGG, ficando excluída a dívida federal.",
+        "E": "A DBGG contempla as dívidas contraídas com o setor privado, excluídas as dívidas com instituições financeiras públicas."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Economia",
+      "gabarito": null,
+      "enunciado": "A dívida líquida do setor público (DLSP) inclui",
+      "alternativas": {
+        "A": "apenas as dívidas das instituições financeiras do setor público federal.",
+        "B": "as dívidas emitidas pelos bancos públicos federais junto ao setor privado.",
+        "C": "somente dívidas emitidas diretamente pelo Tesouro Nacional junto ao Banco Central.",
+        "D": "somente a dívida total do setor público financeiro com o setor privado.",
+        "E": "o saldo líquido do endividamento do setor público não financeiro e do Banco Central junto ao sistema financeiro, ao setor privado não financeiro e ao resto do mundo."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Economia",
+      "gabarito": null,
+      "enunciado": "Acerca das fases de execução da despesa pública, assinale a opção correta.",
+      "alternativas": {
+        "A": "No processo de execução das despesas públicas, a liquidação precede o empenho.",
+        "B": "Apenas despesas discricionárias podem ser canceladas após a fase de liquidação.",
+        "C": "Os empenhos das despesas obrigatórias não podem ser cancelados, pois constituem direitos adquiridos pelo credor.",
+        "D": "O empenho só pode ser alterado ou mesmo anulado se a despesa for discricionária.",
+        "E": "O empenho é o primeiro estágio da execução da despesa pública, podendo ser alterado ou anulado."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Economia",
+      "gabarito": null,
+      "enunciado": "Considerando a aplicação do modelo IS/LM em uma pequena economia aberta com perfeita mobilidade de capitais, assinale a opção correta.",
+      "alternativas": {
+        "A": "O aumento do salário nominal desloca a curva IS para a direita, aumentando a renda de equilíbrio no curto prazo.",
+        "B": "Sob câmbio fixo, uma política monetária contracionista resulta em redução imediata das reservas internacionais em poder da autoridade monetária.",
+        "C": "Com câmbio flexível, um aumento dos gastos públicos não afeta as exportações líquidas, elevando permanentemente o nível de renda da economia.",
+        "D": "Sob câmbio flutuante, o nível de produto é exclusivamente determinado pela curva LM, ao passo que a curva IS determina o nível de câmbio de equilíbrio.",
+        "E": "Sob câmbio fixo, a política monetária é ativa, o que permite autonomia completa do Banco Central em determinar o nível da taxa de juros."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Economia",
+      "gabarito": null,
+      "enunciado": "O Plano Verão (1989)",
+      "alternativas": {
+        "A": "obteve sucesso no ajuste fiscal inicialmente previsto ao reduzir drasticamente a dívida pública.",
+        "B": "resultou imediatamente em redução significativa da inflação, sem impactos negativos sobre o déficit público.",
+        "C": "instituiu o Cruzado Novo e visava expandir a demanda agregada por meio da redução da taxa de juros para impulsionar o crescimento econômico.",
+        "D": "promoveu a redução da despesa pública, elevou a taxa básica de juros e extinguiu a URP salarial para reduzir a inércia inflacionária.",
+        "E": "foi essencialmente heterodoxo, tendo mantido intacta a indexação salarial por meio da URP."
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Economia",
+      "gabarito": null,
+      "enunciado": "Lançado em 1987, o Plano Bresser",
+      "alternativas": {
+        "A": "objetivava uma inflação mais baixa por meio da redução do déficit público e da supressão da escala móvel salarial.",
+        "B": "tinha como objetivo principal alcançar uma inflação zero por meio da eliminação completa da indexação.",
+        "C": "foi bem-sucedido na extinção imediata da inflação inercial, com ampla aprovação popular.",
+        "D": "não interferiu na indexação salarial e não promoveu choque deflacionário.",
+        "E": "visava aumentar a demanda agregada para garantir o crescimento econômico imediato."
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Economia",
+      "gabarito": null,
+      "enunciado": "Assinale a opção correta no que se refere ao resultado imediato do Plano Cruzado (1986) sobre o poder de compra dos salários e o consumo das famílias.",
+      "alternativas": {
+        "A": "O poder de compra dos salários caiu drasticamente, o que provocou escassez generalizada de bens e serviços.",
+        "B": "O resultado imediato foi o aumento na oferta de produtos, especialmente alimentícios, devido à estabilidade econômica gerada.",
+        "C": "O congelamento de preços reduziu imediatamente o poder de compra dos salários, o que gerou queda significativa do consumo.",
+        "D": "Houve expansão significativa do consumo em razão do congelamento de preços associado ao aumento do poder de compra salarial.",
+        "E": "O congelamento simultâneo de preços e salários impediu qualquer aumento do poder de compra da população."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Economia",
+      "gabarito": null,
+      "enunciado": "Considerando a teoria microeconômica e as diferentes estruturas de mercado, assinale a opção correta.",
+      "alternativas": {
+        "A": "Os custos fixos de empresas que operam em concorrência perfeita no curto prazo são irrelevantes para a decisão de continuarem produzindo, pois só se produz quando o preço é inferior ao custo variável médio.",
+        "B": "Como em um mercado perfeitamente competitivo existe livre entrada e saída de produtores, o lucro econômico das empresas nunca poderá ser negativo no curto prazo.",
+        "C": "Se o governo impuser um imposto unitário (por unidade vendida) a um monopolista, o preço final de equilíbrio do mercado aumentará exatamente no mesmo valor do imposto.",
+        "D": "Em um mercado concorrencial com rendimentos constantes à escala, ajustes de longo prazo frente a alterações da demanda ocorrem exclusivamente por meio de variações na quantidade produzida, sem mudança no preço.",
+        "E": "Sob rendimentos constantes à escala, uma contração da demanda agregada em um mercado concorrencial gera um novo equilíbrio de longo prazo com preço inferior ao inicial."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Economia",
+      "gabarito": null,
+      "enunciado": "Se a função utilidade (u) do consumidor for descrita pela equação u = 5x^(1/2)y^(1/2), então, sendo Px = 2 o preço do bem x, Py = 10 o preço do bem y, e R = 100 a riqueza do consumidor, a cesta ótima do consumidor será dada por",
+      "alternativas": {
+        "A": "x = 25 e y = 5.",
+        "B": "x = 30 e y = 10.",
+        "C": "x = 35 e y = 15.",
+        "D": "x = 40 e y = 20.",
+        "E": "x = 45 e y = 25."
+      }
+    }
+  ],
+  "questoes_discursivas": []
+}

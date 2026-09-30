@@ -1,0 +1,789 @@
+{
+  "instituicao": "SEFAZ-AP",
+  "ano": 2022,
+  "cargo": "Auditor da Receita Estadual",
+  "tipo_prova": "A01",
+  "gabarito_tipo": 1,
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Está correta a seguinte apreciação de aspectos do texto:",
+      "alternativas": {
+        "A": "Apresentando uma obra elaborada nos anos 1930, a autora mira em problemas culturais emergidos no presente, discorrendo de forma anacrônica sobre questões étnico-raciais.",
+        "B": "As queixas da autora quanto à desvalorização dos estudos “afro-brasileiros” revelam que ela mesma integra a especialidade, também padecendo, portanto, dos processos de deslegitimação científica que denuncia.",
+        "C": "As edições posteriores da obra de Renato Mendonça não fizeram jus ao seu caráter inovador.",
+        "D": "Informações sobre personalidades, editoras e locais são detalhados, já que a difusão desses dados sobre parte da história cultural brasileira é o objetivo do texto.",
+        "E": "O texto aquilata o papel de uma obra em determinado cenário científico e cultural, descrevendo-a e avaliando-a a partir do viés de uma especialista."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "Está correto o seguinte comentário sobre o texto:",
+      "alternativas": {
+        "A": "O título antecipa o mérito do trabalho de Mendonça: ainda que de modo lacunar, o autor é o único em sua época a destacar as africanas como formantes da identidade linguística brasileira.",
+        "B": "O conceito de africanas é articulado de modo a ressaltar o seu caráter estrutural, isto é, que elas estão subjacentes a aspectos sociais, culturais e linguísticos caracterizados como brasileiros.",
+        "C": "Diante de forças opressoras, as africanas se viabilizaram por meio da modificação, que leva a uma disjunção entre a bagagem inaugural e seus resultados identitários difusos.",
+        "D": "A expressão Dentro desse plano de entendimento sublinha que Mendonça não teve como escapar às injunções de seu tempo, compondo, ele também, uma obra que dissocia o “afro” do “brasileiro”.",
+        "E": "Baseando-se no conceito de africanas, a autora conclui que as diferentes línguas faladas no Brasil ao longo dos períodos colonial e imperial devam ser caracterizadas como neografiaanas."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Língua Portuguesa",
+      "gabarito": "D",
+      "enunciado": "No quarto parágrafo.",
+      "alternativas": {
+        "A": "as reflexões metalinguísticas instauram um corte na argumentação geral, voltada a demonstrar o reduzido interesse pelo estudo de línguas africanas no Brasil.",
+        "B": "descreve-se como a Linguística e a Filologia têm disputado o objeto de pesquisa, para o qual a autora advoga uma abordagem holística, ancorada nos chamados “estudos afro-brasileiros”.",
+        "C": "disserta-se sobre o acordo ortográfico, que impôs ao termo “afro-brasileiros” uma cisão de elementos culturais anteriormente percebidos como articulados pela sociedade brasileira.",
+        "D": "manipulam-se convenções da escrita, fazendo ressaltar de jogos linguísticos uma crítica a um sistema de valores historicamente construídos.",
+        "E": "o emprego de aspas em “afro-brasileiros” imprime tom jocoso ao fragmento dissertativo, além de denunciar preciosismo e preconceito dos que determinaram a ortografia."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Língua Portuguesa",
+      "gabarito": "C",
+      "enunciado": "Considerando a ortografia padrão é correto afirmar:",
+      "alternativas": {
+        "A": "Negroafricanas, diferentemente de afro-brasileiros, deve ser escrito sem hífen, tal como aparece no texto.",
+        "B": "O modo de escrita dos itens aparte e a parte evidencia, tal como demonstrado no texto, que não há conexões semânticas entre eles.",
+        "C": "A grafia da preposição e do pronome em de esse sublinha a função sintática do fragmento que introduzem, tal como em “João alertou para o perigo de o Paulo ser demitido”.",
+        "D": "Iconográfico, resistência e partícipe têm sua acentuação determinada pela mesma regra.",
+        "E": "Ciente de sua função exclusiva na ortografia, a de unir as partes de certas palavras compostas ou derivadas por prefixação, a autora eliminou o traço-de-união, ou hífen, de todo o seu texto."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "O comentário que está em DESACORDO com o emprego de palavras e expressões no texto é:",
+      "alternativas": {
+        "A": "Em como forma de resistência e de continuidade na opressão, o item destacado equivale a “diante da”.",
+        "B": "Em naquela língua portuguesa, o item destacado situa a língua no passado, distinguindo-a da língua portuguesa usada pela autora e seus leitores.",
+        "C": "A forma destacada em entrados no Brasil enfatiza o caráter involuntário do processo descrito.",
+        "D": "Em aquelas vozes de mais de quatro milhões de negros escravizados, a palavra destacada sintetiza diferentes aspectos linguísticos do referido aprendizado.",
+        "E": "em uma bibliografia ainda hoje consistente traz, no contexto, o implícito de que os verdadeiros achados científicos permanecem."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Língua Portuguesa",
+      "gabarito": "C",
+      "enunciado": "Está correto o seguinte comentário:",
+      "alternativas": {
+        "A": "A coordenação em transformou-se e converteu-se visa à ênfase do processo descrito, já que, no contexto, os verbos são sinônimos e compartilham o mesmo complemento.",
+        "B": "O fragmento o diplomata, escritor e pesquisador alagoano Renato Firmino Maia de Mendonça (1912 – 1990) é um aposto, trazendo, portanto, informações irrelevantes.",
+        "C": "Em mais como objeto de pesquisa... em estudos “afro-brasileiros”, há supressão de termo da estrutura sintática de comparação, facilmente subentendido no contexto.",
+        "D": "podemos entender africanas como a bagagem cultural submergida descreve evento tomado como independente de circunstâncias.",
+        "E": "O fragmento São essas matrizes que [...] antecipa o complemento verbal, sem que haja impactos sobre o sentido do período derivados dessa opção estilística."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Língua Portuguesa",
+      "gabarito": "A",
+      "enunciado": "Está correto o seguinte comentário sobre o texto:",
+      "alternativas": {
+        "A": "O fragmento Ao lado de Jacques Raimundo... manteria o paralelismo sintático se o trecho grifado fosse substituído por “da de”.",
+        "B": "Coloca é usado no texto com o mesmo sentido visto em: “Coloquei minhas ressalvas de lado quando ele explicou o projeto”.",
+        "C": "No contexto, os itens coordenados em resistência e continuidade poderiam ser sintetizados por “resiliência”, característica sistematicamente associada no texto aos afro-brasileiros.",
+        "D": "Também de caráter inovador traz o implícito de comparação dos elementos analisados com as inovações que o campo de estudos tem experimentado atualmente.",
+        "E": "A opção pelo termo addendum, em latim, revela um processo de variação: ele é usual entre os falantes do português do Brasil das faixas etárias mais elevadas, familiarizados com o antigo idioma."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Língua Portuguesa",
+      "gabarito": "B",
+      "enunciado": "Estão corretas as seguintes alterações propostas para a pontuação de fragmentos do texto:",
+      "alternativas": {
+        "A": "a 1ª edição, foi publicada pela Gráfica Sauer, com prefácio, de Rodolfo Garcia, trazendo o mapa da distribuição do elemento negro, no Brasil, – colonial e imperial.",
+        "B": "ilustrada, com mapas e fotografias, e aumentada em dois capítulos: um esboço histórico sobre o tráfico e um ensaio sobre o negro na literatura brasileira.",
+        "C": "Dentro desse plano de entendimento Renato Mendonça coloca, e avalia a interferência, que aquelas vozes de mais de quatro milhões de negros escravizados.",
+        "D": "Também, de caráter inovador, são os mapas, toponímicos: com localidades, designadas, por nomes africanos, no Brasil, da autoria do geógrafo, Carlos Marie Cantão que vem em addendum; ao final do livro.",
+        "E": "a 3ª edição de 1948, é publicada no Porto pela Figueirinhas. Em 1972 e 1973 a 2ª edição, é republicada pela Civilização Brasileira."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "Vai ao encontro de ideia presente no texto o seguinte comentário:",
+      "alternativas": {
+        "A": "“Quando se pensa a realidade linguística do Brasil em seu conjunto, não se pode deixar de ter em conta o grande abismo que separa uma minoria, que desfruta de bens e serviços do universo da cidadania, da grande maioria, que pouco ou nenhum acesso tem aos bens de consumo, aos serviços sociais e aos direitos sociais básicos.”",
+        "B": "“Na medida em que grande parte de seus antepassados eram “peças” (seres humanos reduzidos à condição de coisa, para usufruto de seus senhores), deve-se pensar que esses falares se formaram no grande cadinho que fundiu, na fornalha da escravidão em massa, as etnias originárias e as etnias africanas na forma do colonizador europeu.”",
+        "C": "“Se é a língua do colonizador – o português – que se impõe aos diferentes segmentos sociais no Brasil, não se pode deixar de perceber nela as marcas dos processos de aquisição e de nativização por estrangeiros.”",
+        "D": "“Nos casos mais radicais das comunidades mais isoladas, continuariam em uso variedades crioulizadas do português, como os remanescentes do ‘falar crioulo’ descobertos, em Helvécia, no Extremo Sul do Estado da Bahia, por Carlota Ferreira.”",
+        "E": "“Certos processos de variação e mudança induzidos pelas situações de contato maciço do português com línguas indígenas e africanas puderam penetrar nas camadas médias e altas, generalizando-se no português brasileiro como um todo.”"
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Língua Portuguesa",
+      "gabarito": "E",
+      "enunciado": "É um livre comentário escrito em conformidade com as regras da norma-padrão:",
+      "alternativas": {
+        "A": "Quando Jacques Raimundo e Renato Mendonça publicaram suas obras, já faziam quase 30 anos que não surgiam no Brasil obras destinadas à tal tema.",
+        "B": "Haviam críticas na literatura especializada à cerca do emprego de termos como “elemento”, presente no título da obra de Jacques Raimundo.",
+        "C": "O elemento afro-negro na língua portuguesa concorre com a obra de Renato Mendonça já à partir do momento que foi lançado, tanto pela coincidência no tema como pela distinção quanto à enfoques.",
+        "D": "Existe diferenças de aprofundamento entre as obras de Jacques Raimundo e Renato Mendonça, sendo aquele mais radical em relação as rupturas epistemológicas.",
+        "E": "Jacques Raimundo e Renato Mendonça produziram, ambos em 1933, obras indispensáveis à plena compreensão da influência negro-africana no português brasileiro."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "E",
+      "enunciado": "Será formada uma comissão no Congresso com exatamente quatro parlamentares, de modo que sejam necessariamente cumpridos os seguintes requisitos:\n\n- a comissão terá dois homens e duas mulheres:\n- não haverá na comissão dois parlamentares do mesmo partido;\n- não haverá na comissão dois parlamentares da mesma região.\n\nOs quatro integrantes da comissão deverão ser escolhidos entre os seguintes oito indicados:\n\nParlamentar | Gênero | Partido | Região\nAna | Feminino | P1 | Nordeste\nBenedito | Masculino | P2 | Centro-Oeste\nCecília | Feminino | P2 | Norte\nDaniel | Masculino | P3 | Sudeste\nEveraldo | Masculino | P4 | Nordeste\nFrancisco | Masculino | P5 | Sul\nGetúlio | Masculino | P6 | Sudeste\nHelena | Feminino | P6 | Nordeste\n\nPara que todos os requisitos sejam cumpridos, deverão necessariamente compor a comissão os parlamentares",
+      "alternativas": {
+        "A": "Ana e Cecília.",
+        "B": "Ana e Getúlio.",
+        "C": "Cecília e Francisco.",
+        "D": "Daniel e Helena.",
+        "E": "Francisco e Helena."
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "E",
+      "enunciado": "Considere um grande dado cúbico de madeira com seis faces numeradas de 1 a 6. Três formigas encontram-se paradas sobre a superfície desse dado de modo que:\n\n- a formiga A está no ponto comum das faces com os números 1, 2 e 3;\n- a formiga B está sobre a face com o número 1, posicionada de forma que sua distância até a formiga A seja a maior possível;\n- a formiga C está sobre a face com o número 2, também posicionada de forma que sua distância até a formiga A seja a maior possível.\n\nSe a distância entre as formigas A e B é de 40 cm, então a distância entre as formigas B e C, em centímetros, é de",
+      "alternativas": {
+        "A": "20",
+        "B": "28",
+        "C": "80",
+        "D": "56",
+        "E": "40"
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "C",
+      "enunciado": "No jogo de dominó, as peças são divididas em duas partes. Em cada parte, são indicados de 0 a 6 pontos, como exemplificado nas figuras.\n\nComo as duas partes de uma peça podem ter a mesma quantidade de pontos indicados, existem 28 peças diferentes de dominó, considerando todas as possíveis combinações de pontos.\n\nUma pessoa organizou essas 28 peças em sequência, de acordo com os seguintes critérios:\n\n- os pontos marcados em cada parte de uma peça foram multiplicados e as peças foram colocadas em ordem crescente dos produtos obtidos;\n- quando o produto dos pontos de duas peças era igual, colocava-se antes a peça cuja soma dos pontos fosse menor.\n\nNessa sequência, a peça com 2 pontos em uma parte e 6 pontos na outra ocupou a",
+      "alternativas": {
+        "A": "17a posição.",
+        "B": "18a posição.",
+        "C": "19a posição.",
+        "D": "20a posição.",
+        "E": "21a posição."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Matemática e Raciocínio Lógico",
+      "gabarito": "E",
+      "enunciado": "A partir de novembro de 2022, será disputada a Copa do Mundo de Futebol do Catar. Os oito grupos foram sorteados a partir da definição dos cabeças de chave, equipes mais bem posicionadas no ranking internacional. Se todos os cabeças de chave se classificarem em primeiro lugar em seus grupos e vencerem a partida da fase oitavas de final, os jogos da fase quartas de final serão os seguintes:\n\nJogo 1 – Catar × Argentina\nJogo 2 – Espanha × Brasil\nJogo 3 – Inglaterra × França\nJogo 4 – Bélgica × Portugal\n\nEntre essas oito equipes, há duas sul-americanas (Brasil e Argentina) e uma asiática (Catar, equipe dona da casa), sendo as demais europeias. Com exceção de Catar, Bélgica e Portugal, todos os cabeças de chave já foram campeões mundiais.\n\nNa sequência da competição, os vencedores dos jogos 1 e 2 enfrentam-se em uma das semifinais e os vencedores dos jogos 3 e 4 fazem a outra semifinal. Os vencedores das duas partidas semifinais disputam a grande final, que definirá o campeão mundial de 2022.\n\nConsiderando que a configuração das quartas de final descrita acima se confirme, a final da Copa do Mundo de 2022",
+      "alternativas": {
+        "A": "poderá ser disputada entre Brasil e Argentina.",
+        "B": "terá necessariamente uma equipe que nunca foi campeã mundial.",
+        "C": "não poderá ser disputada entre duas seleções que já ganharam o mundial.",
+        "D": "poderá ter a equipe da casa enfrentando uma seleção sul-americana.",
+        "E": "terá necessariamente a participação de uma equipe europeia."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Matemática Financeira",
+      "gabarito": "B",
+      "enunciado": "Uma pessoa aplica 2/3 de um capital, durante 1 semestre, a uma taxa de juros compostos de 3% ao trimestre. O restante do capital ela aplica, durante 10 meses, a uma taxa de juros simples de 18% ao ano. Sabendo-se que a soma dos montantes destas duas aplicações apresentou um valor igual a R$ 32.718,00, o valor dos juros da aplicação sob o regime de capitalização simples supera o valor dos juros da outra aplicação em",
+      "alternativas": {
+        "A": "R$ 240.00",
+        "B": "R$ 282.00",
+        "C": "R$ 180.00",
+        "D": "R$ 160.00",
+        "E": "R$ 120.00"
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Matemática Financeira",
+      "gabarito": "C",
+      "enunciado": "Um título é descontado em um banco 4 meses antes de seu vencimento segundo uma operação de desconto racional simples, a uma taxa de desconto de 30% ao ano e apresentou o valor do desconto igual a R$ 2.050,00. Mudando a operação para o desconto comercial simples, a uma taxa de desconto de 24% ao ano, o valor atual correspondente passa a ser de",
+      "alternativas": {
+        "A": "R$ 20.746.00",
+        "B": "R$ 20.295.00",
+        "C": "R$ 20.240.00",
+        "D": "R$ 21.620.00",
+        "E": "R$ 20.930.00"
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Matemática Financeira",
+      "gabarito": "E",
+      "enunciado": "Um imóvel é adquirido pelo valor de R$ 500.000,00, sendo que o comprador pagou 20% deste valor na data da aquisição. O restante deverá ser quitado por meio de 100 prestações mensais e consecutivas, a uma taxa de juros mensal positiva i, vencendo a primeira prestação 1 mês após a data de aquisição. Sabendo-se que foi utilizado o sistema de amortização constante e que a 15a prestação apresenta um valor igual a R$ 9.160,00, a penúltima prestação é igual a",
+      "alternativas": {
+        "A": "R$ 4.080.00",
+        "B": "R$ 4.120.00",
+        "C": "R$ 4.180.00",
+        "D": "R$ 4.060.00",
+        "E": "R$ 4.160.00"
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Matemática Financeira",
+      "gabarito": "C",
+      "enunciado": "O fluxo de caixa abaixo corresponde a um projeto em que houve na data inicial (Ano 0) um desembolso no valor de R$ 72.000,00.\n\nAno | Fluxo de caixa (R$)\n0 | - 72.000,00\n1 | X\n2 | Y\n\nSabendo-se que (X + Y) = 84.700,00 e que a taxa interna de retorno positiva deste fluxo é igual a 10% ao ano, o valor de Y é igual a",
+      "alternativas": {
+        "A": "R$ 62.700,00",
+        "B": "R$ 61.600,00",
+        "C": "R$ 60.500,00",
+        "D": "R$ 58.080,00",
+        "E": "R$ 59.290,00"
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Direito Constitucional",
+      "gabarito": "A",
+      "enunciado": "Considere que leis de determinado Estado tenham contemplado as seguintes situações, em matéria de remuneração de pessoal:\n\nI. O reajuste dos vencimentos de servidores públicos ocupantes de cargos efetivos obedecerá a certo índice federal de correção monetária.\n\nII. Auditor do Tribunal de Contas, quando em substituição a Conselheiro, perceberá o equivalente a um percentual do subsídio deste, proporcional aos dias em que exercer as funções do substituído.\n\nÀ luz da Constituição Federal e da jurisprudência do Supremo Tribunal Federal,",
+      "alternativas": {
+        "A": "apenas a situação I é inconstitucional, por violar a vedação de vinculação ou equiparação de quaisquer espécies remuneratórias para o efeito de remuneração de pessoal do serviço público.",
+        "B": "apenas a situação II é inconstitucional, por violar a vedação de vinculação ou equiparação de quaisquer espécies remuneratórias para o efeito de remuneração de pessoal do serviço público.",
+        "C": "apenas a situação II é inconstitucional, uma vez que, pelo modelo federal, que deve ser seguido no âmbito estadual, o auditor, quando em substituição, terá as mesmas garantias e impedimentos do titular do cargo, mas não se prevê a equiparação em relação à remuneração.",
+        "D": "ambas as situações violam a vedação de vinculação ou equiparação de quaisquer espécies remuneratórias para o efeito de remuneração de pessoal do serviço público.",
+        "E": "ambas as situações são constitucionais, uma vez que foi respeitada a reserva de lei em matéria remuneratória."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Direito Constitucional",
+      "gabarito": "D",
+      "enunciado": "Servidor público ocupante de cargo efetivo na Administração direta estadual é cônjuge da Governadora do Estado respectivo. No curso do mandato, a Governadora falece, e o agora viúvo pretende candidatar-se a Prefeito da capital do Estado. Nesse caso, consideradas as normas constitucionais pertinentes e a jurisprudência do Supremo Tribunal Federal, o servidor é",
+      "alternativas": {
+        "A": "inelegível, pois a dissolução do vínculo conjugal não afasta a inelegibilidade que se impõe ao cônjuge no território de circunscrição do titular de mandato de chefia de Executivo.",
+        "B": "elegível, pois não há pretensão a concorrer a cargo no território de circunscrição do titular de mandato de chefia do Executivo de que o servidor era cônjuge; se eleito, o servidor ficará afastado de seu cargo efetivo.",
+        "C": "elegível, pois não há pretensão a concorrer a cargo no território de circunscrição do titular de mandato de chefia do Executivo de que o servidor era cônjuge; se eleito, havendo compatibilidade de horários, o servidor perceberá as vantagens do cargo efetivo, sem prejuízo da remuneração do mandato eletivo.",
+        "D": "elegível, pois a dissolução do vínculo conjugal pela morte da Governadora não atrai a causa de inelegibilidade que se impõe ao cônjuge no território de circunscrição do titular de mandato de chefia de Executivo; se eleito, o servidor ficará afastado de seu cargo efetivo.",
+        "E": "elegível, pois a dissolução do vínculo conjugal pela morte da Governadora não atrai a causa de inelegibilidade que se impõe ao cônjuge no território de circunscrição do titular de mandato de chefia de Executivo; se eleito, havendo compatibilidade de horários, o servidor perceberá as vantagens do cargo efetivo, sem prejuízo da remuneração do mandato eletivo."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Direito Constitucional",
+      "gabarito": "D",
+      "enunciado": "Considere as seguintes afirmações à luz da jurisprudência do Supremo Tribunal Federal sobre a disciplina constitucional das limitações ao poder de tributar:\n\nI. A alteração, por lei, do prazo de recolhimento de obrigação tributária não se sujeita ao princípio da anterioridade.\n\nII. Viola o princípio da não cumulatividade lei complementar que prorroga a compensação de créditos de ICMS relativos a bens adquiridos para uso e consumo no próprio estabelecimento do contribuinte.\n\nIII. O princípio da anterioridade nonagesimal aplica-se somente para leis que instituem ou majoram tributos, não incidindo relativamente às normas que prorrogam a data de início da compensação de crédito tributário.\n\nEstá correto o que se afirma APENAS em",
+      "alternativas": {
+        "A": "II.",
+        "B": "III.",
+        "C": "I e II.",
+        "D": "I e III.",
+        "E": "II e III."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Direito Constitucional",
+      "gabarito": "B",
+      "enunciado": "Determinada empresa impetrou mandado de segurança contra ato de autoridade aduaneira que condicionou o desembaraço de mercadorias importadas pela impetrante à comprovação de recolhimento do Imposto sobre Circulação de Mercadorias e Serviços (ICMS) respectivo, sob o fundamento de inconstitucionalidade dessa exigência, prevista em lei. Nos termos da Constituição Federal e da jurisprudência do Supremo Tribunal Federal (STF), o uso do mandado de segurança para a finalidade pretendida é, em tese,",
+      "alternativas": {
+        "A": "admissível, ademais de ser procedente, no mérito, a alegação de inconstitucionalidade da exigência, cabendo reclamação para o STF se denegada a segurança.",
+        "B": "admissível, ademais de ser procedente, no mérito, a alegação de inconstitucionalidade da exigência, embora não caiba reclamação para o STF se denegada a segurança.",
+        "C": "admissível, embora seja improcedente, no mérito, a alegação de inconstitucionalidade da exigência.",
+        "D": "inadmissível, ademais de ser improcedente, no mérito, a alegação de inconstitucionalidade da exigência.",
+        "E": "inadmissível, embora seja procedente, no mérito, a alegação de inconstitucionalidade da exigência."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Direito Constitucional",
+      "gabarito": "B",
+      "enunciado": "Consideradas a Constituição Federal, a Constituição do Estado do Amapá e a jurisprudência do Supremo Tribunal Federal, ação direta de inconstitucionalidade de lei municipal em face da Constituição Federal é",
+      "alternativas": {
+        "A": "inadmissível, seja perante o Tribunal de Justiça estadual, seja perante o Supremo Tribunal Federal, inexistindo controle concentrado de constitucionalidade de lei municipal em face da Constituição Federal.",
+        "B": "admissível, apenas perante o Tribunal de Justiça estadual, desde que o parâmetro de controle seja norma de reprodução obrigatória ou exista, no âmbito da Constituição estadual, regra de caráter remissivo.",
+        "C": "admissível, apenas perante o Supremo Tribunal Federal, desde que o parâmetro de controle seja norma de reprodução obrigatória que não conste expressamente do texto da Constituição estadual.",
+        "D": "inadmissível, seja perante o Tribunal de Justiça estadual, seja perante o Supremo Tribunal Federal, embora lei municipal possa ser objeto de arguição de descumprimento de preceito fundamental, em face da Constituição Federal.",
+        "E": "admissível, seja perante o Tribunal de Justiça estadual, seja perante o Supremo Tribunal Federal."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Direito Constitucional",
+      "gabarito": "C",
+      "enunciado": "Motoristas e cobradores de ônibus de determinado Município pretendem rever aspectos do último acordo coletivo celebrado pela categoria, de forma a obter melhorias nas condições de trabalho vigentes. Não tendo chegado a um consenso com as empresas prestadoras do serviço de transporte municipal, os trabalhadores recusaram-se a prosseguir em negociação coletiva, não aceitaram submeter-se a arbitragem e deliberaram por realizar greve.\n\nNessa hipótese, nos termos da Constituição Federal e da jurisprudência do Supremo Tribunal Federal, considerando estar-se diante de caso que envolve atividade essencial, com possibilidade de lesão ao interesse público,",
+      "alternativas": {
+        "A": "é vedado o exercício de greve pelos trabalhadores.",
+        "B": "está o sindicato dos trabalhadores legitimado para ajuizar, em defesa dos interesses coletivos da categoria, dissídio coletivo de natureza econômica, independentemente de anuência das empregadoras.",
+        "C": "estão as empregadoras legitimadas para ajuizarem dissídio coletivo de natureza econômica, independentemente de anuência do sindicato da categoria, diante da recusa à negociação e à arbitragem.",
+        "D": "caberá à Justiça do Trabalho decidir o conflito, respeitadas as disposições mínimas legais de proteção ao trabalho, embora não as convencionadas anteriormente.",
+        "E": "é cabível o ajuizamento de dissídio coletivo pelo Ministério Público do Trabalho."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Direito Constitucional",
+      "gabarito": "A",
+      "enunciado": "Determinada lei estadual estabelece que 8% da parcela da receita do Imposto sobre a Circulação de Mercadorias e Serviços (ICMS) pertencente aos Municípios serão distribuídos com base em indicadores de melhoria nos resultados de aprendizagem e de aumento da equidade, considerado o nível socioeconômico dos educandos. À luz da Constituição Federal, referida lei é",
+      "alternativas": {
+        "A": "constitucional, pois até 35% da parcela de receita do ICMS pertencente aos Municípios serão creditadas conforme critérios estabelecidos em lei estadual.",
+        "B": "constitucional, pois até um quarto da parcela de receita do ICMS pertencente aos Municípios será creditado conforme critérios estabelecidos em lei estadual.",
+        "C": "inconstitucional, por versar sobre matéria reservada à lei complementar federal.",
+        "D": "inconstitucional, pois invade competência legislativa e administrativa dos Municípios, aos quais pertencem 25% do produto da arrecadação do ICMS.",
+        "E": "inconstitucional, porque não atende ao percentual mínimo a ser observado obrigatoriamente para esse fim."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Direito Constitucional",
+      "gabarito": "B",
+      "enunciado": "Nos termos da Constituição do Estado do Amapá, caberá ao Governador decretar intervenção do Estado nos Municípios, mediante",
+      "alternativas": {
+        "A": "representação fundamentada da Câmara Municipal respectiva, na hipótese de aplicação inferior a 25% da receita resultante de impostos, compreendida a proveniente de transferência, na manutenção e desenvolvimento do ensino público.",
+        "B": "provimento de representação pelo Tribunal de Contas do Estado, na hipótese de não haver sido aplicado o mínimo exigido da receita municipal nas ações e serviços públicos de saúde.",
+        "C": "requisição da Câmara Municipal respectiva, para assegurar a observância do princípio da autonomia municipal, constante da Constituição estadual.",
+        "D": "requisição do Tribunal de Justiça do Estado, na hipótese de deixar de ser paga, sem motivo de força maior, por dois anos consecutivos, a dívida fundada.",
+        "E": "solicitação da Assembleia Legislativa do Estado, aprovada por maioria absoluta de seus membros, na hipótese em que a suspensão da execução do ato impugnado bastar ao restabelecimento da normalidade."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Direito Administrativo",
+      "gabarito": "A",
+      "enunciado": "Um ato administrativo que venha a ser invalidado pelo Poder Judiciário com fundamento na Teoria dos Motivos determinantes possui",
+      "alternativas": {
+        "A": "caráter discricionário e a decisão decorre da comprovação de que os motivos de fato ou de direito declinados pela autoridade prolatora apresentam-se como falsos ou inexistentes.",
+        "B": "natureza de ato vinculado, resultando a invalidação judicial da constatação da inobservância dos requisitos legais ou normativos previstos para sua edição.",
+        "C": "evidência de desvio de finalidade, identificado a partir do cotejo da finalidade constante da motivação do ato e dos objetivos realmente pretendidos com a sua prática.",
+        "D": "vício em seu mérito, por afronta ao interesse público ou inobservância dos princípios da razoabilidade e proporcionalidade, o que autoriza a reavaliação em sede judicial.",
+        "E": "natureza discricionária, constatando-se, contudo, que não atingiu as finalidades determinadas em lei, cabendo ao Judiciário, nessa excepcional hipótese, a sua revogação."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Direito Administrativo",
+      "gabarito": "D",
+      "enunciado": "Considere que uma sociedade de economia mista tenha recebido solicitação, fundamentada na Lei de Acesso à Informação Lei n2 12.527, de 18 de novembro de 2011, de disponibilização de estudos realizados para realização de futuro projeto de implantação de um parque tecnológico e tenha negado a disponibilização dos estudos ao solicitante. De acordo com a normatização estabelecida no referido diploma legal, tal conduta",
+      "alternativas": {
+        "A": "somente será legítima, caso ocorra negativa do solicitante em declinar os legítimos interesses que justificam a solicitação.",
+        "B": "afigura-se legítima, eis que as sociedades de economia mista não se submetem à referida legislação, dada a natureza de pessoa jurídica de Direito Privado.",
+        "C": "encontra amparo legal, pois apenas documentos relativos a contratos e atos jurídicos já editados devem ser objeto de divulgação e disponibilização aos solicitantes.",
+        "D": "será válida, caso se trate de projetos de pesquisa e desenvolvimento científico ou tecnológico cujo sigilo seja imprescindível à segurança da sociedade e do Estado.",
+        "E": "não encontra amparo legal, pois inexiste possibilidade de negar acesso público a quaisquer documentos produzidos pela Administração, salvo aqueles produzidos pelas Forças Armadas e indispensáveis à manutenção da segurança nacional."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Direito Administrativo",
+      "gabarito": "A",
+      "enunciado": "Constitui expressão do princípio da supremacia do interesse público em sua incidência nos contratos administrativos",
+      "alternativas": {
+        "A": "as denominadas cláusulas exorbitantes, que conferem à Administração a possibilidade de impor alterações do objeto do contrato para melhor adequação ao interesse público.",
+        "B": "a prerrogativa conferida à Administração de modificação da equação econômico-financeira original do contrato, caso verificada a ocorrência de álea econômica extraordinária.",
+        "C": "a faculdade de rescisão unilateral pela Administração, independentemente do descumprimento de obrigações por parte do contratado, com os consectários previstos na legislação de regência.",
+        "D": "a possibilidade de aplicação de sanções ao contratado na hipótese de descumprimento das obrigações pactuadas, sendo igual prerrogativa conferida ao contratado exclusivamente na hipótese de contrato de concessão de serviços públicos.",
+        "E": "a atribuição à Administração de poderes de fiscalização da atuação do contratado, vedada, contudo, a aplicação de multas ou outras penalidades que extrapolem aquelas previstas no Código Civil para os contratos em geral."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Direito Administrativo",
+      "gabarito": "B",
+      "enunciado": "A responsabilidade civil (extracontratual) das concessionárias de serviços públicos pelos danos causados por comportamentos comissivos de seus agentes na prestação do serviço concedido",
+      "alternativas": {
+        "A": "é solidária em relação à responsabilidade objetiva primária do Poder Concedente, dependendo, adicionalmente, da comprovação de falha na prestação do serviço.",
+        "B": "é de natureza objetiva, prescindindo da comprovação de dolo ou culpa, recaindo sobre o Poder Concedente responsabilidade em caráter subsidiário caso verificada insuficiência do patrimônio da concessionária.",
+        "C": "é de natureza subjetiva, pressupondo comprovação de dolo ou culpa do concessionário privado, não sendo suficiente a mera constatação do nexo de causalidade entre o dano e a prestação do serviço.",
+        "D": "enseja a obrigação de ressarcir o particular lesado apenas por atos dolosos ou praticados com culpa grave por seus agentes, recaindo sobre a Administração a responsabilidade solidária decorrente da falha de fiscalização.",
+        "E": "rege-se pela regra geral do Direito Civil, sendo a responsabilidade extracontratual objetiva aplicável apenas às pessoas jurídicas de direito público e às empresas estatais delegatárias de serviços públicos."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Direito Administrativo",
+      "gabarito": "C",
+      "enunciado": "Enquadram-se na categoria de agente público",
+      "alternativas": {
+        "A": "empregados públicos, excluídos os contratados em caráter temporário para atendimento de excepcional necessidade pública.",
+        "B": "servidores públicos, salvo os ocupantes de cargo de livre provimento declarado em lei de livre nomeação e exoneração.",
+        "C": "agentes políticos, o que inclui os Secretários de Estado, não obstante não detenham mandato.",
+        "D": "aqueles que possuam algum vínculo funcional com a Administração, excluídos os detentores de mandato eletivo.",
+        "E": "apenas servidores admitidos mediante concurso público, ocupantes de cargo ou emprego público."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Direito Administrativo",
+      "gabarito": "E",
+      "enunciado": "Considere que determinado órgão da Administração pública pretenda contratar, na forma regida pela Lei n° 14.133, de 1° de abril de 2021, serviços de avaliação de bens inservíveis e tenha optado por procedimento de credenciamento. Nesse contexto, é possível concluir",
+      "alternativas": {
+        "A": "pela ilegalidade da opção, eis que tal modalidade apenas se aplica para contratação de pessoas físicas, na condição de profissionais liberais prestadores de serviços.",
+        "B": "pela ocorrência de hipótese de dispensa de licitação em razão do valor estimado da contratação, o que demanda a adoção da seleção mediante credenciamento.",
+        "C": "que contratará serviços técnicos especializados, selecionando empresa de notória especialização mediante procedimento específico em que apenas empresas certificadas possam participar.",
+        "D": "que a opção somente será legítima se adotada modalidade licitatória diálogo competitivo, onde empresas credenciadas previamente apresentam suas propostas em lances sucessivos.",
+        "E": "pela viabilidade jurídica caso se trate de contratações paralelas e não excludentes e se mostre viável e vantajosa para a Administração a realização de contratações simultâneas em condições padronizadas."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Direito Administrativo",
+      "gabarito": "A",
+      "enunciado": "De acordo com as disposições constantes da Lei de Responsabilidade Fiscal tem-se que a geração de despesas nos dois últimos quadrimestres do mandato do Chefe do Executivo",
+      "alternativas": {
+        "A": "deve ser cumprida integralmente dentro do exercício e, caso tenha parcelas a serem pagas no exercício seguinte, deve contar com disponibilidades de caixa suficientes para o pagamento correspondente.",
+        "B": "deve ser integralmente liquidada e paga até o final do exercício, sendo expressamente vedada a geração de restos a pagar que onere o exercício subsequente.",
+        "C": "somente é admissível em se tratando de despesa de caráter continuado, oriunda de lei ou ato normativo e que não afete as metas fiscais previstas na Lei Orçamentária Anual.",
+        "D": "não pode ultrapassar a margem de geração de restos a pagar prevista no Anexo de Riscos Fiscais que integra a Lei de Diretrizes Orçamentárias, vedada a edição de crédito especial para sua cobertura.",
+        "E": "enseja o registro obrigatório das referidas despesas como restos a pagar não processados, que deverão ser objeto de cancelamento, salvo se passível de cobertura pela Reserva de Contingência que integra a Lei Orçamentária Anual."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Direito Administrativo",
+      "gabarito": "D",
+      "enunciado": "Com relação ao acordo de leniência previsto na Lei n° 12.846, de 1° de agosto de 2013, e no Decreto n° 11.129, de 11 de julho de 2022, considere a seguinte situação: No curso de procedimento administrativo de responsabilização (PAR), a comissão julgadora decidiu pela possibilidade de celebração de acordo de leniência no caso concreto, tendo a empresa interessada demonstrado interesse na celebração. Nessa situação, a celebração do acordo de leniência",
+      "alternativas": {
+        "A": "somente será possível se todas as empresas implicadas firmarem o acordo, de forma conjunta ou individualizada, assegurando a integral reparação do dano e o pagamento de multa correspondente a, pelo menos, um terço do valor total dos prejuízos apurados.",
+        "B": "se deferido pela comissão julgadora do PAR, deverá prever o integral ressarcimento dos danos causados à Administração, tendo como contrapartida o afastamento das responsabilidades individuais dos dirigentes das empresas colaboradoras.",
+        "C": "não será viável, eis que o acordo de leniência somente é admissível antes da instauração do PAR e desde que a empresa proponente apresente elementos probatórios suficientes para comprovação da materialidade dos danos e identificação dos envolvidos no ilícito.",
+        "D": "somente será admissível, preenchidos os requisitos legais, para a primeira empresa que manifestar interesse em cooperar com a apuração do ilícito e desde que cesse completamente seu envolvimento na infração investigada a partir da data de propositura do acordo.",
+        "E": "não será viável se tipificado crime contra a Administração pública, haja vista a comunicação das responsabilidades administrativa, civil e penal prevista no referido diploma legal."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Direito Empresarial",
+      "gabarito": "A",
+      "enunciado": "De acordo com o Código Civil, o empresário cuja atividade rural constitua sua principal profissão",
+      "alternativas": {
+        "A": "pode requerer inscrição no Registro Público de Empresas Mercantis da respectiva sede, caso em que, depois de inscrito, ficará equiparado, para todos os efeitos, ao empresário sujeito a registro.",
+        "B": "deve, obrigatoriamente, requerer inscrição no Registro Público de Empresas Mercantis da respectiva sede.",
+        "C": "pode requerer inscrição no Registro Civil de Pessoas Jurídicas da respectiva sede, caso em que, depois de inscrito, ficará equiparado, para todos os efeitos, ao empresário sujeito a registro.",
+        "D": "deve, obrigatoriamente, requerer inscrição no Registro Civil de Pessoas Jurídicas da respectiva sede.",
+        "E": "pode requerer inscrição no Registro Público de Empresas Mercantis da respectiva sede, mas, mesmo depois de inscrito, não se equipara ao empresário sujeito a registro."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Direito Empresarial",
+      "gabarito": "D",
+      "enunciado": "São sociedades não personificadas a sociedade",
+      "alternativas": {
+        "A": "simples e a sociedade em comum.",
+        "B": "simples e a sociedade em conta de participação.",
+        "C": "em comum e a sociedade em nome coletivo.",
+        "D": "em comum e a sociedade em conta de participação.",
+        "E": "em nome coletivo e a sociedade em conta de participação."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Direito Empresarial",
+      "gabarito": "B",
+      "enunciado": "De acordo com o Código Civil, para determinar-se o montante máximo da participação de uma sociedade em outra, que seja sua sócia, será considerado o montante",
+      "alternativas": {
+        "A": "das próprias reservas, incluída a reserva legal.",
+        "B": "das próprias reservas, excluída a reserva legal.",
+        "C": "dos lucros distribuídos nos últimos cinco anos.",
+        "D": "dos lucros distribuídos no último exercício.",
+        "E": "dos lucros apurados no último exercício, ainda que não distribuídos."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Direito Empresarial",
+      "gabarito": "E",
+      "enunciado": "As operações entre sociedades anônimas ligadas por relação de controle não submetidas a convenção de grupo",
+      "alternativas": {
+        "A": "são peremptoriamente vedadas.",
+        "B": "são peremptoriamente vedadas, salvo se forem previamente autorizadas pelas respectivas assembleias-gerais, a serem convocadas especificamente para deliberar sobre a sua conclusão.",
+        "C": "são peremptoriamente vedadas, salvo se forem previamente autorizadas pelos respectivos conselhos de administração e fiscal, se houver.",
+        "D": "deverão observar condições estritamente comutativas, vedada a realização de operação que favoreça alguma das companhias, ainda que mediante pagamento compensatório adequado.",
+        "E": "deverão observar condições estritamente comutativas, ou prever pagamento compensatório adequado."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Direito Empresarial",
+      "gabarito": "C",
+      "enunciado": "De acordo com a Lei das Sociedades por Ações, consiste numa subsidiária integral a companhia",
+      "alternativas": {
+        "A": "cujo capital social se acha completamente integralizado.",
+        "B": "cujo capital social é dividido exclusivamente em ações ordinárias.",
+        "C": "que tem como único acionista sociedade brasileira.",
+        "D": "controlada por sociedade que detém mais da metade das suas ações com direito de voto, ainda que a maioria das suas ações preferenciais seja detida por terceiros.",
+        "E": "cujos quadros administrativos são integralmente coincidentes com os da companhia controladora, inclusive no âmbito do conselho de administração, se houver."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Direito Empresarial",
+      "gabarito": "D",
+      "enunciado": "Segundo a ordem de classificação dos créditos aplicável à falência do empresário, as multas tributárias preferem aos créditos",
+      "alternativas": {
+        "A": "quirografários e subordinados.",
+        "B": "gravados com direito real de garantia e subordinados.",
+        "C": "derivados da legislação trabalhista que excederem 150 salários-mínimos por trabalhador.",
+        "D": "subordinados e aos juros vencidos após a decretação da falência.",
+        "E": "quirografários e aos juros vencidos após a decretação da falência."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Direito Empresarial",
+      "gabarito": "A",
+      "enunciado": "De acordo com o Código Civil, o preposto",
+      "alternativas": {
+        "A": "não pode, salvo mediante autorização expressa ou tácita, negociar por conta própria ou de terceiro, nem participar, embora indiretamente, de operação do mesmo gênero da que lhe foi cometida.",
+        "B": "não pode, salvo apenas mediante autorização expressa, negociar por conta própria ou de terceiro, nem participar, embora indiretamente, de operação do mesmo gênero da que lhe foi cometida.",
+        "C": "pode, salvo apenas se expressamente proibido de fazê-lo, negociar por conta própria ou de terceiro, bem como participar, direta ou indiretamente, de operação do mesmo gênero da que lhe foi cometida.",
+        "D": "pode, salvo se expressa ou tacitamente proibido de fazê-lo, negociar por conta própria ou de terceiro, bem como participar, direta ou indiretamente, de operação do mesmo gênero da que lhe foi cometida.",
+        "E": "não pode, ainda que mediante autorização expressa, negociar por conta própria ou de terceiro, nem participar, embora indiretamente, de operação do mesmo gênero da que lhe foi cometida."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Direito Empresarial",
+      "gabarito": "B",
+      "enunciado": "Acerca da escrituração, considere:\n\nI. A escrituração será feita em idioma e moeda corrente nacionais e em forma contábil, por ordem cronológica de dia, mês e ano, sem intervalos em branco, nem entrelinhas, borrões, rasuras, emendas ou transportes para as margens, sendo vedado o uso de códigos ou de abreviaturas.\n\nII. Salvo disposição especial de lei, os livros obrigatórios e, se for o caso, as fichas, antes de postos em uso, devem ser autenticados pelo próprio empresário ou administrador da sociedade empresária, sendo facultativa a autenticação no Registro Público de Empresas Mercantis, exceto apenas para as companhias abertas, em relação às quais esta providência é obrigatória.\n\nIII. O empresário e a sociedade empresária são obrigados a seguir um sistema de contabilidade, mecanizado ou não, com base na escrituração uniforme de seus livros, em correspondência com a documentação respectiva, e a levantar anualmente o balanço patrimonial e o de resultado econômico; no entanto, é dispensado dessas exigências aquele que a lei qualifica como pequeno empresário.\n\nIV. Além dos demais livros exigidos por lei, é indispensável o Diário, que pode ser substituído por fichas no caso de escrituração mecanizada ou eletrônica; no entanto, a adoção de fichas não dispensa o uso de livro apropriado para o lançamento do balanço patrimonial e do de resultado econômico.\n\nDe acordo com o Código Civil, está correto o que se afirma APENAS em",
+      "alternativas": {
+        "A": "I e II.",
+        "B": "I e III.",
+        "C": "II e IV.",
+        "D": "II e III.",
+        "E": "III e IV."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Direito Civil",
+      "gabarito": "B",
+      "enunciado": "A lei",
+      "alternativas": {
+        "A": "terá vigor até que outra a modifique ou revogue, ou caia em desuso.",
+        "B": "nova não revoga nem modifica a lei anterior no caso de estabelecer disposições especiais a par das já existentes.",
+        "C": "começa a vigorar em todo o país noventa dias depois de oficialmente publicada, salvo disposição contrária.",
+        "D": "cujo texto for modificado antes de entrar em vigor tem o prazo de vacatio legis estendido em quinze dias.",
+        "E": "posterior só revoga a anterior quando expressamente o declare."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Direito Civil",
+      "gabarito": "A",
+      "enunciado": "Na esfera administrativa, a revisão da validade de ato cuja produção já se houver completado levará em conta as orientações gerais",
+      "alternativas": {
+        "A": "da época, sendo vedado que, com base em mudança posterior de orientação geral, se declarem inválidas situações plenamente constituídas.",
+        "B": "vigentes ao tempo da revisão, mesmo que diferentes daquelas aplicáveis à época do ato, podendo-se declarar inválidas situações plenamente constituídas com base em mudança de orientação geral ocorrida posteriormente ao ato.",
+        "C": "da época, podendo-se declarar inválidas situações plenamente constituídas com base em mudança de orientação geral ocorrida posteriormente ao ato, desde que inexista prejuízo ou os prejudicados sejam indenizados.",
+        "D": "vigentes ao tempo da revisão, mesmo que diferentes daquelas aplicáveis à época do ato, sendo vedado que, com base em mudança posterior de orientação geral, se declarem inválidas situações plenamente constituídas, salvo se a orientação anterior passar a ser reputada inadmissível pela jurisprudência majoritária.",
+        "E": "vigentes à época ou ao tempo da revisão, desde que adotado entendimento idêntico em relação a todos aqueles que estejam na mesma situação, podendo-se declarar inválidas situações plenamente constituídas com base em mudança de orientação geral ocorrida somente quando a lei nova assim autorizar."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Direito Civil",
+      "gabarito": "C",
+      "enunciado": "Os partidos políticos são pessoas jurídicas de direito",
+      "alternativas": {
+        "A": "privado, ao passo que organizações religiosas são pessoas jurídicas de direito público.",
+        "B": "privado, ao passo que as sociedades de economia mista são pessoas jurídicas de direito público.",
+        "C": "privado, assim como as fundações e as sociedades de economia mista.",
+        "D": "público, assim como as autarquias e as organizações religiosas.",
+        "E": "público, assim como as sociedades de economia mista."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Direito Civil",
+      "gabarito": "E",
+      "enunciado": "Interrompida pelo protesto, a prescrição",
+      "alternativas": {
+        "A": "somente poderá ser novamente interrompida pelo despacho do juiz que ordenar a citação.",
+        "B": "somente poderá ser novamente interrompida pela efetiva citação.",
+        "C": "poderá ser novamente interrompida por qualquer ato judicial que constitua em mora o devedor.",
+        "D": "poderá ser novamente interrompida por qualquer ato inequívoco, ainda que extrajudicial, que importe reconhecimento do direito pelo devedor.",
+        "E": "não poderá ser interrompida por uma segunda vez."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Direito Penal",
+      "gabarito": "A",
+      "enunciado": "De acordo com o que estabelece o Código Penal e o entendimento dos Tribunais Superiores acerca da extinção da punibilidade:",
+      "alternativas": {
+        "A": "Aplicam-se às penas restritivas de direito os mesmos prazos de prescrição previstos para as penas privativas de liberdade.",
+        "B": "A prescrição, depois de transitar em julgado a sentença condenatória, regula-se pelo máximo da pena privativa de liberdade cominada ao crime, que aumenta de um terço, se o condenado é reincidente.",
+        "C": "A prescrição, antes de transitar em julgado a sentença final, começa a correr nos crimes permanentes, do dia em que se iniciou a prática criminosa.",
+        "D": "São reduzidos de metade os prazos de prescrição quando o criminoso era, ao tempo do crime, menor de dezoito anos, ou, na data da sentença, maior de sessenta e cinco anos.",
+        "E": "A sentença que, embora tenha concedido o perdão judicial, ainda será considerada para efeitos de reincidência."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Direito Penal",
+      "gabarito": "D",
+      "enunciado": "Em janeiro do corrente ano, no Hospital público estadual, na qualidade de médico do Sistema Único de Saúde, Eduardo exigiu, para si, de Fernando, a quantia de R$ 2.000,00 (dois mil reais), para realizar na paciente, mãe de Fernando, um exame de ressonância magnética, quando esta encontrava-se internada naquele hospital às expensas do Sistema Único de Saúde, responsável por arcar com os custos do procedimento médico. Diante da situação hipotética acima descrita, a conduta praticada pelo médico constituiu o crime de",
+      "alternativas": {
+        "A": "peculato mediante erro de outrem.",
+        "B": "peculato apropriação.",
+        "C": "corrupção passiva.",
+        "D": "concussão.",
+        "E": "excesso de exação."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Direito Penal",
+      "gabarito": "C",
+      "enunciado": "Os crimes em que o tipo penal descreve a conduta e o resultado naturalístico (necessária modificação do mundo exterior), sendo indispensável a sua ocorrência para haver consumação, são denominados",
+      "alternativas": {
+        "A": "de mera conduta.",
+        "B": "formais.",
+        "C": "materiais.",
+        "D": "permanentes.",
+        "E": "de perigo."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Direito Penal",
+      "gabarito": "E",
+      "enunciado": "De acordo com o que estabelece a Lei n2 8.137, de 27 de dezembro de 1990, e o entendimento dos Tribunais Superiores,",
+      "alternativas": {
+        "A": "exceto no crime de exigir, pagar ou receber, para si ou para o contribuinte beneficiário, qualquer percentagem sobre a parcela dedutível ou deduzida de imposto ou de contribuição como incentivo fiscal, que dependerá da representação do ofendido, todos os demais delitos previstos na referida Lei são de ação pública incondicionada.",
+        "B": "no crime de suprimir ou reduzir tributo, ou contribuição social e qualquer acessório, mediante a conduta de fraudar a fiscalização tributária, inserindo elementos inexatos, ou omitindo operação de qualquer natureza, em documento ou livro exigido pela lei fiscal, cometidos em quadrilha ou coautoria, o coautor ou participe que através de confissão espontânea revelar à autoridade policial ou judicial toda a trama delituosa terá extinta a sua punibilidade.",
+        "C": "quando a venda ao consumidor for efetuada por sistema de entrega ao consumo ou por intermédio de outro em que o preço ao consumidor é estabelecido ou sugerido pelo fabricante ou concedente, o ato por este praticado alcança inclusive o distribuidor ou revendedor.",
+        "D": "no crime contra a ordem tributária de deixar de aplicar, ou aplicar em desacordo com o estatuído, incentivo fiscal ou parcelas de imposto liberadas por órgão ou entidade de desenvolvimento, a circunstância de ocasionar grave dano à coletividade, quando constatada, dobrará a pena prevista do delito.",
+        "E": "é possível a aplicação da Súmula Vinculante 24, do Supremo Tribunal Federal, que dispõe que não se tipifica crime material contra a ordem tributária, previsto no art. 1º, incisos I a IV, da Lei n2 8.137/1990, antes do lançamento definitivo do tributo, para fatos ocorridos antes de sua publicação, por se entender que se trata de mera consolidação da interpretação judicial que já era adotada pelos Tribunais Superiores mesmo antes da sua edição."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "A tabela a seguir apresenta as informações sobre as vendas realizadas por uma empresa durante o mês de dezembro de 2018:\n\nData | Valor (R$) | Data de vencimento\n01/12/2018 | 2.220.600,00 | 01/03/2020\n15/12/2018 | 1.600.000,00 | À vista\n22/12/2018 | 1.400.000,00 | À vista\n\nA empresa praticava em dezembro de 2018 a taxa de juros de 0,7% ao mês para as vendas a prazo, sendo que a taxa equivalente para o período de 01/12/2018 a 01/03/2020 era 11,03%.\n\nOs efeitos evidenciados na Demonstração do Resultado do ano de 2018 da empresa, decorrentes especificamente das vendas efetuadas durante o mês de dezembro de 2018, foram:",
+      "alternativas": {
+        "A": "Receita de Vendas = R$ 5.220.600,00, apenas.",
+        "B": "Receita de Vendas = R$ 5.000.000,00, apenas.",
+        "C": "Receita de Vendas = R$ 5.000.000,00 e Receita Financeira = R$ 14.000,00.",
+        "D": "Receita de Vendas = R$ 3.000.000,00 e Receita Financeira = R$ 220.600,00.",
+        "E": "Receita de Vendas = R$ 5.000.000,00 e Receita Financeira = R$ 220.600,00."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "No dia 01/12/2017 a empresa Endividada S.A. obteve um empréstimo nas seguintes condições negociadas com a instituição financeira:\n\n– Valor do empréstimo: R$ 11.020.000,00\n– Data de vencimento: 01/12/2019\n– Forma de liquidação: pagamento integral (principal e juros) na data de vencimento\n– Taxa de juros compostos negociada: 3% ao mês\n– Na data da obtenção do empréstimo a empresa pagou, para a instituição financeira, custos de transação no valor total de R$ 1.020.000,00\n\nSabendo-se que este empréstimo é mensurado pelo custo amortizado e que a taxa de custo efetivo da operação é 3,42% a.m., o valor dos encargos financeiros reconhecido na Demonstração do Resultado de 2017, referente a este empréstimo foi, em reais,",
+      "alternativas": {
+        "A": "330.600,00",
+        "B": "300.000,00",
+        "C": "342.000,00",
+        "D": "1.320.000,00",
+        "E": "1.362.000,00"
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "Uma máquina foi adquirida por uma empresa em 31/12/2013. O valor pago, à vista, pela aquisição foi R$ 800.000,00, a empresa definiu a vida útil da máquina em 4 anos e o valor residual esperado foi estimado em R$ 80.000,00. Em 31/12/2014, a empresa reavaliou a vida útil remanescente da máquina para 5 anos e o valor residual estimado, no final do novo prazo de vida útil, foi R$ 20.000,00.\n\nEm 31/12/2015, a empresa realizou o teste de redução ao valor recuperável de ativos (teste de “impairment”) com as seguintes informações disponíveis:\n\n– Valor em uso: R$ 560.000,00\n– Valor justo líquido das despesas de venda: R$ 460.000,00\n\nO valor contábil da máquina apresentado no Balanço Patrimonial da empresa, em 31/12/2015, foi, em reais,",
+      "alternativas": {
+        "A": "560.000.00",
+        "B": "460.000.00",
+        "C": "540.000.00",
+        "D": "500.000.00",
+        "E": "480.000.00"
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "Uma empresa está respondendo a diversas ações e a assessoria jurídica da empresa apresentou as informações sobre a possibilidade de perda dos diversos processos e os prováveis valores com que a empresa terá que arcar. A tabela a seguir apresenta as informações, em 31/12/2019, referentes às várias ações e ainda não ocorreu qualquer audiência ou julgamento para os processos:\n\nTipo de Processo | Valor Estimado (R$) | Probabilidade Perda\nAção Fiscal relativa ao PIS | 2.000.000,00 | Provável\nAção Fiscal relativa à CSSL | 7.200.000,00 | Provável\nAção Fiscal relativa ao IRPJ | 4.800.000,00 | Remota\nAção sobre danos ambientais | 1.200.000,00 | Possível\nAções Trabalhistas | 4.800.000,00 | Provável\n\nCom base nas informações da tabela e sabendo que todos os valores estimados são confiáveis, o valor total que deveria ser evidenciado no passivo, no Balanço Patrimonial da empresa, em 31/12/2019, é, em reais,",
+      "alternativas": {
+        "A": "0,00 (zero)",
+        "B": "15.200.000,00",
+        "C": "1.200.000,00",
+        "D": "14.000.000,00",
+        "E": "20.000.000,00"
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Uma mercadoria importada é comercializada por uma empresa nacional. A empresa adquiriu um único lote de um fornecedor no exterior e arcou com os seguintes gastos:\n\n– R$ 4.000.000,00 que foram pagos ao fornecedor da mercadoria\n– R$ 400.000,00 de transporte aéreo para trazer a mercadoria para o Brasil\n– R$ 40.000,00 de imposto de importação não recuperável\n– R$ 160.000,00 de taxas e tarifas para ingresso das mercadorias no País\n– R$ 60.000,00 de impostos nacionais que serão compensados com os impostos devidos que incidem no momento da venda\n– R$ 100.000,00 para transporte da mercadoria do aeroporto até a sede da empresa\n\nA empresa não tinha saldo de estoque dessa mercadoria antes desta compra e vendeu, à vista, 90% do lote adquirido pelo valor líquido de R$ 5.000.000,00. O Lucro Bruto apurado, exclusivamente em relação ao lote vendido, foi, em reais,",
+      "alternativas": {
+        "A": "1.400.000,00",
+        "B": "716.000,00",
+        "C": "770.000,00",
+        "D": "806.000,00",
+        "E": "1.166.000,00"
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Contabilidade Geral",
+      "gabarito": "A",
+      "enunciado": "No dia 31/10/2016, uma empresa realizou aplicações financeiras que remuneram juros compostos por dia corrido, com as características apresentadas na tabela a seguir:\n\nValor aplicado (R$) | Taxa de juros | Data de vencimento | Mensuração definida pela empresa\n800.000,00 | 0,9% a.m. | 01/12/2019 | Valor justo por meio de Outros Resultados Abrangentes\n400.000,00 | 0,8% a.m. | 01/12/2021 | Valor justo por meio do Resultado\n200.000,00 | 1,0% a.m. | 01/12/2021 | Custo amortizado\n\nOs valores justos apurados para estas aplicações, em 31/12/2016, eram os seguintes:\n\nMensuração definida pela empresa | Valor Justo (R$)\nValor justo por meio de Outros Resultados Abrangentes | 816.000,00\nValor justo por meio do Resultado | 402.000,00\nCusto amortizado | 202.000,00\n\nNo Balanço Patrimonial de 31/12/2016, os valores que deveriam ter sido evidenciados para os títulos mensurados ao valor justo por meio de Outros Resultados Abrangentes, para os títulos mensurados ao valor justo por meio do Resultado e para os títulos mensurados ao custo amortizado eram, respectivamente e em reais:",
+      "alternativas": {
+        "A": "816.000,00, 402.000,00 e 202.000,00",
+        "B": "814.464,80, 406.425,60 e 204.020,00",
+        "C": "814.464,80, 406.425,60 e 204.020,00",
+        "D": "800.000,00, 400.000,00 e 204.020,00",
+        "E": "816.000,00, 402.000,00 e 204.020,00"
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Contabilidade Geral",
+      "gabarito": "B",
+      "enunciado": "Os Balanços Patrimoniais de 31/12/2015 e 31/12/2016, e a Demonstração do Resultado de 2016 da empresa Compra e Vende S.A. são apresentados a seguir.\n\nBalanços Patrimoniais (Valores em reais)\nAtivo | 31/12/15 | 31/12/16 | Passivo | 31/12/15 | 31/12/16\nAtivo Circulante | 1.560.000,00 | 810.000,00 | Passivo Circulante | 930.000,00 | 480.000,00\nCaixa e Equivalentes | 840.000,00 | 480.000,00 | Fornecedores | 750.000,00 | 180.000,00\nValores a receber de clientes | 300.000,00 | 120.000,00 | Impostos a Pagar | 90.000,00 | 120.000,00\nEstoques | 360.000,00 | 180.000,00 | Receitas antecipadas | 90.000,00 | 60.000,00\nDespesas antecipadas | 60.000,00 | 30.000,00 | Dividendos a Pagar | - | 120.000,00\nAtivo Não Circulante | 840.000,00 | 1.350.000,00 | Passivo Não Circulante | 600.000,00 | 660.000,00\nImobilizado | | | Empréstimos | 600.000,00 | 660.000,00\nImóvel | 840.000,00 | - | Patrimônio Líquido | 870.000,00 | 1.020.000,00\nEquipamentos | - | 1.500.000,00 | Capital Social | 780.000,00 | 780.000,00\n(-) Depreciação Acumulada | - | (150.000,00) | Reservas de Lucro | 90.000,00 | 240.000,00\nTotal do Ativo | 2.400.000,00 | 2.160.000,00 | Total do Passivo + PL | 2.400.000,00 | 2.160.000,00\n\nDemonstração do Resultado\nPeríodo: 01/01/2016 a 31/12/2016 (Valores em reais)\nReceita de Vendas | 2.520.000,00\n(-) Custo dos Produtos Vendidos | (1.638.000,00)\n(=) Lucro Bruto | 882.000,00\n(-) Despesas Operacionais |\nDespesas com vendas | (300.000,00)\nDespesas administrativas | (150.000,00)\nDespesa de depreciação | (150.000,00)\n(+) Lucro na venda do imóvel | 84.000,00\n(-) Despesas financeiras | (60.000,00)\n(=) Resultado antes de impostos | 306.000,00\n(-) Despesa com Impostos | (36.000,00)\n(=) Lucro Líquido | 270.000,00\n\nAs seguintes informações adicionais são conhecidas:\n\n- O imóvel não sofreu depreciação e o valor da sua venda foi recebido no próprio ano\n- As despesas financeiras não foram pagas no ano\n- As receitas antecipadas correspondem a adiantamentos recebidos de clientes para a entrega futura de produtos\n- As despesas antecipadas correspondem ao pagamento de seguros dos bens do ativo imobilizado\n- Os equipamentos foram adquiridos à vista\n\nO Caixa líquido gerado pelas atividades operacionais no ano de 2016 foi, em reais,",
+      "alternativas": {
+        "A": "420.000,00",
+        "B": "216.000,00",
+        "C": "276.000,00",
+        "D": "300.000,00",
+        "E": "246.000,00"
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Contabilidade Geral",
+      "gabarito": "C",
+      "enunciado": "Uma empresa adquiriu uma Marca em janeiro de 2018 pelo valor de R$ 14.000.000,00. No Balanço Patrimonial de 31/12/2018, o valor contábil registrado para essa Marca era R$ 10.000.000,00, com a seguinte composição: Custo de aquisição 14.000.000,00 (–) Perda por “impairment” 4.000.000,00 (=) Valor contábil 10.000.000,00 Em 31/12/2019, a empresa obteve as seguintes informações para a realização do novo teste de redução ao valor recuperável (impairment): – Valor em uso da Marca R$ 10.800.000,00 – Valor justo da Marca R$ 9.400.000,00 Como a Marca apresenta vida útil indefinida, nas demonstrações contábeis do ano de 2019, a empresa deveria",
+      "alternativas": {
+        "A": "reconhecer, no resultado do ano de 2019, uma perda por desvalorização no valor de R$ 600.000,00.",
+        "B": "manter o valor contábil de R$ 10.000.000,00 no Balanço Patrimonial de 31/12/2019.",
+        "C": "reconhecer, no resultado do ano de 2019, um ganho no valor de R$ 800.000,00 decorrente da reversão da perda por desvalorização.",
+        "D": "reconhecer, no resultado do ano de 2019, um ganho no valor de R$ 4.000.000,00 decorrente da reversão da perda por desvalorização.",
+        "E": "reconhecer, no resultado do ano de 2019, uma perda por desvalorização no valor de R$ 3.200.000,00."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "A Demonstração do Resultado do ano de 2018 da empresa comercial Vendemos Quase Tudo S.A. apresentava a seguinte composição, com os valores expressos em reais:\n\nVendemos Quase Tudo S.A. Demonstração do Resultado de 2018\nReceita bruta de vendas | 1.750.000,00\n(–) Impostos sobre vendas | 300.000,00\n(=) Receita Líquida de vendas | 1.450.000,00\n(–) Custo das Mercadorias Vendidas | 850.000,00\n(=) Lucro Bruto | 600.000,00\n(–) Despesas operacionais\nDespesa de depreciação | 75.000,00\nDespesa com salários | 25.000,00\nDespesa com aluguéis | 10.000,00\n(=) Resultado antes dos efeitos financeiros | 490.000,00\n(–) Despesas financeiras (juros) | 15.000,00\n(=) Lucro antes dos impostos sobre o lucro | 475.000,00\n(–) Despesas com impostos sobre o lucro | 105.000,00\n(=) Lucro Líquido | 370.000,00\n\nO valor dos tributos recuperáveis que estavam incluídos no preço da compra dos produtos que foram comercializados no ano de 2018 era R$ 87.500,00.\n\nO Valor Adicionado a Distribuir gerado pela empresa Vendemos Quase Tudo S.A. no ano de 2018 foi, em reais,",
+      "alternativas": {
+        "A": "490.000,00",
+        "B": "600.000,00",
+        "C": "812.500,00",
+        "D": "825.000,00",
+        "E": "737.500,00"
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Contabilidade Geral",
+      "gabarito": "E",
+      "enunciado": "O Patrimônio Líquido de uma companhia aberta apresentava, em 31/12/2019, as seguintes contas e valores, em reais, na sua composição:\n\nCapital Social | 5.000.000,00\nReserva Legal | 950.000,00\nReserva Estatutária | 250.000,00\nReserva para Expansão | 150.000,00\n\nA empresa apurou, no ano de 2020, o Lucro Líquido de R$ 1.200.000,00, cuja destinação foi a seguinte:\n\n– Reserva Legal: conforme estabelecido na Lei n° 6.404/1976 e alterações posteriores.\n– Reserva para Expansão: 20% do Lucro Líquido (conforme aprovado em Assembleia anterior).\n– Dividendos Obrigatórios: 30% do Lucro Líquido após a destinação da Reserva Legal, conforme estabelecido no Estatuto Social da empresa.\n– Saldo remanescente: destinado conforme estabelecido na Lei n° 6.404/1976 e alterações posteriores.\n\nOs valores que deveriam ser apresentados na conta Dividendos a Pagar no passivo e o valor total do Patrimônio Líquido, no Balanço Patrimonial de 31/12/2020 da empresa, são, respectivamente, em reais:",
+      "alternativas": {
+        "A": "342.000,00 e 7.208.000,00",
+        "B": "360.000,00 e 7.190.000,00",
+        "C": "345.000,00 e 6.965.000,00",
+        "D": "360.000,00 e 6.950.000,00",
+        "E": "345.000,00 e 7.205.000,00"
+      }
+    }
+  ]
+}

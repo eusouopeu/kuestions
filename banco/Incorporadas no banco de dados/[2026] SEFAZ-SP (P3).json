@@ -1,0 +1,1049 @@
+{
+  "instituicao": "SEFAZ-SP",
+  "ano": 2026,
+  "cargo": "Auditor Fiscal da Receita Estadual – AFRE Gestão Tributária",
+  "tipo_prova": "P3",
+  "gabarito_tipo": 4,
+  "questoes": [
+    {
+      "numero": 1,
+      "materia": "Direito Tributário Avançado",
+      "gabarito": "B",
+      "enunciado": "Independentemente das regras adotadas a respeito de consulta em matéria tributária, por cada uma das pessoas jurídicas de direito público interno brasileiras, o Código Tributário Nacional estabelece que, na pendência de consulta sobre o crédito tributário, NÃO",
+      "alternativas": {
+        "A": "incidirá atualização monetária, nem se aplicará quaisquer medidas de garantia previstas no CTN, ou em leis tributárias, desde a data do protocolo de formulação da consulta até o 30º (trigésimo) dia posterior à data da notificação da resposta ao contribuinte, podendo incidir sobre o crédito tributário, nesse período, apenas juros de mora.",
+        "B": "incidirão juros de mora ou penalidade pecuniária, nem se aplicará qualquer medida de garantia prevista no CTN, ou em leis tributárias, desde que a consulta tenha sido formulada dentro do prazo legal para pagamento do crédito tributário.",
+        "C": "incidirá atualização monetária, desde que ela tenha sido formulada antes da lavratura de Auto de Infração e Imposição de Multa – AIIM, podendo ser aplicadas, todavia, a critério do consultor e diante dos fatos narrados pelo consulente, medidas de garantia previstas no CTN, ou em leis tributárias.",
+        "D": "incidirão juros de mora, penalidade pecuniária ou atualização monetária, desde que ela tenha sido formulada antes da ocorrência do fato gerador.",
+        "E": "incidirão juros de mora ou penalidade pecuniária, desde que ela tenha sido formulada antes da lavratura de Auto de Infração e Imposição de Multa – AIIM, podendo ser aplicadas, todavia, a critério do consultor e diante dos fatos narrados pelo consulente, medidas de garantia previstas no CTN, ou em leis tributárias."
+      }
+    },
+    {
+      "numero": 2,
+      "materia": "Direito Tributário Avançado",
+      "gabarito": "A",
+      "enunciado": "A Prefeitura de determinado Município brasileiro realizou obras públicas, com custo total de R$ 100.000,00, em bairro da periferia municipal, as quais acabaram por impactar o valor dos 10 imóveis (todos iguais) que ficavam nas cercanias dessa obra.\n\nComo, todavia, se tratou de uma obra pública mal feita, 4 imóveis acabaram perdendo valor, 2 imóveis acabaram sendo valorizados em R$ 15.000,00 cada um, 2 imóveis se valorizaram no montante de R$ 7.000,00 cada um, e 2 deles foram impactados de modo neutro, pois não se valorizaram, nem perderam valor, em decorrência da citada obra.\n\nCom base nessas informações e na disciplina do CTN a respeito da contribuição de melhoria, o valor máximo a ser pago",
+      "alternativas": {
+        "A": "por cada um dos proprietários dos imóveis que se valorizaram em R$ 7.000,00 é de R$ 7.000,00.",
+        "B": "pelos proprietários dos imóveis que não se valorizaram, nem perderam valor, é de R$ 10.000,00.",
+        "C": "por cada um dos proprietários dos imóveis que se valorizaram em R$ 7.000,00 é de R$ 10.000,00.",
+        "D": "pelos proprietários dos imóveis que perderam valor é de R$ 10.000,00, por imóvel.",
+        "E": "por cada um dos proprietários dos imóveis que se valorizaram em R$ 15.000,00 é de R$ 25.000,00."
+      }
+    },
+    {
+      "numero": 3,
+      "materia": "Direito Tributário Avançado",
+      "gabarito": "D",
+      "enunciado": "Um Agente Fiscal da Receita Estadual paulista, ao concluir seus trabalhos de fiscalização em estabelecimento de contribuinte paulista, em 23 de outubro de 2024, verificou que esse contribuinte havia emitido, em 18 de abril de 2019, uma quinta-feira, documento fiscal relativo a operação tributada pelo ICMS, não sujeita à substituição tributária com retenção antecipada do imposto, consignando declaração falsa quanto ao estabelecimento destinatário, para fazer crer que a mercadoria seria entregue na filial baiana do cliente, quando, em verdade, iria ser entregue em sua filial paulista. A conduta identificada tinha como objetivo a sonegação de tributo, pois o contribuinte pagou o imposto calculado com base na alíquota de 7%, e não na alíquota interna de 18%, como seria o correto.\n\nObservação: o dia 19 de abril de 2019 e o dia 29 de março de 2024 recaíram em dias de feriado nacional, por serem duas Sextas-Feiras Santas.\n\nCom base nos fatos narrados acima e na disciplina do CTN a respeito da matéria atinente à extinção do crédito tributário, os valores do imposto sonegado, da multa aplicável e dos acréscimos legais poderiam ser exigidos, por meio de lançamento de ofício.",
+      "alternativas": {
+        "A": "até, no máximo, o dia 23 de abril de 2024, uma terça-feira.",
+        "B": "até, no máximo, o dia 22 de abril de 2025, uma terça-feira.",
+        "C": "até, no máximo, o dia 22 de abril de 2024, uma segunda-feira.",
+        "D": "na própria data em que o Auditor Fiscal concluiu seus trabalhos.",
+        "E": "até, no máximo, o dia 19 de abril de 2024, uma sexta-feira."
+      }
+    },
+    {
+      "numero": 4,
+      "materia": "Direito Tributário Avançado",
+      "gabarito": "C",
+      "enunciado": "Antenor e Marivalda, casados pelo regime da separação consensual de bens, tiveram apenas um filho: Adamastor. Quando Antenor faleceu, sua herança, no montante de R$ 200.000,00, foi partilhada entre Leonilda, tia de Antenor, legatária de R$ 20.000,00, Marivalda e Adamastor, sendo que estes dois últimos receberam, cada um deles, R$ 90.000,00.\n\nRealizada a partilha, todavia, verificou-se que Antenor havia deixado dívidas tributárias, no montante de R$ 210.000,00.\n\nConsiderando os fatos narrados e a disciplina estabelecida no Código Tributário Nacional acerca da responsabilidade dos sucessores, verifica-se que",
+      "alternativas": {
+        "A": "Leonilda não pode ser responsabilizada, porque é apenas legalária.",
+        "B": "Marivalda pode ser responsabilizada pelo valor total de R$ 210.000,00, por ser viúva meeira.",
+        "C": "Leonilda pode ser responsabilizada, mas até o limite de R$ 20.000,00.",
+        "D": "Marivalda pode ser responsabilizada até o montante de R$ 105.000,00, que representa metade do valor da dívida, por ser viúva meeira.",
+        "E": "Adamastor pode ser responsabilizado pelo valor total de R$ 210.000,00, por ser o único herdeiro de Antenor."
+      }
+    },
+    {
+      "numero": 5,
+      "materia": "Direito Tributário Avançado",
+      "gabarito": "C",
+      "enunciado": "Auditor Fiscal de determinado Estado brasileiro procedeu aos trabalhos de fiscalização no estabelecimento da empresa \"Vale Tudo\", em maio de 2025, e identificou a existência de infrações, cometidas em 2023, referentes à aquisição e ao recebimento de mercadorias\n\nI. que a empresa sabia serem provenientes de furto e roubo, acompanhadas de documentos fiscais \"frios\", para dar cobertura a essas aquisições, que foram feitas sem pagamento de ICMS.\n\nII. de procedência lícita, acompanhadas de documentos fiscais que a empresa \"Vale Tudo\" sabia serem \"frios\", para propiciar a sonegação do ICMS.\n\nIII. de procedência lícita, acompanhadas de documento fiscal subfaturado, já que a empresa \"Vale Tudo\" e seu fornecedor realizaram a operação por um determinado valor, mas consignaram, no documento fiscal emitido, outro valor, inferior ao efetivamente pactuado entre eles.\n\nTodas essas operações eram tributadas e não estavam sujeitas à substituição tributária com retenção antecipada do imposto.\n\nEm 2024, no entanto, esse Estado promulgou uma lei que concedeu anistia para diversas práticas infracionais de seus contribuintes.\n\nCom base nos fatos narrados e na disciplina do Código Tributário Nacional,",
+      "alternativas": {
+        "A": "essa anistia alcançará apenas as infrações descritas em II.",
+        "B": "ficarão fora do alcance da anistia apenas as infrações descritas em II e III.",
+        "C": "ficarão fora do alcance da anistia as infrações descritas em I, II e III.",
+        "D": "essa anistia alcançará apenas as infrações descritas em I e III.",
+        "E": "ficarão fora do alcance da anistia apenas as infrações descritas em I e II."
+      }
+    },
+    {
+      "numero": 6,
+      "materia": "Direito Constitucional",
+      "gabarito": "E",
+      "enunciado": "A Constituição Federal, relativamente à obtenção de recursos de natureza tributária para custear um conflito armado externo envolvendo o Brasil, faz referência expressa à guerra externa, ou seja, ao conflito armado efetivamente instaurado, e também à iminência de instauração desse conflito externo.\n\nTendo em consideração as colocações feitas acima e a disciplina estabelecida na Constituição Federal a respeito dos empréstimos compulsórios, a União\n\nI. não poderá instituir esses empréstimos, no caso de guerra externa iminente, pois eles se destinam a atender a despesas extraordinárias do país, decorrentes de conflito já instaurado.\n\nII. poderá instituir esses empréstimos, no caso de guerra externa iminente, por meio de lei complementar, desde que observados os princípios da anterioridade nonagesimal (noventena) e da anterioridade de exercício.\n\nIII. poderá instituir os referidos empréstimos, no caso de guerra externa já deflagrada, para atender a despesas extraordinárias, sendo possível fazê-lo somente por lei complementar federal, e ficando dispensada a observância dos princípios da anterioridade nonagesimal (noventena) e da anterioridade de exercício.\n\nEstá correto o que se afirma APENAS em",
+      "alternativas": {
+        "A": "II e III.",
+        "B": "I.",
+        "C": "II.",
+        "D": "I e II.",
+        "E": "III."
+      }
+    },
+    {
+      "numero": 7,
+      "materia": "Direito Tributário Avançado",
+      "gabarito": "E",
+      "enunciado": "Ao final do processo administrativo tributário (PAT) que julgou pela total procedência do lançamento de ofício formalizado por meio de Auto de Infração e Imposição de Multa (AIIM), lavrado por Auditor Fiscal estadual, o contribuinte autuado foi intimado a pagar o débito fiscal atualizado, no prazo fixado na legislação, sob pena de ajuizamento de ação de execução fiscal.\n\nTerminado o referido prazo, sem que o contribuinte houvesse feito o pagamento, nem tomado qualquer outra providência, foi determinada a inscrição desse débito em Dívida Ativa Estadual. Passados 14 meses sem que o executivo fiscal tivesse sido ajuizado, o referido contribuinte procurou a Fazenda Pública para solicitar o parcelamento da quantia devida, para pôr fim a essa dívida. Em decorrência da confissão, por meio da qual o contribuinte devedor reconheceu o débito fiscal pleiteado pela Fazenda Pública estadual, seu pedido foi aceito e o parcelamento deferido.\n\nDe acordo com as informações acima e com a disciplina estabelecida no Código Tributário Nacional, o prazo",
+      "alternativas": {
+        "A": "decaendcial foi interrompido com a prolação da decisão definitiva no PAT.",
+        "B": "prescricional começou a fluir na data que foi protocolizado o pedido de parcelamento.",
+        "C": "prescricional começou a fluir com a lavratura do referido AIIM.",
+        "D": "decaendcial começou a fluir com a prolação da decisão definitiva no PAT.",
+        "E": "prescricional foi interrompido com a confissão feita pelo contribuinte."
+      }
+    },
+    {
+      "numero": 8,
+      "materia": "Direito Constitucional",
+      "gabarito": "D",
+      "enunciado": "Marcos, viúvo, domiciliado em Salvador/BA, faleceu em outubro de 2024. Ele era pai de Fernando, domiciliado no Rio de Janeiro/RJ, e de Cristina, domiciliada em Buenos Aires, Argentina. Em decorrência de seu falecimento, ele deixou para Fernando uma casa de campo em Uberlândia/MG e, para Cristina, uma casa em Florença, Itália. Deixou, ainda, € 2 milhões (dois milhões de euros) para Cristina, depositados em agência bancária de Milão, Itália, e R$ 11 milhões (onze milhões de reais) para Fernando, depositados em agência bancária localizada em Vitória/ES.\n\nCom base nos fatos narrados acima e nas regras da Emenda Constitucional n° 132, de 20 de dezembro de 2023, relativamente à competência constitucional para tributar o ITCMD, essa competência",
+      "alternativas": {
+        "A": "ocorrerá a favor do Estado da Bahia, quanto ao imóvel localizado em Uberlândia.",
+        "B": "ocorrerá a favor do Estado do Rio de Janeiro, quanto aos R$ 11 milhões de reais recebidos por Fernando.",
+        "C": "não ocorrerá em favor de nenhum Estado brasileiro, relativamente aos bens localizados no exterior.",
+        "D": "ocorrerá a favor do Estado da Bahia, quanto ao imóvel localizado na Itália.",
+        "E": "só ocorrerá a favor de algum Estado brasileiro, quanto aos € 2 milhões de euros recebidos por Cristina, se houver acordo específico entre o Brasil e a Itália."
+      }
+    },
+    {
+      "numero": 9,
+      "materia": "Direito Constitucional",
+      "gabarito": "A",
+      "enunciado": "De acordo com a Constituição Federal, o Imposto sobre a Propriedade de Veículos Automotores (IPVA) incidirá sobre a propriedade de veículos automotores\n\nI. terrestres, excetuados, dentre outros, os tratores e as máquinas agrícolas.\n\nII. aquáticos, excetuadas, dentre outros, as embarcações de pessoa jurídica que pratiquem pesca industrial.\n\nIII. aéreos, excetuadas, dentre outros, as aeronaves agrícolas.\n\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "I, II e III.",
+        "B": "III, apenas.",
+        "C": "I e III, apenas.",
+        "D": "II, apenas.",
+        "E": "I e II, apenas."
+      }
+    },
+    {
+      "numero": 10,
+      "materia": "Direito Tributário Avançado",
+      "gabarito": "B",
+      "enunciado": "De acordo com a disciplina do Código Tributário Nacional acerca da responsabilidade de terceiros.",
+      "alternativas": {
+        "A": "somente lei complementar pode atribuir a terceira pessoa, mesmo não vinculada ao fato gerador da respectiva obrigação, a responsabilidade pelo crédito tributário, atribuindo a responsabilidade ao contribuinte apenas em caráter supletivo do cumprimento total ou parcial da referida obrigação.",
+        "B": "lei ordinária pode atribuir, de modo expresso, a terceira pessoa, desde que vinculada ao fato gerador da respectiva obrigação, a responsabilidade pelo crédito tributário, excluindo a responsabilidade do contribuinte pelo cumprimento da referida obrigação.",
+        "C": "lei ordinária pode atribuir, de modo tácito ou não, a responsabilidade pelo crédito tributário a terceira pessoa, vinculada ao fato gerador da respectiva obrigação, atribuindo a responsabilidade ao contribuinte apenas em caráter supletivo do cumprimento total ou parcial da referida obrigação.",
+        "D": "somente lei complementar pode atribuir, de modo tácito, a terceira pessoa que esteja vinculada ao fato gerador da respectiva obrigação, a responsabilidade pelo crédito tributário, excluindo a responsabilidade do contribuinte pelo cumprimento da referida obrigação.",
+        "E": "lei ordinária pode atribuir, de modo tácito ou não, a terceira pessoa, mesmo não vinculada ao fato gerador da respectiva obrigação, a responsabilidade pelo crédito tributário, excluindo a responsabilidade do contribuinte pelo cumprimento da referida obrigação."
+      }
+    },
+    {
+      "numero": 11,
+      "materia": "Direito Constitucional",
+      "gabarito": "A",
+      "enunciado": "Analogamente ao que ocorre com o ICMS, 25% do produto da arrecadação do IBS estadual pertence aos Municípios do respectivo Estado. As parcelas de receita pertencentes aos Municípios serão creditadas conforme os seguintes critérios: I. montantes iguais para todos os Municípios do Estado; II. proporção da população; III. indicadores de preservação ambiental, de acordo com o que dispuser lei estadual; e IV. indicadores de melhoria nos resultados de aprendizagem e de aumento da equidade, considerado o nível socioeconômico dos educandos, de acordo com o que dispuser lei estadual. De acordo com a Constituição Federal, as porcentagens correspondentes a cada critério são, respectivamente, as seguintes:\n\n<table>I II III IV A 5% 80% 5% 10% B 80% 10% 5% 5% C 80% 5% 5% 10% D 5% 80% 10% 5% E 80% 5% 10% 5%</table>",
+      "alternativas": {
+        "A": "5% 80% 5% 10%",
+        "B": "80% 10% 5% 5%",
+        "C": "80% 5% 5% 10%",
+        "D": "5% 80% 10% 5%",
+        "E": "80% 5% 10% 5%"
+      }
+    },
+    {
+      "numero": 12,
+      "materia": "Direito Constitucional",
+      "gabarito": "D",
+      "enunciado": "Heitor, divorciado, estava domiciliado em Campo Grande/MS, na data de seu falecimento. Seus dois filhos e herdeiros, Sônia e Celso, receberam, como herança, US$ 1 milhão (um milhão de dólares) cada um, importância essa que estava depositada em agência bancária da cidade de Nova Iorque, Estados Unidos da América. Celso, domiciliado em Campina Grande/PB, aceitou seu quinhão de herança, mas Sônia, domiciliada em Atenas, Grécia, renunciou expressamente ao seu quinhão, a favor de Maria, sua mãe e ex-esposa de Heitor, domiciliada em Blumenau/SC (renúncia translativa).\n\nCom base nessas informações e nas regras da Ementa Constitucional n° 132/23, de 20 de dezembro de 2023, verifica-se que, relativamente ao ITCMD,",
+      "alternativas": {
+        "A": "nenhum Estado brasileiro tem competência para exigir esse imposto, relativamente à transmissão de quinhão decorrente da renúncia translativa de Sônia, feita em benefício de Maria.",
+        "B": "o Estado de Santa Catarina tem competência para exigir esse imposto, relativamente à transmissão causa mortis do quinhão de Sônia.",
+        "C": "nenhum Estado brasileiro tem competência para exigir esse imposto, relativamente à transmissão causa mortis do quinhão de Sônia.",
+        "D": "o Estado de Santa Catarina tem competência para exigir esse imposto, na transmissão de quinhão decorrente da renúncia translativa de Sônia, feita em benefício de Maria.",
+        "E": "o Estado da Paraíba tem competência para exigir esse imposto, relativamente à transmissão causa mortis do quinhão de Celso."
+      }
+    },
+    {
+      "numero": 13,
+      "materia": "Direito Tributário Avançado",
+      "gabarito": "B",
+      "enunciado": "Contribuinte do ITCMD de determinado Estado brasileiro pagou esse imposto a maior, espontânea e indevidamente.\n\nEm razão disso, o direito de ele pleitear a restituição da parte indevidamente paga extingue-se com o decurso do prazo de 5 anos, contados",
+      "alternativas": {
+        "A": "da data da ocorrência do fato gerador, salvo constatação da existência de dolo, fraude ou simulação.",
+        "B": "da data em que tiver sido extinto o crédito tributário.",
+        "C": "da data em que ele tiver sido notificado de que a Fazenda Pública reconheceu que houve pagamento indevido, total ou parcial.",
+        "D": "do primeiro dia do exercício seguinte àquele em que o lançamento poderia ter sido efetuado.",
+        "E": "da data em que tiver se iniciado o prazo prescricional para ajuizamento de executivo fiscal."
+      }
+    },
+    {
+      "numero": 14,
+      "materia": "Direito Constitucional",
+      "gabarito": "C",
+      "enunciado": "Silvéria, paraibana de nascimento, domiciliada já há vinte anos na cidade de Bom, Alemanha, deixou no Brasil todas as suas joias, que ficaram depositadas em cofre forte de agência bancária localizada na cidade de Curitiba/PR. No ano de 2025, ela decidiu doar todas as suas joias para suas filhas Martha e Teresa, ambas nascidas em Oriximiná/PA. Assim, as joias com brilhantes foram doadas para sua filha Martha, que, na data da doação, se encontrava domiciliada na cidade de Coimbra, Portugal. Por sua vez, as joias sem brilhantes foram doadas a sua outra filha, Teresa, que, na data da doação, estava domiciliada em Recife/PE.\n\nDiante dos fatos narrados e da disciplina estabelecida na Emenda Constitucional n° 132, de 20 de dezembro de 2023,",
+      "alternativas": {
+        "A": "o ITCMD referente à doação feita a Teresa competirá ao Estado da Paraíba.",
+        "B": "o ITCMD referente a ambas as doações competirá ao Estado do Pará.",
+        "C": "o ITCMD referente à doação feita a Martha competirá ao Estado do Paraná.",
+        "D": "o ITCMD referente a ambas as doações competirá ao Estado de Pernambuco.",
+        "E": "nenhum Estado brasileiro tem competência para lançar e cobrar o ITCMD, relativamente às duas doações realizadas."
+      }
+    },
+    {
+      "numero": 15,
+      "materia": "Direito Tributário Avançado",
+      "gabarito": "E",
+      "enunciado": "O Código Tributário Nacional (CTN) arrola onze modalidades de extinção do crédito tributário. Uma dessas modalidades, todavia, é assim designada de maneira imprópria, pois, diferentemente das demais modalidades, ela não extingue, efetivamente, crédito tributário formalmente constituído.\n\nA modalidade de extinção acima referida é",
+      "alternativas": {
+        "A": "a conversão de depósito em renda.",
+        "B": "a anistia.",
+        "C": "o parcelamento.",
+        "D": "a remissão.",
+        "E": "a decadência."
+      }
+    },
+    {
+      "numero": 16,
+      "materia": "Direito Constitucional",
+      "gabarito": "C",
+      "enunciado": "Conforme a Constituição Federal, o Imposto sobre Bens e Serviços",
+      "alternativas": {
+        "A": "terá legislação única e uniforme em todo o território nacional, sendo que a alíquota única, fixada por meio de Resolução do Senado Federal para todas as esferas federativas, será aplicada em todas as operações, com bens materiais ou imateriais, inclusive direitos, ou com serviços, realizadas no território nacional.",
+        "B": "será objeto de concessão de incentivos e benefícios financeiros ou fiscais relativos ao imposto, ou de regimes específicos, diferenciados ou favorecidos de tributação, nas hipóteses previstas em lei complementar nacional ou estadual, desde que previamente aprovado em Convênio IBS, realizado no âmbito do Comitê Gestor do IBS.",
+        "C": "será informado pelo princípio da neutralidade, terá legislação única e uniforme em todo o território nacional, ressalvada a competência de cada ente federativo, terá sua alíquota própria fixada por meio de lei específica e será cobrado pelo somatório das alíquotas do Estado e do Município de destino da operação.",
+        "D": "será informado pelo princípio da universalidade, será cumulativo, podendo ser compensando o imposto devido pelo contribuinte com o montante cobrado sobre todas as operações nas quais seja adquirente de bem material ou imaterial, exclusivamente nas aquisições consideradas de uso ou consumo pessoal.",
+        "E": "não integrará sua própria base de cálculo, nem a dos seguintes tributos: Imposto Seletivo (Art. 153, VIII), Imposto de Renda, IPI, ICMS e ISS."
+      }
+    },
+    {
+      "numero": 17,
+      "materia": "Direito Tributário Avançado",
+      "gabarito": "C",
+      "enunciado": "Um Auditor Fiscal da Receita Estadual de São Paulo lavrou um Auto de Infração e Imposição de Multa (AIIM) com quatro acusações distintas e autônomas entre si, distribuídas em 4 itens, a saber:\n\nitem 1: falta de pagamento do imposto, por falta de emissão de documento fiscal;\n\nitem 2: crédito indevido do ICMS:\n\nitem 3: falta de pagamento do imposto, por erro na aplicação da alíquota;\n\nitem 4: falta de pagamento do imposto, por erro na determinação da base de cálculo.\n\nEm todos os Itens mencionados, as operações eram tributadas e não sujeitas à substituição tributária, com pagamento antecipado do imposto.\n\nAssim que o contribuinte foi notificado do AIIM lavrado, ele tomou as seguintes providências:\n\nI. apresentou defesa apenas em relação aos itens 1 e 2, sendo que, em relação ao item 1, ele fez depósito administrativo parcial da quantia exigida;\n\nII. relativamente ao item 3, ele apenas ingressou em juízo; sua intenção era discutir judicialmente a questão da alíquota aplicável, tendo obtido medida liminar a seu favor;\n\nIII. com relação ao quarto item, o contribuinte apenas solicitou o parcelamento do valor exigido.\n\nDiante das informações fornecidas e da disciplina estabelecida no Código Tributário Nacional, no momento em que o contribuinte tomou as providências acima narradas, ele",
+      "alternativas": {
+        "A": "extinguiu o crédito tributário apenas em relação aos itens 3 e 4 do AIIM.",
+        "B": "extinguiu o crédito tributário apenas em relação ao item 4 do AIIM.",
+        "C": "não extinguiu o crédito tributário em relação a nenhum dos quatro itens do AIIM.",
+        "D": "extinguiu o crédito tributário apenas em relação ao item 1 do AIIM.",
+        "E": "extinguiu o crédito tributário apenas em relação ao item 2 do AIIM."
+      }
+    },
+    {
+      "numero": 18,
+      "materia": "Direito Constitucional",
+      "gabarito": "E",
+      "enunciado": "Determinado Estado brasileiro, em 2024, alterou sua Lei do IPVA, relativamente às alíquotas aplicáveis aos diferentes veículos, distinguindo essas alíquotas por tipo de veículo, faixas de valor de mercado, forma de utilização do veículo e impacto ambiental de sua utilização. Desse modo, por exemplo, um iate caro, utilizado exclusivamente para lazer, com motor que funciona à base de combustível fóssil, deveria ter uma alíquota necessariamente superior à alíquota de uma motocicleta de 50 cilindradas, de preço baixo, utilizada pelo proprietário na atividade de delivery, ainda que utilizando motor que funcione à base de combustível fóssil.\n\nCom base nas informações acima e nas regras criadas pela Emenda Constitucional n° 132, de 20 de dezembro de 2023,",
+      "alternativas": {
+        "A": "as alíquotas podem ser diferenciadas em razão do impacto ambiental, exclusivamente em relação aos veículos terrestres e aquáticos.",
+        "B": "a forma de utilização de um veículo pode servir de base para a diferenciação de alíquotas, mas não pode ser utilizada por lei estadual para conceder isenções.",
+        "C": "as alíquotas podem ser diferenciadas em razão do tipo de veículo, mas não podem ser diferenciadas em razão da forma como são utilizados.",
+        "D": "o impacto ambiental e a forma de utilização de um veículo podem servir de base para a diferenciação de alíquotas, mas não podem ser utilizados por lei estadual para conceder isenções.",
+        "E": "não há norma constitucional que impeça o legislador estadual de fixar alíquotas maiores para a referida motocicleta do que para o mencionado iate."
+      }
+    },
+    {
+      "numero": 19,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "C",
+      "enunciado": "A LC 214, de 2025, trata, em vários dispositivos, da alíquota do IBS. Segundo o disposto na referida Lei,",
+      "alternativas": {
+        "A": "a alíquota do IBS incidente sobre cada operação corresponderá à soma das alíquotas da União, do Estado de destino da operação e do Município de destino da operação, ou do Distrito Federal, quando for o caso.",
+        "B": "a alíquota fixada por cada ente federativo será a mesma para todas as operações com bens ou com serviços, vedada qualquer hipótese de distinção em função da origem, destino e natureza do bem, direito ou serviço, objeto da operação.",
+        "C": "cada Município fixará sua alíquota do IBS, por lei municipal específica, podendo vinculá-la, por meio de acréscimo ou decréscimo de pontos percentuais, à alíquota de referência da respectiva esfera federativa, fixada por Resolução do Senado Federal.",
+        "D": "cada Estado fixará sua alíquota do IBS, por legislação própria, que deverá ser vinculada à alíquota de referência da respectiva esfera federativa, fixada por Resolução do Comitê Gestor do IBS.",
+        "E": "no caso de ausência de lei específica, que estabeleça a alíquota do ente federativo, será aplicada a alíquota de referência para uso geral no país, no ano anterior ao de ocorrência do fato gerador, fixada pelo Comitê Gestor do IBS."
+      }
+    },
+    {
+      "numero": 20,
+      "materia": "Direito Tributário Avançado",
+      "gabarito": "A",
+      "enunciado": "Determinado contribuinte, entendendo que havia dois Estados brasileiros exigindo o mesmo tributo (taxa estadual) sobre um mesmo fato gerador, propôs ação judicial de consignação em pagamento. A decisão final proferida no referido processo foi pela improcedência total da consignação.\n\nTendo em conta as informações fornecidas e a disciplina do CTN a respeito dessa matéria, o crédito tributário deverá ser",
+      "alternativas": {
+        "A": "cobrado desse contribuinte, acrescido de juros de mora e das penalidades cabíveis, apenas.",
+        "B": "cobrado desse contribuinte, acrescido de atualização monetária, apenas.",
+        "C": "cobrado desse contribuinte, acrescido de juros de mora, apenas.",
+        "D": "cobrado desse contribuinte, acrescido das penalidades cabíveis, apenas.",
+        "E": "liquidado apenas com a conversão em renda do valor consignado."
+      }
+    },
+    {
+      "numero": 21,
+      "materia": "Direito Constitucional",
+      "gabarito": "C",
+      "enunciado": "Conforme a Constituição Federal, o Comité Gestor do Imposto sobre Bens e Serviços",
+      "alternativas": {
+        "A": "terá independência técnica, administrativa, política, orçamentária e financeira, tendo competência para editar regulamento do IBS, uniformizar a interpretação e a aplicação da legislação do imposto e para cobrar administrativamente o valor do IBS declarado e não recolhido.",
+        "B": "terá competência para editar Regulamento único, uniformizar a interpretação e a aplicação da legislação do IBS e da CBS, e decidir o contencioso administrativo destes tributos.",
+        "C": "reterá, antes de fazer a distribuição do produto da arrecadação do IBS, o montante equivalente ao saldo acumulado de créditos do imposto não compensados pelos contribuintes e não ressarcidos ao final de cada período de apuração.",
+        "D": "distribuirá o produto da arrecadação do IBS, diariamente, vedada qualquer retenção ou dedução, ao ente federativo de destino das operações, independentemente de que o destinatário tenha se creditado ou não do imposto.",
+        "E": "reterá e distribuirá aos Municípios um quarto do valor apurado do IBS estadual, conforme o disposto em lei complementar, sendo 65%, no mínimo, na proporção do valor adicionado nas operações tributadas pelo IBS, realizadas em seus territórios."
+      }
+    },
+    {
+      "numero": 22,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "D",
+      "enunciado": "Conforme a LC 214, de 2025, considera-se ocorrido o fato gerador do IBS",
+      "alternativas": {
+        "A": "no momento do término do fornecimento, no caso de operações com bens ou com serviços, ainda que de execução continuada ou fracionada.",
+        "B": "no momento do término do transporte, na prestação de serviço de transporte rodoviário de cargas.",
+        "C": "no momento em que o serviço for encontrado desacobertado de documentação fiscal.",
+        "D": "no momento em que se realizar o pagamento da compra, quando se tratar de aquisições de bens e serviços pela administração pública direta, por autarquias e por fundações públicas, exceto se efetuadas de forma presencial e dispensadas de licitação, nos termos da legislação específica.",
+        "E": "na data de pagamento da primeira parcela, caso se trate de operações com bens ou com serviços em que o pagamento seja feito parceladamente antes do fornecimento; e a base de cálculo será correspondente ao valor total da operação."
+      }
+    },
+    {
+      "numero": 23,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "A",
+      "enunciado": "A LC 214, de 2025, estabelece que a base de cálculo do IBS é o valor da operação, salvo disposição em contrário prevista na referida Lei.",
+      "alternativas": {
+        "A": "e que o valor da operação compreende o valor integral cobrado pelo fornecedor a qualquer título, inclusive os valores correspondentes a acréscimos decorrentes de ajuste do valor da operação, inclusive juros, multas, acréscimos e encargos, e demais importâncias cobradas ou recebidas como parte do valor da operação.",
+        "B": "mas que não integra a referida base de cálculo o valor referente a desconto incondicional concedido, assim considerado o desconto que reduz o preço da operação, por evento posterior a emissão do respectivo documento fiscal e que diminua o ônus do comprador.",
+        "C": "sendo que, na hipótese de o valor da operação estar expresso em moeda estrangeira, será feita sua conversão em moeda nacional, por taxa de câmbio divulgada pelo Comitê Gestor do IBS, no último dia útil do mês anterior.",
+        "D": "sendo que o montante dos valores de IBS, CBS, IPI, IR, II, ICMS e ISS, relativos à operação, não integram a base de cálculo.",
+        "E": "e este valor será arbitrado, pelo contribuinte ou responsável, sempre que forem conflitantes as declarações, informações ou documentos apresentados por terceiro legalmente obrigado, ou ainda, quando observados os critérios de oportunidade e conveniência, tornar-se mais simples o recolhimento do imposto."
+      }
+    },
+    {
+      "numero": 24,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "E",
+      "enunciado": "A forma prevista em lei de pagar o imposto é importante para o sujeito passivo, pois procedimentos inadequados ou inválidos de pagamento podem causar problemas e prejuízos, inclusive a não extinção do débito fiscal. A LC 214, de 2025, trata das modalidades de extinção dos débitos do IBS e da CBS. Segundo a referida lei, os débitos do IBS e da CBS, decorrentes da incidência sobre operações com bens ou com serviços,",
+      "alternativas": {
+        "A": "podem ser extintos mediante pagamento pelo contribuinte, por mecanismo automatizado de pagamento, respectivamente, do IBS e da CBS, hipótese em que o pagamento, após a data de vencimento, não estará sujeito à multa de mora, até o 60º dia posterior ao do vencimento do tributo.",
+        "B": "podem ser liquidados por compensação com créditos de IBS, CBS, ICMS e ISS, de titularidade do contribuinte ou responsável, homologados pelo Comitê Gestor do IBS e ou pela Receita Federal do Brasil, até o limite do saldo devedor apurado.",
+        "C": "podem ser extintos na liquidação financeira da operação, desde que o contribuinte devedor opte pelo procedimento simplificado do split payment para todas as operações, com quaisquer bens, serviços e adquirentes, hipótese em que a retenção terá caráter terminativo.",
+        "D": "serão extintos apenas mediante compensação com créditos, respectivamente, de IBS e de CBS, apropriados pelo próprio contribuinte, ou por meio de recolhimento do valor, via banco credenciado, a ser realizado pelo adquirente dos respectivos bens e serviços.",
+        "E": "serão extintos por compensação com créditos, respectivamente, de IBS e de CBS, apropriados pelo contribuinte, sendo imputados os valores dos créditos aos valores dos débitos não extintos, incidentes sobre as operações ocorridas no período de apuração, na ordem cronológica do documento fiscal, segundo critérios estabelecidos no regulamento."
+      }
+    },
+    {
+      "numero": 25,
+      "materia": "Legislação Tributária Estadual",
+      "gabarito": "B",
+      "enunciado": "A definição de contribuinte de um tributo é um dos fatores relevantes tanto para determinar quem deve pagar o tributo, como para determinar se o tributo é devido quando alguém pratica determinado ato. A LC 214, de 2025, estabelece quem é, e quem não é contribuinte do IBS. Nesse contexto, segundo a referida lei,",
+      "alternativas": {
+        "A": "o nanoempreendedor, assim entendida a pessoa física que tenha auferido receita bruta inferior a 50% (cinquenta por cento) do limite estabelecido para adesão ao regime do MEI, previsto na LC 123, de 2006, é contribuinte do IBS, mas poderá optar por ser não contribuinte, hipótese em que não poderá apropriar créditos de IBS referente às suas compras.",
+        "B": "o produtor rural, pessoa física ou jurídica, que auferir receita inferior a R$ 3.600.000,00 no ano-calendário, não será considerado contribuinte do IBS, mas ele poderá optar, a qualquer tempo, por se inscrever como contribuinte do IBS no regime regular.",
+        "C": "o adquirente, ainda que não enquadrado como fornecedor, é contribuinte do IBS na operação de aquisição de bem apreendido ou abandonado, em leilão de seguradora ou judicial, ou em bingo ou sorteio sem fim lucrativo.",
+        "D": "as plataformas digitais, ainda que domiciliadas no exterior, são contribuintes do IBS relativo às operações internas e importações realizadas por seu intermédio, e o fornecedor será responsável solidário pelo imposto devido.",
+        "E": "o fornecedor residente ou domiciliado no exterior é contribuinte do IBS e obrigado a se cadastrar como contribuinte, caso realize operações de exportação de bens, direitos ou serviços para destinatário no Brasil, não contribuinte regular do IBS."
+      }
+    },
+    {
+      "numero": 26,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "C",
+      "enunciado": "No âmbito do Programa de Estímulo à Conformidade Tributária – \"Nos Conformes\", instituído pela Lei Complementar (SP) 1.320, de 06 de abril de 2018, a Secretaria da Fazenda incentivará os contribuintes do ICMS a se autorregularizarem. Neste contexto.",
+      "alternativas": {
+        "A": "a autorregularização, posterior à notificação de constatação de indício de irregularidade, decorrente de procedimento de Análise Informatizada de Dados (AID), exclui a possibilidade de parcelamento dos débitos tributários.",
+        "B": "para incentivar a autorregularização, a Secretaria da Fazenda deverá manter serviço permanente de envio de cartas, e-mail, mensagens eletrônicas via DEC e publicidade em mídia digital, para cobrar os devedores e gerar efetivo sentimento de risco aos inadimplentes e omissos.",
+        "C": "a critério da Secretaria da Fazenda, o contribuinte poderá ser notificado sobre a constatação de indício de irregularidade, hipótese em que ficará a salvo das penalidades previstas no artigo 85 da Lei n° 6.374, de 1 de março de 1989, desde que sane a irregularidade no prazo indicado na notificação.",
+        "D": "o procedimento de Análise Fiscal Prévia, de que trata a referida Lei Complementar, deve ser de acesso público, universal, gratuito e permanente, para orientação e informação aos contribuintes em geral.",
+        "E": "o procedimento de Análise Fiscal Prévia (AFP), de que trata a referida lei, consiste na realização de trabalhos analíticos ou de campo, feito por Auditor Fiscal da Receita Estadual, com objetivo de instruir eventual Auto de Infração e Imposição de Multa, marca o início de ação fiscal e afasta a espontaneidade de que trata o artigo 88 da Lei n° 6.374, de 1 de março de 1989."
+      }
+    },
+    {
+      "numero": 27,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "C",
+      "enunciado": "A Lei Complementar 24, de 7 de janeiro de 1975, dispõe sobre os convênios para a concessão de isenções do ICMS e dá outras providências.\n\nNo caso de algum Estado ou de o Distrito Federal conceder benefícios tributários ou financeiros tributários, sem observar os dispositivos da referida Lei Complementar, tal ato",
+      "alternativas": {
+        "A": "acarretará, cumulativamente, o início de processo de declaração de impedimento do governador, no Senado Federal, e a indisponibilidade de seus bens, pelo Banco Central do Brasil.",
+        "B": "poderá ser convalidado por Resolução do Senado Federal, aprovada por dois terços dos Senadores que compõem aquela casa congressual.",
+        "C": "acarretará, cumulativamente, a nulidade do próprio ato, a ineficácia do crédito fiscal atribuído ao estabelecimento recebedor da mercadoria, a exigibilidade do imposto não pago ou devolvido e a ineficácia da lei ou do ato que conceda remissão do débito correspondente.",
+        "D": "resultará em crime de responsabilidade em relação ao chefe do governo que concedeu o benefício.",
+        "E": "impõe a decretação de irregularidade das contas do Estado pelo Tesouro Nacional, e a consequente suspensão do pagamento das quotas referentes aos Fundos de Participação, do rateio do Imposto de Renda Federal, e das transferências da União ao Estado."
+      }
+    },
+    {
+      "numero": 28,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "A",
+      "enunciado": "A Lei Complementar (SP) 1.320, de 06 de abril de 2018, trata dos devedores contumazes no Estado de São Paulo. Conforme a referida Lei Complementar,",
+      "alternativas": {
+        "A": "será considerado devedor contumaz o sujeito passivo que possuir débito de ICMS declarado e não pago, inscrito ou não em dívida ativa, relativamente a 6 (seis) períodos de apuração, consecutivos ou não, nos 12 (doze) meses anteriores.",
+        "B": "o devedor contumaz ficará sujeito a regime especial, que poderá consistir, cumulativamente, em plantão permanente de Auditor Fiscal da Receita Estadual no local onde exerça atividade empresarial, em impedimento à utilização de quaisquer benefícios ou incentivos relativos aos tributos estaduais e em impedimento de contratar com a Administração pública.",
+        "C": "a mera celebração de parcelamento dos débitos vencidos e não pagos não exclui o contribuinte da relação de devedores contumazes do Estado, salvo se apresentar garantias do valor devido, tais como penhora de bens imóveis, carta de fiança bancária, seguro garantia ou depósito de títulos de dívida pública, da União ou do Estado.",
+        "D": "caso o sujeito passivo não esteja em atividade no momento da verificação fiscal, não poderá ser considerado um devedor, ou um devedor contumaz.",
+        "E": "na hipótese de o contribuinte de ICMS atender às condições previstas na referida Lei para ser considerado devedor contumaz, o respectivo regime especial será aplicado por efeito da lei, independentemente de ato administrativo, e o contribuinte deverá recolher o ICMS referente a cada documento fiscal eletrônico, antes de solicitar autorização de uso do respectivo documento, sendo vedado o destaque do valor do imposto no documento fiscal."
+      }
+    },
+    {
+      "numero": 29,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "D",
+      "enunciado": "A Lei Complementar 160, de 7 de agosto de 2017, trata de benefícios fiscais ou financeiro-fiscais referentes ao ICMS. Conforme a referida Lei Complementar,",
+      "alternativas": {
+        "A": "a unidade federada não pode ampliar ou estender a concessão das isenções, dos incentivos e dos benefícios fiscais ou financeiro-fiscais referidos nesta lei a outros contribuintes estabelecidos em seu território, ou que venham a se estabelecer em seu território, após a publicação desta lei.",
+        "B": "a concessão ou a manutenção de quaisquer isenções, incentivos e benefícios fiscais ou financeiro-fiscais, referentes ao ICMS, implica a sujeição da unidade federada responsável ao impedimento de receber transferências voluntárias e contratar operações de crédito, pelo prazo em que perdurar a concessão ou a manutenção das isenções, dos incentivos e dos benefícios fiscais ou financeiro-fiscais.",
+        "C": "a unidade federada concedente não pode revogar ou modificar o ato concessivo ou reduzir o seu alcance ou o montante das isenções, dos incentivos e dos benefícios fiscais ou financeiro-fiscais, antes do termo final de fruição, pois benefício concedido com prazo certo configura direito adquirido do sujeito passivo.",
+        "D": "as unidades federadas poderão aderir às isenções, aos incentivos e aos benefícios fiscais ou financeiro-fiscais concedidos ou prorrogados por outra unidade federada da mesma região, na forma prevista na lei, enquanto vigentes os referidos benefícios.",
+        "E": "as unidades federadas deverão prestar informações ao público sobre as isenções, os incentivos e os benefícios fiscais ou financeiro-fiscais vinculados ao ICMS, com a indicação dos valores e dos sujeitos passivos favorecidos, no Portal Nacional da Transparência Tributária, instituído pelo Confaz e disponibilizado para consulta pública, integral, livre e gratuita, pelo prazo de 25 anos."
+      }
+    },
+    {
+      "numero": 30,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "C",
+      "enunciado": "O Regulamento do ICMS/SP, aprovado pelo Decreto (SP) 45.490, de 30 de novembro de 2000, apresenta algumas definições para efeito da aplicação da legislação do ICMS no Estado de São Paulo. Segundo o citado Regulamento,",
+      "alternativas": {
+        "A": "considera-se transferência a operação de saída tributada de mercadoria ou bem, tangível ou intangível, de um estabelecimento do contribuinte, com destino a outro estabelecimento, pertencente a titular distinto, localizado no mesmo ou em outro Estado.",
+        "B": "em relação à prestação de serviço de transporte, considera-se subcontratação de serviço de transporte o contrato entre transportadores, em que um prestador de serviço de transporte (principal) contrata outro prestador de serviço de transporte (subcontratado) para efetuar a prestação de serviço de uma parte do trajeto.",
+        "C": "considera-se industrialização qualquer operação que modifique a natureza, o funcionamento, o acabamento, a apresentação ou a finalidade do produto ou o aperfeiçoe para consumo, tal como a que importe em alteração da apresentação do produto pela colocação de embalagem, ainda que em substituição à original, salvo quando a embalagem aplicada destinar-se apenas ao transporte da mercadoria (acondicionamento ou reacondicionamento).",
+        "D": "considera-se em estado natural o produto tal como se encontra na natureza, que não tenha sido submetido a nenhum processo de industrialização, perdendo essa condição o que tiver sido submetido a processo de resfriamento, congelamento, secagem ou beneficiamento.",
+        "E": "o produto em estado natural perde a natureza de produto primário e passa a ser classificado como produto secundário, se for submetido a processo de beneficiamento, acondicionamento ou reacondicionamento."
+      }
+    },
+    {
+      "numero": 31,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "E",
+      "enunciado": "A Lei Complementar 123, de 14 de dezembro de 2006, institui o Estatuto Nacional da Microempresa e da Empresa de Pequeno Porte e altera outras normas.\n\nConforme a referida lei.",
+      "alternativas": {
+        "A": "os Municípios emitirão Alvará de Funcionamento Definitivo para qualquer empresa ou atividade, mesmo em relação a locais residenciais ou locais eventual ou temporariamente desprovidos de \"habite-se\", permitindo, com isso, o funcionamento do estabelecimento imediatamente após o ato de seu registro.",
+        "B": "os requisitos de segurança sanitária, ambiental e de prevenção contra incêndios, para os fins de legalização de empresários, de pessoas jurídicas e de início de atividade de seus estabelecimentos, deverão ser minimizados e relevados pelos órgãos envolvidos na abertura de pequenas empresas.",
+        "C": "os órgãos intervenientes na abertura de empresas deverão disponibilizar aos contabilistas a legislação específica atualizada, permitir, no local, a realização de pesquisas presenciais pagas e facultar o acesso de assistentes pessoais para a leitura da legislação.",
+        "D": "o regime tributário das Microempresas e Empresas de Pequeno Porte – Simples Nacional implica o recolhimento mensal, mediante documento único de arrecadação, de ICMS, ISS, PIS e Cofins, de forma definitiva e terminativa; sendo que a União, os Estados, o Distrito Federal e os Municípios não podem cobrar valores adicionais destas empresas, em relação a tais tributos.",
+        "E": "a receita bruta, para fins de definição e enquadramento de microempresa, será o produto da venda de bens e serviços nas operações de conta própria, o preço dos serviços prestados e o resultado nas operações em conta alheia, não incluídas as vendas canceladas e os descontos incondicionais concedidos; sendo que as receitas auferidas no mercado interno e as decorrentes da exportação devem ser apuradas separadamente."
+      }
+    },
+    {
+      "numero": 32,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "A",
+      "enunciado": "O ICMS incide sobre os eventos indicados na Lei Complementar 87, de 13 de setembro de 1996, enquanto o ISS incide sobre os eventos indicados na Lei Complementar 116, de 31 de julho de 2003. Há eventos, no entanto, que não se encontram no campo de incidência dos tributos citados e há eventos sujeitos tanto ao ICMS, como ao ISS, com bases de cálculo distintas.\n\nNeste contexto.",
+      "alternativas": {
+        "A": "os serviços relativos à engenharia e à construção civil, com execução por administração ou empreitada, de obra civil, hidráulica ou elétrica, estão sujeitos ao ISS, exceto o fornecimento de mercadorias produzidas pelo prestador de serviços, fora do local da prestação dos serviços, que fica sujeito ao ICMS.",
+        "B": "a confecção de impressos gráficos, ainda que incorporados, de qualquer forma, a outra mercadoria que deva ser objeto de posterior circulação ou industrialização, tais como bulas, rótulos e embalagens, ficará sujeita ao ISS.",
+        "C": "a prestação de serviços de medicina é tributada pelo ICMS e pelo ISS, simultaneamente, com bipartição da base de cálculo, sendo que o valor cobrado a título de medicamentos e material aplicado é sujeito ao ICMS, o valor cobrado a título de mão de obra aplicada é sujeito ao ISS, e o valor cobrado pela locação do imóvel, com direito de uso dos bens que o guarnecem (quarto, camas e cadeiras), não se sujeita ao ICMS, nem ao ISS.",
+        "D": "os serviços de transporte de pessoas, por terra, ar e água, estão sempre sujeitos ICMS, quaisquer que sejam os locais de origem e destino, desde que a origem se dê no território brasileiro.",
+        "E": "a venda de equipamentos e programas (softwares) de informática disponíveis em prateleira estão sujeitos ao ICMS; os programas (softwares) elaborados sob encomenda ou especificação do adquirente estão sujeitos ao ISS; e o mero licenciamento de direito de uso de programas de computação não se sujeita ao ICMS, nem ao ISS."
+      }
+    },
+    {
+      "numero": 33,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "D",
+      "enunciado": "O Regulamento do ICMS/SP, aprovado pelo Decreto (SP) 45.490, de 30 de novembro de 2000, trata dos Documentos Fiscais Eletronicos (DFE) relativos ao ICMS, no Estado de São Paulo. Conforme o referido Regulamento,",
+      "alternativas": {
+        "A": "as operações ou prestações com comunicação, telecomunicação e energia elétrica não podem ser objeto de emissão de DFE, pois devem ser registradas apenas em documentos fiscais específicos em papel, impressos a laser e colorido.",
+        "B": "na hipótese de operações ou prestações amparadas por isenção, ou outro favor fiscal, é facultado, embora sugerido, o preenchimento de código específico em campo próprio do DFE, ou do documento fiscal em papel, quando for o caso.",
+        "C": "os DFE terão a sua autenticidade, a sua integridade e a sua autoria garantidas pela assinatura digital do seu respectivo arquivo e pelo DANFE impresso, e serão emitidos e armazenados em papel e em PDF, pelo prazo previsto na legislação.",
+        "D": "a Nota Fiscal Eletrônica (NF-e), modelo 55, será emitida em substituição à emissão de Nota Fiscal, modelo 1 ou 1-A, e de Nota Fiscal de Produtor, modelo 4, neste caso, quando o contribuinte estiver inscrito no Cadastro Nacional de Pessoa Jurídica – CNPJ; e será considerada emitida no momento em que a Secretaria da Fazenda conceder, por meio eletrônico, a respectiva Autorização de Uso desse documento fiscal.",
+        "E": "o Conhecimento de Transporte Eletrônico (CT-e), modelo 57, não poderá ser utilizado para a apropriação de crédito do imposto nele destacado, exceto nos casos expressamente previstos na legislação, uma vez que não se trata de documento fiscal hábil para fins de escrituração fiscal."
+      }
+    },
+    {
+      "numero": 34,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "B",
+      "enunciado": "Conforme o Regulamento do ICMS/SP, aprovado pelo Decreto (SP) 45.490, de 30 de novembro de 2000, o ICMS NÃO incide na",
+      "alternativas": {
+        "A": "operação com bem ou mercadoria digital, tangível ou intangível, ou de título que a represente, comercializados por meio de transferência eletrônica de dados, em rede privada ou pública, no mercado nacional ou internacional.",
+        "B": "saída de mercadoria com destino ao exterior, na prestação que destine serviço ao exterior e na saída de bem do ativo permanente.",
+        "C": "saída de máquinas, equipamentos, ferramentas ou objetos de uso do contribuinte, bem como de suas partes e peças, novos ou usados, com destino a outro estabelecimento para lubrificação, limpeza, revisão, conserto, restauração ou recondicionamento ou em razão de empréstimo, locação ou alienação, com ou sem retorno previsto, ao estabelecimento de origem, na data da saída.",
+        "D": "operação ou prestação interna, praticada por contribuinte, que destine mercadoria, bem ou serviço, a órgãos da administração pública direta estadual paulista, bem como às autarquias e fundações instituídas e mantidas pelo Estado de São Paulo.",
+        "E": "prestação de serviço de transporte interestadual ou intermunicipal de mercadoria destinada à exportação, quando esta for transportada desde o estabelecimento de origem, situado no território paulista, até o local de embarque para o exterior."
+      }
+    },
+    {
+      "numero": 35,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "E",
+      "enunciado": "No que se refere ao Cadastro de Contribuintes do ICMS no Estado de São Paulo, o Regulamento do ICMS/SP, aprovado pelo Decreto (SP) 45.490, de 30 de novembro de 2000, estabelece que a Secretaria da Fazenda poderá conceder inscrição que não seja obrigatória, dispensar inscrição, bem como determinar inscrição de pessoa ou estabelecimento não indicado expressamente no referido Regulamento.\n\nO Regulamento estabelece, também, que, salvo exigência da Secretaria da Fazenda,",
+      "alternativas": {
+        "A": "fica dispensado da inscrição aquele que prestar, mediante utilização de bem pertencente a terceiro, serviço de transporte interestadual ou intermunicipal, de cargas ou pessoas, por via terrestre.",
+        "B": "fica dispensado da inscrição o prestador de serviço de transporte de carga intramunicipal.",
+        "C": "ficam dispensados da inscrição os partidos políticos e suas fundações, os templos de qualquer culto, as entidades sindicais de trabalhadores, as instituições de educação ou de assistência social, sem fins lucrativos.",
+        "D": "fica dispensada da inscrição a concessionária ou permissionária de serviço público de transporte interestadual ou intermunicipal, de comunicação ou de energia elétrica.",
+        "E": "fica dispensada da inscrição a pessoa física ou jurídica que, nos termos de disciplina estabelecida pela Secretaria da Fazenda, não praticar, com habitualidade, operações relativas à circulação de mercadoria ou prestações de serviços de transporte interestadual e intermunicipal e de comunicação."
+      }
+    },
+    {
+      "numero": 36,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "B",
+      "enunciado": "Em determinadas situações, o valor do ICMS devido deve ser recolhido por meio de uma guia de recolhimentos especiais.\n\nConforme o Regulamento do ICMS/SP, aprovado pelo Decreto (SP) 45.490, de 30 de novembro de 2000, o débito fiscal será recolhido, mediante guia de recolhimentos especiais,",
+      "alternativas": {
+        "A": "no momento da saída da mercadoria, caso se trate de operação de saída de mercadoria de estabelecimento beneficiador de produtos agrícolas, com destino a pessoa ou estabelecimento que a tiver remetido para beneficiamento.",
+        "B": "no momento do início da prestação, caso se trate de prestação de serviço de transporte de carga, com início em território paulista, realizada por empresa transportadora estabelecida fora do território paulista e não inscrita no Cadastro de Contribuintes do ICMS deste Estado, se não for aplicável a substituição tributária na prestação.",
+        "C": "até o sexto dia útil do mês subsequente ao da ocorrência do evento, quando estiver atribuída ao destinatário da mercadoria, ou ao tomador do serviço, a obrigação de pagar o imposto relativo à mercadoria entrada, real ou simbolicamente, em seu estabelecimento ou ao serviço tomado.",
+        "D": "na operação de saída de mercadoria realizada por estabelecimento rural de produtor, com destino a contribuinte neste Estado, sujeito ao Regime Periódico de Apuração e inscrito no Cadastro de Contribuintes do ICMS; no momento da saída.",
+        "E": "até o último dia do mês subsequente ao da entrada, caso se trate de entrada em estabelecimento de contribuinte paulista, de mercadoria destinada à industrialização ou comercialização, remetida por contribuinte localizado em outro Estado, no valor de 6% multiplicado pela base de cálculo."
+      }
+    },
+    {
+      "numero": 37,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "B",
+      "enunciado": "A empresa Pague Sempre, contribuinte do ICMS, localizada no Estado de São Paulo, que nunca tinha tido problemas com o Fisco, após ter sido fiscalizada por Auditor Fiscal da Receita Estadual do Estado de São Paulo, em 2025, teve lançamento de ofício de ICMS efetuado em seu nome, por meio de AIIM (Auto de Infração e Imposição de Multa), no valor total de 20 milhões de reais, em decorrência de falta de pagamento do imposto, por erro na aplicação da alíquota do ICMS, em operação de saída interna. Conforme o previsto na Lei n° 6.374, de 1° de março de 1989, a empresa foi notificada do lançamento e pode",
+      "alternativas": {
+        "A": "ter a multa reduzida ou relevada, no decorrer do julgamento do processo administrativo tributário, pelos órgãos julgadores administrativos, pois a falta de pagamento foi consequência de simples equívoco, sem qualquer dolo, fraude ou simulação.",
+        "B": "pagar o débito fiscal, integralmente, com desconto de 70% da multa de 35%, resultando em percentual de 10,5% do valor do imposto, no prazo de 30 dias, contados da notificação, se confessar expressamente, de forma irretratável, o débito fiscal e renunciar ao contencioso administrativo tributário.",
+        "C": "depositar, em dinheiro, a importância exigida a título de imposto, em qualquer fase do processo administrativo tributário, operando-se a extinção da exigência da multa e dos juros de mora, desde a data da ocorrência dos fatos descritos no AIIM.",
+        "D": "procurar a repartição fiscal, antes de qualquer procedimento de cobrança do fisco, para sanar irregularidade relacionada com o cumprimento de obrigação pertinente ao imposto, ficando a salvo das penalidades aplicadas.",
+        "E": "liquidar o débito fiscal exigido, mediante a utilização de crédito acumulado ou de ressarcimento do imposto, exceto na hipótese de AIIM decorrente de retenção antecipada por substituição tributária e de saída promovida por produtor rural."
+      }
+    },
+    {
+      "numero": 38,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "D",
+      "enunciado": "O Regulamento do ICMS/SP, aprovado pelo Decreto (SP) 45.490, de 30 de novembro de 2000, trata do lançamento e apuração do ICMS.\n\n## Segundo o Regulamento.",
+      "alternativas": {
+        "A": "para fins de centralização da apuração e do recolhimento do ICMS, os saldos devedores e credores, resultantes da apuração do imposto efetuada a cada período, em cada um dos estabelecimentos do mesmo titular, localizados em território nacional, deverão ser compensados centralizadamente, sendo o resultado, quando devedor, objeto de recolhimento único.",
+        "B": "na hipótese de contribuinte não obrigado a manter escrituração fiscal, o valor do imposto a recolher corresponderá à diferença entre o imposto devido sobre cada operação tributada e o cobrado na imediatamente anterior, no mesmo estabelecimento, em ordem cronológica inversa, nota a nota, qualquer que seja a mercadoria.",
+        "C": "o valor do imposto a recolher corresponderá sempre à diferença, em cada período de apuração, entre o imposto devido sobre as operações ou prestações internas tributadas e o imposto efetivamente cobrado e pago, pelo sujeito passivo, à Fazenda Pública paulista, relativamente às operações de entrada e aos serviços tomados, no estabelecimento, originadas no mesmo ou em outro Estado.",
+        "D": "o lançamento do imposto será feito nos documentos e nos livros fiscais, com a descrição da operação ou prestação, na forma prevista neste Regulamento, sendo essa atividade de exclusiva responsabilidade do contribuinte, ficando sujeita à posterior homologação pela autoridade administrativa.",
+        "E": "os estabelecimentos paulistas de contribuintes do ICMS, enquadrados no regime periódico de apuração, em relação às operações ou prestações efetuadas no período, apurarão, nos documentos fiscais emitidos, o valor total da base de cálculo das operações ou prestações com débito do imposto e o valor total do respectivo imposto debitado, e, nos documentos fiscais recebidos, o valor total da base de cálculo das operações ou das prestações com crédito do imposto e o valor total do respectivo imposto creditado."
+      }
+    },
+    {
+      "numero": 39,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "D",
+      "enunciado": "O Estado de São Paulo adota a Escrituração Fiscal Digital (EFD) para os contribuintes do ICMS, na forma prevista no Regulamento do ICMS/SP, aprovado pelo Decreto (SP) 45.490, de 30 de novembro de 2000.\n\n## Segundo o Regulamento.",
+      "alternativas": {
+        "A": "as operações, prestações e informações sujeitas à EFD consideram-se escrituradas nos livros fiscais, a partir do momento em que o arquivo digital da EFD tiver sido remetido para Secretaria da Fazenda.",
+        "B": "as obrigações de gerar, enviar e conservar o arquivo digital da EFD poderão ser substituídas pela impressão, em meio físico, no formato de livro de papel, das informações relativas a operações e prestações sujeitas à EFD, desde que o estabelecimento seja varejista e utilize Equipamento Emissor de Cupom Fiscal (ECF), em substituição à emissão do Cupom Fiscal Eletrônico (CF-e-SAT), modelo 59, e à Nota Fiscal de Consumidor Eletrônica (NFC-e), modelo 65.",
+        "C": "o arquivo digital da EFD deverá conter a assinatura digital do contribuinte, de seu contabilista, de seu representante legal e da Infra-Estrutura de Chaves Públicas Brasileira (ICP-Brasil), de forma a garantir a autenticidade, a veracidade e a integridade das informações nele contidas.",
+        "D": "a EFD deverá ser efetuada pelo contribuinte, mediante o registro eletrônico, em arquivo digital padronizado, de todas as operações, prestações e informações sujeitas à escrituração nos livros fiscais de Entradas, Saídas, Inventário, Apuração de ICMS, Apuração de IPI, Controle da Produção e do Estoque e de Movimentação de Combustíveis (LMC).",
+        "E": "o contribuinte deverá, para cada período de referência, relativamente a cada estabelecimento localizado em território nacional, gerar um único arquivo da EFD para cada livro escriturado e enviá-los, sequencialmente, apenas à Secretaria da Fazenda do Estado."
+      }
+    },
+    {
+      "numero": 40,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "E",
+      "enunciado": "Segundo o Regulamento do ICMS/SP, aprovado pelo Decreto (SP) 45.490, de 30 de novembro de 2000, o local da operação ou da prestação, para efeito de cobrança do ICMS no Estado de São Paulo, e para definição do estabelecimento responsável,",
+      "alternativas": {
+        "A": "no caso de captura de gado bovino, búfalos, cabras, javalis, capivaras, aves, peixes, crustáceos e moluscos, é o de desembarque do produto, do veículo usado na captura.",
+        "B": "tratando-se de prestação onerosa de serviço de comunicação, é o do domicílio do adquirente, no caso de a concessionária fornecer ficha, cartão, assemelhados ou qualquer outro instrumento liberatório do serviço, ainda que por débito em conta corrente ou meio eletrônico de dados.",
+        "C": "no caso de mercadoria para revenda, é o da sede da empresa remetente, ou da transportadora, quando em situação fiscal irregular pela falta de documentação fiscal, ou quando acompanhada de documentação inábil.",
+        "D": "tratando-se de operações ou prestações interestaduais destinadas a consumidor final localizado neste Estado, em relação à diferença entre a alíquota interna deste Estado e a alíquota interestadual, é o do estabelecimento do destinatário, quando o destinatário ou tomador não for contribuinte do imposto.",
+        "E": "tratando-se de mercadoria, é aquele onde se encontre, no momento da ocorrência do fato gerador, sendo que se presume interna a operação, caso o contribuinte não comprove a saída da mercadoria do território paulista, com destino a outro Estado, ou a sua efetiva exportação."
+      }
+    },
+    {
+      "numero": 41,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "C",
+      "enunciado": "O Regulamento do ICMS/SP, aprovado pelo Decreto (SP) 45.490, de 30 de novembro de 2000, no Título que trata da retenção antecipada, da suspensão, do diferimento e do pagamento antecipado do imposto, tem uma parte que trata, especificamente, das disposições gerais e da disciplina comum.\n\nNesta parte, o Regulamento prevê que, salvo disposição em contrário, não se inclui na sujeição passiva por substituição, subordinando-se às normas comuns da legislação, a saída de mercadoria promovida por estabelecimento responsável pela retenção do imposto, destinada a",
+      "alternativas": {
+        "A": "outro estabelecimento do mesmo titular, localizado no mesmo ou em outro Estado, desde que este não seja apenas escritório administrativo.",
+        "B": "estabelecimento paulista de contribuinte do ICMS, sujeito ao regime periódico de apuração do imposto.",
+        "C": "outro estabelecimento responsável pelo pagamento do imposto por sujeição passiva por substituição, em relação à mesma mercadoria ou a outra mercadoria enquadrada na mesma modalidade de substituição.",
+        "D": "estabelecimento paulista, quando o destinatário for contribuinte do ICMS, optante pelo Regime Tributário do Simples Nacional.",
+        "E": "estabelecimento importador ou atacadista, no Estado de São Paulo, de mercadoria idêntica ou distinta, enquadrada, porém, na mesma modalidade de substituição."
+      }
+    },
+    {
+      "numero": 42,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "B",
+      "enunciado": "A Constituição Federal trata de diversos aspectos do ICMS, sendo que um dos temas tratados é relativo à necessidade de ação coordenada dos Estados e do Distrito Federal, para conceder benefícios tributários referentes a esse imposto.\n\nO Regulamento do ICMS/SP, aprovado pelo Decreto (SP) 45.490, de 30 de novembro de 2000, seguindo o disposto na Constituição Federal, prevê que, nas operações interestaduais destinadas a contribuinte paulista, beneficiadas ou incentivadas em desacordo com o disposto na alínea \"g\" do inciso XII do § 2º do artigo 155 da Constituição Federal, o imposto correspondente ao valor do benefício ou incentivo deverá,",
+      "alternativas": {
+        "A": "se devidamente destacado no documento fiscal referente à operação, ser integralmente creditado pelo destinatário, independentemente de o remetente o recolher ao Estado de São Paulo.",
+        "B": "nas operações interestaduais sujeitas ao regime de substituição tributária, ser recolhido ao Estado de São Paulo, pelo adquirente da mercadoria, podendo tal recolhimento ser feito, conforme o caso, pelo remetente da mercadoria, a favor deste Estado, por meio de Guia Nacional de Recolhimento de Tributos Estaduais (GNRE).",
+        "C": "após ação de fiscalização e lançamento, por meio de Auto de Infração e Imposição de Multa (AIIM), ser recolhido pelo estabelecimento paulista destinatário da mercadoria, sem juros e multa, no prazo de até 60 dias, sendo permitida ainda compensação do valor exigido com crédito acumulado, próprio ou de terceiros.",
+        "D": "até o último dia útil do mês da ocorrência da entrada da mercadoria no estabelecimento, ser recolhido por meio de lançamento em conta gráfica, no campo outros débitos, indicando a ocorrência como benefício fiscal glosado.",
+        "E": "excepcionalmente, ser dispensado, nos casos em que o remetente ou o destinatário comprovarem, antecipadamente ou em resposta a notificação específica, conforme disciplina estabelecida pela Secretaria da Fazenda, que o benefício concedido não afeta a arrecadação tributária de ICMS no Estado de São Paulo."
+      }
+    },
+    {
+      "numero": 43,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "C",
+      "enunciado": "Gastão e Isabel, que sempre foram domiciliados em Taubaté/SP, eram casados pelo regime da comunhão parcial de bens e, na vigência do casamento, tiveram quatro filhos comuns, a saber: Victória, Pedro, Antônio e Luís, todos domiciliados em Petrópolis/RJ. No momento em que Gastão faleceu, o patrimônio comum do casal era de R$ 2.400.000,00, depositados em caderneta de poupança. Gastão, todavia, ainda tinha bens particulares, no montante de R$ 300.000,00, também depositados em caderneta de poupança. Por meio de testamento, Gastão deixou para seu sobrinho, Alex, a importância de R$ 60.000,00, que deveria ser paga com recursos provenientes de sua meação nos bens comuns. Relativamente a Luís, este filho renunciou à sua herança a favor de seu irmão Pedro. Ao final do processo de inventário e partilha dos bens, coube a I. Isabel a importância total de R$ 1.275.000,00; II. Victória a importância total de R$ 341.250,00; III. Pedro a importância total de R$ 682.500,00; IV. Antônio a importância total de R$ 341.250,00; V. Alex a importância total de R$ 60.000,00. Luís não ficou com nada. Diante das informações acima e com base na Lei estadual (SP) nº 10.705/00, de 28 de dezembro de 2000, em benefício do erário paulista,",
+      "alternativas": {
+        "A": "não ocorreu nenhum fato gerador causa mortis, relativamente a Alex.",
+        "B": "ocorreram dois fatos geradores causa mortis, relativamente a Isabel.",
+        "C": "não ocorreu nenhum fato gerador causa mortis, relativamente a Luís.",
+        "D": "ocorreram três fatos geradores causa mortis, relativamente a Isabel.",
+        "E": "ocorreu um fato gerador causa mortis, relativamente a Luís."
+      }
+    },
+    {
+      "numero": 44,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "C",
+      "enunciado": "No que se refere à alíquota do ICMS a ser aplicada por contribuinte localizado no Estado de São Paulo, o Regulamento do ICMS/SP, aprovado pelo Decreto (SP) 45.490, de 30 de novembro de 2000, prevê que",
+      "alternativas": {
+        "A": "no cálculo do imposto correspondente à diferença entre a alíquota interna e a alíquota interestadual, na saída de mercadoria de estabelecimento localizado em outra unidade federada, com destino a consumidor final não contribuinte, localizado neste Estado, caso haja, no Estado de origem, incentivo ou benefício fiscal concedido nos termos da alínea \"g\" do inciso XII do § 2º do artigo 155 da Constituição Federal, a alíquota interestadual a ser utilizada será aquela que corresponda à carga tributária efetivamente cobrada pelo Estado de origem.",
+        "B": "haverá um acréscimo de 1,5% na alíquota do ICMS, aplicável a todas as operações interestaduais destinadas a consumidor final localizado neste Estado, cujo valor apurado será destinado, por este Estado, ao Fundo Estadual de Combate e Erradicação da Pobreza (FECOEP), e tal acréscimo poderá ser compensado, pelo do sujeito passivo, com saldo credor ou crédito acumulado de ICMS.",
+        "C": "são internas, para fins de definição de alíquota aplicável, as operações com mercadorias entregues a consumidor final, não contribuinte do imposto no território deste Estado, independentemente do local de seu domicílio ou da sua eventual condição de inscrito no Cadastro de Contribuintes do ICMS de outra unidade federada.",
+        "D": "são interestaduais, para fins de definição de alíquota aplicável, as prestações de serviço de transporte de passageiros iniciadas no território deste Estado, com destino a outro Estado ou ao Distrito Federal, qualquer que seja o tomador do serviço, o local de sua residência ou domicílio, ou sua situação cadastral neste ou em outro Estado.",
+        "E": "as alíquotas de 4% e de 7% aplicam-se apenas nas operações interestaduais, e as alíquotas de 18%, 20%, 25% e 35% aplicam-se apenas às operações ou prestações internas."
+      }
+    },
+    {
+      "numero": 45,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "B",
+      "enunciado": "Quando Edmundo faleceu, em fevereiro de 2025, ele deixou os seguintes bens imóveis, de sua propriedade: uma casa, localizada em Cuiabá/MT, alugada para um advogado da cidade, e um terreno, localizado em Caraguatatuba/SP, alugado para uma instituição de benemerência, localizada no Município de Paraty/RJ. Deixou, ainda, a importância de R$ 200.000,00, depositada em caderneta de poupança, em agência bancária do Município de São Paulo/SP, e um automóvel seminovo, licenciado em Ribeirão Preto/SP. Edmundo estava domiciliado no Distrito Federal/DF, quando veio a falecer, motivo pelo qual o processo judicial de inventário foi aberto no DF. Seu filho Heitor é seu único herdeiro, e estava domiciliado em Ribeirão Preto/SP, na data do óbito do pai.\n\nCom base nas informações prestadas acima e de acordo com a disciplina estabelecida no Decreto estadual (SP) nº 46.655, de 1º de abril de 2002, cabe ITCMD ao Estado de São Paulo, relativamente APENAS à transmissão",
+      "alternativas": {
+        "A": "da casa.",
+        "B": "do terreno.",
+        "C": "do veículo automotor.",
+        "D": "dos R$ 200.000,00.",
+        "E": "do veículo automotor, dos R$ 200.000,00 e do terreno."
+      }
+    },
+    {
+      "numero": 46,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "D",
+      "enunciado": "A empresa Carro na Mao, pessoa juridica regularmente inscrita e em funcionamento, desenvolve a atividade regular de comércio de veículos usados (36% de seu faturamento bruto), de desmanche de veículos (18% de seu faturamento bruto) e de locação de veículos (46% de seu faturamento bruto). Sua frota destinada à locação é composta de 20 veículos automotores de passeio, todos movidos exclusivamente a gasolina, e de 5 caminhonetes cabine simples, sendo que todos os 25 veículos se encontram registrados no Estado de São Paulo.\n\nO proprietário da empresa, no entanto, surpreendeu-se no momento de fazer o pagamento do IPVA referente ao exercício de 2025, pois o referido imposto foi calculado e cobrado com base nas alíquotas de 4% (veículos de passeio) e 2% (caminhonetes), e não na alíquota de 1%, que é a fixada para a tributação de veículos colocados em locação.\n\nCom base nessas informações e na disciplina estabelecida na Lei estadual (SP) n° 13.296, de 23 de dezembro de 2008, a referida empresa deve ter o IPVA calculado com base na alíquota de",
+      "alternativas": {
+        "A": "1%, apenas em relação aos veículos de passeio.",
+        "B": "2%, tanto em relação às caminhonetes como em relação aos veículos de passeio.",
+        "C": "1%, apenas em relação às caminhonetes.",
+        "D": "2%, em relação às caminhonetes, e de 4% em relação aos veículos de passeio, tal como foi feito pela Fazenda Pública.",
+        "E": "1%, tanto em relação às caminhonetes como em relação aos veículos de passeio."
+      }
+    },
+    {
+      "numero": 47,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "A",
+      "enunciado": "Considere as seguintes informações:\n\nI. Na data do óbito de Cristina, que sempre teve domicílio em São Paulo/SP, seu patrimônio total era de R$ 1.000.000,00, aplicado em caderneta de poupança. Dois anos depois, no momento determinado para que os herdeiros recolhessem o ITCMD devido, o valor depositado já era de R$ 1.100.000,00, razão pela qual a Fazenda Pública paulista entendeu que o ITCMD devido deveria ser calculado sobre este último montante.\n\nII. Dinorah era uma das 7 herdeiras legais de seu pai, sendo que o pai e as filhas eram domiciliados no Estado de São Paulo; não obstante isso, Dinorah também foi beneficiada por meio do testamento que ele deixou, destinando-lhe um legado tão vultoso que corresponderia a três vezes o valor do quinhão de herança que cada uma das sete herdeiras legais receberia. Em razão disso, Dinorah renunciou pura e simplesmente ao seu quinhão de herança, mas aceitou o polpudo legado, que consistia em uma aplicação financeira.\n\nIII. Douglas, domiciliado em São Paulo/SP, recebeu, em 2024, um quinhão de herança (representado por aplicações financeiras) deixada por seu tio Abelardo, também domiciliado em São Paulo/SP, no montante equivalente a 4.000 UFESPs; no final de 2024, ele decidiu doar essa importância recebida de herança, destinando a sua sobrinha Marli, quantia equivalente a 1.000 UFESPs, e a sua sobrinha Sofia, quantia equivalente a 3.000 UFESPs. Marli recebeu menos do que Sofia porque, naquele mesmo ano, ela já havia recebido outra doação de Douglas, em montante equivalente a 1.600 UFESPs.\n\nDiante das informações prestadas e da disciplina estabelecida pelo Decreto estadual n° (SP) 46.655, de 1 de abril de 2002, a Fazenda Pública paulista poderá cobrar o ITCMD, relativamente ao item",
+      "alternativas": {
+        "A": "II, apenas sobre o valor do legado recebido; relativamente ao item III, tanto sobre o valor recebido como herança por Douglas, como sobre o valor das duas doações feitas.",
+        "B": "I, sobre o montante total de R$ 1.100.000,00; relativamente ao item II, tanto sobre o valor do quinhão, como sobre o valor do legado.",
+        "C": "I, apenas sobre o montante de R$ 1.000.000,00; relativamente ao item III, somente em relação à doação feita a Sofia.",
+        "D": "I, sobre o valor total médio de R$ 1.050.000,00; relativamente ao item II, apenas sobre o valor do legado recebido.",
+        "E": "I, sobre o montante total de R$ 1.100.000,00; relativamente ao item III, somente no tocante à transmissão causa mortis do valor equivalente às 4.000 UFESPs."
+      }
+    },
+    {
+      "numero": 48,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "C",
+      "enunciado": "Venâncio e seus amigos, estudantes de poucos recursos, decidiram construir, em 2024, um veículo automotor com partes e peças avulsas, para poder ir com ele para a faculdade de engenharia onde estudavam, que ficava a 30 km da cidade em que eram domiciliados, no interior paulista.\n\nAntes, porém, de iniciar essa empreitada, eles procuraram orientação de advogado experiente em tributação, que lhes informou que não estavam impedidos de construir um veículo automotor próprio, mas que deveriam estar atentos para as seguintes regras de tributação do IPVA:\n\nI. a base de cálculo do imposto, relativamente ao primeiro exercício em que ele for tributado, corresponderá à soma dos valores históricos de aquisição de suas partes e peças, acrescido das despesas que incorrerem na sua montagem, e que, para os exercícios subsequentes, a Secretaria da Fazenda poderá adotar, como base de cálculo, um valor equivalente a 95% do valor utilizado no ano imediatamente anterior.\n\nII. a alíquota aplicada à base de cálculo será de 4%;\n\nIII. o primeiro fato gerador ocorrerá na data em que sua utilização for autorizada pela autoridade competente, sendo que, nos demais exercícios, ele ocorrerá em 1º de janeiro.\n\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "I, II e III.",
+        "B": "II, apenas.",
+        "C": "II e III, apenas.",
+        "D": "I, apenas.",
+        "E": "I e III, apenas."
+      }
+    },
+    {
+      "numero": 49,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "A",
+      "enunciado": "A prática de ato processual, depois de escoado o prazo determinado pela legislação do processo administrativo tributário, acarreta, como regra, a perda do direito de a parte interessada praticar esse ato. Isso acontece, inclusive, em relação à defesa que o contribuinte pode apresentar, em decorrência de Auto de Infração e Imposição de Multa (AIIM) lavrado em seu nome.\n\nEm razão disso, considerando o disposto na Lei estadual (SP) n° 13.457, de 18 de março de 2009, e considerando que o dia 18 (sexta-feira) e o dia 21 (segunda-feira) de abril de 2025 foram datas de feriado nacional, se um contribuinte tiver sido notificado da lavratura de AIIM, validamente, por edital publicado no Diário Oficial do Estado de São Paulo do dia 16 de abril de 2025, a notificação de lavratura do AIIM será considerada feita a esse contribuinte, no dia",
+      "alternativas": {
+        "A": "22/04/2025, e o prazo para a apresentação de defesa será de 15 dias corridos.",
+        "B": "21/04/2025, e o prazo para a apresentação de defesa será de 15 dias úteis.",
+        "C": "16/04/2025, e o prazo para a apresentação de defesa será de 15 dias úteis.",
+        "D": "25/04/2025, e o prazo para a apresentação de defesa será de 30 dias corridos.",
+        "E": "17/04/2025, e o prazo para a apresentação de defesa será de 30 dias úteis."
+      }
+    },
+    {
+      "numero": 50,
+      "materia": "Legislação Tributária Avancada",
+      "gabarito": "A",
+      "enunciado": "Um contribuinte do ICMS do Estado de São Paulo promoveu a importação de mercadoria do exterior, a ser desembaraçada no porto de Santos/SP. Tendo conhecimento de que a Fazenda Pública paulista considera que não há isenção do ICMS na importação dessa mercadoria do exterior e que, por causa disso, haverá exigência do pagamento do ICMS no momento do desembaraço aduaneiro dessa mercadoria, esse contribuinte, que discorda do entendimento acerca da isenção, impetrou, por meio de seu advogado, mandado de segurança, com o objetivo exclusivo de obter provimento judicial para impedir que a autoridade federal exija o comprovante do pagamento do ICMS, no momento do desembaraço aduaneiro.\n\nO provimento judicial foi concedido, mas o contribuinte teria de efetuar o depósito administrativo integral do crédito tributário a ser pago no momento do desembaraço, o qual, aliás, estava em vias de ocorrer. O referido depósito foi feito integralmente.\n\nTendo em conta os fatos narrados acima e a disciplina estabelecida pela Lei estadual n° (SP) 13.457, de 18 de março de 2009,",
+      "alternativas": {
+        "A": "o contribuinte, quando recorreu ao Poder Judiciário, pleiteando a não exibição de comprovante de pagamento do imposto no desembaraço aduaneiro, não desistiu de discutir, no processo administrativo tributário decorrente de AIIM a ser lavrado, matéria distinta da tratada no processo judicial em curso.",
+        "B": "não cabe mais à autoridade administrativa tomar qualquer providência em relação ao lançamento e à cobrança do ICMS nessa situação, porque, desde que o contribuinte optou por recorrer à via judicial, a Procuradoria Geral do Estado passou a ter competência plena para efetuar o lançamento e a cobrança do crédito tributário.",
+        "C": "o Auditor Fiscal da Receita Estadual de São Paulo deverá abster-se de lavrar Auto de Infração e Imposição de Multa, porque a impetração do mandado de segurança o impede de efetuar essa lavratura.",
+        "D": "o Auditor Fiscal da Receita Estadual de São Paulo deverá promover a lavratura do Auto de Infração e Imposição de Multa, apenas se o depósito efetuado não for acrescido dos acréscimos de mora e de atualização monetária cabíveis, estimados na decisão judicial.",
+        "E": "o Auditor Fiscal da Receita Estadual de São Paulo deverá promover a lavratura do Auto de Infração e Imposição de Multa, para evitar a decadência, mas o contribuinte não poderá defender-se no processo administrativo tributário decorrente do AIIM lavrado, para discutir a questão referente à isenção do imposto, porque recorreu à via judicial para desembaraçar a mercadoria sem a exibição do comprovante de recolhimento do ICMS."
+      }
+    },
+    {
+      "numero": 51,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "C",
+      "enunciado": "No dia 31/12/2022, uma empresa realizou uma aplicação financeira no valor de R$1.000.000 remunerados à taxa de juros compostos de 10% ao ano e com vencimento para 31/12/2026. Os títulos foram classificados como mensurados ao valor justo por meio de outros resultados abrangentes e os valores justos de mercado desses títulos em 31 de dezembro de cada ano são apresentados a seguir:\n\n<table>Datas 31/12/2023 31/12/2024 31/12/2025 Valor Justo (em R$) 1.140.000 1.130.000 1.290.000</table>\n\nSabendo que esses títulos foram resgatados pela empresa em 31/12/2025 pelo valor justo na data, os impactos reconhecidos nas Demonstrações dos Resultados dos anos de 2023, 2024 e 2025, decorrentes exclusivamente dessa aplicação financeira, foram, respectivamente, em reais,",
+      "alternativas": {
+        "A": "140.000 positivos, 10.000 negativos e 160.000 positivos.",
+        "B": "140.000 positivos, 100.000 positivos e 50.000 positivos.",
+        "C": "100.000 positivos, 110.000 positivos e 80.000 positivos.",
+        "D": "100.000 positivos, 110.000 positivos e 121.000 positivos.",
+        "E": "100.000 positivos, 30.000 positivos e 160.000 positivos."
+      }
+    },
+    {
+      "numero": 52,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "D",
+      "enunciado": "A empresa Só Financiamentos S.A. realizou, em 31/12/2024, um contrato de arrendamento de uma máquina que será utilizada em suas operações. A vida útil econômica estimada para a máquina é 10 anos e não terá valor de revenda. O contrato será pago em 5 prestações anuais, iguais e consecutivas de R$561.568, a taxa implícita do contrato é 4% a.a. e a primeira prestação vencerá em 31/12/2025. Sabendo-se que, na data de início do contrato, o valor justo da máquina era R$2.600.000, o valor presente das prestações do contrato era R$2.500.000 e que a empresa pretende ficar com a máquina no final do prazo do contrato, a empresa Só Financiamentos S.A. reconheceu",
+      "alternativas": {
+        "A": "um passivo de R$2.807.840, em 31/12/2024.",
+        "B": "um impacto negativo no resultado de 2025 no valor de R$350.000.",
+        "C": "um ativo de R$2.600.000, em 31/12/2024.",
+        "D": "uma despesa de depreciação de R$500.000 no resultado de 2025.",
+        "E": "um impacto negativo no resultado de 2025 no valor de R$561.568."
+      }
+    },
+    {
+      "numero": 53,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "C",
+      "enunciado": "Para consolidar um investimento em uma empresa no exterior, é necessária a conversão das demonstrações contábeis da empresa investida para a moeda funcional da investidora. Em relação ao processo de conversão,",
+      "alternativas": {
+        "A": "quando da consolidação de uma entidade no exterior cujo controle não é integral, a participação dos minoritários nas variações cambiais acumuladas advindas da conversão não deve ser reconhecida no balanço patrimonial consolidado.",
+        "B": "quando ocorre a venda de uma entidade no exterior, o montante acumulado de variação cambial, reconhecido em outros resultados abrangentes no balanço patrimonial da investidora, deve ser transferido para a conta de lucros acumulados, como ajustes de reclassificação, no período em que o resultado da venda for reconhecido.",
+        "C": "o ágio por expectativa de rentabilidade futura (goodwill) originado da aquisição de entidade no exterior deve ser tratado como ativo da entidade no exterior. Assim, deve ser expresso na moeda funcional dessa entidade no exterior e a variação cambial decorrente da conversão pela taxa de câmbio de fechamento deve ser reconhecida em outros resultados abrangentes.",
+        "D": "os ativos e os passivos devem ser convertidos às taxas de câmbio históricas nas datas das respectivas operações.",
+        "E": "as receitas e as despesas devem ser convertidas à taxa de câmbio de fechamento na data do Balanço Patrimonial."
+      }
+    },
+    {
+      "numero": 54,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "A",
+      "enunciado": "Sabendo que a Participação dos Não Controladores da Cia. Controlada foi avaliada pela parte que lhes cabe no valor justo líquido dos ativos e passivos identificáveis da empresa adquirida e que a Cia. Investidora não reconheceu nenhuma perda por redução ao valor recuperável (impairment) em relação ao investimento na empresa Flores S.A., ao elaborar as Demonstrações Financeiras Consolidadas em 31/12/2024, o valor reconhecido no grupo Ativo Intangível, na conta Ágio pago por Expectativa de Rentabilidade Futura, foi, em reais,\n\nAtenção: Utilize os dados a seguir para responder às questões de números 54 e 55.\n\nEm 31/12/2023, a Cia. Investidora adquiriu 90% das ações da empresa Flores S.A., pagando o valor de R$ 60.000.000 à vista e passando a deter seu controle. Na data da aquisição, o Patrimônio Líquido contabilizado da empresa Flores S.A. era R$ 40.000.000 e o valor justo líquido dos ativos e passivos identificáveis, de acordo com o laudo de avaliação, era R$ 50.000.000, sendo essa diferença correspondente ao valor de um terreno que havia sido adquirido em 2018. Durante o ano de 2024, a empresa Flores S.A. reconheceu as seguintes mutações em seu Patrimônio Líquido: • Prejuízo do ano de 2024: R$ 4.000.000. • Ganhos em ativos financeiros mensurados ao valor justo por meio de outros resultados abrangentes: R$ 2.000.000.",
+      "alternativas": {
+        "A": "18.600.000.",
+        "B": "20.000.000.",
+        "C": "10.000.000.",
+        "D": "15.000.000.",
+        "E": "16.800.000."
+      }
+    },
+    {
+      "numero": 55,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "A",
+      "enunciado": "Com base nas informações apresentadas, os valores reconhecidos na conta Investimentos em Controladas, nos Balanços Patrimoniais individuais da Cia. Investidora em 31/12/2023 e 31/12/2024 foram, respectivamente, em reais,\n\nAtenção: Utilize os dados a seguir para responder às questões de números 54 e 55.\n\nEm 31/12/2023, a Cia. Investidora adquiriu 90% das ações da empresa Flores S.A., pagando o valor de R$ 60.000.000 à vista e passando a deter seu controle. Na data da aquisição, o Patrimônio Líquido contabilizado da empresa Flores S.A. era R$ 40.000.000 e o valor justo líquido dos ativos e passivos identificáveis, de acordo com o laudo de avaliação, era R$ 50.000.000, sendo essa diferença correspondente ao valor de um terreno que havia sido adquirido em 2018. Durante o ano de 2024, a empresa Flores S.A. reconheceu as seguintes mutações em seu Patrimônio Líquido: • Prejuízo do ano de 2024: R$ 4.000.000. • Ganhos em ativos financeiros mensurados ao valor justo por meio de outros resultados abrangentes: R$ 2.000.000.",
+      "alternativas": {
+        "A": "60.000.000 e 58.200.000.",
+        "B": "45.000.000 e 41.400.000.",
+        "C": "60.000.000 e 56.400.000.",
+        "D": "36.000.000 e 34.200.000.",
+        "E": "45.000.000 e 43.200.000."
+      }
+    },
+    {
+      "numero": 56,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "A",
+      "enunciado": "Em 15/12/2025, uma empresa realizou uma venda a prazo no valor total de US$ 200.000 (duzentos mil dólares). Sabendo que a cotação do dólar era R$ 5,20 em 15/12/2025, passou para R$ 5,50 em 31/12/2025 e que a cotação média do mês de dezembro de 2025 foi R$ 5,30, a empresa reconheceu, no mês de dezembro de 2025, receita de vendas no valor de",
+      "alternativas": {
+        "A": "R$ 1.040.000 e uma receita de variação cambial de R$ 20.000.",
+        "B": "R$ 1.040.000 e uma receita de variação cambial de R$ 60.000.",
+        "C": "R$ 1.060.000 e uma receita de variação cambial de R$ 40.000.",
+        "D": "R$ 1.040.000, apenas.",
+        "E": "R$ 1.100.000, apenas."
+      }
+    },
+    {
+      "numero": 57,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "A",
+      "enunciado": "A empresa comercial Direto da Fonte S.A. realizou as seguintes vendas durante o mês de dezembro de 2025:\n\n<table>Data Valores em Reais (R$) Data de vencimento 01/12/2025 9.100.000 01/06/2027 15/12/2025 2.100.000 À vista 29/12/2025 1.700.000 À vista</table>\n\nA taxa de juros praticada pela empresa para as vendas a prazo, em dezembro de 2025, era de 1,5% ao mês, sendo que a taxa equivalente para o período de 01/12/2025 a 01/06/2027 era 30%.\n\nA empresa reconheceu na Demonstração do Resultado do ano de 2025, especificamente em relação às vendas efetuadas no mês de dezembro de 2025, receita de vendas no valor de",
+      "alternativas": {
+        "A": "R$ 10.800.000,00 e receita financeira no valor de R$ 2.100.000.",
+        "B": "R$ 10.170.000 e receita financeira no valor de R$ 2.730.000.",
+        "C": "R$ 12.900.000, apenas.",
+        "D": "R$ 10.800.000, apenas.",
+        "E": "R$ 10.800.000 e receita financeira no valor de R$ 105.000."
+      }
+    },
+    {
+      "numero": 58,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "B",
+      "enunciado": "A empresa comercial Aços S.A. apresentou a seguinte Demonstração do Resultado do ano de 2024 (valores em reais):\n\nReceita Bruta de Vendas 980.000\n\n(-) Impostos sobre vendas 240.000\n\n(=) Receita Líquida 740.000\n\n(-) Custo das Mercadorias Vendidas 470.000\n\n(=) Lucro Bruto 270.000\n\n(-) Despesas operacionais\n\nDespesa de depreciação 50.000\n\nDespesa com salários 30.000\n\nPerdas estimadas com crédito de liquidação duvidosa 5.000\n\n(+) Receitas financeiras 20.000\n\n(=) Lucro antes do IR e CSLL 205.000\n\n(-) IR e CSLL 55.000\n\n(=) Lucro Líquido 150.000\n\nO valor dos tributos recuperáveis, referentes aos produtos que foram vendidos no ano de 2024, totalizava R$ 45.000. Com base nestas informações, o Valor Adicionado Total a Distribuir pela empresa, no ano de 2024, foi, em reais,",
+      "alternativas": {
+        "A": "465.000.",
+        "B": "435.000.",
+        "C": "415.000.",
+        "D": "430.000.",
+        "E": "410.000."
+      }
+    },
+    {
+      "numero": 59,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "A",
+      "enunciado": "Em 31/12/2024, a empresa Surpresa S.A. possuía um investimento em empresa no exterior (coligada) e as seguintes informações contábeis nesta data eram conhecidas:\n\n• Valor contábil: R$ 4.600.000\n\n• Ajustes acumulados de conversão: R$ 200.000 (saldo credor)\n\nEm 31/12/2024, a empresa Surpresa S.A. vendeu 75% de sua participação nessa empresa no exterior por R$ 4.800.000 à vista e a participação remanescente (25%) passou a ser considerada um ativo financeiro, pois a empresa Surpresa S.A. perdeu a influência significativa na investida. O valor justo da participação remanescente na data da venda era R$ 1.500.000.\n\nCom base nestas informações, o resultado que a empresa Surpresa S.A. reconheceu na Demonstração de Resultados, relacionado com a alienação de parte do investimento e com a perda de influência significativa sobre o saldo remanescente, foi, em reais,",
+      "alternativas": {
+        "A": "1.350.000.",
+        "B": "1.900.000.",
+        "C": "400.000.",
+        "D": "1.500.000.",
+        "E": "1.700.000."
+      }
+    },
+    {
+      "numero": 60,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "D",
+      "enunciado": "O valor, em reais, correspondente ao Caixa das Atividades de Financiamentos é:\n\nAtenção: Utilize os dados a seguir para responder às questões de números 60 e 61.\n\nCaricaturas S.A.\n\nBalanços Patrimoniais em 31/12/23 e 31/12/24\n\n<table>ATIVO 31/12/2023 31/12/2024 PASSIVO 31/12/2023 31/12/2024 Ativo circulante 370.000 352.000 Passivo circulante 425.000 470.000 Caixa e Equivalentes de Caixa 120.000 82.000 Fornecedores 120.000 70.000 Clientes 110.000 150.000 Dividendos a Pagar 25.000 12.000 Estoques 140.000 120.000 Empréstimos 280.000 388.000 Ativo não circulante 465.000 592.000 Patrimônio Líquido 410.000 474.000 Investimentos 128.000 172.000 Capital 300.000 330.000 Imobilizado Reservas de Lucros 110.000 144.000 Maquinas e Equipamentos 260.000 420.000 Terrenos 77.000 TOTAL DO ATIVO 835.000 944.000 TOTAL DO PASSIVO + PL 835.000 944.000</table>\n\nCaricaturas S.A.\n\nDemonstração do Resultado – 01/01/24 a 31/12/24\n\nAs seguintes informações adicionais, referentes ao ano de 2024, são conhecidas:\n\n• A empresa não vendeu participações societárias nem máquinas e equipamentos.\n\n• Não liquidou qualquer empréstimo e não pagou as despesas financeiras do ano.\n\n• A venda do terreno foi efetuada à vista.\n\n• O aumento de capital foi realizado da seguinte forma: 50% em dinheiro e o restante com incorporação de reservas de lucros.",
+      "alternativas": {
+        "A": "123.000 (positivo).",
+        "B": "71.000 (positivo).",
+        "C": "56.000 (positivo).",
+        "D": "46.000 (positivo).",
+        "E": "58.000 (positivo)."
+      }
+    },
+    {
+      "numero": 61,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "B",
+      "enunciado": "O valor, em reais, correspondente ao Caixa das Atividades de Investimentos é:\n\nAtenção: Utilize os dados a seguir para responder às questões de números 60 e 61.\n\nCaricaturas S.A.\n\nBalanços Patrimoniais em 31/12/23 e 31/12/24\n\n<table>ATIVO 31/12/2023 31/12/2024 PASSIVO 31/12/2023 31/12/2024 Ativo circulante 370.000 352.000 Passivo circulante 425.000 470.000 Caixa e Equivalentes de Caixa 120.000 82.000 Fornecedores 120.000 70.000 Clientes 110.000 150.000 Dividendos a Pagar 25.000 12.000 Estoques 140.000 120.000 Empréstimos 280.000 388.000 Ativo não circulante 465.000 592.000 Patrimônio Líquido 410.000 474.000 Investimentos 128.000 172.000 Capital 300.000 330.000 Imobilizado Reservas de Lucros 110.000 144.000 Maquinas e Equipamentos 260.000 420.000 Terrenos 77.000 TOTAL DO ATIVO 835.000 944.000 TOTAL DO PASSIVO + PL 835.000 944.000</table>\n\nCaricaturas S.A.\n\nDemonstração do Resultado – 01/01/24 a 31/12/24\n\nAs seguintes informações adicionais, referentes ao ano de 2024, são conhecidas:\n\n• A empresa não vendeu participações societárias nem máquinas e equipamentos.\n\n• Não liquidou qualquer empréstimo e não pagou as despesas financeiras do ano.\n\n• A venda do terreno foi efetuada à vista.\n\n• O aumento de capital foi realizado da seguinte forma: 50% em dinheiro e o restante com incorporação de reservas de lucros.",
+      "alternativas": {
+        "A": "141.000 (negativo).",
+        "B": "113.000 (negativo).",
+        "C": "32.000 (negativo).",
+        "D": "127.000 (negativo).",
+        "E": "218.000 (negativo)."
+      }
+    },
+    {
+      "numero": 62,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "C",
+      "enunciado": "A empresa Sol & Chuva S.A. adquiriu um imóvel em 31/12/2023 e o classificou como propriedade para investimento. O imóvel foi adquirido da seguinte forma:\n\n• Entrada, no valor de R$ 500.000.\n\n• Parcela de R$ 1.120.000, para ser paga em 31/12/2024.\n\n• Parcela de R$ 1.505.280, para ser paga em 31/12/2025.\n\nAdicionalmente, a empresa incorreu nos seguintes gastos:\n\n• Impostos e taxas para registro do imóvel: R$ 50.000\n\n• Reformas necessárias para deixar o imóvel em condições de uso: R$ 200.000\n\nO imóvel possui uma vida útil econômica estimada de 50 anos e a empresa definiu como política contábil o método do valor justo. Sabendo que, na data da aquisição do imóvel, a taxa de juros compostos era de 12% a.a., e que os valores justos do imóvel em 31/12/2024 e 31/12/2025 eram R$ 3.500.000 e R$ 3.300.000, respectivamente, a empresa Sol & Chuva S.A. reconheceu",
+      "alternativas": {
+        "A": "um ganho de R$ 350.000 no resultado de 2024.",
+        "B": "uma despesa de depreciação de R$ 59.000, em 2024 e em 2025.",
+        "C": "um ativo no valor de R$ 3.375.280, em 31/12/2023.",
+        "D": "um ativo no valor de R$ 2.950.000, em 31/12/2023.",
+        "E": "um ativo no valor de R$ 2.700.000, em 31/12/2023."
+      }
+    },
+    {
+      "numero": 63,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "B",
+      "enunciado": "No que se refere a subvenções, considere:\n\nI. As subvenções governamentais recebidas gratuitamente devem ser reconhecidas diretamente no patrimônio líquido da entidade.\n\nII. As subvenções devem ser reconhecidas na demonstração do resultado nos períodos em que a entidade reconhece os custos relacionados à subvenção recebida.\n\nIII. A contrapartida da subvenção governamental registrada no ativo deve ser feita em conta específica do passivo, enquanto não atendidos os requisitos para reconhecimento da receita com subvenção na demonstração do resultado.\n\nIV. Caso o valor da subvenção deva ser obrigatoriamente retido na entidade, tal valor, após transitar pela demonstração do resultado, deve ser contabilizado em conta apropriada do patrimônio líquido (reserva de incentivos fiscais) para comprovação dessa condição.\n\nEstá correto o que se afirma APENAS em",
+      "alternativas": {
+        "A": "III e IV.",
+        "B": "II, III e IV.",
+        "C": "I e II.",
+        "D": "I, II e IV.",
+        "E": "I e III."
+      }
+    },
+    {
+      "numero": 64,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "A",
+      "enunciado": "Considere:\n\nI. O uso de estimativas razoáveis é parte essencial da elaboração de demonstrações contábeis e não reduz sua confiabilidade.\n\nII. São exemplos de estimativas contábeis: ajuste para perdas esperadas de crédito, valor líquido realizável de um item de estoque e despesa de depreciação para um item do ativo imobilizado.\n\nIII. Os efeitos de mudanças nas estimativas contábeis são reconhecidos nas demonstrações contábeis de forma prospectiva, a partir da data dessa mudança.\n\nIV. A entidade deve corrigir os erros materiais de períodos anteriores de forma retrospectiva, a partir da data em que tal erro foi identificado, salvo quando for impraticável determinar os efeitos específicos do período ou o efeito cumulativo do erro.\n\nEstá correto o que se afirma em",
+      "alternativas": {
+        "A": "I, II, III e IV.",
+        "B": "III e IV, apenas.",
+        "C": "I e II, apenas.",
+        "D": "I e III, apenas.",
+        "E": "II e IV, apenas."
+      }
+    },
+    {
+      "numero": 65,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "E",
+      "enunciado": "Para produzir seu único produto, a empresa Só Indústria S.A. incorreu nos seguintes gastos durante o mês de dezembro de 2025: • Compra de matéria-prima: R$ 50.000 (líquido dos tributos recuperáveis) • Fretes e seguros para transporte das matérias-primas até a fábrica: R$ 2.500 (não inclusos no valor da matéria-prima acima). • Mão de obra direta: R$ 12.000 • Remuneração da supervisão da fábrica: R$ 15.000 • Aluguel do galpão industrial: R$ 21.000 • Remuneração da administração geral da empresa: R$ 26.000 • Depreciação dos ativos utilizados na produção: R$ 9.000 • Comissão dos vendedores: R$ 5.000 • Outros custos indiretos de produção: R$ 7.000 • Materiais consumidos na administração geral da empresa: R$ 2.500 • Encargos financeiros de empréstimos obtidos: R$ 3.000\n\nO estoque inicial de matéria-prima era R$ 6.000, o estoque final R$ 4.500 e não havia estoque de produtos em elaboração no início e no fim de dezembro de 2025. Sabendo que os gastos da administração geral da empresa não são rateados para o setor de produção, o custo da produção acabada no período utilizando o custeio por absorção foi, em reais,",
+      "alternativas": {
+        "A": "120.500.",
+        "B": "154.500.",
+        "C": "116.500.",
+        "D": "111.000.",
+        "E": "118.000."
+      }
+    },
+    {
+      "numero": 66,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "C",
+      "enunciado": "Em 01/12/2025, a empresa Sonhos & Cia. obteve um empréstimo no valor de R$ 10.000.000 com as seguintes características:\n\n▪ Prazo total: 8 anos.\n\n▪ Taxa de juros compostos: 11% ao ano.\n\n▪ Pagamentos: parcelas iguais e anuais de R$ 1.943.210,54, com vencimento em 01 de dezembro.\n\nPara a obtenção do empréstimo, a empresa incorreu em custos de transação no valor total de R$ 571.927,00, pagos no ato da assinatura. Sabendo que a taxa de custo efetivo da emissão foi de 1% ao mês (equivalente a 12,68% ao ano), a empresa Sonhos & Cia",
+      "alternativas": {
+        "A": "reconheceu, no momento da captação, um passivo de R$ 10.000.000,00.",
+        "B": "apresentou, no Balanço Patrimonial de 31/12/2025, um passivo de R$ 9.428.073,00.",
+        "C": "apresentou, no Balanço Patrimonial de 31/12/2025, um passivo de R$ 9.522.353,73.",
+        "D": "reconheceu, na Demonstração do Resultado de 2025, despesa financeira de R$ 100.000,00.",
+        "E": "reconheceu, na Demonstração do Resultado de 2025, despesa financeira de R$ 571.927,00."
+      }
+    },
+    {
+      "numero": 67,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "A",
+      "enunciado": "Sabendo que a empresa industrial Canecas S.A. utiliza o Método de Custeio por Absorção, o custo unitário da produção do período foi, em reais,\n\nAtenção: Utilize os dados a seguir para responder às questões de números 67 e 68.\n\nA empresa industrial Canecas S.A. produz um único produto e, para produzir integralmente 5.000 unidades desse produto, incorreu nos seguintes gastos durante o mês de janeiro de 2026:\n\n▪ Custos fixos: R$ 30.000\n\n▪ Custos variáveis:\n\n• Matéria-prima: R$ 8/unidade\n\n• Mão de obra direta: R$ 6/unidade\n\n▪ Despesas fixas: R$ 15.000\n\n▪ Despesas variáveis: R$ 4/unidade\n\n▪ Comissões de venda: 10% do preço de venda\n\nInformações adicionais:\n\n▪ Preço de venda: R$ 60/unidade\n\n▪ Impostos sobre a Venda: 10% da receita de vendas\n\n▪ Quantidade vendida: 2.000 unidades",
+      "alternativas": {
+        "A": "20.",
+        "B": "24.",
+        "C": "27.",
+        "D": "14.",
+        "E": "18."
+      }
+    },
+    {
+      "numero": 68,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "E",
+      "enunciado": "O ponto de equilíbrio da empresa industrial Canecas S.A., em unidades vendidas, é:\n\nAtenção: Utilize os dados a seguir para responder às questões de números 67 e 68.\n\nA empresa industrial Canecas S.A. produz um único produto e, para produzir integralmente 5.000 unidades desse produto, incorreu nos seguintes gastos durante o mês de janeiro de 2026:\n\n▪ Custos fixos: R$ 30.000\n\n▪ Custos variáveis:\n\n• Matéria-prima: R$ 8/unidade\n\n• Mão de obra direta: R$ 6/unidade\n\n▪ Despesas fixas: R$ 15.000\n\n▪ Despesas variáveis: R$ 4/unidade\n\n▪ Comissões de venda: 10% do preço de venda\n\nInformações adicionais:\n\n▪ Preço de venda: R$ 60/unidade\n\n▪ Impostos sobre a Venda: 10% da receita de vendas\n\n▪ Quantidade vendida: 2.000 unidades",
+      "alternativas": {
+        "A": "1.250.",
+        "B": "1.023.",
+        "C": "1.500.",
+        "D": "500.",
+        "E": "1.000."
+      }
+    },
+    {
+      "numero": 69,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "E",
+      "enunciado": "No mês de dezembro de 2025, uma empresa produziu 3.000 unidades do seu único produto e, para a produção dessas unidades, incorreu nos seguintes gastos:\n\nMatéria-prima: R$ 20 por unidade\n\nMão de obra direta: R$ 12 por unidade\n\nDespesas variáveis de venda: R$ 8 por unidade\n\nDespesas fixas: R$ 27.000,00\n\nCustos fixos indiretos: R$ 39.000,00\n\nCustos fixos diretos: R$ 12.000,00\n\nSabendo que a empresa adota o método de custeio por absorção, que o preço unitário de venda praticado pela empresa é R$ 600, que os impostos sobre a venda correspondem a 10% do preço de venda, que a empresa paga comissões de venda de 5% do preço de venda por unidade vendida, que não havia estoque inicial e que foram vendidas 1.200 unidades, o",
+      "alternativas": {
+        "A": "custo unitário de produção foi R$ 45.",
+        "B": "resultado líquido apurado pela empresa no mês de dezembro de 2025 foi R$ 526.200.",
+        "C": "valor do estoque final em dezembro de 2025 era R$ 88.200.",
+        "D": "custo unitário de produção foi R$ 32.",
+        "E": "custo dos produtos vendidos em dezembro de 2025 foi R$ 68.400."
+      }
+    },
+    {
+      "numero": 70,
+      "materia": "Contabilidade Avançada e de Custos",
+      "gabarito": "A",
+      "enunciado": "A empresa Emagreça & Beleza produz 3 medicamentos utilizando um único departamento. Ao analisar o processo produtivo no mês de janeiro de 2025, a empresa obteve as seguintes informações:\n\n<table>Produto Matéria-prima Mão de obra direta Quantidade total produzida Preço de venda Horas de mão de obra direta 1 R$100/unidade R$200/unidade 1.000 R$1.200/unidade 1h/unidade 2 R$200/unidade R$100/unidade 1.500 R$1.800/unidade 2h/unidade 3 R$400/unidade R$100/unidade 2.000 R$2.400/unidade 1h/unidade</table>\n\nA empresa utiliza o método de custeio por absorção e aloca os custos indiretos aos produtos em função da quantidade de horas de mão de obra direta utilizada. Sabendo que os custos indiretos totais incorridos, no mês de janeiro de 2025, totalizaram R$ 1.800.000 e que não havia estoques iniciais e finais de produtos em processo, os custos unitários de produção, no mês de janeiro de 2025, para os produtos 1, 2 e 3 foram, respectivamente, em reais,",
+      "alternativas": {
+        "A": "600; 900; 800.",
+        "B": "900; 700; 800.",
+        "C": "300; 300; 500.",
+        "D": "700; 700; 900.",
+        "E": "750; 750; 950."
+      }
+    },
+    {
+      "numero": 71,
+      "materia": "Noções de Informática",
+      "gabarito": "A",
+      "enunciado": "Uma equipe de fiscalização deseja gerar um relatório priorizando contribuintes cujo volume de NF-e emitidas seja atípico. A tabela nfe contém, entre outras, as colunas contribuinte_id e qtd_emitidas. Deseja-se listar os contribuintes cuja quantidade emitida no mês seja maior que 5000 ou menor que 10, ordenando a saída do maior para o menor valor de qtd_emitidas. O comando SQL que atende ao requisito é: SELECT contribuinte_id,",
+      "alternativas": {
+        "A": "qtd_emitidas FROM nfe WHERE qtd_emitidas > 5000 OR qtd_emitidas < 10 ORDER BY qtd_emitidas DESC;",
+        "B": "qtd_emitidas FROM nfe WHERE NOT (qtd_emitidas > 5000 OR qtd_emitidas < 10) ORDER BY qtd_emitidas DESC;",
+        "C": "qtd_emitidas FROM nfe WHERE qtd_emitidas > 5000 AND qtd_emitidas < 10 ORDER BY qtd_emitidas DESC;",
+        "D": "MAX(qtd_emitidas) AS qtd_emitidas FROM nfe WHERE qtd_emitidas > 5000 OR qtd_emitidas < 10 GROUP BY contribuinte_id;",
+        "E": "qtd_emitidas FROM nfe WHERE qtd_emitidas BETWEEN 10 AND 5000 ORDER BY qtd_emitidas;"
+      }
+    },
+    {
+      "numero": 72,
+      "materia": "Noções de Informática",
+      "gabarito": "D",
+      "enunciado": "Um órgão fazendário estadual fiscaliza o transporte de cargas e mantém bases de NF-e e declarações tributárias com dados pessoais e sensíveis. A legislação tributária fixa prazos mínimos de guarda, enquanto a LGPD permite retenção apenas pelo tempo necessário e sob certas condições para fins estatísticos. Encerrados os prazos legais, o órgão quer seguir fazendo análises estatísticas de longo prazo. Nesse cenário, a política de retenção e descarte que atende a esses requisitos é:",
+      "alternativas": {
+        "A": "Definir prazo de retenção alinhado à legislação tributária, compactar as bases antigas em um servidor isolado, preservar todos os dados identificáveis e justificar a ausência de descarte pelo baixo custo de armazenamento.",
+        "B": "Reduzir o prazo de retenção para período inferior ao previsto na legislação tributária, descartando os dados antes do término do prazo legal para diminuir riscos de incidentes de segurança.",
+        "C": "Manter indefinidamente todos os registros identificáveis em produção e em backups enquanto houver interesse institucional em análises estatísticas.",
+        "D": "Definir prazo de retenção alinhado à legislação tributária e, ao final, aplicar anonimização irreversível aos identificadores pessoais, preservando apenas dados anonimizados para análises estatísticas.",
+        "E": "Excluir os registros dos ambientes de produção ao fim do prazo legal, respeitando a legislação tributária, mas mantê-los identificáveis em mídias de backup para análises estatísticas."
+      }
+    },
+    {
+      "numero": 73,
+      "materia": "Noções de Informática",
+      "gabarito": "C",
+      "enunciado": "Uma Secretaria da Fazenda verificou que os acessos às declarações de contribuintes são registrados na mesma tabela de negócio, podem ser alterados por DBAs e que registros antigos são apagados para liberar espaço. A fiscalização pediu um redesenho que aumente a integridade e a rastreabilidade dos acessos às declarações, sem prejudicar a disponibilidade do sistema. Nesse cenário, o redesign que atente à exigência de integridade e rastreabilidade forte é",
+      "alternativas": {
+        "A": "restringir permissões de administrador a um grupo menor de DBAs e habilitar a auditoria nativa do SGBD apenas para eventos considerados críticos, mantendo o registro dos acessos às declarações na mesma tabela de negócio, com controles de acesso baseados em perfis e funções.",
+        "B": "configurar rotina de limpeza automática que exclua periodicamente os logs mais antigos, combinada com políticas de backup e restauração do banco, garantindo que o volume de dados de auditoria permaneça reduzido e o banco responda mais rapidamente às consultas de produção.",
+        "C": "implementar trilhas de auditoria imutáveis e apenas de inclusão (append-only), com registros assinados digitalmente e horário sincronizado, armazenadas em repositório segregado do banco transacional.",
+        "D": "consolidar dados de negócio e logs em uma única tabela particionada por período, ampliando a capacidade de armazenamento e aplicando triggers para impedir alterações manuais diretas, mantendo, porém, todos os registros no mesmo esquema lógico utilizado pelas transações operacionais.",
+        "E": "implementar um job diário que exporta os logs para arquivo externo assinado digitalmente em servidor de arquivos dedicado, removendo em seguida os registros antigos da base transacional para otimizar desempenho e liberar espaço em disco no banco de dados principal."
+      }
+    },
+    {
+      "numero": 74,
+      "materia": "Noções de Informática",
+      "gabarito": "B",
+      "enunciado": "No desenvolvimento de um modelo de detecção de contribuintes com alto risco de simulação de operações, após definir claramente com a área de fiscalização quais tipos de fraude serão priorizados, quais indicadores de negócio serão acompanhados (como aumento de autos de infração qualificados e redução de fiscalizações improdutivas) e quais restrições legais e operacionais existem para uso do modelo, a equipe de uma Secretaria da Fazenda registra esses critérios e alinha expectativas com a alta gestão. Com base na metodologia CRISP-DM, essa descrição se encaixa principalmente na fase de",
+      "alternativas": {
+        "A": "Modeling.",
+        "B": "Business Understanding.",
+        "C": "Evaluation.",
+        "D": "Data Understanding.",
+        "E": "Data Preparation."
+      }
+    },
+    {
+      "numero": 75,
+      "materia": "Noções de Informática",
+      "gabarito": "B",
+      "enunciado": "Um sistema estadual de arrecadação consolida diariamente indicadores tributários provenientes de múltiplas fontes e, para acelerar leituras repetitivas desses indicadores já consolidados, a equipe de Dados está avaliando armazená-los em um banco NoSQL do tipo chave-valor. Considerando as características desse modelo de dados, a justificativa que melhor fundamenta essa escolha é:",
+      "alternativas": {
+        "A": "Suporte para recuperação de valores por chave com latência muito baixa, adequado a leituras repetitivas.",
+        "B": "Habilidade de distribuir grandes volumes de indicadores entre diversos nós utilizando estratégias de particionamento por chave, favorecendo escalabilidade horizontal em cenários de alta demanda e leituras repetitivas.",
+        "C": "Integração com frameworks de análise em lote que utilizam chaves de agrupamento para processar periodicamente grandes volumes de dados tributários consolidados com leituras repetitivas.",
+        "D": "Possibilidade de organizar indicadores tributários em estruturas desnormalizadas onde cada conjunto consolidado é tratado como um registro chaveado, reduzindo a dependência de consultas internas e externas.",
+        "E": "Capacidade de aplicar políticas de replicação baseadas em chaves de partição, garantindo que indicadores críticos permaneçam disponíveis e acelerando leituras repetitivas, mesmo sob falhas de nós."
+      }
+    },
+    {
+      "numero": 76,
+      "materia": "Noções de Informática",
+      "gabarito": "E",
+      "enunciado": "Uma Secretaria da Fazenda Estadual recebeu uma base de dados contendo 2,3 milhões de registros de declarações fiscais para análise de conformidade tributária. Durante a fase de exploração inicial, a equipe técnica identificou diversos problemas: campos de CNPJ com formatações inconsistentes (alguns com pontuação, outros sem), valores monetários registrados com separadores decimais divergentes (vírgula e ponto), datas em formatos distintos (DD/MM/AAAA, AAAA-MM-DD), campos obrigatórios vazios em aproximadamente 12% dos registros, e a presença de valores extremos de receita bruta (outliers) que distorciam as análises estatísticas. Além disso, a variável \"regime tributário\" apresentava categorias redundantes devido a erros de digitação (ex: \"Simples Nacional\", \"SIMPLES NACIONAL\", \"Simples nacional\"). Para viabilizar a análise de risco fiscal e a construção de modelos preditivos, tomou-se necessário aplicar técnicas sistemáticas de preparação dos dados antes do processamento analítico. Considerando as melhores práticas de pré-processamento de dados, o tratamento correto e adequado para essa situação é",
+      "alternativas": {
+        "A": "aplicar tokenização em campos textuais para fragmentar as informações em unidades menores, utilização de técnicas de stemming e lemmatização para uniformizar as categorias de regime tributário, implementação de métodos de detecção de anomalias baseados em Isolation Forest para identificar registros fiscais suspeitos e preenchimento de valores ausentes mediante algoritmos de interpolação linear ou polinomial, assegurando a completude da base de dados para processamento posterior.",
+        "B": "iniciar com a aplicação de técnicas de feature scaling através de padronização z-score em todas as variáveis numéricas para centralizá-las em média zero e desvio padrão unitário, seguida de codificação ordinal para variáveis categóricas respeitando hierarquias naturais, detecção de outliers multivariados mediante distância de Mahalanobis e imputação de dados faltantes exclusivamente por valores constantes predefinidos conforme regras de negócio tributário, evitando métodos estatísticos que alterem distribuições originais.",
+        "C": "priorizar, inicialmente, a exclusão automática de todos os registros que apresentem campos obrigatórios vazios, seguida da aplicação de técnicas de winsorização para substituir valores extremos pelos percentis 5 e 95, padronização das strings mediante conversão para maiúsculas e remoção de acentuação, garantindo assim a integridade da base sem necessidade de imputação de dados faltantes que poderia introduzir viés nas análises tributárias.",
+        "D": "aplicar técnicas de normalização min-max em todas as variáveis numéricas para escaloná-las entre 0 e 1, realizar a codificação one-hot encoding nas variáveis categóricas incluindo a variável regime tributário, implementar detecção de outliers através do método de Tukey (IQR) com remoção automática dos valores identificados e utilizar forward fill para preencher dados faltantes sequencialmente, preservando a ordenação temporal dos registros fiscais.",
+        "E": "padronizar formatos mediante expressões regulares para unificar CNPJ, valores monetários e datas em padrões consistentes, tratamento de dados faltantes através de análise contextual para decidir entre imputação (por média, mediana ou algoritmos como KNN) ou exclusão baseada em criticidade, normalização de texto com conversão para caixa baixa, remoção de espaços extras para eliminar duplicatas categóricas e análise criteriosa de outliers distinguindo valores legítimos de erros de registro antes de qualquer ação corretiva."
+      }
+    },
+    {
+      "numero": 77,
+      "materia": "Noções de Informática",
+      "gabarito": "A",
+      "enunciado": "A Secretaria da Fazenda de determinado Estado implementou uma solução corporativa para centralizar dados fiscais provenientes de múltiplas fontes heterogêneas: declarações de contribuintes, notas fiscais eletrônicas, dados cadastrais e informações de fiscalizações. A equipe técnica precisava garantir escalabilidade, processamento de grandes volumes e capacidade analítica para identificar irregularidades tributárias. Após análise, optou-se por uma arquitetura que permite armazenar dados brutos em formato nativo, aplicar transformações sob demanda mediante ferramentas de processamento distribuído e disponibilizar estruturas otimizadas para consultas analíticas pelos auditores fiscais, mantendo a governança através de controles transacionais sobre os metadados.\n\n## A arquitetura implementada",
+      "alternativas": {
+        "A": "constitui um Data Lakehouse, que combina a flexibilidade do armazenamento de dados brutos em formato nativo com capacidades de processamento estruturado e consultas analíticas otimizadas, aplicando camadas de gerenciamento transacional sobre metadados mediante protocolos como Delta Lake ou Apache Iceberg, viabilizando transformações sob demanda e governança de dados para análises tributárias complexas.",
+        "B": "representa um Data Lake federado com camadas de virtualização, que integram fontes heterogêneas mediante conectores distribuídos sem replicação física dos dados, aplicando transformações em tempo real através de processamento streaming para disponibilizar visões consolidadas aos usuários fiscais, mantendo os dados originais nos sistemas de origem com acesso mediante queries federadas.",
+        "C": "corresponde a um Data Warehouse tradicional, pois consolida dados estruturados mediante processos ETL prévios, aplicando modelagem dimensional em esquema estrela para viabilizar consultas OLAP pelos gestores tributários, garantindo consistência transacional através de protocolos ACID nas camadas de apresentação dos dados fiscais consolidados.",
+        "D": "corresponde a um Data Mart departamental, uma vez que atende exclusivamente às demandas analíticas da área tributária, implementando subconjuntos especializados dos dados corporativos com modelagem otimizada para relatórios gerenciais, utilizando processos de extração incremental dos sistemas transacionais para alimentar as estruturas dimensionais específicas do domínio fiscal.",
+        "E": "caracteriza um Data Lake convencional, que armazena dados em estado bruto sem aplicar transformações prévias, utilizando o método point to data para suportar volumes massivos de metadados."
+      }
+    },
+    {
+      "numero": 78,
+      "materia": "Noções de Informática",
+      "gabarito": "C",
+      "enunciado": "Determinada Secretaria da Fazenda implementou um sistema de IA para classificar automaticamente declarações fiscais quanto ao risco de irregularidade. Após seis meses de operação, auditores identificaram que o modelo estava atribuindo pontuações de risco sistematicamente mais altas para empresas de setores específicos, mesmo quando os indicadores financeiros eram similares aos de outros setores com pontuações menores. A análise técnica revelou que a base de dados histórica utilizada no treinamento continha proporcionalmente mais autuações em determinados setores devido a fiscalizações direcionadas realizadas no passado, e não necessariamente por maior incidência real de irregularidades. O modelo aprendeu e perpetuou esse padrão desproporcional. O problema de governança e ética em IA que está caracterizado nessa situação é:",
+      "alternativas": {
+        "A": "Violação de privacidade, pois o modelo está acessando dados sensíveis dos contribuintes sem autorização legal e utilizando informações protegidas pela legislação tributária para treinamento.",
+        "B": "Falta de explicabilidade, pois o sistema não consegue fornecer justificativas compreensíveis sobre os motivos que levaram à classificação de risco de cada declaração fiscal individual.",
+        "C": "Viés algorítmico, pois o modelo reproduz desproporções presentes nos dados de treinamento, gerando discriminação sistemática contra determinados grupos sem justificativa técnica objetiva.",
+        "D": "Alucinação do modelo, pois o sistema está gerando classificações de risco fictícias que não correspondem aos dados reais inseridos pelos contribuintes nas declarações fiscais.",
+        "E": "Falta de transparência, pois os contribuintes e auditores não têm acesso aos critérios e variáveis utilizados pelo algoritmo para calcular as pontuações de risco atribuídas."
+      }
+    },
+    {
+      "numero": 79,
+      "materia": "Noções de Informática",
+      "gabarito": "D",
+      "enunciado": "Uma Secretaria da Fazenda Estadual precisa analisar 500 mil declarações fiscais para identificar contribuintes com comportamento tributário similar, sem ter exemplos prévios de classificação. A equipe técnica deve agrupar as empresas considerando apenas as características declaradas (receita, despesas, setor, localização) e descobrir padrões naturais nos dados.\n\nA técnica mais adequada para essa tarefa é:",
+      "alternativas": {
+        "A": "Árvores de decisão, pois criam regras hierárquicas de classificação baseadas em variáveis fiscais usando exemplos rotulados de empresas regulares e irregulares.",
+        "B": "Análise de séries temporais, pois identifica tendências e padrões sazonais na arrecadação tributária ao longo do tempo para projeções futuras de receita.",
+        "C": "Regressão logística, pois classifica empresas em categorias de risco fiscal utilizando variáveis preditoras numéricas e categóricas com base em histórico de autuações anteriores.",
+        "D": "K-means clustering, pois agrupa empresas por similaridade sem necessidade de rótulos prévios, identificando padrões naturais nos dados declarados pelos contribuintes.",
+        "E": "Redes neurais profundas, pois aprendem representações complexas dos dados fiscais através de múltiplas camadas ocultas treinadas com backpropagation supervisionado."
+      }
+    },
+    {
+      "numero": 80,
+      "materia": "Noções de Informática",
+      "gabarito": "B",
+      "enunciado": "Uma Secretaria da Fazenda Estadual está reestruturando seu modelo de governança de dados fiscais. Atualmente, três áreas distintas gerenciam dados tributários: a Coordenadoria de Fiscalização, a Subsecretaria de Arrecadação e a Diretoria de Tecnologia da Informação. Cada área mantém seus próprios padrões de qualidade, políticas de acesso e definições de metadados, gerando inconsistências nas análises. Para resolver o problema, a alta administração decidiu criar uma estrutura de governança onde representantes das três áreas se reúnem periodicamente para deliberar sobre políticas, padrões e prioridades relacionadas aos dados tributários. As decisões sobre frameworks de qualidade, taxonomias de metadados e diretrizes de acesso são tomadas através de votação pelos membros, com cada área tendo poder de voto proporcional ao volume de dados sob sua responsabilidade. Adicionalmente, foram estabelecidos padrões corporativos mínimos obrigatórios, enquanto cada área mantém autonomia para decisões operacionais específicas de seus processos internos, desde que em conformidade com os padrões aprovados pelo grupo deliberativo.\n\nNesse caso, a governança de dados implementada foi",
+      "alternativas": {
+        "A": "federada, pois estabelece padrões corporativos centrais enquanto permite que cada área mantenha controle operacional sobre seus próprios dados e processos locais.",
+        "B": "colegiada, pois as decisões são tomadas por um comitê com representantes de múltiplas áreas através de consenso e participação coletiva nas definições.",
+        "C": "centralizada, pois concentra as decisões sobre dados tributários em um único comitê central que define políticas uniformes para todas as áreas da Secretaria.",
+        "D": "descentralizada, pois mantém a autonomia das três coordenadorias para tomarem decisões independentes sobre seus respectivos conjuntos de dados fiscais.",
+        "E": "compartilhada, pois distribui responsabilidades entre tecnologia e negócio, com a área de TI implementando infraestrutura e as áreas fiscais definindo regras tributárias."
+      }
+    }
+  ]
+}
