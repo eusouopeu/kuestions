@@ -3,7 +3,7 @@
  * Preferences. */
 import { all, one, toBool } from "../db";
 import { pontosResposta, type ConfiancaResposta } from "../pontuacaoTopicos";
-import { COND_BLOCO_FEITO } from "./blocos";
+import { COND_BLOCO_FECHADO, COND_BLOCO_FEITO } from "./blocos";
 import { condLenta } from "./questoes";
 import { contarConceitos } from "./notas";
 
@@ -47,14 +47,15 @@ export async function resumo(materia: string | null, nivel: number | null = null
   };
 }
 
-/** Série temporal: % de acerto por bloco, em ordem cronológica. */
+/** Série temporal: % de acerto por bloco FECHADO, em ordem cronológica — bloco
+ * gerado e não terminado não entra (ver COND_BLOCO_FECHADO). */
 export async function serieBlocos(
   materia: string | null,
 ): Promise<{ i: number; pct: number; ts: string; materia: string }[]> {
   const rows = await all(
     `SELECT ts, materia, total_acertos, total_questoes
      FROM blocos
-     WHERE total_questoes > 0 AND ${COND_BLOCO_FEITO} ${materia ? "AND materia = ?" : ""}
+     WHERE total_questoes > 0 AND ${COND_BLOCO_FEITO} AND ${COND_BLOCO_FECHADO} ${materia ? "AND materia = ?" : ""}
      ORDER BY ts ASC`,
     materia ? [materia] : [],
   );

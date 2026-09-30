@@ -40,7 +40,14 @@ import {
 } from "../lib/blocoUtils";
 import { useContextoConfig } from "./gerar/useContextoConfig";
 import { formatarUSD, situacaoTeto } from "../lib/custo";
-import { getRascunho, limparRascunho, salvarRascunho, type RascunhoBloco } from "../lib/blocoRascunho";
+import {
+  getRascunho,
+  getRascunhosPorBloco,
+  limparRascunho,
+  salvarRascunho,
+  type RascunhoBloco,
+} from "../lib/blocoRascunho";
+import { getUltimaConfigIA, salvarUltimaConfigIA } from "../lib/ultimaConfigIA";
 import { gerarTagAssunto } from "../lib/texto";
 import {
   blocosDeMateria,
@@ -134,6 +141,12 @@ export default function GerarView({
   // drill, diferente do abandono explícito (que já tratava só a saída manual).
   const [rascunho, setRascunho] = useState<RascunhoBloco | null>(null);
   const [restaurandoRascunho, setRestaurandoRascunho] = useState(false);
+  // Rascunhos de TODOS os blocos deixados pela metade, por id — é o que torna
+  // um bloco da lista "Últimos blocos" retomável (ver lib/blocoRascunho.ts).
+  const [rascunhosPorBloco, setRascunhosPorBloco] = useState<Map<number, RascunhoBloco>>(new Map());
+  // Tipo de cobrança, formato e dificuldade ficam recolhidos por padrão e
+  // já vêm preenchidos com os do último bloco gerado (ver lib/ultimaConfigIA.ts).
+  const [avancadoAberto, setAvancadoAberto] = useState(false);
 
   const [modoTopico, setModoTopico] = useState<ModoTopico>("todos");
   // O cartão de recomendação (Nunca praticados) começa fechado — é um
@@ -154,6 +167,12 @@ export default function GerarView({
   useEffect(() => {
     getComExplicacoesIA().then(setComExplicacoes);
     getMostrarRecomendacoes().then(setMostrarRecomendacoes);
+  }, []);
+
+  useEffect(() => {
+    getUltimaConfigIA().then((u) => {
+      if (u) setCfg((atual) => ({ ...atual, tipos: u.tipos, formato: u.formato, nivel: u.nivel }));
+    });
   }, []);
 
   // Padrão sutil: abre já numa das 5 matérias com menos questões respondidas,
@@ -232,6 +251,13 @@ export default function GerarView({
     });
   const [confirmandoCusto, setConfirmandoCusto] = useState(false);
 
+  // Recarrega os rascunhos ao (re)abrir a tela de configuração: um bloco
+  // recém-deixado pela metade precisa aparecer como retomável em "Últimos blocos".
+  useEffect(() => {
+    if (tela !== "config") return;
+    getRascunhosPorBloco().then(setRascunhosPorBloco).catch(() => {});
+  }, [tela]);
+
   // Persiste o progresso do drill a cada avanço (novo sub-bloco recebido,
   // resposta gravada) — ver lib/blocoRascunho.ts. Não salva antes do 1º
   // sub-bloco chegar (nada pago na API ainda) nem depois de restaurar um
@@ -307,6 +333,7 @@ export default function GerarView({
   }
 
   async function iniciarBloco() {
+    void salvarUltimaConfigIA(cfg);
     const tams = tamanhosSubs(quantidade, Q_POR_SUB);
     const numSubs = tams.length;
     setTamanhos(tams);
@@ -444,7 +471,7 @@ export default function GerarView({
       // já sai no nível sugerido, em vez de só narrar a sugestão em texto e
       // exigir que o usuário volte a "Ajustar configuração" para subir.
       if (passou) setCfg((atual) => ({ ...atual, nivel: Math.min(atual.nivel + 1, 5) }));
-      void limparRascunho();
+      void limparRascunho(blocoId);
       setTela("resultado");
       // Repõe a fila de blocos pré-gerados (rec. 12) logo ao fechar um bloco
       // — momento em que o usuário provavelmente segue online e prestes a
@@ -476,7 +503,7 @@ export default function GerarView({
           console.error("encerrar bloco", e);
         }
       }
-      await limparRascunho();
+      await limparRascunho(blocoId);
     } finally {
       setAbandonando(false);
       setConfirmandoAbandono(false);
@@ -527,8 +554,8 @@ export default function GerarView({
   }
 
   function descartarRascunho() {
+    if (rascunho) void limparRascunho(rascunho.blocoId);
     setRascunho(null);
-    void limparRascunho();
   }
 
   /* ---------- CONFIG ---------- */
@@ -793,6 +820,36 @@ export default function GerarView({
         </div>
 
         <div style={{ marginBottom: 18 }}>
+          <button
+            onClick={() => setAvancadoAberto((v) => !v)}
+            aria-expanded={avancadoAberto}
+            style={{
+              display: "flex",
+              width: "100%",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 10,
+              textAlign: "left",
+              background: "none",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
+            }}
+          >
+            <span style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8 }}>
+              COBRANÇA · FORMATO · DIFICULDADE
+            </span>
+            <span style={{ ...mono, fontSize: 11, color: C.sub, flexShrink: 0 }}>
+              {avancadoAberto
+                ? "▲"
+                : `${cfg.tipos.length} tipo${cfg.tipos.length === 1 ? "" : "s"} · ${
+                    FORMATOS.find((f) => f.id === cfg.formato)?.label ?? cfg.formato
+                  } · N${cfg.nivel} ▼`}
+            </span>
+          </button>
+          {avancadoAberto && (
+            <div style={{ marginTop: 14 }}>
+        <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Tipo de cobrança</label>
           <div style={{ fontSize: 12.5, color: C.sub, margin: "-4px 0 8px" }}>
             {cfg.tipos.length > 1
@@ -924,6 +981,10 @@ export default function GerarView({
           </div>
         </div>
 
+            </div>
+          )}
+        </div>
+
         <div style={{ marginBottom: 20 }}>
           <label style={rotulo}>Quantidade de questões</label>
           <div style={{ display: "flex", alignItems: "stretch", gap: 8 }}>
@@ -1005,25 +1066,60 @@ export default function GerarView({
             <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
               ÚLTIMOS BLOCOS
             </div>
-            {hist.map((b) => (
-              <div
-                key={b.id}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  padding: "8px 0",
-                  borderBottom: `1px solid ${C.line}`,
-                  fontSize: 13,
-                }}
-              >
-                <span>
-                  {b.materia} · {b.nivel > 0 ? `N${b.nivel}` : "banco"}
-                </span>
-                <span style={{ ...mono, color: b.aprovado ? C.ok : C.ink }}>
-                  {b.total_acertos}/{b.total_questoes}
-                </span>
-              </div>
-            ))}
+            {hist.map((b) => {
+              // Gerado mas não terminado: destacado em cor e, havendo rascunho
+              // do bloco, clicável para retomar de onde parou.
+              const aberto = b.por_sub.length === 0;
+              const r = aberto ? rascunhosPorBloco.get(b.id) : undefined;
+              const conteudo = (
+                <>
+                  <span>
+                    {b.materia} · {b.nivel > 0 ? `N${b.nivel}` : "banco"}
+                  </span>
+                  {aberto ? (
+                    <span style={{ ...mono, color: C.caneta, fontWeight: 600 }}>
+                      {r
+                        ? `em andamento · ${r.qIdx + 1}/${r.tamanhos?.reduce((a, n) => a + n, 0) ?? b.total_questoes} →`
+                        : "incompleto"}
+                    </span>
+                  ) : (
+                    <span style={{ ...mono, color: b.aprovado ? C.ok : C.ink }}>
+                      {b.total_acertos}/{b.total_questoes}
+                    </span>
+                  )}
+                </>
+              );
+              const estilo = {
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 10,
+                padding: aberto ? "8px 10px" : "8px 0",
+                borderBottom: `1px solid ${C.line}`,
+                fontSize: 13,
+                ...(aberto ? { background: C.canetaSoft, borderRadius: 6 } : {}),
+              } as const;
+              return r ? (
+                <button
+                  key={b.id}
+                  onClick={() => continuarRascunho(r)}
+                  style={{
+                    ...estilo,
+                    width: "100%",
+                    textAlign: "left",
+                    cursor: "pointer",
+                    border: "none",
+                    borderBottom: `1px solid ${C.line}`,
+                    color: C.ink,
+                  }}
+                >
+                  {conteudo}
+                </button>
+              ) : (
+                <div key={b.id} style={estilo}>
+                  {conteudo}
+                </div>
+              );
+            })}
             <Botao tipo="fantasma" style={{ marginTop: 12, fontSize: 13, padding: 9 }} onClick={onDados}>
               Ver desempenho completo
             </Botao>

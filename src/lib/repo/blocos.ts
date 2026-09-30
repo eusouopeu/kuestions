@@ -14,6 +14,15 @@ import type { Bloco, Config } from "../types";
 export const COND_BLOCO_FEITO =
   "(SELECT COUNT(*) FROM questoes_respondidas qr WHERE qr.bloco_id = blocos.id AND qr.resposta != '') > 2";
 
+/**
+ * Bloco fechado (`fecharBloco` já rodou): `por_sub` sai de '[]' ao fechar, seja
+ * por chegar à última questão, seja por "Encerrar bloco" (aí `total_questoes`
+ * já foi reduzido ao que foi respondido — questão pulada de propósito conta).
+ * Bloco gerado e largado pela metade, sem nenhum dos dois, fica de fora das
+ * estatísticas de desempenho.
+ */
+export const COND_BLOCO_FECHADO = "blocos.por_sub != '[]'";
+
 export async function criarBloco(
   cfg: Config & { materia: string },
   totalQuestoes: number,
@@ -93,13 +102,17 @@ function mapBloco(r: Record<string, unknown>): Bloco {
   };
 }
 
+/** `incluirAbertos`: traz também blocos com questões respondidas mas ainda não
+ * fechados (ver COND_BLOCO_FECHADO) — só a lista "Últimos blocos" quer isso;
+ * sugestão de nível e pré-geração olham só blocos concluídos. */
 export async function listarBlocos(
   materia: string | null,
   limite = 40,
+  incluirAbertos = false,
 ): Promise<Bloco[]> {
   const rows = await all(
     `SELECT * FROM blocos
-     WHERE ${COND_BLOCO_FEITO} ${materia ? "AND materia = ?" : ""}
+     WHERE ${COND_BLOCO_FEITO} ${incluirAbertos ? "" : `AND ${COND_BLOCO_FECHADO}`} ${materia ? "AND materia = ?" : ""}
      ORDER BY ts DESC LIMIT ?`,
     materia ? [materia, limite] : [limite],
   );

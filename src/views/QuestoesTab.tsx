@@ -249,16 +249,16 @@ export default function QuestoesTab({
           iconeApenas
           opcoes={[
             {
-              id: "gerar",
-              label: "Gerar",
-              icone: (cor) => <SparklesIcon width={18} height={18} stroke={cor} strokeWidth={1.8} />,
-            },
-            {
               id: "banco",
               label: "Do banco",
               icone: (cor) => (
                 <CircleStackIcon width={18} height={18} stroke={cor} strokeWidth={1.8} />
               ),
+            },
+            {
+              id: "gerar",
+              label: "Gerar",
+              icone: (cor) => <SparklesIcon width={18} height={18} stroke={cor} strokeWidth={1.8} />,
             },
             {
               id: "importar",
@@ -268,14 +268,14 @@ export default function QuestoesTab({
               ),
             },
             {
-              id: "refazer",
-              label: "Refazer",
-              icone: (cor) => <ArrowPathIcon width={18} height={18} stroke={cor} strokeWidth={1.8} />,
-            },
-            {
               id: "simulado",
               label: "Simulado",
               icone: (cor) => <ClockIcon width={18} height={18} stroke={cor} strokeWidth={1.8} />,
+            },
+            {
+              id: "refazer",
+              label: "Refazer",
+              icone: (cor) => <ArrowPathIcon width={18} height={18} stroke={cor} strokeWidth={1.8} />,
             },
             {
               id: "blocos-anteriores",

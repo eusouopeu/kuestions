@@ -47,7 +47,7 @@ export function useContextoConfig({
 
   useEffect(() => {
     if (!ativa) return;
-    listarBlocos(null, 5).then(setHist).catch(() => setHist([]));
+    listarBlocos(null, 5, true).then(setHist).catch(() => setHist([]));
     temCredencial().then(setTemChave);
     Promise.all([resumoCusto(), getTetoMensal()])
       .then(([c, t]) => {
