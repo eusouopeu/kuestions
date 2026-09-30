@@ -779,6 +779,25 @@ Responda APENAS com JSON válido, sem markdown, com uma entrada para CADA letra 
 {"explicacoes":{"<LETRA>":"..."}}`;
 }
 
+/* ---------- Definir termo ---------- */
+
+export function montarPromptDefinir(termo: string, contexto: string, materia: string): string {
+  return `Você explica conceitos para quem estuda para concurso da área fiscal (matéria: ${materia}). O usuário não conhece o termo abaixo, que apareceu numa questão.
+
+TERMO: ${termo}
+TRECHO DA QUESTÃO ONDE APARECEU: ${contexto || "(indisponível)"}
+
+Escreva uma definição clara e correta do termo, no sentido em que é usado nesta matéria, em no máximo 60 palavras. Se houver pegadinha comum de prova envolvendo o termo, cite-a numa frase curta. Formato "Termo :: definição" não é necessário: responda só com a definição, em texto puro para tela de celular (sem markdown, sem JSON, sem repetir o termo como título).`;
+}
+
+/** Define um termo selecionado numa questão (botão "Definir" do menu de
+ * seleção, ver SelecaoNota). `effort: "low"` — resposta curta, sem geração
+ * de questão. */
+export async function definirTermo(termo: string, contexto: string, materia: string): Promise<string> {
+  const texto = await chamar(montarPromptDefinir(termo, contexto, materia), "low", "definir termo");
+  return texto.trim();
+}
+
 /* ---------- Tutor da questão (rec. 11) ---------- */
 
 /** Uma pergunta livre e a resposta do modelo, dentro do tutor de uma questão

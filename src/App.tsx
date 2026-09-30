@@ -7,6 +7,7 @@ import QuestoesTab from "./views/QuestoesTab";
 import NotasTab from "./views/NotasTab";
 import AjustesTab from "./views/AjustesTab";
 import { getDB } from "./lib/db";
+import { carregarInviaveis } from "./lib/questoesInviaveis";
 import { aplicarTema, getTema } from "./lib/tema";
 import { aplicarEscala, getEscala } from "./lib/acessibilidade";
 import { useLayoutLargo } from "./lib/plataforma";
@@ -85,6 +86,7 @@ export default function App() {
     // depende. Abrir numa tela de configuração de credencial escondia isso e
     // exigia decisão administrativa antes da primeira questão; agora a aba
     // Questões abre já em "Do banco" quando não há chave (ver QuestoesTab).
+    void carregarInviaveis();
     getDB()
       .then(() => setPronto(true))
       .catch((e: unknown) => {

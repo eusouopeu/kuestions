@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   CheckIcon,
   FlagIcon as FlagOutline,
+  ExclamationTriangleIcon,
   ForwardIcon,
   PencilSquareIcon,
   SpeakerWaveIcon,
@@ -26,6 +27,7 @@ import {
   reportarQuestao,
 } from "../lib/repo";
 import type { MotivoReport } from "../lib/repo";
+import { marcarInviavel } from "../lib/questoesInviaveis";
 import { gerarExplicacaoParcial, letrasExplicaveis, mensagemDeErro } from "../lib/anthropic";
 import { bancoCarregado, buscarQuestaoBanco, emojiIncidencia, garantirBanco, nomeDaProva } from "../lib/banco";
 import { normalizarLayoutTexto, pareceCalculo } from "../lib/texto";
@@ -215,6 +217,19 @@ export default function QuestaoCard({
       garantirBanco().then(() => forcarAposCargaBanco((n) => n + 1));
     }
   }, [questao.bancoId]);
+
+  // Antes de responder: a questão depende de algo que não veio no texto (ex.:
+  // imagem da prova). Sai do sorteio do banco (ver questoesInviaveis.ts), é
+  // reportada se já tiver linha gravada (revisão) e a fila segue como no pular.
+  async function marcarErrada() {
+    try {
+      if (questao.bancoId) await marcarInviavel(questao.bancoId);
+      if (origemId != null && !reportada) await reportarQuestao(origemId, "enunciado");
+    } catch (e) {
+      console.error("marcar questão como errada", e);
+    }
+    onPular?.();
+  }
 
   async function reportar(motivo: MotivoReport) {
     if (reportada || reportando || origemId == null) return;
@@ -424,6 +439,7 @@ export default function QuestaoCard({
         materia={materia}
         tagPadrao={tagAssunto}
         questaoOrigemId={origemId}
+        contexto={enunciadoAtual}
         onSalvo={() => setTemNota(true)}
       />
 
@@ -805,6 +821,16 @@ export default function QuestaoCard({
             style={botaoFerramentaCard(false)}
           >
             <ForwardIcon width={17} height={17} />
+          </button>
+        )}
+        {!revelada && !editandoEnunciado && onPular && (questao.bancoId || origemId != null) && (
+          <button
+            onClick={marcarErrada}
+            aria-label="Marcar questão como errada"
+            title="Marcar como errada (ex.: depende de imagem que não veio no enunciado) — sai do banco e pula"
+            style={botaoFerramentaCard(false)}
+          >
+            <ExclamationTriangleIcon width={17} height={17} />
           </button>
         )}
       </div>
