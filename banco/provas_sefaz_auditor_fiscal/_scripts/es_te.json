@@ -1,0 +1,482 @@
+[
+ {
+  "numero": 1,
+  "disciplina": null,
+  "enunciado": "Um jovem tem apenas duas escolhas: entrar para o crime\norganizado ou cursar o ensino médio. Considere que “w” é o\nganho a ser obtido com atividades criminosas, “p” é a\nprobabilidade de ser preso e “c” é o custo pecuniário com o\nensino médio (livros, transporte e mensalidade).\nAssim, o custo de oportunidade de cursar o ensino médio é\nigual a",
+  "alternativas": {
+   "A": "p × w.",
+   "B": "(1-p) × w.",
+   "C": "- c.",
+   "D": "c + p × w.",
+   "E": "c + (1-p) × w."
+  }
+ },
+ {
+  "numero": 2,
+  "disciplina": null,
+  "enunciado": "Suponha uma sociedade que produza laranjas (eixo horizontal) e\nbananas (eixo vertical), cuja fronteira de possibilidades de\nprodução é representada pelo gráfico a seguir.\n\nNote que há três capacidades produtivas:\nA está abaixo da fronteira, B está sob a fronteira e C está acima\nda fronteira.\nAssim, as situações de pleno emprego, capacidade ociosa e\ninexistência de tecnologia produtiva são representadas,\nrespectivamente, por",
+  "alternativas": {
+   "A": "A, B e C.",
+   "B": "A, C e B.",
+   "C": "B, A e C.",
+   "D": "B, C e A.",
+   "E": "C, A e B. Consultor do Tesouro Estadual - Ciências Econômicas (Tarde) FAZ-ES FGV"
+  }
+ },
+ {
+  "numero": 3,
+  "disciplina": null,
+  "enunciado": "O site Folha de S. Paulo publicou, no dia 08 de outubro de 2021,\n   notícia intitulada “Carnes, combustíveis e passagem aérea\n   disparam na pandemia; veja a alta de preços”, cujo trecho é\n   reproduzido a seguir:\n   “Carnes, alimentos diversos, combustíveis e passagem aérea.\n   Esses são alguns exemplos de itens que ilustram a disparada de\n   preços sentida pelos brasileiros durante a pandemia de Covid-19.\n   O cenário é retratado por um levantamento do economista André\n   Braz, do FGV Ibre (Instituto Brasileiro de Economia da Fundação\n   Getulio Vargas), a pedido da Folha.\n   Para analisar a escalada da inflação, o pesquisador utilizou\n   resultados do IPC (Índice de Preços ao Consumidor) verificados ao\n   longo da crise sanitária, entre fevereiro de 2020 e setembro de\n   2021.\n   A pesquisa, realizada pelo FGV Ibre, contempla sete capitais: São\n   Paulo, Brasília, Rio de Janeiro, Belo Horizonte, Salvador, Recife e\n   Porto Alegre. De fevereiro de 2020 a setembro de 2021, o IPC\n   teve variação de 11,59% em termos gerais.\n   No recorte por grupos, chama atenção o aumento maior e\n   disseminado por alimentos frequentemente usados em\n   churrascos e festas.\n   Carnes bovinas (35,31%), frango em pedaços (32,62%), frango\n   inteiro (28,21%) e carnes suínas (25,26%), por exemplo,\n   dispararam (...)”\n   (Fonte: https://www1.folha.uol.com.br/mercado/2021/10/carnes-combustiveis-e-\n   passagem-aerea-disparam-na-pandemia-veja-a-alta-de-precos.shtml)\n   Dentre as possíveis causas para a disparada de preços dos\n   diferentes tipos de carnes e frango, não é possível mencionar",
+  "alternativas": {
+   "A": "aumento da demanda internacional por esse tipo de alimento.",
+   "B": "aumento do custo de commidities que são utilizadas como insumos na criação de animais.",
+   "C": "desestruturação da cadeia produtiva causada pela pandemia.",
+   "D": "aumento do desemprego, que reduziu o poder de barganha dos trabalhadores do setor.",
+   "E": "aumento das exportações de carne pelo país."
+  }
+ },
+ {
+  "numero": 4,
+  "disciplina": null,
+  "enunciado": "Considere a demanda linear q = a – bp, em que q é a quantidade\n   demandada, p é o preço e a e b são parâmetros da equação.\n   Quando q > a/2 e p > 0, então a demanda",
+  "alternativas": {
+   "A": "é perfeitamente elástica.",
+   "B": "é elástica.",
+   "C": "não é elástica nem inelástica.",
+   "D": "é inelástica.",
+   "E": "é perfeitamente inelástica."
+  }
+ },
+ {
+  "numero": 5,
+  "disciplina": null,
+  "enunciado": "Assuma uma economia de dois bens (x1 e x2). Se x1 é bem inferior,\n   então necessariamente x2 é bem",
+  "alternativas": {
+   "A": "normal.",
+   "B": "inferior.",
+   "C": "complementar a x1.",
+   "D": "substituto a x1.",
+   "E": "de luxo.  Tipo Branca – Página 3 SECRETARIA DE ESTADO DE FAZENDA DO ESPÍRITO SANTO - SEF"
+  }
+ },
+ {
+  "numero": 6,
+  "disciplina": null,
+  "enunciado": "Em relação à função de produção, analise as afirmativas a seguir\ne assinale V para a verdadeira e F para a falsa.\n( ) Descreve a fronteira do conjunto de possibilidades de\n    produção.\n( ) Indica a maior quantidade de produto possível que pode ser\n    gerada a partir de determinada quantidade de insumos.\n( ) A tecnologia utilizada determina se a função de produção\n    apresenta retornos decrescentes, constantes ou crescentes\n    de escala.\nAs afirmativas são, respectivamente,",
+  "alternativas": {
+   "A": "V, V e V.",
+   "B": "V, V e F.",
+   "C": "V, F e V.",
+   "D": "F, F e V.",
+   "E": "F, F e F."
+  }
+ },
+ {
+  "numero": 7,
+  "disciplina": null,
+  "enunciado": "Suponha um mercado perfeitamente competitivo e as seguintes\nlegendas:\n    p = preço;\n    Cmg = Custo marginal;\n    Rmg = Receita marginal;\n    Cme = Custo médio;\n    Rme = Receita média.\nO nível de produção ótimo de uma empresa nesse mercado deve\natender a condição",
+  "alternativas": {
+   "A": "p = Rmg.",
+   "B": "p = Cmg.",
+   "C": "p = Cme mínimo.",
+   "D": "Cme = Rme.",
+   "E": "Rmg > Cmg."
+  }
+ },
+ {
+  "numero": 8,
+  "disciplina": null,
+  "enunciado": "Com relação à situação de monopólio, analise as afirmativas a\nseguir.\nI. O markup do monopolista pode ser menor que a unidade.\nII. O monopolista opera na parte inelástica da demanda.\nIII. O monopolista escolhe um preço maior do que o custo\n     marginal.\nEstá correto o que se afirma em",
+  "alternativas": {
+   "A": "I, II e III.",
+   "B": "I e II, apenas.",
+   "C": "I e III, apenas.",
+   "D": "II, apenas.",
+   "E": "III, apenas."
+  }
+ },
+ {
+  "numero": 9,
+  "disciplina": null,
+  "enunciado": "Dentre as características de um bem público, é possível\nmencionar o fato de que",
+  "alternativas": {
+   "A": "o seu consumo reduz a quantidade disponível para outro consumidor.",
+   "B": "o custo necessário para excluir seu acesso por parte de quem não possui não é impeditivo.",
+   "C": "apresentam baixa rivalidade e baixo custo de exclusão.",
+   "D": "é não-rival e não-excludente.",
+   "E": "é sujeito à “Tragédia dos Comuns”. Consultor do Tesouro Estadual - Ciências Econômicas (Tarde) FAZ-ES FGV"
+  }
+ },
+ {
+  "numero": 10,
+  "disciplina": null,
+  "enunciado": "A existência de falhas de mercado aponta que a alocação de\n   mercado não é eficiente no sentido de Pareto.\n   Dentre os exemplos de falhas de mercado e suas características,\n   não é possível apontar",
+  "alternativas": {
+   "A": "a assimetria de informações, quando uma das partes envolvidas na transação detém dados não observados pela outra parte.",
+   "B": "a existência de bens públicos, visto que o setor privado não poderia impedir o consumo por parte de free riders.",
+   "C": "externalidades negativas, quando a ação de um agente afeta negativamente outro agente.",
+   "D": "a existência de monopólio, gerando abuso de poder de mercado e preços elevados do bem ofertado.",
+   "E": "mercados com número suficientemente grande de empresas, sendo que nenhuma isoladamente consegue influenciar o preço."
+  }
+ },
+ {
+  "numero": 11,
+  "disciplina": null,
+  "enunciado": "São remunerações do trabalho, da terra e do capital,\n   respectivamente,",
+  "alternativas": {
+   "A": "lucro, valor de mercado e juros.",
+   "B": "salário, aluguel, e juros e lucros.",
+   "C": "participação nos lucros, juros de financiamento e lucro.",
+   "D": "salário, juros e lucros, e aluguel.",
+   "E": "remuneração, aluguel e aluguel."
+  }
+ },
+ {
+  "numero": 12,
+  "disciplina": null,
+  "enunciado": "Suponha um mercado competitivo no qual a função de produção\n   de uma empresa é dada por Y = f(K,L), em que Y é o nível de\n   produção, K é fator capital e L, o fator trabalho. O preço do\n   trabalho é dado por salários (W) e o preço do capital é dado pela\n   taxa nominal de juros (R). Sejam ainda P o preço de mercado do\n   produto vendido pela empresa, PMgL a produtividade marginal\n   do trabalho e PMgK a produtividade marginal do capital.\n   O nível ótimo de capital e trabalho deve atender,\n   respectivamente, as seguintes condições:",
+  "alternativas": {
+   "A": "PMgK = R/P e PMg L = W/P.",
+   "B": "PMgK = R e PMgL = W.",
+   "C": "PMgL = W/P e PMgK = R/P.",
+   "D": "PMgK=PMgL=R e PMgL=PMgK=W.",
+   "E": "PMgK > R/P e PMgL < W/P."
+  }
+ },
+ {
+  "numero": 13,
+  "disciplina": null,
+  "enunciado": "Em relação ao livre mercado, analise as afirmativas a seguir e\n   assinale V para a verdadeira e F para a falsa.\n   ( ) Caracteriza-se por ser uma economia descentralizada e\n       independente.\n   ( ) Existe divisão do trabalho e da propriedade privada dos meios\n       de produção.\n   ( ) As transações entre duas partes só ocorrem caso cada parte\n       espere se beneficiar com a operação.\n   As afirmativas são, respectivamente,",
+  "alternativas": {
+   "A": "V – V – V.",
+   "B": "V – V – F.",
+   "C": "V – F – V.",
+   "D": "F – V – F.",
+   "E": "F – F – F.  Tipo Branca – Página 4 SECRETARIA DE ESTADO DE FAZENDA DO ESPÍRITO SANTO - SEF"
+  }
+ },
+ {
+  "numero": 14,
+  "disciplina": null,
+  "enunciado": "Dentre os possíveis papeis do governo em uma economia para\npromover seu desenvolvimento, não é possível afirmar que",
+  "alternativas": {
+   "A": "a regulação de mercados visando o abuso de poder, como ocorre em formação de cartéis.",
+   "B": "a produção de bens que gerem externalidades positivas, como educação e saúde.",
+   "C": "a provisão de bens cujo custo fixo seja elevado, como em casos de monopólios naturais.",
+   "D": "a padronização de produtos, com o objetivo de reduzir assimetria informacional e promover o bem-estar dos consumidores.",
+   "E": "a interferência em preços de mercados perfeitamente competitivos, visando promover acesso universal ao bem."
+  }
+ },
+ {
+  "numero": 15,
+  "disciplina": null,
+  "enunciado": "Num mercado de trabalho as empresas são demandantes da\nforça de trabalho e as pessoas ofertam sua mão de obra em troca\nde salário.\nA fixação de um salário mínimo acima do salário de equilíbrio de\nmercado gera",
+  "alternativas": {
+   "A": "excesso de demanda e o nível de emprego fica acima de seu nível natural.",
+   "B": "excesso de oferta, ocasionando desemprego.",
+   "C": "escassez de oferta, com ofertas salariais crescentes.",
+   "D": "escassez de demanda, com a oferta determinando o nível salarial.",
+   "E": "um novo nível de equilíbrio entre oferta e demanda, com desemprego nulo. Conhecimentos Específicos Macroeconomia"
+  }
+ },
+ {
+  "numero": 16,
+  "disciplina": null,
+  "enunciado": "Suponha que o único bem produzido por um país seja suco de\nlaranja com morango. Para produzir esse suco é necessário\nproduzir laranja e morango. O processo produtivo é descrito na\ntabela a seguir.\n\n     Produto               Valor do Produto    Insumos\n     Laranja                      20                0\n     Morango                      10                0\n     Suco de Laranja\n                                  50               30\n     com Morango\n\nOs valores do Produto Agregado, do Valor Adicionado e do Valor\nBruto da Produção da economia desse país são iguais,\nrespectivamente, a",
+  "alternativas": {
+   "A": "80, 80 e 80.",
+   "B": "50, 50 e 80.",
+   "C": "50, 50 e 50.",
+   "D": "20, 20 e 80.",
+   "E": "20, 80 e 50. Consultor do Tesouro Estadual - Ciências Econômicas (Tarde) FAZ-ES FGV"
+  }
+ },
+ {
+  "numero": 17,
+  "disciplina": null,
+  "enunciado": "A diferença entre o PIB a custo de fatores e o PIB a preços de\n   mercado nos fornece",
+  "alternativas": {
+   "A": "os impostos diretos deduzidos dos subsídios.",
+   "B": "a depreciação deduzida dos impostos diretos.",
+   "C": "os impostos indiretos deduzidos dos subsídios.",
+   "D": "os subsídios deduzidos dos impostos indiretos.",
+   "E": "a soma de salários, juros, lucros e aluguéis."
+  }
+ },
+ {
+  "numero": 18,
+  "disciplina": null,
+  "enunciado": "A partir da Conta Produto Interno Bruto, obtém-se o PIB e a DIB\n   (Despesa Interna Bruta) a preços de mercado (pm). Essa Conta é\n   representada na tabela abaixo.\n\n        Débito                       Crédito\n        a. Salários                  a. Consumo Familiar\n        b.                           b. Consumo do Governo\n        c. Impostos Indiretos        c.\n        d.                           d. Formação Bruta de Capital\n                                     Fixo\n                                     e. Exportações não-fatores\n                                     f. (-) Importações não-fatores\n        Total: PIBpm                 Total: DIBpm\n\n   Marque a opção que preenche corretamente os termos em branco\n   do lado do Débito (itens b e d) e do lado do Crédito (item c).",
+  "alternativas": {
+   "A": "b = Juros, aluguéis e lucros; c = Investimentos em bens de capital; d = Subsídios.",
+   "B": "b = Juros, aluguéis e lucros; c = Variação de Estoques; d = Subsídios.",
+   "C": "b = Excedente Operacional Bruto; c = Variação de Estoques; d = (-) Subsídios.",
+   "D": "b = PIB custo de fatores – salários; c = Total de Investimentos; d = Impostos Diretos.",
+   "E": "b = Juros, aluguéis e lucros; c = Depreciação; d = (-) Subsídios."
+  }
+ },
+ {
+  "numero": 19,
+  "disciplina": null,
+  "enunciado": "Em relação às identidades macroeconômicas em uma economia\n   aberta, analise as afirmativas a seguir e assinale V para a\n   verdadeira e F para a falsa.\n   ( ) Se a poupança interna não é suficiente para financiar o\n       investimento da economia, o país recorre à poupança\n       externa, incorrendo em déficit em transações correntes.\n   ( ) Se o país é exportador de capital, ou seja, apresenta superávit\n       em transações correntes, então a soma da poupança privada\n       (deduzida dos investimentos) e da poupança do governo deve\n       ser positiva.\n   ( ) Se a renda líquida enviada ao exterior é positiva, então o\n       Produto Nacional Bruto (PNB) é maior do que o PIB.\n   As afirmativas são, na ordem apresentada, respectivamente,",
+  "alternativas": {
+   "A": "V – V – V.",
+   "B": "V – V – F.",
+   "C": "V – F – F.",
+   "D": "F – V – V.",
+   "E": "F – F – V.  Tipo Branca – Página 5 SECRETARIA DE ESTADO DE FAZENDA DO ESPÍRITO SANTO - SEF"
+  }
+ },
+ {
+  "numero": 20,
+  "disciplina": null,
+  "enunciado": "Suponha uma economia com consumo autônomo igual a 100,\npropensão marginal a poupar de 10%, investimento fixo e igual a\n200. O nível de renda de equilíbrio, a propensão marginal a\nconsumir e o multiplicador de gasto serão iguais,\nrespectivamente, a",
+  "alternativas": {
+   "A": "3.000, 0,9 e 10.",
+   "B": "1.000, 0,9 e 10.",
+   "C": "2.000, 0,1 e 90.",
+   "D": "3.000, 0,1 e 10.",
+   "E": "1.000, 0,1 e 90."
+  }
+ },
+ {
+  "numero": 21,
+  "disciplina": null,
+  "enunciado": "Considere as seguintes nomenclaturas:\n NFSP = Necessidade de Financiamento do Setor Público;\n cn (subscrito) = conceito nominal;\n co (subscrito) = conceito operacional;\n G = Gastos públicos não financeiros;\n T = Arrecadação não financeira;\n B = Estoque da dívida pública;\n i = taxa nominal de juros;\n r = taxa real de juros = i – π;\n π = inflação.\nNFSPco é igual a",
+  "alternativas": {
+   "A": "NFSPcn – πB.",
+   "B": "G – T.",
+   "C": "G – T + iB.",
+   "D": "G – T + (r+ π)B.",
+   "E": "Déficit Primário – NFSPcn – πB."
+  }
+ },
+ {
+  "numero": 22,
+  "disciplina": null,
+  "enunciado": "Em relação à curva de Laffer, não é possível afirmar que",
+  "alternativas": {
+   "A": "quanto maior a alíquota tributária, maior a arrecadação até o ponto ótimo.",
+   "B": "a receita tributária marginal é decrescente, até o ponto de máximo arrecadação.",
+   "C": "um aumento na taxa de impostos implica em menor retorno de cada hora adicional de trabalho.",
+   "D": "alíquotas tributárias acima do ponto ótimo, podem induzir à sonegação e informalidade do trabalho.",
+   "E": "a receita tributária será nula apenas quando a taxa de impostos também for nula. Consultor do Tesouro Estadual - Ciências Econômicas (Tarde) FAZ-ES FGV"
+  }
+ },
+ {
+  "numero": 23,
+  "disciplina": null,
+  "enunciado": "Leia o fragmento a seguir.\n   “A moeda pode ser um objeto (ou ativo) qualquer, mas que deve\n   desempenhar três funções.\n   Na função de _____, esse objeto é utilizado como uma\n   mercadoria de aceitação geral e, assim, ser utilizado nas\n   transações entre indivíduos, afim de eliminar a dupla\n   coincidência de desejos. Assim, a introdução desse objeto (ou\n   ativo) como intermediário, permite que a transação seja dividida\n   em duas operações: (i) venda, com entrega do produto em troca\n   desse ativo e, (ii) compra em que se entrega esse ativo em troca\n   do produto.\n   Uma necessidade decorrente da função acima é a separação\n   temporal, ou seja, o agente que efetuou a venda e recebeu o\n   ativo, não precisa comprar outro produto imediatamente. Nesse\n   sentido, esse ativo também apresenta a função de _____.\n   A terceira função desse ativo é de _____ que representa um\n   denominador comum de valor, ou seja, representa o padrão para\n   que as demais mercadorias expressem seus valores. Assim, as\n   mercadorias podem ter um preço em termos desse ativo.\n   Logo, se esse ativo detém as três funções acima descritas, então\n   ele desempenha o papel de moeda.\n   Como a moeda detém as duas últimas funções, existe a\n   possibilidade de que a mercadoria pode circular como uma\n   promessa futura de pagamento: as transações não são liquidadas\n   imediatamente contra a entrega da moeda. Esta possibilidade\n   deu origem ao (a) _____.\"\n   Assinale a opção cujos itens completam corretamente as lacunas\n   do fragmento lido.",
+  "alternativas": {
+   "A": "meio de troca – unidade de conta – reserva de valor – sistema de crédito.",
+   "B": "meio de troca – unidade de conta – sistema de crédito – reserva de valor.",
+   "C": "meio de troca – reserva de valor – unidade de conta – sistema de crédito.",
+   "D": "reserva de valor – meio de troca – unidade de conta – sistema de crédito.",
+   "E": "reserva de valor – unidade de conta – sistema de crédito – meio de troca."
+  }
+ },
+ {
+  "numero": 24,
+  "disciplina": null,
+  "enunciado": "A base monetária é expandida quando há, ceteris paribus,",
+  "alternativas": {
+   "A": "aumento do retorno da poupança.",
+   "B": "aumento da SELIC.",
+   "C": "aumento da demanda por títulos públicos de alta liquidez.",
+   "D": "aumento da taxa de reservas dos bancos comerciais.",
+   "E": "redução dos depósitos à vista."
+  }
+ },
+ {
+  "numero": 25,
+  "disciplina": null,
+  "enunciado": "Das estáticas comparativas em relação ao multiplicador\n   monetário (m) relacionadas a seguir, assinale a incorreta.",
+  "alternativas": {
+   "A": "Um aumento dos meios de pagamentos eleva m.",
+   "B": "Uma redução da base monetária eleva m.",
+   "C": "Uma redução do custo de acesso aos serviços bancários eleva m.",
+   "D": "Um aumento da exigência de reservas compulsórias no BACEN eleva m.",
+   "E": "Um aumento da taxa de depósitos à vista reduz m.  Tipo Branca – Página 6 SECRETARIA DE ESTADO DE FAZENDA DO ESPÍRITO SANTO - SEF"
+  }
+ },
+ {
+  "numero": 26,
+  "disciplina": null,
+  "enunciado": "O Banco Central apresenta diversas funções como ator primordial\nno sistema financeiro. Em relação a essas funções e suas\ncaracterísticas, analise os itens a seguir.\nI. Como banco dos bancos, tem a função principal de zelar pela\n     estabilidade do sistema financeiro e, portanto, atua através\n     de regulações e fiscalizações dos atores que atuam nesse\n     sistema.\nII. Como banco do Tesouro Nacional, carrega títulos públicos e\n     administra fundos e programas.\nIII. Como banco emissor monetário, o papel-moeda emitido se\n     torna uma dívida do BACEN e também uma fonte de\n     recursos, sendo registrado como passivo em seu balancete.\nEstá correto o que se afirma em",
+  "alternativas": {
+   "A": "I, II e III.",
+   "B": "I e II, apenas.",
+   "C": "I e III, apenas.",
+   "D": "II e III, apenas.",
+   "E": "II, apenas."
+  }
+ },
+ {
+  "numero": 27,
+  "disciplina": null,
+  "enunciado": "As estáticas comparativas a seguir, envolvendo o Banco Central,\nestão corretas, à exceção de uma. Assinale-a.",
+  "alternativas": {
+   "A": "A compra de títulos públicos pelo BACEN amplia a base monetária e os meios de pagamento.",
+   "B": "O recebimento de empréstimos concedidos ao Tesouro Nacional pelo BACEN reduz a base monetária.",
+   "C": "A alteração dos depósitos do Tesouro Nacional no BACEN devido a um déficit fiscal reduz a base monetária.",
+   "D": "O aumento dos empréstimos de assistência a liquidez pelo BACEN aumenta a base monetária ao elevar o seu ativo.",
+   "E": "O aumento da exigência de reservas compulsórias pelo BACEN junto aos bancos comerciais reduz a base monetária ao elevar o passivo do BACEN."
+  }
+ },
+ {
+  "numero": 28,
+  "disciplina": null,
+  "enunciado": "O resultado da Conta de Serviços do Balanço de Pagamentos\napresenta melhora quando há, ceteris paribus,",
+  "alternativas": {
+   "A": "aumento da renda de investimentos diretos.",
+   "B": "aumento das exportações e queda das importações.",
+   "C": "aumento das despesas com fretes e prêmios de seguros.",
+   "D": "redução das transferências unilaterais correntes.",
+   "E": "aumento das receitas com turistas."
+  }
+ },
+ {
+  "numero": 29,
+  "disciplina": null,
+  "enunciado": "Considerando a relação entre o saldo do balanço de pagamentos\n(BP) e de suas contas e a variação de reservas e de seus\ncomponentes, é correto afirmar que",
+  "alternativas": {
+   "A": "um déficit no BP indica queda nas reservas cambiais.",
+   "B": "um aumento do estoque de ouro no BACEN indica um déficit em transações correntes.",
+   "C": "um aumento da cota depositada no FMI deve ser compensado por igual valor na conta de capital e financeira.",
+   "D": "a soma do saldo em transações correntes e da conta capital e financeira é igual a variação de reservas.",
+   "E": "quando o FMI eleva a cota de direito especial de saque, ocorre uma redução das reservas e piora do saldo do BP. Consultor do Tesouro Estadual - Ciências Econômicas (Tarde) FAZ-ES FGV"
+  }
+ },
+ {
+  "numero": 30,
+  "disciplina": null,
+  "enunciado": "Considere que um país realize as seguintes transações\n   internacionais (em bilhões de sua moeda):\n    Exportações = 100\n    Importações = 50\n    Transferências unilaterais vindas do exterior = 10\n    Remessa de lucros ao exterior = 30\n    Despesas com fretes = 10\n    Receita com seguros = 10\n    Conta Capital e Financeira = 0\n   Os saldos da balança comercial, da conta de serviços e do balanço\n   de pagamentos são iguais, respectivamente, a",
+  "alternativas": {
+   "A": "- 50, 30 e -10.",
+   "B": "50, - 30 e 30.",
+   "C": "50, 30 e 90.",
+   "D": "20, -30 e 0.",
+   "E": "50, -30 e 10."
+  }
+ },
+ {
+  "numero": 31,
+  "disciplina": null,
+  "enunciado": "Em relação às taxas de câmbio, analise as afirmativas a seguir e\n   assinale V para a verdadeira e F para a falsa.\n   ( ) Taxa de câmbio é igual ao valor de uma moeda local em\n       termos de uma moeda estrangeira.\n   ( ) A taxa real de câmbio é obtida a partir da taxa nominal de\n       câmbio multiplicada pela razão entre a inflação doméstica e a\n       inflação externa.\n   ( ) A taxa de câmbio efetiva é obtida através da média\n       ponderada das taxas reais de câmbio de cada parceiro\n       comercial, cujo peso é igual a participação de cada parceiro\n       nas exportações.\n   As afirmativas são, na ordem apresentada, respectivamente,",
+  "alternativas": {
+   "A": "V – V – V.",
+   "B": "V – V – F.",
+   "C": "V – F – V.",
+   "D": "V – F – F.",
+   "E": "F – V – V."
+  }
+ },
+ {
+  "numero": 32,
+  "disciplina": null,
+  "enunciado": "Uma característica da taxa de câmbio fixa é que",
+  "alternativas": {
+   "A": "o preço da moeda nacional em termos de moeda estrangeira oscila em intervalo definido pelo BACEN.",
+   "B": "o BACEN usa o recurso das intervenções intramargem para garantir uma determinada cotação.",
+   "C": "o BACEN entra no mercado adquirindo divisas para eliminar o excesso de demanda por divisas.",
+   "D": "as oscilações na oferta e demanda por moeda não afetam o volume de reservas internacionais.",
+   "E": "o equilíbrio do mercado cambial é obtido pela compra e venda de divisas pelo BACEN.  Tipo Branca – Página 7 SECRETARIA DE ESTADO DE FAZENDA DO ESPÍRITO SANTO - SEF"
+  }
+ },
+ {
+  "numero": 33,
+  "disciplina": null,
+  "enunciado": "Relacione o segmento do sistema financeiro nacional às suas\nrespectivas características.\n1. Comissão de Valores Imobiliários\n2. Superintendência de Seguros Privados\n3. Superintendência Nacional de Previdência Complementar\n4. Conselho Monetário Nacional\n( ) Órgão deliberativo do Sistema Financeiro Nacional, tendo\n    funções apenas normativas.\n( ) Autarquia federal, vinculada ao Ministério da Economia, mas\n    sem subordinação hierárquica, com personalidade jurídica e\n    patrimônio       próprios,      autoridade      administrativa\n    independente, mandato fixo e estabilidade de seus\n    dirigentes, e autonomia financeira e orçamentária.\n( ) Dentre outras atribuições, é responsável pelo controle e\n    fiscalização da previdência privada aberta, sendo uma\n    autarquia vinculada ao Ministério da Economia.\n( ) Autarquia de natureza especial, dotada de autonomia\n    administrativa e financeira e patrimônio próprio, vinculada ao\n    Ministério do Trabalho e Previdência.\nAssinale a opção que indica a relação correta, na ordem\napresentada.",
+  "alternativas": {
+   "A": "4, 3, 2 e 1.",
+   "B": "4, 1, 2 e 3.",
+   "C": "4, 1, 3 e 2.",
+   "D": "1, 4, 3 e 2.",
+   "E": "1, 4, 2 e 3."
+  }
+ },
+ {
+  "numero": 34,
+  "disciplina": null,
+  "enunciado": "A função alocativa do governo visa a complementar a ação do\nmercado em relação à alocação de recursos na economia.\nDentre suas características, não é possível mencionar",
+  "alternativas": {
+   "A": "a provisão de bens e serviços que gerem externalidade positiva para a sociedade.",
+   "B": "a regulação de um mercado visando evitar o sobrepreço praticado por monopólio natural.",
+   "C": "a oferta de bens públicos que, por sua natureza, não são ofertados pelo setor privado.",
+   "D": "a estatização de uma empresa privada que atua como monopolista natural, evitando a extração de excedentes dos consumidores.",
+   "E": "a arrecadação progressiva de impostos, visando realocar recursos para determinada classe social ou região."
+  }
+ },
+ {
+  "numero": 35,
+  "disciplina": null,
+  "enunciado": "Assinale a opção que só apresenta exemplos de operações ativas\ndos intermediários financeiros.",
+  "alternativas": {
+   "A": "Empréstimos à população, compra de títulos públicos e reservas voluntárias mantidas no BACEN.",
+   "B": "Depósitos à vista, depósitos à prazo e reservas compulsórias mantidas no BACEN.",
+   "C": "Empréstimos de assistência à liquidez, empréstimos obtidos no mercado interbancário e redesconto.",
+   "D": "Empréstimos ao BACEN, empréstimos consignados e venda de títulos públicos.",
+   "E": "Empréstimos de liquidez, operações de mercado aberto e venda de títulos de capitalização. Consultor do Tesouro Estadual - Ciências Econômicas (Tarde) FAZ-ES FGV"
+  }
+ },
+ {
+  "numero": 36,
+  "disciplina": null,
+  "enunciado": "A oferta de moeda na economia se expande quando",
+  "alternativas": {
+   "A": "há aumento da taxa de redesconto aplicada pelo BACEN.",
+   "B": "o BACEN reduz a oferta de empréstimos de liquidez.",
+   "C": "há aumento da taxa de recolhimento fixada aos bancos comerciais pelo BACEN.",
+   "D": "o BACEN atua no mercado aberto, vendendo títulos públicos.",
+   "E": "há maior controle seletivo do crédito por parte do BACEN."
+  }
+ },
+ {
+  "numero": 37,
+  "disciplina": null,
+  "enunciado": "Em relação ao CMN, analise as afirmativas a seguir.\n   I. Trata-se de um órgão supervisor do sistema financeiro\n        nacional.\n   II. Define a meta inflacionária dos próximos anos.\n   III. Determina a quantidade de meios de pagamentos\n        necessários ao funcionamento da economia.\n   Está correto o que se afirma em",
+  "alternativas": {
+   "A": "I, II e III.",
+   "B": "I e III, apenas.",
+   "C": "II e III, apenas.",
+   "D": "I e II, apenas.",
+   "E": "II, apenas."
+  }
+ },
+ {
+  "numero": 38,
+  "disciplina": null,
+  "enunciado": "Dentre as principais medidas do Plano Cruzado, assinale a\n   afirmativa correta.",
+  "alternativas": {
+   "A": "A fixação de um regime de câmbio flutuante.",
+   "B": "A liberdade para fixação de índices de preços nos contratos de aluguéis.",
+   "C": "O congelamento dos preços, sem prazo para descompressão.",
+   "D": "O reajuste real dos salários, mas sem imposição do gatilho salarial.",
+   "E": "A intervenção do BACEN forçando uma desvalorização cambial."
+  }
+ },
+ {
+  "numero": 39,
+  "disciplina": null,
+  "enunciado": "O Plano Real realizou o combate à inflação por meio das\n   seguintes etapas:",
+  "alternativas": {
+   "A": "fixação da URV, âncora cambial e conversão monetária.",
+   "B": "ajuste fiscal, indexação completa da economia e reforma monetária.",
+   "C": "criação do Fundo Social de Emergência, fixação de um regime cambial fixo e conversão do cruzado para o real.",
+   "D": "implementação do PAI, criação do IPMF e indexação dos preços à URV.",
+   "E": "aumento inicial da arrecadação via imposto inflacionário, criação de minibandas cambiais e controle de preços."
+  }
+ },
+ {
+  "numero": 40,
+  "disciplina": null,
+  "enunciado": "Sobre as possibilidades de ocorrer inflação de custos, assinale a\n   afirmativa incorreta.",
+  "alternativas": {
+   "A": "Aumento no preço das matérias-primas decorrente de quebra de safra agrícola.",
+   "B": "Desvalorização cambial que pressiona o preço de insumos da indústria.",
+   "C": "Aumentos salariais acima de elevações da produtividade do trabalho.",
+   "D": "Elevações nas taxas de juros.",
+   "E": "Excesso de demanda em relação à produção.  Tipo Branca – Página 8 SECRETARIA DE ESTADO DE FAZENDA DO ESPÍRITO SANTO - SEF Questões Discursivas - Ciências Econômicas Questão 1 Em uma sociedade, os mercados variam bastante em termos de con existem inúmeras empresas que competem acirradamente pelos cons empresas. Nesse sentido, responda os itens a seguir. i. Indique as hipóteses necessárias para que um mercado seja perfei ii. Supondo que p seja o preço praticado pela empresa, q seja a qu preço ótimo definido por essa empresa. iii. Identifique a hipótese mencionada no item (i) que é violada na situ iv. Supondo que p(q) seja a demanda de mercado, calcule o preço óti v. Explique a escolha do preço do monopolista em termos de mark praticado em concorrência perfeita e como a elasticidade-preço d 1 -------------------------------------------------------------------------------------------------------- 2 -------------------------------------------------------------------------------------------------------- 3 -------------------------------------------------------------------------------------------------------- 4 -------------------------------------------------------------------------------------------------------- 5 -------------------------------------------------------------------------------------------------------- 6 -------------------------------------------------------------------------------------------------------- 7 -------------------------------------------------------------------------------------------------------- 8 -------------------------------------------------------------------------------------------------------- 9 -------------------------------------------------------------------------------------------------------- 10 -------------------------------------------------------------------------------------------------------- 11 -------------------------------------------------------------------------------------------------------- 12 -------------------------------------------------------------------------------------------------------- 13 -------------------------------------------------------------------------------------------------------- 14 -------------------------------------------------------------------------------------------------------- 15 -------------------------------------------------------------------------------------------------------- 16 -------------------------------------------------------------------------------------------------------- 17 -------------------------------------------------------------------------------------------------------- 18 -------------------------------------------------------------------------------------------------------- 19 -------------------------------------------------------------------------------------------------------- 20 -------------------------------------------------------------------------------------------------------- Consultor do Tesouro Estadual - Ciências Econômicas (Tarde) FAZ-ES FGV ncentração. Em alguns, a concentração de mercado é baixa, ou seja, sumidores. Em outros, o poder de mercado é concentrado em poucas itamente competitivo. uantidade produzida e c(q) seja a função custo da empresa, calcule o uação de monopólio. Justifique sua resposta. imo definido pelo monopolista. kup sobre o custo marginal. Explicite como ela se diferencia do preço da demanda afeta essa escolha. --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------  Tipo Branca – Página 9 SECRETARIA DE ESTADO DE FAZENDA DO ESPÍRITO SANTO - SEF Questão 2 O governo tem papel relevante no desenvolvimento de uma naç econômico e maior justiça social. Nesse sentido, o governo precisa b monetária e fiscal – para desempenhar seu papel. Nesse contexto, res i. Descreva como a função estabilizadora do governo contribui para ii. Indique como a política fiscal se relaciona com a função distributiv iii. Suponha que o governo eleve seu esforço fiscal para reduzir o dé de déficit o governo deve usar na condução dessa política fiscal? P iv. Qual conceito de déficit é mais relevante para considerar a evoluç 1 -------------------------------------------------------------------------------------------------------- 2 -------------------------------------------------------------------------------------------------------- 3 -------------------------------------------------------------------------------------------------------- 4 -------------------------------------------------------------------------------------------------------- 5 -------------------------------------------------------------------------------------------------------- 6 -------------------------------------------------------------------------------------------------------- 7 -------------------------------------------------------------------------------------------------------- 8 -------------------------------------------------------------------------------------------------------- 9 -------------------------------------------------------------------------------------------------------- 10 -------------------------------------------------------------------------------------------------------- 11 -------------------------------------------------------------------------------------------------------- 12 -------------------------------------------------------------------------------------------------------- 13 -------------------------------------------------------------------------------------------------------- 14 -------------------------------------------------------------------------------------------------------- 15 -------------------------------------------------------------------------------------------------------- 16 -------------------------------------------------------------------------------------------------------- 17 -------------------------------------------------------------------------------------------------------- 18 -------------------------------------------------------------------------------------------------------- 19 -------------------------------------------------------------------------------------------------------- 20 -------------------------------------------------------------------------------------------------------- Consultor do Tesouro Estadual - Ciências Econômicas (Tarde) FAZ-ES FGV ção, lançando mão de políticas públicas que induzam crescimento balancear os diferentes tipos de política econômica – incluída política sposta ao que se pede a seguir. o desenvolvimento de um país. va. Apresente um exemplo. éficit fiscal, como forma de melhorar as contas públicas. Qual conceito Por quê? ção da dívida pública? Por quê? --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------  Tipo Branca – Página 10 Realiz zação"
+  }
+ }
+]

@@ -1,0 +1,1122 @@
+[
+ {
+  "numero": 1,
+  "secao": "NTOS GERAIS",
+  "comando": "NTOS GERAIS Considerando as informações veiculadas no texto CG1A1-I, julgue os itens seguintes.",
+  "texto": "Os resultados da pesquisa realizada pelos dois professores do IMD refletem a atitude dos executivos quanto à sustentabilidade, conforme comprovam as informações do segundo parágrafo do texto.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 2,
+  "secao": "NTOS GERAIS",
+  "comando": "NTOS GERAIS Considerando as informações veiculadas no texto CG1A1-I, julgue os itens seguintes.",
+  "texto": "De acordo com as informações do texto, setores econômicos distintos apresentam resultados diferentes em termos de ações voltadas para a sustentabilidade.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 3,
+  "secao": "NTOS GERAIS",
+  "comando": "NTOS GERAIS Considerando as informações veiculadas no texto CG1A1-I, julgue os itens seguintes.",
+  "texto": "O texto informa que os investidores levam em consideração o impacto social das empresas nas quais investem, o que é comprovado pelo estudo mencionado no segundo parágrafo.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 4,
+  "secao": "NTOS GERAIS",
+  "comando": "NTOS GERAIS Considerando as informações veiculadas no texto CG1A1-I, julgue os itens seguintes.",
+  "texto": "Conclui-se da noção de sustentabilidade presente no texto que ser sustentável é incompatível com criar valor.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 5,
+  "secao": "NTOS GERAIS",
+  "comando": "Considerando os aspectos linguísticos do texto CG1A1-I, julgue os itens a seguir.",
+  "texto": "O texto é um artigo de opinião, em que predomina o tipo argumentativo, haja vista a presença de diversos argumentos para sustentar a ideia defendida por seu autor.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 6,
+  "secao": "NTOS GERAIS",
+  "comando": "Considerando os aspectos linguísticos do texto CG1A1-I, julgue os itens a seguir.",
+  "texto": "Sem prejuízo da correção gramatical e do sentido original do texto, a forma verbal “restam” (R.26) poderia ser substituída por mantém-se.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 7,
+  "secao": "NTOS GERAIS",
+  "comando": "Considerando os aspectos linguísticos do texto CG1A1-I, julgue os itens a seguir.",
+  "texto": "A substituição da forma verbal “desenvolveram” (R.22) por desenvolveu manteria a correção gramatical do texto.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 8,
+  "secao": "NTOS GERAIS",
+  "comando": "Considerando os aspectos linguísticos do texto CG1A1-I, julgue os itens a seguir.",
+  "texto": "Dada a regência do verbo tender, é facultativo o emprego do sinal indicativo de crase no vocábulo “a” em “tendem a ser menos efetivas” (R.45).",
+  "resp_just": "E"
+ },
+ {
+  "numero": 9,
+  "secao": "NTOS GERAIS",
+  "comando": "Considerando os aspectos linguísticos do texto CG1A1-I, julgue os itens a seguir.",
+  "texto": "Sem prejuízo da correção gramatical e da coerência do texto, o período “Sustentabilidade é vista como uma abordagem de negócios para criar valor a longo prazo, levando-se em conta como uma companhia opera nos ambientes ecológico, social e econômico.” (R. 12 a 15) poderia ser reescrito da seguinte forma: Vê-se sustentabilidade como uma abordagem de negócios para criar valor a longo prazo, considerando-se como uma companhia opera no ambiente ecológico, no social e no econômico.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 10,
+  "secao": "NTOS GERAIS",
+  "comando": "Considerando os aspectos linguísticos do texto CG1A1-I, julgue os itens a seguir.",
+  "texto": "No trecho “os investidores reconhecem cada vez mais o impacto, para a sociedade, das empresas nas quais investem” (R. 35 a 37), a substituição de “nas quais” por aonde prejudicaria a correção gramatical do texto.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 11,
+  "secao": "CONHECIMENTOS SOBRE",
+  "comando": "CONHECIMENTOS SOBRE O DISTRITO FEDERAL A respeito de aspectos econômicos do Distrito Federal (DF), julgue os itens a seguir.",
+  "texto": "O DF carece de grandes indústrias e de empresas privadas e apresenta uma desigual distribuição de renda entre as diferentes regiões administrativas, o que inibe a formação de um mercado consumidor expressivo.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 12,
+  "secao": "CONHECIMENTOS SOBRE",
+  "comando": "CONHECIMENTOS SOBRE O DISTRITO FEDERAL A respeito de aspectos econômicos do Distrito Federal (DF), julgue os itens a seguir.",
+  "texto": "A grande extensão territorial de unidades de conservação de uso restrito e controlado inibiu o desenvolvimento do setor agropecuário no DF e a expansão do agronegócio e de hortifrutigranjeiros para abastecer a capital federal aconteceu nos municípios goianos e mineiros do entorno.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 13,
+  "secao": "ADMINISTRAÇÃO PÚBLICA",
+  "comando": "ADMINISTRAÇÃO PÚBLICA Em relação à organização do Estado e da administração pública, julgue os seguintes itens.",
+  "texto": "O princípio da legalidade se aplica apenas ao Poder Executivo federal.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 14,
+  "secao": "ADMINISTRAÇÃO PÚBLICA",
+  "comando": "ADMINISTRAÇÃO PÚBLICA Em relação à organização do Estado e da administração pública, julgue os seguintes itens.",
+  "texto": "Compete privativamente à União legislar sobre o sistema monetário e de medidas, títulos e garantia de valores.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 15,
+  "secao": "ADMINISTRAÇÃO PÚBLICA",
+  "comando": "No que se refere à administração pública brasileira, julgue os itens a seguir.",
+  "texto": "O modelo de administração pública gerencial respondeu à expansão das funções econômicas e sociais da sociedade com uma proposta de diminuição do tamanho do Estado.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 16,
+  "secao": "ADMINISTRAÇÃO PÚBLICA",
+  "comando": "No que se refere à administração pública brasileira, julgue os itens a seguir.",
+  "texto": "As políticas de compliance no âmbito da administração pública objetivam garantir que os servidores públicos prestem contas, aos órgãos de controle, das atividades exercidas no âmbito de suas funções.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 17,
+  "secao": "ADMINISTRAÇÃO PÚBLICA",
+  "comando": "No que se refere à administração pública brasileira, julgue os itens a seguir.",
+  "texto": "evitar ações que atrasem a prestação do serviço público.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 18,
+  "secao": "ADMINISTRAÇÃO PÚBLICA",
+  "comando": "No que se refere à administração pública brasileira, julgue os itens a seguir.",
+  "texto": "fazer uso dos recursos públicos com economicidade e clareza, no desempenho de suas atribuições.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 19,
+  "secao": "CONTABILIDADE PÚBLICA",
+  "comando": "CONTABILIDADE PÚBLICA Relativamente à natureza e ao propósito dos ativos e passivos do setor público, julgue os itens que se seguem.",
+  "texto": "Para que os objetivos da informação contábil sejam alcançados, pode-se reconhecer, nas demonstrações contábeis, recurso ou obrigação que não satisfaça a definição de elemento definido na estrutura conceitual.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 20,
+  "secao": "CONTABILIDADE PÚBLICA",
+  "comando": "CONTABILIDADE PÚBLICA Relativamente à natureza e ao propósito dos ativos e passivos do setor público, julgue os itens que se seguem.",
+  "texto": "Para que uma entidade do setor público seja capaz de acessar o potencial de serviços associado a um recurso, é necessário que essa entidade obtenha direitos jurídicos sobre ele.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 21,
+  "secao": "CONTABILIDADE PÚBLICA",
+  "comando": "CONTABILIDADE PÚBLICA Relativamente à natureza e ao propósito dos ativos e passivos do setor público, julgue os itens que se seguem.",
+  "texto": "Para que uma obrigação presente exista, é essencial conhecer a identidade dos terceiros antes da época da extinção do passivo.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 22,
+  "secao": "CONTABILIDADE PÚBLICA",
+  "comando": "Considerando que os sistemas de custos dos entes públicos objetivam a mensuração, o controle e a avaliação de custos na administração pública, julgue os itens a seguir.",
+  "texto": "A contabilização dos itens de custo subsidia o gestor e os demais usuários de informações sobre os insumos utilizados pelos entes públicos no processo de prestação de serviços à sociedade.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 23,
+  "secao": "CONTABILIDADE PÚBLICA",
+  "comando": "Considerando que os sistemas de custos dos entes públicos objetivam a mensuração, o controle e a avaliação de custos na administração pública, julgue os itens a seguir.",
+  "texto": "São exemplos de itens de custo das entidades públicas os gastos incorridos com o pagamento de salários e a aquisição de computadores e material de consumo.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 24,
+  "secao": "CONTABILIDADE PÚBLICA",
+  "comando": "Considerando que os sistemas de custos dos entes públicos objetivam a mensuração, o controle e a avaliação de custos na administração pública, julgue os itens a seguir.",
+  "texto": "O acesso à informação de custos permite a avaliação de riscos na aplicação de recursos públicos voltados ao alcance das metas estabelecidas na ação governamental.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 25,
+  "secao": "CONTABILIDADE PÚBLICA",
+  "comando": "Com base nas normas que regem a contabilidade pública, julgue os itens a seguir.",
+  "texto": "O saldo da receita disponível no balanço orçamentário deve ser maior ou igual a zero, uma vez que é vedado realizar despesas sem a fonte de recursos correspondente.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 26,
+  "secao": "CONTABILIDADE PÚBLICA",
+  "comando": "Com base nas normas que regem a contabilidade pública, julgue os itens a seguir.",
+  "texto": "O destaque de determinado crédito orçamentário pode ser realizado independentemente de autorização específica da lei orçamentária anual.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 27,
+  "secao": "DIREITO ADMINISTRATIVO",
+  "comando": "Com base nas normas que regem a contabilidade pública, julgue os itens a seguir.",
+  "texto": "Em um único ato administrativo, foram concedidas férias e licença a um servidor público da Secretaria de Estado de Economia do Distrito Federal. Na semana seguinte, publicou-se outro ato, que ratificava as férias desse servidor e retirava-lhe a licença concedida, por ter sido constatado que ele não fazia jus à licença. Nessa situação, realizou-se a convalidação do ato administrativo, por meio de reforma.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 28,
+  "secao": "DIREITO ADMINISTRATIVO",
+  "comando": "Com base nas normas que regem a contabilidade pública, julgue os itens a seguir.",
+  "texto": "Servidor público do Distrito Federal exerceu atividade remunerada durante o gozo de licença por motivo de doença em pessoa da família, o que se confirmou em processo disciplinar específico. Nessa situação, conforme a Lei Complementar n.º 840/2011 e suas alterações, os dias em que o servidor efetivamente exerceu a atividade remunerada durante a licença serão considerados, para todos os efeitos legais, faltas justificadas ao serviço, caso a licença tenha sido concedida sem remuneração.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 29,
+  "secao": "DIREITO ADMINISTRATIVO",
+  "comando": "Acerca da responsabilidade civil do Estado, julgue o item a seguir.",
+  "texto": "Uma vez que o ordenamento jurídico brasileiro adota a teoria da responsabilidade objetiva do Estado, com base no risco administrativo, a mera ocorrência de ato lesivo causado pelo poder público à vítima gera o dever de indenização pelo dano pessoal e(ou) patrimonial sofrido, independentemente da caracterização de culpa dos agentes estatais ou da demonstração de falta do serviço público. Não obstante, em caso fortuito ou de força maior, a responsabilidade do Estado pode ser mitigada ou afastada.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 30,
+  "secao": "DIREITO ADMINISTRATIVO",
+  "comando": "Acerca da concessão de serviços públicos, julgue o item que se segue.",
+  "texto": "Concessão de serviço público é um contrato administrativo pelo qual a administração pública delega a terceiro a execução de um serviço público, para que este o realize em seu próprio nome e por sua conta e risco, sendo assegurada ao terceiro a remuneração mediante tarifa paga pelo usuário, que é fixada pelo preço da proposta vencedora da licitação e não pode ser alterada unilateralmente pelo poder público ou pela concessionária.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 31,
+  "secao": "DIREITO ADMINISTRATIVO",
+  "comando": "Considerando a Lei n.º 13.303/2016, que dispõe sobre o estatuto jurídico da empresa pública, da sociedade de economia mista e de suas subsidiárias, no âmbito da União, dos estados, do Distrito Federal e dos municípios, julgue o próximo item.",
+  "texto": "Ocorre superfaturamento quando os preços orçados para a licitação ou os preços contratados são expressivamente superiores aos preços referenciais de mercado.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 32,
+  "secao": "DIREITO ADMINISTRATIVO",
+  "comando": "Considerando as normas de direito administrativo, as disposições normativas relativas ao pregão e a Lei federal n.º 9.784/1999, acerca de processo administrativo, julgue os itens seguintes.",
+  "texto": "No processo administrativo, os cidadãos e as associações têm legitimidade para interpor recurso administrativo, quando se tratar de direitos ou interesses difusos.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 33,
+  "secao": "DIREITO ADMINISTRATIVO",
+  "comando": "Considerando as normas de direito administrativo, as disposições normativas relativas ao pregão e a Lei federal n.º 9.784/1999, acerca de processo administrativo, julgue os itens seguintes.",
+  "texto": "No pregão, a definição das exigências de habilitação no certame é feita durante a fase externa.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 34,
+  "secao": "DIREITO ADMINISTRATIVO",
+  "comando": "Considerando as normas de direito administrativo, as disposições normativas relativas ao pregão e a Lei federal n.º 9.784/1999, acerca de processo administrativo, julgue os itens seguintes.",
+  "texto": "É impedido de atuar em processo administrativo o servidor que tenha amizade íntima com algum dos interessados no processo.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 35,
+  "secao": "DIREITO CONSTITUCIONAL",
+  "comando": "DIREITO CONSTITUCIONAL Acerca dos direitos e garantias fundamentais, das cláusulas pétreas e da organização político-administrativa do Estado, julgue os itens a seguir.",
+  "texto": "A Constituição Federal de 1988 prevê expressamente a exigência de inscrição em conselho de fiscalização para o exercício de qualquer atividade profissional.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 36,
+  "secao": "DIREITO CONSTITUCIONAL",
+  "comando": "DIREITO CONSTITUCIONAL Acerca dos direitos e garantias fundamentais, das cláusulas pétreas e da organização político-administrativa do Estado, julgue os itens a seguir.",
+  "texto": "As cláusulas pétreas correspondem às limitações temporais, implícitas, circunstanciais e materiais de alteração da Constituição Federal de 1988.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 37,
+  "secao": "DIREITO CONSTITUCIONAL",
+  "comando": "DIREITO CONSTITUCIONAL Acerca dos direitos e garantias fundamentais, das cláusulas pétreas e da organização político-administrativa do Estado, julgue os itens a seguir.",
+  "texto": "Embora a Constituição Federal de 1988 preveja expressamente não distinção entre brasileiros, o próprio constituinte estabeleceu, no texto constitucional, hipóteses de tratamentos distintos entre homens e mulheres.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 38,
+  "secao": "DIREITO CONSTITUCIONAL",
+  "comando": "Considerando os princípios gerais da atividade econômica previstos na Constituição Federal de 1988, julgue os itens a seguir.",
+  "texto": "A prestação de serviços públicos de transporte coletivo sob o regime de permissão prescinde de licitação, que é exigida apenas para a modalidade de concessão.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 39,
+  "secao": "DIREITO CONSTITUCIONAL",
+  "comando": "Considerando os princípios gerais da atividade econômica previstos na Constituição Federal de 1988, julgue os itens a seguir.",
+  "texto": "As empresas públicas e as sociedades de economia mista gozam de privilégios fiscais não extensivos às sociedades comerciais do setor privado.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 40,
+  "secao": "DIREITO CONSTITUCIONAL",
+  "comando": "Considerando os princípios gerais da atividade econômica previstos na Constituição Federal de 1988, julgue os itens a seguir.",
+  "texto": "A União detém o monopólio da pesquisa e lavra das jazidas de petróleo e gás natural, sendo-lhe permitida a contratação de empresas estatais e privadas para a realização dessas atividades, desde que observadas as condições estabelecidas em lei.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 41,
+  "secao": "DIREITO CONSTITUCIONAL",
+  "comando": "Acerca da administração tributária do Distrito Federal, julgue o item a seguir, com base na Lei Orgânica do Distrito Federal.",
+  "texto": "O lançamento, a fiscalização e a arrecadação dos tributos de competência do Distrito Federal, bem como o julgamento administrativo dos processos fiscais, incumbem à administração tributária desse ente federado e serão exercidos, privativamente, por integrantes da carreira de auditoria tributária. Entretanto, o lançamento, a fiscalização e a arrecadação das taxas que tenham como fato gerador o exercício do poder de polícia poderão ser realizados por agentes não integrantes dessa carreira.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 42,
+  "secao": "DIREITO CONSTITUCIONAL",
+  "comando": "A respeito da possibilidade de emenda à Lei Orgânica do Distrito Federal, julgue o próximo item.",
+  "texto": "A Lei Orgânica do Distrito Federal somente poderá ser emendada após a proposta de alteração ser discutida e votada em dois turnos e se obtiver, em ambos, o voto favorável de três quintos dos membros da Câmara Legislativa do Distrito Federal.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 43,
+  "secao": "DIREITO CIVIL, DIREITO EMPRESARIAL E DIREITO PENAL",
+  "comando": "Considerando essa situação hipotética, julgue os itens subsequentes.",
+  "texto": "A pretensão dos herdeiros de Pedro é viável, pois tanto o direito de exigir a reparação civil por ato ilícito quanto a obrigação de prestá-la são transmitidos por sucessão aos herdeiros.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 44,
+  "secao": "DIREITO CIVIL, DIREITO EMPRESARIAL E DIREITO PENAL",
+  "comando": "Considerando essa situação hipotética, julgue os itens subsequentes.",
+  "texto": "A prescrição da pretensão indenizatória iniciou-se na data do acidente, interrompeu-se com a morte de Pedro e recomeçou contra os seus sucessores.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 45,
+  "secao": "DIREITO CIVIL, DIREITO EMPRESARIAL E DIREITO PENAL",
+  "comando": "Considerando o disposto no Código Civil acerca de personalidade e o disposto na Lei de Introdução às Normas do Direito Brasileiro acerca da vigência das leis, julgue os itens a seguir.",
+  "texto": "O início da personalidade civil das pessoas físicas ocorre com o nascimento com vida, enquanto o início da personalidade civil das pessoas jurídicas de direito privado ocorre com a inscrição do seu ato constitutivo no respectivo registro, precedida de autorização ou aprovação do Poder Executivo, quando necessário.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 46,
+  "secao": "DIREITO CIVIL, DIREITO EMPRESARIAL E DIREITO PENAL",
+  "comando": "Considerando o disposto no Código Civil acerca de personalidade e o disposto na Lei de Introdução às Normas do Direito Brasileiro acerca da vigência das leis, julgue os itens a seguir.",
+  "texto": "Lei nova que estabeleça disposições especiais a par das já existentes revogará a lei anterior.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 47,
+  "secao": "DIREITO CIVIL, DIREITO EMPRESARIAL E DIREITO PENAL",
+  "comando": "A respeito das sociedades limitadas, julgue os itens a seguir.",
+  "texto": "É de dois anos da data da subscrição das quotas sociais o prazo para que os sócios respondam solidariamente pela exata estimação de bens conferidos ao capital social de uma sociedade limitada.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 48,
+  "secao": "DIREITO CIVIL, DIREITO EMPRESARIAL E DIREITO PENAL",
+  "comando": "A respeito das sociedades limitadas, julgue os itens a seguir.",
+  "texto": "Em atenção ao princípio da estabilidade ou da variabilidade condicionada do capital social, ressalvado o disposto em lei especial, só pode ser aumentado o capital social após a integralização das quotas sociais inicialmente subscritas.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 49,
+  "secao": "DIREITO CIVIL, DIREITO EMPRESARIAL E DIREITO PENAL",
+  "comando": "A respeito das sociedades limitadas, julgue os itens a seguir.",
+  "texto": "A sociedade limitada poderá reduzir o capital se houver perdas irreparáveis, após a integralização do capital social original, ou se o capital for excessivo em relação ao objeto da sociedade.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 50,
+  "secao": "DIREITO CIVIL, DIREITO EMPRESARIAL E DIREITO PENAL",
+  "comando": "À luz da legislação penal brasileira, julgue os itens a seguir.",
+  "texto": "O agente que faz uso de selo falsificado destinado a controle tributário, sabendo de sua falsificação, comete crime contra a fé pública.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 51,
+  "secao": "DIREITO CIVIL, DIREITO EMPRESARIAL E DIREITO PENAL",
+  "comando": "À luz da legislação penal brasileira, julgue os itens a seguir.",
+  "texto": "Auditor-fiscal que exigir vantagem indevida para deixar de lançar ou de cobrar tributo devido por contribuinte terá cometido o crime de concussão previsto no Código Penal.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 52,
+  "secao": "DIREITO CIVIL, DIREITO EMPRESARIAL E DIREITO PENAL",
+  "comando": "À luz da legislação penal brasileira, julgue os itens a seguir.",
+  "texto": "Para a caracterização do crime de ordenação de despesa não autorizada, é necessário o efetivo prejuízo financeiro ao ente público.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 53,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "ECONOMIA E FINANÇAS PÚBLICAS Com relação a conceitos econômicos e monetários, julgue os itens a seguir.",
+  "texto": "Se um país possuir superávit no balanço de pagamentos, haverá oscilação positiva na base monetária.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 54,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "ECONOMIA E FINANÇAS PÚBLICAS Com relação a conceitos econômicos e monetários, julgue os itens a seguir.",
+  "texto": "Se há plena mobilidade de capitais e a autoridade monetária conduz a política monetária com a fixação do juro, então o regime cambial não poderá ser do tipo câmbio fixo.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 55,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "ECONOMIA E FINANÇAS PÚBLICAS Com relação a conceitos econômicos e monetários, julgue os itens a seguir.",
+  "texto": "Se o governo decide aumentar a carga tributária sobre determinado produto, então a maior parte do imposto será necessariamente paga pelo consumidor.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 56,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Relativamente a tópicos específicos de finanças públicas, julgue os itens a seguir.",
+  "texto": "O lançamento tributário deve ser feito por homologação se o sujeito passivo da obrigação tributária antecipar o pagamento do tributo sem prévio exame da autoridade administrativa.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 57,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Relativamente a tópicos específicos de finanças públicas, julgue os itens a seguir.",
+  "texto": "A classificação institucional da despesa orçamentária deve atribuir a cada órgão público com competência para realizar despesas uma unidade orçamentária única e exclusiva.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 58,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Relativamente a tópicos específicos de finanças públicas, julgue os itens a seguir.",
+  "texto": "A arrecadação de impostos compartilhados com diversos entes da Federação deve ser contabilizada no âmbito do ente arrecadador pelo seu valor líquido, descontados os valores pertencentes aos demais entes.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 59,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Relativamente a tópicos específicos de finanças públicas, julgue os itens a seguir.",
+  "texto": "Emenda parlamentar ao projeto de lei orçamentária destinada a reforçar a dotação para os serviços da dívida correspondentes a determinada operação de crédito deve ser rejeitada por inconstitucionalidade se apresentar como fonte de recursos a anulação das despesas com serviços da dívida correspondentes a outra operação de crédito.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 60,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Julgue os itens a seguir, relativos ao disposto na Lei de Responsabilidade Fiscal sobre limites para dívida, transferências voluntárias e destinação de recursos para o setor privado.",
+  "texto": "As sanções de suspensão de transferências voluntárias não se aplicam sobre as ações de educação, saúde e assistência social.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 61,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Julgue os itens a seguir, relativos ao disposto na Lei de Responsabilidade Fiscal sobre limites para dívida, transferências voluntárias e destinação de recursos para o setor privado.",
+  "texto": "Ainda que não sejam pagos durante a execução do orçamento em que tenham sido incluídos, os precatórios judiciais integram a dívida consolidada, para fins de aplicação dos limites.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 62,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Julgue os itens a seguir, relativos ao disposto na Lei de Responsabilidade Fiscal sobre limites para dívida, transferências voluntárias e destinação de recursos para o setor privado.",
+  "texto": "A prevenção de insolvência e outros riscos associados à destinação de recursos para o setor privado fica a cargo de mecanismos constituídos pelo respectivo ente federativo.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 63,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "A respeito de componentes funcionais de computadores e do sistema operacional Linux, julgue os itens a seguir.",
+  "texto": "O SSD (solid-state drive) é uma tecnologia de armazenamento que utiliza memória flash e cuja interface de comunicação é a mesma utilizada em discos rígidos.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 64,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "A respeito de componentes funcionais de computadores e do sistema operacional Linux, julgue os itens a seguir.",
+  "texto": "No Linux, o diretório /home é o local onde é instalada a maior parte dos aplicativos e das bibliotecas do sistema operacional, enquanto no diretório /usr são armazenados os arquivos dos usuários.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 65,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Com relação ao MS Excel 2013, julgue o próximo item.",
+  "texto": "A função PROCV permite localizar itens em qualquer posição de uma tabela ou em um intervalo por coluna, pesquisando-se a partir de determinado valor para se obter o valor de retorno.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 66,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Acerca do navegador Google Chrome, julgue o item seguinte.",
+  "texto": "O atalho SHIFT + ESC permite acessar o Gerenciador de Tarefas para visualizar e finalizar processos do Google Chrome em execução.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 67,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "No que se refere à gerência de projetos, julgue o próximo item, com base no PMBOK 5.",
+  "texto": "Os cinco grupos de processos de gerenciamento de projetos previstos no PMBOK são iniciação, planejamento, execução, monitoramento e controle, e encerramento.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 68,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Acerca de fundamentos da ITIL v3, julgue o item que se segue.",
+  "texto": "Os volumes da ITIL são embasados nos seguintes ciclos de vida do serviço: estratégia de serviço; desenho de serviço; transição de serviço; operação de serviço; e melhoria de serviço continuada. Cada estágio do ciclo de vida do serviço influencia outros estágios e é influenciado por eles.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 69,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Com relação ao plano de continuidade de negócios, a assinatura digital e a auditoria, julgue os itens a seguir.",
+  "texto": "A assinatura digital foi desenvolvida especialmente com o objetivo de prover confidencialidade. Para criá-la, basta que o emissor gere um hash da mensagem enviada e cifre esse código hash com sua chave privada.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 70,
+  "secao": "ECONOMIA E FINANÇAS PÚBLICAS",
+  "comando": "Com relação ao plano de continuidade de negócios, a assinatura digital e a auditoria, julgue os itens a seguir.",
+  "texto": "São objetivos da auditoria a revisão e o exame independentes de registros e atividades do sistema, para testar a adequabilidade dos controles desse sistema, de modo a verificar se há obediência às políticas e aos procedimentos estabelecidos.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 71,
+  "secao": "MATEMÁTICA FINANCEIRA, ESTATÍSTICA E RACIOCÍNIO LÓGICO",
+  "comando": "Com base nessas informações, julgue os itens a seguir.",
+  "texto": "Considere que um comprador sabe que o preço da bicicleta não irá aumentar durante 1 mês e tem a possibilidade de investir suas economias em uma aplicação com rendimento líquido de 5% ao mês. Nessa situação, o comprador poderá realizar a compra à vista da bicicleta investindo nessa aplicação uma quantia inferior a R$ 1.650, independentemente de o regime de capitalização da aplicação ser simples ou composto.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 72,
+  "secao": "MATEMÁTICA FINANCEIRA, ESTATÍSTICA E RACIOCÍNIO LÓGICO",
+  "comando": "Com base nessas informações, julgue os itens a seguir.",
+  "texto": "Na compra a prazo, o custo efetivo da operação de financiamento pago pelo cliente será inferior a 14% ao mês.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 73,
+  "secao": "MATEMÁTICA FINANCEIRA, ESTATÍSTICA E RACIOCÍNIO LÓGICO",
+  "comando": "Com base nessas informações, julgue os itens a seguir.",
+  "texto": "No caso de uma venda a prazo em que o lojista optasse pela antecipação do crédito correspondente à parcela que só seria paga no mês seguinte, o valor total que ele receberia (entrada mais antecipação) seria superior a R$ 1.790.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 74,
+  "secao": "MATEMÁTICA FINANCEIRA, ESTATÍSTICA E RACIOCÍNIO LÓGICO",
+  "comando": "Considerando que os valores possíveis para a variável X sejam !1 e +4, julgue os itens que se seguem.",
+  "texto": "Nessa amostra aleatória, a quantidade de observações iguais a +4 foi igual a 0,8 n.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 75,
+  "secao": "MATEMÁTICA FINANCEIRA, ESTATÍSTICA E RACIOCÍNIO LÓGICO",
+  "comando": "Considerando que os valores possíveis para a variável X sejam !1 e +4, julgue os itens que se seguem.",
+  "texto": "O desvio padrão amostral da variável X foi igual ou superior a 2.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 76,
+  "secao": "MATEMÁTICA FINANCEIRA, ESTATÍSTICA E RACIOCÍNIO LÓGICO",
+  "comando": "Considerando que os valores possíveis para a variável X sejam !1 e +4, julgue os itens que se seguem.",
+  "texto": "A mediana amostral da variável X foi igual a 2,5.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 77,
+  "secao": "MATEMÁTICA FINANCEIRA, ESTATÍSTICA E RACIOCÍNIO LÓGICO",
+  "comando": "Considerando que os valores possíveis para a variável X sejam !1 e +4, julgue os itens que se seguem.",
+  "texto": "A distribuição da variável X é simétrica em torno da sua média amostral.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 78,
+  "secao": "MATEMÁTICA FINANCEIRA, ESTATÍSTICA E RACIOCÍNIO LÓGICO",
+  "comando": "Considerando a proposição P: “Se o servidor gosta do que faz, então o cidadão-cliente fica satisfeito”, julgue os itens a seguir.",
+  "texto": "A proposição “O servidor não gosta do que faz, ou o cidadão-cliente não fica satisfeito” é uma maneira correta de negar a proposição P.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 79,
+  "secao": "MATEMÁTICA FINANCEIRA, ESTATÍSTICA E RACIOCÍNIO LÓGICO",
+  "comando": "Considerando a proposição P: “Se o servidor gosta do que faz, então o cidadão-cliente fica satisfeito”, julgue os itens a seguir.",
+  "texto": "A proposição P é logicamente equivalente à seguinte proposição: “Se o cidadão-cliente não fica satisfeito, então o servidor não gosta do que faz”.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 80,
+  "secao": "MATEMÁTICA FINANCEIRA, ESTATÍSTICA E RACIOCÍNIO LÓGICO",
+  "comando": "Considerando a proposição P: “Se o servidor gosta do que faz, então o cidadão-cliente fica satisfeito”, julgue os itens a seguir.",
+  "texto": "P é uma proposição composta formada por duas proposições simples, de modo que sua tabela-verdade possui 2 linhas.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 81,
+  "secao": "CONHECIMENTO AUDITORIA FISCAL DO ICMS E DO ISS",
+  "comando": "Com relação a planos, procedimentos e amostragem de auditoria, julgue os itens a seguir.",
+  "texto": "Preliminarmente aos trabalhos de auditoria independente das demonstrações contábeis, o profissional responsável deve avaliar a conformidade com os requisitos éticos, incluindo-se a independência da equipe de trabalho em relação ao auditado, conforme exigido pelas normas aplicáveis.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 82,
+  "secao": "CONHECIMENTO AUDITORIA FISCAL DO ICMS E DO ISS",
+  "comando": "Com relação a planos, procedimentos e amostragem de auditoria, julgue os itens a seguir.",
+  "texto": "Ao utilizar informações comparáveis de períodos anteriores para estabelecer relações plausíveis entre dados financeiros e dados não financeiros da entidade auditada, o auditor está aplicando um procedimento analítico de auditoria.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 83,
+  "secao": "CONHECIMENTO AUDITORIA FISCAL DO ICMS E DO ISS",
+  "comando": "Com relação a planos, procedimentos e amostragem de auditoria, julgue os itens a seguir.",
+  "texto": "O risco de amostragem em auditoria está associado ao desvio não representativo do desvio existente em uma população.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 84,
+  "secao": "CONHECIMENTO AUDITORIA FISCAL DO ICMS E DO ISS",
+  "comando": "A respeito dos testes de auditoria, julgue os itens seguintes.",
+  "texto": "Testes de observância em auditoria estão intimamente ligados à verificação do cumprimento dos procedimentos de controles internos da auditada.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 85,
+  "secao": "CONHECIMENTO AUDITORIA FISCAL DO ICMS E DO ISS",
+  "comando": "A respeito dos testes de auditoria, julgue os itens seguintes.",
+  "texto": "A constatação da existência real e da integridade das transações evidenciadas nos relatórios contábeis é o principal objetivo dos testes de observância.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 86,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "A respeito dos testes de auditoria, julgue os itens seguintes.",
+  "texto": "Ao encontrar lançamentos contábeis com valores incorretos para maior e para menor em várias rubricas de uma entidade, o auditor externo deve aplicar os testes principais de subavaliação nas contas de ativos e despesas dessa entidade.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 87,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "As distorções nas demonstrações contábeis podem originar-se de fraude ou de erro. Acerca desse assunto, julgue os itens seguintes.",
+  "texto": "Omissões intencionais de eventos nas demonstrações contábeis poderão ser consideradas erro ou fraude, conforme a gravidade.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 88,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "As distorções nas demonstrações contábeis podem originar-se de fraude ou de erro. Acerca desse assunto, julgue os itens seguintes.",
+  "texto": "O auditor deve se preocupar com qualquer tipo de fator que cause distorção nas demonstrações contábeis, podendo ser responsabilizado em caso de não detecção de tais fatores.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 89,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "As distorções nas demonstrações contábeis podem originar-se de fraude ou de erro. Acerca desse assunto, julgue os itens seguintes.",
+  "texto": "A responsabilidade pela prevenção e detecção da fraude compete principalmente à área de gestão de riscos da organização.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 90,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "As distorções nas demonstrações contábeis podem originar-se de fraude ou de erro. Acerca desse assunto, julgue os itens seguintes.",
+  "texto": "A realização de lançamentos contábeis em contas não relacionadas, não usuais ou raramente utilizadas, com números quebrados e informações de centavos, caracteriza lançamentos fraudulentos.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 91,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "As distorções nas demonstrações contábeis podem originar-se de fraude ou de erro. Acerca desse assunto, julgue os itens seguintes.",
+  "texto": "Ao determinar respostas globais para enfrentar os riscos avaliados de distorção relevante nas demonstrações contábeis, o auditor deve incorporar elementos de imprevisibilidade na seleção dos procedimentos de auditoria.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 92,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "Com referência à auditoria das demonstrações contábeis, julgue os itens a seguir.",
+  "texto": "O auditor deve, antes de expressar uma opinião, ter obtido segurança razoável de que as demonstrações contábeis como um todo estão livres de distorção relevante, independentemente de terem sido causadas por fraude ou erro.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 93,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "Com referência à auditoria das demonstrações contábeis, julgue os itens a seguir.",
+  "texto": "Ao planejar e executar a auditoria de demonstrações contábeis, o auditor deve considerar as circunstâncias envolvidas, a magnitude e a natureza das distorções, ou a combinação de ambos.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 94,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "Com referência à auditoria das demonstrações contábeis, julgue os itens a seguir.",
+  "texto": "A opinião do auditor sobre as demonstrações contábeis assegura a viabilidade futura da entidade, assim como assegura a eficiência da administração na condução dos negócios dessa entidade.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 95,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "Julgue o próximo item, relativo a fraudes e erros na escrita fiscal.",
+  "texto": "As penalidades relativas à obrigação acessória referente à escrituração dos livros fiscais se aplicam mesmo aos contribuintes que tenham sanado, antes de qualquer procedimento do fisco, as irregularidades das respectivas obrigações.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 96,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "Com relação à auditoria na escrituração fiscal digital (EFD), julgue os itens a seguir.",
+  "texto": "O auditor-fiscal do GDF não pode solicitar ao contribuinte a EFD ICMS-IPI, uma vez que a recepção e a validação dos dados são realizadas no ambiente do Sistema Público de Escrituração Digital, administrado pelo próprio GDF.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 97,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "Com relação à auditoria na escrituração fiscal digital (EFD), julgue os itens a seguir.",
+  "texto": "Ao arquivo digital da EFD ICMS-IPI anexado a processo de fiscalização, não se aplica nenhuma especificação quanto ao leiaute na sua geração, já que se devem respeitar as características de cada empresa.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 98,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "A respeito da situação hipotética apresentada e de aspectos legais, normativos ou técnicos a ela relacionados, julgue o item seguinte, que se refere ao procedimento de fiscalização.",
+  "texto": "Infere-se que o auditor-fiscal considerou os demais créditos de ICMS porque os ativos imobilizados dos quais foram originados são todos utilizados no processo produtivo, além de terem sido adquiridos nos últimos doze meses.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 99,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "Considerando que determinado contribuinte tenha passado por um processo de auditoria fiscal e não tenha conseguido comprovar, com documentos fiscais, a base de cálculo do ISS, julgue o item que se segue.",
+  "texto": "Na hipótese de haver o arbitramento, a autoridade fiscal pode fixar a base de cálculo do ISS utilizando o preço do serviço praticado em períodos idênticos pelo próprio contribuinte ou por outros contribuintes que exerçam a mesma atividade.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 100,
+  "secao": "OS ESPECÍFICOS",
+  "comando": "Julgue o item a seguir, a respeito da escrita fiscal.",
+  "texto": "Salvo disposição em contrário, o contribuinte que mantiver mais de um estabelecimento — filial, sucursal, agência, depósito, fábrica ou outro — deverá fazer escrituração em livros fiscais distintos para cada um deles, vedada a sua centralização.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 101,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "No que se refere às características qualitativas fundamentais da informação contábil-financeira, julgue o item seguinte.",
+  "texto": "Para ser útil, a informação contábil deve, concomitantemente, ser relevante e representar com fidedignidade a realidade reportada: nem a representação fidedigna de fenômeno irrelevante, nem a representação não fidedigna de fenômeno relevante auxiliam os usuários a tomarem boas decisões.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 102,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "Considerando os conceitos de receita, despesa, ganhos e perdas, julgue o próximo item.",
+  "texto": "Ganhos representam outros itens que se enquadram na definição de receita e podem ou não surgir no curso das atividades usuais da entidade, representando aumentos nos benefícios econômicos, e, como tais, não diferem, em natureza, das receitas.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 103,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "Com relação aos conceitos de ativos, passivos e patrimônio líquido, julgue o item a seguir.",
+  "texto": "Ao avaliar se um item se enquadra na definição de ativo, passivo ou patrimônio líquido, deve-se atentar para a sua essência subjacente e sua realidade econômica, e não apenas para sua forma legal.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 104,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "A respeito da situação hipotética apresentada, julgue o item a seguir.",
+  "texto": "Os adiantamentos pagos aos funcionários no dia 15 do referido mês são considerados fatos modificativos porque reduzem o ativo (saída de caixa) e reduzem o patrimônio (reconhecimento de despesa).",
+  "resp_just": "E"
+ },
+ {
+  "numero": 105,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "A partir dessas informações, julgue os itens a seguir.",
+  "texto": "O gestor contábil deve contabilizar as mercadorias como ativo circulante ao custo de R$ 550.000.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 106,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "A partir dessas informações, julgue os itens a seguir.",
+  "texto": "O gestor contábil deve debitar como despesa operacional o valor de R$ 25.000, referente ao valor pago pelo frete.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 107,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "A respeito das demonstrações contábeis, julgue os itens que se seguem.",
+  "texto": "A partir da análise da demonstração dos fluxos de caixa, o usuário da informação toma conhecimento de como a entidade financia suas atividades, descritas através dos fluxos operacional, de investimento e de financiamento.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 108,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "A respeito das demonstrações contábeis, julgue os itens que se seguem.",
+  "texto": "A demonstração do valor adicionado apresenta as riquezas criadas pela entidade em determinado período e a forma como foram pagas, a exemplo de valores destinados à quitação de impostos, taxas e contribuições.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 109,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "No que se refere à metodologia do custeio por absorção, julgue os itens seguintes.",
+  "texto": "O custeio RKW é um tipo de custeio por absorção.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 110,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "No que se refere à metodologia do custeio por absorção, julgue os itens seguintes.",
+  "texto": "Os custos que podem ser associados aos objetos de custeio sem o uso de modelos matemáticos de rateio são atribuídos a esses objetos na metodologia do custeio por absorção.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 111,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "No que se refere à metodologia do custeio por absorção, julgue os itens seguintes.",
+  "texto": "Na metodologia de custeio por absorção, as rubricas necessárias para o controle de custos e estoques diferem no que se refere aos sistemas produtivos empregados: produção por ordem de serviços e produção contínua, respectivamente.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 112,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "Com relação às metodologias adotadas tanto para fins de custeamento de estoques quanto para fins meramente gerenciais, julgue os itens que se seguem.",
+  "texto": "Situação hipotética: Em 20X9, no seu último ano de exercício social, determinada empresa apurou, antes de impostos, lucro de R$ 1.350.000, pelo método do custeio variável, e lucro de R$ 1.125.000, pelo método do custeio por absorção. Assertiva: Considerando-se essas informações, é correto afirmar que a empresa teve redução de estoques no período.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 113,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "Com relação às metodologias adotadas tanto para fins de custeamento de estoques quanto para fins meramente gerenciais, julgue os itens que se seguem.",
+  "texto": "Em seu segundo estágio, o custeio ABC atribui custos de insumos às atividades.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 114,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "Com relação às metodologias adotadas tanto para fins de custeamento de estoques quanto para fins meramente gerenciais, julgue os itens que se seguem.",
+  "texto": "Situação hipotética: Determinada empresa atingiu seu ponto de equilíbrio ao vender 4 mil unidades de seu único produto. Seus custos e despesas fixas somaram R$ 160.000. Assertiva: Nessa situação, se a empresa apurar um lucro, antes de impostos, de R$ 80.000, ela terá obtido uma margem de segurança superior a 40%.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 115,
+  "secao": "CONTABILIDADE GERAL E CONTABILIDADE DE CUSTOS",
+  "comando": "Com relação às metodologias adotadas tanto para fins de custeamento de estoques quanto para fins meramente gerenciais, julgue os itens que se seguem.",
+  "texto": "Situação hipotética: Uma empresa que utiliza o sistema de custo padrão para fins gerenciais considera que uma unidade de dado produto deve consumir 0,45 horas de mão de obra direta, cuja taxa horária é de R$ 13,00. Em dado período foram produzidas 200 unidades desse produto, o que gerou uma variação favorável de taxa de mão de obra direta (MOD) de R$ 90,00 e uma variação total de R$ 40,00 desfavorável. Assertiva: Com base nessas informações, é correto concluir que a taxa efetivamente incorrida pela mão de obra utilizada foi inferior a R$ 12,50.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 116,
+  "secao": "DIREITO FINANCEIRO",
+  "comando": "Considerando as regras constitucionais de direito financeiro, julgue o item a seguir.",
+  "texto": "O crédito especial cujo ato de autorização seja promulgado nos últimos quatro meses do exercício financeiro pode ser reaberto e incorporado ao orçamento do ano seguinte, desde que respeitado o limite do seu saldo.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 117,
+  "secao": "DIREITO FINANCEIRO",
+  "comando": "Julgue os próximos itens, considerando o disposto na Lei n.º 4.320/1964.",
+  "texto": "Os valores objeto da previsão de arrecadação de receitas constante da lei orçamentária anual pertencem ao respectivo exercício financeiro.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 118,
+  "secao": "DIREITO FINANCEIRO",
+  "comando": "Julgue os próximos itens, considerando o disposto na Lei n.º 4.320/1964.",
+  "texto": "Os créditos da fazenda pública serão escriturados como receita do exercício financeiro em que tiver se dado o fato gerador.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 119,
+  "secao": "DIREITO FINANCEIRO",
+  "comando": "Julgue os itens a seguir, à luz da Lei de Responsabilidade Fiscal.",
+  "texto": "No conceito de receita corrente líquida dos estados, são deduzidos os valores das transferências que eles fizerem aos municípios por determinação constitucional.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 120,
+  "secao": "DIREITO FINANCEIRO",
+  "comando": "Julgue os itens a seguir, à luz da Lei de Responsabilidade Fiscal.",
+  "texto": "Exige-se autorização por lei específica para a realização de doação, pelo governo federal, de determinada quantia em dinheiro para satisfazer necessidades de pessoa física que tenha prestado relevantes serviços à nação.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 121,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "DIREITO TRIBUTÁRIO Julgue os próximos itens, com base no disposto na Lei Orgânica do DF, na Constituição Federal de 1988 e no Código Tributário Nacional (CTN).",
+  "texto": "Segundo a Lei Orgânica do DF, são isentas de impostos distritais as operações de transferência de imóveis desapropriados para fins de reforma agrária.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 122,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "DIREITO TRIBUTÁRIO Julgue os próximos itens, com base no disposto na Lei Orgânica do DF, na Constituição Federal de 1988 e no Código Tributário Nacional (CTN).",
+  "texto": "A majoração de qualquer tributo por medida provisória somente produzirá efeitos no exercício financeiro seguinte se for convertida em lei até o último dia do exercício em que tiver sido editada.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 123,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "DIREITO TRIBUTÁRIO Julgue os próximos itens, com base no disposto na Lei Orgânica do DF, na Constituição Federal de 1988 e no Código Tributário Nacional (CTN).",
+  "texto": "De acordo com o CTN, o arrematante de produtos importados apreendidos pela aduana é contribuinte do imposto sobre a importação.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 124,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "Considerando as regras do CTN acerca da vigência da legislação tributária e das limitações constitucionais ao poder de tributar, julgue os itens que se seguem.",
+  "texto": "Não havendo disposição em contrário, os efeitos normativos das decisões dos órgãos coletivos de jurisdição administrativa a que a lei atribua eficácia normativa entram em vigor trinta dias após a data da publicação da decisão.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 125,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "Considerando as regras do CTN acerca da vigência da legislação tributária e das limitações constitucionais ao poder de tributar, julgue os itens que se seguem.",
+  "texto": "A imunidade tributária recíproca dos entes federativos não é extensível às respectivas autarquias e fundações públicas.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 126,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "No que se refere a aplicação da lei e responsabilidade tributária, julgue os itens seguintes.",
+  "texto": "A atribuição de responsabilidade tributária solidária ao administrador da massa falida pelas penalidades tributárias por ela devidas se restringe às de caráter moratório.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 127,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "No que se refere a aplicação da lei e responsabilidade tributária, julgue os itens seguintes.",
+  "texto": "O Código Tributário Nacional admite a aplicação do princípio da insignificância aos ilícitos tributários, de modo que a ocorrência da infração fiscal depende da análise da efetividade e da extensão dos efeitos do ato.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 128,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "No que se refere a aplicação da lei e responsabilidade tributária, julgue os itens seguintes.",
+  "texto": "É incompatível com o Código Tributário Nacional lei distrital que admita a indicação do sujeito passivo do imposto sobre transmissão de bens imóveis (ITBI) pelas partes no contrato de compra e venda de imóvel, pois as convenções particulares não são oponíveis à fazenda pública.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 129,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "No que se refere a aplicação da lei e responsabilidade tributária, julgue os itens seguintes.",
+  "texto": "A sociedade empresária que tenha sócio remanescente de sociedade extinta e que explore a mesma atividade não responde pelos débitos tributários desta.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 130,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "No que se refere a aplicação da lei e responsabilidade tributária, julgue os itens seguintes.",
+  "texto": "Como o conceito de doação constante do direito civil decorre de legislação infraconstitucional ordinária da União, não oponível aos demais entes federados, o intérprete da legislação que necessitar utilizar tal conceito para fins tributários no âmbito do Distrito Federal deve buscá-lo exclusivamente na legislação tributária distrital, ainda que esta veicule definição mais ampla que a do direito privado.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 131,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "Com relação à inscrição na dívida ativa, julgue os itens a seguir.",
+  "texto": "É facultativo constar no termo de inscrição da dívida ativa a maneira de calcular os juros de mora acrescidos à quantia devida.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 132,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "Com relação à inscrição na dívida ativa, julgue os itens a seguir.",
+  "texto": "É obrigatório constar no termo de inscrição da dívida ativa o número do processo administrativo de que se origina o crédito tributário.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 133,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "Com relação à inscrição na dívida ativa, julgue os itens a seguir.",
+  "texto": "Eventual nulidade do termo de inscrição da dívida ativa poderá ser sanada até a decisão de primeira instância, mediante a substituição da certidão nula, devolvendo-se o prazo de defesa.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 134,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "A respeito das garantias e dos privilégios do crédito tributário, julgue os itens seguintes.",
+  "texto": "Independentemente da inscrição em dívida ativa, pode-se presumir como fraudulenta a alienação de bens realizada pelo sujeito passivo que esteja em débito com a fazenda pública, desde que exista o crédito tributário.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 135,
+  "secao": "DIREITO TRIBUTÁRIO",
+  "comando": "A respeito das garantias e dos privilégios do crédito tributário, julgue os itens seguintes.",
+  "texto": "Não há presunção de fraude na alienação de bens feita por sujeito passivo se o devedor reservar bens ou rendas suficientes ao pagamento da dívida regularmente inscrita.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 136,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "LEGISLAÇÃO TRIBUTÁRIA De acordo com a Lei Orgânica do Distrito Federal e o Código Tributário do Distrito Federal, julgue os itens seguintes.",
+  "texto": "O ICMS não incide sobre operações que destinem mercadorias para o exterior.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 137,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "LEGISLAÇÃO TRIBUTÁRIA De acordo com a Lei Orgânica do Distrito Federal e o Código Tributário do Distrito Federal, julgue os itens seguintes.",
+  "texto": "É vedada a cobrança da contribuição de iluminação pública na fatura de consumo de energia elétrica emitida pela empresa concessionária desse serviço.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 138,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "LEGISLAÇÃO TRIBUTÁRIA De acordo com a Lei Orgânica do Distrito Federal e o Código Tributário do Distrito Federal, julgue os itens seguintes.",
+  "texto": "Na hipótese de aplicação de multa em razão do recolhimento do tributo depois de iniciado o processo de exigência do crédito tributário, o contribuinte terá direito a desconto se efetuar o pagamento antes do ajuizamento da ação de execução do crédito tributário.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 139,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "A respeito da apreensão de mercadoria pelo fisco e do processo administrativo fiscal, julgue os próximos itens, considerando o Decreto n.º 33.269/2011 e o Regimento Interno do Tribunal Administrativo de Recursos Fiscais (TARF).",
+  "texto": "Os bens encontrados em situação irregular e apreendidos pela autoridade tributária somente devem ser liberados após o pagamento do imposto incidente e das multas devidas.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 140,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "A respeito da apreensão de mercadoria pelo fisco e do processo administrativo fiscal, julgue os próximos itens, considerando o Decreto n.º 33.269/2011 e o Regimento Interno do Tribunal Administrativo de Recursos Fiscais (TARF).",
+  "texto": "São considerados créditos tributários não contenciosos aqueles sujeitos a lançamento por homologação, se forem declarados pelo contribuinte por escrituração fiscal eletrônica e não tiverem sido recolhidos no prazo estabelecido.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 141,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "A respeito da apreensão de mercadoria pelo fisco e do processo administrativo fiscal, julgue os próximos itens, considerando o Decreto n.º 33.269/2011 e o Regimento Interno do Tribunal Administrativo de Recursos Fiscais (TARF).",
+  "texto": "No âmbito do TARF, compete ao tribunal pleno conhecer e julgar os recursos em processos de jurisdição voluntária, exceto os processos de consulta.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 142,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "Com relação ao ISS e ao ICMS, julgue os itens subsequentes, à luz da Lei distrital n.º 1.254/1996 (Lei do ICMS no DF) e da Lei Complementar n.º 116/2003 (Lei do ISS).",
+  "texto": "O valor do frete da mercadoria não deverá integrar a base de cálculo do ICMS se o transporte for efetuado pelo próprio remetente.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 143,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "Com relação ao ISS e ao ICMS, julgue os itens subsequentes, à luz da Lei distrital n.º 1.254/1996 (Lei do ICMS no DF) e da Lei Complementar n.º 116/2003 (Lei do ISS).",
+  "texto": "A pessoa jurídica tomadora de serviços de engenharia de obras de construção civil executadas por subempreitada não é responsável pelo ISS devido na operação se não for contribuinte do tributo.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 144,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "Com base no Decreto distrital n.º 28.445/2007, julgue os itens a seguir, com relação ao IPTU no âmbito do Distrito Federal.",
+  "texto": "A incidência do IPTU depende do registro do respectivo imóvel residencial em cartório de registro de imóveis.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 145,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "Com base no Decreto distrital n.º 28.445/2007, julgue os itens a seguir, com relação ao IPTU no âmbito do Distrito Federal.",
+  "texto": "Posseiro possui responsabilidade tributária pelo pagamento do IPTU do imóvel que ocupa.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 146,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "Com base no Decreto distrital n.º 28.445/2007, julgue os itens a seguir, com relação ao IPTU no âmbito do Distrito Federal.",
+  "texto": "A base de cálculo do referido imposto é o valor venal do imóvel, desconsiderando-se, na avaliação desse valor, a área não edificada.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 147,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "A respeito do IPVA no âmbito do Distrito Federal, julgue os itens seguintes.",
+  "texto": "São isentos de IPVA os veículos de serviços agrícolas que transitem apenas dentro dos limites das propriedades agrícolas a que pertençam, assim como as máquinas agrícolas e de terraplenagem, desde que não circulem em vias públicas abertas à circulação.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 148,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "A respeito do IPVA no âmbito do Distrito Federal, julgue os itens seguintes.",
+  "texto": "Deverá incidir correção monetária sobre o valor do IPVA em caso de pagamento espontâneo fora dos prazos regulamentares.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 149,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "A respeito do IPVA no âmbito do Distrito Federal, julgue os itens seguintes.",
+  "texto": "Terá isenção do pagamento de IPVA o proprietário de veículo roubado, furtado ou sinistrado, desde que o fato seja objeto de ocorrência policial.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 150,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "Acerca do ITBI no âmbito do Distrito Federal, julgue os itens subsecutivos.",
+  "texto": "Incide ITBI no caso de extinção de usufruto por consolidação na pessoa do nu proprietário em decorrência de morte do usufrutuário.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 151,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "Acerca do ITBI no âmbito do Distrito Federal, julgue os itens subsecutivos.",
+  "texto": "É isenta de ITBI operação de aquisição de imóveis de propriedade da Companhia Imobiliária de Brasília (TERRACAP) por empreendedores habilitados pela Caixa Econômica Federal.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 152,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "Acerca do ITBI no âmbito do Distrito Federal, julgue os itens subsecutivos.",
+  "texto": "Não incide ITBI sobre a transmissão de bens ou direitos incorporados ao patrimônio de pessoa jurídica, em realização de capital nela subscrito, ou em decorrência de fusão, incorporação, cisão ou extinção de pessoa jurídica.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 153,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "À luz do Decreto-lei n.º 82/1966, que regula o Sistema Tributário do Distrito Federal, julgue os itens seguintes.",
+  "texto": "Ao criar uma contribuição de melhoria, o governo do Distrito Federal deve estabelecer a contribuição relativa a cada imóvel, que será calculada em razão dos parâmetros publicados.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 154,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "À luz do Decreto-lei n.º 82/1966, que regula o Sistema Tributário do Distrito Federal, julgue os itens seguintes.",
+  "texto": "É facultado aos contribuintes impugnar os elementos ou parâmetros utilizados para cálculos, cabendo o ônus da prova ao governo do Distrito Federal.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 155,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "Consoante a Lei Complementar distrital n.º 435/2001, os tributos vencidos e os valores expressos em moeda na legislação distrital devem ser atualizados. A respeito dessa atualização, julgue os itens que se seguem.",
+  "texto": "Os valores expressos em moeda na legislação devem ser atualizados pelo Índice Nacional de Preços ao Consumidor e sua periodicidade deve ser mensal.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 156,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "Consoante a Lei Complementar distrital n.º 435/2001, os tributos vencidos e os valores expressos em moeda na legislação distrital devem ser atualizados. A respeito dessa atualização, julgue os itens que se seguem.",
+  "texto": "Aos tributos vencidos aplicam-se, além do Índice Nacional de Preços ao Consumidor, a multa e os juros de mora.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 157,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "No que se refere ao Estatuto Nacional da Microempresa e da Empresa de Pequeno Porte – Simples Nacional, julgue os próximos itens.",
+  "texto": "A lei que institui esse estatuto destina-se a dar tratamento diferenciado às micro e pequenas empresas no que se refere tanto às obrigações principais quanto às acessórias.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 158,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "No que se refere ao Estatuto Nacional da Microempresa e da Empresa de Pequeno Porte – Simples Nacional, julgue os próximos itens.",
+  "texto": "Para efeito de caracterização como micro ou pequena empresa, é levada em consideração a receita bruta, que deve ser entendida como o produto da venda de bens e serviços nas operações de conta própria, o preço dos serviços prestados e o resultado nas operações em conta alheia, não incluídos vendas canceladas nem descontos incondicionais concedidos.",
+  "resp_just": "C"
+ },
+ {
+  "numero": 159,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "A Lei distrital n.º 2.834/2001 tornou aplicável ao Distrito Federal a Lei federal n.º 9.784/1999, que regula o processo administrativo no âmbito da administração pública federal. Considerando essas normas, julgue os itens subsequentes.",
+  "texto": "A citada norma distrital não recepcionou os dispositivos da referida lei federal relativos aos direitos dos administrados.",
+  "resp_just": "E"
+ },
+ {
+  "numero": 160,
+  "secao": "LEGISLAÇÃO TRIBUTÁRIA",
+  "comando": "A Lei distrital n.º 2.834/2001 tornou aplicável ao Distrito Federal a Lei federal n.º 9.784/1999, que regula o processo administrativo no âmbito da administração pública federal. Considerando essas normas, julgue os itens subsequentes.",
+  "texto": "A referida lei federal impõe que o processo administrativo se inicie apenas por iniciativa do interessado.",
+  "resp_just": "E"
+ }
+]

@@ -1,2 +1,7 @@
 .DS_Store
-provas_sefaz_auditor_fiscal/
+# PDFs de prova e imagens de página ficam fora do git; só os scripts de extração entram.
+provas_sefaz_auditor_fiscal/*
+!provas_sefaz_auditor_fiscal/_scripts/
+provas_sefaz_auditor_fiscal/_scripts/*_pg/
+provas_sefaz_auditor_fiscal/_scripts/*.png
+__pycache__/
