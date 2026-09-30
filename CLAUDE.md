@@ -262,3 +262,16 @@ SEMPRE usar a skill `/caveman` (modo de comunicação ultra-comprimido) em toda 
   extremo direito da linha do título; o toque abre uma caixinha no fluxo do cartão (empurra o
   conteúdo, não é popover/popup/overlay) e o segundo toque fecha. Explicação nova de cartão vai em
   `ajuda`, não em `legenda`.
+
+## Definir termo e marcar questão como errada
+
+- `SelecaoNota` (menu flutuante da seleção de texto) ganhou, ao lado de "+ Salvar nota", um
+  botão-ícone `LightBulbIcon` "Definir": chama `definirTermo` (`lib/anthropic.ts`, effort low, usa o
+  enunciado como contexto) e mostra a definição numa folha inferior com dois botões-ícone —
+  `BookmarkIcon` salva como nota (`"termo :: definição"`, tag do bloco) e `XMarkIcon` descarta sem
+  gravar nada.
+- `QuestaoCard`: botão-ícone `ExclamationTriangleIcon` ao lado de editar/pular (só antes de revelar,
+  em questão do banco ou com linha gravada). Marca a questão como inviável (`lib/questoesInviaveis.ts`,
+  `@capacitor/preferences`, carregado no boot em `App.tsx`; `questoesFiltradas` em `banco.ts` a exclui
+  de sorteio/contagem), reporta se já houver linha (`reportarQuestao`, motivo "enunciado") e pula.
+  Não altera o JSON do banco nem cria linha em `questoes_respondidas`.

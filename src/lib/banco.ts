@@ -21,6 +21,7 @@
  * questão com `bancoId` aparecer numa tela que não passou por lá primeiro
  * (Refazer/Blocos anteriores, reabertos direto após o boot).
  */
+import { ehInviavel } from "./questoesInviaveis";
 import { pesoPonderado } from "./pontuacaoTopicos";
 import type { Questao } from "./types";
 
@@ -264,7 +265,7 @@ export function anosDeArea(area: string): number[] {
 }
 
 function questoesFiltradas(area: string, filtro: FiltroBanco): QuestaoBanco[] {
-  let qs = questoesDeArea(area);
+  let qs = questoesDeArea(area).filter((q) => !ehInviavel(q.id));
   if (filtro.modo === "aula") qs = qs.filter((q) => q.assunto === filtro.assunto);
   else if (filtro.modo === "bloco") qs = qs.filter((q) => prefixoAssunto(q.assunto) === filtro.bloco);
   if (filtro.instituicao) qs = qs.filter((q) => q.instituicao === filtro.instituicao);

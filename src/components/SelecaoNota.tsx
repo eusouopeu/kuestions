@@ -3,6 +3,8 @@ import { C, campo, cartao, mono, rotulo } from "../theme";
 import Botao from "./Botao";
 import CampoCorpoNota from "./CampoCorpoNota";
 import { salvarNota } from "../lib/repo";
+import { definirTermo, mensagemDeErro } from "../lib/anthropic";
+import { BookmarkIcon, LightBulbIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 interface Selecao {
   texto: string;
@@ -27,12 +29,15 @@ export default function SelecaoNota({
   materia,
   tagPadrao,
   questaoOrigemId,
+  contexto = "",
   onSalvo,
 }: {
   containerRef: RefObject<HTMLElement>;
   materia: string;
   tagPadrao: string;
   questaoOrigemId: number | null;
+  /** Enunciado da questão — dá contexto ao "Definir" para o sentido certo do termo. */
+  contexto?: string;
   onSalvo?: () => void;
 }) {
   const [selecao, setSelecao] = useState<Selecao | null>(null);
@@ -44,6 +49,14 @@ export default function SelecaoNota({
   // dependesse de `selecao` continuar preenchida, ele nunca chegaria a abrir:
   // o texto some no exato instante em que o usuário toca para salvá-lo.
   const [pendente, setPendente] = useState<string | null>(null);
+  // "Definir": termo capturado (mesma razão de `pendente`) + resultado da IA.
+  // Só vira nota se o usuário salvar; descartar não grava nada.
+  const [definindo, setDefinindo] = useState<{
+    termo: string;
+    texto: string | null;
+    erro: string | null;
+  } | null>(null);
+  const [salvandoDef, setSalvandoDef] = useState(false);
 
   useEffect(() => {
     function recalcular() {
@@ -80,6 +93,36 @@ export default function SelecaoNota({
     };
   }, [containerRef]);
 
+  async function definir(termo: string) {
+    setDefinindo({ termo, texto: null, erro: null });
+    window.getSelection()?.removeAllRanges();
+    try {
+      const texto = await definirTermo(termo, contexto, materia);
+      setDefinindo((d) => (d && d.termo === termo ? { ...d, texto } : d));
+    } catch (e) {
+      setDefinindo((d) => (d && d.termo === termo ? { ...d, erro: mensagemDeErro(e) } : d));
+    }
+  }
+
+  async function salvarDefinicao() {
+    if (!definindo?.texto || salvandoDef) return;
+    setSalvandoDef(true);
+    try {
+      await salvarNota({
+        materia,
+        corpo: `${definindo.termo} :: ${definindo.texto}`,
+        tag: tagPadrao || "geral",
+        questaoOrigemId,
+      });
+      setDefinindo(null);
+      onSalvo?.();
+    } catch (e) {
+      setDefinindo((d) => (d ? { ...d, erro: e instanceof Error ? e.message : "Falha ao salvar a nota." } : d));
+    } finally {
+      setSalvandoDef(false);
+    }
+  }
+
   function fecharTudo() {
     setPendente(null);
     setSelecao(null);
@@ -88,28 +131,114 @@ export default function SelecaoNota({
 
   return (
     <>
-      {selecao && !pendente && (
-        <button
-          onClick={() => setPendente(selecao.texto)}
+      {selecao && !pendente && !definindo && (
+        <div
           style={{
             position: "fixed",
             top: Math.max(8, selecao.rect.top - 44),
-            left: Math.min(Math.max(8, selecao.rect.left), window.innerWidth - 152),
+            left: Math.min(Math.max(8, selecao.rect.left), window.innerWidth - 200),
             zIndex: 200,
-            ...mono,
-            fontSize: 12,
-            fontWeight: 600,
-            background: C.realce,
-            color: "#fff",
-            padding: "9px 14px",
-            borderRadius: 8,
-            border: "none",
-            cursor: "pointer",
-            boxShadow: "0 4px 14px rgba(28,39,51,.35)",
+            display: "flex",
+            gap: 6,
           }}
         >
-          + Salvar nota
-        </button>
+          <button
+            onClick={() => setPendente(selecao.texto)}
+            style={{
+              ...mono,
+              fontSize: 12,
+              fontWeight: 600,
+              background: C.realce,
+              color: "#fff",
+              padding: "9px 14px",
+              borderRadius: 8,
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0 4px 14px rgba(28,39,51,.35)",
+            }}
+          >
+            + Salvar nota
+          </button>
+          <button
+            onClick={() => definir(selecao.texto)}
+            aria-label="Definir termo selecionado"
+            title="Definir o termo selecionado com IA"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 38,
+              background: C.realce,
+              color: "#fff",
+              borderRadius: 8,
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0 4px 14px rgba(28,39,51,.35)",
+            }}
+          >
+            <LightBulbIcon width={18} height={18} />
+          </button>
+        </div>
+      )}
+
+      {definindo && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(28,39,51,.45)",
+            zIndex: 300,
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "center",
+          }}
+          onClick={() => !salvandoDef && setDefinindo(null)}
+        >
+          <div
+            style={{
+              ...cartao,
+              width: "100%",
+              maxWidth: 620,
+              maxHeight: "82vh",
+              overflowY: "auto",
+              borderRadius: "16px 16px 0 0",
+              padding: "20px 18px calc(20px + env(safe-area-inset-bottom))",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ ...mono, fontSize: 11, color: C.sub, letterSpacing: 0.8, marginBottom: 8 }}>
+              DEFINIÇÃO
+            </div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: C.ink, marginBottom: 10 }}>
+              {definindo.termo}
+            </div>
+            <div style={{ fontSize: 14, lineHeight: 1.5, color: C.ink, whiteSpace: "pre-wrap" }}>
+              {definindo.erro ? (
+                <span style={{ ...mono, fontSize: 12, color: C.erro }}>{definindo.erro}</span>
+              ) : definindo.texto ?? <span style={{ color: C.sub }}>Gerando definição…</span>}
+            </div>
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: 8, marginTop: 18 }}>
+              <button
+                onClick={() => setDefinindo(null)}
+                disabled={salvandoDef}
+                aria-label="Descartar definição"
+                title="Descartar"
+                style={botaoIcone(false)}
+              >
+                <XMarkIcon width={18} height={18} />
+              </button>
+              <button
+                onClick={salvarDefinicao}
+                disabled={!definindo.texto || salvandoDef}
+                aria-label="Salvar definição como nota"
+                title="Salvar como nota"
+                style={{ ...botaoIcone(true), opacity: !definindo.texto || salvandoDef ? 0.5 : 1 }}
+              >
+                <BookmarkIcon width={18} height={18} />
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       {pendente && (
@@ -126,6 +255,21 @@ export default function SelecaoNota({
       )}
     </>
   );
+}
+
+function botaoIcone(ativo: boolean) {
+  return {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 44,
+    height: 44,
+    borderRadius: 8,
+    border: `1.5px solid ${ativo ? C.caneta : C.line}`,
+    background: ativo ? C.canetaSoft : "transparent",
+    color: ativo ? C.caneta : C.sub,
+    cursor: "pointer",
+  } as const;
 }
 
 function NotaModal({
