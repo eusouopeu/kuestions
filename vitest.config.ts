@@ -9,6 +9,7 @@ import { defineConfig } from "vitest/config";
  * para transformar.
  */
 export default defineConfig({
+  define: { __BANCO_VERSAO__: JSON.stringify("teste") },
   test: {
     environment: "node",
     include: ["src/**/*.test.ts"],

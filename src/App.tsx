@@ -8,6 +8,7 @@ import NotasTab from "./views/NotasTab";
 import AjustesTab from "./views/AjustesTab";
 import { getDB } from "./lib/db";
 import { carregarInviaveis } from "./lib/questoesInviaveis";
+import { sincronizarRespondidasComBanco } from "./lib/sincronizarBanco";
 import { aplicarTema, getTema } from "./lib/tema";
 import { aplicarEscala, getEscala } from "./lib/acessibilidade";
 import { useLayoutLargo } from "./lib/plataforma";
@@ -88,7 +89,11 @@ export default function App() {
     // Questões abre já em "Do banco" quando não há chave (ver QuestoesTab).
     void carregarInviaveis();
     getDB()
-      .then(() => setPronto(true))
+      .then(() => {
+        setPronto(true);
+        // Só faz algo quando o banco embutido mudou desde a última abertura.
+        void sincronizarRespondidasComBanco();
+      })
       .catch((e: unknown) => {
         setErroBoot(e instanceof Error ? e.message : "Falha ao abrir o banco de dados.");
       });

@@ -43,4 +43,3 @@ Metas sugeridas: Contab. Pública ≥ 200, Mat. Financeira ≥ 120, Finanças P�
 - Script `dedupe.py` para detectar questões repetidas entre provas (primeiros 80 caracteres normalizados).
 - Preencher `incidencia` (Bronze→Diamante) para as 1798 questões sem tier, pela frequência do `assunto` no banco.
 - Adicionar campo `banca` ao schema (hoje ausente) — exige migração única; decidir com o usuário.
-- Commitar `_scripts/` (hoje fora do git) sem os PDFs, para não perder os parsers.

@@ -42,4 +42,5 @@ git add kuestion_db_1.json historico.md
 git commit -m "Adiciona <ÓRGÃO> <ANO> (<BANCA>): +N questões"
 ```
 Atualizar a linha correspondente em `historico.md` e riscar/mover o item em `steps.md`. Opcional: copiar o lote para `Incorporadas no banco de dados/[ANO] ÓRGÃO.json`.
-`provas_sefaz_auditor_fiscal/` e `.DS_Store` ficam fora do git.
+PDFs de `provas_sefaz_auditor_fiscal/` e `.DS_Store` ficam fora do git; `_scripts/` é versionado (sem `*_pg/` e `*.png`, ver `banco/.gitignore`).
+O JSON é o mesmo que o app importa: depois do commit da prova, seguir o fluxo commit/push/APK do `CLAUDE.md` da raiz para a questão chegar ao celular.

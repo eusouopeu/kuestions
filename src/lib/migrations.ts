@@ -421,4 +421,17 @@ export const MIGRATIONS: Migracao[] = [
       CREATE INDEX IF NOT EXISTS ix_blocos_pendentes_ts ON blocos_pendentes (ts);
     `,
   },
+  {
+    // Sincronização com o banco fixo (ver lib/sincronizarBanco.ts):
+    // `banco_hash` = versão do conteúdo do banco já aplicada à linha;
+    // `enunciado_editado` = 1 quando o usuário corrigiu o enunciado pelo
+    // lápis (a correção dele vence a do banco). Linhas já existentes do banco
+    // ficam com NULL ("não se sabe") — a primeira sincronização decide.
+    version: 19,
+    sql: `
+      ALTER TABLE questoes_respondidas ADD COLUMN banco_hash TEXT;
+      ALTER TABLE questoes_respondidas ADD COLUMN enunciado_editado INTEGER DEFAULT 0;
+      UPDATE questoes_respondidas SET enunciado_editado = NULL WHERE banco_id IS NOT NULL;
+    `,
+  },
 ];

@@ -75,7 +75,8 @@ que é específico deste projeto.
   `migrate()` sai cedo (`if (atual >= SCHEMA_VERSION) return`) sem rodar nada além disso.
   `SCHEMA_VERSION` estava presa em 15 com `MIGRATIONS` já em 16 (a migração de `pdfs.pasta` nunca
   rodava em quem já tinha o banco na versão 15); corrigido para 17 junto da migração da tabela
-  `simulados`. Atualmente na versão 18 (migração 18: `questoes_respondidas.facilidade`, fator de
+  `simulados`. Atualmente na versão 19 (migração 19: `banco_hash`/`enunciado_editado` em
+  `questoes_respondidas`, ver "Banco de questões" abaixo; migração 18: `questoes_respondidas.facilidade`, fator de
   facilidade por questão — ver `lib/repo/leitner.ts` — e tabela `blocos_pendentes`, fila de blocos
   pré-gerados em segundo plano — ver `lib/preGeracao.ts`).
 - `@capacitor/local-notifications` foi adicionado (lembrete diário de revisão, ver
@@ -153,11 +154,34 @@ que é específico deste projeto.
   anterior) não interceptava o pedido da WebView. Não devolver `null` ali: a DecorView criaria a
   barra padrão. No iOS continua só o `WebkitTouchCallout: none` do card.
 
+## Banco de questões (`banco/`)
+
+- `banco/` é o antigo projeto separado de extração de provas, incorporado com o histórico (um
+  commit por prova, via subtree merge). `banco/kuestion_db_1.json` é a **única** fonte do banco
+  fixo: `lib/banco.ts` importa esse arquivo direto (não existe mais `src/data/banco_questoes.json`),
+  então qualquer mudança nele entra no próximo build/APK sem cópia manual.
+- Ao extrair/incorporar/editar questões, seguir `banco/CLAUDE.md` (formatação do enunciado) e
+  `banco/instrucoes/` (README primeiro), conferindo `banco/historico.md`/`banco/steps.md`. Scripts em
+  `banco/provas_sefaz_auditor_fiscal/_scripts/` (`merge.py` grava em `banco/kuestion_db_1.json`);
+  PDFs e imagens de página ficam fora do git (`banco/.gitignore`). Mudança no JSON conta como
+  mudança do app: vale o fluxo commit/push/APK do topo deste arquivo.
+- Sincronização com questões já respondidas (`lib/sincronizarBanco.ts`, chamada no boot em
+  `App.tsx`): cada linha de `questoes_respondidas` guarda cópia de enunciado/alternativas/gabarito;
+  quando o hash do JSON (`__BANCO_VERSAO__`, calculado em `vite.config.ts`) difere do gravado em
+  Preferences, reaplica o conteúdo do banco às linhas com `banco_id`. Só essas três colunas (+
+  `banco_hash`/`enunciado_editado`) mudam — `acertou`, `resposta`, caixa de Leitner, datas,
+  facilidade, tempo e confiança nunca, então estatísticas e agenda de revisão ficam intactas.
+  Enunciado corrigido pelo lápis (`enunciado_editado = 1`) vence o do banco; linha anterior à
+  migração 19 com texto divergente em alguma palavra é tratada como corrigida pelo
+  usuário (diferença só de espaços/quebras de linha = formatação do banco, atualiza). Gabarito/alternativas
+  alterados apagam o cache `explicacoes_banco` daquela questão (o `comentario` já gravado na linha
+  fica).
+
 ## Aulas e blocos por matéria (tópico específico da geração por IA)
 
 - `TOPICOS_POR_MATERIA`/`TITULOS_BLOCO_POR_MATERIA` em `src/lib/topicos.ts`: lista fixa de
   aulas/blocos por matéria, extraída da coluna "#"/"Tarefas" dos planos de estudo
-  (`Bancos de dados/Planos de estudo/*.md`, fora do repo — linhas do tipo `Aula`, ignorando
+  (`banco/Planos de estudo/*.md` — linhas do tipo `Aula`, ignorando
   `Questões`/`simulado`). Alimenta o dropdown "Tópico específico" (aula específica/bloco de
   aulas) em `GerarView.tsx`; matéria sem entrada aqui continua com o campo de texto livre.
 - Cada matéria é declarada em `DEFINICOES_MATERIA` como lista de blocos (`{ titulo, aulas: string[] }`,

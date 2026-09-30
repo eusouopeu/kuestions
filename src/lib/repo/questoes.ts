@@ -645,7 +645,7 @@ export async function mesclarExplicacoesRespondida(
 /** Corrige o enunciado de uma questão já gravada (botão-ícone de editar no
  * QuestaoCard) — erro de digitação/extração no texto original. */
 export async function atualizarEnunciadoRespondida(id: number, enunciado: string): Promise<void> {
-  await run(`UPDATE questoes_respondidas SET enunciado = ? WHERE id = ?`, [enunciado, id]);
+  await run(`UPDATE questoes_respondidas SET enunciado = ?, enunciado_editado = 1 WHERE id = ?`, [enunciado, id]);
 }
 
 /** Mesma mescla de `mesclarExplicacoesRespondida`, para o cache de

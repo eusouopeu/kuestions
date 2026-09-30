@@ -1,7 +1,7 @@
 /**
  * Tópicos específicos por matéria, extraídos dos planos de estudo (coluna "#"
  * + "Tarefas" das linhas do tipo Aula — Questões e simulados ficam de fora,
- * ver `docs/` / `Bancos de dados/Planos de estudo/*.md`). Alimenta o dropdown
+ * ver `banco/Planos de estudo/*.md`). Alimenta o dropdown
  * de "Tópico específico" em GerarView no lugar do texto livre, só para as
  * matérias abaixo; as demais continuam com o campo aberto.
  *

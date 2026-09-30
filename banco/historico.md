@@ -1,7 +1,7 @@
 # Histórico de provas importadas
 
 Estado em **2026-09-30** — `kuestion_db_1.json`: **2938 questões**, 50 blocos de prova, 25 instituições, anos 2016–2026.
-Um commit por prova (ver `git log`). Fonte dos PDFs: `provas_sefaz_auditor_fiscal/` (fora do git). Scripts de build: `provas_sefaz_auditor_fiscal/_scripts/` (fora do git).
+Um commit por prova (ver `git log`). Fonte dos PDFs: `provas_sefaz_auditor_fiscal/` (fora do git). Scripts de build: `provas_sefaz_auditor_fiscal/_scripts/` (versionados, sem as imagens `*_pg/`/`*.png`).
 
 Formato: **A–E** = múltipla escolha; **C/E** = Certo/Errado (Cebraspe; alternativas `{C, E}`).
 Coluna "Qtd" = questões **no banco**, após excluir legislação estadual específica, anuladas e questões dependentes de imagem.

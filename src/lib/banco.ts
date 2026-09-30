@@ -1,5 +1,5 @@
 /**
- * Banco de questões reais de concurso (kuestion_db_1.json, ~2.440 questões de
+ * Banco de questões reais de concurso (banco/kuestion_db_1.json, ~2.900 questões de
  * SEFAZ estaduais, ISS-RJ, TCE-PI e RFB), usado pela 4ª forma de montar
  * blocos na aba Blocos: em vez de gerar questões inéditas via API, sorteia
  * questões reais já formuladas por banca. Só enunciado, alternativas e
@@ -96,7 +96,7 @@ const AREAS_OCULTAS = new Set([
  * isto antes de ler `BANCO`/`POR_ID`/`AREAS_BANCO`. */
 export function garantirBanco(): Promise<void> {
   if (!promessaCarga) {
-    promessaCarga = import("../data/banco_questoes.json").then((mod) => {
+    promessaCarga = import("../../banco/kuestion_db_1.json").then((mod) => {
       const bruto = (mod.default as QuestaoBanco[]).filter(
         (q) =>
           typeof q.gabarito === "string" &&
