@@ -24,6 +24,8 @@ import {
   NIVEL_BANCO,
 } from "../lib/banco";
 import { gerarExplicacoes, SemCredencialError } from "../lib/anthropic";
+import { getPesosEdital, pesoDe } from "../lib/edital";
+import { distribuirBlocoMisto, intercalar, MATERIA_MISTA } from "../lib/blocoMisto";
 import { getComExplicacoesIA } from "../lib/preferenciasGeracao";
 import {
   atualizarTotalQuestoesBloco,
@@ -33,6 +35,7 @@ import {
   gravarResposta,
   idsBancoRespondidos,
   pontosPorConceito,
+  resumoPorMateria,
   salvarExplicacoesBanco,
 } from "../lib/repo";
 import { gerarTagAssunto } from "../lib/texto";
@@ -42,6 +45,10 @@ import { Q_POR_BLOCO } from "../lib/constants";
 import type { Questao, StatusSub } from "../lib/types";
 
 type Tela = "config" | "drill" | "resultado";
+
+/** Valor especial do dropdown "Área": bloco do dia, misturando áreas por peso
+ * no edital × fraqueza (ver lib/blocoMisto.ts). */
+const AREA_MISTA = "__misto__";
 type Modo = "aula" | "bloco" | "todos";
 
 /** Questões geradas em bastidores em lotes de 4 (chamada única à API para
@@ -110,6 +117,11 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   // Guarda a lista completa sorteada nesta rodada, para reenviar um lote que
   // falhou sem precisar sortear tudo de novo.
   const selecionadasRef = useRef<Questao[]>([]);
+  // Área real de cada questão do bloco misto (mesma ordem de
+  // `selecionadasRef`) — grava a resposta na área certa em vez de no rótulo
+  // do bloco.
+  const areasRef = useRef<string[]>([]);
+  const misto = area === AREA_MISTA;
 
   useEffect(() => {
     garantirBanco().then(async () => {
@@ -151,8 +163,12 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
         ? { modo: "bloco", bloco, ...proveniencia }
         : { modo: "todos", ...proveniencia };
 
-  const disponiveis = contarDisponiveis(area, filtro);
-  const ineditas = contarIneditas(area, filtro, vistas);
+  const disponiveis = misto
+    ? areasBanco().reduce((s, a) => s + contarDisponiveis(a, { modo: "todos" }), 0)
+    : contarDisponiveis(area, filtro);
+  const ineditas = misto
+    ? areasBanco().reduce((s, a) => s + contarIneditas(a, { modo: "todos" }, vistas), 0)
+    : contarIneditas(area, filtro, vistas);
 
   useEffect(() => {
     if (disponiveis > 0) setQuantidade((q) => Math.min(q, disponiveis));
@@ -225,9 +241,52 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
     }
   }
 
+  /** Bloco do dia: reparte `n` entre as áreas por peso × fraqueza e
+   * intercala as questões (a1, b1, c1, a2…), como na prova real. */
+  async function selecionarMisto(n: number): Promise<{ questao: Questao; area: string }[]> {
+    const [pesosEdital, acertoPorArea] = await Promise.all([getPesosEdital(), resumoPorMateria(null)]);
+    const acerto = new Map(acertoPorArea.map((f) => [f.chave, f]));
+    const distribuicao = distribuirBlocoMisto(
+      areasBanco().map((a) => ({
+        area: a,
+        peso: pesoDe(pesosEdital, a),
+        acertos: acerto.get(a)?.acertos ?? 0,
+        total: acerto.get(a)?.total ?? 0,
+        disponiveis: contarDisponiveis(a, { modo: "todos" }),
+      })),
+      n,
+    );
+    const grupos = await Promise.all(
+      [...distribuicao.entries()].map(async ([a, k]) => {
+        let pesosAssunto: Map<string, number> | undefined;
+        try {
+          pesosAssunto = pesosPorAssunto(pontuarAssuntos(a, await pontosPorConceito(a)));
+        } catch (e) {
+          console.error("direcionar assunto por pontuação", e);
+        }
+        return selecionarQuestoes(a, { modo: "todos" }, k, vistas, pesosAssunto).map((qb) => ({
+          questao: questaoBancoParaQuestao(qb),
+          area: a,
+        }));
+      }),
+    );
+    return intercalar(grupos);
+  }
+
   async function iniciar() {
     const n = Math.min(quantidade, disponiveis);
     if (n <= 0) return;
+    if (misto) {
+      const itens = await selecionarMisto(n);
+      if (!itens.length) return;
+      areasRef.current = itens.map((i) => i.area);
+      await comecarBloco(
+        itens.map((i) => i.questao),
+        MATERIA_MISTA,
+        `Bloco do dia: ${[...new Set(areasRef.current)].join(", ")}`,
+      );
+      return;
+    }
 
     // Direciona a amostragem para os assuntos mais fracos (ver
     // pontuarAssuntos/pesosPorAssunto em lib/banco.ts) sempre que o filtro
@@ -242,6 +301,11 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
     }
 
     const selecionadas = selecionarQuestoes(area, filtro, n, vistas, pesos).map(questaoBancoParaQuestao);
+    areasRef.current = selecionadas.map(() => area);
+    await comecarBloco(selecionadas, area, descricaoFiltroBanco(area, filtro));
+  }
+
+  async function comecarBloco(selecionadas: Questao[], materiaBloco: string, topico: string) {
     const nLotes = Math.ceil(selecionadas.length / LOTE);
 
     setLotes(Array.from({ length: nLotes }, () => null));
@@ -254,7 +318,6 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
     setConfirmandoAbandono(false);
     setTela("drill");
 
-    const topico = descricaoFiltroBanco(area, filtro);
     try {
       setBlocoId(
         await criarBloco(
@@ -263,7 +326,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
           // filtro pode trazer as duas no mesmo bloco. `nivel: 0` marca o
           // bloco como "do banco" na lista de blocos recentes — não é o
           // nível das questões, que é NIVEL_BANCO.
-          { materia: area, materiaCustom: "", topico, tipos: [], formato: "misto", nivel: 0 },
+          { materia: materiaBloco, materiaCustom: "", topico, tipos: [], formato: "misto", nivel: 0 },
           selecionadas.length,
         ),
       );
@@ -279,7 +342,9 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   const loteAtual = Math.floor(qIdx / LOTE);
   const questao = lotes[loteAtual]?.[qIdx % LOTE] ?? null;
   const ultimaDoBloco = qIdx === totalQuestoes - 1;
-  const topicoAtual = descricaoFiltroBanco(area, filtro);
+  // No bloco misto cada questão é de uma área; o tópico gravado é a área.
+  const areaAtual = areasRef.current[qIdx] ?? area;
+  const topicoAtual = misto ? areaAtual : descricaoFiltroBanco(area, filtro);
 
   async function responder(
     letra: string,
@@ -292,7 +357,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
     if (!questao) return null;
     return gravarResposta({
       blocoId,
-      materia: area,
+      materia: areaAtual,
       topico: topicoAtual,
       // Questão de prova real conta como nível 5 (ver NIVEL_BANCO em
       // lib/banco.ts): já é o formato final cobrado por banca, sem a
@@ -364,6 +429,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Área</label>
           <select style={campo} value={area} onChange={(e) => setArea(e.target.value)}>
+            <option value={AREA_MISTA}>Bloco do dia — várias áreas (edital × fraqueza)</option>
             {areasBanco().map((a) => (
               <option key={a} value={a}>
                 {a}
@@ -372,6 +438,13 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
           </select>
         </div>
 
+        {misto ? (
+          <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.5, margin: "-8px 0 18px" }}>
+            Mistura áreas do banco, sorteadas pelo peso no edital (Ajustes) × seu erro em cada uma,
+            e intercala as questões como na prova real.
+          </div>
+        ) : (
+        <>
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Assunto</label>
           <Segmented
@@ -437,6 +510,8 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
             </select>
           </div>
         </div>
+        </>
+        )}
 
         <div style={{ marginBottom: 20 }}>
           <label style={rotulo}>Quantidade de questões</label>
@@ -541,7 +616,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
           <QuestaoCard
             key={qIdx}
             questao={questao}
-            materia={area}
+            materia={areaAtual}
             tagAssunto={gerarTagAssunto(topicoAtual)}
             assunto={topicoAtual}
             origem="banco"

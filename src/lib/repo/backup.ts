@@ -127,8 +127,8 @@ export async function mesclarBackup(json: string): Promise<ResultadoMesclagem> {
          (bloco_id, materia, topico, sub, carga_conceitual, nivel, formato, tipo_cobranca,
           enunciado, alternativas, gabarito, resposta, acertou, revisada, caixa_leitner, proxima_revisao,
           comentario, explicacoes_erradas, conceitos, dispositivo, banco_id, tempo_ms, confianca,
-          reportada, motivo_report, ts)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          reportada, motivo_report, causa_erro, ts)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         blocoIdNovo,
         q.materia,
@@ -155,6 +155,7 @@ export async function mesclarBackup(json: string): Promise<ResultadoMesclagem> {
         q.confianca ?? null,
         q.reportada ?? 0,
         q.motivo_report ?? null,
+        q.causa_erro ?? null,
         q.ts,
       ],
     );

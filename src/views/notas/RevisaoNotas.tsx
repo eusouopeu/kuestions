@@ -3,6 +3,7 @@ import { C, cartao, mono } from "../../theme";
 import Botao from "../../components/Botao";
 import { Vazio } from "../../components/Shell";
 import TextoComMarcaTexto from "../../components/TextoComMarcaTexto";
+import { QuestaoOrigem } from "../../components/NotaCard";
 import { listarNotasPendentes, registrarRevisaoNota, type GrauRevisao } from "../../lib/repo";
 import { paraFlashcard } from "../../lib/flashcards";
 import type { ConceitoSalvo } from "../../lib/types";
@@ -37,6 +38,9 @@ export default function RevisaoNotas({
   const [fila, setFila] = useState<ConceitoSalvo[] | null>(null);
   const [idx, setIdx] = useState(0);
   const [revelado, setRevelado] = useState(false);
+  // Questão de onde a nota foi tirada (contexto da nota), aberta sob demanda
+  // depois de revelar — fecha ao passar para a próxima nota.
+  const [vendoOrigem, setVendoOrigem] = useState(false);
   const [lembradas, setLembradas] = useState(0);
   const [avaliando, setAvaliando] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
@@ -85,6 +89,7 @@ export default function RevisaoNotas({
       return;
     }
     setRevelado(false);
+    setVendoOrigem(false);
     setIdx((i) => i + 1);
   }
 
@@ -140,6 +145,31 @@ export default function RevisaoNotas({
           </>
         )}
       </div>
+
+      {revelado && nota.questao_origem_id != null && (
+        <div style={{ marginTop: 10 }}>
+          <button
+            onClick={() => setVendoOrigem((v) => !v)}
+            aria-expanded={vendoOrigem}
+            style={{
+              ...mono,
+              fontSize: 12,
+              background: "none",
+              border: "none",
+              padding: "4px 0",
+              color: C.caneta,
+              cursor: "pointer",
+            }}
+          >
+            {vendoOrigem ? "Ocultar questão de origem ▲" : "Ver questão de origem ▾"}
+          </button>
+          {vendoOrigem && (
+            <div style={{ ...cartao, marginTop: 6 }}>
+              <QuestaoOrigem id={nota.questao_origem_id} />
+            </div>
+          )}
+        </div>
+      )}
 
       {!revelado ? (
         <Botao onClick={() => setRevelado(true)} style={{ marginTop: 16 }}>

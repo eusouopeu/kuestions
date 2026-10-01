@@ -38,7 +38,9 @@ export default function SelecaoNota({
   questaoOrigemId: number | null;
   /** Enunciado da questão — dá contexto ao "Definir" para o sentido certo do termo. */
   contexto?: string;
-  onSalvo?: () => void;
+  /** Id e corpo da nota recém-gravada (o QuestaoCard lista as notas da
+   * questão e vincula as salvas antes da resposta existir). */
+  onSalvo?: (id: number, corpo: string) => void;
 }) {
   const [selecao, setSelecao] = useState<Selecao | null>(null);
   // Texto CAPTURADO no momento do toque no botão — deliberadamente separado
@@ -108,14 +110,15 @@ export default function SelecaoNota({
     if (!definindo?.texto || salvandoDef) return;
     setSalvandoDef(true);
     try {
-      await salvarNota({
+      const corpo = `${definindo.termo} :: ${definindo.texto}`;
+      const id = await salvarNota({
         materia,
-        corpo: `${definindo.termo} :: ${definindo.texto}`,
+        corpo,
         tag: tagPadrao || "geral",
         questaoOrigemId,
       });
       setDefinindo(null);
-      onSalvo?.();
+      onSalvo?.(id, corpo);
     } catch (e) {
       setDefinindo((d) => (d ? { ...d, erro: e instanceof Error ? e.message : "Falha ao salvar a nota." } : d));
     } finally {
@@ -247,9 +250,9 @@ export default function SelecaoNota({
           tagInicial={tagPadrao}
           onCancelar={fecharTudo}
           onSalvar={async (corpo, tag) => {
-            await salvarNota({ materia, corpo, tag, questaoOrigemId });
+            const id = await salvarNota({ materia, corpo, tag, questaoOrigemId });
             fecharTudo();
-            onSalvo?.();
+            onSalvo?.(id, corpo);
           }}
         />
       )}

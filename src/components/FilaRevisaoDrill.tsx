@@ -225,6 +225,7 @@ export default function FilaRevisaoDrill({
         questaoOrigemId={q.id}
         reportadaInicial={q.reportada}
         temNotaInicial={comNota.has(q.id)}
+        causaErroInicial={q.causa_erro}
         embaralhar
         cabecalho={
           <div

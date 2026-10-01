@@ -434,4 +434,13 @@ export const MIGRATIONS: Migracao[] = [
       UPDATE questoes_respondidas SET enunciado_editado = NULL WHERE banco_id IS NOT NULL;
     `,
   },
+  {
+    // Causa do erro (ver lib/causaErro.ts): marcada em 1 toque depois de
+    // errar, pelo botão-ícone da barra de ações do QuestaoCard. NULL = não
+    // classificado (inclui todo acerto e todo erro anterior a esta coluna).
+    version: 20,
+    sql: `
+      ALTER TABLE questoes_respondidas ADD COLUMN causa_erro TEXT;
+    `,
+  },
 ];

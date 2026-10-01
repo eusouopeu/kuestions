@@ -5,21 +5,7 @@ import { buscarQuestaoBanco } from "../lib/banco";
 import { useFonteQuestao } from "../lib/fonteQuestao";
 import { normalizarLayoutTexto } from "../lib/texto";
 import type { Questao } from "../lib/types";
-
-/**
- * Figuras das provas (gráficos, diagramas, tabelas complexas recortadas do
- * PDF) — ficam em banco/imagens/ e são referenciadas no texto da questão por
- * "![descrição](arquivo)". O glob as empacota como assets do build; nada é
- * baixado de fora.
- */
-const IMAGENS = import.meta.glob("../../banco/imagens/*.{png,jpg,webp}", {
-  eager: true,
-  query: "?url",
-  import: "default",
-}) as Record<string, string>;
-const URL_POR_ARQUIVO = new Map(
-  Object.entries(IMAGENS).map(([caminho, url]) => [caminho.slice(caminho.lastIndexOf("/") + 1), url]),
-);
+import { urlFigura } from "../lib/figuras";
 
 /** Entrelinha do parágrafo; o espaço entre parágrafos é meia linha. */
 const ENTRELINHA = 1.25;
@@ -53,7 +39,7 @@ export default function TextoQuestao({
           );
         }
         if (b.tipo === "imagem") {
-          const url = URL_POR_ARQUIVO.get(b.arquivo);
+          const url = urlFigura(b.arquivo);
           return url ? (
             <img
               key={i}

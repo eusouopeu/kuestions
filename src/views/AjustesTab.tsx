@@ -60,6 +60,7 @@ import {
 } from "../lib/edital";
 import { MATERIAS, MATERIAS_ORDENADAS } from "../lib/constants";
 import { areasBanco, garantirBanco } from "../lib/banco";
+import { getProvaAlvo, setProvaAlvo, type ProvaAlvo } from "../lib/prova";
 
 /** Matérias/áreas cujo peso no edital pode ser configurado: união das
  * matérias de geração (MATERIAS) com as áreas do banco de questões reais
@@ -105,6 +106,7 @@ const SECOES_AJUSTES = [
   { id: "backup", titulo: "Backup", chaves: "exportar restaurar substituir json" },
   { id: "mesclar", titulo: "Mesclar entre aparelhos", chaves: "sincronizar sync outro celular" },
   { id: "documentos", titulo: "Pasta no aparelho", chaves: "sincronizar markdown arquivos" },
+  { id: "prova", titulo: "Prova", chaves: "data da prova meta de questões projeção ritmo" },
   { id: "metas", titulo: "Metas semanais", chaves: "blocos por semana meta" },
   { id: "peso", titulo: "Peso do edital", chaves: "concurso preset simulado nota estimada" },
   { id: "reportadas", titulo: "Questões reportadas", chaves: "erro gabarito enunciado" },
@@ -159,6 +161,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
 
   // Um mapa só: a meta geral é a chave META_GERAL (ver lib/metas.ts).
   const [metas, setMetasLocal] = useState<Metas>({});
+  const [prova, setProvaLocal] = useState<ProvaAlvo>({ data: null, metaQuestoes: null });
   const [materiaParaAdicionar, setMateriaParaAdicionar] = useState("");
   const [pesos, setPesosLocal] = useState<PesosEdital>({});
   const [presetPeso, setPresetPeso] = useState("");
@@ -226,6 +229,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
       .then((c) => setGastoMes(c.mes))
       .catch(() => setGastoMes(0));
     getMetas().then(setMetasLocal);
+    getProvaAlvo().then(setProvaLocal);
     getPesosEdital().then(setPesosLocal);
     getComExplicacoesIA().then(setComExplicacoesIALocal);
     getMostrarRecomendacoes().then(setMostrarRecomendacoesLocal);
@@ -328,6 +332,15 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
     setChave("");
     setProxy("");
     setStatus({ tom: "ok", texto: "Credenciais removidas do aparelho." });
+  }
+
+  async function salvarProva(novo: ProvaAlvo) {
+    setProvaLocal(novo);
+    try {
+      await setProvaAlvo(novo);
+    } catch (e) {
+      console.error("salvar prova", e);
+    }
   }
 
   async function salvarMetas(novo: Metas) {
@@ -962,6 +975,39 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
                 ? "✓ Sincronizado"
                 : "Sincronizar agora"}
           </Botao>
+        </SecaoColapsavel>
+      )}
+
+      {secoesVisiveis.has("prova") && (
+        <SecaoColapsavel
+          titulo="Prova"
+          aberta={estaAberta("prova")}
+          onToggle={(a) => alternarSecao("prova", a)}
+        >
+          <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
+            Com a data definida, a aba Dados projeta quantas questões você faz até a prova no ritmo
+            atual. A meta é opcional: sem ela, o alvo é fechar as questões inéditas do banco.
+          </div>
+          <label style={rotulo}>Data da prova</label>
+          <input
+            type="date"
+            style={{ ...campo, marginBottom: 12 }}
+            value={prova.data ?? ""}
+            onChange={(e) => salvarProva({ ...prova, data: e.target.value || null })}
+          />
+          <label style={rotulo}>Meta de questões até a prova (total, opcional)</label>
+          <input
+            type="number"
+            inputMode="numeric"
+            min={1}
+            placeholder="Ex.: 5000"
+            style={campo}
+            value={prova.metaQuestoes ?? ""}
+            onChange={(e) => {
+              const n = Number(e.target.value);
+              salvarProva({ ...prova, metaQuestoes: e.target.value && n > 0 ? Math.round(n) : null });
+            }}
+          />
         </SecaoColapsavel>
       )}
 

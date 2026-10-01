@@ -75,7 +75,8 @@ que é específico deste projeto.
   `migrate()` sai cedo (`if (atual >= SCHEMA_VERSION) return`) sem rodar nada além disso.
   `SCHEMA_VERSION` estava presa em 15 com `MIGRATIONS` já em 16 (a migração de `pdfs.pasta` nunca
   rodava em quem já tinha o banco na versão 15); corrigido para 17 junto da migração da tabela
-  `simulados`. Atualmente na versão 19 (migração 19: `banco_hash`/`enunciado_editado` em
+  `simulados`. Atualmente na versão 20 (migração 20: `questoes_respondidas.causa_erro`, ver "Ritmo,
+  prova, causa do erro…" abaixo; migração 19: `banco_hash`/`enunciado_editado` em
   `questoes_respondidas`, ver "Banco de questões" abaixo; migração 18: `questoes_respondidas.facilidade`, fator de
   facilidade por questão — ver `lib/repo/leitner.ts` — e tabela `blocos_pendentes`, fila de blocos
   pré-gerados em segundo plano — ver `lib/preGeracao.ts`).
@@ -287,3 +288,30 @@ que é específico deste projeto.
   `@capacitor/preferences`, carregado no boot em `App.tsx`; `questoesFiltradas` em `banco.ts` a exclui
   de sorteio/contagem), reporta se já houver linha (`reportarQuestao`, motivo "enunciado") e pula.
   Não altera o JSON do banco nem cria linha em `questoes_respondidas`.
+
+## Ritmo, prova, causa do erro, banca, bloco do dia e caderno de erros
+
+- Contas puras em `lib/ritmo.ts` (`calcularRitmo`, `projetarAteProva`, `alocacaoVsEdital`), testadas
+  em `lib/ritmo.test.ts` junto com `lib/blocoMisto.ts`. Datas "AAAA-MM-DD" UTC, mesma convenção de
+  `atividadePorDia`.
+- Card "Ritmo/ano" (aba Dados): últimos 7 dias × 365/7, seta ↑/↓ com a variação contra os 7 dias
+  anteriores. Cartão "Até a prova": data e meta opcional em Ajustes → Prova (`lib/prova.ts`,
+  Preferences); sem meta, o alvo são as inéditas do banco. Sem data, vira um link para Ajustes.
+- "Tempo × edital (30 dias)": fatia das questões por matéria vs. fatia do peso do edital; universo =
+  `areasBanco()` + matérias praticadas. Só na visão "Todas as matérias".
+- Causa do erro (`lib/causaErro.ts`): botão-ícone `TagIcon` na barra de ações do `QuestaoCard`, só
+  depois de errar e com linha gravada; grava em `causa_erro` (tocar a mesma causa limpa). Cartão
+  "Causas do erro" na aba Dados.
+- Banca: o JSON do banco não tem banca — `lib/bancas.ts` mapeia `instituicao + ano` → banca
+  (conferido nos PDFs). Prova nova entra como "Banca não identificada" até ganhar linha no mapa;
+  SEFAZ-PA 2021 não tem a banca na capa.
+- Bloco do dia (`lib/blocoMisto.ts`): opção especial no dropdown "Área" de `GerarBancoView`; reparte
+  as questões entre áreas por peso do edital × fraqueza (prior de Laplace) e intercala (round-robin).
+  A linha de `blocos` usa `MATERIA_MISTA`; cada resposta grava a área real. `materiasComDados` ignora
+  `MATERIA_MISTA`.
+- Notas ↔ questão: `QuestaoCard` lista as notas da questão sob o selo "📝" (toque abre) e vincula
+  (`vincularNotasAQuestao`) as notas salvas antes da primeira resposta, quando ainda não havia id.
+  `RevisaoNotas` mostra "Ver questão de origem" depois de revelar (reusa `QuestaoOrigem` de `NotaCard`).
+- Caderno de erros (`lib/cadernoErros.ts`, jsPDF, Helvetica/Latin-1 — símbolos fora disso são
+  trocados em `limpar`): cartão no fim da aba Dados, respeita o filtro de matéria, período escolhido no
+  cartão. Figuras vêm de `lib/figuras.ts` (glob de `banco/imagens`, compartilhado com `TextoQuestao`).

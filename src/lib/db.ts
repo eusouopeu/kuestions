@@ -19,7 +19,7 @@ import {
 import { MIGRATIONS } from "./migrations";
 
 const DB_NAME = "kumon_fiscal";
-const SCHEMA_VERSION = 19;
+const SCHEMA_VERSION = 20;
 
 const sqlite = new SQLiteConnection(CapacitorSQLite);
 const isWeb = Capacitor.getPlatform() === "web";

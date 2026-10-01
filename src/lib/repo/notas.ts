@@ -281,3 +281,43 @@ export async function contarConceitos(materia: string | null): Promise<number> {
   );
   return Number(r?.n ?? 0);
 }
+
+/** Notas tiradas de uma questão (mais antigas primeiro) — mostradas no
+ * próprio QuestaoCard, pelo selo "📝". */
+export async function listarNotasDaQuestao(questaoId: number): Promise<ConceitoSalvo[]> {
+  const rows = await all<Record<string, unknown>>(
+    `SELECT * FROM conceitos_salvos WHERE questao_origem_id = ? ORDER BY ts ASC`,
+    [questaoId],
+  );
+  return rows.map(mapNota);
+}
+
+/** Notas salvas antes de a questão ter linha gravada (primeira resposta de um
+ * bloco: a seleção acontece antes do envio) ganham o vínculo assim que
+ * `onResponder` devolve o id — ver QuestaoCard. */
+export async function vincularNotasAQuestao(notaIds: number[], questaoId: number): Promise<void> {
+  if (!notaIds.length) return;
+  const placeholders = notaIds.map(() => "?").join(",");
+  await run(
+    `UPDATE conceitos_salvos SET questao_origem_id = ? WHERE id IN (${placeholders}) AND questao_origem_id IS NULL`,
+    [questaoId, ...notaIds],
+  );
+}
+
+/** Corpo das notas por questão de origem, para várias questões numa
+ * consulta só (caderno de erros). */
+export async function notasPorQuestoes(ids: number[]): Promise<Map<number, string[]>> {
+  const mapa = new Map<number, string[]>();
+  if (!ids.length) return mapa;
+  const placeholders = ids.map(() => "?").join(",");
+  const rows = await all<{ questao_origem_id: number; corpo: string }>(
+    `SELECT questao_origem_id, corpo FROM conceitos_salvos
+     WHERE questao_origem_id IN (${placeholders}) ORDER BY ts ASC`,
+    ids,
+  );
+  for (const r of rows) {
+    const id = Number(r.questao_origem_id);
+    mapa.set(id, [...(mapa.get(id) ?? []), String(r.corpo ?? "")]);
+  }
+  return mapa;
+}

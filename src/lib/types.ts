@@ -65,6 +65,9 @@ export interface QuestaoRespondida extends Questao {
    * Refazer erradas, simulado, ou resposta anterior a este campo). Dados
    * gravados antes das quatro faixas continuam com só "certeza"/"chute". */
   confianca: ConfiancaResposta;
+  /** Causa do erro marcada pelo usuário (ver lib/causaErro.ts); null = não
+   * classificada. */
+  causa_erro: string | null;
   ts: string;
 }
 

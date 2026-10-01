@@ -6,6 +6,7 @@ import { pontosResposta, type ConfiancaResposta } from "../pontuacaoTopicos";
 import { COND_BLOCO_FECHADO, COND_BLOCO_FEITO } from "./blocos";
 import { condLenta } from "./questoes";
 import { contarConceitos } from "./notas";
+import { MATERIA_MISTA } from "../blocoMisto";
 
 export interface Resumo {
   totalQuestoes: number;
@@ -554,10 +555,92 @@ export async function pontosPorConceito(materia: string): Promise<{ conceito: st
 /** Matérias que já aparecem em qualquer registro — alimenta o filtro. */
 export async function materiasComDados(): Promise<string[]> {
   const rows = await all(
+    // O bloco misto (lib/blocoMisto.ts) só rotula a linha de `blocos`; as
+    // questões dele gravam a área real — como filtro, não teria dados.
     `SELECT materia FROM questoes_respondidas
-     UNION SELECT materia FROM blocos
+     UNION SELECT materia FROM blocos WHERE materia != ?
      UNION SELECT materia FROM conceitos_salvos
      ORDER BY materia COLLATE NOCASE ASC`,
+    [MATERIA_MISTA],
   );
   return rows.map((r) => String(r.materia));
+}
+
+/**
+ * Distribuição das causas de erro marcadas (ver lib/causaErro.ts). `pct` é a
+ * fatia do total classificado, não acerto; `naoClassificadas` = erros sem
+ * causa marcada, para o cartão dizer sobre quanto a distribuição fala.
+ */
+export async function porCausaErro(
+  materia: string | null,
+  nivel: number | null,
+): Promise<{ fatias: Fatia[]; naoClassificadas: number }> {
+  const cond = ["acertou = 0", "resposta != ''"];
+  const params: unknown[] = [];
+  if (materia) {
+    cond.push("materia = ?");
+    params.push(materia);
+  }
+  if (nivel) {
+    cond.push("nivel = ?");
+    params.push(nivel);
+  }
+  const rows = await all<{ chave: string | null; total: number }>(
+    `SELECT causa_erro AS chave, COUNT(*) AS total FROM questoes_respondidas
+     WHERE ${cond.join(" AND ")} GROUP BY causa_erro`,
+    params,
+  );
+  const classificadas = rows.filter((r) => r.chave);
+  const soma = classificadas.reduce((s, r) => s + Number(r.total), 0);
+  return {
+    fatias: classificadas.map((r) => ({
+      chave: String(r.chave),
+      total: Number(r.total),
+      acertos: 0,
+      pct: soma ? Math.round((Number(r.total) / soma) * 100) : 0,
+    })),
+    naoClassificadas: Number(rows.find((r) => !r.chave)?.total ?? 0),
+  };
+}
+
+/** Respostas a questões do banco fixo (banco_id + acerto), para agrupar por
+ * banca em JS — a banca não está no SQLite, vem de lib/bancas.ts. */
+export async function respostasDoBanco(
+  materia: string | null,
+  nivel: number | null,
+): Promise<{ bancoId: string; acertou: boolean }[]> {
+  const cond = ["banco_id IS NOT NULL", "resposta != ''"];
+  const params: unknown[] = [];
+  if (materia) {
+    cond.push("materia = ?");
+    params.push(materia);
+  }
+  if (nivel) {
+    cond.push("nivel = ?");
+    params.push(nivel);
+  }
+  const rows = await all<{ banco_id: string; acertou: number }>(
+    `SELECT banco_id, acertou FROM questoes_respondidas WHERE ${cond.join(" AND ")}`,
+    params,
+  );
+  return rows.map((r) => ({ bancoId: String(r.banco_id), acertou: toBool(r.acertou) }));
+}
+
+/** Questões respondidas por matéria nos últimos `dias` dias (todas as
+ * matérias) — base do cartão "Tempo × edital". */
+export async function questoesPorMateriaRecentes(dias: number): Promise<Record<string, number>> {
+  const desde = new Date(Date.now() - (dias - 1) * 86_400_000).toISOString().slice(0, 10);
+  const rows = await all<{ materia: string; total: number }>(
+    `SELECT materia, COUNT(*) AS total FROM questoes_respondidas
+     WHERE substr(ts, 1, 10) >= ? AND resposta != '' GROUP BY materia`,
+    [desde],
+  );
+  return Object.fromEntries(rows.map((r) => [String(r.materia), Number(r.total)]));
+}
+
+/** Total de respostas de todo o histórico, sem filtro — base da meta de
+ * questões até a prova (lib/prova.ts). */
+export async function totalRespondidas(): Promise<number> {
+  const r = await one<{ n: number }>(`SELECT COUNT(*) AS n FROM questoes_respondidas WHERE resposta != ''`);
+  return Number(r?.n ?? 0);
 }

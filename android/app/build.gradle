@@ -10,8 +10,8 @@ android {
         // Bumpar a cada APK novo entregue: com versionCode fixo o Android
         // não distingue a instalação nova da antiga, e fica difícil saber no
         // aparelho qual build está rodando.
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "1.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
             // Só arm64-v8a: todo celular Android relevante desde ~2019 é

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { QuestionMarkCircleIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { CalendarDaysIcon, DocumentArrowDownIcon, QuestionMarkCircleIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import {
   CartesianGrid,
   Line,
@@ -30,6 +30,9 @@ import { labelFormato, labelTipo, NIVEIS } from "../lib/constants";
 import { LABEL_CONFIANCA, NIVEIS_CONFIANCA } from "../lib/pontuacaoTopicos";
 import { INTERVALOS_LEITNER_DIAS } from "../lib/repo/leitner";
 import { agruparPorPrefixo } from "../lib/topicos";
+import { alocacaoVsEdital, calcularRitmo, hojeISO, projetarAteProva } from "../lib/ritmo";
+import { labelCausaErro } from "../lib/causaErro";
+import { exportarCadernoErros, PERIODOS_CADERNO } from "../lib/cadernoErros";
 
 const TODAS = "__todas__";
 const TODOS_NIVEIS = 0;
@@ -128,6 +131,52 @@ function Cartao({
   );
 }
 
+/** Caderno de erros em PDF (ver lib/cadernoErros.ts) — respeita o filtro de
+ * matéria da tela; o período é escolhido aqui. */
+function CadernoErrosCartao({ materia }: { materia: string | null }) {
+  const [dias, setDias] = useState<number>(30);
+  const [status, setStatus] = useState<string | null>(null);
+  const [gerando, setGerando] = useState(false);
+
+  async function exportar() {
+    setGerando(true);
+    setStatus(null);
+    try {
+      const n = await exportarCadernoErros(materia, dias);
+      setStatus(n ? `${n} ${n === 1 ? "questão exportada" : "questões exportadas"}.` : "Nenhuma questão errada neste período.");
+    } catch (e) {
+      console.error("caderno de erros", e);
+      setStatus("Falha ao gerar o PDF.");
+    } finally {
+      setGerando(false);
+    }
+  }
+
+  return (
+    <Cartao
+      titulo="CADERNO DE ERROS"
+      ajuda="PDF com as questões erradas da matéria filtrada no período: enunciado, alternativas, sua resposta, gabarito, causa do erro, comentário, por que sua alternativa está errada e as notas tiradas da questão."
+    >
+      <div style={{ display: "flex", gap: 8, padding: "0 4px 12px", alignItems: "stretch" }}>
+        <select style={{ ...campo, flex: 1 }} value={dias} onChange={(e) => setDias(Number(e.target.value))}>
+          {PERIODOS_CADERNO.map((p) => (
+            <option key={p.id} value={p.id}>
+              {p.label}
+            </option>
+          ))}
+        </select>
+        <Botao tipo="tinta" onClick={exportar} disabled={gerando} style={{ flex: "0 0 auto", width: "auto", padding: "0 14px" }}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+            <DocumentArrowDownIcon width={16} height={16} strokeWidth={1.8} />
+            {gerando ? "Gerando…" : "PDF"}
+          </span>
+        </Botao>
+      </div>
+      {status && <div style={{ fontSize: 12, color: C.sub, padding: "0 4px 12px" }}>{status}</div>}
+    </Cartao>
+  );
+}
+
 export default function DadosTab({
   ativa,
   onQuestoes,
@@ -172,6 +221,13 @@ export default function DadosTab({
     custo,
     teto,
     simulados,
+    causasErro,
+    bancas,
+    alocacaoRecente,
+    prova,
+    feitasTotal,
+    ineditasBanco,
+    areasDoBanco,
   } = useDadosAgregados({
     ativa,
     materia: filtro === TODAS ? null : filtro,
@@ -186,12 +242,20 @@ export default function DadosTab({
 
   const semDados = !res || res.totalQuestoes === 0;
 
-  // Ritmo: questões dos últimos 7 dias (hoje incluso) projetadas para 1 ano.
-  // Mesma fonte do calendário de sequência (`atividade`, datas UTC como em
-  // atividadePorDia), então também não é filtrado por matéria/nível.
-  const desde7 = new Date(Date.now() - 6 * 86_400_000).toISOString().slice(0, 10);
-  const ultimos7 = atividade.filter((d) => d.data >= desde7).reduce((s, d) => s + d.total, 0);
-  const ritmoAno = Math.round((ultimos7 / 7) * 365);
+  // Ritmo: questões dos últimos 7 dias (hoje incluso) projetadas para 1 ano,
+  // com a variação contra os 7 dias anteriores. Mesma fonte do calendário de
+  // sequência (`atividade`), então também não é filtrado por matéria/nível.
+  const hoje = hojeISO();
+  const ritmo = calcularRitmo(atividade, hoje);
+
+  // Até a prova: alvo = meta de Ajustes (menos o já feito) ou, sem meta, as
+  // questões inéditas do banco fixo.
+  const restantesProva =
+    prova.metaQuestoes != null ? Math.max(0, prova.metaQuestoes - feitasTotal) : (ineditasBanco ?? 0);
+  const projecao = prova.data
+    ? projetarAteProva({ hoje, dataProva: prova.data, porDia: ritmo.porDia, restantes: restantesProva })
+    : null;
+  const alocacao = filtro === TODAS ? alocacaoVsEdital(alocacaoRecente, pesosReais, areasDoBanco) : [];
 
   // Pesos usados na nota provável: os REAIS configurados em Ajustes por
   // padrão, ou os de um preset de concurso quando o dropdown de simulação
@@ -305,18 +369,29 @@ export default function DadosTab({
             {[
               {
                 rot: "Ritmo/ano",
-                val: ritmoAno.toLocaleString("pt-BR"),
-                cor: ultimos7 > 0 ? C.caneta : C.ink,
-                sub: `${ultimos7} EM 7D`,
+                val: ritmo.porAno.toLocaleString("pt-BR"),
+                cor: ritmo.ultimos7 > 0 ? C.caneta : C.ink,
+                sub: (
+                  <>
+                    {ritmo.ultimos7} EM 7D
+                    {ritmo.variacaoPct != null && ritmo.variacaoPct !== 0 && (
+                      <span style={{ color: ritmo.variacaoPct > 0 ? C.ok : C.erro, fontWeight: 700 }}>
+                        {" "}
+                        {ritmo.variacaoPct > 0 ? "↑" : "↓"}
+                        {Math.abs(ritmo.variacaoPct)}%
+                      </span>
+                    )}
+                  </>
+                ) as React.ReactNode,
               },
-              { rot: "Questões", val: String(res!.totalQuestoes), cor: C.ink, sub: "" },
+              { rot: "Questões", val: String(res!.totalQuestoes), cor: C.ink, sub: "" as React.ReactNode },
               ...(streak && streak.recorde > 0
                 ? [
                     {
                       rot: "Sequência",
                       val: `${streak.atual}d`,
                       cor: streak.atual > 0 ? C.caneta : C.ink,
-                      sub: `RECORDE ${streak.recorde}D`,
+                      sub: `RECORDE ${streak.recorde}D` as React.ReactNode,
                     },
                   ]
                 : []),
@@ -334,6 +409,68 @@ export default function DadosTab({
               </div>
             ))}
           </div>
+
+          {/* Até a prova: projeção do ritmo atual até a data da prova
+              (Ajustes → Prova) e quanto por dia falta para o alvo. */}
+          {projecao ? (
+            <Cartao
+              titulo="ATÉ A PROVA"
+              legenda={
+                prova.metaQuestoes != null
+                  ? `Meta: ${prova.metaQuestoes.toLocaleString("pt-BR")} questões · faltam ${restantesProva.toLocaleString("pt-BR")}`
+                  : `Alvo: as ${restantesProva.toLocaleString("pt-BR")} questões inéditas do banco`
+              }
+              ajuda="Dias até a prova, quantas questões você faz até lá no ritmo dos últimos 7 dias e quantas por dia seriam necessárias para chegar ao alvo. Sem meta definida em Ajustes, o alvo é fechar as questões ainda inéditas do banco."
+            >
+              <div style={{ display: "flex", gap: 8, padding: "0 4px 14px" }}>
+                {[
+                  { rot: "Dias", val: String(projecao.dias), cor: C.ink },
+                  {
+                    rot: "No ritmo atual",
+                    val: projecao.projetadas.toLocaleString("pt-BR"),
+                    cor: projecao.projetadas >= restantesProva ? C.ok : C.ink,
+                  },
+                  {
+                    rot: "Necessário/dia",
+                    val: projecao.necessarioPorDia == null ? "—" : String(projecao.necessarioPorDia),
+                    cor:
+                      projecao.necessarioPorDia == null
+                        ? C.sub
+                        : ritmo.porDia >= projecao.necessarioPorDia
+                          ? C.ok
+                          : C.erro,
+                  },
+                ].map((k) => (
+                  <div key={k.rot} style={{ flex: 1, textAlign: "center" }}>
+                    <div style={{ ...disp, fontSize: 20, fontWeight: 800, color: k.cor }}>{k.val}</div>
+                    <div style={{ ...mono, fontSize: 9.5, color: C.sub, marginTop: 2 }}>{k.rot.toUpperCase()}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ ...mono, fontSize: 11, color: C.sub, padding: "0 4px 12px", textAlign: "center" }}>
+                Hoje: {ritmo.porDia.toLocaleString("pt-BR", { maximumFractionDigits: 1 })} questões/dia
+              </div>
+            </Cartao>
+          ) : (
+            <button
+              onClick={onAjustes}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+                background: "none",
+                border: "none",
+                padding: "0 4px",
+                margin: "-4px 0 12px",
+                fontSize: 12.5,
+                color: C.caneta,
+                cursor: "pointer",
+              }}
+            >
+              <CalendarDaysIcon width={15} height={15} strokeWidth={1.8} />
+              Definir a data da prova em Ajustes para ver a projeção até ela
+            </button>
+          )}
 
           {/* Calendário de sequência — mesma constância "do estudo como um
               todo", não filtrada por matéria/nível (ver comentário acima). */}
@@ -456,6 +593,44 @@ export default function DadosTab({
                   </button>
                 </div>
               )}
+            </Cartao>
+          )}
+
+          {/* Tempo × edital: fatia das questões dos últimos 30 dias em cada
+              matéria contra a fatia do peso dela no edital (Ajustes → Peso
+              do edital). Só na visão agregada. */}
+          {filtro === TODAS && alocacao.some((a) => a.questoes > 0) && (
+            <Cartao
+              titulo="TEMPO × EDITAL (30 DIAS)"
+              ajuda="Para cada matéria: % das suas questões dos últimos 30 dias vs. % do peso dela no edital (configurado em Ajustes). Abaixo = recebe menos de 60% do que o peso pede; acima = mais de 150%. Ordenado pelo maior déficit."
+            >
+              <div style={{ padding: "0 4px 12px", display: "flex", flexDirection: "column", gap: 7 }}>
+                {alocacao.map((a) => (
+                  <div key={a.materia} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12.5 }}>
+                    <div style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      {a.materia}
+                    </div>
+                    <div style={{ ...mono, fontSize: 11.5, color: C.sub, whiteSpace: "nowrap" }}>
+                      {a.pctQuestoes}% · edital {a.pctEdital}%
+                    </div>
+                    <div
+                      style={{
+                        ...mono,
+                        fontSize: 10,
+                        fontWeight: 700,
+                        width: 50,
+                        textAlign: "center",
+                        borderRadius: 6,
+                        padding: "2px 0",
+                        background: a.situacao === "abaixo" ? C.erroSoft : a.situacao === "acima" ? C.canetaSoft : C.okSoft,
+                        color: a.situacao === "abaixo" ? C.erro : a.situacao === "acima" ? C.caneta : C.ok,
+                      }}
+                    >
+                      {a.situacao === "abaixo" ? "ABAIXO" : a.situacao === "acima" ? "ACIMA" : "OK"}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </Cartao>
           )}
 
@@ -713,6 +888,46 @@ export default function DadosTab({
           <Cartao titulo="ACERTO POR FORMATO (CE VS MC)">
             <BarrasPct dados={dadosFormatos} alturaPorItem={40} />
           </Cartao>
+
+          {/* Por banca: acerto nas questões do banco fixo agrupado pela
+              banca organizadora da prova (ver lib/bancas.ts). */}
+          {bancas.length > 0 && (
+            <Cartao
+              titulo="ACERTO POR BANCA"
+              ajuda="Só questões de provas reais (banco fixo). Mostra se a dificuldade é o estilo de uma banca e não a matéria."
+            >
+              <BarrasPct dados={bancas.map((b) => ({ nome: b.chave, pct: b.pct, total: b.total }))} alturaPorItem={40} />
+            </Cartao>
+          )}
+
+          {/* Causa do erro, marcada em 1 toque depois de errar (botão-ícone
+              na barra de ações da questão, ver lib/causaErro.ts). */}
+          {(causasErro.fatias.length > 0 || causasErro.naoClassificadas > 0) && (
+            <Cartao
+              titulo="CAUSAS DO ERRO"
+              legenda={
+                causasErro.naoClassificadas
+                  ? `${causasErro.naoClassificadas} ${causasErro.naoClassificadas === 1 ? "erro" : "erros"} sem causa marcada`
+                  : undefined
+              }
+              ajuda="Fatia dos erros classificados, não taxa de acerto. Marque a causa pelo botão-ícone de etiqueta na barra acima da questão, depois de errar. Não sabia/confundi = conteúdo; atenção, interpretação e cálculo = execução."
+            >
+              {causasErro.fatias.length ? (
+                <BarrasPct
+                  dados={causasErro.fatias
+                    .slice()
+                    .sort((a, b) => b.total - a.total)
+                    .map((f) => ({ nome: labelCausaErro(f.chave), pct: f.pct, total: f.total }))}
+                  alturaPorItem={40}
+                  rotuloTooltip="dos erros classificados"
+                />
+              ) : (
+                <div style={{ fontSize: 13, color: C.sub, padding: "8px 4px 14px" }}>
+                  Nenhum erro classificado ainda.
+                </div>
+              )}
+            </Cartao>
+          )}
 
           {/* Confiança — separa acerto por conhecimento de acerto por
               sorte, o que o % geral não distingue (ver QuestaoCard e
@@ -983,6 +1198,8 @@ export default function DadosTab({
               </div>
             )}
           </Cartao>
+
+          <CadernoErrosCartao materia={filtro === TODAS ? null : filtro} />
         </>
       )}
     </Shell>

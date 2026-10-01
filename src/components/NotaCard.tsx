@@ -424,7 +424,7 @@ export default function NotaCard({
 
 /** Busca a questão que originou a nota por id e delega a exibição a
  * ResumoQuestaoRespondida (compartilhado com a busca global, ver NotasTab). */
-function QuestaoOrigem({ id }: { id: number }) {
+export function QuestaoOrigem({ id }: { id: number }) {
   const [questao, setQuestao] = useState<QuestaoRespondida | null | undefined>(undefined);
 
   useEffect(() => {

@@ -8,6 +8,7 @@ import {
   PencilSquareIcon,
   SpeakerWaveIcon,
   StopIcon,
+  TagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { FlagIcon as FlagSolid } from "@heroicons/react/24/solid";
@@ -25,10 +26,14 @@ import type { Questao } from "../lib/types";
 import { labelTipo } from "../lib/constants";
 import {
   atualizarEnunciadoRespondida,
+  definirCausaErro,
+  listarNotasDaQuestao,
   mesclarExplicacoesBanco,
   mesclarExplicacoesRespondida,
   reportarQuestao,
+  vincularNotasAQuestao,
 } from "../lib/repo";
+import { CAUSAS_ERRO, labelCausaErro } from "../lib/causaErro";
 import type { MotivoReport } from "../lib/repo";
 import { marcarInviavel } from "../lib/questoesInviaveis";
 import { gerarExplicacaoParcial, letrasExplicaveis, mensagemDeErro } from "../lib/anthropic";
@@ -82,6 +87,7 @@ export default function QuestaoCard({
   questaoOrigemId,
   reportadaInicial,
   temNotaInicial,
+  causaErroInicial,
   origem,
   cabecalho,
   acoesExtras,
@@ -111,6 +117,9 @@ export default function QuestaoCard({
    * só faz sentido no modo revisão, onde `questaoOrigemId` já existe antes de
    * qualquer resposta nesta sessão. */
   temNotaInicial?: boolean;
+  /** Causa do erro já marcada numa sessão anterior (revisão —
+   * QuestaoRespondida.causa_erro). */
+  causaErroInicial?: string | null;
   /** De onde a questão veio — não persistido, então só aparece no drill em
    * que a questão foi criada (Gerar/Do banco/Importar), não na revisão de
    * erradas. Ajuda a calibrar confiança: só o comentário do modo "banco" é
@@ -164,6 +173,16 @@ export default function QuestaoCard({
   const [reportando, setReportando] = useState(false);
   const [modalReport, setModalReport] = useState(false);
   const [temNota, setTemNota] = useState(temNotaInicial ?? false);
+  // Notas tiradas desta questão, listadas sob o selo "📝" (toque abre). As
+  // salvas antes de existir linha gravada (primeira resposta de um bloco)
+  // ficam em `notasSemVinculo` até `onResponder` devolver o id.
+  const [notas, setNotas] = useState<{ id: number; corpo: string }[]>([]);
+  const [notasAbertas, setNotasAbertas] = useState(false);
+  const notasSemVinculo = useRef<number[]>([]);
+  // Causa do erro (ver lib/causaErro.ts): botão-ícone de etiqueta na barra
+  // de ações, só depois de errar e com a linha já gravada.
+  const [causaErro, setCausaErro] = useState<string | null>(causaErroInicial ?? null);
+  const [escolhendoCausa, setEscolhendoCausa] = useState(false);
   // Cópia local do comentário/explicações — a questão pode chegar sem
   // nenhuma explicação (bloco gerado com o toggle "explicações de IA"
   // desligado, ver GerarView/GerarBancoView) e ganhar explicações aos
@@ -206,6 +225,11 @@ export default function QuestaoCard({
     setReportando(false);
     setModalReport(false);
     setTemNota(temNotaInicial ?? false);
+    setNotas([]);
+    setNotasAbertas(false);
+    notasSemVinculo.current = [];
+    setCausaErro(causaErroInicial ?? null);
+    setEscolhendoCausa(false);
     setComentarioAtual(questao.comentario);
     setExplicacoesAtuais(questao.explicacoes_erradas);
     setSelecionadasExplicar(new Set());
@@ -218,7 +242,39 @@ export default function QuestaoCard({
     pararLeitura();
     setLendo(false);
     inicioRef.current = Date.now();
-  }, [questao, questaoOrigemId, reportadaInicial, temNotaInicial]);
+  }, [questao, questaoOrigemId, reportadaInicial, temNotaInicial, causaErroInicial]);
+
+  // Na revisão a linha já existe: carrega as notas tiradas desta questão.
+  useEffect(() => {
+    if (questaoOrigemId == null || !temNotaInicial) return;
+    let vivo = true;
+    listarNotasDaQuestao(questaoOrigemId)
+      .then((ns) => {
+        if (vivo) setNotas(ns.map((n) => ({ id: n.id, corpo: n.corpo })));
+      })
+      .catch((e) => console.error("notas da questão", e));
+    return () => {
+      vivo = false;
+    };
+  }, [questaoOrigemId, temNotaInicial]);
+
+  function notaSalva(id: number, corpo: string) {
+    setTemNota(true);
+    setNotas((ns) => [...ns, { id, corpo }]);
+    if (origemId == null) notasSemVinculo.current.push(id);
+  }
+
+  async function escolherCausa(causa: string) {
+    if (origemId == null) return;
+    const nova = causa === causaErro ? null : causa;
+    setCausaErro(nova);
+    setEscolhendoCausa(false);
+    try {
+      await definirCausaErro(origemId, nova);
+    } catch (e) {
+      console.error("gravar causa do erro", e);
+    }
+  }
 
   // Sair do drill (desmontar o card) também interrompe a leitura.
   useEffect(() => () => pararLeitura(), []);
@@ -332,6 +388,11 @@ export default function QuestaoCard({
       const id = await onResponder(selecionada, acertou, tempoMs, pedirConfianca ? confianca : null);
       if (typeof id === "number") {
         setOrigemId(id);
+        if (notasSemVinculo.current.length) {
+          const ids = notasSemVinculo.current;
+          notasSemVinculo.current = [];
+          vincularNotasAQuestao(ids, id).catch((e) => console.error("vincular notas à questão", e));
+        }
         if (enunciadoAtual !== questao.enunciado) {
           atualizarEnunciadoRespondida(id, enunciadoAtual).catch((e) =>
             console.error("persistir enunciado corrigido", e),
@@ -447,6 +508,7 @@ export default function QuestaoCard({
         ...cartao,
         display: "flex",
         alignItems: "center",
+        flexWrap: "wrap",
         gap: 8,
         padding: "8px 10px",
         marginBottom: 10,
@@ -504,10 +566,47 @@ export default function QuestaoCard({
           <ExclamationTriangleIcon width={17} height={17} />
         </button>
       )}
+      {revelada && !acertou && origemId != null && (
+        <button
+          onClick={() => setEscolhendoCausa((v) => !v)}
+          aria-label="Causa do erro"
+          aria-expanded={escolhendoCausa}
+          title={causaErro ? `Causa do erro: ${labelCausaErro(causaErro)}` : "Marcar a causa do erro"}
+          style={botaoFerramentaCard(escolhendoCausa || causaErro != null)}
+        >
+          <TagIcon width={17} height={17} />
+        </button>
+      )}
       {onSair && (
         <button onClick={onSair} aria-label={rotuloSair} title={rotuloSair} style={botaoFerramentaCard(false)}>
           <ArrowRightStartOnRectangleIcon width={17} height={17} />
         </button>
+      )}
+      {escolhendoCausa && (
+        <div style={{ flexBasis: "100%", display: "flex", flexWrap: "wrap", gap: 6, paddingTop: 2 }}>
+          {CAUSAS_ERRO.map((c) => {
+            const marcada = causaErro === c.id;
+            return (
+              <button
+                key={c.id}
+                onClick={() => escolherCausa(c.id)}
+                aria-pressed={marcada}
+                style={{
+                  ...mono,
+                  fontSize: 12,
+                  padding: "6px 10px",
+                  borderRadius: 999,
+                  border: `1.5px solid ${marcada ? C.caneta : C.line}`,
+                  background: marcada ? C.canetaSoft : "transparent",
+                  color: marcada ? C.caneta : C.ink,
+                  cursor: "pointer",
+                }}
+              >
+                {c.label}
+              </button>
+            );
+          })}
+        </div>
       )}
     </div>
   );
@@ -526,7 +625,7 @@ export default function QuestaoCard({
         tagPadrao={tagAssunto}
         questaoOrigemId={origemId}
         contexto={enunciadoAtual}
-        onSalvo={() => setTemNota(true)}
+        onSalvo={notaSalva}
       />
 
       {cabecalho}
@@ -535,7 +634,38 @@ export default function QuestaoCard({
       {origemEfetiva && <BannerTopico texto={assuntoDaQuestao} emoji={emojiDaQuestao} />}
       {temNota && (
         <div style={{ marginBottom: 10 }}>
-          <Chip tom="ok">📝 Nota salva</Chip>
+          {notas.length ? (
+            <button
+              onClick={() => setNotasAbertas((v) => !v)}
+              aria-expanded={notasAbertas}
+              style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
+            >
+              <Chip tom="ok">
+                📝 {notas.length} {notas.length === 1 ? "nota" : "notas"} {notasAbertas ? "▲" : "▾"}
+              </Chip>
+            </button>
+          ) : (
+            <Chip tom="ok">📝 Nota salva</Chip>
+          )}
+          {notasAbertas && (
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 8 }}>
+              {notas.map((n) => (
+                <div
+                  key={n.id}
+                  style={{
+                    fontSize: 13,
+                    lineHeight: 1.45,
+                    background: C.okSoft,
+                    borderRadius: 8,
+                    padding: "8px 10px",
+                    whiteSpace: "pre-wrap",
+                  }}
+                >
+                  {n.corpo.replace(/\s*::\s*/, " — ")}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

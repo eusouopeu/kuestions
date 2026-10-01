@@ -162,6 +162,7 @@ function mapQuestao(r: Record<string, unknown>): QuestaoRespondida {
     conceitos: parseJSON<string[]>(r.conceitos, []),
     dispositivo: (r.dispositivo as string) ?? null,
     confianca: (r.confianca as QuestaoRespondida["confianca"]) ?? null,
+    causa_erro: (r.causa_erro as string) ?? null,
     // Proveniência da questão real: é o que permite ao card mostrar de que
     // prova ela veio também na revisão, onde não há mais a view de origem
     // para informar isso (ver QuestaoCard → buscarQuestaoBanco).
@@ -722,4 +723,36 @@ export async function resolverReport(id: number): Promise<void> {
     `UPDATE questoes_respondidas SET reportada = 0, motivo_report = NULL WHERE id = ?`,
     [id],
   );
+}
+
+/** Grava (ou limpa, com null) a causa do erro de uma resposta — ver
+ * lib/causaErro.ts e o botão-ícone na barra de ações do QuestaoCard. */
+export async function definirCausaErro(id: number, causa: string | null): Promise<void> {
+  await run(`UPDATE questoes_respondidas SET causa_erro = ? WHERE id = ?`, [causa, id]);
+}
+
+/**
+ * Erradas para o caderno de erros (exportação em PDF, ver
+ * lib/cadernoErros.ts): só respostas de verdade (`resposta != ''`), mais
+ * antigas primeiro. `desde` = ISO de corte (null = todo o histórico).
+ */
+export async function listarErradasParaCaderno(
+  materia: string | null,
+  desde: string | null,
+): Promise<QuestaoRespondida[]> {
+  const cond = ["acertou = 0", "resposta != ''"];
+  const params: unknown[] = [];
+  if (materia) {
+    cond.push("materia = ?");
+    params.push(materia);
+  }
+  if (desde) {
+    cond.push("ts >= ?");
+    params.push(desde);
+  }
+  const rows = await all<Record<string, unknown>>(
+    `SELECT * FROM questoes_respondidas WHERE ${cond.join(" AND ")} ORDER BY materia COLLATE NOCASE, ts ASC`,
+    params,
+  );
+  return rows.map(mapQuestao);
 }

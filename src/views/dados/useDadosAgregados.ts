@@ -31,6 +31,11 @@ import {
   tempoPorMateria,
   topicosPraticados,
   listarSimulados,
+  idsBancoRespondidos,
+  porCausaErro,
+  questoesPorMateriaRecentes,
+  respostasDoBanco,
+  totalRespondidas,
   type CalibracaoMateria,
   type Fatia,
   type FatiaTempo,
@@ -42,6 +47,9 @@ import {
 } from "../../lib/repo";
 import { getPesosEdital, type PesosEdital } from "../../lib/edital";
 import { getTetoMensal } from "../../lib/custo";
+import { getProvaAlvo, type ProvaAlvo } from "../../lib/prova";
+import { areasBanco, buscarQuestaoBanco, contarIneditas, garantirBanco } from "../../lib/banco";
+import { bancaDe } from "../../lib/bancas";
 import {
   coberturaTopicos,
   desempenhoPorTopico,
@@ -52,6 +60,27 @@ import {
 
 /** Janela do calendário de sequência (heatmap) — 20 semanas. */
 export const DIAS_HEATMAP = 140;
+
+/** Janela do cartão "Tempo × edital". */
+export const DIAS_ALOCACAO = 30;
+
+/** Acerto por banca a partir das respostas a questões do banco fixo — a
+ * banca vem de lib/bancas.ts (precisa do banco carregado). */
+function agruparPorBanca(linhas: { bancoId: string; acertou: boolean }[]): Fatia[] {
+  const mapa = new Map<string, { total: number; acertos: number }>();
+  for (const l of linhas) {
+    const q = buscarQuestaoBanco(l.bancoId);
+    if (!q) continue;
+    const b = bancaDe(q);
+    const atual = mapa.get(b) ?? { total: 0, acertos: 0 };
+    atual.total++;
+    if (l.acertou) atual.acertos++;
+    mapa.set(b, atual);
+  }
+  return [...mapa.entries()]
+    .map(([chave, v]) => ({ chave, ...v, pct: Math.round((v.acertos / v.total) * 100) }))
+    .sort((a, b) => b.total - a.total);
+}
 
 export function useDadosAgregados({
   ativa,
@@ -111,6 +140,18 @@ export function useDadosAgregados({
   // matéria/nível, cada prova já mistura várias áreas; carrega junto com
   // `materias`, uma vez por ativação da aba.
   const [simulados, setSimulados] = useState<RegistroSimulado[]>([]);
+  const [causasErro, setCausasErro] = useState<{ fatias: Fatia[]; naoClassificadas: number }>({
+    fatias: [],
+    naoClassificadas: 0,
+  });
+  const [bancas, setBancas] = useState<Fatia[]>([]);
+  // Ritmo/prova/alocação: não filtrados por matéria/nível (constância e
+  // planejamento do estudo como um todo, como a sequência).
+  const [alocacaoRecente, setAlocacaoRecente] = useState<Record<string, number>>({});
+  const [prova, setProva] = useState<ProvaAlvo>({ data: null, metaQuestoes: null });
+  const [feitasTotal, setFeitasTotal] = useState(0);
+  const [ineditasBanco, setIneditasBanco] = useState<number | null>(null);
+  const [areasDoBanco, setAreasDoBanco] = useState<string[]>([]);
 
   useEffect(() => {
     if (ativa) materiasComDados().then(setMaterias).catch(() => setMaterias([]));
@@ -144,8 +185,12 @@ export function useDadosAgregados({
       // Nota estimada e calibração por matéria só fazem sentido na visão agregada.
       m === null ? Promise.all([resumoPorMateria(n), getPesosEdital()]) : Promise.resolve(null),
       m === null ? resumoConfiancaPorMateria() : Promise.resolve([]),
+      porCausaErro(m, n),
+      questoesPorMateriaRecentes(DIAS_ALOCACAO),
+      getProvaAlvo(),
+      totalRespondidas(),
     ])
-      .then(([r, s, ni, ti, fo, co, cf, caixa, st, at, tg, tm, conf, lent, cst, tt, baseNota, calibracao]) => {
+      .then(([r, s, ni, ti, fo, co, cf, caixa, st, at, tg, tm, conf, lent, cst, tt, baseNota, calibracao, causas, aloc, pv, feitas]) => {
         setRes(r);
         setSerie(s);
         setNiveis(ni);
@@ -165,6 +210,10 @@ export function useDadosAgregados({
         setPorMateriaNota(baseNota ? baseNota[0] : null);
         setPesosReais(baseNota ? baseNota[1] : {});
         setCalibracaoPorMateria(calibracao);
+        setCausasErro(causas);
+        setAlocacaoRecente(aloc);
+        setProva(pv);
+        setFeitasTotal(feitas);
       })
       .catch(() => setRes(null))
       .finally(() => setCarregando(false));
@@ -173,6 +222,28 @@ export function useDadosAgregados({
   useEffect(() => {
     if (ativa) carregar();
   }, [ativa, carregar]);
+
+  // Tudo que depende do JSON do banco fixo (carregado sob demanda, ver
+  // garantirBanco): acerto por banca, inéditas restantes (alvo padrão da
+  // projeção até a prova) e lista de áreas (universo do "Tempo × edital").
+  useEffect(() => {
+    if (!ativa) return;
+    let vivo = true;
+    Promise.all([garantirBanco(), respostasDoBanco(materia, nivel), idsBancoRespondidos()])
+      .then(([, linhas, vistas]) => {
+        if (!vivo) return;
+        setBancas(agruparPorBanca(linhas));
+        const areas = areasBanco();
+        setAreasDoBanco(areas);
+        setIneditasBanco(areas.reduce((s, a) => s + contarIneditas(a, { modo: "todos" }, vistas), 0));
+      })
+      .catch(() => {
+        if (vivo) setBancas([]);
+      });
+    return () => {
+      vivo = false;
+    };
+  }, [ativa, materia, nivel]);
 
   // Cobertura e heatmap de tópicos: só existe lista fixa para comparar numa
   // matéria específica (não em "todas") e só para as que têm
@@ -217,5 +288,12 @@ export function useDadosAgregados({
     custo,
     teto,
     simulados,
+    causasErro,
+    bancas,
+    alocacaoRecente,
+    prova,
+    feitasTotal,
+    ineditasBanco,
+    areasDoBanco,
   };
 }
