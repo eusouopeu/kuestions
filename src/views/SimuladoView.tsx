@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { ClockIcon } from "@heroicons/react/24/outline";
-import { C, campo, cartao, disp, mono, rotulo, textoPreservado } from "../theme";
+import { C, campo, cartao, disp, mono, rotulo } from "../theme";
 import Botao from "../components/Botao";
+import TextoQuestao, { EnunciadoComApoio } from "../components/TextoQuestao";
+import { useFonteQuestao } from "../lib/fonteQuestao";
 import Opcao, { type Reveal } from "./../components/Opcao";
 import Chip from "../components/Chip";
 import { normalizarLayoutTexto, resumirEmLinha } from "../lib/texto";
@@ -122,6 +124,7 @@ type Tela = "config" | "drill" | "resultado";
  * bastam enunciado, alternativas e gabarito reais).
  */
 export default function SimuladoView({ onEmDrill }: { onEmDrill?: (v: boolean) => void }) {
+  const fonte = useFonteQuestao();
   const [tela, setTela] = useState<Tela>("config");
 
   useEffect(() => {
@@ -638,9 +641,7 @@ export default function SimuladoView({ onEmDrill }: { onEmDrill?: (v: boolean) =
           <div style={{ marginBottom: 10 }}>
             <Chip tom="neutro">{pergunta.area}</Chip>
           </div>
-          <p style={{ fontSize: 16, lineHeight: 1.55, margin: "0 0 16px", ...textoPreservado }}>
-            {normalizarLayoutTexto(pergunta.questao.enunciado)}
-          </p>
+          <EnunciadoComApoio questao={pergunta.questao} style={{ margin: "0 0 16px" }} />
 
           {/* O banco real tem os dois formatos (ver questaoBancoParaQuestao
               em lib/banco.ts): Certo/Errado desenha os dois botões grandes,
@@ -670,6 +671,7 @@ export default function SimuladoView({ onEmDrill }: { onEmDrill?: (v: boolean) =
                   <Opcao
                     key={l}
                     texto={alt}
+                    tamanho={fonte - 0.5}
                     tachada={tachadas.includes(l)}
                     marcada={resposta === l}
                     reveal={null as Reveal}
@@ -870,12 +872,13 @@ export default function SimuladoView({ onEmDrill }: { onEmDrill?: (v: boolean) =
                       // Recolhida a prévia vira uma linha só (2 linhas de
                       // recorte mostrariam só o topo de uma tabela); aberta,
                       // o enunciado volta com o layout original.
-                      ...(aberta ? textoPreservado : null),
                     }}
                   >
-                    {aberta
-                      ? normalizarLayoutTexto(e.questao.enunciado)
-                      : resumirEmLinha(e.questao.enunciado)}
+                    {aberta ? (
+                      <TextoQuestao texto={normalizarLayoutTexto(e.questao.enunciado)} tamanho={13.5} />
+                    ) : (
+                      resumirEmLinha(e.questao.enunciado)
+                    )}
                   </span>
                 </button>
                 {aberta && (

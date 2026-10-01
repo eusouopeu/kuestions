@@ -157,7 +157,8 @@ function dataCurta(iso: string): string {
 
 /**
  * Uma questão de uma fila de revisão (repetição espaçada), com o mesmo
- * cabeçalho de caixa de Leitner e o mesmo rodapé "Sair da revisão" —
+ * cabeçalho de caixa de Leitner e o mesmo botão-ícone "Sair da revisão" (na
+ * barra de ações acima do card) —
  * compartilhado entre RefazerView (pendentes/todas as erradas) e
  * BlocosAnterioresView (reabrir um bloco/matéria inteiro). Quem chama já
  * decide a fonte da fila e a paginação; este componente só renderiza a
@@ -264,23 +265,10 @@ export default function FilaRevisaoDrill({
         onPular={onProxima}
         onProxima={onProxima}
         acoesExtras={<TutorQuestao questao={q} />}
+        onSair={onSair}
+        rotuloSair={`Sair da revisão${revisadasAgora ? ` (${revisadasAgora} revisada${revisadasAgora > 1 ? "s" : ""})` : ""}`}
       />
 
-      <button
-        onClick={onSair}
-        style={{
-          ...mono,
-          marginTop: 18,
-          fontSize: 12,
-          background: "none",
-          border: "none",
-          color: C.sub,
-          cursor: "pointer",
-          textDecoration: "underline",
-        }}
-      >
-        Sair da revisão{revisadasAgora ? ` (${revisadasAgora} revisada${revisadasAgora > 1 ? "s" : ""})` : ""}
-      </button>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
+  ArrowRightStartOnRectangleIcon,
   CheckIcon,
   FlagIcon as FlagOutline,
   ExclamationTriangleIcon,
@@ -10,13 +11,15 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { FlagIcon as FlagSolid } from "@heroicons/react/24/solid";
-import { C, campo, cartao, disp, mono, textoPreservado } from "../theme";
+import { C, campo, cartao, disp, mono } from "../theme";
 import Botao from "./Botao";
 import Chip from "./Chip";
 import Opcao, { type Reveal } from "./Opcao";
 import SelecaoNota from "./SelecaoNota";
 import SliderConfianca, { type Confianca } from "./SliderConfianca";
 import Calculadora from "./Calculadora";
+import TextoQuestao from "./TextoQuestao";
+import { FONTE_MAX, FONTE_MIN, mudarFonteQuestao, useFonteQuestao } from "../lib/fonteQuestao";
 import { BannerProveniencia, BannerTopico } from "./BannerQuestao";
 import type { Questao } from "../lib/types";
 import { labelTipo } from "../lib/constants";
@@ -88,6 +91,8 @@ export default function QuestaoCard({
   onResponder,
   onPular,
   onProxima,
+  onSair,
+  rotuloSair = "Sair",
 }: {
   questao: Questao;
   materia: string;
@@ -144,6 +149,11 @@ export default function QuestaoCard({
    * Só aparece antes de revelar o gabarito. */
   onPular?: () => void;
   onProxima: () => void;
+  /** Sair do drill (ex.: "Sair da revisão") — vira o último botão-ícone da
+   * barra de ações acima do card. */
+  onSair?: () => void;
+  /** Texto acessível/título do botão de sair (inclui contagem, se houver). */
+  rotuloSair?: string;
 }) {
   const [selecionada, setSelecionada] = useState<string | null>(null);
   const [revelada, setRevelada] = useState(false);
@@ -174,6 +184,7 @@ export default function QuestaoCard({
   const [editandoEnunciado, setEditandoEnunciado] = useState(false);
   const [rascunhoEnunciado, setRascunhoEnunciado] = useState("");
   const cardRef = useRef<HTMLDivElement>(null);
+  const fonte = useFonteQuestao();
   // Só para forçar um re-render quando o banco de questões carrega depois do
   // card já ter montado — acontece quando uma questão com `bancoId` aparece
   // numa tela que não passou por GerarBancoView/SimuladoView nesta sessão
@@ -428,11 +439,86 @@ export default function QuestaoCard({
 
   const temCalculadora = pareceCalculo(questao);
 
+  const barraAcoes = (
+    // Barra de ações num card próprio, acima da questão: letra menor/maior,
+    // corrigir enunciado, pular, marcar como errada e (na revisão) sair.
+    <div
+      style={{
+        ...cartao,
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        padding: "8px 10px",
+        marginBottom: 10,
+      }}
+    >
+      <button
+        onClick={() => mudarFonteQuestao(-1)}
+        disabled={fonte <= FONTE_MIN}
+        aria-label="Diminuir letra da questão"
+        title="Diminuir letra da questão"
+        style={botaoFerramentaCard(false)}
+      >
+        <span style={{ ...mono, fontSize: 12, fontWeight: 700 }}>A−</span>
+      </button>
+      <button
+        onClick={() => mudarFonteQuestao(1)}
+        disabled={fonte >= FONTE_MAX}
+        aria-label="Aumentar letra da questão"
+        title="Aumentar letra da questão"
+        style={botaoFerramentaCard(false)}
+      >
+        <span style={{ ...mono, fontSize: 16, fontWeight: 700 }}>A+</span>
+      </button>
+      <div style={{ flex: 1 }} />
+      {!editandoEnunciado && (
+        <button
+          onClick={() => {
+            setRascunhoEnunciado(enunciadoAtual);
+            setEditandoEnunciado(true);
+          }}
+          aria-label="Corrigir enunciado"
+          title="Corrigir erro no enunciado desta questão"
+          style={botaoFerramentaCard(false)}
+        >
+          <PencilSquareIcon width={17} height={17} />
+        </button>
+      )}
+      {!revelada && !editandoEnunciado && onPular && (
+        <button
+          onClick={onPular}
+          aria-label="Pular esta questão"
+          title="Pular esta questão — não conta em nenhuma estatística"
+          style={botaoFerramentaCard(false)}
+        >
+          <ForwardIcon width={17} height={17} />
+        </button>
+      )}
+      {!revelada && !editandoEnunciado && onPular && (questao.bancoId || origemId != null) && (
+        <button
+          onClick={marcarErrada}
+          aria-label="Marcar questão como errada"
+          title="Marcar como errada (ex.: depende de imagem que não veio no enunciado) — sai do banco e pula"
+          style={botaoFerramentaCard(false)}
+        >
+          <ExclamationTriangleIcon width={17} height={17} />
+        </button>
+      )}
+      {onSair && (
+        <button onClick={onSair} aria-label={rotuloSair} title={rotuloSair} style={botaoFerramentaCard(false)}>
+          <ArrowRightStartOnRectangleIcon width={17} height={17} />
+        </button>
+      )}
+    </div>
+  );
+
   return (
-    // WebkitTouchCallout suprime o menu nativo de seleção (Copiar/Traduzir/
-    // Buscar) do Android/iOS ao segurar o toque sobre o texto — ele compete
-    // visualmente com o botão "+ Salvar nota" de SelecaoNota, que abre no
-    // mesmo gesto. A seleção em si continua funcionando normalmente.
+    <>
+    {barraAcoes}
+    {/* WebkitTouchCallout suprime o menu nativo de seleção (Copiar/Traduzir/
+        Buscar) do Android/iOS ao segurar o toque sobre o texto — ele compete
+        visualmente com o botão "+ Salvar nota" de SelecaoNota, que abre no
+        mesmo gesto. A seleção em si continua funcionando normalmente. */}
     <div ref={cardRef} style={{ ...cartao, WebkitTouchCallout: "none" } as React.CSSProperties}>
       <SelecaoNota
         containerRef={cardRef}
@@ -461,9 +547,11 @@ export default function QuestaoCard({
           caixa cinza separada dava a impressão de não fazer parte da
           questão, especialmente em enunciados grandes. */}
       {qb?.texto_apoio && (
-        <p style={{ fontSize: 16, lineHeight: 1.55, margin: "0 0 10px", ...textoPreservado }}>
-          {normalizarLayoutTexto(qb.texto_apoio)}
-        </p>
+        <TextoQuestao
+          texto={normalizarLayoutTexto(qb.texto_apoio)}
+          tamanho={fonte}
+          style={{ margin: `0 0 ${(1.25 / 2).toFixed(3)}em` }}
+        />
       )}
 
       <div style={{ display: "flex", alignItems: "flex-start", gap: 8, margin: "0 0 16px" }}>
@@ -496,9 +584,7 @@ export default function QuestaoCard({
             </div>
           </div>
         ) : (
-          <p style={{ fontSize: 16, lineHeight: 1.55, margin: 0, flex: 1, minWidth: 0, ...textoPreservado }}>
-            {normalizarLayoutTexto(enunciadoAtual)}
-          </p>
+          <TextoQuestao texto={normalizarLayoutTexto(enunciadoAtual)} tamanho={fonte} style={{ flex: 1 }} />
         )}
         {vozDisponivel() && (
           <button
@@ -545,6 +631,7 @@ export default function QuestaoCard({
               <Opcao
                 key={l}
                 texto={texto}
+                tamanho={fonte - 0.5}
                 tachada={tachadas.includes(l)}
                 marcada={!revelada && selecionada === l}
                 reveal={
@@ -795,49 +882,14 @@ export default function QuestaoCard({
         </div>
       )}
 
-      {/* Barra de ações do rodapé: `acoesExtras` (ex.: "Tirar dúvida",
-          ver FilaRevisaoDrill) ocupa o espaço livre à esquerda; corrigir
-          enunciado e pular ficam na mesma linha, à direita. */}
-      <div style={{ display: "flex", alignItems: "flex-start", gap: 8, marginTop: 14 }}>
-        <div style={{ flex: 1, minWidth: 0 }}>{acoesExtras}</div>
-        {!editandoEnunciado && (
-          <button
-            onClick={() => {
-              setRascunhoEnunciado(enunciadoAtual);
-              setEditandoEnunciado(true);
-            }}
-            aria-label="Corrigir enunciado"
-            title="Corrigir erro no enunciado desta questão"
-            style={botaoFerramentaCard(false)}
-          >
-            <PencilSquareIcon width={17} height={17} />
-          </button>
-        )}
-        {!revelada && !editandoEnunciado && onPular && (
-          <button
-            onClick={onPular}
-            aria-label="Pular esta questão"
-            title="Pular esta questão — não conta em nenhuma estatística"
-            style={botaoFerramentaCard(false)}
-          >
-            <ForwardIcon width={17} height={17} />
-          </button>
-        )}
-        {!revelada && !editandoEnunciado && onPular && (questao.bancoId || origemId != null) && (
-          <button
-            onClick={marcarErrada}
-            aria-label="Marcar questão como errada"
-            title="Marcar como errada (ex.: depende de imagem que não veio no enunciado) — sai do banco e pula"
-            style={botaoFerramentaCard(false)}
-          >
-            <ExclamationTriangleIcon width={17} height={17} />
-          </button>
-        )}
-      </div>
+      {/* Linha própria para ações contextuais da view (ex.: "Tirar dúvida"
+          do tutor na revisão, ver FilaRevisaoDrill). */}
+      {acoesExtras && <div style={{ marginTop: 14 }}>{acoesExtras}</div>}
 
       {modalReport && (
         <ModalReport onCancelar={() => setModalReport(false)} onConfirmar={reportar} />
       )}
     </div>
+    </>
   );
 }

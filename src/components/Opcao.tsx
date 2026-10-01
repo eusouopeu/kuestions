@@ -1,5 +1,6 @@
 import { useRef, useState, type CSSProperties } from "react";
-import { C, disp, textoPreservado } from "../theme";
+import { C, disp } from "../theme";
+import TextoQuestao from "./TextoQuestao";
 
 export type Reveal = "certo" | "errado" | null;
 
@@ -18,6 +19,7 @@ export default function Opcao({
   onTachar,
   onDestachar,
   style,
+  tamanho = 14.5,
 }: {
   texto: string;
   big?: boolean;
@@ -28,6 +30,8 @@ export default function Opcao({
   onTachar: () => void;
   onDestachar: () => void;
   style?: CSSProperties;
+  /** Tamanho da letra da alternativa (ver lib/fonteQuestao.ts); ignorado em `big`. */
+  tamanho?: number;
 }) {
   const startX = useRef<number | null>(null);
   const arrasto = useRef(false);
@@ -118,12 +122,8 @@ export default function Opcao({
         alignItems: "center",
         justifyContent: big ? "center" : "flex-start",
         textAlign: big ? "center" : "left",
-        fontSize: big ? 15 : 14.5,
+        fontSize: big ? 15 : tamanho,
         fontWeight: big ? 700 : 400,
-        lineHeight: 1.4,
-        // Alternativa do banco real às vezes tem quebras próprias (item de
-        // lista, linha de tabela) — preservá-las é o que separa os itens.
-        ...textoPreservado,
         color: tachada
           ? C.sub
           : reveal === "certo"
@@ -139,7 +139,10 @@ export default function Opcao({
         ...style,
       }}
     >
-      {texto}
+      {/* Alternativa do banco real às vezes tem quebras próprias (item de
+          lista, linha de tabela) — TextoQuestao as preserva e aplica as
+          mesmas regras de parágrafo do enunciado. */}
+      {big ? texto : <TextoQuestao texto={texto} tamanho={tamanho} style={{ flex: 1 }} />}
     </div>
   );
 }
