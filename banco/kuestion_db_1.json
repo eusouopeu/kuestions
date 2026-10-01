@@ -10243,7 +10243,7 @@
   "area": "Finanças Públicas",
   "assunto": "LRF Parte II: Despesa Pública, DOCC e Despesas com Pessoal",
   "numero_original": 32,
-  "enunciado": "Utilize as informações a seguir para responder às questões de números 32 e 33. As seguintes informações sobre as despesas de um Poder Executivo estadual, referentes ao exercício financeiro de 2017, foram extraídas do seu sistema de contabilidade, sendo que os valores estão em reais:\n\n![Imagem da prova](SEFAZ-GO-2018-Q001-1.png)\n\n(tabela com despesas). A Receita Corrente Líquida do estado referente ao exercício financeiro de 2017 foi R$ 20.000.000,00. Com base nessas informações, em decorrência das determinações da Lei de Responsabilidade Fiscal quanto à despesa total com pessoal, o Poder Executivo estadual, ao final do exercício financeiro de 2017,",
+  "enunciado": "Com base nessas informações, em decorrência das determinações da Lei de Responsabilidade Fiscal quanto à despesa total com pessoal, o Poder Executivo estadual, ao final do exercício financeiro de 2017,",
   "alternativas": {
    "A": "estava vedado a contratar operações de crédito destinadas ao refinanciamento da dívida mobiliária.",
    "B": "estava impedido de receber transferências voluntárias.",
@@ -10253,7 +10253,8 @@
   },
   "gabarito": "B",
   "bloco": "[4] Lei de Responsabilidade Fiscal (LRF) (4 aulas)",
-  "incidencia": "Ouro"
+  "incidencia": "Ouro",
+  "texto_apoio": "Utilize as informações a seguir para responder às questões de números 32 e 33.\n\nAs seguintes informações sobre as despesas de um Poder Executivo estadual, referentes ao exercício financeiro de 2017, foram extraídas do seu sistema de contabilidade, sendo que os valores estão em reais:\n\n![Imagem da prova](SEFAZ-GO-2018-Q001-1.png)\n\nA Receita Corrente Líquida do estado referente ao exercício financeiro de 2017 foi R$ 20.000.000,00."
  },
  {
   "id": "SEFAZ-GO-2018-Q002",
@@ -10273,7 +10274,8 @@
   },
   "gabarito": "B",
   "bloco": "[3] Receita e Despesa Pública (3 aulas)",
-  "incidencia": "Prata"
+  "incidencia": "Prata",
+  "texto_apoio": "Utilize as informações a seguir para responder às questões de números 32 e 33.\n\nAs seguintes informações sobre as despesas de um Poder Executivo estadual, referentes ao exercício financeiro de 2017, foram extraídas do seu sistema de contabilidade, sendo que os valores estão em reais:\n\n![Imagem da prova](SEFAZ-GO-2018-Q001-1.png)\n\nA Receita Corrente Líquida do estado referente ao exercício financeiro de 2017 foi R$ 20.000.000,00."
  },
  {
   "id": "SEFAZ-GO-2018-Q003",
@@ -10303,7 +10305,7 @@
   "area": "Finanças Públicas",
   "assunto": "Classificações Orçamentárias e Estrutura Programática",
   "numero_original": 35,
-  "enunciado": "O quadro a seguir apresenta parte da classificação institucional de um determinado estado:\n\n![Imagem da prova](SEFAZ-GO-2018-Q004-1.png)\n\n(tabela com órgãos e unidades orçamentárias). Considere ainda que as unidades orçamentárias são também unidades gestoras. De acordo com as determinações do Manual de Contabilidade Aplicada ao Setor Público, na descentralização de créditos orçamentários da unidade orçamentária 08.001 para a 08.002 a classificação institucional da unidade orçamentária detentora do crédito orçamentário deve ser",
+  "enunciado": "De acordo com as determinações do Manual de Contabilidade Aplicada ao Setor Público, na descentralização de créditos orçamentários da unidade orçamentária 08.001 para a 08.002 a classificação institucional da unidade orçamentária detentora do crédito orçamentário deve ser",
   "alternativas": {
    "A": "alterada para a classificação institucional da unidade orçamentária receptora do crédito orçamentário, sendo mantida a classificação econômica da despesa orçamentária.",
    "B": "alterada para a classificação institucional da unidade orçamentária receptora do crédito orçamentário, sendo mantida a classificação programática da despesa orçamentária.",
@@ -10313,7 +10315,8 @@
   },
   "gabarito": "D",
   "bloco": "[2] Ciclo Orçamentário, Créditos e Classificações (3 aulas)",
-  "incidencia": "Prata"
+  "incidencia": "Prata",
+  "texto_apoio": "Utilize as informações a seguir para responder às questões de números 35 e 36.\n\nO quadro a seguir apresenta parte da classificação institucional de um determinado estado:\n\n![Imagem da prova](SEFAZ-GO-2018-Q004-1.png)\n\nConsidere ainda que as unidades orçamentárias são também unidades gestoras."
  },
  {
   "id": "SEFAZ-GO-2018-Q005",
@@ -10333,7 +10336,8 @@
   },
   "gabarito": "C",
   "bloco": "[2] Ciclo Orçamentário, Créditos e Classificações (3 aulas)",
-  "incidencia": "Prata"
+  "incidencia": "Prata",
+  "texto_apoio": "Utilize as informações a seguir para responder às questões de números 35 e 36.\n\nO quadro a seguir apresenta parte da classificação institucional de um determinado estado:\n\n![Imagem da prova](SEFAZ-GO-2018-Q004-1.png)\n\nConsidere ainda que as unidades orçamentárias são também unidades gestoras."
  },
  {
   "id": "SEFAZ-GO-2018-Q006",
@@ -10423,7 +10427,7 @@
   "area": "Contabilidade Geral",
   "assunto": "CPC 48 — Instrumentos Financeiros",
   "numero_original": 62,
-  "enunciado": "Uma empresa realizou as seguintes aplicações financeiras em 01/12/2017: (tabela com dados). Com base nas informações acima, é correto afirmar que",
+  "enunciado": "Uma empresa realizou as seguintes aplicações financeiras em 01/12/2017:\n\n![Imagem da prova](SEFAZ-GO-2018-Q010-1.png)\n\nCom base nas informações acima, é correto afirmar que",
   "alternativas": {
    "A": "o valor apresentado no Balanço Patrimonial de 31/12/2017 para as três aplicações financeiras em conjunto foi R$ 1.222.000,00.",
    "B": "o impacto reconhecido na Demonstração do Resultado de dezembro de 2017 para as três aplicações financeiras em conjunto foi R$ 21.000,00 positivo.",
@@ -10443,7 +10447,7 @@
   "area": "Contabilidade Geral",
   "assunto": "CPC 18 — Equivalência Patrimonial",
   "numero_original": 63,
-  "enunciado": "Em 31/12/2016, a Cia. Brasileira adquiriu, à vista, 40% das ações da Cia. Francesa. O valor pago pela aquisição foi R$ 7.000.000,00 e a Cia. Brasileira passou a ter influência significativa na administração. Na data da aquisição, o Patrimônio Líquido contábil da Cia. Francesa era R$ 10.000.000,00 e o valor justo líquido dos ativos e passivos identificáveis era R$ 15.000.000,00, sendo esta diferença decorrente da avaliação a valor justo de um ativo intangível com vida útil indefinida que a Cia. Francesa detinha. No período de 01/01/2017 a 31/12/2017, a Cia. Francesa apurou lucro líquido de R$ 500.000,00. Sabe-se que, em 2017, a Cia. Francesa realizou uma venda no valor de R$ 100.000,00 para a Cia. Brasileira com margem de lucro de 50% sobre as vendas, e estas mercadorias adquiridas da Cia. Francesa ainda estão no estoque da Cia. Brasileira. A alíquota de imposto de renda para a Cia. Francesa é 34% e esta distribuiu dividendos totais no valor de R$ 150.000,00. Com base nestas informações, o valor que a Cia. Brasileira reconheceu na conta Investimentos em Coligadas, no Balanço Patrimonial individual de 31/12/2016, e o valor do ágio que foi pago na aquisição foram, respectivamente, em reais,",
+  "enunciado": "Com base nestas informações, o valor que a Cia. Brasileira reconheceu na conta Investimentos em Coligadas, no Balanço Patrimonial individual de 31/12/2016, e o valor do ágio que foi pago na aquisição foram, respectivamente, em reais,",
   "alternativas": {
    "A": "7.000.000,00 e 1.000.000,00.",
    "B": "4.000.000,00 e 3.000.000,00.",
@@ -10453,7 +10457,8 @@
   },
   "gabarito": "C",
   "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
-  "incidencia": "Ouro"
+  "incidencia": "Ouro",
+  "texto_apoio": "Com base nas informações a seguir responda as questões 63 e 64.\n\nEm 31/12/2016, a Cia. Brasileira adquiriu, à vista, 40% das ações da Cia. Francesa. O valor pago pela aquisição foi R$ 7.000.000,00 e a Cia. Brasileira passou a ter influência significativa na administração. Na data da aquisição, o Patrimônio Líquido contábil da Cia. Francesa era R$ 10.000.000,00 e o valor justo líquido dos ativos e passivos identificáveis era R$ 15.000.000,00, sendo esta diferença decorrente da avaliação a valor justo de um ativo intangível com vida útil indefinida que a Cia. Francesa detinha. No período de 01/01/2017 a 31/12/2017, a Cia. Francesa apurou lucro líquido de R$ 500.000,00. Sabe-se que, em 2017, a Cia. Francesa realizou uma venda no valor de R$ 100.000,00 para a Cia. Brasileira com margem de lucro de 50% sobre as vendas, e estas mercadorias adquiridas da Cia. Francesa ainda estão no estoque da Cia. Brasileira. A alíquota de imposto de renda para a Cia. Francesa é 34% e esta distribuiu dividendos totais no valor de R$ 150.000,00."
  },
  {
   "id": "SEFAZ-GO-2018-Q012",
@@ -10473,7 +10478,8 @@
   },
   "gabarito": "C",
   "bloco": "[4] CPCs — Pronunciamentos Técnicos (11 aulas)",
-  "incidencia": "Ouro"
+  "incidencia": "Ouro",
+  "texto_apoio": "Com base nas informações a seguir responda as questões 63 e 64.\n\nEm 31/12/2016, a Cia. Brasileira adquiriu, à vista, 40% das ações da Cia. Francesa. O valor pago pela aquisição foi R$ 7.000.000,00 e a Cia. Brasileira passou a ter influência significativa na administração. Na data da aquisição, o Patrimônio Líquido contábil da Cia. Francesa era R$ 10.000.000,00 e o valor justo líquido dos ativos e passivos identificáveis era R$ 15.000.000,00, sendo esta diferença decorrente da avaliação a valor justo de um ativo intangível com vida útil indefinida que a Cia. Francesa detinha. No período de 01/01/2017 a 31/12/2017, a Cia. Francesa apurou lucro líquido de R$ 500.000,00. Sabe-se que, em 2017, a Cia. Francesa realizou uma venda no valor de R$ 100.000,00 para a Cia. Brasileira com margem de lucro de 50% sobre as vendas, e estas mercadorias adquiridas da Cia. Francesa ainda estão no estoque da Cia. Brasileira. A alíquota de imposto de renda para a Cia. Francesa é 34% e esta distribuiu dividendos totais no valor de R$ 150.000,00."
  },
  {
   "id": "SEFAZ-GO-2018-Q013",
@@ -10583,7 +10589,7 @@
   "area": "Contabilidade Geral",
   "assunto": "DFC (Direto e Indireto)",
   "numero_original": 71,
-  "enunciado": "São apresentados a seguir os Balanços Patrimoniais em 31/12/2015 e 31/12/2016, e a Demonstração do Resultado do ano de 2016 da empresa Comércio de Produtos Populares S.A. (valores expressos em reais): (tabelas com balanços e DRE). Considerando que as despesas financeiras não foram pagas em 2016, o fluxo de Caixa das Atividades Operacionais de 2016 foi, em reais,",
+  "enunciado": "Considerando que as despesas financeiras não foram pagas em 2016, o fluxo de Caixa das Atividades Operacionais de 2016 foi, em reais,",
   "alternativas": {
    "A": "147.600,00 (negativo).",
    "B": "207.600,00 (negativo).",
@@ -10593,7 +10599,8 @@
   },
   "gabarito": "D",
   "bloco": "[3] Demonstrações Complementares e Princípios (5 aulas)",
-  "incidencia": "Prata"
+  "incidencia": "Prata",
+  "texto_apoio": "Com base nas informações a seguir responda as questões 71 e 72.\n\nSão apresentados a seguir os Balanços Patrimoniais em 31/12/2015 e 31/12/2016, e a Demonstração do Resultado do ano de 2016 da empresa Comércio de Produtos Populares S.A. (valores expressos em reais):\n\n![Imagem da prova](SEFAZ-GO-2018-Q018-1.png)\n\n![Imagem da prova](SEFAZ-GO-2018-Q018-2.png)"
  },
  {
   "id": "SEFAZ-GO-2018-Q019",
@@ -10613,7 +10620,8 @@
   },
   "gabarito": "A",
   "bloco": "[3] Demonstrações Complementares e Princípios (5 aulas)",
-  "incidencia": "Prata"
+  "incidencia": "Prata",
+  "texto_apoio": "Com base nas informações a seguir responda as questões 71 e 72.\n\nSão apresentados a seguir os Balanços Patrimoniais em 31/12/2015 e 31/12/2016, e a Demonstração do Resultado do ano de 2016 da empresa Comércio de Produtos Populares S.A. (valores expressos em reais):\n\n![Imagem da prova](SEFAZ-GO-2018-Q018-1.png)\n\n![Imagem da prova](SEFAZ-GO-2018-Q018-2.png)"
  },
  {
   "id": "SEFAZ-GO-2018-Q020",
@@ -21044,7 +21052,7 @@
    "B": "a fo rma verbal “tenho visto” marca uma ação passada anterior a outra ação passada;",
    "C": "o pronome possessivo “meus”, em relação a “compatriotas”, tem o valor de propriedade;",
    "D": "o pronome relativo “que” estabelece relação de coesão com o substantivo “níveis”;",
-   "E": "no vocábulo “sub -humano”, o prefixo sub - tem valor pejorativo, equivalente a “pior do que”."
+   "E": "no vocábulo “sub-humano”, o prefixo sub - tem valor pejorativo, equivalente a “pior do que”."
   },
   "gabarito": "D",
   "texto_apoio": null,
@@ -21178,7 +21186,7 @@
   "area": "Língua Portuguesa",
   "assunto": "Morfologia - Advérbios em -mente",
   "numero_original": 9,
-  "enunciado": "Todas as frases abaixo mostram um advérbio com o sufixo -mente; a frase em que esse advérbio é de uma classificação diferente das demais, é:",
+  "enunciado": "Todas as frases abaixo mostram um advérbio com o sufixo-mente; a frase em que esse advérbio é de uma classificação diferente das demais, é:",
   "alternativas": {
    "A": "A mediocridade não conhece nad a melhor do que ela mesma, mas o talento reconhece instantaneamente o gênio;",
    "B": "O conceito de gênio como semelhante à loucura tem sido cuidadosamente alimentado pelo complexo de inferioridade do público;",
@@ -21358,7 +21366,7 @@
   "area": "Língua Portuguesa",
   "assunto": "Morfologia - Sufixo -eiro",
   "numero_original": 18,
-  "enunciado": "Em todas as alternativas abaixo há duas palavras com o sufixo -eiro.\n\nEsse sufixo mostra o mesmo valor semântico nas duas palavras em:",
+  "enunciado": "Em todas as alternativas abaixo há duas palavras com o sufixo-eiro.\n\nEsse sufixo mostra o mesmo valor semântico nas duas palavras em:",
   "alternativas": {
    "A": "brasileiro – fuzileiro;",
    "B": "engenheiro – caseiro;",
@@ -21539,7 +21547,7 @@
   "area": "Estatística",
   "assunto": "Variáveis Aleatórias e Distribuições Contínuas",
   "numero_original": 27,
-  "enunciado": "Seja X 1 uma variável aleatória com distribuição normal de probabilidade, de média 2 e desvio -padrão 4. Seja X 2 uma variável aleatória com distribuição normal de probabilidade de\nmédia 1 e desvio -padrão igual a 2.\n\nÉ correto afirmar que:",
+  "enunciado": "Seja X 1 uma variável aleatória com distribuição normal de probabilidade, de média 2 e desvio-padrão 4. Seja X 2 uma variável aleatória com distribuição normal de probabilidade de\nmédia 1 e desvio-padrão igual a 2.\n\nÉ correto afirmar que:",
   "alternativas": {
    "A": "P{X 1<3,6}=P{X 2<1,8};",
    "B": "P{X 1<3,6}=1 -P{X 2<1,8};",
@@ -21642,7 +21650,7 @@
   "area": "Economia",
   "assunto": "Modelo AO-DA e Inflação",
   "numero_original": 34,
-  "enunciado": "Em relação à Teoria da Inflação Inercial, analise as afirmativas a seguir, considerando V para a(s) verdadeira(s) e F para a(s) falsa(s).\n\n( ) Inflação tende a decorrer das práticas contratuais que repunham a inflação passada a cada data -base.\n\n( ) Tentativa dos agentes econômicos de repor sua remuneração de pico, como uma atitude defensiva.\n\n( ) Existência de contratos com cláusulas de indexação, com sincronia dos picos no tempo, de forma a manter o poder de compra dos trabalhadores.\n\nA sequência correta é:",
+  "enunciado": "Em relação à Teoria da Inflação Inercial, analise as afirmativas a seguir, considerando V para a(s) verdadeira(s) e F para a(s) falsa(s).\n\n( ) Inflação tende a decorrer das práticas contratuais que repunham a inflação passada a cada data-base.\n\n( ) Tentativa dos agentes econômicos de repor sua remuneração de pico, como uma atitude defensiva.\n\n( ) Existência de contratos com cláusulas de indexação, com sincronia dos picos no tempo, de forma a manter o poder de compra dos trabalhadores.\n\nA sequência correta é:",
   "alternativas": {
    "A": "V, V, V;",
    "B": "V, V, F;",
@@ -21896,10 +21904,10 @@
   "enunciado": "As autoridades competentes do Município do Rio de Janeiro estão analisando a viabilidade de constituir uma parceria público - privada, com base na Lei nº 11.079/2004, com vistas a realizar determinado serviço, que não se enquadra como serviço público, mas en volve a execução de obra e o fornecimento e a instalação de bens, do qual a Administração será usuária direta, incompatível, portanto, com a cobrança de tarifas.\n\nEm relação à aludida situação hipotética, é correto afirmar que:",
   "alternativas": {
    "A": "diante da impossibilidade de cobrança de tarifa, não é viável constituir nenhuma das modalidades de parceria público - privada;",
-   "B": "por não versar sobre serviços públicos, ainda que uti universi , não será possível a constituição de nenhuma das modalidades de parceria público -privada;",
+   "B": "por não versar sobre serviços públicos, ainda que uti universi , não será possível a constituição de nenhuma das modalidades de parceria público-privada;",
    "C": "poderia ser utilizada a concessão administrativa na situação descrita, preenchidos os demais requisitos estabelecidos em lei;",
    "D": "poderia ser utilizada a concessão patrocinada na situação descrita, preenchidos os demais requisitos estabelecidos em lei;",
-   "E": "considerando que mais de 70% da remuneração será realizada pelo parceiro público, é necessária a autorização legislativa para a constituição da modalidade de parceria público -privada cabível."
+   "E": "considerando que mais de 70% da remuneração será realizada pelo parceiro público, é necessária a autorização legislativa para a constituição da modalidade de parceria público-privada cabível."
   },
   "gabarito": "C",
   "texto_apoio": null,
@@ -22344,7 +22352,7 @@
   "area": "Noções de Informática",
   "assunto": "Contabilidade - Mensuração de Ativos (Custo Histórico x Valor Justo)",
   "numero_original": 70,
-  "enunciado": "Observe a seguinte estrutura do conjunto de dados PESSOA que contém dados sobre pessoas e a sua renda anual.\n\n![Imagem da prova](ISS-RJ-2023-P1-Q066-1.png)\n\nO conjunto de dados PESSOA será usado para a tarefa de aprendizagem supervisionada de classificação com a finalidade de prever se a renda (Classe) de uma pessoa excede 50 mil por ano.\n\nPara isso, a operação de pré -processamento de dados que deve ser executada no conjunto de dados PES SOA é:",
+  "enunciado": "Observe a seguinte estrutura do conjunto de dados PESSOA que contém dados sobre pessoas e a sua renda anual.\n\n![Imagem da prova](ISS-RJ-2023-P1-Q066-1.png)\n\nO conjunto de dados PESSOA será usado para a tarefa de aprendizagem supervisionada de classificação com a finalidade de prever se a renda (Classe) de uma pessoa excede 50 mil por ano.\n\nPara isso, a operação de pré-processamento de dados que deve ser executada no conjunto de dados PESSOA é:",
   "alternativas": {
    "A": "exclusão da coluna do tipo categórica “Classe” que possui outlier ;",
    "B": "discretização das colunas do tipo categórica “Sexo, Raça / Etnia e Educação”;",
@@ -22595,7 +22603,7 @@
   "area": "Direito Constitucional",
   "assunto": "Organização do Estado (Art. 18 a 36)",
   "numero_original": 2,
-  "enunciado": "Em razão de sucessivos conflitos deflagrados em condomínios edilícios que contavam com um único hidrômetro, de modo que o valor a ser pago em razão do fornecimento de água deveria ser rateado entre os condôminos, o Município Alfa editou a Lei nº X, dispondo que somente seria concedido habite -se, às construções iniciadas após a sua publicação, caso contassem com hidrômetros individuais para cada unidade autônoma.\n\nIrresignado com o teor da Lei municipal nº X, a associação das empresas de construção consultou a sua assessoria jurídica em relação à compatibilidade desse diploma normativo com a Constituição da República de 1988, sendo -lhe corretamente respondido que:",
+  "enunciado": "Em razão de sucessivos conflitos deflagrados em condomínios edilícios que contavam com um único hidrômetro, de modo que o valor a ser pago em razão do fornecimento de água deveria ser rateado entre os condôminos, o Município Alfa editou a Lei nº X, dispondo que somente seria concedido habite -se, às construções iniciadas após a sua publicação, caso contassem com hidrômetros individuais para cada unidade autônoma.\n\nIrresignado com o teor da Lei municipal nº X, a associação das empresas de construção consultou a sua assessoria jurídica em relação à compatibilidade desse diploma normativo com a Constituição da República de 1988, sendo-lhe corretamente respondido que:",
   "alternativas": {
    "A": "a Lei municipal nº X afrontou a livre iniciativa, o que decorreu da oneração excessiva das empresas de construção;",
    "B": "o Município Alfa tinha competência para legislar sobre a matéria, em razão do preponderante interesse local;",
@@ -23015,7 +23023,7 @@
   "area": "Direito Tributário",
   "assunto": "Legislação Tributária",
   "numero_original": 22,
-  "enunciado": "No Município Alfa, a contagem de prazos tributários se dá na mesma forma prevista pelo Código Tributário Nacional. Nesse Município, o dia do padroeiro, em 20 de janeiro de 2023 (uma sexta -feira), é feriado municipal.\n\nUm prazo tributário municipal de sete dias, cujo início se dê em 19 de janeiro de 2023, terá como vencimento o dia:",
+  "enunciado": "No Município Alfa, a contagem de prazos tributários se dá na mesma forma prevista pelo Código Tributário Nacional. Nesse Município, o dia do padroeiro, em 20 de janeiro de 2023 (uma sexta-feira), é feriado municipal.\n\nUm prazo tributário municipal de sete dias, cujo início se dê em 19 de janeiro de 2023, terá como vencimento o dia:",
   "alternativas": {
    "A": "25 de janeiro de 2023;",
    "B": "26 de janeiro de 2023;",
@@ -23141,7 +23149,7 @@
   "area": "Direito Tributário",
   "assunto": "Extinção do Crédito Tributário",
   "numero_original": 28,
-  "enunciado": "João percebeu que lhe foi indevidamente cobrada certa taxa estadual. Irresignado, requereu administrativamente a restituição do indébito tributário. Contudo, na via administrativa, tal direito de restituição foi -lhe negado. Diante disso, optou por promover uma ação para anular a decisão administrativa que denegou a restituição do indébito tributário.\n\nO prazo prescricional para que João promova a ação anulatória da decisão administrativa que denegou a restituição do indébito tributário é de:",
+  "enunciado": "João percebeu que lhe foi indevidamente cobrada certa taxa estadual. Irresignado, requereu administrativamente a restituição do indébito tributário. Contudo, na via administrativa, tal direito de restituição foi-lhe negado. Diante disso, optou por promover uma ação para anular a decisão administrativa que denegou a restituição do indébito tributário.\n\nO prazo prescricional para que João promova a ação anulatória da decisão administrativa que denegou a restituição do indébito tributário é de:",
   "alternativas": {
    "A": "um ano;",
    "B": "dois anos;",
@@ -23225,7 +23233,7 @@
   "area": "Direito Tributário",
   "assunto": "Crédito Tributário: Constituição e Lançamento",
   "numero_original": 52,
-  "enunciado": "José, contribuinte de IPTU, em 2023, protocolou petição em face da Notificação de Lançamento do IPTU, buscando impugnar o valor venal de imóvel atribuído pelo Município do Rio de Janeiro para fins de cobrança de tal tributo. Ao analisar o processo, a autoridade administrativa indicou a José que deveria produzir certas provas que julgava indispensáveis à formação de seu convencimento, deferindo -lhe prazo para esse fim. Decorrido o prazo sem o cumprimento da exigência, o titular do órgão lançador negou seguimento à impugnação, por falta de provas técnicas que a justifiquem.\n\nÀ luz do Decreto municipal nº 14.602/1996, desta última decisão caberá recurso à autoridade julgadora de primeira instância no prazo de:",
+  "enunciado": "José, contribuinte de IPTU, em 2023, protocolou petição em face da Notificação de Lançamento do IPTU, buscando impugnar o valor venal de imóvel atribuído pelo Município do Rio de Janeiro para fins de cobrança de tal tributo. Ao analisar o processo, a autoridade administrativa indicou a José que deveria produzir certas provas que julgava indispensáveis à formação de seu convencimento, deferindo-lhe prazo para esse fim. Decorrido o prazo sem o cumprimento da exigência, o titular do órgão lançador negou seguimento à impugnação, por falta de provas técnicas que a justifiquem.\n\nÀ luz do Decreto municipal nº 14.602/1996, desta última decisão caberá recurso à autoridade julgadora de primeira instância no prazo de:",
   "alternativas": {
    "A": "dez dias;",
    "B": "quinze dias;",
@@ -23252,7 +23260,7 @@
    "B": "a Gerência de Fiscalização competente fará publicar edital de intimação do auto d e infração eletrônico à empresa, para pagamento ou impugnação da exigência fiscal no prazo de sessenta dias, a contar de sua publicação;",
    "C": "o inteiro teor do auto de infração será publicado no Diário Oficial do Município, assim como disponibilizado à empresa pelo Sistema da NFS -e – NOTA CARIOCA;",
    "D": "não efetuado pela empresa o recolhimento espontâneo, será lavrado auto de infração eletrônico, ficando dispensada a multa imposta caso a empresa, no prazo de trinta dias a partir da ciência do auto de infração, pague o débito com a devida atualização e com os acréscimos moratórios;",
-   "E": "efetuada a revisão de ofício do auto de infração eletrônico, a empresa será cientificada da alteração do lançamento por meio de publicação de edital no Diário Oficial do Município , sendo -lhe devolvido o prazo de sessenta dias para impugnação ou pagamento do crédito tributário com o benefício, quando cabível, da redução das penalidades previstas em lei."
+   "E": "efetuada a revisão de ofício do auto de infração eletrônico, a empresa será cientificada da alteração do lançamento por meio de publicação de edital no Diário Oficial do Município , sendo-lhe devolvido o prazo de sessenta dias para impugnação ou pagamento do crédito tributário com o benefício, quando cabível, da redução das penalidades previstas em lei."
   },
   "gabarito": "D",
   "texto_apoio": null,
@@ -23267,7 +23275,7 @@
   "area": "Direito Tributário",
   "assunto": "Imunidades Tributárias",
   "numero_original": 54,
-  "enunciado": "Entidade beneficente de assistência social portadora do Certificado de Entidade Beneficente de Assistência Social (Cebas), em 2023, impugnou lançamento administrativo de IPTU, no valor atualizado de duzentos mil reais, feito contra si pelo Município do Rio de Janeiro, referente a imóvel de sua propriedade. A entidade não efetua o depósito do valor impugnado e alega fazer jus à imunidade constitucional tributária do IPTU, razão pela qual a cobrança seria indevida. O litígio está para ser julgado em primeira instância administrativo -tributária acerca da presença ou não da imunidade alegada pela entidade.\n\nDiante desse cenário e à luz do Decreto municipal nº 14.602/1996, é correto afirmar que:",
+  "enunciado": "Entidade beneficente de assistência social portadora do Certificado de Entidade Beneficente de Assistência Social (Cebas), em 2023, impugnou lançamento administrativo de IPTU, no valor atualizado de duzentos mil reais, feito contra si pelo Município do Rio de Janeiro, referente a imóvel de sua propriedade. A entidade não efetua o depósito do valor impugnado e alega fazer jus à imunidade constitucional tributária do IPTU, razão pela qual a cobrança seria indevida. O litígio está para ser julgado em primeira instância administrativo-tributária acerca da presença ou não da imunidade alegada pela entidade.\n\nDiante desse cenário e à luz do Decreto municipal nº 14.602/1996, é correto afirmar que:",
   "alternativas": {
    "A": "por envolver alegação constitucional, o litígio será julgado em primeira instância pelo Conselho de Contribuintes do Município do Rio de Janeiro, em razão da cláusula de reserva de Plenário;",
    "B": "por se tratar de alegação em matéria constitucional, da decisão de primeira instância contrária aos i nteresses da entidade caberá recurso especial ao secretário municipal de Fazenda;",
@@ -23312,7 +23320,7 @@
   "enunciado": "Uma associação civil sem fins lucrativos , que atua como órgão de classe representante de certa categoria profissional , resolveu protocolar, perante a Secretaria de Fazenda do Município do Rio de Janeiro, uma petição consultando sobre a interpretação da legislação tributária municipal em um tema de ISS que afetava diretamente seus representados.\n\nDiante desse cenário e à lu z do Decreto municipal nº 14.602/1996, é correto afirmar que:",
   "alternativas": {
    "A": "a consulta formulada por tal órgão de classe, visando à orientação a ser adotada por seus representados, alcança todos os que nela estejam identificados, inclusive aqueles que, na data da ap resentação da consulta, estejam submetidos à ação fiscal;",
-   "B": "para que a consulta seja analisada, não basta a apresentação de autorização expressa dos associados em estatuto para representá -los administrativamente, devendo o órgão de classe convocar assembleia específica da categoria com o fim de autorizar expressamente tal consulta;",
+   "B": "para que a consulta seja analisada, não basta a apresentação de autorização expressa dos associados em estatuto para representá-los administrativamente, devendo o órgão de classe convocar assembleia específica da categoria com o fim de autorizar expressamente tal consulta;",
    "C": "a resposta à consulta formulada por tal órgão de classe, em nome de seus representados, fica condicionada à aprovação do auditor chefe da Receita Municipal;",
    "D": "é definitiv a a solução dada à consulta pelo secretário municipal de Fazenda e Planejamento no caso desta consulta formulada por órgão de classe representante de categoria profissional, em nome de seus representados;",
    "E": "como requisito de admissibilidade da petição de consulta, o órgão de classe representante de certa categoria profissional necessita comprovar a filiação de ao menos vinte associados."
@@ -23336,7 +23344,7 @@
    "B": "ao procedimento que versar sobre reconhecimento de imunidade de IPTU não se aplica o disposto na Seção sobre Consulta Tributária do Decreto municipal nº 14.602/1996;",
    "C": "a autoridade lançadora, no caso do IPTU, poderá determinar a abertura de procedimento de ofício para reconhecimento da imunidade do terreno vazio usado como es tacionamento gratuito;",
    "D": "a decisão de primeira instância sobre o reconhecimento da imunidade do prédio cabe ao auditor chefe da Receita Municipal;",
-   "E": "a decisão final de reconhecimento de imunidade no procedimento administrativo -tributário não é vinculan te para os órgãos julgadores do contencioso administrativo quando as respectivas questões forem suscitadas como causa de pedir no seio de impugnação a Auto de Infração ou Nota de Lançamento."
+   "E": "a decisão final de reconhecimento de imunidade no procedimento administrativo-tributário não é vinculan te para os órgãos julgadores do contencioso administrativo quando as respectivas questões forem suscitadas como causa de pedir no seio de impugnação a Auto de Infração ou Nota de Lançamento."
   },
   "gabarito": "C",
   "texto_apoio": null,
@@ -23440,7 +23448,7 @@
    "A": "a tributação municipal do IPTU deverá assegurar tratamento mais favorecido ao MEI para realização de sua atividade no mesmo local em que residir;",
    "B": "poderá enquadrar -se como MEI o empresário individual ou o empreendedor que exerça as atividades de industrialização, comercialização e prestação de serviços no âmbito rural, com dois empregados que receba m exclusivamente um salário mínimo ou o piso salarial da categoria profissional;",
    "C": "o MEI constituído na forma de startup pode optar pela sistemática de recolhimento dos impostos e contribuições abrangidos pelo Simples Nacional em valores fixos mensais, independentemente da receita bruta por ele auferida no mês;",
-   "D": "a opção pelo recolhimento dos impostos e contribuições abrangidos pelo Simples Nacional em valores fixos mensais, independentemente da receita bruta auferida no mês pelo MEI, poderá ser alterada dentro do mesmo ano -calendário;",
+   "D": "a opção pelo recolhimento dos impostos e contribuições abrangidos pelo Simples Nacional em valores fixos mensais, independentemente da receita bruta auferida no mês pelo MEI, poderá ser alterada dentro do mesmo ano-calendário;",
    "E": "o MEI poderá ter sua inscrição automaticamente cancelada somente após o período de 24 meses consecutivos sem recolhimento ou declarações, independentemente de qualquer notificação, devendo a informação ser publicada no Portal do Empreendedor, na forma regulamentada pelo CGSIM."
   },
   "gabarito": "A",
@@ -23649,8 +23657,8 @@
   "alternativas": {
    "A": "Zooló gico do Município Alfa, fundação pública de direito público;",
    "B": "entidade binacional “Itaipu Binacional”;",
-   "C": "Sindicato dos Trabalhadores da Construção Civil do Município Alfa, que auferiu, no ano -calendário, receitas no valor de cinco milhões;",
-   "D": "ABC Máquinas Ltda., pessoa jurídica inativa, por não ter efetuado qualquer atividade operacional, não operacional, patrimonial ou financeira, inclusive aplicação no mercado financeiro ou de capitais, durante todo o ano -calendário;",
+   "C": "Sindicato dos Trabalhadores da Construção Civil do Município Alfa, que auferiu, no ano-calendário, receitas no valor de cinco milhões;",
+   "D": "ABC Máquinas Ltda., pessoa jurídica inativa, por não ter efetuado qualquer atividade operacional, não operacional, patrimonial ou financeira, inclusive aplicação no mercado financeiro ou de capitais, durante todo o ano-calendário;",
    "E": "ABC Clínica Ltda. ME, pessoa jurídica optante pelo Regime Especial Unificado de Arrecadação de Tributos e Contribuições devidos pelas Microempresas e Empresas de Pequeno Porte (Simples Nacional) e que não recebeu aporte de capital."
   },
   "gabarito": "C",
@@ -24117,7 +24125,7 @@
   "alternativas": {
    "A": "elitismo.",
    "B": "pluralismo.",
-   "C": "principal -agente.",
+   "C": "principal-agente.",
    "D": "triângulo de ferro.",
    "E": "redes de políticas públicas."
   },
@@ -24153,7 +24161,7 @@
   "area": "Administração Pública",
   "assunto": "Governo Eletrônico (e-Gov)",
   "numero_original": 18,
-  "enunciado": "O governo eletrônico ( e-gov) consiste no uso de tecnologia da informação e comunicação (TICs) combinado com mudanças organizacionais para aperfeiçoar as estruturas e operações do governo.\n\nCom relação a o e-gov, analise as afirmativas a seguir.\n\nI. O e-gov é uma alternativa mais rápida e prática para os cidadãos no acesso a serviços governamentais.\nII. A percepção de risco pelos cidadãos, como em questões de privacidade e segurança, pode desencorajá -los a utilizar os sistemas de e-gov.\nIII. O uso de serviços presenciais tradicionais tende a aumentar quando os cidadãos percebem o uso de e-gov como arriscado.\n\nEstá correto o que se afirma em",
+  "enunciado": "O governo eletrônico ( e-gov) consiste no uso de tecnologia da informação e comunicação (TICs) combinado com mudanças organizacionais para aperfeiçoar as estruturas e operações do governo.\n\nCom relação a o e-gov, analise as afirmativas a seguir.\n\nI. O e-gov é uma alternativa mais rápida e prática para os cidadãos no acesso a serviços governamentais.\nII. A percepção de risco pelos cidadãos, como em questões de privacidade e segurança, pode desencorajá-los a utilizar os sistemas de e-gov.\nIII. O uso de serviços presenciais tradicionais tende a aumentar quando os cidadãos percebem o uso de e-gov como arriscado.\n\nEstá correto o que se afirma em",
   "alternativas": {
    "A": "I, apenas.",
    "B": "I e II, apenas.",
@@ -24175,7 +24183,7 @@
   "numero_original": 19,
   "enunciado": "O neocorporativismo é um sistema de intermediação de interesses em que as organizações são limitadas, e o Estado lhes dá o monopólio da representação em troca de alguma influência sobre nomeações no parlament o.\n\nAssinale a opção que apresenta requisitos para o estabelecimento do neocorporativismo.",
   "alternativas": {
-   "A": "Um governo pró -trabalhismo, centralização dos grupos de interesse e monopólio da representação.",
+   "A": "Um governo pró-trabalhismo, centralização dos grupos de interesse e monopólio da representação.",
    "B": "Centralização dos grupos de interesse, pluralismo irrestrito e participação mínima do Executivo.",
    "C": "Descentralização dos grupos de interesse e abertura total para o pluralismo político.",
    "D": "Ausência de monopólio na representação e governo neoliberal.",
@@ -24402,7 +24410,7 @@
   "area": "Auditoria",
   "assunto": "NBC TSP — Estrutura Conceitual",
   "numero_original": 40,
-  "enunciado": "A auditoria no setor público é fundamental para assegurar a correta aplicação dos recursos públicos, promovendo transparência, responsabilidade e boa governança. As auditorias ajudam a prevenir fraudes e desp erdícios, fortalecendo a confiança dos cidadãos nas instituições governamentais e garantindo que os recursos sejam utilizados de forma ética e eficaz para o bem coletivo.\n\nRelacione os tipos principais de auditoria do setor público estabelecidos na NBASP 100 - Princípios Fundamentais de Auditoria no Setor Público, às suas respectivas definições.\n\nI. Auditoria Financeira\nII. Auditoria Operacional\nIII. Auditoria de Conformidade ( ) Foca em determinar se um particular objeto está de acordo com normas identificadas como critérios. É realizada para avaliar se atividades, transações financeiras e informações cumprem, em todos os aspectos relevantes, as normas que regem a entidade auditada.\n\n( ) Foca em determinar se intervenções, programas e instituições estão atuando em conformidade com os princípios de economicidade, de eficiência e de efetividade, bem como se há espaço para aperfeiçoamento. O objetivo é responder a questões -chave de auditoria e apresentar recomendações para aperfeiçoamento.\n\n( ) Foca em determinar se a informação contábil de uma entidade é apresentada em conformidade com a estrutura de relatório financeiro e o marco regulatório aplicável.\n\nAssinale a opção que indica a relação correta, segundo a ordem apresen tada.",
+  "enunciado": "A auditoria no setor público é fundamental para assegurar a correta aplicação dos recursos públicos, promovendo transparência, responsabilidade e boa governança. As auditorias ajudam a prevenir fraudes e desp erdícios, fortalecendo a confiança dos cidadãos nas instituições governamentais e garantindo que os recursos sejam utilizados de forma ética e eficaz para o bem coletivo.\n\nRelacione os tipos principais de auditoria do setor público estabelecidos na NBASP 100 - Princípios Fundamentais de Auditoria no Setor Público, às suas respectivas definições.\n\nI. Auditoria Financeira\nII. Auditoria Operacional\nIII. Auditoria de Conformidade ( ) Foca em determinar se um particular objeto está de acordo com normas identificadas como critérios. É realizada para avaliar se atividades, transações financeiras e informações cumprem, em todos os aspectos relevantes, as normas que regem a entidade auditada.\n\n( ) Foca em determinar se intervenções, programas e instituições estão atuando em conformidade com os princípios de economicidade, de eficiência e de efetividade, bem como se há espaço para aperfeiçoamento. O objetivo é responder a questões-chave de auditoria e apresentar recomendações para aperfeiçoamento.\n\n( ) Foca em determinar se a informação contábil de uma entidade é apresentada em conformidade com a estrutura de relatório financeiro e o marco regulatório aplicável.\n\nAssinale a opção que indica a relação correta, segundo a ordem apresen tada.",
   "alternativas": {
    "A": "I – II – III.",
    "B": "III – II – I.",
@@ -24423,7 +24431,7 @@
   "area": "Auditoria",
   "assunto": "Conceitos Iniciais de Auditoria (NBC TA 200)",
   "numero_original": 41,
-  "enunciado": "A abordagem geral de auditoria é um elemento central de qualquer auditoria. Ela determina a natureza do exame que deve ser feito. Também defin e o conhecimento, a informação, os dados e os procedimentos de auditoria necessários para obtê -los e analisá -los.\n\nA auditoria operacional geralmente segue abordagens orientadas a",
+  "enunciado": "A abordagem geral de auditoria é um elemento central de qualquer auditoria. Ela determina a natureza do exame que deve ser feito. Também defin e o conhecimento, a informação, os dados e os procedimentos de auditoria necessários para obtê-los e analisá-los.\n\nA auditoria operacional geralmente segue abordagens orientadas a",
   "alternativas": {
    "A": "sistemas, resultados e problemas.",
    "B": "programas, processos e resultados .",
@@ -24444,7 +24452,7 @@
   "area": "Auditoria",
   "assunto": "NBC TSP — Estrutura Conceitual",
   "numero_original": 42,
-  "enunciado": "O Auditor Governamental, ao seguir os requisitos gerais da NBASP 3000, realiza auditorias operacionais com integridade, independência e competência, garantindo a credibilidade e a qualidade do trabalho. Esses requisitos asseguram que o auditor aplique ceticismo profissional, obtenha evidências apropriadas e suficientes, e adote uma abordagem baseada em risco.\n\nQuanto à NB ASP 3000, avalie as afirmativas a seguir e assinale (V) para a verdadeira e (F) para a falsa.\n\n( ) O auditor deve, como parte do planejamento e/ou da condução da auditoria, discutir os critérios de auditoria com a entidade auditada.\n\n( ) O auditor deve gerenciar ativamente o risco de auditoria para evitar o desenvolvimento de achados, conclusões e recomendações incorretos ou incompletos, fornecendo informações inconsistentes ou que não agregam valor.\n\n( ) O auditor deve planejar e manter uma comuni cação eficaz e adequada dos aspectos -chave da auditoria com a entidade auditada e as partes interessadas durante todo o processo de auditoria.\n\nAs afirmativas são, respectivamente,",
+  "enunciado": "O Auditor Governamental, ao seguir os requisitos gerais da NBASP 3000, realiza auditorias operacionais com integridade, independência e competência, garantindo a credibilidade e a qualidade do trabalho. Esses requisitos asseguram que o auditor aplique ceticismo profissional, obtenha evidências apropriadas e suficientes, e adote uma abordagem baseada em risco.\n\nQuanto à NBASP 3000, avalie as afirmativas a seguir e assinale (V) para a verdadeira e (F) para a falsa.\n\n( ) O auditor deve, como parte do planejamento e/ou da condução da auditoria, discutir os critérios de auditoria com a entidade auditada.\n\n( ) O auditor deve gerenciar ativamente o risco de auditoria para evitar o desenvolvimento de achados, conclusões e recomendações incorretos ou incompletos, fornecendo informações inconsistentes ou que não agregam valor.\n\n( ) O auditor deve planejar e manter uma comuni cação eficaz e adequada dos aspectos-chave da auditoria com a entidade auditada e as partes interessadas durante todo o processo de auditoria.\n\nAs afirmativas são, respectivamente,",
   "alternativas": {
    "A": "V – F – V.",
    "B": "F – V – V.",
@@ -24486,7 +24494,7 @@
   "area": "Auditoria",
   "assunto": "NBC TSP — Estrutura Conceitual",
   "numero_original": 44,
-  "enunciado": "A avaliação de política pública objetiva avaliar a utilidade dessa política. Ela analisa seus objetivos, sua implementação, seus produtos, resultados e impactos o mais sistem aticamente possível, mede seu desempenho visando avaliar sua utilidade.\n\nPor isso, a avaliação está se tornando cada vez mais importante para o debate público, uma vez que líderes políticos precisam tomar decisões baseadas em evidências.\n\nDe acordo com a NBA SP 9020, uma avaliação de política pública pode ser realizada em três momentos diferentes a saber:",
+  "enunciado": "A avaliação de política pública objetiva avaliar a utilidade dessa política. Ela analisa seus objetivos, sua implementação, seus produtos, resultados e impactos o mais sistem aticamente possível, mede seu desempenho visando avaliar sua utilidade.\n\nPor isso, a avaliação está se tornando cada vez mais importante para o debate público, uma vez que líderes políticos precisam tomar decisões baseadas em evidências.\n\nDe acordo com a NBASP 9020, uma avaliação de política pública pode ser realizada em três momentos diferentes a saber:",
   "alternativas": {
    "A": "antes, durante e depois.",
    "B": "antes, no início e no final.",
@@ -25038,7 +25046,7 @@
   "area": "Matemática e Raciocínio Lógico",
   "assunto": "Atuária - Cálculo de Benefício de Renda",
   "numero_original": 71,
-  "enunciado": "Segundo o regulamento de um plano de previdência complementar, o benefício de renda será calculado pelo maior valor entre o salário -mínimo vigente e a média dos 80% maiores salários do participante dos últimos 60 meses, atualizados pelo índice de inflação do plano.\n\nEsse tipo regra caracteriza um plano atuarial na modalidade de",
+  "enunciado": "Segundo o regulamento de um plano de previdência complementar, o benefício de renda será calculado pelo maior valor entre o salário-mínimo vigente e a média dos 80% maiores salários do participante dos últimos 60 meses, atualizados pelo índice de inflação do plano.\n\nEsse tipo regra caracteriza um plano atuarial na modalidade de",
   "alternativas": {
    "A": "contribuição definida.",
    "B": "contribuição variáve l.",
@@ -25288,9 +25296,9 @@
   "enunciado": "Pedro é empregado em uma sociedade empresária localizada em Teresina/PI desde 2021. No contracheque de Pedro há diversas parcelas especificando o que ele recebe.\n\nDe acordo com a norma de regência, assinale a opção que contempla dois direitos recebidos por Pedro sobre os quais não haverá incidência de contribuição previdenciária.",
   "alternativas": {
    "A": "Diárias para viagem e 13º salário.",
-   "B": "Cessão de direitos autorais e vale -cultura.",
+   "B": "Cessão de direitos autorais e vale-cultura.",
    "C": "Férias indenizadas e remuneração auferida.",
-   "D": "Gorjetas e vale -transporte, na forma da legislação.",
+   "D": "Gorjetas e vale-transporte, na forma da legislação.",
    "E": "Participação nos lucros da empresa e adiantamento decorrentes de reajuste salarial."
   },
   "gabarito": "B",
@@ -25347,10 +25355,10 @@
   "numero_original": 86,
   "enunciado": "Verônica, contratada há dois meses por uma sociedade empresária localizada em Uruçuí/PI, está empolgada por ser o seu primeiro emprego e satisfeita porque terá cobertura previdenciária para diversas situações. Verônica recebe um salário mínimo, mas vê reais perspectivas de crescimento profissional e salarial na sociedade empresária.\n\nDos benefícios previdenciários listados a seguir, assinale aquele que, por exigir carência, não será concedido de imediato a Verônica.",
   "alternativas": {
-   "A": "Salário -família.",
-   "B": "Auxílio -acidente.",
-   "C": "Auxílio -reclusão.",
-   "D": "Salário -maternidade.",
+   "A": "Salário-família.",
+   "B": "Auxílio-acidente.",
+   "C": "Auxílio-reclusão.",
+   "D": "Salário-maternidade.",
    "E": "Auxílio por incapacidade temporária acidentário."
   },
   "gabarito": "C",
@@ -25655,9 +25663,9 @@
   "area": "Língua Portuguesa",
   "assunto": "Interpretação de Texto - Referenciação",
   "numero_original": 1,
-  "enunciado": "“A Receita Federal, em conjunto com o Ministério Público do Estado de São Paulo e Polícia Rodoviária Federal, deflagrou na manhã desta segunda -feira (7), a Operação Ceres, que visa combater complexa fraude fiscal promovida por organização criminosa atuante no segmento de produção e distribuição de cervejas.\n\nHouve a identificação da ocorrência de diversos crimes que culminaram em sonegação de tributos federais, tais como falsidade documental, falsidade ideológica e uso de interpostas pessoas jurídicas no intuito de ocultar os reai s beneficiários das fraudes combatidas.”\n\n(https://www.gov.br/receitafederal/pt - br/assuntos/noticias/2022/novembro/operacao -ceres -receita -federal -executa - operacao -de-combate -a-fraudes -fiscais -estruturadas) Esse texto pertence ao gênero informativo, caracterizado predominantemente pela objetividade, que é construída pela estruturação geral do texto, com o objetivo de fornecer claramente dados da realidade.\n\nAssinale a opção que apresenta uma informação adequadamente retirada do segmento destacado.",
+  "enunciado": "“A Receita Federal, em conjunto com o Ministério Público do Estado de São Paulo e Polícia Rodoviária Federal, deflagrou na manhã desta segunda-feira (7), a Operação Ceres, que visa combater complexa fraude fiscal promovida por organização criminosa atuante no segmento de produção e distribuição de cervejas.\n\nHouve a identificação da ocorrência de diversos crimes que culminaram em sonegação de tributos federais, tais como falsidade documental, falsidade ideológica e uso de interpostas pessoas jurídicas no intuito de ocultar os reai s beneficiários das fraudes combatidas.”\n\n(https://www.gov.br/receitafederal/pt - br/assuntos/noticias/2022/novembro/operacao-ceres -receita-federal -executa - operacao -de-combate -a-fraudes-fiscais -estruturadas) Esse texto pertence ao gênero informativo, caracterizado predominantemente pela objetividade, que é construída pela estruturação geral do texto, com o objetivo de fornecer claramente dados da realidade.\n\nAssinale a opção que apresenta uma informação adequadamente retirada do segmento destacado.",
   "alternativas": {
-   "A": "“A Receita Federal, em conjunto com o Ministério Público do Estado de São Paulo e Polícia Rodoviária Federal, deflagrou na manhã desta segunda -feira (7), a Operação Ceres...” / a operação Ceres foi iniciada de forma inesperada, com um aparato de segurança bas tante forte, em função da gravidade do crime detectado.",
+   "A": "“A Receita Federal, em conjunto com o Ministério Público do Estado de São Paulo e Polícia Rodoviária Federal, deflagrou na manhã desta segunda-feira (7), a Operação Ceres...” / a operação Ceres foi iniciada de forma inesperada, com um aparato de segurança bas tante forte, em função da gravidade do crime detectado.",
    "B": "“...a Operação Ceres, que visa combater complexa fraude fiscal promovida por organização criminosa atuante no segmento de produção e distribuição de cervejas.” / o nome mitológico Ceres designa um a deusa mitológica relacionada ao trigo e a cereais, tendo sido escolhido aleatoriamente, sem qualquer relação lógica com os fatos informados.",
    "C": "“A Receita Federal, em conjunto com o Ministério Público do Estado de São Paulo e Polícia Rodoviária Federal. ..” / a operação realizada envolve investigação de atividades criminosas ligadas a espaços diversos.",
    "D": "“...tais como falsidade documental, falsidade ideológica e uso de interpostas pessoas jurídicas no intuito de ocultar os reais beneficiários das fraudes combatidas.” / o segmento já mostra o resultado da operação deflagrada, com a descoberta de vários tipos de fraudes.",
@@ -25700,7 +25708,7 @@
    "A": "a de transferência: transferir a realização do ato comunicativo para outro lugar ou momento",
    "B": "a de preservação: armazenar informações para possíveis consultas futuras.",
    "C": "a de memorizaçã o: preservar dados para consultas no momento de pagamento.",
-   "D": "a sócio -político -cultural: relacionar o pagamento de impostos com dados de uma sociedade civilizada.",
+   "D": "a sócio-político -cultural: relacionar o pagamento de impostos com dados de uma sociedade civilizada.",
    "E": "a histórica: conservar textos de valor documentativo da evolução dos impostos no país."
   },
   "gabarito": "B",
@@ -25801,7 +25809,7 @@
    "B": "Na defesa da tese apresentada o autor apela para informações presentes na imprensa sobre a nossa realidade cotidiana.",
    "C": "Os argumentos utilizados para o convencimento do público - alvo se apoiam em depoimentos sobre as evidências de pobreza no país.",
    "D": "O tex to apresenta sua argumentação com base na ironia, pois apesar de pobre, o Brasil se mostra como rico.",
-   "E": "O público -alvo a ser convencido é a imensa população brasileira, que vê o país como rico, mas não nota os frutos dessa riqueza na realidade cotidiana."
+   "E": "O público-alvo a ser convencido é a imensa população brasileira, que vê o país como rico, mas não nota os frutos dessa riqueza na realidade cotidiana."
   },
   "gabarito": "A",
   "texto_apoio": null,
@@ -25879,7 +25887,7 @@
   "alternativas": {
    "A": "O exemplo dado corresponde literalmente a um argumento em defesa da tese apresentada no texto.",
    "B": "Ao contrário do argumento, que mostra uma ideia geral, o exemplo expõe sempre um caso particular.",
-   "C": "Nesse caso, o exemplo dado mostra a imper tinência do argumento do texto, servindo de contra -argumento.",
+   "C": "Nesse caso, o exemplo dado mostra a imper tinência do argumento do texto, servindo de contra-argumento.",
    "D": "O exemplo citado tem uma função explicativa de como funcionam legalmente os incentivos citados no texto.",
    "E": "O exemplo referido tem uma função metalinguística de explicar segmentos textuais anteriores de difícil entendimento."
   },
@@ -25935,12 +25943,12 @@
   "area": "Língua Inglesa",
   "assunto": "Reading Comprehension - Auditor Duties",
   "numero_original": 15,
-  "enunciado": "Um site especializado publicou o seguinte texto sobre uma das atribuições do auditor fiscal:\n“Segundo o Art. 6º da Lei nº 10.593/2002 é atribuição dos ocupantes d o cargo de Auditor -Fiscal da Receita Federal do Brasil :\nelaborar e proferir decisões ou delas participar em processo administrativo -fiscal, bem como em processos de consulta, restituição ou compensação de tributos e contribuições e de reconhecimento de ben efícios fiscais.”\n\nA elaboração de um texto supõe cuidados com aspectos diversos.\n\nSobre a estruturação desse pequeno segmento textual, assinale a afirmativa correta.",
+  "enunciado": "Um site especializado publicou o seguinte texto sobre uma das atribuições do auditor fiscal:\n“Segundo o Art. 6º da Lei nº 10.593/2002 é atribuição dos ocupantes d o cargo de Auditor -Fiscal da Receita Federal do Brasil :\nelaborar e proferir decisões ou delas participar em processo administrativo-fiscal, bem como em processos de consulta, restituição ou compensação de tributos e contribuições e de reconhecimento de ben efícios fiscais.”\n\nA elaboração de um texto supõe cuidados com aspectos diversos.\n\nSobre a estruturação desse pequeno segmento textual, assinale a afirmativa correta.",
   "alternativas": {
    "A": "O vocábulo inicial “Segundo” supõe a existência de uma outra atribuição antes citada.",
    "B": "O termo “bem como” mostra valor comparativo.",
    "C": "O termo “delas” se refere possivelmente ao termo “atribuições”, ausente desse segmento textual.",
-   "D": "O termo “processo administrativo -fiscal” poderia estar na forma plural “processos administrativos -fiscais”.",
+   "D": "O termo “processo administrativo-fiscal” poderia estar na forma plural “processos administrativos-fiscais”.",
    "E": "“consulta”, “restituição”, “compensação” e “reconhecimento” documentam o processo de nominalização."
   },
   "gabarito": "E",
@@ -25981,7 +25989,7 @@
    "B": "unfounded records.",
    "C": "provisional auditing.",
    "D": "constant interactions.",
-   "E": "user -friendly programs."
+   "E": "user-friendly programs."
   },
   "gabarito": "D",
   "texto_apoio": null,
@@ -26021,7 +26029,7 @@
    "B": "averral .",
    "C": "accoun t.",
    "D": "foresig ht.",
-   "E": "conditi on. Text II\nGlobal commerce Driverless vehicles whizz across five new berths at Tuas Mega Port, which sits on a swathe of largely reclaimed land at the western tip of Singapore. Unmanned cranes loom overhead, circled by camera -fitted drones. The berths are the first of 21 due by 2027. When it is completed in 2040, the complex will be the largest container port on Earth, boasts PSA International, its Singaporean owner.\n\nTuas is a vision of the future on two fronts. It illustrates how port operators the world over are deploying clever technologies to meet the demand for their services in the face of obstacles to the development of new facilities, from lack of space to environmental concerns. More fundamentally, the city -state’s investment, with construction costs estimated at $15bn, is part of a wave of huge bets by the broader logistics indu stry on the rising importance of Asia, and South -East Asia in particular. The IMF expects the region’s five largest economies —Indonesia, Malaysia, Singapore, the Philippines and Thailand —to be the fastest -growing bloc in the world by trade volumes betwee n 2022 and 2027. The result is that the map of global commerce and the blueprints for its critical nodes are being simultaneously redrawn.\n\nFrom: The Economist , January 14, 2023, pp. 57 -58"
+   "E": "conditi on. Text II\nGlobal commerce Driverless vehicles whizz across five new berths at Tuas Mega Port, which sits on a swathe of largely reclaimed land at the western tip of Singapore. Unmanned cranes loom overhead, circled by camera-fitted drones. The berths are the first of 21 due by 2027. When it is completed in 2040, the complex will be the largest container port on Earth, boasts PSA International, its Singaporean owner.\n\nTuas is a vision of the future on two fronts. It illustrates how port operators the world over are deploying clever technologies to meet the demand for their services in the face of obstacles to the development of new facilities, from lack of space to environmental concerns. More fundamentally, the city-state’s investment, with construction costs estimated at $15bn, is part of a wave of huge bets by the broader logistics indu stry on the rising importance of Asia, and South -East Asia in particular. The IMF expects the region’s five largest economies —Indonesia, Malaysia, Singapore, the Philippines and Thailand —to be the fastest-growing bloc in the world by trade volumes betwee n 2022 and 2027. The result is that the map of global commerce and the blueprints for its critical nodes are being simultaneously redrawn.\n\nFrom: The Economist , January 14, 2023, pp. 57 -58"
   },
   "gabarito": "E",
   "texto_apoio": null,
@@ -26197,7 +26205,7 @@
   "area": "Matemática e Raciocínio Lógico",
   "assunto": "Geometria - Área e Divisão de Figuras",
   "numero_original": 28,
-  "enunciado": "Um quadro -negro de forma retangular tem lados horizontais de 81,0cm e lados verticais de 70,2cm. Deseja -se traçar linhas horizontais e verticais igualmente espaçadas, de modo a cobri r inteiramente o quadro -negro de quadrados.\n\nO número mínimo de quadrados que se obtém dessa forma é igual a",
+  "enunciado": "Um quadro-negro de forma retangular tem lados horizontais de 81,0cm e lados verticais de 70,2cm. Deseja -se traçar linhas horizontais e verticais igualmente espaçadas, de modo a cobri r inteiramente o quadro-negro de quadrados.\n\nO número mínimo de quadrados que se obtém dessa forma é igual a",
   "alternativas": {
    "A": "195.",
    "B": "209.",
@@ -26361,7 +26369,7 @@
   "area": "Contabilidade Geral",
   "assunto": "BP — Ativo Não Circulante (ANC)",
   "numero_original": 36,
-  "enunciado": "Uma entidade tinha seu modelo de negócios estruturado para a venda de terrenos.\n\nEm 01/01/X0, o seu estoque era de R$270.000, tendo a seguinte composição:\nTerreno A: R$120.000\nTerreno B: R$150.000.\n\nEm 31/01/X0, teve início um processo de melhorias na região onde os terrenos estão localizados. Por isso, a entidade decidiu retirar os terrenos de venda e mantê -los para valorização de capital a longo prazo, definindo mensurá -los pelo valor justo.\n\nNa data, o valor justo do Terreno A era de R$160.000 e o do\nTerreno B, de R $140.000.\n\nAssinale a opção que indica o efeito da mudança da intenção da administração nas demonstrações contábeis da entidade.",
+  "enunciado": "Uma entidade tinha seu modelo de negócios estruturado para a venda de terrenos.\n\nEm 01/01/X0, o seu estoque era de R$270.000, tendo a seguinte composição:\nTerreno A: R$120.000\nTerreno B: R$150.000.\n\nEm 31/01/X0, teve início um processo de melhorias na região onde os terrenos estão localizados. Por isso, a entidade decidiu retirar os terrenos de venda e mantê-los para valorização de capital a longo prazo, definindo mensurá-los pelo valor justo.\n\nNa data, o valor justo do Terreno A era de R$160.000 e o do\nTerreno B, de R $140.000.\n\nAssinale a opção que indica o efeito da mudança da intenção da administração nas demonstrações contábeis da entidade.",
   "alternativas": {
    "A": "Demonstração do Resultado do Exercício: +R$30.000.",
    "B": "Demonstração das Mutações do Patrimônio Líquido:\n+R$30.000.",
@@ -26690,7 +26698,7 @@
   "area": "Administração Geral e Pública",
   "assunto": "Administração Pública - Modelo Burocrático x Gerencial (Comunicação)",
   "numero_original": 52,
-  "enunciado": "A comuni cação na Administração Pública passou por mudanças paradigmáticas, ao se contrastar o modelo burocrático com o pós - burocrático.\n\nA respeito do tema, é correto afirmar que a comunicação, na perspectiva pós -burocrática de interação, está relacionada aos fatores apresentados a seguir, à exceção de um . Assinale -o.",
+  "enunciado": "A comuni cação na Administração Pública passou por mudanças paradigmáticas, ao se contrastar o modelo burocrático com o pós - burocrático.\n\nA respeito do tema, é correto afirmar que a comunicação, na perspectiva pós-burocrática de interação, está relacionada aos fatores apresentados a seguir, à exceção de um . Assinale -o.",
   "alternativas": {
    "A": "Auxílio à decisão e aos controles frente à descentralização e autonomia na gestão pública.",
    "B": "Coordenação democrática, interna e externa dos atores envolvidos, estímulo à interação e à participação e iniciativas formuladas, discutidas e implementadas em rede.",
@@ -26712,10 +26720,10 @@
   "numero_original": 53,
   "enunciado": "A política de formação de jovens empreendedores de periferias encontrava -se na fase de elaboração de indicadores de avaliação.\n\nUm assessor da secretari a sugeriu a construção de dois indicadores a serem mensurados a cada 6 meses após o término do curso: número de negócios próprios criados ainda em funcionamento e nível de renda e melhoria de qualidade de vida.\n\nConsiderando -se os diferentes objetivos e fas es na avaliação, entende -se que os indicadores propostos se relacionam à dimensão de",
   "alternativas": {
-   "A": "custo -eficiência.",
+   "A": "custo-eficiência.",
    "B": "efetividade transformacional.",
    "C": "eficácia processual.",
-   "D": "insumo -produto.",
+   "D": "insumo-produto.",
    "E": "marco zero."
   },
   "gabarito": "B",
@@ -26834,7 +26842,7 @@
   "alternativas": {
    "A": "se concentra na descrição de dados passados e presentes, com o objetivo de encontrar tendências e padrões que possam ser usados para prever eventos futuros.",
    "B": "usa modelos matemáticos e estatísticos para identificar a melhor solução possível para um determinado problema.",
-   "C": "se conce ntra em identificar as causas subjacentes de um problema e em encontrar maneiras de corrigi -las.",
+   "C": "se conce ntra em identificar as causas subjacentes de um problema e em encontrar maneiras de corrigi-las.",
    "D": "usa algoritmos de aprendizado de máquina para identificar padrões e tendências em grandes conjuntos de dados.",
    "E": "usa modelos de aprendizado profundo para identificar padrões em dados não estruturados."
   },
@@ -29301,7 +29309,8 @@
    "E": "I e I I I , apenas."
   },
   "gabarito": "A",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 1 a 10, considere o texto abaixo.\n\n[1] Existe uma estreita relação entre nutrição, saúde e educação, de um lado, e capacidade de trabalho e iniciativa de outro. A incompetência econômica do indivíduo resulta em privação material: sua demanda por bens não corresponde a uma demanda recíproca, no mercado, por aquilo que ele é capaz de oferecer. Ao mesmo tempo, a pobreza de uma geração se torna o berço da incompetência da geração seguinte: o ambiente de privação material e ignorância em que nasce (e se forma) o indivíduo impede que ele desenvolva todas as qualidades físicas, morais e intelectuais das quais dependerá sua competência na vida prática e sua sobrevivência no mercado. Fecha-se assim o elo entre pobreza e improficiência.\n\n[2] Entre os economistas do século XIX, foi Marshall aquele que melhor compreendeu a importância da formação de capital humano - do investimento na qualidade da força de trabalho - para um programa de reforma social eficaz, voltado para a erradicação da pobreza e a promoção da riqueza e do desenvolvimento sociais. Na Inglaterra oitocentista de Marshall, existia um vasto contingente de indivíduos trabalhando com um nível baixíssimo de produtividade, semiocupados ou até incapacitados de exercer qualquer tipo de atividade no mercado que lhes garantisse o mínimo necessário para um padrão de vida tolerável.\n\n[3] A bandeira da educação compulsória e universal, financiada e pelo menos parcialmente provida pelo Estado, é uma tônica constante da economia clássica desde Adam Smith. Malthus, para citar apenas um exemplo, sugeria que o investimento público maciço em educação seria uma resposta mais eficaz do que a Poor Law (sistema de assistência social aos pobres) no combate ao pauperismo.\n\n[4] O ponto crucial, contudo, é que os economistas clássicos ainda tendiam a abordar a questão da educação mais sob o ângulo do bem-estar social, da mudança de atitudes e valores que acarretava, do que sob o ângulo do capital humano, isto é, como parte do esforço de investimento e formação de capital produtivo de uma nação.\n\n[5] Foi apenas com os “Princípios de economia” de Marshall que os economistas passaram a tratar a educação, além da saúde, alimentação etc. - o investimento em seres humanos em suma -, não mais como uma questão simplesmente humanitária (embora, é claro, também o seja), mas como parte do esforço de acumulação de capital: como investimento na capacidade produtiva da população, entendida como resultante de sua saúde e educação básica, bem como de seu grau de competência profissional.\n\n[6] O núcleo do argumento marshalliano é a noção de que o verdadeiro gargalo com que se defrontam as economias menos desenvolvidas não é a escassez de capital financeiro, mas a escassez de capital humano. É a falta de capacitação da comunidade para integrar-se de forma dinâmica à economia mundial que compromete o esforço de crescimento numa economia atrasada.\n\n[7] Mas o que é, afinal, o capital humano? O capital humano representa a capacitação do indivíduo para o trabalho qualificado. Ele é constituído não somente pelo resultado do investimento da família e da sociedade na competência produtiva das pessoas, mas também por elementos de natureza ética como, por exemplo, a capacidade dos indivíduos de agir com base nos interesses comuns. Com isso, aumenta o poder de ganho dos indivíduos no mercado e eles aprendem que é do seu próprio interesse respeitar regras gerais de conduta das quais todos os participantes da sociedade se beneficiam, embora para isso precisem restringir alguns de seus interesses pessoais mais imediatos.\n\n[8] É importante frisar que Marshall sustentou um argumento de caráter econômico quando defendeu a distribuição menos desigual da riqueza e da renda, de modo a promover a formação de capital humano. Seu argumento chama a atenção para os ganhos obtidos a partir da melhora na educação da população: “nenhuma mudança favoreceria tanto um crescimento mais rápido da riqueza material quanto uma melhoria das nossas escolas [...], desde que possa ser combinada com um amplo sistema de bolsas de estudo, o que permitirá ao filho do trabalhador mais simples a obtenção da melhor educação teórica e prática que nossa época é capaz de oferecer a ele.”\n\n(Adaptado de: GIANNETTI, Eduardo. O elogio do vira-lata e outros ensaios. Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q002",
@@ -29320,7 +29329,8 @@
    "E": "é incompatível com a teoria proposta por Malthus, segundo a qual o financiamento da educação compulsória e universal deve ser compartilhado entre a iniciativa privada e o Estado."
   },
   "gabarito": "D",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 1 a 10, considere o texto abaixo.\n\n[1] Existe uma estreita relação entre nutrição, saúde e educação, de um lado, e capacidade de trabalho e iniciativa de outro. A incompetência econômica do indivíduo resulta em privação material: sua demanda por bens não corresponde a uma demanda recíproca, no mercado, por aquilo que ele é capaz de oferecer. Ao mesmo tempo, a pobreza de uma geração se torna o berço da incompetência da geração seguinte: o ambiente de privação material e ignorância em que nasce (e se forma) o indivíduo impede que ele desenvolva todas as qualidades físicas, morais e intelectuais das quais dependerá sua competência na vida prática e sua sobrevivência no mercado. Fecha-se assim o elo entre pobreza e improficiência.\n\n[2] Entre os economistas do século XIX, foi Marshall aquele que melhor compreendeu a importância da formação de capital humano - do investimento na qualidade da força de trabalho - para um programa de reforma social eficaz, voltado para a erradicação da pobreza e a promoção da riqueza e do desenvolvimento sociais. Na Inglaterra oitocentista de Marshall, existia um vasto contingente de indivíduos trabalhando com um nível baixíssimo de produtividade, semiocupados ou até incapacitados de exercer qualquer tipo de atividade no mercado que lhes garantisse o mínimo necessário para um padrão de vida tolerável.\n\n[3] A bandeira da educação compulsória e universal, financiada e pelo menos parcialmente provida pelo Estado, é uma tônica constante da economia clássica desde Adam Smith. Malthus, para citar apenas um exemplo, sugeria que o investimento público maciço em educação seria uma resposta mais eficaz do que a Poor Law (sistema de assistência social aos pobres) no combate ao pauperismo.\n\n[4] O ponto crucial, contudo, é que os economistas clássicos ainda tendiam a abordar a questão da educação mais sob o ângulo do bem-estar social, da mudança de atitudes e valores que acarretava, do que sob o ângulo do capital humano, isto é, como parte do esforço de investimento e formação de capital produtivo de uma nação.\n\n[5] Foi apenas com os “Princípios de economia” de Marshall que os economistas passaram a tratar a educação, além da saúde, alimentação etc. - o investimento em seres humanos em suma -, não mais como uma questão simplesmente humanitária (embora, é claro, também o seja), mas como parte do esforço de acumulação de capital: como investimento na capacidade produtiva da população, entendida como resultante de sua saúde e educação básica, bem como de seu grau de competência profissional.\n\n[6] O núcleo do argumento marshalliano é a noção de que o verdadeiro gargalo com que se defrontam as economias menos desenvolvidas não é a escassez de capital financeiro, mas a escassez de capital humano. É a falta de capacitação da comunidade para integrar-se de forma dinâmica à economia mundial que compromete o esforço de crescimento numa economia atrasada.\n\n[7] Mas o que é, afinal, o capital humano? O capital humano representa a capacitação do indivíduo para o trabalho qualificado. Ele é constituído não somente pelo resultado do investimento da família e da sociedade na competência produtiva das pessoas, mas também por elementos de natureza ética como, por exemplo, a capacidade dos indivíduos de agir com base nos interesses comuns. Com isso, aumenta o poder de ganho dos indivíduos no mercado e eles aprendem que é do seu próprio interesse respeitar regras gerais de conduta das quais todos os participantes da sociedade se beneficiam, embora para isso precisem restringir alguns de seus interesses pessoais mais imediatos.\n\n[8] É importante frisar que Marshall sustentou um argumento de caráter econômico quando defendeu a distribuição menos desigual da riqueza e da renda, de modo a promover a formação de capital humano. Seu argumento chama a atenção para os ganhos obtidos a partir da melhora na educação da população: “nenhuma mudança favoreceria tanto um crescimento mais rápido da riqueza material quanto uma melhoria das nossas escolas [...], desde que possa ser combinada com um amplo sistema de bolsas de estudo, o que permitirá ao filho do trabalhador mais simples a obtenção da melhor educação teórica e prática que nossa época é capaz de oferecer a ele.”\n\n(Adaptado de: GIANNETTI, Eduardo. O elogio do vira-lata e outros ensaios. Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q003",
@@ -29339,7 +29349,8 @@
    "E": "Para isso, contudo, os indivíduos precisam restringir alguns de seus interesses pessoais mais imediatos."
   },
   "gabarito": "E",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 1 a 10, considere o texto abaixo.\n\n[1] Existe uma estreita relação entre nutrição, saúde e educação, de um lado, e capacidade de trabalho e iniciativa de outro. A incompetência econômica do indivíduo resulta em privação material: sua demanda por bens não corresponde a uma demanda recíproca, no mercado, por aquilo que ele é capaz de oferecer. Ao mesmo tempo, a pobreza de uma geração se torna o berço da incompetência da geração seguinte: o ambiente de privação material e ignorância em que nasce (e se forma) o indivíduo impede que ele desenvolva todas as qualidades físicas, morais e intelectuais das quais dependerá sua competência na vida prática e sua sobrevivência no mercado. Fecha-se assim o elo entre pobreza e improficiência.\n\n[2] Entre os economistas do século XIX, foi Marshall aquele que melhor compreendeu a importância da formação de capital humano - do investimento na qualidade da força de trabalho - para um programa de reforma social eficaz, voltado para a erradicação da pobreza e a promoção da riqueza e do desenvolvimento sociais. Na Inglaterra oitocentista de Marshall, existia um vasto contingente de indivíduos trabalhando com um nível baixíssimo de produtividade, semiocupados ou até incapacitados de exercer qualquer tipo de atividade no mercado que lhes garantisse o mínimo necessário para um padrão de vida tolerável.\n\n[3] A bandeira da educação compulsória e universal, financiada e pelo menos parcialmente provida pelo Estado, é uma tônica constante da economia clássica desde Adam Smith. Malthus, para citar apenas um exemplo, sugeria que o investimento público maciço em educação seria uma resposta mais eficaz do que a Poor Law (sistema de assistência social aos pobres) no combate ao pauperismo.\n\n[4] O ponto crucial, contudo, é que os economistas clássicos ainda tendiam a abordar a questão da educação mais sob o ângulo do bem-estar social, da mudança de atitudes e valores que acarretava, do que sob o ângulo do capital humano, isto é, como parte do esforço de investimento e formação de capital produtivo de uma nação.\n\n[5] Foi apenas com os “Princípios de economia” de Marshall que os economistas passaram a tratar a educação, além da saúde, alimentação etc. - o investimento em seres humanos em suma -, não mais como uma questão simplesmente humanitária (embora, é claro, também o seja), mas como parte do esforço de acumulação de capital: como investimento na capacidade produtiva da população, entendida como resultante de sua saúde e educação básica, bem como de seu grau de competência profissional.\n\n[6] O núcleo do argumento marshalliano é a noção de que o verdadeiro gargalo com que se defrontam as economias menos desenvolvidas não é a escassez de capital financeiro, mas a escassez de capital humano. É a falta de capacitação da comunidade para integrar-se de forma dinâmica à economia mundial que compromete o esforço de crescimento numa economia atrasada.\n\n[7] Mas o que é, afinal, o capital humano? O capital humano representa a capacitação do indivíduo para o trabalho qualificado. Ele é constituído não somente pelo resultado do investimento da família e da sociedade na competência produtiva das pessoas, mas também por elementos de natureza ética como, por exemplo, a capacidade dos indivíduos de agir com base nos interesses comuns. Com isso, aumenta o poder de ganho dos indivíduos no mercado e eles aprendem que é do seu próprio interesse respeitar regras gerais de conduta das quais todos os participantes da sociedade se beneficiam, embora para isso precisem restringir alguns de seus interesses pessoais mais imediatos.\n\n[8] É importante frisar que Marshall sustentou um argumento de caráter econômico quando defendeu a distribuição menos desigual da riqueza e da renda, de modo a promover a formação de capital humano. Seu argumento chama a atenção para os ganhos obtidos a partir da melhora na educação da população: “nenhuma mudança favoreceria tanto um crescimento mais rápido da riqueza material quanto uma melhoria das nossas escolas [...], desde que possa ser combinada com um amplo sistema de bolsas de estudo, o que permitirá ao filho do trabalhador mais simples a obtenção da melhor educação teórica e prática que nossa época é capaz de oferecer a ele.”\n\n(Adaptado de: GIANNETTI, Eduardo. O elogio do vira-lata e outros ensaios. Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q004",
@@ -29358,7 +29369,8 @@
    "E": "oposição."
   },
   "gabarito": "A",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 1 a 10, considere o texto abaixo.\n\n[1] Existe uma estreita relação entre nutrição, saúde e educação, de um lado, e capacidade de trabalho e iniciativa de outro. A incompetência econômica do indivíduo resulta em privação material: sua demanda por bens não corresponde a uma demanda recíproca, no mercado, por aquilo que ele é capaz de oferecer. Ao mesmo tempo, a pobreza de uma geração se torna o berço da incompetência da geração seguinte: o ambiente de privação material e ignorância em que nasce (e se forma) o indivíduo impede que ele desenvolva todas as qualidades físicas, morais e intelectuais das quais dependerá sua competência na vida prática e sua sobrevivência no mercado. Fecha-se assim o elo entre pobreza e improficiência.\n\n[2] Entre os economistas do século XIX, foi Marshall aquele que melhor compreendeu a importância da formação de capital humano - do investimento na qualidade da força de trabalho - para um programa de reforma social eficaz, voltado para a erradicação da pobreza e a promoção da riqueza e do desenvolvimento sociais. Na Inglaterra oitocentista de Marshall, existia um vasto contingente de indivíduos trabalhando com um nível baixíssimo de produtividade, semiocupados ou até incapacitados de exercer qualquer tipo de atividade no mercado que lhes garantisse o mínimo necessário para um padrão de vida tolerável.\n\n[3] A bandeira da educação compulsória e universal, financiada e pelo menos parcialmente provida pelo Estado, é uma tônica constante da economia clássica desde Adam Smith. Malthus, para citar apenas um exemplo, sugeria que o investimento público maciço em educação seria uma resposta mais eficaz do que a Poor Law (sistema de assistência social aos pobres) no combate ao pauperismo.\n\n[4] O ponto crucial, contudo, é que os economistas clássicos ainda tendiam a abordar a questão da educação mais sob o ângulo do bem-estar social, da mudança de atitudes e valores que acarretava, do que sob o ângulo do capital humano, isto é, como parte do esforço de investimento e formação de capital produtivo de uma nação.\n\n[5] Foi apenas com os “Princípios de economia” de Marshall que os economistas passaram a tratar a educação, além da saúde, alimentação etc. - o investimento em seres humanos em suma -, não mais como uma questão simplesmente humanitária (embora, é claro, também o seja), mas como parte do esforço de acumulação de capital: como investimento na capacidade produtiva da população, entendida como resultante de sua saúde e educação básica, bem como de seu grau de competência profissional.\n\n[6] O núcleo do argumento marshalliano é a noção de que o verdadeiro gargalo com que se defrontam as economias menos desenvolvidas não é a escassez de capital financeiro, mas a escassez de capital humano. É a falta de capacitação da comunidade para integrar-se de forma dinâmica à economia mundial que compromete o esforço de crescimento numa economia atrasada.\n\n[7] Mas o que é, afinal, o capital humano? O capital humano representa a capacitação do indivíduo para o trabalho qualificado. Ele é constituído não somente pelo resultado do investimento da família e da sociedade na competência produtiva das pessoas, mas também por elementos de natureza ética como, por exemplo, a capacidade dos indivíduos de agir com base nos interesses comuns. Com isso, aumenta o poder de ganho dos indivíduos no mercado e eles aprendem que é do seu próprio interesse respeitar regras gerais de conduta das quais todos os participantes da sociedade se beneficiam, embora para isso precisem restringir alguns de seus interesses pessoais mais imediatos.\n\n[8] É importante frisar que Marshall sustentou um argumento de caráter econômico quando defendeu a distribuição menos desigual da riqueza e da renda, de modo a promover a formação de capital humano. Seu argumento chama a atenção para os ganhos obtidos a partir da melhora na educação da população: “nenhuma mudança favoreceria tanto um crescimento mais rápido da riqueza material quanto uma melhoria das nossas escolas [...], desde que possa ser combinada com um amplo sistema de bolsas de estudo, o que permitirá ao filho do trabalhador mais simples a obtenção da melhor educação teórica e prática que nossa época é capaz de oferecer a ele.”\n\n(Adaptado de: GIANNETTI, Eduardo. O elogio do vira-lata e outros ensaios. Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q005",
@@ -29377,7 +29389,8 @@
    "E": "... é uma tônica constante da economia clássica..."
   },
   "gabarito": "C",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 1 a 10, considere o texto abaixo.\n\n[1] Existe uma estreita relação entre nutrição, saúde e educação, de um lado, e capacidade de trabalho e iniciativa de outro. A incompetência econômica do indivíduo resulta em privação material: sua demanda por bens não corresponde a uma demanda recíproca, no mercado, por aquilo que ele é capaz de oferecer. Ao mesmo tempo, a pobreza de uma geração se torna o berço da incompetência da geração seguinte: o ambiente de privação material e ignorância em que nasce (e se forma) o indivíduo impede que ele desenvolva todas as qualidades físicas, morais e intelectuais das quais dependerá sua competência na vida prática e sua sobrevivência no mercado. Fecha-se assim o elo entre pobreza e improficiência.\n\n[2] Entre os economistas do século XIX, foi Marshall aquele que melhor compreendeu a importância da formação de capital humano - do investimento na qualidade da força de trabalho - para um programa de reforma social eficaz, voltado para a erradicação da pobreza e a promoção da riqueza e do desenvolvimento sociais. Na Inglaterra oitocentista de Marshall, existia um vasto contingente de indivíduos trabalhando com um nível baixíssimo de produtividade, semiocupados ou até incapacitados de exercer qualquer tipo de atividade no mercado que lhes garantisse o mínimo necessário para um padrão de vida tolerável.\n\n[3] A bandeira da educação compulsória e universal, financiada e pelo menos parcialmente provida pelo Estado, é uma tônica constante da economia clássica desde Adam Smith. Malthus, para citar apenas um exemplo, sugeria que o investimento público maciço em educação seria uma resposta mais eficaz do que a Poor Law (sistema de assistência social aos pobres) no combate ao pauperismo.\n\n[4] O ponto crucial, contudo, é que os economistas clássicos ainda tendiam a abordar a questão da educação mais sob o ângulo do bem-estar social, da mudança de atitudes e valores que acarretava, do que sob o ângulo do capital humano, isto é, como parte do esforço de investimento e formação de capital produtivo de uma nação.\n\n[5] Foi apenas com os “Princípios de economia” de Marshall que os economistas passaram a tratar a educação, além da saúde, alimentação etc. - o investimento em seres humanos em suma -, não mais como uma questão simplesmente humanitária (embora, é claro, também o seja), mas como parte do esforço de acumulação de capital: como investimento na capacidade produtiva da população, entendida como resultante de sua saúde e educação básica, bem como de seu grau de competência profissional.\n\n[6] O núcleo do argumento marshalliano é a noção de que o verdadeiro gargalo com que se defrontam as economias menos desenvolvidas não é a escassez de capital financeiro, mas a escassez de capital humano. É a falta de capacitação da comunidade para integrar-se de forma dinâmica à economia mundial que compromete o esforço de crescimento numa economia atrasada.\n\n[7] Mas o que é, afinal, o capital humano? O capital humano representa a capacitação do indivíduo para o trabalho qualificado. Ele é constituído não somente pelo resultado do investimento da família e da sociedade na competência produtiva das pessoas, mas também por elementos de natureza ética como, por exemplo, a capacidade dos indivíduos de agir com base nos interesses comuns. Com isso, aumenta o poder de ganho dos indivíduos no mercado e eles aprendem que é do seu próprio interesse respeitar regras gerais de conduta das quais todos os participantes da sociedade se beneficiam, embora para isso precisem restringir alguns de seus interesses pessoais mais imediatos.\n\n[8] É importante frisar que Marshall sustentou um argumento de caráter econômico quando defendeu a distribuição menos desigual da riqueza e da renda, de modo a promover a formação de capital humano. Seu argumento chama a atenção para os ganhos obtidos a partir da melhora na educação da população: “nenhuma mudança favoreceria tanto um crescimento mais rápido da riqueza material quanto uma melhoria das nossas escolas [...], desde que possa ser combinada com um amplo sistema de bolsas de estudo, o que permitirá ao filho do trabalhador mais simples a obtenção da melhor educação teórica e prática que nossa época é capaz de oferecer a ele.”\n\n(Adaptado de: GIANNETTI, Eduardo. O elogio do vira-lata e outros ensaios. Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q006",
@@ -29396,7 +29409,8 @@
    "E": "III."
   },
   "gabarito": "D",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 1 a 10, considere o texto abaixo.\n\n[1] Existe uma estreita relação entre nutrição, saúde e educação, de um lado, e capacidade de trabalho e iniciativa de outro. A incompetência econômica do indivíduo resulta em privação material: sua demanda por bens não corresponde a uma demanda recíproca, no mercado, por aquilo que ele é capaz de oferecer. Ao mesmo tempo, a pobreza de uma geração se torna o berço da incompetência da geração seguinte: o ambiente de privação material e ignorância em que nasce (e se forma) o indivíduo impede que ele desenvolva todas as qualidades físicas, morais e intelectuais das quais dependerá sua competência na vida prática e sua sobrevivência no mercado. Fecha-se assim o elo entre pobreza e improficiência.\n\n[2] Entre os economistas do século XIX, foi Marshall aquele que melhor compreendeu a importância da formação de capital humano - do investimento na qualidade da força de trabalho - para um programa de reforma social eficaz, voltado para a erradicação da pobreza e a promoção da riqueza e do desenvolvimento sociais. Na Inglaterra oitocentista de Marshall, existia um vasto contingente de indivíduos trabalhando com um nível baixíssimo de produtividade, semiocupados ou até incapacitados de exercer qualquer tipo de atividade no mercado que lhes garantisse o mínimo necessário para um padrão de vida tolerável.\n\n[3] A bandeira da educação compulsória e universal, financiada e pelo menos parcialmente provida pelo Estado, é uma tônica constante da economia clássica desde Adam Smith. Malthus, para citar apenas um exemplo, sugeria que o investimento público maciço em educação seria uma resposta mais eficaz do que a Poor Law (sistema de assistência social aos pobres) no combate ao pauperismo.\n\n[4] O ponto crucial, contudo, é que os economistas clássicos ainda tendiam a abordar a questão da educação mais sob o ângulo do bem-estar social, da mudança de atitudes e valores que acarretava, do que sob o ângulo do capital humano, isto é, como parte do esforço de investimento e formação de capital produtivo de uma nação.\n\n[5] Foi apenas com os “Princípios de economia” de Marshall que os economistas passaram a tratar a educação, além da saúde, alimentação etc. - o investimento em seres humanos em suma -, não mais como uma questão simplesmente humanitária (embora, é claro, também o seja), mas como parte do esforço de acumulação de capital: como investimento na capacidade produtiva da população, entendida como resultante de sua saúde e educação básica, bem como de seu grau de competência profissional.\n\n[6] O núcleo do argumento marshalliano é a noção de que o verdadeiro gargalo com que se defrontam as economias menos desenvolvidas não é a escassez de capital financeiro, mas a escassez de capital humano. É a falta de capacitação da comunidade para integrar-se de forma dinâmica à economia mundial que compromete o esforço de crescimento numa economia atrasada.\n\n[7] Mas o que é, afinal, o capital humano? O capital humano representa a capacitação do indivíduo para o trabalho qualificado. Ele é constituído não somente pelo resultado do investimento da família e da sociedade na competência produtiva das pessoas, mas também por elementos de natureza ética como, por exemplo, a capacidade dos indivíduos de agir com base nos interesses comuns. Com isso, aumenta o poder de ganho dos indivíduos no mercado e eles aprendem que é do seu próprio interesse respeitar regras gerais de conduta das quais todos os participantes da sociedade se beneficiam, embora para isso precisem restringir alguns de seus interesses pessoais mais imediatos.\n\n[8] É importante frisar que Marshall sustentou um argumento de caráter econômico quando defendeu a distribuição menos desigual da riqueza e da renda, de modo a promover a formação de capital humano. Seu argumento chama a atenção para os ganhos obtidos a partir da melhora na educação da população: “nenhuma mudança favoreceria tanto um crescimento mais rápido da riqueza material quanto uma melhoria das nossas escolas [...], desde que possa ser combinada com um amplo sistema de bolsas de estudo, o que permitirá ao filho do trabalhador mais simples a obtenção da melhor educação teórica e prática que nossa época é capaz de oferecer a ele.”\n\n(Adaptado de: GIANNETTI, Eduardo. O elogio do vira-lata e outros ensaios. Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q007",
@@ -29415,7 +29429,8 @@
    "E": "Não se desenvolve, em ambiente de privação material e ignorância todas as qualidades físicas, morais e intelectuais necessárias para a competência do indivíduo na vida prática e sua sobrevivência no mercado."
   },
   "gabarito": "B",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 1 a 10, considere o texto abaixo.\n\n[1] Existe uma estreita relação entre nutrição, saúde e educação, de um lado, e capacidade de trabalho e iniciativa de outro. A incompetência econômica do indivíduo resulta em privação material: sua demanda por bens não corresponde a uma demanda recíproca, no mercado, por aquilo que ele é capaz de oferecer. Ao mesmo tempo, a pobreza de uma geração se torna o berço da incompetência da geração seguinte: o ambiente de privação material e ignorância em que nasce (e se forma) o indivíduo impede que ele desenvolva todas as qualidades físicas, morais e intelectuais das quais dependerá sua competência na vida prática e sua sobrevivência no mercado. Fecha-se assim o elo entre pobreza e improficiência.\n\n[2] Entre os economistas do século XIX, foi Marshall aquele que melhor compreendeu a importância da formação de capital humano - do investimento na qualidade da força de trabalho - para um programa de reforma social eficaz, voltado para a erradicação da pobreza e a promoção da riqueza e do desenvolvimento sociais. Na Inglaterra oitocentista de Marshall, existia um vasto contingente de indivíduos trabalhando com um nível baixíssimo de produtividade, semiocupados ou até incapacitados de exercer qualquer tipo de atividade no mercado que lhes garantisse o mínimo necessário para um padrão de vida tolerável.\n\n[3] A bandeira da educação compulsória e universal, financiada e pelo menos parcialmente provida pelo Estado, é uma tônica constante da economia clássica desde Adam Smith. Malthus, para citar apenas um exemplo, sugeria que o investimento público maciço em educação seria uma resposta mais eficaz do que a Poor Law (sistema de assistência social aos pobres) no combate ao pauperismo.\n\n[4] O ponto crucial, contudo, é que os economistas clássicos ainda tendiam a abordar a questão da educação mais sob o ângulo do bem-estar social, da mudança de atitudes e valores que acarretava, do que sob o ângulo do capital humano, isto é, como parte do esforço de investimento e formação de capital produtivo de uma nação.\n\n[5] Foi apenas com os “Princípios de economia” de Marshall que os economistas passaram a tratar a educação, além da saúde, alimentação etc. - o investimento em seres humanos em suma -, não mais como uma questão simplesmente humanitária (embora, é claro, também o seja), mas como parte do esforço de acumulação de capital: como investimento na capacidade produtiva da população, entendida como resultante de sua saúde e educação básica, bem como de seu grau de competência profissional.\n\n[6] O núcleo do argumento marshalliano é a noção de que o verdadeiro gargalo com que se defrontam as economias menos desenvolvidas não é a escassez de capital financeiro, mas a escassez de capital humano. É a falta de capacitação da comunidade para integrar-se de forma dinâmica à economia mundial que compromete o esforço de crescimento numa economia atrasada.\n\n[7] Mas o que é, afinal, o capital humano? O capital humano representa a capacitação do indivíduo para o trabalho qualificado. Ele é constituído não somente pelo resultado do investimento da família e da sociedade na competência produtiva das pessoas, mas também por elementos de natureza ética como, por exemplo, a capacidade dos indivíduos de agir com base nos interesses comuns. Com isso, aumenta o poder de ganho dos indivíduos no mercado e eles aprendem que é do seu próprio interesse respeitar regras gerais de conduta das quais todos os participantes da sociedade se beneficiam, embora para isso precisem restringir alguns de seus interesses pessoais mais imediatos.\n\n[8] É importante frisar que Marshall sustentou um argumento de caráter econômico quando defendeu a distribuição menos desigual da riqueza e da renda, de modo a promover a formação de capital humano. Seu argumento chama a atenção para os ganhos obtidos a partir da melhora na educação da população: “nenhuma mudança favoreceria tanto um crescimento mais rápido da riqueza material quanto uma melhoria das nossas escolas [...], desde que possa ser combinada com um amplo sistema de bolsas de estudo, o que permitirá ao filho do trabalhador mais simples a obtenção da melhor educação teórica e prática que nossa época é capaz de oferecer a ele.”\n\n(Adaptado de: GIANNETTI, Eduardo. O elogio do vira-lata e outros ensaios. Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q008",
@@ -29434,7 +29449,8 @@
    "E": "O segmento sublinhado em desde que possa ser combinada com um amplo sistema de bolsas de estudo (último parágrafo) pode ser substituído por “uma vez que”, sem que nenhuma outra modificação seja feita na frase."
   },
   "gabarito": "E",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 1 a 10, considere o texto abaixo.\n\n[1] Existe uma estreita relação entre nutrição, saúde e educação, de um lado, e capacidade de trabalho e iniciativa de outro. A incompetência econômica do indivíduo resulta em privação material: sua demanda por bens não corresponde a uma demanda recíproca, no mercado, por aquilo que ele é capaz de oferecer. Ao mesmo tempo, a pobreza de uma geração se torna o berço da incompetência da geração seguinte: o ambiente de privação material e ignorância em que nasce (e se forma) o indivíduo impede que ele desenvolva todas as qualidades físicas, morais e intelectuais das quais dependerá sua competência na vida prática e sua sobrevivência no mercado. Fecha-se assim o elo entre pobreza e improficiência.\n\n[2] Entre os economistas do século XIX, foi Marshall aquele que melhor compreendeu a importância da formação de capital humano - do investimento na qualidade da força de trabalho - para um programa de reforma social eficaz, voltado para a erradicação da pobreza e a promoção da riqueza e do desenvolvimento sociais. Na Inglaterra oitocentista de Marshall, existia um vasto contingente de indivíduos trabalhando com um nível baixíssimo de produtividade, semiocupados ou até incapacitados de exercer qualquer tipo de atividade no mercado que lhes garantisse o mínimo necessário para um padrão de vida tolerável.\n\n[3] A bandeira da educação compulsória e universal, financiada e pelo menos parcialmente provida pelo Estado, é uma tônica constante da economia clássica desde Adam Smith. Malthus, para citar apenas um exemplo, sugeria que o investimento público maciço em educação seria uma resposta mais eficaz do que a Poor Law (sistema de assistência social aos pobres) no combate ao pauperismo.\n\n[4] O ponto crucial, contudo, é que os economistas clássicos ainda tendiam a abordar a questão da educação mais sob o ângulo do bem-estar social, da mudança de atitudes e valores que acarretava, do que sob o ângulo do capital humano, isto é, como parte do esforço de investimento e formação de capital produtivo de uma nação.\n\n[5] Foi apenas com os “Princípios de economia” de Marshall que os economistas passaram a tratar a educação, além da saúde, alimentação etc. - o investimento em seres humanos em suma -, não mais como uma questão simplesmente humanitária (embora, é claro, também o seja), mas como parte do esforço de acumulação de capital: como investimento na capacidade produtiva da população, entendida como resultante de sua saúde e educação básica, bem como de seu grau de competência profissional.\n\n[6] O núcleo do argumento marshalliano é a noção de que o verdadeiro gargalo com que se defrontam as economias menos desenvolvidas não é a escassez de capital financeiro, mas a escassez de capital humano. É a falta de capacitação da comunidade para integrar-se de forma dinâmica à economia mundial que compromete o esforço de crescimento numa economia atrasada.\n\n[7] Mas o que é, afinal, o capital humano? O capital humano representa a capacitação do indivíduo para o trabalho qualificado. Ele é constituído não somente pelo resultado do investimento da família e da sociedade na competência produtiva das pessoas, mas também por elementos de natureza ética como, por exemplo, a capacidade dos indivíduos de agir com base nos interesses comuns. Com isso, aumenta o poder de ganho dos indivíduos no mercado e eles aprendem que é do seu próprio interesse respeitar regras gerais de conduta das quais todos os participantes da sociedade se beneficiam, embora para isso precisem restringir alguns de seus interesses pessoais mais imediatos.\n\n[8] É importante frisar que Marshall sustentou um argumento de caráter econômico quando defendeu a distribuição menos desigual da riqueza e da renda, de modo a promover a formação de capital humano. Seu argumento chama a atenção para os ganhos obtidos a partir da melhora na educação da população: “nenhuma mudança favoreceria tanto um crescimento mais rápido da riqueza material quanto uma melhoria das nossas escolas [...], desde que possa ser combinada com um amplo sistema de bolsas de estudo, o que permitirá ao filho do trabalhador mais simples a obtenção da melhor educação teórica e prática que nossa época é capaz de oferecer a ele.”\n\n(Adaptado de: GIANNETTI, Eduardo. O elogio do vira-lata e outros ensaios. Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q009",
@@ -29453,7 +29469,8 @@
    "E": "A bandeira da educação compulsória e universal, financiada e pelo menos parcialmente provida pelo Estado (3o parágrafo)"
   },
   "gabarito": "A",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 1 a 10, considere o texto abaixo.\n\n[1] Existe uma estreita relação entre nutrição, saúde e educação, de um lado, e capacidade de trabalho e iniciativa de outro. A incompetência econômica do indivíduo resulta em privação material: sua demanda por bens não corresponde a uma demanda recíproca, no mercado, por aquilo que ele é capaz de oferecer. Ao mesmo tempo, a pobreza de uma geração se torna o berço da incompetência da geração seguinte: o ambiente de privação material e ignorância em que nasce (e se forma) o indivíduo impede que ele desenvolva todas as qualidades físicas, morais e intelectuais das quais dependerá sua competência na vida prática e sua sobrevivência no mercado. Fecha-se assim o elo entre pobreza e improficiência.\n\n[2] Entre os economistas do século XIX, foi Marshall aquele que melhor compreendeu a importância da formação de capital humano - do investimento na qualidade da força de trabalho - para um programa de reforma social eficaz, voltado para a erradicação da pobreza e a promoção da riqueza e do desenvolvimento sociais. Na Inglaterra oitocentista de Marshall, existia um vasto contingente de indivíduos trabalhando com um nível baixíssimo de produtividade, semiocupados ou até incapacitados de exercer qualquer tipo de atividade no mercado que lhes garantisse o mínimo necessário para um padrão de vida tolerável.\n\n[3] A bandeira da educação compulsória e universal, financiada e pelo menos parcialmente provida pelo Estado, é uma tônica constante da economia clássica desde Adam Smith. Malthus, para citar apenas um exemplo, sugeria que o investimento público maciço em educação seria uma resposta mais eficaz do que a Poor Law (sistema de assistência social aos pobres) no combate ao pauperismo.\n\n[4] O ponto crucial, contudo, é que os economistas clássicos ainda tendiam a abordar a questão da educação mais sob o ângulo do bem-estar social, da mudança de atitudes e valores que acarretava, do que sob o ângulo do capital humano, isto é, como parte do esforço de investimento e formação de capital produtivo de uma nação.\n\n[5] Foi apenas com os “Princípios de economia” de Marshall que os economistas passaram a tratar a educação, além da saúde, alimentação etc. - o investimento em seres humanos em suma -, não mais como uma questão simplesmente humanitária (embora, é claro, também o seja), mas como parte do esforço de acumulação de capital: como investimento na capacidade produtiva da população, entendida como resultante de sua saúde e educação básica, bem como de seu grau de competência profissional.\n\n[6] O núcleo do argumento marshalliano é a noção de que o verdadeiro gargalo com que se defrontam as economias menos desenvolvidas não é a escassez de capital financeiro, mas a escassez de capital humano. É a falta de capacitação da comunidade para integrar-se de forma dinâmica à economia mundial que compromete o esforço de crescimento numa economia atrasada.\n\n[7] Mas o que é, afinal, o capital humano? O capital humano representa a capacitação do indivíduo para o trabalho qualificado. Ele é constituído não somente pelo resultado do investimento da família e da sociedade na competência produtiva das pessoas, mas também por elementos de natureza ética como, por exemplo, a capacidade dos indivíduos de agir com base nos interesses comuns. Com isso, aumenta o poder de ganho dos indivíduos no mercado e eles aprendem que é do seu próprio interesse respeitar regras gerais de conduta das quais todos os participantes da sociedade se beneficiam, embora para isso precisem restringir alguns de seus interesses pessoais mais imediatos.\n\n[8] É importante frisar que Marshall sustentou um argumento de caráter econômico quando defendeu a distribuição menos desigual da riqueza e da renda, de modo a promover a formação de capital humano. Seu argumento chama a atenção para os ganhos obtidos a partir da melhora na educação da população: “nenhuma mudança favoreceria tanto um crescimento mais rápido da riqueza material quanto uma melhoria das nossas escolas [...], desde que possa ser combinada com um amplo sistema de bolsas de estudo, o que permitirá ao filho do trabalhador mais simples a obtenção da melhor educação teórica e prática que nossa época é capaz de oferecer a ele.”\n\n(Adaptado de: GIANNETTI, Eduardo. O elogio do vira-lata e outros ensaios. Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q010",
@@ -29472,7 +29489,8 @@
    "E": "às quais trazem proveito a todos os participantes da sociedade"
   },
   "gabarito": "C",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 1 a 10, considere o texto abaixo.\n\n[1] Existe uma estreita relação entre nutrição, saúde e educação, de um lado, e capacidade de trabalho e iniciativa de outro. A incompetência econômica do indivíduo resulta em privação material: sua demanda por bens não corresponde a uma demanda recíproca, no mercado, por aquilo que ele é capaz de oferecer. Ao mesmo tempo, a pobreza de uma geração se torna o berço da incompetência da geração seguinte: o ambiente de privação material e ignorância em que nasce (e se forma) o indivíduo impede que ele desenvolva todas as qualidades físicas, morais e intelectuais das quais dependerá sua competência na vida prática e sua sobrevivência no mercado. Fecha-se assim o elo entre pobreza e improficiência.\n\n[2] Entre os economistas do século XIX, foi Marshall aquele que melhor compreendeu a importância da formação de capital humano - do investimento na qualidade da força de trabalho - para um programa de reforma social eficaz, voltado para a erradicação da pobreza e a promoção da riqueza e do desenvolvimento sociais. Na Inglaterra oitocentista de Marshall, existia um vasto contingente de indivíduos trabalhando com um nível baixíssimo de produtividade, semiocupados ou até incapacitados de exercer qualquer tipo de atividade no mercado que lhes garantisse o mínimo necessário para um padrão de vida tolerável.\n\n[3] A bandeira da educação compulsória e universal, financiada e pelo menos parcialmente provida pelo Estado, é uma tônica constante da economia clássica desde Adam Smith. Malthus, para citar apenas um exemplo, sugeria que o investimento público maciço em educação seria uma resposta mais eficaz do que a Poor Law (sistema de assistência social aos pobres) no combate ao pauperismo.\n\n[4] O ponto crucial, contudo, é que os economistas clássicos ainda tendiam a abordar a questão da educação mais sob o ângulo do bem-estar social, da mudança de atitudes e valores que acarretava, do que sob o ângulo do capital humano, isto é, como parte do esforço de investimento e formação de capital produtivo de uma nação.\n\n[5] Foi apenas com os “Princípios de economia” de Marshall que os economistas passaram a tratar a educação, além da saúde, alimentação etc. - o investimento em seres humanos em suma -, não mais como uma questão simplesmente humanitária (embora, é claro, também o seja), mas como parte do esforço de acumulação de capital: como investimento na capacidade produtiva da população, entendida como resultante de sua saúde e educação básica, bem como de seu grau de competência profissional.\n\n[6] O núcleo do argumento marshalliano é a noção de que o verdadeiro gargalo com que se defrontam as economias menos desenvolvidas não é a escassez de capital financeiro, mas a escassez de capital humano. É a falta de capacitação da comunidade para integrar-se de forma dinâmica à economia mundial que compromete o esforço de crescimento numa economia atrasada.\n\n[7] Mas o que é, afinal, o capital humano? O capital humano representa a capacitação do indivíduo para o trabalho qualificado. Ele é constituído não somente pelo resultado do investimento da família e da sociedade na competência produtiva das pessoas, mas também por elementos de natureza ética como, por exemplo, a capacidade dos indivíduos de agir com base nos interesses comuns. Com isso, aumenta o poder de ganho dos indivíduos no mercado e eles aprendem que é do seu próprio interesse respeitar regras gerais de conduta das quais todos os participantes da sociedade se beneficiam, embora para isso precisem restringir alguns de seus interesses pessoais mais imediatos.\n\n[8] É importante frisar que Marshall sustentou um argumento de caráter econômico quando defendeu a distribuição menos desigual da riqueza e da renda, de modo a promover a formação de capital humano. Seu argumento chama a atenção para os ganhos obtidos a partir da melhora na educação da população: “nenhuma mudança favoreceria tanto um crescimento mais rápido da riqueza material quanto uma melhoria das nossas escolas [...], desde que possa ser combinada com um amplo sistema de bolsas de estudo, o que permitirá ao filho do trabalhador mais simples a obtenção da melhor educação teórica e prática que nossa época é capaz de oferecer a ele.”\n\n(Adaptado de: GIANNETTI, Eduardo. O elogio do vira-lata e outros ensaios. Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q011",
@@ -29510,7 +29528,8 @@
    "E": "II."
   },
   "gabarito": "B",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 12 a 15, considere o texto abaixo.\n\nNão temos ideia de como será o mercado de trabalho em 2050. Podemos afirmar que a robótica vai mudar quase todas as modalidades de trabalho. Contudo, há visões inconciliáveis a respeito das consequências dessa mudança e sua iminência. Alguns creem que dentro de uma ou duas décadas bilhões de pessoas serão economicamente redundantes. Outros sustentam que mesmo no longo prazo a automação continuará a gerar novos empregos e maior prosperidade.\n\nOs temores de que a automação causará desemprego massivo remontam ao século XIX, e até agora nunca se materializaram. Desde o início da Revolução Industrial, para cada emprego perdido para uma máquina pelo menos um novo emprego foi criado, e o padrão de vida médio subiu consideravelmente. Mas há boas razões para pensar que desta vez é diferente.\n\nSeres humanos possuem dois tipos de habilidades - física e cognitiva. No passado, as máquinas competiram com humanos principalmente em habilidades físicas, enquanto eles ficaram à frente das máquinas em capacidade cognitiva. Por isso, quando trabalhos manuais na agricultura e na indústria foram automatizados, surgiram novos trabalhos no setor de serviços que requeriam o tipo de habilidade cognitiva que só humanos possuíam: aprender, analisar, comunicar e compreender emoções. No entanto, acredita-se que a Inteligência Artificial será capaz de apreender um número cada vez maior dessas habilidades.\n\n(Adaptado de: HARARI, Yuval Noah. 21 lições para o século 21. São Paulo: Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q013",
@@ -29529,7 +29548,8 @@
    "E": "I."
   },
   "gabarito": "D",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 12 a 15, considere o texto abaixo.\n\nNão temos ideia de como será o mercado de trabalho em 2050. Podemos afirmar que a robótica vai mudar quase todas as modalidades de trabalho. Contudo, há visões inconciliáveis a respeito das consequências dessa mudança e sua iminência. Alguns creem que dentro de uma ou duas décadas bilhões de pessoas serão economicamente redundantes. Outros sustentam que mesmo no longo prazo a automação continuará a gerar novos empregos e maior prosperidade.\n\nOs temores de que a automação causará desemprego massivo remontam ao século XIX, e até agora nunca se materializaram. Desde o início da Revolução Industrial, para cada emprego perdido para uma máquina pelo menos um novo emprego foi criado, e o padrão de vida médio subiu consideravelmente. Mas há boas razões para pensar que desta vez é diferente.\n\nSeres humanos possuem dois tipos de habilidades - física e cognitiva. No passado, as máquinas competiram com humanos principalmente em habilidades físicas, enquanto eles ficaram à frente das máquinas em capacidade cognitiva. Por isso, quando trabalhos manuais na agricultura e na indústria foram automatizados, surgiram novos trabalhos no setor de serviços que requeriam o tipo de habilidade cognitiva que só humanos possuíam: aprender, analisar, comunicar e compreender emoções. No entanto, acredita-se que a Inteligência Artificial será capaz de apreender um número cada vez maior dessas habilidades.\n\n(Adaptado de: HARARI, Yuval Noah. 21 lições para o século 21. São Paulo: Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q014",
@@ -29548,7 +29568,8 @@
    "E": "Acredita-se que, em poucas décadas, deverão haver bilhões de pessoas cujas habilidades sejam desnecessárias para a economia."
   },
   "gabarito": "C",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 12 a 15, considere o texto abaixo.\n\nNão temos ideia de como será o mercado de trabalho em 2050. Podemos afirmar que a robótica vai mudar quase todas as modalidades de trabalho. Contudo, há visões inconciliáveis a respeito das consequências dessa mudança e sua iminência. Alguns creem que dentro de uma ou duas décadas bilhões de pessoas serão economicamente redundantes. Outros sustentam que mesmo no longo prazo a automação continuará a gerar novos empregos e maior prosperidade.\n\nOs temores de que a automação causará desemprego massivo remontam ao século XIX, e até agora nunca se materializaram. Desde o início da Revolução Industrial, para cada emprego perdido para uma máquina pelo menos um novo emprego foi criado, e o padrão de vida médio subiu consideravelmente. Mas há boas razões para pensar que desta vez é diferente.\n\nSeres humanos possuem dois tipos de habilidades - física e cognitiva. No passado, as máquinas competiram com humanos principalmente em habilidades físicas, enquanto eles ficaram à frente das máquinas em capacidade cognitiva. Por isso, quando trabalhos manuais na agricultura e na indústria foram automatizados, surgiram novos trabalhos no setor de serviços que requeriam o tipo de habilidade cognitiva que só humanos possuíam: aprender, analisar, comunicar e compreender emoções. No entanto, acredita-se que a Inteligência Artificial será capaz de apreender um número cada vez maior dessas habilidades.\n\n(Adaptado de: HARARI, Yuval Noah. 21 lições para o século 21. São Paulo: Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q015",
@@ -29567,7 +29588,8 @@
    "E": "Porquanto não tenham ideia de como será o mercado de trabalho em 2050, afirmam-se com propriedade que a robótica mudará diversas modalidades de trabalho."
   },
   "gabarito": "A",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 12 a 15, considere o texto abaixo.\n\nNão temos ideia de como será o mercado de trabalho em 2050. Podemos afirmar que a robótica vai mudar quase todas as modalidades de trabalho. Contudo, há visões inconciliáveis a respeito das consequências dessa mudança e sua iminência. Alguns creem que dentro de uma ou duas décadas bilhões de pessoas serão economicamente redundantes. Outros sustentam que mesmo no longo prazo a automação continuará a gerar novos empregos e maior prosperidade.\n\nOs temores de que a automação causará desemprego massivo remontam ao século XIX, e até agora nunca se materializaram. Desde o início da Revolução Industrial, para cada emprego perdido para uma máquina pelo menos um novo emprego foi criado, e o padrão de vida médio subiu consideravelmente. Mas há boas razões para pensar que desta vez é diferente.\n\nSeres humanos possuem dois tipos de habilidades - física e cognitiva. No passado, as máquinas competiram com humanos principalmente em habilidades físicas, enquanto eles ficaram à frente das máquinas em capacidade cognitiva. Por isso, quando trabalhos manuais na agricultura e na indústria foram automatizados, surgiram novos trabalhos no setor de serviços que requeriam o tipo de habilidade cognitiva que só humanos possuíam: aprender, analisar, comunicar e compreender emoções. No entanto, acredita-se que a Inteligência Artificial será capaz de apreender um número cada vez maior dessas habilidades.\n\n(Adaptado de: HARARI, Yuval Noah. 21 lições para o século 21. São Paulo: Companhia das Letras, 2018, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q016",
@@ -29605,7 +29627,8 @@
    "E": "O objetivo principal do texto é defender a ideia, por meio da apresentação de descobertas científicas, de que os sintomas típicos da solidão, ou seja, tristeza e irritabilidade, devem ser eliminados com o uso de medicamentos adequados."
   },
   "gabarito": "D",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 17 a 21, considere o texto abaixo.\n\nA punição para quem já está preso é a solitária. Não é para menos: a ausência de convivência com outros seres humanos é extremamente penosa. Ela causa depressão, facilita o aparecimento de doenças, aumenta a agressividade e pode levar ao suicídio.\n\nNas sociedades modernas, a solidão atinge até 50% das pessoas com mais de 60 anos. Nas sociedades primitivas, vivíamos em constante contato, dividindo tarefas com os membros de nossa tribo. Hoje é possível sofrer de solidão mesmo vivendo numa grande cidade.\n\nQue a solidão causa mudanças comportamentais ninguém duvida, mas agora foi descoberto um neuropeptídio (NkB), uma espécie de hormônio, envolvido nesse processo, e ao mesmo tempo um composto químico capaz de debelar os efeitos da solidão.\n\nCamundongos foram colocados sozinhos por duas semanas (o que equivale a um ano para seres humanos). Após esse tempo, eles apresentavam os sintomas típicos da solidão. Suscetibilidade ao estresse e aumento da agressividade. Os cientistas, ao examinar os cérebros desses animais, observaram um enorme aumento na quantidade de NkB.\n\nEm outro experimento, os cientistas empregaram um recurso genético para induzir o aumento do NkB artificialmente, sem expor os animais à solidão. Esses animais, mesmo convivendo com outros de sua espécie, exibiram os sintomas da solidão, comprovando que esse hormônio está envolvido com o aparecimento de seus sintomas em camundongos. Como esse mesmo hormônio existe em seres humanos, devem ser obtidos os mesmos resultados quando esses experimentos forem repetidos em pessoas.\n\nApesar de agora conhecermos uma molécula que provoca os sintomas da solidão, ainda não sabemos como ela provoca o aumento dessa molécula no cérebro. Será que é a falta de interação física que provoca a solidão, será a falta de estímulos visuais ou olfativos, ou uma combinação desses fatores?\n\nEsses experimentos também sugerem que pode haver um medicamento capaz de fazer desaparecer os sintomas da solidão. Mas não seria melhor curar a solidão interagindo com os amigos, a família e outras pessoas do convívio social? A solidão é um problema criado pela sociedade moderna. Ele deve ser resolvido com uma nova droga ou com uma mudança de comportamento?\n\n(Adaptado de: REINACH, Fernando. Disponível em: ciencia.estadao.com.br)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q018",
@@ -29624,7 +29647,8 @@
    "E": "Hoje é possível sofrer de solidão mesmo vivendo numa grande cidade. (2o parágrafo)"
   },
   "gabarito": "B",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 17 a 21, considere o texto abaixo.\n\nA punição para quem já está preso é a solitária. Não é para menos: a ausência de convivência com outros seres humanos é extremamente penosa. Ela causa depressão, facilita o aparecimento de doenças, aumenta a agressividade e pode levar ao suicídio.\n\nNas sociedades modernas, a solidão atinge até 50% das pessoas com mais de 60 anos. Nas sociedades primitivas, vivíamos em constante contato, dividindo tarefas com os membros de nossa tribo. Hoje é possível sofrer de solidão mesmo vivendo numa grande cidade.\n\nQue a solidão causa mudanças comportamentais ninguém duvida, mas agora foi descoberto um neuropeptídio (NkB), uma espécie de hormônio, envolvido nesse processo, e ao mesmo tempo um composto químico capaz de debelar os efeitos da solidão.\n\nCamundongos foram colocados sozinhos por duas semanas (o que equivale a um ano para seres humanos). Após esse tempo, eles apresentavam os sintomas típicos da solidão. Suscetibilidade ao estresse e aumento da agressividade. Os cientistas, ao examinar os cérebros desses animais, observaram um enorme aumento na quantidade de NkB.\n\nEm outro experimento, os cientistas empregaram um recurso genético para induzir o aumento do NkB artificialmente, sem expor os animais à solidão. Esses animais, mesmo convivendo com outros de sua espécie, exibiram os sintomas da solidão, comprovando que esse hormônio está envolvido com o aparecimento de seus sintomas em camundongos. Como esse mesmo hormônio existe em seres humanos, devem ser obtidos os mesmos resultados quando esses experimentos forem repetidos em pessoas.\n\nApesar de agora conhecermos uma molécula que provoca os sintomas da solidão, ainda não sabemos como ela provoca o aumento dessa molécula no cérebro. Será que é a falta de interação física que provoca a solidão, será a falta de estímulos visuais ou olfativos, ou uma combinação desses fatores?\n\nEsses experimentos também sugerem que pode haver um medicamento capaz de fazer desaparecer os sintomas da solidão. Mas não seria melhor curar a solidão interagindo com os amigos, a família e outras pessoas do convívio social? A solidão é um problema criado pela sociedade moderna. Ele deve ser resolvido com uma nova droga ou com uma mudança de comportamento?\n\n(Adaptado de: REINACH, Fernando. Disponível em: ciencia.estadao.com.br)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q019",
@@ -29643,7 +29667,8 @@
    "E": "foram atingidas"
   },
   "gabarito": "B",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 17 a 21, considere o texto abaixo.\n\nA punição para quem já está preso é a solitária. Não é para menos: a ausência de convivência com outros seres humanos é extremamente penosa. Ela causa depressão, facilita o aparecimento de doenças, aumenta a agressividade e pode levar ao suicídio.\n\nNas sociedades modernas, a solidão atinge até 50% das pessoas com mais de 60 anos. Nas sociedades primitivas, vivíamos em constante contato, dividindo tarefas com os membros de nossa tribo. Hoje é possível sofrer de solidão mesmo vivendo numa grande cidade.\n\nQue a solidão causa mudanças comportamentais ninguém duvida, mas agora foi descoberto um neuropeptídio (NkB), uma espécie de hormônio, envolvido nesse processo, e ao mesmo tempo um composto químico capaz de debelar os efeitos da solidão.\n\nCamundongos foram colocados sozinhos por duas semanas (o que equivale a um ano para seres humanos). Após esse tempo, eles apresentavam os sintomas típicos da solidão. Suscetibilidade ao estresse e aumento da agressividade. Os cientistas, ao examinar os cérebros desses animais, observaram um enorme aumento na quantidade de NkB.\n\nEm outro experimento, os cientistas empregaram um recurso genético para induzir o aumento do NkB artificialmente, sem expor os animais à solidão. Esses animais, mesmo convivendo com outros de sua espécie, exibiram os sintomas da solidão, comprovando que esse hormônio está envolvido com o aparecimento de seus sintomas em camundongos. Como esse mesmo hormônio existe em seres humanos, devem ser obtidos os mesmos resultados quando esses experimentos forem repetidos em pessoas.\n\nApesar de agora conhecermos uma molécula que provoca os sintomas da solidão, ainda não sabemos como ela provoca o aumento dessa molécula no cérebro. Será que é a falta de interação física que provoca a solidão, será a falta de estímulos visuais ou olfativos, ou uma combinação desses fatores?\n\nEsses experimentos também sugerem que pode haver um medicamento capaz de fazer desaparecer os sintomas da solidão. Mas não seria melhor curar a solidão interagindo com os amigos, a família e outras pessoas do convívio social? A solidão é um problema criado pela sociedade moderna. Ele deve ser resolvido com uma nova droga ou com uma mudança de comportamento?\n\n(Adaptado de: REINACH, Fernando. Disponível em: ciencia.estadao.com.br)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q020",
@@ -29662,7 +29687,8 @@
    "E": "Os cientistas, ao examinar os cérebros desses animais, observaram um enorme aumento na quantidade de NkB."
   },
   "gabarito": "C",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 17 a 21, considere o texto abaixo.\n\nA punição para quem já está preso é a solitária. Não é para menos: a ausência de convivência com outros seres humanos é extremamente penosa. Ela causa depressão, facilita o aparecimento de doenças, aumenta a agressividade e pode levar ao suicídio.\n\nNas sociedades modernas, a solidão atinge até 50% das pessoas com mais de 60 anos. Nas sociedades primitivas, vivíamos em constante contato, dividindo tarefas com os membros de nossa tribo. Hoje é possível sofrer de solidão mesmo vivendo numa grande cidade.\n\nQue a solidão causa mudanças comportamentais ninguém duvida, mas agora foi descoberto um neuropeptídio (NkB), uma espécie de hormônio, envolvido nesse processo, e ao mesmo tempo um composto químico capaz de debelar os efeitos da solidão.\n\nCamundongos foram colocados sozinhos por duas semanas (o que equivale a um ano para seres humanos). Após esse tempo, eles apresentavam os sintomas típicos da solidão. Suscetibilidade ao estresse e aumento da agressividade. Os cientistas, ao examinar os cérebros desses animais, observaram um enorme aumento na quantidade de NkB.\n\nEm outro experimento, os cientistas empregaram um recurso genético para induzir o aumento do NkB artificialmente, sem expor os animais à solidão. Esses animais, mesmo convivendo com outros de sua espécie, exibiram os sintomas da solidão, comprovando que esse hormônio está envolvido com o aparecimento de seus sintomas em camundongos. Como esse mesmo hormônio existe em seres humanos, devem ser obtidos os mesmos resultados quando esses experimentos forem repetidos em pessoas.\n\nApesar de agora conhecermos uma molécula que provoca os sintomas da solidão, ainda não sabemos como ela provoca o aumento dessa molécula no cérebro. Será que é a falta de interação física que provoca a solidão, será a falta de estímulos visuais ou olfativos, ou uma combinação desses fatores?\n\nEsses experimentos também sugerem que pode haver um medicamento capaz de fazer desaparecer os sintomas da solidão. Mas não seria melhor curar a solidão interagindo com os amigos, a família e outras pessoas do convívio social? A solidão é um problema criado pela sociedade moderna. Ele deve ser resolvido com uma nova droga ou com uma mudança de comportamento?\n\n(Adaptado de: REINACH, Fernando. Disponível em: ciencia.estadao.com.br)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q021",
@@ -29681,7 +29707,8 @@
    "E": "Esses animais, mesmo (consoante) convivendo com outros animais..."
   },
   "gabarito": "C",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 17 a 21, considere o texto abaixo.\n\nA punição para quem já está preso é a solitária. Não é para menos: a ausência de convivência com outros seres humanos é extremamente penosa. Ela causa depressão, facilita o aparecimento de doenças, aumenta a agressividade e pode levar ao suicídio.\n\nNas sociedades modernas, a solidão atinge até 50% das pessoas com mais de 60 anos. Nas sociedades primitivas, vivíamos em constante contato, dividindo tarefas com os membros de nossa tribo. Hoje é possível sofrer de solidão mesmo vivendo numa grande cidade.\n\nQue a solidão causa mudanças comportamentais ninguém duvida, mas agora foi descoberto um neuropeptídio (NkB), uma espécie de hormônio, envolvido nesse processo, e ao mesmo tempo um composto químico capaz de debelar os efeitos da solidão.\n\nCamundongos foram colocados sozinhos por duas semanas (o que equivale a um ano para seres humanos). Após esse tempo, eles apresentavam os sintomas típicos da solidão. Suscetibilidade ao estresse e aumento da agressividade. Os cientistas, ao examinar os cérebros desses animais, observaram um enorme aumento na quantidade de NkB.\n\nEm outro experimento, os cientistas empregaram um recurso genético para induzir o aumento do NkB artificialmente, sem expor os animais à solidão. Esses animais, mesmo convivendo com outros de sua espécie, exibiram os sintomas da solidão, comprovando que esse hormônio está envolvido com o aparecimento de seus sintomas em camundongos. Como esse mesmo hormônio existe em seres humanos, devem ser obtidos os mesmos resultados quando esses experimentos forem repetidos em pessoas.\n\nApesar de agora conhecermos uma molécula que provoca os sintomas da solidão, ainda não sabemos como ela provoca o aumento dessa molécula no cérebro. Será que é a falta de interação física que provoca a solidão, será a falta de estímulos visuais ou olfativos, ou uma combinação desses fatores?\n\nEsses experimentos também sugerem que pode haver um medicamento capaz de fazer desaparecer os sintomas da solidão. Mas não seria melhor curar a solidão interagindo com os amigos, a família e outras pessoas do convívio social? A solidão é um problema criado pela sociedade moderna. Ele deve ser resolvido com uma nova droga ou com uma mudança de comportamento?\n\n(Adaptado de: REINACH, Fernando. Disponível em: ciencia.estadao.com.br)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q022",
@@ -29700,7 +29727,8 @@
    "E": "O termo “alimenta” (3o parágrafo) está empregado em sentido figurado."
   },
   "gabarito": "E",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 22 a 24, considere o texto abaixo.\n\nNão há como negar que filmes norte-americanos podem exercer influência em escala mundial e provocar “mudanças de comportamento\" ou “até mudar opiniões”, segundo Leif Furhammar e Folke Isaksson. Mas daí a afirmar que todo filme é político, como de hábito, vai uma grande distância.\n\nPara uns, é de se esperar que o cinema “seja uma sentinela da sociedade”; para outros, o cinema “é uma indústria vulnerável e de prestígio, cujos produtos têm consumo de massa e determinam comportamentos miméticos”.\n\nCom relação ao Brasil, entretanto, é preciso reconhecer que o cinema brasileiro até hoje não teve influência em âmbito nacional. Quem alimenta o imaginário coletivo do país é a ficção televisiva.\n\nDe qualquer modo, embora até o fim da década de 1960 tenha prevalecido a noção de que o cinema teria o poder de causar mudanças políticas e sociais, desde então essa crença deixou de ser consensual e hoje atrai cada vez menos adeptos.\n\n(Adaptado de: ESCOREL, Eduardo. Disponível em: piaui.folha.uol.com.br)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q023",
@@ -29719,7 +29747,8 @@
    "E": "III."
   },
   "gabarito": "A",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 22 a 24, considere o texto abaixo.\n\nNão há como negar que filmes norte-americanos podem exercer influência em escala mundial e provocar “mudanças de comportamento\" ou “até mudar opiniões”, segundo Leif Furhammar e Folke Isaksson. Mas daí a afirmar que todo filme é político, como de hábito, vai uma grande distância.\n\nPara uns, é de se esperar que o cinema “seja uma sentinela da sociedade”; para outros, o cinema “é uma indústria vulnerável e de prestígio, cujos produtos têm consumo de massa e determinam comportamentos miméticos”.\n\nCom relação ao Brasil, entretanto, é preciso reconhecer que o cinema brasileiro até hoje não teve influência em âmbito nacional. Quem alimenta o imaginário coletivo do país é a ficção televisiva.\n\nDe qualquer modo, embora até o fim da década de 1960 tenha prevalecido a noção de que o cinema teria o poder de causar mudanças políticas e sociais, desde então essa crença deixou de ser consensual e hoje atrai cada vez menos adeptos.\n\n(Adaptado de: ESCOREL, Eduardo. Disponível em: piaui.folha.uol.com.br)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q024",
@@ -29738,7 +29767,8 @@
    "E": "Tal como ocorrem no Brasil, por conseguinte, há quem reconheça que"
   },
   "gabarito": "D",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 22 a 24, considere o texto abaixo.\n\nNão há como negar que filmes norte-americanos podem exercer influência em escala mundial e provocar “mudanças de comportamento\" ou “até mudar opiniões”, segundo Leif Furhammar e Folke Isaksson. Mas daí a afirmar que todo filme é político, como de hábito, vai uma grande distância.\n\nPara uns, é de se esperar que o cinema “seja uma sentinela da sociedade”; para outros, o cinema “é uma indústria vulnerável e de prestígio, cujos produtos têm consumo de massa e determinam comportamentos miméticos”.\n\nCom relação ao Brasil, entretanto, é preciso reconhecer que o cinema brasileiro até hoje não teve influência em âmbito nacional. Quem alimenta o imaginário coletivo do país é a ficção televisiva.\n\nDe qualquer modo, embora até o fim da década de 1960 tenha prevalecido a noção de que o cinema teria o poder de causar mudanças políticas e sociais, desde então essa crença deixou de ser consensual e hoje atrai cada vez menos adeptos.\n\n(Adaptado de: ESCOREL, Eduardo. Disponível em: piaui.folha.uol.com.br)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q025",
@@ -29795,7 +29825,8 @@
    "E": "III."
   },
   "gabarito": "D",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 27 e 28, considere o texto abaixo.\n\nNa narrativa tradicional, o narrador é em geral onisciente. Para citar um exemplo clássico: no Dom Quixote, de Cervantes, ele possui livre acesso à consciência da personagem principal. O Quixote personagem sabe menos a seu próprio respeito e a respeito daquilo que acontece do que o narrador de Cervantes. Este último tem garantida a distância que o separa do Quixote herói, e por isso é capaz de delimitar conscientemente os disparates do seu personagem. Isso explica o episódio em que o Cavaleiro da Triste Figura toma moinhos de vento por gigantes que, no seu delírio, é preciso combater. Mas hoje os tempos são outros, o universo se tornou complexo, os detalhes se multiplicaram e abriram passagem à alienação, à visão parcelada do mundo, em resumo: à falsa consciência. Um dos resultados desse desdobramento histórico, em termos artísticos, foi o narrador insciente, que não sabe nada, ou quase nada, tanto quanto o seu anti-herói (que é derrotado pelos obstáculos em vez de derrotá-los).\n\n(Adaptado de: Modesto Carone (prefácio). Essencial Franz Kafka. Penguin/Companhia das Letras, 2011, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q028",
@@ -29814,7 +29845,8 @@
    "E": "refuta a perenidade dos obstáculos a serem derrotados pelas personagens."
   },
   "gabarito": "A",
-  "incidencia": ""
+  "incidencia": "",
+  "texto_apoio": "Para responder às questões de números 27 e 28, considere o texto abaixo.\n\nNa narrativa tradicional, o narrador é em geral onisciente. Para citar um exemplo clássico: no Dom Quixote, de Cervantes, ele possui livre acesso à consciência da personagem principal. O Quixote personagem sabe menos a seu próprio respeito e a respeito daquilo que acontece do que o narrador de Cervantes. Este último tem garantida a distância que o separa do Quixote herói, e por isso é capaz de delimitar conscientemente os disparates do seu personagem. Isso explica o episódio em que o Cavaleiro da Triste Figura toma moinhos de vento por gigantes que, no seu delírio, é preciso combater. Mas hoje os tempos são outros, o universo se tornou complexo, os detalhes se multiplicaram e abriram passagem à alienação, à visão parcelada do mundo, em resumo: à falsa consciência. Um dos resultados desse desdobramento histórico, em termos artísticos, foi o narrador insciente, que não sabe nada, ou quase nada, tanto quanto o seu anti-herói (que é derrotado pelos obstáculos em vez de derrotá-los).\n\n(Adaptado de: Modesto Carone (prefácio). Essencial Franz Kafka. Penguin/Companhia das Letras, 2011, edição digital.)"
  },
  {
   "id": "SEFAZ-SC-2018-A01-P1-Q029",
@@ -32872,7 +32904,8 @@
   },
   "gabarito": "D",
   "incidencia": "",
-  "bloco": "[1] Juros e Taxas (3 aulas)"
+  "bloco": "[1] Juros e Taxas (3 aulas)",
+  "texto_apoio": "Atenção! Use o texto a seguir para responder às duas próximas questões.\n\nSuponha que um banco concedeu um empréstimo de R$50.000,00 a um cliente, por um prazo de um ano, e que, ao final desse período, o cliente tenha se comprometido a pagar R$65.000,00 pelo empréstimo. Suponha ainda que a inflação no período tenha sido de 8%."
  },
  {
   "id": "SEFAZ-AM-2022-P1-Q022",
@@ -32892,7 +32925,8 @@
   },
   "gabarito": "D",
   "incidencia": "",
-  "bloco": "[1] Juros e Taxas (3 aulas)"
+  "bloco": "[1] Juros e Taxas (3 aulas)",
+  "texto_apoio": "Atenção! Use o texto a seguir para responder às duas próximas questões.\n\nSuponha que um banco concedeu um empréstimo de R$50.000,00 a um cliente, por um prazo de um ano, e que, ao final desse período, o cliente tenha se comprometido a pagar R$65.000,00 pelo empréstimo. Suponha ainda que a inflação no período tenha sido de 8%."
  },
  {
   "id": "SEFAZ-AM-2022-P1-Q023",
@@ -32932,7 +32966,8 @@
   },
   "gabarito": "D",
   "incidencia": "",
-  "bloco": "[3] Variáveis Aleatórias e Distribuições (4 aulas)"
+  "bloco": "[3] Variáveis Aleatórias e Distribuições (4 aulas)",
+  "texto_apoio": "Atenção! Use os dados a seguir para responder às duas próximas questões.\n\nUma variável aleatória X tem a seguinte função de probabilidade, sendo k uma constante:\n\n| x | -2,0 | -1,0 | 0,0 | 1,0 | 2 |\n|---|---|---|---|---|---|\n| p(x) | 0,2 | 0,1 | 0,4 | 0,1 | k |"
  },
  {
   "id": "SEFAZ-AM-2022-P1-Q025",
@@ -32952,7 +32987,8 @@
   },
   "gabarito": "A",
   "incidencia": "",
-  "bloco": "[3] Variáveis Aleatórias e Distribuições (4 aulas)"
+  "bloco": "[3] Variáveis Aleatórias e Distribuições (4 aulas)",
+  "texto_apoio": "Atenção! Use os dados a seguir para responder às duas próximas questões.\n\nUma variável aleatória X tem a seguinte função de probabilidade, sendo k uma constante:\n\n| x | -2,0 | -1,0 | 0,0 | 1,0 | 2 |\n|---|---|---|---|---|---|\n| p(x) | 0,2 | 0,1 | 0,4 | 0,1 | k |"
  },
  {
   "id": "SEFAZ-AM-2022-P1-Q026",
@@ -40014,7 +40050,8 @@
   },
   "gabarito": "D",
   "incidencia": "",
-  "bloco": "[3] Banco de Dados e Modelagem (4 aulas)"
+  "bloco": "[3] Banco de Dados e Modelagem (4 aulas)",
+  "texto_apoio": "Atenção! O texto a seguir refere-se às três próximas questões.\n\nSeja um banco de dados relacional especificado em SQL de uma empresa de correspondência entre clientes, instituições financeiras e empréstimos contratados por esses clientes nessas instituições, previamente implementado em um banco de dados como a seguir:\n\n![Imagem da prova](SEMEF-Nova Iguaçu-2024-P1-G31-1.png)\n\nOBS: Neste banco de dados, cadeias de caracteres (strings) são representadas envoltas em aspas simples."
  },
  {
   "id": "SEMEF-Nova Iguaçu-2024-P1-Q032",
@@ -40034,7 +40071,8 @@
   },
   "gabarito": "C",
   "incidencia": "",
-  "bloco": "[3] Banco de Dados e Modelagem (4 aulas)"
+  "bloco": "[3] Banco de Dados e Modelagem (4 aulas)",
+  "texto_apoio": "Atenção! O texto a seguir refere-se às três próximas questões.\n\nSeja um banco de dados relacional especificado em SQL de uma empresa de correspondência entre clientes, instituições financeiras e empréstimos contratados por esses clientes nessas instituições, previamente implementado em um banco de dados como a seguir:\n\n![Imagem da prova](SEMEF-Nova Iguaçu-2024-P1-G31-1.png)\n\nOBS: Neste banco de dados, cadeias de caracteres (strings) são representadas envoltas em aspas simples."
  },
  {
   "id": "SEMEF-Nova Iguaçu-2024-P1-Q033",
@@ -40054,7 +40092,8 @@
   },
   "gabarito": "D",
   "incidencia": "",
-  "bloco": "[3] Banco de Dados e Modelagem (4 aulas)"
+  "bloco": "[3] Banco de Dados e Modelagem (4 aulas)",
+  "texto_apoio": "Atenção! O texto a seguir refere-se às três próximas questões.\n\nSeja um banco de dados relacional especificado em SQL de uma empresa de correspondência entre clientes, instituições financeiras e empréstimos contratados por esses clientes nessas instituições, previamente implementado em um banco de dados como a seguir:\n\n![Imagem da prova](SEMEF-Nova Iguaçu-2024-P1-G31-1.png)\n\nOBS: Neste banco de dados, cadeias de caracteres (strings) são representadas envoltas em aspas simples."
  },
  {
   "id": "SEMEF-Nova Iguaçu-2024-P1-Q034",
