@@ -185,7 +185,13 @@ export default function DadosTab({
   }, [filtro]);
 
   const semDados = !res || res.totalQuestoes === 0;
-  const pctGeral = res && res.totalQuestoes ? Math.round((res.totalAcertos / res.totalQuestoes) * 100) : 0;
+
+  // Ritmo: questões dos últimos 7 dias (hoje incluso) projetadas para 1 ano.
+  // Mesma fonte do calendário de sequência (`atividade`, datas UTC como em
+  // atividadePorDia), então também não é filtrado por matéria/nível.
+  const desde7 = new Date(Date.now() - 6 * 86_400_000).toISOString().slice(0, 10);
+  const ultimos7 = atividade.filter((d) => d.data >= desde7).reduce((s, d) => s + d.total, 0);
+  const ritmoAno = Math.round((ultimos7 / 7) * 365);
 
   // Pesos usados na nota provável: os REAIS configurados em Ajustes por
   // padrão, ou os de um preset de concurso quando o dropdown de simulação
@@ -297,7 +303,12 @@ export default function DadosTab({
             }}
           >
             {[
-              { rot: "Acerto geral", val: `${pctGeral}%`, cor: corPct(pctGeral), sub: "" },
+              {
+                rot: "Ritmo/ano",
+                val: ritmoAno.toLocaleString("pt-BR"),
+                cor: ultimos7 > 0 ? C.caneta : C.ink,
+                sub: `${ultimos7} EM 7D`,
+              },
               { rot: "Questões", val: String(res!.totalQuestoes), cor: C.ink, sub: "" },
               ...(streak && streak.recorde > 0
                 ? [
