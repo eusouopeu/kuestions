@@ -315,3 +315,11 @@ que é específico deste projeto.
 - Caderno de erros (`lib/cadernoErros.ts`, jsPDF, Helvetica/Latin-1 — símbolos fora disso são
   trocados em `limpar`): cartão no fim da aba Dados, respeita o filtro de matéria, período escolhido no
   cartão. Figuras vêm de `lib/figuras.ts` (glob de `banco/imagens`, compartilhado com `TextoQuestao`).
+
+## Tamanho do texto (bloco do banco para leitura rápida)
+
+- Seletor "Tamanho do texto" em `GerarBancoView` (Qualquer / Curto ≤ 600 / Curtíssimo ≤ 350
+  caracteres, `TAMANHOS_TEXTO` em `lib/banco.ts`): vira `maxCaracteres` no `FiltroBanco` e vale
+  também para o bloco do dia. `caracteresDeLeitura` soma texto de apoio + enunciado + alternativas
+  (espaços colapsados); figura (`![`) ou tabela (`<table`) = Infinity, nunca entra. Não muda o
+  tópico gravado nem reseta ao trocar de área.

@@ -20,6 +20,7 @@ import {
   pontuarAssuntos,
   questaoBancoParaQuestao,
   selecionarQuestoes,
+  TAMANHOS_TEXTO,
   type FiltroBanco,
   NIVEL_BANCO,
 } from "../lib/banco";
@@ -86,6 +87,9 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   // "todas" já usada no resto do app.
   const [instituicao, setInstituicao] = useState<string>("");
   const [ano, setAno] = useState<number>(0);
+  // Teto de texto para ler (ver TAMANHOS_TEXTO em lib/banco.ts) — não volta
+  // a "Qualquer" ao trocar de área: é a situação de estudo, não do filtro.
+  const [maxCaracteres, setMaxCaracteres] = useState<number>(0);
   const [quantidade, setQuantidade] = useState<number>(Q_POR_BLOCO);
   // Gerar comentário/explicações já na montagem do bloco, ou deixar para
   // sob demanda depois de responder — mesma ideia de GerarView. Preferência
@@ -155,7 +159,9 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   const proveniencia = {
     ...(instituicao ? { instituicao } : {}),
     ...(ano ? { ano } : {}),
+    ...(maxCaracteres ? { maxCaracteres } : {}),
   };
+  const filtroMisto: FiltroBanco = { modo: "todos", ...(maxCaracteres ? { maxCaracteres } : {}) };
   const filtro: FiltroBanco =
     modo === "aula" && assunto
       ? { modo: "aula", assunto, ...proveniencia }
@@ -164,10 +170,10 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
         : { modo: "todos", ...proveniencia };
 
   const disponiveis = misto
-    ? areasBanco().reduce((s, a) => s + contarDisponiveis(a, { modo: "todos" }), 0)
+    ? areasBanco().reduce((s, a) => s + contarDisponiveis(a, filtroMisto), 0)
     : contarDisponiveis(area, filtro);
   const ineditas = misto
-    ? areasBanco().reduce((s, a) => s + contarIneditas(a, { modo: "todos" }, vistas), 0)
+    ? areasBanco().reduce((s, a) => s + contarIneditas(a, filtroMisto, vistas), 0)
     : contarIneditas(area, filtro, vistas);
 
   useEffect(() => {
@@ -252,7 +258,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
         peso: pesoDe(pesosEdital, a),
         acertos: acerto.get(a)?.acertos ?? 0,
         total: acerto.get(a)?.total ?? 0,
-        disponiveis: contarDisponiveis(a, { modo: "todos" }),
+        disponiveis: contarDisponiveis(a, filtroMisto),
       })),
       n,
     );
@@ -264,7 +270,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
         } catch (e) {
           console.error("direcionar assunto por pontuação", e);
         }
-        return selecionarQuestoes(a, { modo: "todos" }, k, vistas, pesosAssunto).map((qb) => ({
+        return selecionarQuestoes(a, filtroMisto, k, vistas, pesosAssunto).map((qb) => ({
           questao: questaoBancoParaQuestao(qb),
           area: a,
         }));
@@ -512,6 +518,15 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
         </div>
         </>
         )}
+
+        <div style={{ marginBottom: 18 }}>
+          <label style={rotulo}>Tamanho do texto</label>
+          <Segmented
+            valor={maxCaracteres}
+            opcoes={TAMANHOS_TEXTO.map((t) => ({ id: t.id as number, label: t.label }))}
+            onChange={setMaxCaracteres}
+          />
+        </div>
 
         <div style={{ marginBottom: 20 }}>
           <label style={rotulo}>Quantidade de questões</label>

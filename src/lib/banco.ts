@@ -242,6 +242,32 @@ export function pontuarAssuntos(
 interface FiltroProveniencia {
   instituicao?: string;
   ano?: number;
+  /** Teto de caracteres de leitura (ver `caracteresDeLeitura`) — modo "texto
+   * curto", para fazer questões na academia, na fila etc. Ausente = sem teto. */
+  maxCaracteres?: number;
+}
+
+/** Opções do seletor "Tamanho do texto" em GerarBancoView: teto de
+ * caracteres somando texto de apoio, enunciado e alternativas. 0 = sem teto. */
+export const TAMANHOS_TEXTO = [
+  { id: 0, label: "Qualquer" },
+  { id: 600, label: "Curto" },
+  { id: 350, label: "Curtíssimo" },
+] as const;
+
+/** Questão com figura ou tabela não cabe em leitura rápida, qualquer que seja
+ * a contagem de caracteres (a tabela vem como HTML e a figura como Markdown). */
+const RE_FIGURA_OU_TABELA = /!\[|<table/i;
+
+/** Quanto texto a questão exige ler: texto de apoio + enunciado +
+ * alternativas. Infinity quando há figura ou tabela. */
+export function caracteresDeLeitura(
+  q: Pick<QuestaoBanco, "enunciado" | "alternativas" | "texto_apoio">,
+): number {
+  const alternativas = Object.values(q.alternativas).join("");
+  const texto = (q.texto_apoio ?? "") + q.enunciado + alternativas;
+  if (RE_FIGURA_OU_TABELA.test(texto)) return Infinity;
+  return texto.replace(/\s+/g, " ").trim().length;
 }
 
 export type FiltroBanco = (
@@ -270,6 +296,8 @@ function questoesFiltradas(area: string, filtro: FiltroBanco): QuestaoBanco[] {
   else if (filtro.modo === "bloco") qs = qs.filter((q) => prefixoAssunto(q.assunto) === filtro.bloco);
   if (filtro.instituicao) qs = qs.filter((q) => q.instituicao === filtro.instituicao);
   if (filtro.ano) qs = qs.filter((q) => q.ano === filtro.ano);
+  const teto = filtro.maxCaracteres;
+  if (teto) qs = qs.filter((q) => caracteresDeLeitura(q) <= teto);
   return qs;
 }
 
