@@ -13,7 +13,7 @@
 | Fonte | Status | Como usar |
 |---|---|---|
 | **FGV** `conhecimento.fgv.br/concursos?page=0..15` | ✅ PDF estático | Índice lista slugs; `/concursos/<slug>` traz links diretos `…/sites/default/files/concursos/*.pdf` (prova por cargo/turno/tipo + `gabdef_*.pdf`). Extrair links com `curl -s URL \| grep -o 'https[^"]*\.pdf'` (não abrir página no navegador). |
-| **FCC** `concursos.fcc.com.br` / `fcc.org.br` | a testar | Normalmente PDFs por cargo + gabarito; provas recentes também no site do órgão. |
+| **FCC** `concursosfcc.com.br` | ⚠️ login | Páginas `concursos/<slug>/index.html` (ex. `sface125`, `seego125`) só listam editais; "Provas e Gabaritos" leva ao Portal do Candidato (login + captcha). Pedir o PDF ao usuário. |
 | **Cebraspe** `cebraspe.org.br` | ⚠️ SPA; API sem conteúdo | Buscar o PDF por WebSearch (`"<órgão>" "gabarito definitivo" cebraspe pdf`) ou via `arquivos.qconcursos.com`. Fórum do órgão / Direção / Estratégia às vezes hospedam cópias. |
 | **Cesgranrio** `cesgranrio.org.br` | a testar | Provas costumam ficar na página do concurso. |
 | `arquivos.qconcursos.com/prova/arquivo_prova/<id>/…-prova.pdf` | ✅ só com URL exata | Não dá para descobrir por navegação; usar URLs vindas de WebSearch. PDFs muitas vezes **escaneados** (ver 02). |

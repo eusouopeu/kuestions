@@ -33,12 +33,15 @@ const BANCA_POR_PROVA: Record<string, string> = {
   "SEMEF-Nova Iguaçu 2024": "FGV",
   "SJC-São José dos Campos 2024": "FGV",
   "SMF-Cuiabá 2024": "FGV",
+  "TCE-GO 2024": "FGV",
+  "TCE-PA 2024": "FGV",
   "TCE-PI 2024": "FGV",
   "SEFAZ-PI 2025": "FCC",
   "SEFAZ-PR 2025": "FGV",
   "SEFAZ-RJ 2025": "Cebraspe",
   "SEFAZ-SE 2025": "Cebraspe",
   "SEFAZ-SP 2026": "FCC",
+  "TCE-SC 2026": "FGV",
   // SEFAZ-PA 2021: capa sem a banca impressa — fica não identificada.
 };
 

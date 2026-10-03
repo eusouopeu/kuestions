@@ -1,6 +1,6 @@
 # Histórico de provas importadas
 
-Estado em **2026-09-30** — `kuestion_db_1.json`: **2938 questões**, 50 blocos de prova, 25 instituições, anos 2016–2026.
+Estado em **2026-10-03** — `kuestion_db_1.json`: **3168 questões**, 53 blocos de prova, 28 instituições, anos 2016–2026.
 Um commit por prova (ver `git log`). Fonte dos PDFs: `provas_sefaz_auditor_fiscal/` (fora do git). Scripts de build: `provas_sefaz_auditor_fiscal/_scripts/` (versionados, sem as imagens `*_pg/`/`*.png`).
 
 Formato: **A–E** = múltipla escolha; **C/E** = Certo/Errado (Cebraspe; alternativas `{C, E}`).
@@ -34,6 +34,8 @@ Coluna "Qtd" = questões **no banco**, após excluir legislação estadual espec
 | 2024 | SEMEF-Nova Iguaçu | `SEMEF-Nova Iguaçu-2024-P1` | Auditor Fiscal do Tesouro Municipal | A–E | 81 |
 | 2024 | SJC | `SJC-2024` (FGV) | Auditor Tributário Municipal | A–E | 64 |
 | 2024 | SMF-Cuiabá | `SMF-Cuiabá-2024-P1`, `-P2` | Auditor Fiscal Tributário da Receita Municipal | A–E | 67+58 |
+| 2024 | TCE-GO | `TCE-GO-2024` (FGV) | Analista de Controle Externo - Ciências Contábeis | A–E | 75 |
+| 2024 | TCE-PA | `TCE-PA-2024` (FGV) | Auditor de Controle Externo - Fiscalização/Contabilidade | A–E | 78 |
 | 2024 | TCE-PI | `TCE-PI-2024` | Auditor de Controle Externo | A–E | 90 |
 | 2025 | SEFAZ-PI | `SEFAZ-PI-2025-P1`, `-P2` (FCC) | Auditor Fiscal da Fazenda Estadual | A–E | 62+55 |
 | 2025 | SEFAZ-PI | `SEFAZ-PI-2025-AG-P1`, `-AG-P2` (FCC) | Agente de Tributos da Fazenda Estadual | A–E | 62+55 |
@@ -41,15 +43,16 @@ Coluna "Qtd" = questões **no banco**, após excluir legislação estadual espec
 | 2025 | SEFAZ-RJ | `SEFAZ-RJ-2025-CE1`, `-CE2`, `-Geral` | Auditor Fiscal da Receita Estadual | A–E | 33+36+27 |
 | 2025 | SEFAZ-SE | `SEFAZ-SE-2025`, `-Trib` | Auditor Fiscal Tributário | A–E | 20+18 |
 | 2026 | SEFAZ-SP | `SEFAZ-SP-2026-P1`, `-P2`, `-P3` (FCC) | Auditor Fiscal – Gestão Tributária | A–E | 25+37+50 |
+| 2026 | TCE-SC | `TCE-SC-2026` (FGV) | Auditor Fiscal de Controle Externo - Ciências Contábeis | A–E | 77 |
 
 (Banca indicada só onde registrada nos commits/scripts; as demais não foram anotadas.)
 
 ## Totais
 
-- Por ano: 2016: 179 · 2018: 345 · 2019: 86 · 2020: 207 · 2021: 385 · 2022: 473 · 2023: 308 · 2024: 360 · 2025: 483 · 2026: 112
-- Formato: 2472 A–E · 466 C/E
+- Por ano: 2016: 179 · 2018: 345 · 2019: 86 · 2020: 207 · 2021: 385 · 2022: 473 · 2023: 308 · 2024: 513 · 2025: 483 · 2026: 189
+- Formato: 2702 A–E · 466 C/E
 - Por instituição (top): SMF-Cuiabá 244 · SEFAZ-PI 234 · SEFAZ-AL 232 · SEFAZ-SC 198 · SEFAZ-ES 189 · ISS-RJ 135 · SEFAZ-BA 134 · SEFAZ-AM 125 · SEFAZ-CE 124 · SEFAZ-PR 115 · SEFAZ-SP 112 · SEFAZ-DF 110
-- Por área (top): Dir. Tributário 483 · Contab. Geral 447 · Informática 296 · Dir. Constitucional 251 · Dir. Administrativo 227 · Auditoria 225 · Português 191 · Economia 167 · Estatística 122 · Mat./RL 106 · Civil/Empresarial 95 · Finanças Públicas 89 · Contab. Pública 81 · Mat. Financeira 58
+- Por área (top): Contab. Geral 486 · Dir. Tributário 484 · Informática 303 · Dir. Constitucional 271 · Dir. Administrativo 258 · Auditoria 256 · Português 225 · Economia 167 · Estatística 125 · Mat./RL 116 · Contab. Pública 107 · Finanças Públicas 106 · Civil/Empresarial 99 · Mat. Financeira 60
 
 ## Linha do tempo de commits
 
@@ -58,6 +61,7 @@ Coluna "Qtd" = questões **no banco**, após excluir legislação estadual espec
 | 2026-09-10 | Baseline (1660 q) e +434: SEFAZ-AM 2022, SEFAZ-MT 2023, SMF-Cuiabá 2024, SEMEF-Nova Iguaçu 2024 |
 | 2026-09-11 | Padroniza `bloco`; SEFAZ-PR 2025 (+115), SEFAZ-BA 2022 (+48), SJC 2024 (+64), SMF-Cuiabá 2016 (+119) |
 | 2026-09-13 | SEFAZ-ES 2022 (+154), SEFAZ-PI 2025 AFFE (+117), SEFAZ-DF 2020 (+110), SEFAZ-PI 2025 Agente (+117) |
+| 2026-10-03 | TCE-SC 2026 (+77), TCE-PA 2024 (+78), TCE-GO 2024 (+75) — FGV, `build_tc.py` |
 
 ## Lacunas conhecidas
 
