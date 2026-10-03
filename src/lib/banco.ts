@@ -245,6 +245,22 @@ interface FiltroProveniencia {
   /** Teto de caracteres de leitura (ver `caracteresDeLeitura`) — modo "texto
    * curto", para fazer questões na academia, na fila etc. Ausente = sem teto. */
   maxCaracteres?: number;
+  /** Só múltipla escolha ou só Certo/Errado (ver `ehCertoErrado`). Ausente = os dois. */
+  formato?: "mc" | "ce";
+}
+
+/** Opções do seletor "Formato" em GerarBancoView. */
+export const FORMATOS_BANCO = [
+  { id: "", label: "Todos" },
+  { id: "mc", label: "Múltipla escolha" },
+  { id: "ce", label: "Certo/Errado" },
+] as const;
+
+/** Certo/Errado na fonte é exatamente {C: "Certo", E: "Errado"} (ver
+ * `questaoBancoParaQuestao`). */
+function ehCertoErrado(q: Pick<QuestaoBanco, "alternativas">): boolean {
+  const letras = Object.keys(q.alternativas).sort();
+  return letras.length === 2 && letras[0] === "C" && letras[1] === "E";
 }
 
 /** Opções do seletor "Tamanho do texto" em GerarBancoView: teto de
@@ -261,6 +277,21 @@ const RE_FIGURA_OU_TABELA = /!\[|<table/i;
 
 /** Quanto texto a questão exige ler: texto de apoio + enunciado +
  * alternativas. Infinity quando há figura ou tabela. */
+/** Teto de "Curto" — também usado pela revisão "só curtas" (RevisaoDiariaView). */
+export const TETO_CURTO = 600;
+/** Teto de "Curtíssimo" — usado pelo bloco rápido (lib/blocoRapido.ts). */
+export const TETO_CURTISSIMO = 350;
+
+/** `caracteresDeLeitura` para uma `Questao` do app (bloco ou revisão): o texto
+ * de apoio só existe no banco fixo, buscado pelo `bancoId`. Exige o banco
+ * carregado (`garantirBanco`) para contar o texto de apoio. */
+export function caracteresDaQuestao(q: Pick<Questao, "enunciado" | "alternativas" | "bancoId">): number {
+  const alternativas: Record<string, string> = {};
+  (q.alternativas ?? []).forEach((a, i) => (alternativas[i] = a));
+  const textoApoio = q.bancoId ? POR_ID.get(q.bancoId)?.texto_apoio : undefined;
+  return caracteresDeLeitura({ enunciado: q.enunciado, alternativas, texto_apoio: textoApoio });
+}
+
 export function caracteresDeLeitura(
   q: Pick<QuestaoBanco, "enunciado" | "alternativas" | "texto_apoio">,
 ): number {
@@ -298,6 +329,7 @@ function questoesFiltradas(area: string, filtro: FiltroBanco): QuestaoBanco[] {
   if (filtro.ano) qs = qs.filter((q) => q.ano === filtro.ano);
   const teto = filtro.maxCaracteres;
   if (teto) qs = qs.filter((q) => caracteresDeLeitura(q) <= teto);
+  if (filtro.formato) qs = qs.filter((q) => ehCertoErrado(q) === (filtro.formato === "ce"));
   return qs;
 }
 
@@ -395,7 +427,7 @@ export function questaoBancoParaQuestao(q: QuestaoBanco): Questao {
   // formato "ce" do app (alternativas null; o card desenha CERTO/ERRADO).
   // Sem isto, uma questão CE apareceria como múltipla escolha de duas
   // alternativas, e o gabarito "C"/"E" seria lido como a letra C ou E de MC.
-  const ehCE = letras.length === 2 && letras[0] === "C" && letras[1] === "E";
+  const ehCE = ehCertoErrado(q);
   const alternativas = ehCE ? null : letras.map((l) => `${l}) ${q.alternativas[l]}`);
   return {
     enunciado: q.enunciado,

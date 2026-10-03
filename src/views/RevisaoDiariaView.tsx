@@ -4,6 +4,7 @@ import FilaRevisaoDrill from "../components/FilaRevisaoDrill";
 import RevisaoNotas from "./notas/RevisaoNotas";
 import { idsComNota, listarErradas, registrarRevisao } from "../lib/repo";
 import type { QuestaoRespondida } from "../lib/types";
+import { caracteresDaQuestao, garantirBanco, TETO_CURTO } from "../lib/banco";
 
 /** Lote único, sem paginação (rec. 1) — "vence hoje" é para zerar de uma
  * sentada; quem tem mais que isso pendente já tem um problema maior que
@@ -19,7 +20,16 @@ const LOTE_MAXIMO = 150;
  * todas as matérias — o objetivo é zerar a fila, não escolher uma pasta),
  * depois as notas pendentes, reaproveitando RevisaoNotas como está.
  */
-export default function RevisaoDiariaView({ onSair }: { onSair: () => void }) {
+export default function RevisaoDiariaView({
+  onSair,
+  soCurtas = false,
+}: {
+  onSair: () => void;
+  /** Só questões de texto curto (até TETO_CURTO caracteres, sem figura nem
+   * tabela) e explicação enxuta — revisar na rua. As longas continuam
+   * pendentes para a próxima revisão completa; as notas entram todas. */
+  soCurtas?: boolean;
+}) {
   const [fase, setFase] = useState<"carregando" | "questoes" | "notas">("carregando");
   const [fila, setFila] = useState<QuestaoRespondida[] | null>(null);
   const [idx, setIdx] = useState(0);
@@ -28,8 +38,9 @@ export default function RevisaoDiariaView({ onSair }: { onSair: () => void }) {
   const [erro, setErro] = useState<string | null>(null);
 
   useEffect(() => {
-    listarErradas(null, "pendentes", { limite: LOTE_MAXIMO })
-      .then((qs) => {
+    Promise.all([listarErradas(null, "pendentes", { limite: LOTE_MAXIMO }), soCurtas ? garantirBanco() : null])
+      .then(([todas]) => {
+        const qs = soCurtas ? todas.filter((q) => caracteresDaQuestao(q) <= TETO_CURTO) : todas;
         if (!qs.length) {
           setFase("notas");
           return;
@@ -41,7 +52,7 @@ export default function RevisaoDiariaView({ onSair }: { onSair: () => void }) {
           .catch(() => setComNota(new Set()));
       })
       .catch((e) => setErro(e instanceof Error ? e.message : "Falha ao carregar as questões."));
-  }, []);
+  }, [soCurtas]);
 
   if (erro) return <Vazio>{erro}</Vazio>;
   if (fase === "carregando") return <Vazio>Carregando fila do dia…</Vazio>;
@@ -54,7 +65,8 @@ export default function RevisaoDiariaView({ onSair }: { onSair: () => void }) {
     <FilaRevisaoDrill
       fila={qs}
       idx={idx}
-      labelFonte="vence hoje"
+      labelFonte={soCurtas ? "vence hoje · só curtas" : "vence hoje"}
+      explicacaoEnxuta={soCurtas}
       mostrarTema
       temMaisLotes={false}
       carregandoLote={false}

@@ -1,7 +1,7 @@
 /** Agregações da aba Dados: sempre em SQL (GROUP BY) em vez de carregar o
  * histórico inteiro na memória — é a razão de o app usar SQLite e não
  * Preferences. */
-import { all, one, toBool } from "../db";
+import { all, one, parseJSON, toBool } from "../db";
 import { pontosResposta, type ConfiancaResposta } from "../pontuacaoTopicos";
 import { COND_BLOCO_FECHADO, COND_BLOCO_FEITO } from "./blocos";
 import { condLenta } from "./questoes";
@@ -624,6 +624,35 @@ export async function respostasDoBanco(
     params,
   );
   return rows.map((r) => ({ bancoId: String(r.banco_id), acertou: toBool(r.acertou) }));
+}
+
+/** Texto de cada resposta (enunciado + alternativas + banco_id, para o texto
+ * de apoio) e o acerto — base do cartão "Acerto por tamanho do texto"; o
+ * tamanho é calculado em JS (caracteresDaQuestao, lib/banco.ts). */
+export async function respostasComTexto(
+  materia: string | null,
+  nivel: number | null,
+): Promise<{ enunciado: string; alternativas: string[] | null; bancoId?: string; acertou: boolean }[]> {
+  const cond = ["resposta != ''"];
+  const params: unknown[] = [];
+  if (materia) {
+    cond.push("materia = ?");
+    params.push(materia);
+  }
+  if (nivel) {
+    cond.push("nivel = ?");
+    params.push(nivel);
+  }
+  const rows = await all<{ enunciado: string; alternativas: string | null; banco_id: string | null; acertou: number }>(
+    `SELECT enunciado, alternativas, banco_id, acertou FROM questoes_respondidas WHERE ${cond.join(" AND ")}`,
+    params,
+  );
+  return rows.map((r) => ({
+    enunciado: String(r.enunciado ?? ""),
+    alternativas: parseJSON<string[] | null>(r.alternativas, null),
+    bancoId: r.banco_id ? String(r.banco_id) : undefined,
+    acertou: toBool(r.acertou),
+  }));
 }
 
 /** Questões respondidas por matéria nos últimos `dias` dias (todas as

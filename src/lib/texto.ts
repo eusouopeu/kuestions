@@ -212,3 +212,25 @@ export function normalizarLayoutTexto(texto: string): string {
 export function resumirEmLinha(texto: string): string {
   return texto.replace(/\s+/g, " ").trim();
 }
+
+/**
+ * Primeira frase de uma explicação, para a explicação enxuta do modo texto
+ * curto (ver `explicacaoEnxuta` em QuestaoCard). Corta no primeiro ". ", "! "
+ * ou "? " que não seja abreviação comum de dispositivo ("art.", "inc.") e,
+ * sem ponto até `max` caracteres, corta na última palavra com reticências.
+ */
+export function primeiraFrase(texto: string, max = 180): string {
+  const t = texto.replace(/\s+/g, " ").trim();
+  const re = /[.!?](?=\s|$)/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(t))) {
+    const antes = t.slice(0, m.index).split(" ").pop()?.toLowerCase() ?? "";
+    if (/^(art|arts|inc|al|par|n|nº|cf|lc|ex|p|pp|fl|fls|sr|sra|dr|dra)$/.test(antes)) continue;
+    const frase = t.slice(0, m.index + 1);
+    if (frase.length <= max) return frase;
+    break;
+  }
+  if (t.length <= max) return t;
+  const corte = t.slice(0, max);
+  return `${corte.slice(0, corte.lastIndexOf(" ") > 0 ? corte.lastIndexOf(" ") : max)}…`;
+}

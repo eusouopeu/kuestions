@@ -9,12 +9,14 @@
  * verdade e um espelho síncrono em localStorage para aplicar antes do
  * primeiro paint, sem "salto" de tamanho na abertura.
  *
- * VOZ — leitura do enunciado/comentário pela Web Speech API, disponível na
- * WebView das duas plataformas. Serve para revisar em deslocamento, sem
+ * VOZ — leitura do enunciado/comentário pelo TTS do sistema (app nativo) ou
+ * pela Web Speech API (navegador). Serve para revisar em deslocamento, sem
  * encarar a tela. Não é gravação nem chamada de API: síntese local do
  * aparelho, sem custo e sem rede.
  */
+import { Capacitor } from "@capacitor/core";
 import { Preferences } from "@capacitor/preferences";
+import { TextToSpeech } from "@capacitor-community/text-to-speech";
 
 export type Escala = 100 | 110 | 125;
 
@@ -73,20 +75,34 @@ export async function setEscala(e: Escala): Promise<void> {
 
 /* ---------- Leitura em voz alta ---------- */
 
+// No app nativo usa o TTS do sistema (plugin @capacitor-community/text-to-speech):
+// a WebView do Android expõe `speechSynthesis`, mas sem vozes, e a leitura
+// ficava muda. No navegador continua a Web Speech API.
+const nativo = Capacitor.isNativePlatform();
+
+/** Cada leitura ganha um número: o `onFim` de uma leitura interrompida não
+ * pode derrubar o estado "lendo" da que começou depois dela. */
+let leituraAtual = 0;
+
 export function vozDisponivel(): boolean {
-  return typeof window !== "undefined" && "speechSynthesis" in window;
+  return nativo || (typeof window !== "undefined" && "speechSynthesis" in window);
 }
 
 /** Interrompe qualquer leitura em andamento. Chamado antes de iniciar outra
  * (duas falas simultâneas ficam ininteligíveis) e ao trocar de questão. */
 export function pararLeitura(): void {
+  leituraAtual++;
+  if (nativo) {
+    TextToSpeech.stop().catch(() => {});
+    return;
+  }
   if (vozDisponivel()) window.speechSynthesis.cancel();
 }
 
 /**
  * Lê o texto em voz alta em pt-BR. `onFim` avisa quem chamou para devolver o
- * botão ao estado normal — inclusive quando a leitura é cancelada, senão o
- * botão ficaria preso em "lendo" para sempre.
+ * botão ao estado normal — inclusive quando a leitura falha, senão o botão
+ * ficaria preso em "lendo" para sempre.
  */
 export function lerEmVoz(texto: string, onFim?: () => void): void {
   if (!vozDisponivel() || !texto.trim()) {
@@ -94,10 +110,19 @@ export function lerEmVoz(texto: string, onFim?: () => void): void {
     return;
   }
   pararLeitura();
+  const minha = leituraAtual;
+  const terminou = () => {
+    if (minha === leituraAtual) onFim?.();
+  };
+  if (nativo) {
+    TextToSpeech.speak({ text: texto, lang: "pt-BR", rate: 1, category: "playback" })
+      .then(terminou, terminou);
+    return;
+  }
   const fala = new SpeechSynthesisUtterance(texto);
   fala.lang = "pt-BR";
   fala.rate = 1;
-  fala.onend = () => onFim?.();
-  fala.onerror = () => onFim?.();
+  fala.onend = terminou;
+  fala.onerror = terminou;
   window.speechSynthesis.speak(fala);
 }

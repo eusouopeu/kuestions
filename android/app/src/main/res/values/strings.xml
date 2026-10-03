@@ -4,4 +4,6 @@
     <string name="title_activity_main">Kuestions</string>
     <string name="package_name">com.pedroteles.kumonfiscal</string>
     <string name="custom_url_scheme">com.pedroteles.kumonfiscal</string>
+    <string name="atalho_rapido_curto">Bloco rápido</string>
+    <string name="atalho_rapido_longo">Bloco rápido · 5 questões curtas</string>
 </resources>

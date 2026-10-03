@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowPathIcon,
   ArrowUpTrayIcon,
+  BoltIcon,
   CircleStackIcon,
   ClockIcon,
   RectangleStackIcon,
@@ -24,6 +25,7 @@ import { getMetas, META_GERAL, rotuloMeta } from "../lib/metas";
 import { temCredencial } from "../lib/secure";
 import { escolherViewInicial, type ViewQuestoes } from "../lib/questoesInicial";
 import Botao from "../components/Botao";
+import { aoPedirBlocoRapido, blocoRapidoPendente } from "../lib/atalhos";
 
 /**
  * Painel "vence hoje" (rec. 1): entrada única para a fila unificada de
@@ -31,7 +33,7 @@ import Botao from "../components/Botao";
  * Notas → Revisão) eram duas decisões separadas todo dia, mesmo sendo o
  * mesmo hábito. Some quando não há nada pendente em nenhuma das duas.
  */
-function PainelVenceHoje({ onAbrir }: { onAbrir: () => void }) {
+function PainelVenceHoje({ onAbrir }: { onAbrir: (soCurtas: boolean) => void }) {
   const [total, setTotal] = useState<number | null>(null);
 
   useEffect(() => {
@@ -60,7 +62,29 @@ function PainelVenceHoje({ onAbrir }: { onAbrir: () => void }) {
           {total} pendente{total === 1 ? "" : "s"} — questões e notas
         </div>
       </div>
-      <Botao onClick={onAbrir} style={{ flexShrink: 0, width: "auto", padding: "9px 16px" }}>
+      {/* Só curtas: questões de texto curto, para revisar na rua (ver
+          RevisaoDiariaView). */}
+      <button
+        onClick={() => onAbrir(true)}
+        aria-label="Revisar só as questões curtas"
+        title="Revisar só as questões de texto curto"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: 38,
+          height: 38,
+          flexShrink: 0,
+          borderRadius: 8,
+          border: `1.5px solid ${C.line}`,
+          background: "transparent",
+          color: C.sub,
+          cursor: "pointer",
+        }}
+      >
+        <BoltIcon width={18} height={18} />
+      </button>
+      <Botao onClick={() => onAbrir(false)} style={{ flexShrink: 0, width: "auto", padding: "9px 16px" }}>
         Revisar tudo
       </Botao>
     </div>
@@ -211,13 +235,31 @@ export default function QuestoesTab({
 }) {
   const [view, setView] = useState<ViewQuestoes>("gerar");
   const [venceHojeAberto, setVenceHojeAberto] = useState(false);
+  const [venceHojeCurtas, setVenceHojeCurtas] = useState(false);
   const [emDrill, setEmDrill] = useState(false);
+  const abertoPorAtalho = useRef(false);
   const largo = useLayoutLargo();
 
   useEffect(() => {
     temCredencial()
-      .then((tem) => setView(escolherViewInicial(tem)))
+      // Aberto pelo atalho "Bloco rápido": a view inicial não pode
+      // sobrescrever "Do banco".
+      .then((tem) => {
+        if (!abertoPorAtalho.current) setView(escolherViewInicial(tem));
+      })
       .catch(() => {});
+  }, []);
+
+  // Atalho "Bloco rápido" do ícone do app (lib/atalhos.ts): abre "Do banco",
+  // que consome o pedido e inicia o bloco.
+  useEffect(() => {
+    const abrirBanco = () => {
+      abertoPorAtalho.current = true;
+      setVenceHojeAberto(false);
+      setView("banco");
+    };
+    if (blocoRapidoPendente()) abrirBanco();
+    return aoPedirBlocoRapido(abrirBanco);
   }, []);
 
   // Um treino pedido de Dados sempre abre em "Gerar" (a única view que lê
@@ -233,7 +275,7 @@ export default function QuestoesTab({
   if (venceHojeAberto) {
     return (
       <Shell titulo="Questões" extra={!largo && <BotoesFerramentas />}>
-        <RevisaoDiariaView onSair={() => setVenceHojeAberto(false)} />
+        <RevisaoDiariaView soCurtas={venceHojeCurtas} onSair={() => setVenceHojeAberto(false)} />
       </Shell>
     );
   }
@@ -241,7 +283,14 @@ export default function QuestoesTab({
   return (
     <Shell titulo="Questões" extra={!largo && <BotoesFerramentas />}>
       <MetasSemanais />
-      {!emDrill && <PainelVenceHoje onAbrir={() => setVenceHojeAberto(true)} />}
+      {!emDrill && (
+        <PainelVenceHoje
+          onAbrir={(soCurtas) => {
+            setVenceHojeCurtas(soCurtas);
+            setVenceHojeAberto(true);
+          }}
+        />
+      )}
 
       <div style={{ marginBottom: 18 }}>
         <Segmented

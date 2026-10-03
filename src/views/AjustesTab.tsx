@@ -60,7 +60,7 @@ import {
 } from "../lib/edital";
 import { MATERIAS, MATERIAS_ORDENADAS } from "../lib/constants";
 import { areasBanco, garantirBanco } from "../lib/banco";
-import { getProvaAlvo, setProvaAlvo, type ProvaAlvo } from "../lib/prova";
+import { getProvaAlvo, MINUTOS_POR_QUESTAO_PADRAO, setProvaAlvo, type ProvaAlvo } from "../lib/prova";
 
 /** Matérias/áreas cujo peso no edital pode ser configurado: união das
  * matérias de geração (MATERIAS) com as áreas do banco de questões reais
@@ -161,7 +161,7 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
 
   // Um mapa só: a meta geral é a chave META_GERAL (ver lib/metas.ts).
   const [metas, setMetasLocal] = useState<Metas>({});
-  const [prova, setProvaLocal] = useState<ProvaAlvo>({ data: null, metaQuestoes: null });
+  const [prova, setProvaLocal] = useState<ProvaAlvo>({ data: null, metaQuestoes: null, minutosPorQuestao: null });
   const [materiaParaAdicionar, setMateriaParaAdicionar] = useState("");
   const [pesos, setPesosLocal] = useState<PesosEdital>({});
   const [presetPeso, setPresetPeso] = useState("");
@@ -986,7 +986,8 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
         >
           <div style={{ fontSize: 12.5, color: C.sub, lineHeight: 1.6, marginBottom: 12 }}>
             Com a data definida, a aba Dados projeta quantas questões você faz até a prova no ritmo
-            atual. A meta é opcional: sem ela, o alvo é fechar as questões inéditas do banco.
+            atual. A meta é opcional: sem ela, o alvo é fechar as questões inéditas do banco. O tempo
+            por questão é comparado ao seu tempo médio de resposta.
           </div>
           <label style={rotulo}>Data da prova</label>
           <input
@@ -1006,6 +1007,20 @@ export default function AjustesTab({ ativa }: { ativa: boolean }) {
             onChange={(e) => {
               const n = Number(e.target.value);
               salvarProva({ ...prova, metaQuestoes: e.target.value && n > 0 ? Math.round(n) : null });
+            }}
+          />
+          <label style={{ ...rotulo, marginTop: 12 }}>Tempo por questão na prova (minutos)</label>
+          <input
+            type="number"
+            inputMode="decimal"
+            min={0.5}
+            step={0.5}
+            placeholder={`Padrão: ${MINUTOS_POR_QUESTAO_PADRAO}`}
+            style={campo}
+            value={prova.minutosPorQuestao ?? ""}
+            onChange={(e) => {
+              const n = Number(e.target.value.replace(",", "."));
+              salvarProva({ ...prova, minutosPorQuestao: e.target.value && n > 0 ? n : null });
             }}
           />
         </SecaoColapsavel>

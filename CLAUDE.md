@@ -112,9 +112,11 @@ que é específico deste projeto.
   `src/views/RevisaoDiariaView.tsx`, entrada pelo painel no topo de `QuestoesTab.tsx`. `Refazer`
   (questões) e `Notas → Revisão` continuam existindo como entradas separadas — a fila unificada é um
   atalho, não substitui as duas.
-- Tutor da questão (`perguntarSobreQuestao`, `src/lib/anthropic.ts`) só aparece dentro de
-  `FilaRevisaoDrill.tsx` (Refazer, Blocos anteriores, fila unificada) — nunca ao responder pela
-  primeira vez (Gerar/Do banco/Importar/Simulado usam `QuestaoCard` direto). Teto de
+- Tutor da questão (`perguntarSobreQuestao`, `src/lib/anthropic.ts`; UI em
+  `components/TutorQuestao.tsx`): botão-ícone de balão na barra de ações do `QuestaoCard`, em
+  todo drill que usa o card (Gerar, Do banco, Importar, revisão — Simulado não usa o card).
+  Antes de revelar (`respondida: false`) o prompt não leva gabarito nem comentário e proíbe dizer
+  qual alternativa está certa; depois de revelar, o mesmo histórico segue com o gabarito. Teto de
   `MAX_PERGUNTAS_TUTOR` (3) perguntas por questão, e bloqueado se o teto mensal de custo já
   estourou (`situacaoTeto`).
 - Selo de pendências no ícone da aba Questões (`src/lib/badgePendencias.ts`, opcional, padrão
@@ -316,10 +318,42 @@ que é específico deste projeto.
   trocados em `limpar`): cartão no fim da aba Dados, respeita o filtro de matéria, período escolhido no
   cartão. Figuras vêm de `lib/figuras.ts` (glob de `banco/imagens`, compartilhado com `TextoQuestao`).
 
-## Tamanho do texto (bloco do banco para leitura rápida)
+## Tamanho do texto, formato, bloco rápido e rascunho (Do banco)
 
 - Seletor "Tamanho do texto" em `GerarBancoView` (Qualquer / Curto ≤ 600 / Curtíssimo ≤ 350
   caracteres, `TAMANHOS_TEXTO` em `lib/banco.ts`): vira `maxCaracteres` no `FiltroBanco` e vale
   também para o bloco do dia. `caracteresDeLeitura` soma texto de apoio + enunciado + alternativas
   (espaços colapsados); figura (`![`) ou tabela (`<table`) = Infinity, nunca entra. Não muda o
   tópico gravado nem reseta ao trocar de área.
+- `caracteresDaQuestao` (mesma conta para uma `Questao` do app, texto de apoio via `bancoId`) alimenta
+  a revisão "só curtas" (botão-ícone de raio no painel "vence hoje", `RevisaoDiariaView soCurtas`,
+  teto `TETO_CURTO`) e o cartão "Acerto por tamanho do texto" da aba Dados
+  (`respostasComTexto` + `agruparPorTamanho` em `useDadosAgregados`).
+- Bloco com teto de texto (e revisão só curtas) passa `explicacaoEnxuta` ao `QuestaoCard`: depois
+  de revelar, só a primeira frase do comentário (`primeiraFrase`, `lib/texto.ts`) e "Ver explicação
+  completa".
+- Seletor "Formato" (Todos / Múltipla escolha / Certo/Errado) no mesmo lugar: `formato` no
+  `FiltroBanco`, também no bloco do dia.
+- Rascunho do bloco do banco (`lib/blocoBancoRascunho.ts`, um só, chave própria em Preferences):
+  gravado a cada lote/resposta; aviso "Bloco em andamento" em Do banco com Continuar/Descartar
+  (descartar fecha a linha de `blocos` com o que foi respondido). Questão já respondida não volta:
+  o rascunho guarda `qIdx + 1` quando o gabarito da atual já foi revelado.
+- Bloco rápido (`lib/blocoRapido.ts`): 5 questões até `TETO_CURTISSIMO` de várias áreas
+  (`selecionarMisto` com `filtroRapido`), explicação enxuta. O PRÓXIMO fica preparado em
+  Preferences (ids) com as explicações já no cache `explicacoes_banco` — feito ao abrir Do banco
+  com rede e o toggle de explicações ligado — para abrir completo offline. Sem rede, falha de
+  `gerarExplicacoes` não trava mais o bloco (segue sem explicação nova).
+- Atalho do ícone no Android (toque longo → "Bloco rápido"): `res/xml/shortcuts.xml` + meta-data
+  no `MainActivity` do manifest, URL `kuestions://bloco-rapido`, lida em `lib/atalhos.ts`
+  (`getLaunchUrl` + `appUrlOpen`, chamado no boot em `App.tsx`). QuestoesTab troca para Do banco e
+  GerarBancoView consome o pedido.
+
+## Voz e tempo de prova
+
+- Leitura em voz alta (`lib/acessibilidade.ts`): no app nativo usa
+  `@capacitor-community/text-to-speech` (v6, Capacitor 7) — a WebView do Android expõe
+  `speechSynthesis` sem vozes e ficava muda; no navegador segue a Web Speech API. Lê também o texto
+  de apoio. Rodar `npx cap sync` depois de puxar.
+- Tempo por questão na prova: Ajustes → Prova (`minutosPorQuestao` em `lib/prova.ts`, padrão
+  `MINUTOS_POR_QUESTAO_PADRAO` = 3). Comparado ao tempo médio no cartão "Tempo médio por questão"
+  (Dados; marca vertical por matéria) e no resultado do bloco do banco.

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { C, campo, disp, mono, rotulo } from "../theme";
+import { BoltIcon } from "@heroicons/react/24/outline";
+import { C, campo, cartao, disp, mono, rotulo } from "../theme";
 import Botao from "../components/Botao";
 import EsqueletoQuestao from "../components/EsqueletoQuestao";
 import Rail from "../components/Rail";
@@ -11,6 +12,7 @@ import {
   areasBanco,
   assuntosDeArea,
   blocosDeArea,
+  buscarQuestaoBanco,
   contarDisponiveis,
   contarIneditas,
   descricaoFiltroBanco,
@@ -20,7 +22,9 @@ import {
   pontuarAssuntos,
   questaoBancoParaQuestao,
   selecionarQuestoes,
+  FORMATOS_BANCO,
   TAMANHOS_TEXTO,
+  TETO_CURTISSIMO,
   type FiltroBanco,
   NIVEL_BANCO,
 } from "../lib/banco";
@@ -44,6 +48,16 @@ import { escolherMateriaSugerida } from "../lib/materiaSugerida";
 import { aprovadoNoBloco } from "../lib/blocoUtils";
 import { Q_POR_BLOCO } from "../lib/constants";
 import type { Questao, StatusSub } from "../lib/types";
+import { ehInviavel } from "../lib/questoesInviaveis";
+import {
+  getRascunhoBanco,
+  limparRascunhoBanco,
+  salvarRascunhoBanco,
+  type RascunhoBlocoBanco,
+} from "../lib/blocoBancoRascunho";
+import { getBlocoRapidoPronto, Q_BLOCO_RAPIDO, setBlocoRapidoPronto } from "../lib/blocoRapido";
+import { aoPedirBlocoRapido, consumirBlocoRapido } from "../lib/atalhos";
+import { getProvaAlvo, msPorQuestaoNaProva } from "../lib/prova";
 
 type Tela = "config" | "drill" | "resultado";
 
@@ -51,6 +65,9 @@ type Tela = "config" | "drill" | "resultado";
  * no edital × fraqueza (ver lib/blocoMisto.ts). */
 const AREA_MISTA = "__misto__";
 type Modo = "aula" | "bloco" | "todos";
+
+/** Questões curtíssimas de várias áreas, para o bloco rápido. */
+const filtroRapido: FiltroBanco = { modo: "todos", maxCaracteres: TETO_CURTISSIMO };
 
 /** Questões geradas em bastidores em lotes de 4 (chamada única à API para
  * escrever comentário + explicações de cada alternativa errada), com a mesma
@@ -90,6 +107,8 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   // Teto de texto para ler (ver TAMANHOS_TEXTO em lib/banco.ts) — não volta
   // a "Qualquer" ao trocar de área: é a situação de estudo, não do filtro.
   const [maxCaracteres, setMaxCaracteres] = useState<number>(0);
+  // "" = os dois formatos; idem, não reseta ao trocar de área.
+  const [formato, setFormato] = useState<"" | "mc" | "ce">("");
   const [quantidade, setQuantidade] = useState<number>(Q_POR_BLOCO);
   // Gerar comentário/explicações já na montagem do bloco, ou deixar para
   // sob demanda depois de responder — mesma ideia de GerarView. Preferência
@@ -113,6 +132,16 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   // pulada ou nunca vista não é gravada nem contabilizada (ver
   // encerrarBloco/pularQuestao).
   const [respondidas, setRespondidas] = useState(0);
+  // Soma do tempo de resposta do bloco — comparado ao tempo por questão da
+  // prova no resultado (ver lib/prova.ts).
+  const [tempoTotalMs, setTempoTotalMs] = useState(0);
+  const [msAlvoProva, setMsAlvoProva] = useState<number | null>(null);
+  // Explicação enxuta (QuestaoCard): bloco montado com teto de texto.
+  const [enxuta, setEnxuta] = useState(false);
+  const [rascunho, setRascunho] = useState<RascunhoBlocoBanco | null>(null);
+  // A questão atual já foi respondida (gabarito revelado): o rascunho
+  // retoma na seguinte, senão ela seria respondida e gravada duas vezes.
+  const [respondeuAtual, setRespondeuAtual] = useState(false);
   // ids do banco fixo já respondidos em qualquer bloco anterior — usado para
   // priorizar questões inéditas (ver lib/banco.ts) e avisar quando o estoque
   // de inéditas do filtro atual está acabando.
@@ -125,6 +154,10 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   // `selecionadasRef`) — grava a resposta na área certa em vez de no rótulo
   // do bloco.
   const areasRef = useRef<string[]>([]);
+  // Tópico gravado de cada questão — fixado ao montar o bloco, para não
+  // depender do filtro da tela de configuração (que o rascunho não restaura).
+  const topicosRef = useRef<string[]>([]);
+  const materiaBlocoRef = useRef("");
   const misto = area === AREA_MISTA;
 
   useEffect(() => {
@@ -148,8 +181,48 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   useEffect(() => {
     if (tela === "config") {
       idsBancoRespondidos().then(setVistas).catch(() => setVistas(new Set()));
+      getRascunhoBanco().then(setRascunho);
     }
   }, [tela]);
+
+  // Bloco rápido pedido pelo atalho do ícone (lib/atalhos.ts): ao montar
+  // (abertura a frio) ou já montada (app em segundo plano).
+  const iniciarRapidoRef = useRef<() => void>(() => {});
+  useEffect(() => {
+    if (!bancoPronto) return;
+    if (consumirBlocoRapido()) iniciarRapidoRef.current();
+    return aoPedirBlocoRapido(() => {
+      if (consumirBlocoRapido()) iniciarRapidoRef.current();
+    });
+  }, [bancoPronto]);
+
+  // Prepara o próximo bloco rápido enquanto há rede (ver lib/blocoRapido.ts).
+  const preparandoRef = useRef(false);
+  useEffect(() => {
+    if (!bancoPronto || tela !== "config") return;
+    void prepararBlocoRapido(new Set());
+  }, [bancoPronto, tela, comExplicacoes]);
+
+  // Rascunho: grava a cada avanço do drill (lote recebido, resposta).
+  useEffect(() => {
+    if (tela !== "drill" || !selecionadasRef.current.length) return;
+    const questoes = selecionadasRef.current.map((q, i) => lotes[Math.floor(i / LOTE)]?.[i % LOTE] ?? q);
+    void salvarRascunhoBanco({
+      questoes,
+      areas: areasRef.current,
+      topicos: topicosRef.current,
+      lotesProntos: statusLote.map((st) => st === "ok"),
+      materia: materiaBlocoRef.current,
+      qIdx: respondeuAtual ? qIdx + 1 : qIdx,
+      acertos,
+      respondidas,
+      tempoTotalMs,
+      blocoId,
+      enxuta,
+    });
+  }, [tela, lotes, statusLote, qIdx, respondeuAtual, acertos, respondidas, tempoTotalMs, blocoId, enxuta]);
+
+  useEffect(() => setRespondeuAtual(false), [qIdx]);
 
   // `disponiveis`/`filtro` entram nas deps do efeito abaixo — precisam ser
   // calculados incondicionalmente, ANTES do `if (!bancoPronto)` mais abaixo,
@@ -160,8 +233,13 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
     ...(instituicao ? { instituicao } : {}),
     ...(ano ? { ano } : {}),
     ...(maxCaracteres ? { maxCaracteres } : {}),
+    ...(formato ? { formato } : {}),
   };
-  const filtroMisto: FiltroBanco = { modo: "todos", ...(maxCaracteres ? { maxCaracteres } : {}) };
+  const filtroMisto: FiltroBanco = {
+    modo: "todos",
+    ...(maxCaracteres ? { maxCaracteres } : {}),
+    ...(formato ? { formato } : {}),
+  };
   const filtro: FiltroBanco =
     modo === "aula" && assunto
       ? { modo: "aula", assunto, ...proveniencia }
@@ -218,7 +296,9 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
           // para funcionar (as questões já são reais, vêm prontas do banco)
           // — só o comentário/explicações ficam sem gerar, em vez de travar
           // o bloco inteiro com um erro.
-          if (!(e instanceof SemCredencialError)) throw e;
+          // Sem rede (academia, metrô): idem — segue sem explicação nova,
+          // só com o que já estava no cache (ver lib/blocoRapido.ts).
+          if (!(e instanceof SemCredencialError) && navigator.onLine) throw e;
         }
       }
       const geradasPorId = new Map(geradas.map((q) => [q.bancoId, q]));
@@ -249,7 +329,11 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
 
   /** Bloco do dia: reparte `n` entre as áreas por peso × fraqueza e
    * intercala as questões (a1, b1, c1, a2…), como na prova real. */
-  async function selecionarMisto(n: number): Promise<{ questao: Questao; area: string }[]> {
+  async function selecionarMisto(
+    n: number,
+    filtroAreas: FiltroBanco = filtroMisto,
+    jaVistas: ReadonlySet<string> = vistas,
+  ): Promise<{ questao: Questao; area: string }[]> {
     const [pesosEdital, acertoPorArea] = await Promise.all([getPesosEdital(), resumoPorMateria(null)]);
     const acerto = new Map(acertoPorArea.map((f) => [f.chave, f]));
     const distribuicao = distribuirBlocoMisto(
@@ -258,7 +342,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
         peso: pesoDe(pesosEdital, a),
         acertos: acerto.get(a)?.acertos ?? 0,
         total: acerto.get(a)?.total ?? 0,
-        disponiveis: contarDisponiveis(a, filtroMisto),
+        disponiveis: contarDisponiveis(a, filtroAreas),
       })),
       n,
     );
@@ -270,7 +354,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
         } catch (e) {
           console.error("direcionar assunto por pontuação", e);
         }
-        return selecionarQuestoes(a, filtroMisto, k, vistas, pesosAssunto).map((qb) => ({
+        return selecionarQuestoes(a, filtroAreas, k, jaVistas, pesosAssunto).map((qb) => ({
           questao: questaoBancoParaQuestao(qb),
           area: a,
         }));
@@ -285,11 +369,14 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
     if (misto) {
       const itens = await selecionarMisto(n);
       if (!itens.length) return;
-      areasRef.current = itens.map((i) => i.area);
+      const areas = itens.map((i) => i.area);
       await comecarBloco(
         itens.map((i) => i.questao),
         MATERIA_MISTA,
-        `Bloco do dia: ${[...new Set(areasRef.current)].join(", ")}`,
+        `Bloco do dia: ${[...new Set(areas)].join(", ")}`,
+        areas,
+        areas,
+        maxCaracteres > 0,
       );
       return;
     }
@@ -307,12 +394,107 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
     }
 
     const selecionadas = selecionarQuestoes(area, filtro, n, vistas, pesos).map(questaoBancoParaQuestao);
-    areasRef.current = selecionadas.map(() => area);
-    await comecarBloco(selecionadas, area, descricaoFiltroBanco(area, filtro));
+    const topico = descricaoFiltroBanco(area, filtro);
+    await comecarBloco(
+      selecionadas,
+      area,
+      topico,
+      selecionadas.map(() => area),
+      selecionadas.map(() => topico),
+      maxCaracteres > 0,
+    );
   }
 
-  async function comecarBloco(selecionadas: Questao[], materiaBloco: string, topico: string) {
+  /**
+   * Sorteia e guarda o próximo bloco rápido, com as explicações já no cache
+   * quando há rede e o toggle de explicações está ligado — é o que deixa o
+   * bloco rápido completo mesmo offline (ver lib/blocoRapido.ts). Não faz
+   * nada se já houver um preparado ainda válido.
+   */
+  async function prepararBlocoRapido(excluir: ReadonlySet<string>) {
+    if (preparandoRef.current) return;
+    preparandoRef.current = true;
+    try {
+      const respondidos = await idsBancoRespondidos();
+      const pronto = await getBlocoRapidoPronto();
+      if (pronto?.length && pronto.every((id) => !respondidos.has(id) && !excluir.has(id) && !ehInviavel(id))) {
+        return;
+      }
+      const evitar = new Set([...respondidos, ...excluir]);
+      const itens = await selecionarMisto(Q_BLOCO_RAPIDO, filtroRapido, evitar);
+      const ids = itens.map((i) => i.questao.bancoId).filter((id): id is string => !!id);
+      if (!ids.length) return;
+      if (comExplicacoes && navigator.onLine) {
+        const cache = await buscarExplicacoesBanco(ids);
+        const semCache = itens.map((i) => i.questao).filter((q) => q.bancoId && !cache.has(q.bancoId));
+        if (semCache.length) {
+          try {
+            const geradas = await gerarExplicacoes(semCache);
+            await salvarExplicacoesBanco(
+              geradas
+                .filter((q): q is Questao & { bancoId: string } => !!q.bancoId)
+                .map((q) => ({ bancoId: q.bancoId, comentario: q.comentario, explicacoes_erradas: q.explicacoes_erradas })),
+            );
+          } catch (e) {
+            // Sem chave/rede: o bloco fica preparado só com as questões.
+            if (!(e instanceof SemCredencialError)) console.error("preparar bloco rápido", e);
+          }
+        }
+      }
+      await setBlocoRapidoPronto(ids);
+    } catch (e) {
+      console.error("preparar bloco rápido", e);
+    } finally {
+      preparandoRef.current = false;
+    }
+  }
+
+  /** Inicia o bloco rápido: usa o preparado (explicações em cache, funciona
+   * offline) ou, sem ele, sorteia na hora. Prepara o seguinte em seguida. */
+  async function iniciarRapido() {
+    const respondidos = await idsBancoRespondidos().catch(() => new Set<string>());
+    const pronto = ((await getBlocoRapidoPronto()) ?? [])
+      .filter((id) => !respondidos.has(id) && !ehInviavel(id))
+      .map((id) => buscarQuestaoBanco(id))
+      .filter((q): q is NonNullable<typeof q> => !!q);
+    const itens =
+      pronto.length >= Q_BLOCO_RAPIDO
+        ? pronto.map((q) => ({ questao: questaoBancoParaQuestao(q), area: q.area }))
+        : await selecionarMisto(Q_BLOCO_RAPIDO, filtroRapido, respondidos);
+    if (!itens.length) return;
+    await setBlocoRapidoPronto(null);
+    const areas = itens.map((i) => i.area);
+    await comecarBloco(
+      itens.map((i) => i.questao),
+      MATERIA_MISTA,
+      `Bloco rápido: ${[...new Set(areas)].join(", ")}`,
+      areas,
+      areas,
+      true,
+    );
+    void prepararBlocoRapido(new Set(itens.map((i) => i.questao.bancoId ?? "")));
+  }
+  iniciarRapidoRef.current = () => {
+    // Bloco em andamento continua: o atalho não descarta o que está aberto.
+    if (tela === "config") void iniciarRapido();
+  };
+
+  async function comecarBloco(
+    selecionadas: Questao[],
+    materiaBloco: string,
+    topico: string,
+    areas: string[],
+    topicos: string[],
+    comTetoTexto: boolean,
+  ) {
     const nLotes = Math.ceil(selecionadas.length / LOTE);
+    areasRef.current = areas;
+    topicosRef.current = topicos;
+    materiaBlocoRef.current = materiaBloco;
+    setEnxuta(comTetoTexto);
+    setTempoTotalMs(0);
+    setRascunho(null);
+    setRespondeuAtual(false);
 
     setLotes(Array.from({ length: nLotes }, () => null));
     setStatusLote(Array.from({ length: nLotes }, () => "idle"));
@@ -350,7 +532,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   const ultimaDoBloco = qIdx === totalQuestoes - 1;
   // No bloco misto cada questão é de uma área; o tópico gravado é a área.
   const areaAtual = areasRef.current[qIdx] ?? area;
-  const topicoAtual = misto ? areaAtual : descricaoFiltroBanco(area, filtro);
+  const topicoAtual = topicosRef.current[qIdx] ?? areaAtual;
 
   async function responder(
     letra: string,
@@ -360,6 +542,8 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   ): Promise<number | null> {
     if (acertou) setAcertos((a) => a + 1);
     setRespondidas((n) => n + 1);
+    setTempoTotalMs((t) => t + tempoMs);
+    setRespondeuAtual(true);
     if (!questao) return null;
     return gravarResposta({
       blocoId,
@@ -392,6 +576,10 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
    * vira o número de respondidas (questão pulada ou não alcançada não conta
    * em lugar nenhum) e a aprovação é medida sobre elas. */
   async function gravarFechamento() {
+    void limparRascunhoBanco();
+    getProvaAlvo()
+      .then((p) => setMsAlvoProva(msPorQuestaoNaProva(p)))
+      .catch(() => setMsAlvoProva(null));
     if (blocoId == null) return;
     try {
       if (respondidas !== totalQuestoes) {
@@ -419,6 +607,54 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
     }
   }
 
+  /** Retoma o bloco do rascunho (app fechado no meio do drill): os lotes que
+   * faltavam voltam a pedir explicação a partir do primeiro pendente. */
+  function continuarRascunho(r: RascunhoBlocoBanco) {
+    // Parou depois de responder a última: só falta fechar o bloco.
+    if (r.qIdx >= r.questoes.length) {
+      descartarRascunho();
+      return;
+    }
+    const nLotes = Math.ceil(r.questoes.length / LOTE);
+    const novosLotes = Array.from({ length: nLotes }, (_, i) =>
+      r.lotesProntos[i] ? r.questoes.slice(i * LOTE, i * LOTE + LOTE) : null,
+    );
+    const status: StatusSub[] = novosLotes.map((l) => (l ? "ok" : "idle"));
+    selecionadasRef.current = r.questoes;
+    areasRef.current = r.areas;
+    topicosRef.current = r.topicos;
+    materiaBlocoRef.current = r.materia;
+    setLotes(novosLotes);
+    setStatusLote(status);
+    setQIdx(r.qIdx);
+    setTotalQuestoes(r.questoes.length);
+    setAcertos(r.acertos);
+    setRespondidas(r.respondidas);
+    setTempoTotalMs(r.tempoTotalMs);
+    setBlocoId(r.blocoId);
+    setEnxuta(r.enxuta);
+    setErro(null);
+    setConfirmandoAbandono(false);
+    setRascunho(null);
+    setTela("drill");
+    const primeiroPendente = status.indexOf("idle");
+    if (primeiroPendente >= 0) dispararLote(primeiroPendente, r.questoes, nLotes);
+  }
+
+  function descartarRascunho() {
+    const r = rascunho;
+    setRascunho(null);
+    void limparRascunhoBanco();
+    // Fecha a linha do bloco com o que foi respondido, como no encerrar.
+    if (r?.blocoId != null) {
+      const fechar = async () => {
+        if (r.respondidas !== r.questoes.length) await atualizarTotalQuestoesBloco(r.blocoId!, r.respondidas);
+        await fecharBloco(r.blocoId!, [r.acertos], aprovadoNoBloco(r.acertos, r.respondidas));
+      };
+      fechar().catch((e) => console.error("fechar bloco descartado", e));
+    }
+  }
+
   /** Pula a questão atual sem gravar nada — mesma regra de `encerrarBloco`. */
   function pularQuestao() {
     if (ultimaDoBloco) {
@@ -432,6 +668,33 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
   if (tela === "config") {
     return (
       <div>
+        {rascunho && (
+          <div style={{ ...cartao, background: C.canetaSoft, borderColor: C.caneta, marginBottom: 18 }}>
+            <div style={{ ...mono, fontSize: 11, color: C.caneta, letterSpacing: 0.8, marginBottom: 6 }}>
+              BLOCO EM ANDAMENTO
+            </div>
+            <p style={{ fontSize: 13.5, lineHeight: 1.55, margin: "0 0 12px" }}>
+              Bloco de <strong>{rascunho.materia === MATERIA_MISTA ? "várias áreas" : rascunho.materia}</strong>{" "}
+              parado na questão {Math.min(rascunho.qIdx + 1, rascunho.questoes.length)}/{rascunho.questoes.length}.
+            </p>
+            <div style={{ display: "flex", gap: 8 }}>
+              <Botao tipo="fantasma" onClick={descartarRascunho} style={{ flex: 1 }}>
+                Descartar
+              </Botao>
+              <Botao tipo="tinta" onClick={() => continuarRascunho(rascunho)} style={{ flex: 1 }}>
+                Continuar
+              </Botao>
+            </div>
+          </div>
+        )}
+
+        <Botao tipo="fantasma" onClick={() => void iniciarRapido()} style={{ marginBottom: 18 }}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+            <BoltIcon width={16} height={16} strokeWidth={1.8} />
+            Bloco rápido · {Q_BLOCO_RAPIDO} questões curtíssimas
+          </span>
+        </Botao>
+
         <div style={{ marginBottom: 18 }}>
           <label style={rotulo}>Área</label>
           <select style={campo} value={area} onChange={(e) => setArea(e.target.value)}>
@@ -525,6 +788,15 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
             valor={maxCaracteres}
             opcoes={TAMANHOS_TEXTO.map((t) => ({ id: t.id as number, label: t.label }))}
             onChange={setMaxCaracteres}
+          />
+        </div>
+
+        <div style={{ marginBottom: 18 }}>
+          <label style={rotulo}>Formato</label>
+          <Segmented
+            valor={formato}
+            opcoes={FORMATOS_BANCO.map((f) => ({ id: f.id as "" | "mc" | "ce", label: f.label }))}
+            onChange={setFormato}
           />
         </div>
 
@@ -639,6 +911,7 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
             onResponder={responder}
             onPular={pularQuestao}
             onProxima={proxima}
+            explicacaoEnxuta={enxuta}
           />
         )}
 
@@ -700,6 +973,19 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
           {acertos}
           <span style={{ fontSize: 28, color: C.sub, fontWeight: 600 }}>/{respondidas}</span>
         </div>
+        {respondidas > 0 && (
+          <div style={{ ...mono, fontSize: 12, color: C.sub, marginTop: 4 }}>
+            <span
+              style={{
+                color: msAlvoProva == null ? C.sub : tempoTotalMs / respondidas <= msAlvoProva ? C.ok : C.erro,
+                fontWeight: 600,
+              }}
+            >
+              {segundosLegiveis(tempoTotalMs / respondidas)} por questão
+            </span>
+            {msAlvoProva != null && ` · prova: ${segundosLegiveis(msAlvoProva)}`}
+          </div>
+        )}
       </div>
 
       <Botao tipo="tinta" onClick={() => setTela("config")} style={{ marginTop: 16 }}>
@@ -707,6 +993,13 @@ export default function GerarBancoView({ onEmDrill }: { onEmDrill?: (v: boolean)
       </Botao>
     </div>
   );
+}
+
+/** "1min 24s" / "38s". */
+function segundosLegiveis(ms: number): string {
+  const s = Math.round(ms / 1000);
+  const m = Math.floor(s / 60);
+  return m > 0 ? `${m}min ${s % 60}s` : `${s}s`;
 }
 
 function stepperBotaoStyle(desabilitado: boolean) {

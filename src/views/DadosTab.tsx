@@ -32,6 +32,7 @@ import { INTERVALOS_LEITNER_DIAS } from "../lib/repo/leitner";
 import { agruparPorPrefixo } from "../lib/topicos";
 import { alocacaoVsEdital, calcularRitmo, hojeISO, projetarAteProva } from "../lib/ritmo";
 import { labelCausaErro } from "../lib/causaErro";
+import { msPorQuestaoNaProva } from "../lib/prova";
 import { exportarCadernoErros, PERIODOS_CADERNO } from "../lib/cadernoErros";
 
 const TODAS = "__todas__";
@@ -223,6 +224,7 @@ export default function DadosTab({
     simulados,
     causasErro,
     bancas,
+    porTamanho,
     alocacaoRecente,
     prova,
     feitasTotal,
@@ -726,18 +728,44 @@ export default function DadosTab({
               "acerta mas devagar" (fluência baixa) — dois problemas
               diferentes que pedem treino diferente. */}
           {tempoGeral && (
-            <Cartao titulo="TEMPO MÉDIO POR QUESTÃO">
+            <Cartao
+              titulo="TEMPO MÉDIO POR QUESTÃO"
+              ajuda="Do aparecer da questão ao envio da resposta. O alvo é o tempo por questão na prova (Ajustes → Prova); acima dele, numa prova cronometrada, faltam as últimas questões. Na lista por matéria, a marca vertical é esse alvo."
+            >
               <div style={{ padding: "0 4px 14px" }}>
-                <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: filtro === TODAS && tempoMaterias.length > 1 ? 12 : 0 }}>
-                  <div style={{ ...disp, fontSize: 28, fontWeight: 800, letterSpacing: -0.5 }}>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+                  <div
+                    style={{
+                      ...disp,
+                      fontSize: 28,
+                      fontWeight: 800,
+                      letterSpacing: -0.5,
+                      color: tempoGeral.tempoMedioMs <= msPorQuestaoNaProva(prova) ? C.ok : C.erro,
+                    }}
+                  >
                     {formatarDuracao(tempoGeral.tempoMedioMs)}
                   </div>
                   <div style={{ ...mono, fontSize: 11, color: C.sub }}>{tempoGeral.amostras} questões</div>
                 </div>
+                <div
+                  style={{
+                    ...mono,
+                    fontSize: 11,
+                    color: C.sub,
+                    marginTop: 2,
+                    marginBottom: filtro === TODAS && tempoMaterias.length > 1 ? 12 : 0,
+                  }}
+                >
+                  Prova: {formatarDuracao(msPorQuestaoNaProva(prova))} por questão ·{" "}
+                  {tempoGeral.tempoMedioMs <= msPorQuestaoNaProva(prova)
+                    ? `${formatarDuracao(msPorQuestaoNaProva(prova) - tempoGeral.tempoMedioMs)} de folga`
+                    : `${formatarDuracao(tempoGeral.tempoMedioMs - msPorQuestaoNaProva(prova))} acima`}
+                </div>
                 {filtro === TODAS && tempoMaterias.length > 1 && (
                   <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
                     {tempoMaterias.map((t) => {
-                      const maior = tempoMaterias[0]?.tempoMedioMs || 1;
+                      const alvo = msPorQuestaoNaProva(prova);
+                      const maior = Math.max(tempoMaterias[0]?.tempoMedioMs || 1, alvo);
                       return (
                         <div key={t.chave}>
                           <div
@@ -753,13 +781,31 @@ export default function DadosTab({
                               {formatarDuracao(t.tempoMedioMs)}
                             </span>
                           </div>
-                          <div style={{ height: 5, background: C.line, borderRadius: 3, overflow: "hidden" }}>
+                          <div
+                            style={{
+                              position: "relative",
+                              height: 5,
+                              background: C.line,
+                              borderRadius: 3,
+                              overflow: "hidden",
+                            }}
+                          >
                             <div
                               style={{
                                 height: "100%",
                                 width: `${Math.max(4, Math.round((t.tempoMedioMs / maior) * 100))}%`,
-                                background: C.caneta,
+                                background: t.tempoMedioMs <= alvo ? C.caneta : C.erro,
                                 borderRadius: 3,
+                              }}
+                            />
+                            <div
+                              style={{
+                                position: "absolute",
+                                top: 0,
+                                bottom: 0,
+                                left: `calc(${(alvo / maior) * 100}% - 2px)`,
+                                width: 2,
+                                background: C.ink,
                               }}
                             />
                           </div>
@@ -897,6 +943,21 @@ export default function DadosTab({
               ajuda="Só questões de provas reais (banco fixo). Mostra se a dificuldade é o estilo de uma banca e não a matéria."
             >
               <BarrasPct dados={bancas.map((b) => ({ nome: b.chave, pct: b.pct, total: b.total }))} alturaPorItem={40} />
+            </Cartao>
+          )}
+
+          {/* Acerto por tamanho do texto (texto de apoio + enunciado +
+              alternativas, ver caracteresDaQuestao em lib/banco.ts): queda
+              nas longas aponta cansaço ou leitura apressada. */}
+          {porTamanho.length > 1 && (
+            <Cartao
+              titulo="ACERTO POR TAMANHO DO TEXTO"
+              ajuda="Caracteres de texto de apoio, enunciado e alternativas somados; questão com figura ou tabela conta como longa. Se o acerto cai nas longas e não nas curtas, o problema tende a ser leitura (cansaço, pressa, pegadinha no meio do texto), não conteúdo."
+            >
+              <BarrasPct
+                dados={porTamanho.map((f) => ({ nome: f.chave, pct: f.pct, total: f.total }))}
+                alturaPorItem={40}
+              />
             </Cartao>
           )}
 

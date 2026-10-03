@@ -34,6 +34,7 @@ import {
   idsBancoRespondidos,
   porCausaErro,
   questoesPorMateriaRecentes,
+  respostasComTexto,
   respostasDoBanco,
   totalRespondidas,
   type CalibracaoMateria,
@@ -48,7 +49,15 @@ import {
 import { getPesosEdital, type PesosEdital } from "../../lib/edital";
 import { getTetoMensal } from "../../lib/custo";
 import { getProvaAlvo, type ProvaAlvo } from "../../lib/prova";
-import { areasBanco, buscarQuestaoBanco, contarIneditas, garantirBanco } from "../../lib/banco";
+import {
+  areasBanco,
+  buscarQuestaoBanco,
+  caracteresDaQuestao,
+  contarIneditas,
+  garantirBanco,
+  TETO_CURTISSIMO,
+  TETO_CURTO,
+} from "../../lib/banco";
 import { bancaDe } from "../../lib/bancas";
 import {
   coberturaTopicos,
@@ -80,6 +89,32 @@ function agruparPorBanca(linhas: { bancoId: string; acertou: boolean }[]): Fatia
   return [...mapa.entries()]
     .map(([chave, v]) => ({ chave, ...v, pct: Math.round((v.acertos / v.total) * 100) }))
     .sort((a, b) => b.total - a.total);
+}
+
+/** Faixas do cartão "Acerto por tamanho do texto" — os mesmos tetos do
+ * seletor "Tamanho do texto" do bloco do banco. */
+const FAIXAS_TAMANHO = [
+  { chave: `Curtíssima ≤${TETO_CURTISSIMO}`, ate: TETO_CURTISSIMO },
+  { chave: `Curta ≤${TETO_CURTO}`, ate: TETO_CURTO },
+  { chave: "Média ≤1.200", ate: 1200 },
+  { chave: "Longa", ate: Infinity },
+];
+
+function agruparPorTamanho(
+  linhas: { enunciado: string; alternativas: string[] | null; bancoId?: string; acertou: boolean }[],
+): Fatia[] {
+  const contagem = FAIXAS_TAMANHO.map(() => ({ total: 0, acertos: 0 }));
+  for (const l of linhas) {
+    const n = caracteresDaQuestao(l);
+    const i = FAIXAS_TAMANHO.findIndex((f) => n <= f.ate);
+    contagem[i].total++;
+    if (l.acertou) contagem[i].acertos++;
+  }
+  return FAIXAS_TAMANHO.map((f, i) => ({
+    chave: f.chave,
+    ...contagem[i],
+    pct: contagem[i].total ? Math.round((contagem[i].acertos / contagem[i].total) * 100) : 0,
+  })).filter((f) => f.total > 0);
 }
 
 export function useDadosAgregados({
@@ -145,10 +180,11 @@ export function useDadosAgregados({
     naoClassificadas: 0,
   });
   const [bancas, setBancas] = useState<Fatia[]>([]);
+  const [porTamanho, setPorTamanho] = useState<Fatia[]>([]);
   // Ritmo/prova/alocação: não filtrados por matéria/nível (constância e
   // planejamento do estudo como um todo, como a sequência).
   const [alocacaoRecente, setAlocacaoRecente] = useState<Record<string, number>>({});
-  const [prova, setProva] = useState<ProvaAlvo>({ data: null, metaQuestoes: null });
+  const [prova, setProva] = useState<ProvaAlvo>({ data: null, metaQuestoes: null, minutosPorQuestao: null });
   const [feitasTotal, setFeitasTotal] = useState(0);
   const [ineditasBanco, setIneditasBanco] = useState<number | null>(null);
   const [areasDoBanco, setAreasDoBanco] = useState<string[]>([]);
@@ -229,10 +265,16 @@ export function useDadosAgregados({
   useEffect(() => {
     if (!ativa) return;
     let vivo = true;
-    Promise.all([garantirBanco(), respostasDoBanco(materia, nivel), idsBancoRespondidos()])
-      .then(([, linhas, vistas]) => {
+    Promise.all([
+      garantirBanco(),
+      respostasDoBanco(materia, nivel),
+      idsBancoRespondidos(),
+      respostasComTexto(materia, nivel),
+    ])
+      .then(([, linhas, vistas, comTexto]) => {
         if (!vivo) return;
         setBancas(agruparPorBanca(linhas));
+        setPorTamanho(agruparPorTamanho(comTexto));
         const areas = areasBanco();
         setAreasDoBanco(areas);
         setIneditasBanco(areas.reduce((s, a) => s + contarIneditas(a, { modo: "todos" }, vistas), 0));
@@ -290,6 +332,7 @@ export function useDadosAgregados({
     simulados,
     causasErro,
     bancas,
+    porTamanho,
     alocacaoRecente,
     prova,
     feitasTotal,

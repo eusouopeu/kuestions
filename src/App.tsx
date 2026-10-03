@@ -7,6 +7,7 @@ import QuestoesTab from "./views/QuestoesTab";
 import NotasTab from "./views/NotasTab";
 import AjustesTab from "./views/AjustesTab";
 import { getDB } from "./lib/db";
+import { iniciarAtalhos } from "./lib/atalhos";
 import { carregarInviaveis } from "./lib/questoesInviaveis";
 import { sincronizarRespondidasComBanco } from "./lib/sincronizarBanco";
 import { aplicarTema, getTema } from "./lib/tema";
@@ -91,6 +92,8 @@ export default function App() {
     getDB()
       .then(() => {
         setPronto(true);
+        // Depois do banco aberto: o atalho leva a "Do banco", que grava respostas.
+        iniciarAtalhos();
         // Só faz algo quando o banco embutido mudou desde a última abertura.
         void sincronizarRespondidasComBanco();
       })

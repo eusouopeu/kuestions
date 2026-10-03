@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  primeiraFrase,
   aplicarMarcaTexto,
   contarItensLista,
   converterListaParaCloze,
@@ -122,5 +123,23 @@ describe("pareceCalculo", () => {
 
   it("recusa texto com um número só", () => {
     expect(pareceCalculo({ enunciado: "A alíquota é de 18%." })).toBe(false);
+  });
+});
+
+describe("primeiraFrase", () => {
+  it("corta na primeira frase", () => {
+    expect(primeiraFrase("Correta. O art. 150 veda isso. Outra frase.")).toBe("Correta.");
+  });
+
+  it("não corta em abreviação de dispositivo", () => {
+    expect(primeiraFrase("Conforme o art. 150 da CF, é vedado. Resto.")).toBe(
+      "Conforme o art. 150 da CF, é vedado.",
+    );
+  });
+
+  it("frase longa demais vira recorte com reticências", () => {
+    const r = primeiraFrase("palavra ".repeat(60), 40);
+    expect(r.endsWith("…")).toBe(true);
+    expect(r.length).toBeLessThanOrEqual(41);
   });
 });

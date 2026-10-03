@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Atalho do ícone (toque longo): abre o app num bloco rápido de 5 questões
+     curtíssimas do banco. A URL é lida em src/lib/atalhos.ts. -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="bloco_rapido"
+        android:enabled="true"
+        android:icon="@drawable/ic_atalho_rapido"
+        android:shortcutShortLabel="@string/atalho_rapido_curto"
+        android:shortcutLongLabel="@string/atalho_rapido_longo">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="kuestions://bloco-rapido"
+            android:targetPackage="com.pedroteles.kumonfiscal"
+            android:targetClass="com.pedroteles.kumonfiscal.MainActivity" />
+    </shortcut>
+</shortcuts>

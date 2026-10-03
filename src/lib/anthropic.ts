@@ -809,29 +809,53 @@ export interface TurnoTutor {
 
 /** Teto de perguntas por questão (rec. 11: "2-3 turnos") — mantém o recurso
  * barato e evita virar um chat genérico dentro do drill de revisão. Também
- * usado pela UI (FilaRevisaoDrill) para desabilitar o campo ao chegar nele. */
+ * usado pela UI (TutorQuestao) para desabilitar o campo ao chegar nele. */
 export const MAX_PERGUNTAS_TUTOR = 3;
 
-function montarPromptTutor(questao: Questao, historico: TurnoTutor[], pergunta: string): string {
+function montarPromptTutor(
+  questao: Questao,
+  historico: TurnoTutor[],
+  pergunta: string,
+  { respondida, textoApoio }: OpcoesTutor,
+): string {
   const alts = questao.alternativas ? questao.alternativas.join(" | ") : "C) Certo | E) Errado";
   const conversa = historico
     .map((t, i) => `PERGUNTA ${i + 1}: ${t.pergunta}\nRESPOSTA ${i + 1}: ${t.resposta}`)
     .join("\n\n");
-
-  return `Você é tutor de uma questão de concurso da área fiscal que o usuário já respondeu e está revisando (repetição espaçada). NÃO altere enunciado, alternativas nem gabarito — só responda à dúvida.
-
-ENUNCIADO: ${questao.enunciado}
-ALTERNATIVAS: ${alts}
-GABARITO: ${questao.gabarito}
-COMENTÁRIO JÁ EXISTENTE: ${questao.comentario || "(nenhum)"}
-${conversa ? `\nCONVERSA ATÉ AQUI:\n${conversa}\n` : ""}
+  const apoio = textoApoio ? `TEXTO DE APOIO: ${textoApoio}\n` : "";
+  const fim = `${conversa ? `\nCONVERSA ATÉ AQUI:\n${conversa}\n` : ""}
 NOVA PERGUNTA DO USUÁRIO: ${pergunta}
 
 Responda direto à pergunta, sem repetir o enunciado nem se apresentar. Texto puro para tela de celular (sem markdown, sem JSON), no máximo 80 palavras. Se a pergunta não tiver relação nenhuma com esta questão, diga isso em vez de inventar uma resposta.`;
+
+  if (!respondida) {
+    // Antes de responder: tira a dúvida sem entregar a questão — o gabarito
+    // nem vai no prompt, então o modelo não tem como vazá-lo.
+    return `Você é tutor de uma questão de concurso da área fiscal que o usuário AINDA NÃO respondeu. Ajude a entender o enunciado, um termo ou o conceito cobrado, mas NUNCA diga qual alternativa está certa ou errada, nem se o item é certo ou errado, nem elimine alternativas — mesmo que ele peça. Se pedir a resposta, diga que ela aparece depois de responder.
+
+${apoio}ENUNCIADO: ${questao.enunciado}
+ALTERNATIVAS: ${alts}
+${fim}`;
+  }
+
+  return `Você é tutor de uma questão de concurso da área fiscal que o usuário já respondeu. NÃO altere enunciado, alternativas nem gabarito — só responda à dúvida.
+
+${apoio}ENUNCIADO: ${questao.enunciado}
+ALTERNATIVAS: ${alts}
+GABARITO: ${questao.gabarito}
+COMENTÁRIO JÁ EXISTENTE: ${questao.comentario || "(nenhum)"}
+${fim}`;
+}
+
+/** `respondida: false` = pergunta antes de responder: o prompt não leva
+ * gabarito nem comentário (ver montarPromptTutor). */
+export interface OpcoesTutor {
+  respondida: boolean;
+  textoApoio?: string;
 }
 
 /**
- * Tutor sob demanda de UMA questão em revisão (rec. 11) — diferente de
+ * Tutor sob demanda de UMA questão, em qualquer drill, antes ou depois de responder (rec. 11) — diferente de
  * `gerarExplicacaoParcial` (que só explica alternativas específicas com
  * texto fixo), aqui o usuário faz uma pergunta livre sobre a questão aberta.
  * Sem estado no servidor: cada chamada reenvia o histórico inteiro da
@@ -844,8 +868,9 @@ export async function perguntarSobreQuestao(
   questao: Questao,
   historico: TurnoTutor[],
   pergunta: string,
+  opcoes: OpcoesTutor = { respondida: true },
 ): Promise<string> {
-  const texto = await chamar(montarPromptTutor(questao, historico, pergunta), "low", "tutor da questão");
+  const texto = await chamar(montarPromptTutor(questao, historico, pergunta, opcoes), "low", "tutor da questão");
   return texto.trim();
 }
 

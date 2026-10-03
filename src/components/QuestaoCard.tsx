@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowRightStartOnRectangleIcon,
+  ChatBubbleLeftRightIcon,
   CheckIcon,
   FlagIcon as FlagOutline,
   ExclamationTriangleIcon,
@@ -38,8 +39,9 @@ import type { MotivoReport } from "../lib/repo";
 import { marcarInviavel } from "../lib/questoesInviaveis";
 import { gerarExplicacaoParcial, letrasExplicaveis, mensagemDeErro } from "../lib/anthropic";
 import { bancoCarregado, buscarQuestaoBanco, emojiIncidencia, garantirBanco, nomeDaProva } from "../lib/banco";
-import { normalizarLayoutTexto, pareceCalculo } from "../lib/texto";
+import { normalizarLayoutTexto, pareceCalculo, primeiraFrase } from "../lib/texto";
 import ModalReport from "./ModalReport";
+import TutorQuestao from "./TutorQuestao";
 import { lerEmVoz, pararLeitura, vozDisponivel } from "../lib/acessibilidade";
 import { ordemEmbaralhada, rotularAlternativa } from "../lib/embaralhar";
 
@@ -90,7 +92,6 @@ export default function QuestaoCard({
   causaErroInicial,
   origem,
   cabecalho,
-  acoesExtras,
   labelProxima,
   pedirConfianca = true,
   embaralhar = false,
@@ -99,6 +100,7 @@ export default function QuestaoCard({
   onProxima,
   onSair,
   rotuloSair = "Sair",
+  explicacaoEnxuta = false,
 }: {
   questao: Questao;
   materia: string;
@@ -126,10 +128,6 @@ export default function QuestaoCard({
    * gerado por IA, o resto da questão é uma prova real. */
   origem?: OrigemQuestao;
   cabecalho?: React.ReactNode;
-  /** Conteúdo à esquerda da barra de rodapé do card, na mesma linha dos
-   * botões-ícone de corrigir enunciado e pular (ex.: o tutor da questão na
-   * revisão). */
-  acoesExtras?: React.ReactNode;
   labelProxima: string;
   /** Pede a autoavaliação de confiança pelo slider (ver SliderConfianca e
    * lib/repo.ts → porConfianca) antes de revelar o gabarito. Ligado também
@@ -163,6 +161,10 @@ export default function QuestaoCard({
   onSair?: () => void;
   /** Texto acessível/título do botão de sair (inclui contagem, se houver). */
   rotuloSair?: string;
+  /** Modo texto curto (bloco "Curto"/"Curtíssimo", revisão "só curtas"):
+   * depois de revelar, só o gabarito e a primeira frase do comentário; o
+   * resto fica atrás de "Ver explicação completa". */
+  explicacaoEnxuta?: boolean;
 }) {
   const [selecionada, setSelecionada] = useState<string | null>(null);
   const [revelada, setRevelada] = useState(false);
@@ -195,6 +197,9 @@ export default function QuestaoCard({
   // Leitura em voz alta (ver lib/acessibilidade.ts) — permite acompanhar o
   // enunciado sem olhar a tela. Só aparece onde a WebView tem síntese de voz.
   const [lendo, setLendo] = useState(false);
+  // Pergunta rápida à IA (ver TutorQuestao) — antes ou depois de responder.
+  const [tutorAberto, setTutorAberto] = useState(false);
+  const [explicacaoCompleta, setExplicacaoCompleta] = useState(false);
   // Correção do enunciado (botão-ícone de lápis): erro de digitação ou de
   // extração no texto. Sem linha gravada ainda (primeira resposta num
   // bloco), a correção fica pendente e é persistida logo depois de
@@ -241,6 +246,8 @@ export default function QuestaoCard({
     // página (ver lib/acessibilidade.ts).
     pararLeitura();
     setLendo(false);
+    setTutorAberto(false);
+    setExplicacaoCompleta(false);
     inicioRef.current = Date.now();
   }, [questao, questaoOrigemId, reportadaInicial, temNotaInicial, causaErroInicial]);
 
@@ -428,7 +435,11 @@ export default function QuestaoCard({
       setLendo(false);
       return;
     }
-    const partes = [enunciadoAtual, ...alternativasExibidas.map((a) => a.texto)];
+    const partes = [
+      ...(qb?.texto_apoio ? [qb.texto_apoio] : []),
+      enunciadoAtual,
+      ...alternativasExibidas.map((a) => a.texto),
+    ];
     if (revelada) {
       partes.push(`Gabarito: ${letraExibida(questao.gabarito)}.`);
       if (comentarioAtual) partes.push(comentarioAtual);
@@ -577,6 +588,17 @@ export default function QuestaoCard({
           <TagIcon width={17} height={17} />
         </button>
       )}
+      {!editandoEnunciado && (
+        <button
+          onClick={() => setTutorAberto((v) => !v)}
+          aria-label="Perguntar à IA sobre esta questão"
+          aria-expanded={tutorAberto}
+          title={revelada ? "Tirar dúvida sobre esta questão" : "Pergunta rápida — a IA não diz o gabarito antes de você responder"}
+          style={botaoFerramentaCard(tutorAberto)}
+        >
+          <ChatBubbleLeftRightIcon width={17} height={17} />
+        </button>
+      )}
       {onSair && (
         <button onClick={onSair} aria-label={rotuloSair} title={rotuloSair} style={botaoFerramentaCard(false)}>
           <ArrowRightStartOnRectangleIcon width={17} height={17} />
@@ -607,6 +629,13 @@ export default function QuestaoCard({
             );
           })}
         </div>
+      )}
+      {tutorAberto && (
+        <TutorQuestao
+          questao={{ ...questao, enunciado: enunciadoAtual, comentario: comentarioAtual }}
+          respondida={revelada}
+          textoApoio={qb?.texto_apoio}
+        />
       )}
     </div>
   );
@@ -886,6 +915,28 @@ export default function QuestaoCard({
               GerarView/GerarBancoView) viram uma linha de checkbox: o
               usuário escolhe só o que quer entender e pede sob demanda,
               numa chamada pequena e barata (ver gerarExplicacaoParcial). */}
+          {explicacaoEnxuta && !explicacaoCompleta ? (
+            <div style={{ margin: "0 0 12px" }}>
+              {comentarioAtual && (
+                <div style={{ fontSize: 13.5, lineHeight: 1.45 }}>{primeiraFrase(comentarioAtual)}</div>
+              )}
+              <button
+                onClick={() => setExplicacaoCompleta(true)}
+                style={{
+                  ...mono,
+                  fontSize: 11.5,
+                  marginTop: 8,
+                  padding: 0,
+                  background: "none",
+                  border: "none",
+                  color: C.caneta,
+                  cursor: "pointer",
+                }}
+              >
+                Ver explicação completa ▾
+              </button>
+            </div>
+          ) : (
           <div style={{ margin: "0 0 12px" }}>
             <div
               style={{
@@ -981,7 +1032,10 @@ export default function QuestaoCard({
               <div style={{ ...mono, fontSize: 11.5, color: C.erro, marginTop: 8 }}>{erroExplicacao}</div>
             )}
           </div>
+          )}
 
+          {(!explicacaoEnxuta || explicacaoCompleta) && (
+          <>
           <div>
             {questao.dispositivo && <Chip>{questao.dispositivo}</Chip>}
             {questao.tipo_cobranca && <Chip tom="neutro">{labelTipo(questao.tipo_cobranca)}</Chip>}
@@ -1005,16 +1059,14 @@ export default function QuestaoCard({
               ))}
             </div>
           )}
+          </>
+          )}
 
           <Botao onClick={onProxima} style={{ marginTop: 14, ...disp }}>
             {labelProxima}
           </Botao>
         </div>
       )}
-
-      {/* Linha própria para ações contextuais da view (ex.: "Tirar dúvida"
-          do tutor na revisão, ver FilaRevisaoDrill). */}
-      {acoesExtras && <div style={{ marginTop: 14 }}>{acoesExtras}</div>}
 
       {modalReport && (
         <ModalReport onCancelar={() => setModalReport(false)} onConfirmar={reportar} />
